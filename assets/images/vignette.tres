@@ -1,0 +1,13 @@
+[gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://25ibt2ltkgin"]
+
+[sub_resource type="Gradient" id="Gradient_kxryn"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[resource]
+gradient = SubResource("Gradient_kxryn")
+width = 1280
+height = 720
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
