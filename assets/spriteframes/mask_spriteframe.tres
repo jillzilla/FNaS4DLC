@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://bysrnghp0tn0f"]
+
+[ext_resource type="Texture2D" uid="uid://cp14utq8x11cx" path="res://assets/images/gameplay/mask_idle.png" id="1_2asjo"]
+[ext_resource type="Texture2D" uid="uid://cq3cekudwf40e" path="res://assets/images/gameplay/mask_move.png" id="2_h0iuu"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2asjo")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h0iuu")
+}],
+"loop": false,
+"name": &"move",
+"speed": 0.0
+}]

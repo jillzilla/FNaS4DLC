@@ -27,13 +27,16 @@ enum inputs {ENTERED,PRESSED};
 
 @export var flashlight : FlashLightComponent;
 
+@export var mask : Node2D;
+@export var canUseMaskHere : bool = false;
+
 #functions
 func _ready() -> void:
 	button.connect("pressed",_pressed);
 	button.connect("mouse_entered",_entered);
 
 func _travel() -> void:
-	if scrolling.get_parent().position.y == camPosYEffectEnd:
+	if scrolling.get_parent().position.y == camPosYEffectEnd && !mask.isUsingMask && mask.get_node("CD_Timer").is_stopped():
 		scrolling.disable = true;
 
 		for i in range(buttonToDisable.size()):
@@ -45,6 +48,9 @@ func _travel() -> void:
 				if roomToLeave[i].get_node("RoomTravelComponent").flashlight:
 					if roomToLeave[i].get_node("RoomTravelComponent").flashlight.enabled:
 						roomToLeave[i].get_node("RoomTravelComponent").flashlight.enabled = false;
+				if roomToLeave[i].get_node("RoomTravelComponent").canUseMaskHere:
+					if mask.canUseMask:
+						mask.canUseMask = false;
 		
 		fadeTransition.play("fade");
 
@@ -53,6 +59,9 @@ func _travel() -> void:
 		if !disableScrolling:
 			scrolling.disable = false;
 		scrolling._center_camera();
+
+		if canUseMaskHere:
+			mask.canUseMask = true;
 
 		if camEffect:
 			scrolling.get_parent().position.y = camPosYEffectStart;

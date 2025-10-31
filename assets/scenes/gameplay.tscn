@@ -1,9 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://dj4ueyd0v0uvy"]
+[gd_scene load_steps=21 format=3 uid="uid://dj4ueyd0v0uvy"]
 
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/office.png" id="1_n5x6c"]
-[ext_resource type="Script" uid="uid://chkw6deyn5h6a" path="res://assets/Components/RoomTravelComponent.gd" id="2_f1ux5"]
+[ext_resource type="Script" uid="uid://chkw6deyn5h6a" path="res://assets/components/RoomTravelComponent.gd" id="2_f1ux5"]
 [ext_resource type="Texture2D" uid="uid://1jfqrmyfgxtv" path="res://assets/images/gameplay/ceiling.png" id="2_kqp6g"]
-[ext_resource type="Script" uid="uid://cnhe33f3mmlmb" path="res://assets/Components/ScrollingComponent.gd" id="2_mrbpc"]
+[ext_resource type="Script" uid="uid://cnhe33f3mmlmb" path="res://assets/components/ScrollingComponent.gd" id="2_mrbpc"]
 [ext_resource type="Texture2D" uid="uid://25ibt2ltkgin" path="res://assets/images/vignette.tres" id="2_un4qs"]
 [ext_resource type="Texture2D" uid="uid://elgiuam7pf50" path="res://assets/images/gameplay/desk.png" id="3_f1ux5"]
 [ext_resource type="Texture2D" uid="uid://c6rjhmv2s0mpc" path="res://assets/images/gameplay/flashlight/ceiling_on.png" id="4_ixvey"]
@@ -15,7 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://0f8oes41ekud" path="res://assets/images/gameplay/flashlight/vent_off.png" id="9_b4idp"]
 [ext_resource type="Texture2D" uid="uid://c8rfx7wqcgir4" path="res://assets/images/gameplay/flashlight/hallway_on.png" id="12_b68su"]
 [ext_resource type="Texture2D" uid="uid://btxeri3280sqp" path="res://assets/images/gameplay/flashlight/hallway_off.png" id="13_qautv"]
-[ext_resource type="Script" uid="uid://bn757rkvxcpdt" path="res://assets/Components/FlashlightComponent.gd" id="16_br2i6"]
+[ext_resource type="Script" uid="uid://bn757rkvxcpdt" path="res://assets/components/FlashlightComponent.gd" id="16_br2i6"]
+[ext_resource type="PackedScene" uid="uid://bud1bsy5ye6yc" path="res://assets/scenes/mask.tscn" id="16_iuexx"]
 
 [sub_resource type="Animation" id="Animation_qk4f4"]
 length = 0.001
@@ -66,7 +67,7 @@ texture = ExtResource("1_n5x6c")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Room/Office" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "roomToLeave")]
+[node name="RoomTravelComponent" type="Node" parent="Room/Office" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "roomToLeave", "mask")]
 script = ExtResource("2_f1ux5")
 input = 0
 button = NodePath("../../../GUI/Office_Button")
@@ -80,6 +81,7 @@ buttonToDisable = [NodePath("../../../GUI/Office_Button")]
 buttonToActivate = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button")]
 roomToLeave = [NodePath("../../Ceiling"), NodePath("../../Desk"), NodePath("../../Left_Vent"), NodePath("../../Right_Vent"), NodePath("../../Hallway")]
 roomToLeavePosition = Array[Vector2]([Vector2(-640, -712), Vector2(640, 1432), Vector2(-648, 712), Vector2(2728, 712), Vector2(1920, -712)])
+mask = NodePath("../../../GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
 [node name="Ceiling" type="Sprite2D" parent="Room"]
@@ -99,7 +101,7 @@ position = Vector2(0, -350)
 texture = ExtResource("5_br2i6")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Room/Ceiling" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight")]
+[node name="RoomTravelComponent" type="Node" parent="Room/Ceiling" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 input = 0
 button = NodePath("../../../Buttons/Ceiling_Button")
@@ -112,6 +114,7 @@ camPosYEffectEnd = 360.0
 buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button")]
 buttonToActivate = [NodePath("../../../GUI/Office_Button")]
 flashlight = NodePath("../FlashLightComponent")
+mask = NodePath("../../../GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
 [node name="FlashLightComponent" type="Node" parent="Room/Ceiling" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "travel")]
@@ -128,7 +131,7 @@ texture = ExtResource("3_f1ux5")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Room/Desk" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate")]
+[node name="RoomTravelComponent" type="Node" parent="Room/Desk" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Desk_Button")
 room = NodePath("..")
@@ -139,6 +142,7 @@ camPosYEffectStart = 1060.0
 camPosYEffectEnd = 360.0
 buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button")]
 buttonToActivate = [NodePath("../../../GUI/Office_Button")]
+mask = NodePath("../../../GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
 [node name="Left_Vent" type="Sprite2D" parent="Room"]
@@ -158,7 +162,7 @@ position = Vector2(0, -350)
 texture = ExtResource("9_b4idp")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Room/Left_Vent" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight")]
+[node name="RoomTravelComponent" type="Node" parent="Room/Left_Vent" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Left_Vent_Button")
 room = NodePath("..")
@@ -170,6 +174,8 @@ camPosYEffectEnd = 360.0
 buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button")]
 buttonToActivate = [NodePath("../../../GUI/Office_Button")]
 flashlight = NodePath("../FlashLightComponent")
+mask = NodePath("../../../GUI/Mask")
+canUseMaskHere = true
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
 [node name="FlashLightComponent" type="Node" parent="Room/Left_Vent" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "travel")]
@@ -196,7 +202,7 @@ position = Vector2(0, -350)
 texture = ExtResource("9_b4idp")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Room/Right_Vent" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight")]
+[node name="RoomTravelComponent" type="Node" parent="Room/Right_Vent" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Right_Vent_Button")
 room = NodePath("..")
@@ -208,6 +214,8 @@ camPosYEffectEnd = 360.0
 buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button")]
 buttonToActivate = [NodePath("../../../GUI/Office_Button")]
 flashlight = NodePath("../FlashLightComponent")
+mask = NodePath("../../../GUI/Mask")
+canUseMaskHere = true
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
 [node name="FlashLightComponent" type="Node" parent="Room/Right_Vent" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "travel")]
@@ -234,7 +242,7 @@ position = Vector2(0, -350)
 texture = ExtResource("13_qautv")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Room/Hallway" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight")]
+[node name="RoomTravelComponent" type="Node" parent="Room/Hallway" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Hallway_Button")
 room = NodePath("..")
@@ -246,6 +254,7 @@ camPosYEffectEnd = 360.0
 buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button")]
 buttonToActivate = [NodePath("../../../GUI/Office_Button")]
 flashlight = NodePath("../FlashLightComponent")
+mask = NodePath("../../../GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
 [node name="FlashLightComponent" type="Node" parent="Room/Hallway" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "travel")]
@@ -355,6 +364,10 @@ xResolution = 1280
 metadata/_custom_type_script = "uid://cnhe33f3mmlmb"
 
 [node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Mask" parent="GUI" node_paths=PackedStringArray("scrolling", "travel") instance=ExtResource("16_iuexx")]
+scrolling = NodePath("../../Scrolling/ScrollingComponent")
+travel = NodePath("../../Room/Office/RoomTravelComponent")
 
 [node name="Vignette" type="Sprite2D" parent="GUI"]
 texture = ExtResource("2_un4qs")
