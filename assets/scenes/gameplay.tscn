@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dj4ueyd0v0uvy"]
+[gd_scene load_steps=25 format=3 uid="uid://dj4ueyd0v0uvy"]
 
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/office.png" id="1_n5x6c"]
 [ext_resource type="Script" uid="uid://chkw6deyn5h6a" path="res://assets/components/RoomTravelComponent.gd" id="2_f1ux5"]
@@ -13,10 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://d23jw7vmq03lb" path="res://assets/images/gameplay/hallway.png" id="6_ndvee"]
 [ext_resource type="Texture2D" uid="uid://dd56tc7irhp2r" path="res://assets/images/gameplay/flashlight/vent_on.png" id="8_iuexx"]
 [ext_resource type="Texture2D" uid="uid://0f8oes41ekud" path="res://assets/images/gameplay/flashlight/vent_off.png" id="9_b4idp"]
+[ext_resource type="Texture2D" uid="uid://c22thwdcgouym" path="res://assets/images/gameplay/NTM/NTM_peek.png" id="12_avujn"]
 [ext_resource type="Texture2D" uid="uid://c8rfx7wqcgir4" path="res://assets/images/gameplay/flashlight/hallway_on.png" id="12_b68su"]
+[ext_resource type="Texture2D" uid="uid://xkl2dhhbqjn" path="res://assets/images/gameplay/NTM/NTM_idle.png" id="13_bkfnj"]
 [ext_resource type="Texture2D" uid="uid://btxeri3280sqp" path="res://assets/images/gameplay/flashlight/hallway_off.png" id="13_qautv"]
+[ext_resource type="Texture2D" uid="uid://lwvu71pb8m5t" path="res://assets/images/gameplay/NTM/NTM_attack.png" id="14_5jwmk"]
 [ext_resource type="Script" uid="uid://bn757rkvxcpdt" path="res://assets/components/FlashlightComponent.gd" id="16_br2i6"]
 [ext_resource type="PackedScene" uid="uid://bud1bsy5ye6yc" path="res://assets/scenes/mask.tscn" id="16_iuexx"]
+[ext_resource type="Script" uid="uid://cxiasdhnqd2k4" path="res://assets/components/EnemyAiComponent.gd" id="18_b4idp"]
 
 [sub_resource type="Animation" id="Animation_qk4f4"]
 length = 0.001
@@ -191,6 +195,29 @@ position = Vector2(2728, 712)
 texture = ExtResource("5_hogfr")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
+
+[node name="NTM" type="Node2D" parent="Room/Right_Vent"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="NTM_Peek" type="Sprite2D" parent="Room/Right_Vent/NTM"]
+visible = false
+position = Vector2(-24, -504)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_avujn")
+metadata/_edit_lock_ = true
+
+[node name="NTM_Idle" type="Sprite2D" parent="Room/Right_Vent/NTM"]
+visible = false
+position = Vector2(0, -350)
+texture = ExtResource("13_bkfnj")
+metadata/_edit_lock_ = true
+
+[node name="NTM_Attack" type="Sprite2D" parent="Room/Right_Vent/NTM"]
+visible = false
+position = Vector2(0, -350)
+texture = ExtResource("14_5jwmk")
+metadata/_edit_lock_ = true
 
 [node name="Light" type="Sprite2D" parent="Room/Right_Vent"]
 position = Vector2(0, -350)
@@ -421,3 +448,12 @@ mouse_default_cursor_shape = 2
 action_mode = 0
 flat = true
 metadata/_edit_lock_ = true
+
+[node name="NTM_Ai" type="Node" parent="." node_paths=PackedStringArray("RightVentPath", "flashlightRightVent")]
+script = ExtResource("18_b4idp")
+AILevel = 20
+canComeFromRightVent = true
+RightVentPath = [NodePath("../Room/Right_Vent/NTM/NTM_Peek"), NodePath("../Room/Right_Vent/NTM/NTM_Idle"), NodePath("../Room/Right_Vent/NTM/NTM_Attack")]
+CounterMechanicRightVent = 4
+flashlightRightVent = NodePath("../Room/Right_Vent/FlashLightComponent")
+metadata/_custom_type_script = "uid://cxiasdhnqd2k4"
