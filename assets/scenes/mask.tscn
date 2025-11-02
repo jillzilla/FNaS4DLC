@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bud1bsy5ye6yc"]
 
 [ext_resource type="Script" uid="uid://c4c5wagyam8s2" path="res://assets/scripts/mask.gd" id="1_dgvrq"]
-[ext_resource type="SpriteFrames" uid="uid://bysrnghp0tn0f" path="res://assets/spriteframes/mask_spriteframe.tres" id="1_yaxan"]
+[ext_resource type="SpriteFrames" uid="uid://bysrnghp0tn0f" path="res://assets/spriteframes/mask_spriteframes.tres" id="1_yaxan"]
 
 [node name="Mask" type="Node2D"]
 script = ExtResource("1_dgvrq")

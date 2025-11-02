@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b0sqggxvrlvcg"
+path="res://.godot/imported/[8] Flashlight_Sound.ogg-03fa812e261c22354ccbf8a62e601a89.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/[8] Flashlight_Sound.ogg"
+dest_files=["res://.godot/imported/[8] Flashlight_Sound.ogg-03fa812e261c22354ccbf8a62e601a89.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

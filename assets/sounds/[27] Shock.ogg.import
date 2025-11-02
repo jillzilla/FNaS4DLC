@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cu6fakcxj137a"
+path="res://.godot/imported/[27] Shock.ogg-96fe507e1bc09f110c064dba1a9ecd3a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/[27] Shock.ogg"
+dest_files=["res://.godot/imported/[27] Shock.ogg-96fe507e1bc09f110c064dba1a9ecd3a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

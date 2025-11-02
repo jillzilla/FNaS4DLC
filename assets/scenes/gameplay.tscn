@@ -1,26 +1,30 @@
-[gd_scene load_steps=25 format=3 uid="uid://dj4ueyd0v0uvy"]
+[gd_scene load_steps=29 format=3 uid="uid://dj4ueyd0v0uvy"]
 
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/office.png" id="1_n5x6c"]
 [ext_resource type="Script" uid="uid://chkw6deyn5h6a" path="res://assets/components/RoomTravelComponent.gd" id="2_f1ux5"]
 [ext_resource type="Texture2D" uid="uid://1jfqrmyfgxtv" path="res://assets/images/gameplay/ceiling.png" id="2_kqp6g"]
 [ext_resource type="Script" uid="uid://cnhe33f3mmlmb" path="res://assets/components/ScrollingComponent.gd" id="2_mrbpc"]
 [ext_resource type="Texture2D" uid="uid://25ibt2ltkgin" path="res://assets/images/vignette.tres" id="2_un4qs"]
+[ext_resource type="AudioStream" uid="uid://b0sqggxvrlvcg" path="res://assets/sounds/[8] Flashlight_Sound.ogg" id="3_5jwmk"]
 [ext_resource type="Texture2D" uid="uid://elgiuam7pf50" path="res://assets/images/gameplay/desk.png" id="3_f1ux5"]
 [ext_resource type="Texture2D" uid="uid://c6rjhmv2s0mpc" path="res://assets/images/gameplay/flashlight/ceiling_on.png" id="4_ixvey"]
 [ext_resource type="Texture2D" uid="uid://dgjcqet526p58" path="res://assets/images/gameplay/left_vent.png" id="4_qk4f4"]
+[ext_resource type="AudioStream" uid="uid://cu6fakcxj137a" path="res://assets/sounds/[27] Shock.ogg" id="4_ugpla"]
 [ext_resource type="Texture2D" uid="uid://dn5tntmkmfmfr" path="res://assets/images/gameplay/flashlight/ceiling_off.png" id="5_br2i6"]
 [ext_resource type="Texture2D" uid="uid://2a1g4hdo3rql" path="res://assets/images/gameplay/right_vent.png" id="5_hogfr"]
 [ext_resource type="Texture2D" uid="uid://d23jw7vmq03lb" path="res://assets/images/gameplay/hallway.png" id="6_ndvee"]
 [ext_resource type="Texture2D" uid="uid://dd56tc7irhp2r" path="res://assets/images/gameplay/flashlight/vent_on.png" id="8_iuexx"]
 [ext_resource type="Texture2D" uid="uid://0f8oes41ekud" path="res://assets/images/gameplay/flashlight/vent_off.png" id="9_b4idp"]
-[ext_resource type="Texture2D" uid="uid://c22thwdcgouym" path="res://assets/images/gameplay/NTM/NTM_peek.png" id="12_avujn"]
 [ext_resource type="Texture2D" uid="uid://c8rfx7wqcgir4" path="res://assets/images/gameplay/flashlight/hallway_on.png" id="12_b68su"]
 [ext_resource type="Texture2D" uid="uid://xkl2dhhbqjn" path="res://assets/images/gameplay/NTM/NTM_idle.png" id="13_bkfnj"]
 [ext_resource type="Texture2D" uid="uid://btxeri3280sqp" path="res://assets/images/gameplay/flashlight/hallway_off.png" id="13_qautv"]
 [ext_resource type="Texture2D" uid="uid://lwvu71pb8m5t" path="res://assets/images/gameplay/NTM/NTM_attack.png" id="14_5jwmk"]
 [ext_resource type="Script" uid="uid://bn757rkvxcpdt" path="res://assets/components/FlashlightComponent.gd" id="16_br2i6"]
 [ext_resource type="PackedScene" uid="uid://bud1bsy5ye6yc" path="res://assets/scenes/mask.tscn" id="16_iuexx"]
+[ext_resource type="SpriteFrames" uid="uid://bfagbfbo8r8r3" path="res://assets/spriteframes/ntm_peek_spriteframes.tres" id="16_ugpla"]
+[ext_resource type="Script" uid="uid://wugce8kuyl4s" path="res://assets/components/PeekSpritesHandler.gd" id="17_kgr1o"]
 [ext_resource type="Script" uid="uid://cxiasdhnqd2k4" path="res://assets/components/EnemyAiComponent.gd" id="18_b4idp"]
+[ext_resource type="AudioStream" uid="uid://blrhwp7bm001r" path="res://assets/sounds/[7] Run_to_Door_Sound.ogg" id="22_bkfnj"]
 
 [sub_resource type="Animation" id="Animation_qk4f4"]
 length = 0.001
@@ -62,6 +66,30 @@ _data = {
 
 [node name="Gameplay" type="Node"]
 
+[node name="AIs" type="Node" parent="."]
+
+[node name="NTM_Ai" type="Node" parent="AIs" node_paths=PackedStringArray("RightVentPath", "flashlightRightVent", "shockSFX")]
+script = ExtResource("18_b4idp")
+AILevel = 20
+codeName = "NTM"
+canComeFromRightVent = true
+RightVentPath = [NodePath("../../Room/Right_Vent/NTM_Peek"), NodePath("../../Room/Right_Vent/NTM_Idle"), NodePath("../../Room/Right_Vent/NTM_Attack")]
+CounterMechanicRightVent = 4
+flashlightRightVent = NodePath("../../Room/Right_Vent/FlashLightComponent")
+shockSFX = NodePath("../../Sounds/Shock_SFX")
+metadata/_custom_type_script = "uid://cxiasdhnqd2k4"
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Walk_SFX" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("22_bkfnj")
+
+[node name="Flashlight_SFX" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("3_5jwmk")
+
+[node name="Shock_SFX" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_ugpla")
+
 [node name="Room" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
@@ -70,11 +98,13 @@ metadata/_edit_group_ = true
 texture = ExtResource("1_n5x6c")
 centered = false
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Room/Office" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "roomToLeave", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Room/Office" node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "roomToLeave", "mask")]
 script = ExtResource("2_f1ux5")
 input = 0
 button = NodePath("../../../GUI/Office_Button")
+walkSFX = NodePath("../../../Sounds/Walk_SFX")
 room = NodePath("..")
 fadeTransition = NodePath("../../../GUI/Transition/AnimationPlayer")
 scrolling = NodePath("../../../Scrolling/ScrollingComponent")
@@ -105,10 +135,11 @@ position = Vector2(0, -350)
 texture = ExtResource("5_br2i6")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Room/Ceiling" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Room/Ceiling" node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 input = 0
 button = NodePath("../../../Buttons/Ceiling_Button")
+walkSFX = NodePath("../../../Sounds/Walk_SFX")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../GUI/Transition/AnimationPlayer")
@@ -121,10 +152,11 @@ flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Room/Ceiling" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "travel")]
+[node name="FlashLightComponent" type="Node" parent="Room/Ceiling" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel")]
 script = ExtResource("16_br2i6")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Scrolling/ScrollingComponent")
+flashlightSFX = NodePath("../../../Sounds/Flashlight_SFX")
 travel = NodePath("../RoomTravelComponent")
 metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 
@@ -135,9 +167,10 @@ texture = ExtResource("3_f1ux5")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Room/Desk" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Room/Desk" node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Desk_Button")
+walkSFX = NodePath("../../../Sounds/Walk_SFX")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../GUI/Transition/AnimationPlayer")
@@ -166,9 +199,10 @@ position = Vector2(0, -350)
 texture = ExtResource("9_b4idp")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Room/Left_Vent" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Room/Left_Vent" node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Left_Vent_Button")
+walkSFX = NodePath("../../../Sounds/Walk_SFX")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../GUI/Transition/AnimationPlayer")
@@ -182,10 +216,11 @@ mask = NodePath("../../../GUI/Mask")
 canUseMaskHere = true
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Room/Left_Vent" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "travel")]
+[node name="FlashLightComponent" type="Node" parent="Room/Left_Vent" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel")]
 script = ExtResource("16_br2i6")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Scrolling/ScrollingComponent")
+flashlightSFX = NodePath("../../../Sounds/Flashlight_SFX")
 travel = NodePath("../RoomTravelComponent")
 metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 
@@ -196,24 +231,25 @@ texture = ExtResource("5_hogfr")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="NTM" type="Node2D" parent="Room/Right_Vent"]
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
-
-[node name="NTM_Peek" type="Sprite2D" parent="Room/Right_Vent/NTM"]
+[node name="NTM_Peek" type="AnimatedSprite2D" parent="Room/Right_Vent"]
 visible = false
-position = Vector2(-24, -504)
+position = Vector2(-24, -498)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("12_avujn")
+sprite_frames = ExtResource("16_ugpla")
 metadata/_edit_lock_ = true
 
-[node name="NTM_Idle" type="Sprite2D" parent="Room/Right_Vent/NTM"]
+[node name="PeekSpritesHandler" type="Node" parent="Room/Right_Vent/NTM_Peek" node_paths=PackedStringArray("sprite")]
+script = ExtResource("17_kgr1o")
+sprite = NodePath("..")
+metadata/_custom_type_script = "uid://wugce8kuyl4s"
+
+[node name="NTM_Idle" type="Sprite2D" parent="Room/Right_Vent"]
 visible = false
 position = Vector2(0, -350)
 texture = ExtResource("13_bkfnj")
 metadata/_edit_lock_ = true
 
-[node name="NTM_Attack" type="Sprite2D" parent="Room/Right_Vent/NTM"]
+[node name="NTM_Attack" type="Sprite2D" parent="Room/Right_Vent"]
 visible = false
 position = Vector2(0, -350)
 texture = ExtResource("14_5jwmk")
@@ -229,9 +265,10 @@ position = Vector2(0, -350)
 texture = ExtResource("9_b4idp")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Room/Right_Vent" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Room/Right_Vent" node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Right_Vent_Button")
+walkSFX = NodePath("../../../Sounds/Walk_SFX")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../GUI/Transition/AnimationPlayer")
@@ -245,10 +282,11 @@ mask = NodePath("../../../GUI/Mask")
 canUseMaskHere = true
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Room/Right_Vent" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "travel")]
+[node name="FlashLightComponent" type="Node" parent="Room/Right_Vent" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel")]
 script = ExtResource("16_br2i6")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Scrolling/ScrollingComponent")
+flashlightSFX = NodePath("../../../Sounds/Flashlight_SFX")
 travel = NodePath("../RoomTravelComponent")
 metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 
@@ -269,9 +307,10 @@ position = Vector2(0, -350)
 texture = ExtResource("13_qautv")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Room/Hallway" node_paths=PackedStringArray("button", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Room/Hallway" node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Hallway_Button")
+walkSFX = NodePath("../../../Sounds/Walk_SFX")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../GUI/Transition/AnimationPlayer")
@@ -284,10 +323,11 @@ flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Room/Hallway" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "travel")]
+[node name="FlashLightComponent" type="Node" parent="Room/Hallway" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel")]
 script = ExtResource("16_br2i6")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Scrolling/ScrollingComponent")
+flashlightSFX = NodePath("../../../Sounds/Flashlight_SFX")
 travel = NodePath("../RoomTravelComponent")
 metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 
@@ -448,12 +488,3 @@ mouse_default_cursor_shape = 2
 action_mode = 0
 flat = true
 metadata/_edit_lock_ = true
-
-[node name="NTM_Ai" type="Node" parent="." node_paths=PackedStringArray("RightVentPath", "flashlightRightVent")]
-script = ExtResource("18_b4idp")
-AILevel = 20
-canComeFromRightVent = true
-RightVentPath = [NodePath("../Room/Right_Vent/NTM/NTM_Peek"), NodePath("../Room/Right_Vent/NTM/NTM_Idle"), NodePath("../Room/Right_Vent/NTM/NTM_Attack")]
-CounterMechanicRightVent = 4
-flashlightRightVent = NodePath("../Room/Right_Vent/FlashLightComponent")
-metadata/_custom_type_script = "uid://cxiasdhnqd2k4"

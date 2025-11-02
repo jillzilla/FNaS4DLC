@@ -5,6 +5,7 @@ enum inputs {ENTERED,PRESSED};
 
 @export var input : Variant = inputs.PRESSED;
 @export var button : Button;
+@export var walkSFX : AudioStreamPlayer;
 
 @export var room : Sprite2D;
 @export var roomPosition : Vector2;
@@ -37,6 +38,7 @@ func _ready() -> void:
 
 func _travel() -> void:
 	if scrolling.get_parent().position.y == camPosYEffectEnd && !mask.isUsingMask && mask.get_node("CD_Timer").is_stopped():
+		walkSFX.play();
 		scrolling.disable = true;
 
 		for i in range(buttonToDisable.size()):
