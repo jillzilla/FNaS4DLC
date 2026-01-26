@@ -70,6 +70,7 @@ func _process(delta: float) -> void:
         if canAttack && flashlight.spriteAsFlashlight.visible && main.PlayerNotMoving && !Mask.PuttingMask:
             jumpscareExposure -= NewDelta * jumpscareExposureLevel;
             if jumpscareExposure <= 0:
+                main.killedBy = "Nightmare Taingle";
                 jumpscare = true;
                 jumpscareExposure = je;
                 main.PlayerAlive = false;

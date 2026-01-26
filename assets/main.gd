@@ -4,6 +4,7 @@ extends Node
 var fpsTarget : float = 60.0;
 
 #player status
+var killedBy : String = "";
 var PlayerPosition : String = "";
 var PlayerAlive : bool = true;
 var PlayerNotMoving : bool = true;

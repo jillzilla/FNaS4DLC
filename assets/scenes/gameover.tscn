@@ -132,17 +132,17 @@ texture = ExtResource("2_3ktt8")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Overlay" type="Node2D" parent="."]
+[node name="Overlays" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="POV" type="Sprite2D" parent="Overlay"]
+[node name="POV" type="Sprite2D" parent="Overlays"]
 visible = false
 texture = ExtResource("2_6om16")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Mask" type="Sprite2D" parent="Overlay"]
+[node name="Mask" type="Sprite2D" parent="Overlays"]
 visible = false
 texture = ExtResource("2_jb5wo")
 centered = false
