@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://bysrnghp0tn0f"]
 
-[ext_resource type="Texture2D" uid="uid://cp14utq8x11cx" path="res://assets/images/gameplay/mask_idle.png" id="1_2asjo"]
-[ext_resource type="Texture2D" uid="uid://cq3cekudwf40e" path="res://assets/images/gameplay/mask_move.png" id="2_h0iuu"]
+[ext_resource type="Texture2D" uid="uid://cp14utq8x11cx" path="res://assets/images/gameplay/mask/mask_idle.png" id="1_2asjo"]
+[ext_resource type="Texture2D" uid="uid://cq3cekudwf40e" path="res://assets/images/gameplay/mask/mask_move.png" id="2_h0iuu"]
 
 [resource]
 animations = [{

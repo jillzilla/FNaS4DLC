@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do5mme4fq71mr"
-path="res://.godot/imported/office.png-f5e7790b4718901327b82e4d0d3f93db.ctex"
+uid="uid://cq3cekudwf40e"
+path="res://.godot/imported/mask_move.png-f2379ab2cca1be76fcacd59ba555447a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/gameplay/office.png"
-dest_files=["res://.godot/imported/office.png-f5e7790b4718901327b82e4d0d3f93db.ctex"]
+source_file="res://assets/images/gameplay/mask/mask_move.png"
+dest_files=["res://.godot/imported/mask_move.png-f2379ab2cca1be76fcacd59ba555447a.ctex"]
 
 [params]
 

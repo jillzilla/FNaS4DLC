@@ -36,6 +36,13 @@ func _ready() -> void:
 	button.connect("pressed",_pressed);
 	button.connect("mouse_entered",_entered);
 
+	if roomToLeave != []:
+		for i in range(roomToLeave.size()):
+			if roomToLeave[i].visible:
+				roomToLeave[i].visible = false;
+			if roomToLeave[i].position != roomToLeavePosition[i]:
+				roomToLeave[i].position = roomToLeavePosition[i];
+
 func _travel() -> void:
 	if scrolling.get_parent().position.y == camPosYEffectEnd && !mask.isUsingMask && mask.get_node("CD_Timer").is_stopped():
 		walkSFX.play();
@@ -60,6 +67,7 @@ func _travel() -> void:
 
 		if !disableScrolling:
 			scrolling.disable = false;
+
 		scrolling._center_camera();
 
 		if canUseMaskHere:
@@ -83,6 +91,7 @@ func _travel() -> void:
 
 		if flashlight:
 			flashlight.enabled = true;
+
 		room.visible = true;
 		room.position = roomPosition;
 

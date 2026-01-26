@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 		get_node("Sprite").offset.x = breathradius * sin(breathTime);
 		get_node("Sprite").offset.y = breathradius * sin(breathTime) * cos(breathTime);
 	else:
+		breathTime = 0;
 		if get_node("Sprite").offset.x != 0:
 			get_node("Sprite").offset.x = 0;
 		if get_node("Sprite").offset.y != 0:

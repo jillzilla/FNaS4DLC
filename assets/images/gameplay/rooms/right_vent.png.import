@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d23jw7vmq03lb"
-path="res://.godot/imported/hallway.png-c06b226d738af247f425058435a4ce2b.ctex"
+uid="uid://2a1g4hdo3rql"
+path="res://.godot/imported/right_vent.png-69d0842447cfb1caaa557ca606692bd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/gameplay/hallway.png"
-dest_files=["res://.godot/imported/hallway.png-c06b226d738af247f425058435a4ce2b.ctex"]
+source_file="res://assets/images/gameplay/rooms/right_vent.png"
+dest_files=["res://.godot/imported/right_vent.png-69d0842447cfb1caaa557ca606692bd2.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp14utq8x11cx"
-path="res://.godot/imported/mask_idle.png-0531e2ecb08d403edc6b2037db4212b0.ctex"
+uid="uid://d23jw7vmq03lb"
+path="res://.godot/imported/hallway.png-c5ac2bf2e090b868aeca0fcd3682cf85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/gameplay/mask_idle.png"
-dest_files=["res://.godot/imported/mask_idle.png-0531e2ecb08d403edc6b2037db4212b0.ctex"]
+source_file="res://assets/images/gameplay/rooms/hallway.png"
+dest_files=["res://.godot/imported/hallway.png-c5ac2bf2e090b868aeca0fcd3682cf85.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq3cekudwf40e"
-path="res://.godot/imported/mask_move.png-98d1c553cae21d43c29867eb82169c56.ctex"
+uid="uid://cp14utq8x11cx"
+path="res://.godot/imported/mask_idle.png-c67e57e9124917f4fb3300ec2a1c4f53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/gameplay/mask_move.png"
-dest_files=["res://.godot/imported/mask_move.png-98d1c553cae21d43c29867eb82169c56.ctex"]
+source_file="res://assets/images/gameplay/mask/mask_idle.png"
+dest_files=["res://.godot/imported/mask_idle.png-c67e57e9124917f4fb3300ec2a1c4f53.ctex"]
 
 [params]
 
