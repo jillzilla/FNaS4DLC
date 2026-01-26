@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkm1o838jtxjo"]
+
+[ext_resource type="AudioStream" uid="uid://6d05aeqfh87" path="res://assets/sounds/Taingle_Jumpscare_Sound.ogg" id="1_16a0g"]
+[ext_resource type="AudioStream" uid="uid://cusv86h8dho52" path="res://assets/sounds/High_Ambiance.ogg" id="2_eqqed"]
+[ext_resource type="AudioStream" uid="uid://emssrvtwm15u" path="res://assets/sounds/Selection_Sound.ogg" id="3_shhgd"]
+
+[node name="Global_Audio_Manager" type="Node"]
+
+[node name="Taingle_Jumpscare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_16a0g")
+volume_db = -15.0
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_eqqed")
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_shhgd")
+volume_db = -15.0

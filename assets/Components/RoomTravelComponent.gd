@@ -1,5 +1,7 @@
 class_name RoomTravelComponent extends Node
 
+signal doneTraveling;
+
 #variables
 enum inputs {ENTERED,PRESSED};
 
@@ -45,6 +47,8 @@ func _ready() -> void:
 
 func _travel() -> void:
 	if scrolling.get_parent().position.y == camPosYEffectEnd && !mask.isUsingMask && mask.get_node("CD_Timer").is_stopped():
+		main.PlayerNotMoving = false;
+
 		walkSFX.play();
 		scrolling.disable = true;
 
@@ -65,23 +69,16 @@ func _travel() -> void:
 
 		await fadeTransition.animation_finished;
 
+		fadeTransition.play_backwards("fade");
+
 		if !disableScrolling:
 			scrolling.disable = false;
 
 		scrolling._center_camera();
 
-		if canUseMaskHere:
-			mask.canUseMask = true;
+		room.visible = true;
+		room.position = roomPosition;
 
-		if camEffect:
-			scrolling.get_parent().position.y = camPosYEffectStart;
-			var camMove : Tween = create_tween();
-			camMove.tween_property(scrolling.get_parent(),"position:y",camPosYEffectEnd,0.5).set_trans(Tween.TRANS_CUBIC);
-
-		for i in range(buttonToActivate.size()):
-			if !buttonToActivate[i].visible:
-				buttonToActivate[i].visible = true;
-		
 		if roomToLeave != []:
 			for i in range(roomToLeave.size()):
 				if roomToLeave[i].visible:
@@ -89,18 +86,31 @@ func _travel() -> void:
 				if roomToLeave[i].position != roomToLeavePosition[i]:
 					roomToLeave[i].position = roomToLeavePosition[i];
 
+		if camEffect:
+			scrolling.get_parent().position.y = camPosYEffectStart;
+			var camMove : Tween = create_tween();
+			camMove.tween_property(scrolling.get_parent(),"position:y",camPosYEffectEnd,0.5).set_trans(Tween.TRANS_CUBIC);
+			await camMove.finished;
+
+		for i in range(buttonToActivate.size()):
+			if !buttonToActivate[i].visible:
+				buttonToActivate[i].visible = true;
+
+		if canUseMaskHere:
+			mask.canUseMask = true;
+
 		if flashlight:
 			flashlight.enabled = true;
 
-		room.visible = true;
-		room.position = roomPosition;
-
-		fadeTransition.play_backwards("fade");
+		main.PlayerPosition = room.name;
+		main.PlayerNotMoving = true;
+		
+		doneTraveling.emit();
 
 func _pressed() -> void:
-	if input == inputs.PRESSED:
+	if input == inputs.PRESSED && main.PlayerAlive:
 		_travel();
 
 func _entered() -> void:
-	if input == inputs.ENTERED:
+	if input == inputs.ENTERED && main.PlayerAlive:
 		_travel();

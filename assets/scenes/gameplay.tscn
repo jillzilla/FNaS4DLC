@@ -1,5 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://dj4ueyd0v0uvy"]
+[gd_scene load_steps=37 format=3 uid="uid://dj4ueyd0v0uvy"]
 
+[ext_resource type="Script" uid="uid://bi145s4thcg3p" path="res://assets/scripts/nightsetup.gd" id="1_hlo8c"]
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/rooms/office.png" id="1_n5x6c"]
 [ext_resource type="Script" uid="uid://dslqbhm8b8w8y" path="res://assets/characters/NightmareTaingle.gd" id="1_rybgg"]
 [ext_resource type="Script" uid="uid://chkw6deyn5h6a" path="res://assets/components/RoomTravelComponent.gd" id="2_f1ux5"]
@@ -26,6 +27,119 @@
 [ext_resource type="Script" uid="uid://bn757rkvxcpdt" path="res://assets/components/FlashlightComponent.gd" id="16_br2i6"]
 [ext_resource type="PackedScene" uid="uid://bud1bsy5ye6yc" path="res://assets/scenes/mask.tscn" id="16_iuexx"]
 [ext_resource type="AudioStream" uid="uid://blrhwp7bm001r" path="res://assets/sounds/[7] Run_to_Door_Sound.ogg" id="22_bkfnj"]
+[ext_resource type="Texture2D" uid="uid://dagj5ybgry1hp" path="res://assets/images/gameplay/characters/taingle/taingle_jumpscare.png" id="26_3txkv"]
+[ext_resource type="Theme" uid="uid://ddy4wy360a77j" path="res://assets/main_theme.tres" id="29_21wbi"]
+[ext_resource type="FontFile" uid="uid://d2a6fttewcype" path="res://assets/fonts/SUBWT___.ttf" id="29_l5brk"]
+
+[sub_resource type="Animation" id="Animation_l5brk"]
+resource_name = "jumpscare"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2), Vector2(2.6, 2.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(408, -303), Vector2(480, 0), Vector2(712.00006, -63.99993)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.5707964, 0.0, 0.35081118]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_21wbi"]
+length = 0.001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5707964]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(408, -303)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u63jk"]
+_data = {
+&"RESET": SubResource("Animation_21wbi"),
+&"jumpscare": SubResource("Animation_l5brk")
+}
 
 [sub_resource type="Animation" id="Animation_qk4f4"]
 length = 0.001
@@ -65,17 +179,30 @@ _data = {
 &"fade": SubResource("Animation_f1ux5")
 }
 
-[node name="Gameplay" type="Node"]
+[node name="Gameplay" type="Node" node_paths=PackedStringArray("officeRoomTravel")]
+script = ExtResource("1_hlo8c")
+officeRoomTravel = NodePath("Rooms/Office/RoomTravelComponent")
 
 [node name="Characters" type="Node" parent="."]
 
-[node name="NightmareTaingle" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "flashlight")]
+[node name="NightmareTaingle" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "debuggingtoolString")]
 script = ExtResource("1_rybgg")
+currentPosition = 4
+positionChangingRate = 60.0
+timerChangePosition = 6000.0
+counterExposureLevel = 35
+counterExposure = 2000.0
+jumpscareExposureLevel = 10
+jumpscareExposure = 3000.0
 Position1 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_1")
 Position2 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_2")
 Position3 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_3")
 Position4 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_4")
 flashlight = NodePath("../../Rooms/Ceiling/FlashLightComponent")
+officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
+Mask = NodePath("../../Misc/GUI/Mask")
+jumpscareAnimation = NodePath("../../Misc/GUI/Jumpscares/Taingle_Jumpscare/AnimationPlayer")
+debuggingtoolString = NodePath("../../Misc/GUI/DebuggingTool/Taingle")
 metadata/_custom_type_script = "uid://dslqbhm8b8w8y"
 
 [node name="Sounds" type="Node" parent="."]
@@ -187,6 +314,7 @@ travel = NodePath("../RoomTravelComponent")
 metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 
 [node name="Desk" type="Sprite2D" parent="Rooms"]
+clip_children = 2
 position = Vector2(-640, 710)
 texture = ExtResource("3_f1ux5")
 metadata/_edit_lock_ = true
@@ -429,6 +557,22 @@ metadata/_custom_type_script = "uid://cnhe33f3mmlmb"
 
 [node name="GUI" type="CanvasLayer" parent="Misc"]
 
+[node name="Jumpscares" type="Node2D" parent="Misc/GUI"]
+metadata/_edit_lock_ = true
+
+[node name="Taingle_Jumpscare" type="Sprite2D" parent="Misc/GUI/Jumpscares"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(408, -303)
+rotation = -1.5707964
+texture = ExtResource("26_3txkv")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/Jumpscares/Taingle_Jumpscare"]
+libraries = {
+&"": SubResource("AnimationLibrary_u63jk")
+}
+speed_scale = 1.5
+
 [node name="Mask" parent="Misc/GUI" node_paths=PackedStringArray("scrolling", "travel") instance=ExtResource("16_iuexx")]
 scrolling = NodePath("../../Scrolling/ScrollingComponent")
 travel = NodePath("../../../Rooms/Office/RoomTravelComponent")
@@ -456,14 +600,17 @@ libraries = {
 
 [node name="Clock" type="Label" parent="Misc/GUI"]
 anchors_preset = -1
-anchor_left = 0.947
-anchor_top = 0.042000003
-anchor_right = 0.947
-anchor_bottom = 0.042000003
-offset_left = -60.160034
-offset_top = -22.240002
-offset_right = 59.839966
-offset_bottom = 22.759998
+anchor_left = 0.92200005
+anchor_top = 0.034
+anchor_right = 0.92200005
+anchor_bottom = 0.034
+offset_left = -92.160034
+offset_top = -16.480001
+offset_right = 91.839966
+offset_bottom = 16.519999
+theme = ExtResource("29_21wbi")
+theme_override_colors/font_color = Color(0.5411765, 0.20784314, 0.24313726, 1)
+theme_override_fonts/font = ExtResource("29_l5brk")
 theme_override_font_sizes/font_size = 32
 text = "12 AM"
 horizontal_alignment = 2
@@ -484,4 +631,29 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 action_mode = 0
 flat = true
+metadata/_edit_lock_ = true
+
+[node name="DebuggingTool" type="VBoxContainer" parent="Misc/GUI"]
+visible = false
+modulate = Color(1, 1, 1, 0.1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -632.0
+offset_top = -352.0
+offset_right = 632.0
+offset_bottom = 352.0
+mouse_filter = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Taingle" type="Label" parent="Misc/GUI/DebuggingTool"]
+layout_mode = 2
+text = "NIGHTMARE TAINGLE:
+currentPosition: 0
+timerChangePosition: 0
+counterExposure: 0
+jumpscareExposure: 0"
 metadata/_edit_lock_ = true

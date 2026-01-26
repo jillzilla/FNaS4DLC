@@ -24,14 +24,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var mouseX : float = camera.get_local_mouse_position().x;
 
-	if !disable:
-		if camera.position.x > camera.limit_left + xResolution:
-			if mouseX <= leftPoint.position.x:
-				camera.position.x -= scrollSpeed * (delta * main.fpsTarget);
+	if main.PlayerAlive:
+		if !disable:
+			if camera.position.x > camera.limit_left + xResolution:
+				if mouseX <= leftPoint.position.x:
+					camera.position.x -= scrollSpeed * (delta * main.fpsTarget);
 
-		if camera.position.x < camera.limit_right - xResolution:
-			if mouseX >= rightPoint.position.x:
-				camera.position.x += scrollSpeed * (delta * main.fpsTarget);
+			if camera.position.x < camera.limit_right - xResolution:
+				if mouseX >= rightPoint.position.x:
+					camera.position.x += scrollSpeed * (delta * main.fpsTarget);
 
 	camera.position.x = clamp(camera.position.x,camera.limit_left + xResolution,camera.limit_right - xResolution);
 

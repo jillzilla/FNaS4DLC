@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ddy4wy360a77j"]
+
+[ext_resource type="FontFile" uid="uid://d2a6fttewcype" path="res://assets/fonts/SUBWT___.ttf" id="1_xgdp2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xgdp2"]
+
+[resource]
+default_font = ExtResource("1_xgdp2")
+default_font_size = 32
+Button/colors/font_color = Color(0.5411765, 0.20784314, 0.24313726, 1)
+Button/colors/font_disabled_color = Color(0.5411765, 0.20784314, 0.24313726, 1)
+Button/colors/font_focus_color = Color(0.5411765, 0.20784314, 0.24313726, 1)
+Button/colors/font_hover_color = Color(0.5411765, 0.20784314, 0.24313726, 1)
+Button/colors/font_hover_pressed_color = Color(0.5411765, 0.20784314, 0.24313726, 1)
+Button/colors/font_pressed_color = Color(0.5411765, 0.20784314, 0.24313726, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_xgdp2")
+Button/styles/focus = SubResource("StyleBoxEmpty_xgdp2")
+Button/styles/hover = SubResource("StyleBoxEmpty_xgdp2")
+Button/styles/normal = SubResource("StyleBoxEmpty_xgdp2")
+Button/styles/pressed = SubResource("StyleBoxEmpty_xgdp2")
+Label/colors/font_color = Color(0.5411765, 0.20784314, 0.24313726, 1)

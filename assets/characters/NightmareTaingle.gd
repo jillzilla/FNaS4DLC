@@ -3,11 +3,15 @@ class_name NightmareTaingle extends Node
 #variables
 @export_group("Status")
 @export var currentPosition : int = 0;
-@export var timerChangePosition : float = 5000;
+
 @export var positionChangingRate : float = 75;
-@export var counterExposureLevel : float = 40;
+@export var timerChangePosition : float = 5000;
+
+@export var counterExposureLevel : int = 30;
 @export var counterExposure : float = 2500;
-@export var jumpscareExposure : float = 1000;
+
+@export var jumpscareExposureLevel : int = 15;
+@export var jumpscareExposure : float = 2000;
 
 @export_group("Sprites")
 @export var Position1 : Sprite2D;
@@ -17,37 +21,72 @@ class_name NightmareTaingle extends Node
 
 @export_group("Mechanicals")
 @export var flashlight : FlashLightComponent;
+@export var officeRoomTravel : RoomTravelComponent;
+@export var Mask : Node2D;
+@export var jumpscareAnimation : AnimationPlayer;
+@export var debuggingtoolString : Label;
 
 var cp : float;
 var ce : float;
+var je : float;
 
 var positionsAvailable : int = 4;
+
+var canAttack : bool = false;
+var jumpscare : bool = false;
 
 #functions
 func _ready() -> void:
     cp = timerChangePosition;
     ce = counterExposure;
+    je = jumpscareExposure;
 
     _handle_positions();
 
 func _process(delta: float) -> void:
     var NewDelta : float = delta * main.fpsTarget;
 
-    if currentPosition > 0 && !flashlight.spriteAsFlashlight.visible:
-        counterExposure -= NewDelta * counterExposureLevel;
-        if counterExposure <= 0:
-            counterExposure = ce;
-            currentPosition -= 1;
-            _handle_positions();
-
-    if currentPosition < positionsAvailable:
-        if currentPosition > 0 && flashlight.spriteAsFlashlight.visible || currentPosition == 0:
-            timerChangePosition -= NewDelta * main.NightmareTaingleAILevel;
-            if timerChangePosition <= 0:
+    if main.NightmareTaingleAILevel != 0 && !jumpscare && main.PlayerAlive:
+        if currentPosition > 0 && !flashlight.spriteAsFlashlight.visible:
+            counterExposure -= NewDelta * counterExposureLevel;
+            if counterExposure <= 0:
                 timerChangePosition = cp;
-                if main.random_chance(positionChangingRate):
-                    currentPosition += 1;
-                    _handle_positions();
+                counterExposure = ce;
+                jumpscareExposure = je;
+                currentPosition -= 1;
+                _handle_positions();
+
+        if currentPosition < positionsAvailable:
+            if currentPosition > 0 && flashlight.spriteAsFlashlight.visible || currentPosition == 0:
+                timerChangePosition -= NewDelta * main.NightmareTaingleAILevel;
+                if timerChangePosition <= 0:
+                    timerChangePosition = cp;
+                    if main.random_chance(positionChangingRate):
+                        counterExposure = ce;
+                        currentPosition += 1;
+                        _handle_positions();
+
+        if canAttack && flashlight.spriteAsFlashlight.visible && main.PlayerNotMoving && !Mask.PuttingMask:
+            jumpscareExposure -= NewDelta * jumpscareExposureLevel;
+            if jumpscareExposure <= 0:
+                jumpscare = true;
+                jumpscareExposure = je;
+                main.PlayerAlive = false;
+                Position4.visible = false;
+                if main.PlayerPosition != "Office":
+                    if Mask.isUsingMask:
+                        Mask.get_node("CD_Timer").stop();
+                        Mask._remove();
+                        await Mask.MaskIsRemoved;
+                    officeRoomTravel._travel();
+                    await officeRoomTravel.doneTraveling;
+                jumpscareAnimation.play("jumpscare");
+                GlobalAudioManager.get_node("Taingle_Jumpscare").play();
+                await jumpscareAnimation.animation_finished;
+                get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
+
+    if debuggingtoolString.get_parent().visible:
+        debuggingtoolString.text = "NIGHTMARE TAINGLE\ncurrentPosition: " + str(currentPosition) + "\ntimerChangePosition: " + str(roundi(timerChangePosition)) + "\ncounterExposure: " + str(roundi(counterExposure)) + "\njumpscareExposure: " + str(roundi(jumpscareExposure));
 
 func _handle_positions() -> void:
     match(currentPosition):
@@ -56,23 +95,28 @@ func _handle_positions() -> void:
             Position2.visible = false;
             Position3.visible = false;
             Position4.visible = false;
+            canAttack = false;
         1:
             Position1.visible = true;
             Position2.visible = false;
             Position3.visible = false;
             Position4.visible = false;
+            canAttack = false;
         2:
             Position1.visible = false;
             Position2.visible = true;
             Position3.visible = false;
             Position4.visible = false;
+            canAttack = false;
         3:
             Position1.visible = false;
             Position2.visible = false;
             Position3.visible = true;
             Position4.visible = false;
+            canAttack = false;
         4:
             Position1.visible = false;
             Position2.visible = false;
             Position3.visible = false;
             Position4.visible = true;
+            canAttack = true;

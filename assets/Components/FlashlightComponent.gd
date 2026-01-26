@@ -9,16 +9,15 @@ class_name FlashLightComponent extends Node
 
 #functions
 func _process(_delta: float) -> void:
-	if scrolling.get_parent().position.y == travel.camPosYEffectEnd:
-		if enabled:
-			if Input.is_action_just_pressed("FLASHLIGHT"):
-				flashlightSFX.play();
-				spriteAsFlashlight.visible = false;
+	if enabled && main.PlayerAlive:
+		if Input.is_action_just_pressed("FLASHLIGHT"):
+			flashlightSFX.play();
+			spriteAsFlashlight.visible = false;
 
-			elif Input.is_action_just_released("FLASHLIGHT"):
-				flashlightSFX.stop();
-				spriteAsFlashlight.visible = true;
-		else:
-			if !spriteAsFlashlight.visible:
-				flashlightSFX.stop();
-				spriteAsFlashlight.visible = true;
+		elif Input.is_action_just_released("FLASHLIGHT"):
+			flashlightSFX.stop();
+			spriteAsFlashlight.visible = true;
+	else:
+		if !spriteAsFlashlight.visible:
+			flashlightSFX.stop();
+			spriteAsFlashlight.visible = true;

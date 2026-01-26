@@ -1,5 +1,7 @@
 extends Node2D
 
+signal MaskIsRemoved;
+
 #variables
 @export var scrolling : ScrollingComponent;
 @export var travel : RoomTravelComponent;
@@ -7,6 +9,7 @@ extends Node2D
 var canUseMask : bool = false;
 var isUsingMask : bool = false;
 var breath : bool = false;
+var PuttingMask : bool = false;
 
 var breathTime : float;
 var breathradius : float = 50;
@@ -14,11 +17,12 @@ var breathspeed : float = 2;
 
 #functions
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("MASK"):
-		if !isUsingMask:
-			_put_on();
-		else:
-			_remove();
+	if main.PlayerAlive:
+		if Input.is_action_just_pressed("MASK"):
+			if !isUsingMask:
+				_put_on();
+			else:
+				_remove();
 
 func _physics_process(delta: float) -> void:
 	if breath:
@@ -33,25 +37,30 @@ func _physics_process(delta: float) -> void:
 			get_node("Sprite").offset.y = 0;
 
 func _put_on() -> void:
-	if scrolling.get_parent().position.y == travel.camPosYEffectEnd:
-		if get_node("CD_Timer").is_stopped():
-			if canUseMask:
-				get_node("CD_Timer").start();
-				isUsingMask = true;
+	if get_node("CD_Timer").is_stopped():
+		if canUseMask:
+			get_node("CD_Timer").start();
+			isUsingMask = true;
+			PuttingMask = true;
 
-				get_node("ON").play();
+			get_node("ON").play();
 
-				var t : Tween = create_tween();
-				t.tween_property(get_node("Sprite"),"position:y",360,0.2).set_trans(Tween.TRANS_CUBIC);
-				await t.finished;
+			var t : Tween = create_tween();
+			t.tween_property(get_node("Sprite"),"position:y",360,0.2).set_trans(Tween.TRANS_CUBIC);
+			await t.finished;
 
-				breath = true;
-				get_node("Sprite").play("idle");
+			breath = true;
+			get_node("Sprite").play("idle");
+
+			await get_node("CD_Timer").timeout;
+
+			PuttingMask = false;
 
 func _remove() -> void:
 	if get_node("CD_Timer").is_stopped():
 		get_node("CD_Timer").start();
 		isUsingMask = false;
+		PuttingMask = true;
 
 		breath = false;
 		get_node("Sprite").play("move");
@@ -60,3 +69,8 @@ func _remove() -> void:
 
 		var t : Tween = create_tween();
 		t.tween_property(get_node("Sprite"),"position:y",-360,0.2).set_trans(Tween.TRANS_CUBIC);
+		
+		await get_node("CD_Timer").timeout;
+
+		PuttingMask = false;
+		MaskIsRemoved.emit();
