@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dj4ueyd0v0uvy"]
+[gd_scene load_steps=39 format=3 uid="uid://dj4ueyd0v0uvy"]
 
 [ext_resource type="Script" uid="uid://bi145s4thcg3p" path="res://assets/scripts/nightsetup.gd" id="1_hlo8c"]
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/rooms/office.png" id="1_n5x6c"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://elgiuam7pf50" path="res://assets/images/gameplay/rooms/desk.png" id="3_f1ux5"]
 [ext_resource type="Texture2D" uid="uid://c6rjhmv2s0mpc" path="res://assets/images/gameplay/rooms/flashlight/ceiling_on.png" id="4_ixvey"]
 [ext_resource type="Texture2D" uid="uid://dgjcqet526p58" path="res://assets/images/gameplay/rooms/left_vent.png" id="4_qk4f4"]
+[ext_resource type="Script" uid="uid://dwgnvc6okmdh3" path="res://assets/scripts/taingle_radio.gd" id="4_t2peh"]
 [ext_resource type="AudioStream" uid="uid://cu6fakcxj137a" path="res://assets/sounds/[27] Shock.ogg" id="4_ugpla"]
 [ext_resource type="Texture2D" uid="uid://dn5tntmkmfmfr" path="res://assets/images/gameplay/rooms/flashlight/ceiling_off.png" id="5_br2i6"]
 [ext_resource type="Texture2D" uid="uid://2a1g4hdo3rql" path="res://assets/images/gameplay/rooms/right_vent.png" id="5_hogfr"]
@@ -30,58 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://dagj5ybgry1hp" path="res://assets/images/gameplay/characters/taingle/taingle_jumpscare.png" id="26_3txkv"]
 [ext_resource type="Theme" uid="uid://ddy4wy360a77j" path="res://assets/main_theme.tres" id="29_21wbi"]
 [ext_resource type="FontFile" uid="uid://d2a6fttewcype" path="res://assets/fonts/SUBWT___.ttf" id="29_l5brk"]
-
-[sub_resource type="Animation" id="Animation_l5brk"]
-resource_name = "jumpscare"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(2, 2), Vector2(2.6, 2.6)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(408, -303), Vector2(480, 0), Vector2(712.00006, -63.99993)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-1.5707964, 0.0, 0.35081118]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:modulate")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
-}
+[ext_resource type="AudioStream" uid="uid://baqctxt57reor" path="res://assets/sounds/Toy_Tails_Radio.ogg" id="31_u63jk"]
 
 [sub_resource type="Animation" id="Animation_21wbi"]
 length = 0.001
@@ -135,6 +85,58 @@ tracks/3/keys = {
 "values": [Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_l5brk"]
+resource_name = "jumpscare"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2), Vector2(2.6, 2.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(408, -303), Vector2(480, 0), Vector2(712.00006, -63.99993)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.5707964, 0.0, 0.35081118]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u63jk"]
 _data = {
 &"RESET": SubResource("Animation_21wbi"),
@@ -179,15 +181,16 @@ _data = {
 &"fade": SubResource("Animation_f1ux5")
 }
 
-[node name="Gameplay" type="Node" node_paths=PackedStringArray("officeRoomTravel")]
+[node name="Gameplay" type="Node" node_paths=PackedStringArray("officeRoomTravel", "ClockTimer", "ClockCounter")]
 script = ExtResource("1_hlo8c")
 officeRoomTravel = NodePath("Rooms/Office/RoomTravelComponent")
+ClockTimer = NodePath("Misc/Clock_Timer")
+ClockCounter = NodePath("Misc/GUI/Clock")
 
 [node name="Characters" type="Node" parent="."]
 
-[node name="NightmareTaingle" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "debuggingtoolString")]
+[node name="NightmareTaingle" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "debuggingtoolString", "radio")]
 script = ExtResource("1_rybgg")
-currentPosition = 4
 positionChangingRate = 60.0
 timerChangePosition = 6000.0
 counterExposureLevel = 35
@@ -203,9 +206,19 @@ officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 Mask = NodePath("../../Misc/GUI/Mask")
 jumpscareAnimation = NodePath("../../Misc/GUI/Jumpscares/Taingle_Jumpscare/AnimationPlayer")
 debuggingtoolString = NodePath("../../Misc/GUI/DebuggingTool/Taingle")
+radio = NodePath("../../Sounds/Taingle_Radio")
 metadata/_custom_type_script = "uid://dslqbhm8b8w8y"
 
 [node name="Sounds" type="Node" parent="."]
+
+[node name="Taingle_Radio" type="AudioStreamPlayer2D" parent="Sounds"]
+position = Vector2(1040, 0)
+stream = ExtResource("31_u63jk")
+volume_db = -80.0
+autoplay = true
+attenuation = 2.0
+script = ExtResource("4_t2peh")
+metadata/_edit_lock_ = true
 
 [node name="Walk_SFX" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("22_bkfnj")
@@ -537,6 +550,11 @@ metadata/_edit_lock_ = true
 
 [node name="Misc" type="Node" parent="."]
 
+[node name="Clock_Timer" type="Timer" parent="Misc"]
+wait_time = 45.0
+one_shot = true
+autostart = true
+
 [node name="Scrolling" type="Camera2D" parent="Misc"]
 position = Vector2(1040, 360)
 limit_left = 0
@@ -635,7 +653,6 @@ metadata/_edit_lock_ = true
 
 [node name="DebuggingTool" type="VBoxContainer" parent="Misc/GUI"]
 visible = false
-modulate = Color(1, 1, 1, 0.1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -657,3 +674,5 @@ timerChangePosition: 0
 counterExposure: 0
 jumpscareExposure: 0"
 metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="Misc/Clock_Timer" to="." method="_on_clock_timer_timeout"]

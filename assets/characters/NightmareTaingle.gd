@@ -25,6 +25,7 @@ class_name NightmareTaingle extends Node
 @export var Mask : Node2D;
 @export var jumpscareAnimation : AnimationPlayer;
 @export var debuggingtoolString : Label;
+@export var radio : AudioStreamPlayer2D;
 
 var cp : float;
 var ce : float;
@@ -80,6 +81,7 @@ func _process(delta: float) -> void:
                         await Mask.MaskIsRemoved;
                     officeRoomTravel._travel();
                     await officeRoomTravel.doneTraveling;
+                radio.volume_db = -80;
                 jumpscareAnimation.play("jumpscare");
                 GlobalAudioManager.get_node("Taingle_Jumpscare").play();
                 await jumpscareAnimation.animation_finished;
@@ -96,27 +98,32 @@ func _handle_positions() -> void:
             Position3.visible = false;
             Position4.visible = false;
             canAttack = false;
+            radio.volume_db = -80;
         1:
             Position1.visible = true;
             Position2.visible = false;
             Position3.visible = false;
             Position4.visible = false;
             canAttack = false;
+            radio.volume_db = -15;
         2:
             Position1.visible = false;
             Position2.visible = true;
             Position3.visible = false;
             Position4.visible = false;
             canAttack = false;
+            radio.volume_db = -10;
         3:
             Position1.visible = false;
             Position2.visible = false;
             Position3.visible = true;
             Position4.visible = false;
             canAttack = false;
+            radio.volume_db = -5;
         4:
             Position1.visible = false;
             Position2.visible = false;
             Position3.visible = false;
             Position4.visible = true;
             canAttack = true;
+            radio.volume_db = 0;

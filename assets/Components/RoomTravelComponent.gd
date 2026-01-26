@@ -86,6 +86,8 @@ func _travel() -> void:
 				if roomToLeave[i].position != roomToLeavePosition[i]:
 					roomToLeave[i].position = roomToLeavePosition[i];
 
+		main.PlayerPosition = room.name;
+
 		if camEffect:
 			scrolling.get_parent().position.y = camPosYEffectStart;
 			var camMove : Tween = create_tween();
@@ -102,7 +104,6 @@ func _travel() -> void:
 		if flashlight:
 			flashlight.enabled = true;
 
-		main.PlayerPosition = room.name;
 		main.PlayerNotMoving = true;
 		
 		doneTraveling.emit();
