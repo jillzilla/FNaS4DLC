@@ -1,0 +1,194 @@
+[gd_scene load_steps=11 format=3 uid="uid://bl1f8fi47vxi8"]
+
+[ext_resource type="Theme" uid="uid://ddy4wy360a77j" path="res://assets/main_theme.tres" id="1_b3jr6"]
+[ext_resource type="Script" uid="uid://yo34tnm6bp1l" path="res://assets/scripts/win_screen.gd" id="1_qkwhx"]
+[ext_resource type="AudioStream" uid="uid://ccnvc31bwjev0" path="res://assets/sounds/End_of_Night_Bells.ogg" id="2_w12c8"]
+[ext_resource type="FontFile" uid="uid://d2a6fttewcype" path="res://assets/fonts/SUBWT___.ttf" id="3_77wy8"]
+
+[sub_resource type="Animation" id="Animation_3levj"]
+resource_name = "Colors"
+length = 0.5
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.5411765, 0.20784314, 0.24313726, 1), Color(1, 0.50980395, 0.654902, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5eic3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.54102784, 0.20906562, 0.24269372, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xbevp"]
+_data = {
+&"Colors": SubResource("Animation_3levj"),
+&"RESET": SubResource("Animation_5eic3")
+}
+
+[sub_resource type="Animation" id="Animation_w12c8"]
+resource_name = "default"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Clock1:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Clock2:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.54102784, 0.20906562, 0.24269372, 0), Color(0.5411765, 0.20784314, 0.24313726, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qkwhx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Clock1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Clock2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.54102784, 0.20906562, 0.24269372, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77wy8"]
+_data = {
+&"RESET": SubResource("Animation_qkwhx"),
+&"default": SubResource("Animation_w12c8")
+}
+
+[node name="WinScreen" type="Node"]
+script = ExtResource("1_qkwhx")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Clock1" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.5
+offset_top = -33.0
+offset_right = 133.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_b3jr6")
+theme_override_font_sizes/font_size = 64
+text = "7:59 AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Clock2" type="Label" parent="Control"]
+modulate = Color(0.54102784, 0.20906562, 0.24269372, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.5
+offset_top = -33.0
+offset_right = 133.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_77wy8")
+theme_override_font_sizes/font_size = 64
+text = "8:00 AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Clock2"]
+libraries = {
+&"": SubResource("AnimationLibrary_xbevp")
+}
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_w12c8")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_77wy8")
+}
+
+[node name="Timer_Clock_Fade" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="finished" from="Sound" to="." method="_on_sound_finished"]
+[connection signal="timeout" from="Timer_Clock_Fade" to="." method="_on_timer_clock_fade_timeout"]
