@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6rjhmv2s0mpc"
-path="res://.godot/imported/ceiling_on.png-11650dc465df97e71a86d693f16ca7b7.ctex"
+uid="uid://0f8oes41ekud"
+path="res://.godot/imported/vent_off.png-ffadabbc395bdee87b5e9cc30aa4e9f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/gameplay/flashlight/ceiling_on.png"
-dest_files=["res://.godot/imported/ceiling_on.png-11650dc465df97e71a86d693f16ca7b7.ctex"]
+source_file="res://assets/images/gameplay/rooms/flashlight/vent_off.png"
+dest_files=["res://.godot/imported/vent_off.png-ffadabbc395bdee87b5e9cc30aa4e9f9.ctex"]
 
 [params]
 

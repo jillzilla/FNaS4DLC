@@ -1,22 +1,28 @@
-[gd_scene load_steps=24 format=3 uid="uid://dj4ueyd0v0uvy"]
+[gd_scene load_steps=30 format=3 uid="uid://dj4ueyd0v0uvy"]
 
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/rooms/office.png" id="1_n5x6c"]
+[ext_resource type="Script" uid="uid://dslqbhm8b8w8y" path="res://assets/characters/NightmareTaingle.gd" id="1_rybgg"]
 [ext_resource type="Script" uid="uid://chkw6deyn5h6a" path="res://assets/components/RoomTravelComponent.gd" id="2_f1ux5"]
 [ext_resource type="Texture2D" uid="uid://1jfqrmyfgxtv" path="res://assets/images/gameplay/rooms/ceiling.png" id="2_kqp6g"]
 [ext_resource type="Script" uid="uid://cnhe33f3mmlmb" path="res://assets/components/ScrollingComponent.gd" id="2_mrbpc"]
 [ext_resource type="Texture2D" uid="uid://25ibt2ltkgin" path="res://assets/images/misc/vignette.tres" id="2_un4qs"]
 [ext_resource type="AudioStream" uid="uid://b0sqggxvrlvcg" path="res://assets/sounds/[8] Flashlight_Sound.ogg" id="3_5jwmk"]
 [ext_resource type="Texture2D" uid="uid://elgiuam7pf50" path="res://assets/images/gameplay/rooms/desk.png" id="3_f1ux5"]
-[ext_resource type="Texture2D" uid="uid://c6rjhmv2s0mpc" path="res://assets/images/gameplay/flashlight/ceiling_on.png" id="4_ixvey"]
+[ext_resource type="Texture2D" uid="uid://c6rjhmv2s0mpc" path="res://assets/images/gameplay/rooms/flashlight/ceiling_on.png" id="4_ixvey"]
 [ext_resource type="Texture2D" uid="uid://dgjcqet526p58" path="res://assets/images/gameplay/rooms/left_vent.png" id="4_qk4f4"]
 [ext_resource type="AudioStream" uid="uid://cu6fakcxj137a" path="res://assets/sounds/[27] Shock.ogg" id="4_ugpla"]
-[ext_resource type="Texture2D" uid="uid://dn5tntmkmfmfr" path="res://assets/images/gameplay/flashlight/ceiling_off.png" id="5_br2i6"]
+[ext_resource type="Texture2D" uid="uid://dn5tntmkmfmfr" path="res://assets/images/gameplay/rooms/flashlight/ceiling_off.png" id="5_br2i6"]
 [ext_resource type="Texture2D" uid="uid://2a1g4hdo3rql" path="res://assets/images/gameplay/rooms/right_vent.png" id="5_hogfr"]
 [ext_resource type="Texture2D" uid="uid://d23jw7vmq03lb" path="res://assets/images/gameplay/rooms/hallway.png" id="6_ndvee"]
-[ext_resource type="Texture2D" uid="uid://dd56tc7irhp2r" path="res://assets/images/gameplay/flashlight/vent_on.png" id="8_iuexx"]
-[ext_resource type="Texture2D" uid="uid://0f8oes41ekud" path="res://assets/images/gameplay/flashlight/vent_off.png" id="9_b4idp"]
-[ext_resource type="Texture2D" uid="uid://c8rfx7wqcgir4" path="res://assets/images/gameplay/flashlight/hallway_on.png" id="12_b68su"]
-[ext_resource type="Texture2D" uid="uid://btxeri3280sqp" path="res://assets/images/gameplay/flashlight/hallway_off.png" id="13_qautv"]
+[ext_resource type="Texture2D" uid="uid://c502v777dd53r" path="res://assets/images/gameplay/rooms/clipmask/ceiling.png" id="7_kgr1o"]
+[ext_resource type="Texture2D" uid="uid://ci88c0f206wu3" path="res://assets/images/gameplay/characters/taingle/taingle_1.png" id="7_ugpla"]
+[ext_resource type="Texture2D" uid="uid://dd56tc7irhp2r" path="res://assets/images/gameplay/rooms/flashlight/vent_on.png" id="8_iuexx"]
+[ext_resource type="Texture2D" uid="uid://bdlmu7wbqans7" path="res://assets/images/gameplay/characters/taingle/taingle_2.png" id="8_kgr1o"]
+[ext_resource type="Texture2D" uid="uid://0f8oes41ekud" path="res://assets/images/gameplay/rooms/flashlight/vent_off.png" id="9_b4idp"]
+[ext_resource type="Texture2D" uid="uid://cx1vyvqdy6l10" path="res://assets/images/gameplay/characters/taingle/taingle_3.png" id="9_rybgg"]
+[ext_resource type="Texture2D" uid="uid://nb6tg6pvsdjj" path="res://assets/images/gameplay/characters/taingle/taingle_4.png" id="10_hlo8c"]
+[ext_resource type="Texture2D" uid="uid://c8rfx7wqcgir4" path="res://assets/images/gameplay/rooms/flashlight/hallway_on.png" id="12_b68su"]
+[ext_resource type="Texture2D" uid="uid://btxeri3280sqp" path="res://assets/images/gameplay/rooms/flashlight/hallway_off.png" id="13_qautv"]
 [ext_resource type="Script" uid="uid://bn757rkvxcpdt" path="res://assets/components/FlashlightComponent.gd" id="16_br2i6"]
 [ext_resource type="PackedScene" uid="uid://bud1bsy5ye6yc" path="res://assets/scenes/mask.tscn" id="16_iuexx"]
 [ext_resource type="AudioStream" uid="uid://blrhwp7bm001r" path="res://assets/sounds/[7] Run_to_Door_Sound.ogg" id="22_bkfnj"]
@@ -61,6 +67,17 @@ _data = {
 
 [node name="Gameplay" type="Node"]
 
+[node name="Characters" type="Node" parent="."]
+
+[node name="NightmareTaingle" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "flashlight")]
+script = ExtResource("1_rybgg")
+Position1 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_1")
+Position2 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_2")
+Position3 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_3")
+Position4 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_4")
+flashlight = NodePath("../../Rooms/Ceiling/FlashLightComponent")
+metadata/_custom_type_script = "uid://dslqbhm8b8w8y"
+
 [node name="Sounds" type="Node" parent="."]
 
 [node name="Walk_SFX" type="AudioStreamPlayer" parent="Sounds"]
@@ -100,6 +117,38 @@ metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 [node name="Ceiling" type="Sprite2D" parent="Rooms"]
 position = Vector2(-1920, 710)
 texture = ExtResource("2_kqp6g")
+metadata/_edit_lock_ = true
+
+[node name="ClipMask" type="Sprite2D" parent="Rooms/Ceiling"]
+clip_children = 1
+texture = ExtResource("7_kgr1o")
+metadata/_edit_lock_ = true
+
+[node name="Taingle" type="Node2D" parent="Rooms/Ceiling/ClipMask"]
+metadata/_edit_lock_ = true
+
+[node name="Taingle_1" type="Sprite2D" parent="Rooms/Ceiling/ClipMask/Taingle"]
+visible = false
+position = Vector2(0, -566.5)
+texture = ExtResource("7_ugpla")
+metadata/_edit_lock_ = true
+
+[node name="Taingle_2" type="Sprite2D" parent="Rooms/Ceiling/ClipMask/Taingle"]
+visible = false
+position = Vector2(0, -510)
+texture = ExtResource("8_kgr1o")
+metadata/_edit_lock_ = true
+
+[node name="Taingle_3" type="Sprite2D" parent="Rooms/Ceiling/ClipMask/Taingle"]
+visible = false
+position = Vector2(0, -457)
+texture = ExtResource("9_rybgg")
+metadata/_edit_lock_ = true
+
+[node name="Taingle_4" type="Sprite2D" parent="Rooms/Ceiling/ClipMask/Taingle"]
+visible = false
+position = Vector2(0, -431.5)
+texture = ExtResource("10_hlo8c")
 metadata/_edit_lock_ = true
 
 [node name="Light" type="Sprite2D" parent="Rooms/Ceiling"]

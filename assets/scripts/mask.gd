@@ -39,6 +39,8 @@ func _put_on() -> void:
 				get_node("CD_Timer").start();
 				isUsingMask = true;
 
+				get_node("ON").play();
+
 				var t : Tween = create_tween();
 				t.tween_property(get_node("Sprite"),"position:y",360,0.2).set_trans(Tween.TRANS_CUBIC);
 				await t.finished;
@@ -53,6 +55,8 @@ func _remove() -> void:
 
 		breath = false;
 		get_node("Sprite").play("move");
+
+		get_node("OFF").play();
 
 		var t : Tween = create_tween();
 		t.tween_property(get_node("Sprite"),"position:y",-360,0.2).set_trans(Tween.TRANS_CUBIC);

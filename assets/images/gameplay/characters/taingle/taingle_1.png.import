@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd56tc7irhp2r"
-path="res://.godot/imported/vent_on.png-8ae8661989d2282842aaee25537d366c.ctex"
+uid="uid://ci88c0f206wu3"
+path="res://.godot/imported/taingle_1.png-210a6cfb3c362864bb9b2c527606cfbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/gameplay/flashlight/vent_on.png"
-dest_files=["res://.godot/imported/vent_on.png-8ae8661989d2282842aaee25537d366c.ctex"]
+source_file="res://assets/images/gameplay/characters/taingle/taingle_1.png"
+dest_files=["res://.godot/imported/taingle_1.png-210a6cfb3c362864bb9b2c527606cfbf.ctex"]
 
 [params]
 

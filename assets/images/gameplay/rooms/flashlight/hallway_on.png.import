@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btxeri3280sqp"
-path="res://.godot/imported/hallway_off.png-25ba750027be6b5df25e13483d37048f.ctex"
+uid="uid://c8rfx7wqcgir4"
+path="res://.godot/imported/hallway_on.png-a90564941dc3e92077ca9f39fde6576b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/gameplay/flashlight/hallway_off.png"
-dest_files=["res://.godot/imported/hallway_off.png-25ba750027be6b5df25e13483d37048f.ctex"]
+source_file="res://assets/images/gameplay/rooms/flashlight/hallway_on.png"
+dest_files=["res://.godot/imported/hallway_on.png-a90564941dc3e92077ca9f39fde6576b.ctex"]
 
 [params]
 

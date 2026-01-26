@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8rfx7wqcgir4"
-path="res://.godot/imported/hallway_on.png-591dbe51fbf3cd95f7a52ee9b8dfce68.ctex"
+uid="uid://bdlmu7wbqans7"
+path="res://.godot/imported/taingle_2.png-99a37588a95c9513122c087cc85f4cf6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/gameplay/flashlight/hallway_on.png"
-dest_files=["res://.godot/imported/hallway_on.png-591dbe51fbf3cd95f7a52ee9b8dfce68.ctex"]
+source_file="res://assets/images/gameplay/characters/taingle/taingle_2.png"
+dest_files=["res://.godot/imported/taingle_2.png-99a37588a95c9513122c087cc85f4cf6.ctex"]
 
 [params]
 
