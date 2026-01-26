@@ -25,7 +25,7 @@ class_name NightmareTaingle extends Node
 @export var Mask : Node2D;
 @export var jumpscareAnimation : AnimationPlayer;
 @export var debuggingtoolString : Label;
-@export var radio : AudioStreamPlayer2D;
+@export var radio : AudioStreamPlayer;
 
 var cp : float;
 var ce : float;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dj4ueyd0v0uvy"]
+[gd_scene load_steps=38 format=3 uid="uid://dj4ueyd0v0uvy"]
 
 [ext_resource type="Script" uid="uid://bi145s4thcg3p" path="res://assets/scripts/nightsetup.gd" id="1_hlo8c"]
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/rooms/office.png" id="1_n5x6c"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://elgiuam7pf50" path="res://assets/images/gameplay/rooms/desk.png" id="3_f1ux5"]
 [ext_resource type="Texture2D" uid="uid://c6rjhmv2s0mpc" path="res://assets/images/gameplay/rooms/flashlight/ceiling_on.png" id="4_ixvey"]
 [ext_resource type="Texture2D" uid="uid://dgjcqet526p58" path="res://assets/images/gameplay/rooms/left_vent.png" id="4_qk4f4"]
-[ext_resource type="Script" uid="uid://dwgnvc6okmdh3" path="res://assets/scripts/taingle_radio.gd" id="4_t2peh"]
 [ext_resource type="AudioStream" uid="uid://cu6fakcxj137a" path="res://assets/sounds/[27] Shock.ogg" id="4_ugpla"]
 [ext_resource type="Texture2D" uid="uid://dn5tntmkmfmfr" path="res://assets/images/gameplay/rooms/flashlight/ceiling_off.png" id="5_br2i6"]
 [ext_resource type="Texture2D" uid="uid://2a1g4hdo3rql" path="res://assets/images/gameplay/rooms/right_vent.png" id="5_hogfr"]
@@ -211,14 +210,10 @@ metadata/_custom_type_script = "uid://dslqbhm8b8w8y"
 
 [node name="Sounds" type="Node" parent="."]
 
-[node name="Taingle_Radio" type="AudioStreamPlayer2D" parent="Sounds"]
-position = Vector2(1040, 0)
+[node name="Taingle_Radio" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("31_u63jk")
 volume_db = -80.0
 autoplay = true
-attenuation = 2.0
-script = ExtResource("4_t2peh")
-metadata/_edit_lock_ = true
 
 [node name="Walk_SFX" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("22_bkfnj")
