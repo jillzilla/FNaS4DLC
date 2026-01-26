@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dj4ueyd0v0uvy"]
+[gd_scene load_steps=46 format=3 uid="uid://dj4ueyd0v0uvy"]
 
 [ext_resource type="Script" uid="uid://bi145s4thcg3p" path="res://assets/scripts/nightsetup.gd" id="1_hlo8c"]
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/rooms/office.png" id="1_n5x6c"]
@@ -8,9 +8,10 @@
 [ext_resource type="Script" uid="uid://cnhe33f3mmlmb" path="res://assets/components/ScrollingComponent.gd" id="2_mrbpc"]
 [ext_resource type="Texture2D" uid="uid://25ibt2ltkgin" path="res://assets/images/misc/vignette.tres" id="2_un4qs"]
 [ext_resource type="AudioStream" uid="uid://b0sqggxvrlvcg" path="res://assets/sounds/[8] Flashlight_Sound.ogg" id="3_5jwmk"]
+[ext_resource type="Script" uid="uid://5kr35ro71210" path="res://assets/characters/NightmareToyYoshi.gd" id="3_ejjiw"]
 [ext_resource type="Texture2D" uid="uid://elgiuam7pf50" path="res://assets/images/gameplay/rooms/desk.png" id="3_f1ux5"]
 [ext_resource type="Texture2D" uid="uid://c6rjhmv2s0mpc" path="res://assets/images/gameplay/rooms/flashlight/ceiling_on.png" id="4_ixvey"]
-[ext_resource type="Texture2D" uid="uid://dgjcqet526p58" path="res://assets/images/gameplay/rooms/left_vent.png" id="4_qk4f4"]
+[ext_resource type="Texture2D" uid="uid://c6kb2g6kljsaa" path="res://assets/images/gameplay/rooms/left_vent.png" id="4_qk4f4"]
 [ext_resource type="AudioStream" uid="uid://cu6fakcxj137a" path="res://assets/sounds/[27] Shock.ogg" id="4_ugpla"]
 [ext_resource type="Texture2D" uid="uid://dn5tntmkmfmfr" path="res://assets/images/gameplay/rooms/flashlight/ceiling_off.png" id="5_br2i6"]
 [ext_resource type="Texture2D" uid="uid://2a1g4hdo3rql" path="res://assets/images/gameplay/rooms/right_vent.png" id="5_hogfr"]
@@ -26,11 +27,77 @@
 [ext_resource type="Texture2D" uid="uid://btxeri3280sqp" path="res://assets/images/gameplay/rooms/flashlight/hallway_off.png" id="13_qautv"]
 [ext_resource type="Script" uid="uid://bn757rkvxcpdt" path="res://assets/components/FlashlightComponent.gd" id="16_br2i6"]
 [ext_resource type="PackedScene" uid="uid://bud1bsy5ye6yc" path="res://assets/scenes/mask.tscn" id="16_iuexx"]
+[ext_resource type="Texture2D" uid="uid://c2pxe3ehd4qtn" path="res://assets/images/gameplay/rooms/clipmask/vent.png" id="20_t2peh"]
+[ext_resource type="Texture2D" uid="uid://v3lx10cvmtha" path="res://assets/images/gameplay/characters/yoshi/yoshi_1.png" id="21_h887p"]
 [ext_resource type="AudioStream" uid="uid://blrhwp7bm001r" path="res://assets/sounds/[7] Run_to_Door_Sound.ogg" id="22_bkfnj"]
+[ext_resource type="Texture2D" uid="uid://c8mjrs7bc20p1" path="res://assets/images/gameplay/characters/yoshi/yoshi_2.png" id="22_ondv3"]
+[ext_resource type="Texture2D" uid="uid://dd4oklmi170cu" path="res://assets/images/gameplay/characters/yoshi/yoshi_3.png" id="23_ejjiw"]
 [ext_resource type="Texture2D" uid="uid://dagj5ybgry1hp" path="res://assets/images/gameplay/characters/taingle/taingle_jumpscare.png" id="26_3txkv"]
 [ext_resource type="Theme" uid="uid://ddy4wy360a77j" path="res://assets/main_theme.tres" id="29_21wbi"]
 [ext_resource type="FontFile" uid="uid://d2a6fttewcype" path="res://assets/fonts/SUBWT___.ttf" id="29_l5brk"]
 [ext_resource type="AudioStream" uid="uid://baqctxt57reor" path="res://assets/sounds/Toy_Tails_Radio.ogg" id="31_u63jk"]
+
+[sub_resource type="Animation" id="Animation_h887p"]
+resource_name = "Peeking"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(78, -462), Vector2(208, -487)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.6981317]
+}
+
+[sub_resource type="Animation" id="Animation_xpj68"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(78, -462)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ondv3"]
+_data = {
+&"Peeking": SubResource("Animation_h887p"),
+&"RESET": SubResource("Animation_xpj68")
+}
 
 [sub_resource type="Animation" id="Animation_21wbi"]
 length = 0.001
@@ -188,14 +255,19 @@ ClockCounter = NodePath("Misc/GUI/Clock")
 
 [node name="Characters" type="Node" parent="."]
 
-[node name="NightmareTaingle" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "debuggingtoolString", "radio")]
+[node name="NightmareToyYoshi" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "flashlight", "Mask", "shockSFX", "peekingAnimation")]
+script = ExtResource("3_ejjiw")
+Position1 = NodePath("../../Rooms/Left_Vent/ClipMask/Yoshi_1")
+Position2 = NodePath("../../Rooms/Left_Vent/Yoshi/Yoshi_2")
+Position3 = NodePath("../../Rooms/Left_Vent/Yoshi/Yoshi_3")
+flashlight = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
+Mask = NodePath("../../Misc/GUI/Mask")
+shockSFX = NodePath("../../Sounds/Shock_SFX")
+peekingAnimation = NodePath("../../Rooms/Left_Vent/ClipMask/Yoshi_1/Peek")
+metadata/_custom_type_script = "uid://5kr35ro71210"
+
+[node name="NightmareTaingle" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "radio")]
 script = ExtResource("1_rybgg")
-positionChangingRate = 60.0
-timerChangePosition = 6000.0
-counterExposureLevel = 35
-counterExposure = 2000.0
-jumpscareExposureLevel = 10
-jumpscareExposure = 3000.0
 Position1 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_1")
 Position2 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_2")
 Position3 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_3")
@@ -204,7 +276,6 @@ flashlight = NodePath("../../Rooms/Ceiling/FlashLightComponent")
 officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 Mask = NodePath("../../Misc/GUI/Mask")
 jumpscareAnimation = NodePath("../../Misc/GUI/Jumpscares/Taingle_Jumpscare/AnimationPlayer")
-debuggingtoolString = NodePath("../../Misc/GUI/DebuggingTool/Taingle")
 radio = NodePath("../../Sounds/Taingle_Radio")
 metadata/_custom_type_script = "uid://dslqbhm8b8w8y"
 
@@ -223,6 +294,7 @@ stream = ExtResource("3_5jwmk")
 
 [node name="Shock_SFX" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("4_ugpla")
+volume_db = -15.0
 
 [node name="Rooms" type="Node" parent="."]
 
@@ -346,6 +418,36 @@ metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 position = Vector2(-1920, 2134)
 texture = ExtResource("4_qk4f4")
 metadata/_edit_lock_ = true
+
+[node name="ClipMask" type="Sprite2D" parent="Rooms/Left_Vent"]
+clip_children = 1
+texture = ExtResource("20_t2peh")
+metadata/_edit_lock_ = true
+
+[node name="Yoshi_1" type="Sprite2D" parent="Rooms/Left_Vent/ClipMask"]
+visible = false
+position = Vector2(78, -462)
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("21_h887p")
+metadata/_edit_lock_ = true
+
+[node name="Peek" type="AnimationPlayer" parent="Rooms/Left_Vent/ClipMask/Yoshi_1"]
+libraries = {
+&"": SubResource("AnimationLibrary_ondv3")
+}
+
+[node name="Yoshi" type="Node2D" parent="Rooms/Left_Vent"]
+metadata/_edit_lock_ = true
+
+[node name="Yoshi_2" type="Sprite2D" parent="Rooms/Left_Vent/Yoshi"]
+visible = false
+position = Vector2(-56, -414)
+texture = ExtResource("22_ondv3")
+
+[node name="Yoshi_3" type="Sprite2D" parent="Rooms/Left_Vent/Yoshi"]
+visible = false
+position = Vector2(-16, -390)
+texture = ExtResource("23_ejjiw")
 
 [node name="Light" type="Sprite2D" parent="Rooms/Left_Vent"]
 position = Vector2(0, -350)
@@ -644,30 +746,6 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 action_mode = 0
 flat = true
-metadata/_edit_lock_ = true
-
-[node name="DebuggingTool" type="VBoxContainer" parent="Misc/GUI"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -632.0
-offset_top = -352.0
-offset_right = 632.0
-offset_bottom = 352.0
-mouse_filter = 2
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
-
-[node name="Taingle" type="Label" parent="Misc/GUI/DebuggingTool"]
-layout_mode = 2
-text = "NIGHTMARE TAINGLE:
-currentPosition: 0
-timerChangePosition: 0
-counterExposure: 0
-jumpscareExposure: 0"
 metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="Misc/Clock_Timer" to="." method="_on_clock_timer_timeout"]
