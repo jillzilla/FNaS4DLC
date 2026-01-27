@@ -21,8 +21,10 @@ class_name NightmareToyYoshi extends Node
 @export_group("Mechanicals")
 @export var debug : bool = false;
 @export var flashlight : FlashLightComponent;
+@export var officeRoomTravel : RoomTravelComponent;
 @export var Mask : Node2D;
 @export var shockSFX : AudioStreamPlayer;
+@export var jumpscareAnimation : AnimationPlayer;
 @export var peekingAnimation : AnimationPlayer;
 
 var cp : float;
@@ -60,25 +62,43 @@ func _process(delta: float) -> void:
 				if main.random_chance(positionChangingRate):
 					currentPosition += 1;
 					_handle_positions();
-					
 		#counter
-		if currentPosition >= positionsAvailable:
-			if Mask.isUsingMask && hasShocked:
-				counterExposure -= NewDelta * counterExposureLevel;
-				if counterExposure <= 0:
-					timerChangePosition = cp;
-					counterExposure = ce;
-					jumpscareExposure = je;
-					currentPosition = 0;
-					_handle_positions();
-					
+		if currentPosition >= positionsAvailable && Mask.isUsingMask && hasShocked && main.PlayerPosition == "Left_Vent":
+			counterExposure -= NewDelta * counterExposureLevel;
+			if counterExposure <= 0:
+				timerChangePosition = cp;
+				counterExposure = ce;
+				jumpscareExposure = je;
+				currentPosition = 0;
+				_handle_positions();
+		#jumpscare
+		elif canAttack && main.PlayerNotMoving && !Mask.PuttingMask:
+			jumpscareExposure -= NewDelta * jumpscareExposureLevel;
+			if jumpscareExposure <= 0:
+				main.killedBy = "Nightmare Toy Yoshi";
+				jumpscare = true;
+				jumpscareExposure = je;
+				main.PlayerAlive = false;
+				Position3.visible = false;
+				if main.PlayerPosition != "Office":
+					if Mask.isUsingMask:
+						Mask.get_node("CD_Timer").stop();
+						Mask._remove();
+						await Mask.MaskIsRemoved;
+					officeRoomTravel._travel();
+					await officeRoomTravel.doneTraveling;
+				jumpscareAnimation.play("jumpscare");
+				GlobalAudioManager.get_node("Taingle_Jumpscare").play();
+				await jumpscareAnimation.animation_finished;
+				_debugger();
+				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
+				
 		#special events
 		if currentPosition == 1: #peeking
 			if flashlight.is_on && !hasPeeked:
 				hasPeeked = true;
 				peekingAnimation.play("Peeking");
 				_debugger();
-				
 		if currentPosition == 3 && Position3.visible: #shocking
 			if flashlight.is_on && !hasShocked:
 				hasShocked = true;
@@ -98,6 +118,8 @@ func _handle_positions() -> void:
 				hasPeeked = false;
 			if hasShocked:
 				hasShocked = false;
+			if canAttack:
+				canAttack = false;
 		1:
 			Position1.visible = true;
 			Position2.visible = false;
@@ -110,6 +132,7 @@ func _handle_positions() -> void:
 			Position1.visible = false;
 			Position2.visible = false;
 			Position3.visible = true;
+			canAttack = true;
 			
 	_debugger();
 

@@ -60,9 +60,8 @@ func _process(delta: float) -> void:
 						counterExposure = ce;
 						currentPosition += 1;
 						_handle_positions();
-		
 		#counter
-		if currentPosition > 0 && flashlight.is_on:
+		if currentPosition > 0 && flashlight.is_on && main.PlayerPosition == "Ceiling":
 			counterExposure -= NewDelta * counterExposureLevel;
 			if counterExposure <= 0:
 				timerChangePosition = cp;
@@ -70,9 +69,8 @@ func _process(delta: float) -> void:
 				jumpscareExposure = je;
 				currentPosition -= 1;
 				_handle_positions();
-		
 		#jumpscare
-		if canAttack && !flashlight.is_on && main.PlayerNotMoving && !Mask.PuttingMask:
+		elif canAttack && main.PlayerNotMoving && !Mask.PuttingMask:
 			jumpscareExposure -= NewDelta * jumpscareExposureLevel;
 			if jumpscareExposure <= 0:
 				main.killedBy = "Nightmare Taingle";
