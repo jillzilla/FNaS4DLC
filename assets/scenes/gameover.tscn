@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dnhbquuqsi7p1"]
+[gd_scene load_steps=17 format=3 uid="uid://dnhbquuqsi7p1"]
 
 [ext_resource type="SpriteFrames" uid="uid://b0m55v6egjly4" path="res://assets/spriteframes/static.tres" id="1_w7pm3"]
 [ext_resource type="Script" uid="uid://c0cg0t6bjxduf" path="res://assets/scripts/gameover.gd" id="1_y35k0"]
 [ext_resource type="Texture2D" uid="uid://bovuboq2n87gt" path="res://assets/images/gameover/characters/taingle_gameover.png" id="2_3ktt8"]
 [ext_resource type="Texture2D" uid="uid://bua87itsn7gct" path="res://assets/images/gameover/povgameover.png" id="2_6om16"]
 [ext_resource type="Texture2D" uid="uid://c8jhhp0sjdlkb" path="res://assets/images/gameover/gameovermask.png" id="2_jb5wo"]
+[ext_resource type="Texture2D" uid="uid://ds348cpcekf1k" path="res://assets/images/gameover/characters/yoshi_gameover.png" id="3_1slms"]
 [ext_resource type="FontFile" uid="uid://d2a6fttewcype" path="res://assets/fonts/SUBWT___.ttf" id="6_3ktt8"]
 [ext_resource type="Theme" uid="uid://ddy4wy360a77j" path="res://assets/main_theme.tres" id="6_npv0f"]
 [ext_resource type="AudioStream" uid="uid://c82bnvup0rg6x" path="res://assets/sounds/Game_Over_Static_Sound.ogg" id="7_ojgh7"]
@@ -129,6 +130,12 @@ metadata/_edit_group_ = true
 [node name="Taingle" type="Sprite2D" parent="Characters"]
 visible = false
 texture = ExtResource("2_3ktt8")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ToyYoshi" type="Sprite2D" parent="Characters"]
+visible = false
+texture = ExtResource("3_1slms")
 centered = false
 metadata/_edit_lock_ = true
 
