@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dj4ueyd0v0uvy"]
+[gd_scene load_steps=50 format=3 uid="uid://dj4ueyd0v0uvy"]
 
 [ext_resource type="Script" uid="uid://bi145s4thcg3p" path="res://assets/scripts/nightsetup.gd" id="1_hlo8c"]
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/rooms/office.png" id="1_n5x6c"]
@@ -36,6 +36,8 @@
 [ext_resource type="Theme" uid="uid://ddy4wy360a77j" path="res://assets/main_theme.tres" id="29_21wbi"]
 [ext_resource type="FontFile" uid="uid://d2a6fttewcype" path="res://assets/fonts/SUBWT___.ttf" id="29_l5brk"]
 [ext_resource type="AudioStream" uid="uid://baqctxt57reor" path="res://assets/sounds/Toy_Tails_Radio.ogg" id="31_u63jk"]
+[ext_resource type="Texture2D" uid="uid://bu0dnpxqjv2ck" path="res://assets/images/gameplay/characters/yoshi/tyoshijumpscare.png" id="32_0v48r"]
+[ext_resource type="Texture2D" uid="uid://4d2byfqh0dbl" path="res://assets/images/gameplay/characters/yoshi/tyoshiclaw.png" id="33_4ldp1"]
 
 [sub_resource type="Animation" id="Animation_h887p"]
 resource_name = "Peeking"
@@ -97,6 +99,111 @@ tracks/1/keys = {
 _data = {
 &"Peeking": SubResource("Animation_h887p"),
 &"RESET": SubResource("Animation_xpj68")
+}
+
+[sub_resource type="Animation" id="Animation_3khrc"]
+resource_name = "jumpscare"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Yoshi:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(247.99997, 1008), Vector2(448, 552), Vector2(408.00006, 624.00006)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Yoshi:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.87, 0.87), Vector2(1.2, 1.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Yoshi:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.43633232, 0.15707964, -0.25830874]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Yoshi:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Claw:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(488.00006, 1056), Vector2(100, 600), Vector2(544, 848)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Claw:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1.095, 1.095), Vector2(2.5, 2.5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Claw:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.47472957, -0.9477138, 0.53407073]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Claw:modulate")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vx1u2"]
+_data = {
+&"jumpscare": SubResource("Animation_3khrc")
 }
 
 [sub_resource type="Animation" id="Animation_21wbi"]
@@ -271,7 +378,7 @@ flashlight = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
 officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 Mask = NodePath("../../Misc/GUI/Mask")
 shockSFX = NodePath("../../Sounds/Shock_SFX")
-jumpscareAnimation = NodePath("../../Misc/GUI/Jumpscares/Taingle_Jumpscare/AnimationPlayer")
+jumpscareAnimation = NodePath("../../Misc/GUI/Jumpscares/ToyYoshi_Jumpscare/AnimationPlayer")
 peekingAnimation = NodePath("../../Rooms/Left_Vent/ClipMask/Yoshi_1/Peek")
 metadata/_custom_type_script = "uid://5kr35ro71210"
 
@@ -694,6 +801,31 @@ metadata/_custom_type_script = "uid://cnhe33f3mmlmb"
 
 [node name="Jumpscares" type="Node2D" parent="Misc/GUI"]
 metadata/_edit_lock_ = true
+
+[node name="ToyYoshi_Jumpscare" type="Node2D" parent="Misc/GUI/Jumpscares"]
+metadata/_edit_lock_ = true
+
+[node name="Yoshi" type="Sprite2D" parent="Misc/GUI/Jumpscares/ToyYoshi_Jumpscare"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(247.99997, 1008)
+rotation = -0.43633232
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("32_0v48r")
+metadata/_edit_lock_ = true
+
+[node name="Claw" type="Sprite2D" parent="Misc/GUI/Jumpscares/ToyYoshi_Jumpscare"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(488.00006, 1056)
+rotation = 0.47472957
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_4ldp1")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/Jumpscares/ToyYoshi_Jumpscare"]
+libraries = {
+&"": SubResource("AnimationLibrary_vx1u2")
+}
+speed_scale = 1.5
 
 [node name="Taingle_Jumpscare" type="Sprite2D" parent="Misc/GUI/Jumpscares"]
 modulate = Color(0, 0, 0, 1)
