@@ -20,6 +20,8 @@ class_name NightmareToyYoshi extends Node
 
 @export_group("Mechanicals")
 @export var debug : bool = false;
+@export var ventSFX : AudioStreamPlayer2D;
+@export var ventLSFX : AudioStreamPlayer;
 @export var flashlight : FlashLightComponent;
 @export var officeRoomTravel : RoomTravelComponent;
 @export var Mask : Node2D;
@@ -60,6 +62,7 @@ func _process(delta: float) -> void:
 			if timerChangePosition <= 0:
 				timerChangePosition = cp;
 				if main.random_chance(positionChangingRate):
+					ventSFX.play();
 					currentPosition += 1;
 					_handle_positions();
 		#counter
@@ -69,6 +72,7 @@ func _process(delta: float) -> void:
 				timerChangePosition = cp;
 				counterExposure = ce;
 				jumpscareExposure = je;
+				ventLSFX.play();
 				currentPosition = 0;
 				_handle_positions();
 		#jumpscare

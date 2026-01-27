@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dj4ueyd0v0uvy"]
+[gd_scene load_steps=52 format=3 uid="uid://dj4ueyd0v0uvy"]
 
 [ext_resource type="Script" uid="uid://bi145s4thcg3p" path="res://assets/scripts/nightsetup.gd" id="1_hlo8c"]
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/rooms/office.png" id="1_n5x6c"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://d23jw7vmq03lb" path="res://assets/images/gameplay/rooms/hallway.png" id="6_ndvee"]
 [ext_resource type="Texture2D" uid="uid://c502v777dd53r" path="res://assets/images/gameplay/rooms/clipmask/ceiling.png" id="7_kgr1o"]
 [ext_resource type="Texture2D" uid="uid://ci88c0f206wu3" path="res://assets/images/gameplay/characters/taingle/taingle_1.png" id="7_ugpla"]
+[ext_resource type="AudioStream" uid="uid://dg4vteonqhqb0" path="res://assets/sounds/Vent_Far.ogg" id="8_3khrc"]
 [ext_resource type="Texture2D" uid="uid://dd56tc7irhp2r" path="res://assets/images/gameplay/rooms/flashlight/vent_on.png" id="8_iuexx"]
 [ext_resource type="Texture2D" uid="uid://bdlmu7wbqans7" path="res://assets/images/gameplay/characters/taingle/taingle_2.png" id="8_kgr1o"]
 [ext_resource type="Texture2D" uid="uid://0f8oes41ekud" path="res://assets/images/gameplay/rooms/flashlight/vent_off.png" id="9_b4idp"]
@@ -38,6 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://baqctxt57reor" path="res://assets/sounds/Toy_Tails_Radio.ogg" id="31_u63jk"]
 [ext_resource type="Texture2D" uid="uid://bu0dnpxqjv2ck" path="res://assets/images/gameplay/characters/yoshi/tyoshijumpscare.png" id="32_0v48r"]
 [ext_resource type="Texture2D" uid="uid://4d2byfqh0dbl" path="res://assets/images/gameplay/characters/yoshi/tyoshiclaw.png" id="33_4ldp1"]
+[ext_resource type="AudioStream" uid="uid://becm6j6c27siq" path="res://assets/sounds/sfx_vent.ogg" id="37_4ldp1"]
 
 [sub_resource type="Animation" id="Animation_h887p"]
 resource_name = "Peeking"
@@ -362,7 +364,7 @@ ClockCounter = NodePath("Misc/GUI/Clock")
 
 [node name="Characters" type="Node" parent="."]
 
-[node name="NightmareToyYoshi" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "flashlight", "officeRoomTravel", "Mask", "shockSFX", "jumpscareAnimation", "peekingAnimation")]
+[node name="NightmareToyYoshi" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "ventSFX", "ventLSFX", "flashlight", "officeRoomTravel", "Mask", "shockSFX", "jumpscareAnimation", "peekingAnimation")]
 script = ExtResource("3_ejjiw")
 positionChangingRate = 50.0
 timerChangePosition = 6000.0
@@ -373,7 +375,8 @@ jumpscareExposure = 2500.0
 Position1 = NodePath("../../Rooms/Left_Vent/ClipMask/Yoshi_1")
 Position2 = NodePath("../../Rooms/Left_Vent/Yoshi/Yoshi_2")
 Position3 = NodePath("../../Rooms/Left_Vent/Yoshi/Yoshi_3")
-debug = true
+ventSFX = NodePath("../../Misc/GUI/2DAudios/LeftVentSound")
+ventLSFX = NodePath("../../Sounds/Vent_Leave_SFX")
 flashlight = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
 officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 Mask = NodePath("../../Misc/GUI/Mask")
@@ -394,7 +397,6 @@ Position1 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_1")
 Position2 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_2")
 Position3 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_3")
 Position4 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_4")
-debug = true
 flashlight = NodePath("../../Rooms/Ceiling/FlashLightComponent")
 officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 Mask = NodePath("../../Misc/GUI/Mask")
@@ -418,6 +420,9 @@ stream = ExtResource("3_5jwmk")
 [node name="Shock_SFX" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("4_ugpla")
 volume_db = -15.0
+
+[node name="Vent_Leave_SFX" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_3khrc")
 
 [node name="Rooms" type="Node" parent="."]
 
@@ -864,6 +869,20 @@ metadata/_edit_group_ = true
 libraries = {
 &"": SubResource("AnimationLibrary_hogfr")
 }
+
+[node name="2DAudios" type="Node2D" parent="Misc/GUI"]
+position = Vector2(640, 360)
+metadata/_edit_lock_ = true
+
+[node name="LeftVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios"]
+position = Vector2(-400, 0)
+stream = ExtResource("37_4ldp1")
+metadata/_edit_lock_ = true
+
+[node name="RightVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios"]
+position = Vector2(400, 0)
+stream = ExtResource("37_4ldp1")
+metadata/_edit_lock_ = true
 
 [node name="Clock" type="Label" parent="Misc/GUI"]
 anchors_preset = -1
