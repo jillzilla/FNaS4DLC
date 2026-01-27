@@ -11,7 +11,7 @@ var PlayerNotMoving : bool = true;
 
 #characters ai level
 var NightmareToyYoshiAILevel : int = 20;
-var NightmareTaingleAILevel : int = 20;
+var NightmareTaingleAILevel : int = 0;
 
 #functions
 func random_chance(percent: float) -> bool:

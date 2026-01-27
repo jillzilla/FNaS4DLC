@@ -257,9 +257,16 @@ ClockCounter = NodePath("Misc/GUI/Clock")
 
 [node name="NightmareToyYoshi" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "flashlight", "Mask", "shockSFX", "peekingAnimation")]
 script = ExtResource("3_ejjiw")
+positionChangingRate = 60.0
+timerChangePosition = 6000.0
+counterExposureLevel = 15
+counterExposure = 1000.0
+jumpscareExposureLevel = 10
+jumpscareExposure = 2000.0
 Position1 = NodePath("../../Rooms/Left_Vent/ClipMask/Yoshi_1")
 Position2 = NodePath("../../Rooms/Left_Vent/Yoshi/Yoshi_2")
 Position3 = NodePath("../../Rooms/Left_Vent/Yoshi/Yoshi_3")
+debug = true
 flashlight = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
 Mask = NodePath("../../Misc/GUI/Mask")
 shockSFX = NodePath("../../Sounds/Shock_SFX")
@@ -268,6 +275,12 @@ metadata/_custom_type_script = "uid://5kr35ro71210"
 
 [node name="NightmareTaingle" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "radio")]
 script = ExtResource("1_rybgg")
+positionChangingRate = 50.0
+timerChangePosition = 6000.0
+counterExposureLevel = 25
+counterExposure = 2000.0
+jumpscareExposureLevel = 15
+jumpscareExposure = 4000.0
 Position1 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_1")
 Position2 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_2")
 Position3 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_3")
@@ -385,12 +398,13 @@ flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Rooms/Ceiling" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel")]
+[node name="FlashLightComponent" type="Node" parent="Rooms/Ceiling" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
 script = ExtResource("16_br2i6")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
 flashlightSFX = NodePath("../../../Sounds/Flashlight_SFX")
 travel = NodePath("../RoomTravelComponent")
+mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 
 [node name="Desk" type="Sprite2D" parent="Rooms"]
@@ -476,12 +490,13 @@ mask = NodePath("../../../Misc/GUI/Mask")
 canUseMaskHere = true
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Rooms/Left_Vent" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel")]
+[node name="FlashLightComponent" type="Node" parent="Rooms/Left_Vent" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
 script = ExtResource("16_br2i6")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
 flashlightSFX = NodePath("../../../Sounds/Flashlight_SFX")
 travel = NodePath("../RoomTravelComponent")
+mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 
 [node name="Right_Vent" type="Sprite2D" parent="Rooms"]
@@ -516,12 +531,13 @@ mask = NodePath("../../../Misc/GUI/Mask")
 canUseMaskHere = true
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Rooms/Right_Vent" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel")]
+[node name="FlashLightComponent" type="Node" parent="Rooms/Right_Vent" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
 script = ExtResource("16_br2i6")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
 flashlightSFX = NodePath("../../../Sounds/Flashlight_SFX")
 travel = NodePath("../RoomTravelComponent")
+mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 
 [node name="Hallway" type="Sprite2D" parent="Rooms"]
@@ -555,12 +571,13 @@ flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Rooms/Hallway" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel")]
+[node name="FlashLightComponent" type="Node" parent="Rooms/Hallway" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
 script = ExtResource("16_br2i6")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
 flashlightSFX = NodePath("../../../Sounds/Flashlight_SFX")
 travel = NodePath("../RoomTravelComponent")
+mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 
 [node name="Buttons" type="Node" parent="."]

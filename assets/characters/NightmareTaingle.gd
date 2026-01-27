@@ -4,14 +4,14 @@ class_name NightmareTaingle extends Node
 @export_group("Status")
 @export var currentPosition : int = 0;
 
-@export var positionChangingRate : float = 75;
-@export var timerChangePosition : float = 5000;
+@export var positionChangingRate : float = 0;
+@export var timerChangePosition : float = 0;
 
-@export var counterExposureLevel : int = 30;
-@export var counterExposure : float = 2500;
+@export var counterExposureLevel : int = 0;
+@export var counterExposure : float = 0;
 
-@export var jumpscareExposureLevel : int = 15;
-@export var jumpscareExposure : float = 2000;
+@export var jumpscareExposureLevel : int = 0;
+@export var jumpscareExposure : float = 0;
 
 @export_group("Sprites")
 @export var Position1 : Sprite2D;
@@ -20,6 +20,7 @@ class_name NightmareTaingle extends Node
 @export var Position4 : Sprite2D;
 
 @export_group("Mechanicals")
+@export var debug : bool = false;
 @export var flashlight : FlashLightComponent;
 @export var officeRoomTravel : RoomTravelComponent;
 @export var Mask : Node2D;
@@ -37,16 +38,19 @@ var jumpscare : bool = false;
 
 #functions
 func _ready() -> void:
+	#working variables
 	cp = timerChangePosition;
 	ce = counterExposure;
 	je = jumpscareExposure;
-
+	
+	#character setup
 	_handle_positions();
 
 func _process(delta: float) -> void:
 	var NewDelta : float = delta * main.fpsTarget;
 
 	if main.NightmareTaingleAILevel != 0 && !jumpscare && main.PlayerAlive:
+		#movement
 		if currentPosition < positionsAvailable:
 			if currentPosition > 0 && !flashlight.is_on || currentPosition == 0:
 				timerChangePosition -= NewDelta * main.NightmareTaingleAILevel;
@@ -56,7 +60,8 @@ func _process(delta: float) -> void:
 						counterExposure = ce;
 						currentPosition += 1;
 						_handle_positions();
-						
+		
+		#counter
 		if currentPosition > 0 && flashlight.is_on:
 			counterExposure -= NewDelta * counterExposureLevel;
 			if counterExposure <= 0:
@@ -65,7 +70,8 @@ func _process(delta: float) -> void:
 				jumpscareExposure = je;
 				currentPosition -= 1;
 				_handle_positions();
-				
+		
+		#jumpscare
 		if canAttack && !flashlight.is_on && main.PlayerNotMoving && !Mask.PuttingMask:
 			jumpscareExposure -= NewDelta * jumpscareExposureLevel;
 			if jumpscareExposure <= 0:
@@ -85,6 +91,7 @@ func _process(delta: float) -> void:
 				jumpscareAnimation.play("jumpscare");
 				GlobalAudioManager.get_node("Taingle_Jumpscare").play();
 				await jumpscareAnimation.animation_finished;
+				_debugger();
 				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
 
 func _handle_positions() -> void:
@@ -124,3 +131,15 @@ func _handle_positions() -> void:
 			Position4.visible = true;
 			canAttack = true;
 			radio.volume_db = 0;
+			
+	_debugger();
+			
+func _debugger() -> void:
+	if debug:
+		print(">> Nightmare Taingle");
+		print("Current Position: " + str(currentPosition));
+		print("Timer Change Position: " + str(timerChangePosition));
+		print("Counter Exposure: " + str(counterExposure));
+		print("Jumpscare Exposure: " + str(jumpscareExposure));
+		print("Can Attack: " + str(canAttack));
+		print("Jumpscare: " + str(jumpscare));
