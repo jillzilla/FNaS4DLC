@@ -8,6 +8,7 @@ enum inputs {ENTERED,PRESSED};
 @export var input : Variant = inputs.PRESSED;
 @export var button : Button;
 @export var walkSFX : AudioStreamPlayer;
+@export var TimerMouseEnteredCD : Timer;
 
 @export var room : Sprite2D;
 @export var roomPosition : Vector2;
@@ -94,6 +95,8 @@ func _travel() -> void:
 			camMove.tween_property(scrolling.get_parent(),"position:y",camPosYEffectEnd,0.5).set_trans(Tween.TRANS_CUBIC);
 			await camMove.finished;
 		
+		TimerMouseEnteredCD.start();
+		
 		for i in range(buttonToActivate.size()):
 			if !buttonToActivate[i].visible:
 				buttonToActivate[i].visible = true;
@@ -113,5 +116,5 @@ func _pressed() -> void:
 		_travel();
 
 func _entered() -> void:
-	if input == inputs.ENTERED && main.PlayerAlive:
+	if TimerMouseEnteredCD.is_stopped() && input == inputs.ENTERED && main.PlayerAlive:
 		_travel();

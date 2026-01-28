@@ -751,11 +751,12 @@ texture = ExtResource("1_n5x6c")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Office" node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "roomToLeave", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Office" node_paths=PackedStringArray("button", "walkSFX", "TimerMouseEnteredCD", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "roomToLeave", "mask")]
 script = ExtResource("2_f1ux5")
 input = 0
 button = NodePath("../../../Misc/GUI/Office_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
+TimerMouseEnteredCD = NodePath("../../../Misc/Timer_CD_Entered")
 room = NodePath("..")
 fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
@@ -813,11 +814,12 @@ position = Vector2(0, -350)
 texture = ExtResource("5_br2i6")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Ceiling" node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Ceiling" node_paths=PackedStringArray("button", "walkSFX", "TimerMouseEnteredCD", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 input = 0
 button = NodePath("../../../Buttons/Ceiling_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
+TimerMouseEnteredCD = NodePath("../../../Misc/Timer_CD_Entered")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
@@ -845,10 +847,11 @@ position = Vector2(-640, 710)
 texture = ExtResource("3_f1ux5")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Desk" node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Desk" node_paths=PackedStringArray("button", "walkSFX", "TimerMouseEnteredCD", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Desk_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
+TimerMouseEnteredCD = NodePath("../../../Misc/Timer_CD_Entered")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
@@ -922,10 +925,11 @@ position = Vector2(0, -350)
 texture = ExtResource("9_b4idp")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Left_Vent" node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Left_Vent" node_paths=PackedStringArray("button", "walkSFX", "TimerMouseEnteredCD", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Left_Vent_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
+TimerMouseEnteredCD = NodePath("../../../Misc/Timer_CD_Entered")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
@@ -987,10 +991,11 @@ position = Vector2(0, -350)
 texture = ExtResource("9_b4idp")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Right_Vent" node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Right_Vent" node_paths=PackedStringArray("button", "walkSFX", "TimerMouseEnteredCD", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Right_Vent_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
+TimerMouseEnteredCD = NodePath("../../../Misc/Timer_CD_Entered")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
@@ -1028,10 +1033,11 @@ position = Vector2(0, -350)
 texture = ExtResource("13_qautv")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Hallway" node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Hallway" node_paths=PackedStringArray("button", "walkSFX", "TimerMouseEnteredCD", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Hallway_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
+TimerMouseEnteredCD = NodePath("../../../Misc/Timer_CD_Entered")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
@@ -1141,6 +1147,10 @@ metadata/_edit_lock_ = true
 wait_time = 45.0
 one_shot = true
 autostart = true
+
+[node name="Timer_CD_Entered" type="Timer" parent="Misc"]
+wait_time = 0.05
+one_shot = true
 
 [node name="Scrolling" type="Camera2D" parent="Misc"]
 position = Vector2(1040, 360)
