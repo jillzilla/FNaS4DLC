@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://dj4ueyd0v0uvy"]
+[gd_scene load_steps=72 format=3 uid="uid://dj4ueyd0v0uvy"]
 
 [ext_resource type="Script" uid="uid://bi145s4thcg3p" path="res://assets/scripts/nightsetup.gd" id="1_hlo8c"]
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/rooms/office.png" id="1_n5x6c"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://v3lx10cvmtha" path="res://assets/images/gameplay/characters/yoshi/yoshi_1.png" id="21_h887p"]
 [ext_resource type="AudioStream" uid="uid://blrhwp7bm001r" path="res://assets/sounds/[7] Run_to_Door_Sound.ogg" id="22_bkfnj"]
 [ext_resource type="Texture2D" uid="uid://c8mjrs7bc20p1" path="res://assets/images/gameplay/characters/yoshi/yoshi_2.png" id="22_ondv3"]
+[ext_resource type="Texture2D" uid="uid://cqavnkrwi222l" path="res://assets/images/gameplay/rooms/deskoverlay.png" id="22_wrac7"]
 [ext_resource type="Texture2D" uid="uid://dd4oklmi170cu" path="res://assets/images/gameplay/characters/yoshi/yoshi_3.png" id="23_ejjiw"]
 [ext_resource type="Texture2D" uid="uid://cwnw6finkb365" path="res://assets/images/gameplay/characters/tsonic/toysonic1.png" id="24_vx1u2"]
 [ext_resource type="Texture2D" uid="uid://dagj5ybgry1hp" path="res://assets/images/gameplay/characters/taingle/taingle_jumpscare.png" id="26_3txkv"]
@@ -49,6 +50,65 @@
 [ext_resource type="Texture2D" uid="uid://ct5t8s1gp55aa" path="res://assets/images/gameplay/characters/tsonic/tsonicrightfoot.png" id="47_f7gff"]
 [ext_resource type="Texture2D" uid="uid://dxr7q74afj2e6" path="res://assets/images/gameplay/characters/tsonic/tsonicpelvis.png" id="48_wrac7"]
 [ext_resource type="Texture2D" uid="uid://ckkpwi621bua1" path="res://assets/images/gameplay/characters/tsonic/tsonicleftfoot.png" id="49_1mjni"]
+
+[sub_resource type="Animation" id="Animation_wrac7"]
+resource_name = "WalkCycle"
+length = 0.3
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightFoot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.567232, 0.9442231]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftFoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.9442231, -0.37873644]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftFoot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-184, 15), Vector2(216, -8.000007)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightFoot:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(264, -58), Vector2(-144.00006, 8.000008)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kaecm"]
+_data = {
+&"WalkCycle": SubResource("Animation_wrac7")
+}
 
 [sub_resource type="Animation" id="Animation_82o30"]
 resource_name = "Peeking"
@@ -594,65 +654,6 @@ _data = {
 &"fade": SubResource("Animation_f1ux5")
 }
 
-[sub_resource type="Animation" id="Animation_wrac7"]
-resource_name = "WalkCycle"
-length = 0.3
-loop_mode = 2
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RightFoot:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.567232, 0.9442231]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LeftFoot:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.9442231, -0.37873644]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LeftFoot:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-184, 15), Vector2(216, -8.000007)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("RightFoot:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(264, -58), Vector2(-144.00006, 8.000008)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kaecm"]
-_data = {
-&"WalkCycle": SubResource("Animation_wrac7")
-}
-
 [node name="Gameplay" type="Node" node_paths=PackedStringArray("officeRoomTravel", "ClockTimer", "ClockCounter")]
 script = ExtResource("1_hlo8c")
 officeRoomTravel = NodePath("Rooms/Office/RoomTravelComponent")
@@ -661,7 +662,7 @@ ClockCounter = NodePath("Misc/GUI/Clock")
 
 [node name="Characters" type="Node" parent="."]
 
-[node name="NightmareToySonic" type="Node" parent="Characters" node_paths=PackedStringArray("LPosition1", "LPosition2", "RPosition1", "RPosition2", "LFlashlight", "RFlashlight", "Mask", "LVentSFX", "RVentSFX", "shockSFX", "officeRoomTravel", "jumpscareAnimation", "LPeekingAnimation", "RPeekingAnimation")]
+[node name="NightmareToySonic" type="Node" parent="Characters" node_paths=PackedStringArray("LPosition1", "LPosition2", "RPosition1", "RPosition2", "LFlashlight", "RFlashlight", "Mask", "LVentSFX", "RVentSFX", "shockSFX", "officeRoomTravel", "jumpscareAnimation", "LPeekingAnimation", "RPeekingAnimation", "RunGraphics", "RunAnimation")]
 script = ExtResource("2_pcblb")
 positionChangingRate = 50.0
 timerChangePosition = 6000.0
@@ -671,7 +672,6 @@ LPosition1 = NodePath("../../Rooms/Left_Vent/ClipMask/ToySonic_1")
 LPosition2 = NodePath("../../Rooms/Left_Vent/ToySonic_2")
 RPosition1 = NodePath("../../Rooms/Right_Vent/ClipMask/ToySonic_21")
 RPosition2 = NodePath("../../Rooms/Right_Vent/ToySonic_22")
-debug = true
 LFlashlight = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
 RFlashlight = NodePath("../../Rooms/Right_Vent/FlashLightComponent")
 Mask = NodePath("../../Misc/GUI/Mask")
@@ -682,6 +682,8 @@ officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 jumpscareAnimation = NodePath("../../Misc/GUI/ToySonic_Jumpscare/AnimationPlayer")
 LPeekingAnimation = NodePath("../../Rooms/Left_Vent/ClipMask/ToySonic_1/Peek")
 RPeekingAnimation = NodePath("../../Rooms/Right_Vent/ClipMask/ToySonic_21/Peek")
+RunGraphics = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation")
+RunAnimation = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation/AnimationPlayer")
 metadata/_custom_type_script = "uid://cfq33rypau5gu"
 
 [node name="NightmareToyYoshi" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "ventSFX", "ventLSFX", "flashlight", "officeRoomTravel", "Mask", "shockSFX", "jumpscareAnimation", "peekingAnimation")]
@@ -845,6 +847,40 @@ metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 clip_children = 2
 position = Vector2(-640, 710)
 texture = ExtResource("3_f1ux5")
+metadata/_edit_lock_ = true
+
+[node name="ToySonic_Desk_Animation" type="Node2D" parent="Rooms/Desk"]
+visible = false
+position = Vector2(0, -280)
+metadata/_edit_lock_ = true
+
+[node name="RightFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation"]
+position = Vector2(264, -58)
+rotation = -0.567232
+texture = ExtResource("47_f7gff")
+metadata/_edit_lock_ = true
+
+[node name="Pelvis" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation"]
+position = Vector2(0, -216)
+texture = ExtResource("48_wrac7")
+metadata/_edit_lock_ = true
+
+[node name="LeftFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation"]
+position = Vector2(-184, 15)
+rotation = 0.9442231
+texture = ExtResource("49_1mjni")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Desk/ToySonic_Desk_Animation"]
+libraries = {
+&"": SubResource("AnimationLibrary_kaecm")
+}
+autoplay = "WalkCycle"
+speed_scale = 2.0
+
+[node name="Overlay" type="Sprite2D" parent="Rooms/Desk"]
+position = Vector2(0, -350)
+texture = ExtResource("22_wrac7")
 metadata/_edit_lock_ = true
 
 [node name="RoomTravelComponent" type="Node" parent="Rooms/Desk" node_paths=PackedStringArray("button", "walkSFX", "TimerMouseEnteredCD", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "mask")]
@@ -1296,48 +1332,21 @@ horizontal_alignment = 2
 metadata/_edit_lock_ = true
 
 [node name="Office_Button" type="Button" parent="Misc/GUI"]
-visible = false
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.95600003
+anchor_top = 0.883
 anchor_right = 0.5
-anchor_bottom = 0.95600003
+anchor_bottom = 0.883
 offset_left = -640.0
-offset_top = -32.320007
+offset_top = -83.76001
 offset_right = 640.0
-offset_bottom = 31.679993
+offset_bottom = 84.23999
 focus_mode = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 2
 disabled = true
 action_mode = 0
 flat = true
 metadata/_edit_lock_ = true
-
-[node name="ToySonic_Desk_Animation" type="Node2D" parent="."]
-position = Vector2(2824, 432)
-metadata/_edit_lock_ = true
-
-[node name="RightFoot" type="Sprite2D" parent="ToySonic_Desk_Animation"]
-position = Vector2(264, -58)
-rotation = -0.567232
-texture = ExtResource("47_f7gff")
-metadata/_edit_lock_ = true
-
-[node name="Pelvis" type="Sprite2D" parent="ToySonic_Desk_Animation"]
-position = Vector2(0, -216)
-texture = ExtResource("48_wrac7")
-metadata/_edit_lock_ = true
-
-[node name="LeftFoot" type="Sprite2D" parent="ToySonic_Desk_Animation"]
-position = Vector2(-184, 15)
-rotation = 0.9442231
-texture = ExtResource("49_1mjni")
-metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ToySonic_Desk_Animation"]
-libraries = {
-&"": SubResource("AnimationLibrary_kaecm")
-}
-speed_scale = 2.0
 
 [connection signal="timeout" from="Misc/Clock_Timer" to="." method="_on_clock_timer_timeout"]

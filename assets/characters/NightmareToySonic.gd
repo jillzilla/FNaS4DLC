@@ -31,6 +31,8 @@ var Direction : Variant = Directions.NONE;
 @export var jumpscareAnimation : AnimationPlayer;
 @export var LPeekingAnimation : AnimationPlayer;
 @export var RPeekingAnimation : AnimationPlayer;
+@export var RunGraphics : Node2D;
+@export var RunAnimation : AnimationPlayer;
 
 var cp : float;
 var je : float;
@@ -68,13 +70,31 @@ func _process(delta: float) -> void:
 					currentPosition += 1;
 					_handle_positions();
 		#counter
-		if currentPosition >= positionsAvailable && main.PlayerPosition == "Desk" && hasShocked:
+		if currentPosition >= positionsAvailable && main.PlayerPosition == "Desk" && hasShocked && !main.ntsDeskRunning && main.PlayerNotMoving:
+			main.ntsDeskRunning = true;
+			if Direction == Directions.LEFT:
+				RunGraphics.scale.x = 1;
+				RunGraphics.position.x = -1240;
+			else:
+				RunGraphics.scale.x = -1;
+				RunGraphics.position.x = 1240;
+			RunGraphics.visible = true;
+			var t : Tween = create_tween();
+			if Direction == Directions.LEFT:
+				t.tween_property(RunGraphics,"position:x",1240,0.5);
+			else:
+				t.tween_property(RunGraphics,"position:x",-1240,0.5);
+			await t.finished;
+			RunGraphics.visible = false;
+			RunGraphics.scale.x = 1;
+			RunGraphics.position.x = 0;
 			timerChangePosition = cp;
 			jumpscareExposure = je;
 			currentPosition = 0;
+			main.ntsDeskRunning = false;
 			_handle_positions();
 		#jumpscare
-		elif canAttack && main.PlayerNotMoving && !Mask.PuttingMask:
+		elif canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning:
 			jumpscareExposure -= NewDelta * jumpscareExposureLevel;
 			if jumpscareExposure <= 0:
 				main.killedBy = "Nightmare Toy Sonic";

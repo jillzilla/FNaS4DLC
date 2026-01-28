@@ -54,8 +54,7 @@ func _travel() -> void:
 		scrolling.disable = true;
 
 		for i in range(buttonToDisable.size()):
-			if buttonToDisable[i].visible:
-				buttonToDisable[i].visible = false;
+			buttonToDisable[i].mouse_filter = Control.MOUSE_FILTER_IGNORE;
 
 		if roomToLeave != []:
 			for i in range(roomToLeave.size()):
@@ -96,11 +95,10 @@ func _travel() -> void:
 			await camMove.finished;
 		
 		for i in range(buttonToActivate.size()):
-			if !buttonToActivate[i].visible:
-				if buttonToActivate[i].name == "Office_Button" || buttonToActivate[i].name == "Ceiling_Button":
-					if TimerMouseEnteredCD.is_stopped():
-						TimerMouseEnteredCD.start();
-				buttonToActivate[i].visible = true;
+			if buttonToActivate[i].name == "Office_Button" || buttonToActivate[i].name == "Ceiling_Button":
+				if TimerMouseEnteredCD.is_stopped():
+					TimerMouseEnteredCD.start();
+			buttonToActivate[i].mouse_filter = Control.MOUSE_FILTER_STOP;
 
 		if canUseMaskHere:
 			mask.canUseMask = true;
@@ -118,8 +116,9 @@ func _pressed() -> void:
 		print("Pressed")
 
 func _entered() -> void:
-	if !TimerMouseEnteredCD.is_stopped():
-		return;
-	elif input == inputs.ENTERED && main.PlayerAlive && TimerMouseEnteredCD.is_stopped():
-		_travel();
-		print("Entered")
+	if !main.ntsDeskRunning:
+		if !TimerMouseEnteredCD.is_stopped():
+			return;
+		elif input == inputs.ENTERED && main.PlayerAlive && TimerMouseEnteredCD.is_stopped():
+			_travel();
+			print("Entered")
