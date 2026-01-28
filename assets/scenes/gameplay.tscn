@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dj4ueyd0v0uvy"]
+[gd_scene load_steps=55 format=3 uid="uid://dj4ueyd0v0uvy"]
 
 [ext_resource type="Script" uid="uid://bi145s4thcg3p" path="res://assets/scripts/nightsetup.gd" id="1_hlo8c"]
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/rooms/office.png" id="1_n5x6c"]
@@ -33,9 +33,12 @@
 [ext_resource type="AudioStream" uid="uid://blrhwp7bm001r" path="res://assets/sounds/[7] Run_to_Door_Sound.ogg" id="22_bkfnj"]
 [ext_resource type="Texture2D" uid="uid://c8mjrs7bc20p1" path="res://assets/images/gameplay/characters/yoshi/yoshi_2.png" id="22_ondv3"]
 [ext_resource type="Texture2D" uid="uid://dd4oklmi170cu" path="res://assets/images/gameplay/characters/yoshi/yoshi_3.png" id="23_ejjiw"]
+[ext_resource type="Texture2D" uid="uid://cwnw6finkb365" path="res://assets/images/gameplay/characters/tsonic/toysonic1.png" id="24_vx1u2"]
 [ext_resource type="Texture2D" uid="uid://dagj5ybgry1hp" path="res://assets/images/gameplay/characters/taingle/taingle_jumpscare.png" id="26_3txkv"]
+[ext_resource type="Texture2D" uid="uid://u170nc4742i1" path="res://assets/images/gameplay/characters/tsonic/toysonic2.png" id="27_mmgny"]
 [ext_resource type="Theme" uid="uid://ddy4wy360a77j" path="res://assets/main_theme.tres" id="29_21wbi"]
 [ext_resource type="FontFile" uid="uid://d2a6fttewcype" path="res://assets/fonts/SUBWT___.ttf" id="29_l5brk"]
+[ext_resource type="Texture2D" uid="uid://dspjkfre872ju" path="res://assets/images/gameplay/characters/tsonic/toysonic21.png" id="31_82o30"]
 [ext_resource type="AudioStream" uid="uid://baqctxt57reor" path="res://assets/sounds/Toy_Tails_Radio.ogg" id="31_u63jk"]
 [ext_resource type="Texture2D" uid="uid://bu0dnpxqjv2ck" path="res://assets/images/gameplay/characters/yoshi/tyoshijumpscare.png" id="32_0v48r"]
 [ext_resource type="Texture2D" uid="uid://4d2byfqh0dbl" path="res://assets/images/gameplay/characters/yoshi/tyoshiclaw.png" id="33_4ldp1"]
@@ -109,7 +112,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Yoshi:position")
+tracks/0/path = NodePath("ToyYoshi:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -121,7 +124,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Yoshi:scale")
+tracks/1/path = NodePath("ToyYoshi:scale")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -133,7 +136,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Yoshi:rotation")
+tracks/2/path = NodePath("ToyYoshi:rotation")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -145,7 +148,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Yoshi:modulate")
+tracks/3/path = NodePath("ToyYoshi:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -372,17 +375,17 @@ counterExposureLevel = 15
 counterExposure = 2000.0
 jumpscareExposureLevel = 10
 jumpscareExposure = 2500.0
-Position1 = NodePath("../../Rooms/Left_Vent/ClipMask/Yoshi_1")
-Position2 = NodePath("../../Rooms/Left_Vent/Yoshi/Yoshi_2")
-Position3 = NodePath("../../Rooms/Left_Vent/Yoshi/Yoshi_3")
+Position1 = NodePath("../../Rooms/Left_Vent/ClipMask/ToyYoshi_1")
+Position2 = NodePath("../../Rooms/Left_Vent/ToyYoshi_2")
+Position3 = NodePath("../../Rooms/Left_Vent/ToyYoshi_3")
 ventSFX = NodePath("../../Misc/GUI/2DAudios/LeftVentSound")
 ventLSFX = NodePath("../../Sounds/Vent_Leave_SFX")
 flashlight = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
 officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 Mask = NodePath("../../Misc/GUI/Mask")
 shockSFX = NodePath("../../Sounds/Shock_SFX")
-jumpscareAnimation = NodePath("../../Misc/GUI/Jumpscares/ToyYoshi_Jumpscare/AnimationPlayer")
-peekingAnimation = NodePath("../../Rooms/Left_Vent/ClipMask/Yoshi_1/Peek")
+jumpscareAnimation = NodePath("../../Misc/GUI/ToyYoshi_Jumpscare/AnimationPlayer")
+peekingAnimation = NodePath("../../Rooms/Left_Vent/ClipMask/ToyYoshi_1/Peek")
 metadata/_custom_type_script = "uid://5kr35ro71210"
 
 [node name="NightmareTaingle" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "radio")]
@@ -393,14 +396,14 @@ counterExposureLevel = 25
 counterExposure = 1000.0
 jumpscareExposureLevel = 15
 jumpscareExposure = 3000.0
-Position1 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_1")
-Position2 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_2")
-Position3 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_3")
-Position4 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle/Taingle_4")
+Position1 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle_1")
+Position2 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle_2")
+Position3 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle_3")
+Position4 = NodePath("../../Rooms/Ceiling/ClipMask/Taingle_4")
 flashlight = NodePath("../../Rooms/Ceiling/FlashLightComponent")
 officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 Mask = NodePath("../../Misc/GUI/Mask")
-jumpscareAnimation = NodePath("../../Misc/GUI/Jumpscares/Taingle_Jumpscare/AnimationPlayer")
+jumpscareAnimation = NodePath("../../Misc/GUI/Taingle_Jumpscare/AnimationPlayer")
 radio = NodePath("../../Sounds/Taingle_Radio")
 metadata/_custom_type_script = "uid://dslqbhm8b8w8y"
 
@@ -459,28 +462,25 @@ clip_children = 1
 texture = ExtResource("7_kgr1o")
 metadata/_edit_lock_ = true
 
-[node name="Taingle" type="Node2D" parent="Rooms/Ceiling/ClipMask"]
-metadata/_edit_lock_ = true
-
-[node name="Taingle_1" type="Sprite2D" parent="Rooms/Ceiling/ClipMask/Taingle"]
+[node name="Taingle_1" type="Sprite2D" parent="Rooms/Ceiling/ClipMask"]
 visible = false
 position = Vector2(0, -566.5)
 texture = ExtResource("7_ugpla")
 metadata/_edit_lock_ = true
 
-[node name="Taingle_2" type="Sprite2D" parent="Rooms/Ceiling/ClipMask/Taingle"]
+[node name="Taingle_2" type="Sprite2D" parent="Rooms/Ceiling/ClipMask"]
 visible = false
 position = Vector2(0, -510)
 texture = ExtResource("8_kgr1o")
 metadata/_edit_lock_ = true
 
-[node name="Taingle_3" type="Sprite2D" parent="Rooms/Ceiling/ClipMask/Taingle"]
+[node name="Taingle_3" type="Sprite2D" parent="Rooms/Ceiling/ClipMask"]
 visible = false
 position = Vector2(0, -457)
 texture = ExtResource("9_rybgg")
 metadata/_edit_lock_ = true
 
-[node name="Taingle_4" type="Sprite2D" parent="Rooms/Ceiling/ClipMask/Taingle"]
+[node name="Taingle_4" type="Sprite2D" parent="Rooms/Ceiling/ClipMask"]
 visible = false
 position = Vector2(0, -431.5)
 texture = ExtResource("10_hlo8c")
@@ -553,30 +553,42 @@ clip_children = 1
 texture = ExtResource("20_t2peh")
 metadata/_edit_lock_ = true
 
-[node name="Yoshi_1" type="Sprite2D" parent="Rooms/Left_Vent/ClipMask"]
+[node name="ToySonic_1" type="Sprite2D" parent="Rooms/Left_Vent/ClipMask"]
+visible = false
+position = Vector2(88, -446)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("24_vx1u2")
+metadata/_edit_lock_ = true
+
+[node name="ToyYoshi_1" type="Sprite2D" parent="Rooms/Left_Vent/ClipMask"]
 visible = false
 position = Vector2(78, -462)
 scale = Vector2(0.46, 0.46)
 texture = ExtResource("21_h887p")
 metadata/_edit_lock_ = true
 
-[node name="Peek" type="AnimationPlayer" parent="Rooms/Left_Vent/ClipMask/Yoshi_1"]
+[node name="Peek" type="AnimationPlayer" parent="Rooms/Left_Vent/ClipMask/ToyYoshi_1"]
 libraries = {
 &"": SubResource("AnimationLibrary_ondv3")
 }
 
-[node name="Yoshi" type="Node2D" parent="Rooms/Left_Vent"]
+[node name="ToySonic_2" type="Sprite2D" parent="Rooms/Left_Vent"]
+visible = false
+position = Vector2(-16, -398)
+texture = ExtResource("27_mmgny")
 metadata/_edit_lock_ = true
 
-[node name="Yoshi_2" type="Sprite2D" parent="Rooms/Left_Vent/Yoshi"]
+[node name="ToyYoshi_2" type="Sprite2D" parent="Rooms/Left_Vent"]
 visible = false
 position = Vector2(-56, -414)
 texture = ExtResource("22_ondv3")
+metadata/_edit_lock_ = true
 
-[node name="Yoshi_3" type="Sprite2D" parent="Rooms/Left_Vent/Yoshi"]
+[node name="ToyYoshi_3" type="Sprite2D" parent="Rooms/Left_Vent"]
 visible = false
 position = Vector2(-16, -390)
 texture = ExtResource("23_ejjiw")
+metadata/_edit_lock_ = true
 
 [node name="Light" type="Sprite2D" parent="Rooms/Left_Vent"]
 position = Vector2(0, -350)
@@ -617,6 +629,25 @@ metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 [node name="Right_Vent" type="Sprite2D" parent="Rooms"]
 position = Vector2(-640, 2134)
 texture = ExtResource("5_hogfr")
+metadata/_edit_lock_ = true
+
+[node name="ClipMask" type="Sprite2D" parent="Rooms/Right_Vent"]
+clip_children = 1
+texture = ExtResource("20_t2peh")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="ToySonic_21" type="Sprite2D" parent="Rooms/Right_Vent/ClipMask"]
+visible = false
+position = Vector2(-87.999985, -454)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("31_82o30")
+metadata/_edit_lock_ = true
+
+[node name="ToySonic_22" type="Sprite2D" parent="Rooms/Right_Vent"]
+visible = false
+position = Vector2(0, -398)
+texture = ExtResource("27_mmgny")
 metadata/_edit_lock_ = true
 
 [node name="Light" type="Sprite2D" parent="Rooms/Right_Vent"]
@@ -804,13 +835,10 @@ metadata/_custom_type_script = "uid://cnhe33f3mmlmb"
 
 [node name="GUI" type="CanvasLayer" parent="Misc"]
 
-[node name="Jumpscares" type="Node2D" parent="Misc/GUI"]
+[node name="ToyYoshi_Jumpscare" type="Node2D" parent="Misc/GUI"]
 metadata/_edit_lock_ = true
 
-[node name="ToyYoshi_Jumpscare" type="Node2D" parent="Misc/GUI/Jumpscares"]
-metadata/_edit_lock_ = true
-
-[node name="Yoshi" type="Sprite2D" parent="Misc/GUI/Jumpscares/ToyYoshi_Jumpscare"]
+[node name="ToyYoshi" type="Sprite2D" parent="Misc/GUI/ToyYoshi_Jumpscare"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(247.99997, 1008)
 rotation = -0.43633232
@@ -818,7 +846,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("32_0v48r")
 metadata/_edit_lock_ = true
 
-[node name="Claw" type="Sprite2D" parent="Misc/GUI/Jumpscares/ToyYoshi_Jumpscare"]
+[node name="Claw" type="Sprite2D" parent="Misc/GUI/ToyYoshi_Jumpscare"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(488.00006, 1056)
 rotation = 0.47472957
@@ -826,20 +854,24 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("33_4ldp1")
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/Jumpscares/ToyYoshi_Jumpscare"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/ToyYoshi_Jumpscare"]
 libraries = {
 &"": SubResource("AnimationLibrary_vx1u2")
 }
 speed_scale = 1.5
 
-[node name="Taingle_Jumpscare" type="Sprite2D" parent="Misc/GUI/Jumpscares"]
+[node name="Taingle_Jumpscare" type="Node2D" parent="Misc/GUI"]
+metadata/_edit_lock_ = true
+
+[node name="Taingle" type="Sprite2D" parent="Misc/GUI/Taingle_Jumpscare"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(408, -303)
 rotation = -1.5707964
 texture = ExtResource("26_3txkv")
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/Jumpscares/Taingle_Jumpscare"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/Taingle_Jumpscare"]
+root_node = NodePath("../Taingle")
 libraries = {
 &"": SubResource("AnimationLibrary_u63jk")
 }
