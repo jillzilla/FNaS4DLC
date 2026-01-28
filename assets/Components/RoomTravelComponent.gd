@@ -95,10 +95,11 @@ func _travel() -> void:
 			camMove.tween_property(scrolling.get_parent(),"position:y",camPosYEffectEnd,0.5).set_trans(Tween.TRANS_CUBIC);
 			await camMove.finished;
 		
-		TimerMouseEnteredCD.start();
-		
 		for i in range(buttonToActivate.size()):
 			if !buttonToActivate[i].visible:
+				if buttonToActivate[i].name == "Office_Button" || buttonToActivate[i].name == "Ceiling_Button":
+					if TimerMouseEnteredCD.is_stopped():
+						TimerMouseEnteredCD.start();
 				buttonToActivate[i].visible = true;
 
 		if canUseMaskHere:
@@ -114,7 +115,11 @@ func _travel() -> void:
 func _pressed() -> void:
 	if input == inputs.PRESSED && main.PlayerAlive:
 		_travel();
+		print("Pressed")
 
 func _entered() -> void:
-	if TimerMouseEnteredCD.is_stopped() && input == inputs.ENTERED && main.PlayerAlive:
+	if !TimerMouseEnteredCD.is_stopped():
+		return;
+	elif input == inputs.ENTERED && main.PlayerAlive && TimerMouseEnteredCD.is_stopped():
 		_travel();
+		print("Entered")

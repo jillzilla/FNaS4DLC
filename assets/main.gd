@@ -10,9 +10,9 @@ var PlayerAlive : bool = true;
 var PlayerNotMoving : bool = true;
 
 #characters ai level
-var NightmareToySonicAILevel : int = 20;
-var NightmareToyYoshiAILevel : int = 20;
-var NightmareTaingleAILevel : int = 20;
+var NightmareToySonicAILevel : int = 25;
+var NightmareToyYoshiAILevel : int = 25;
+var NightmareTaingleAILevel : int = 25;
 
 #functions
 func random_chance(percent: float) -> bool:
