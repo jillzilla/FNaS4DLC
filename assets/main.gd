@@ -10,6 +10,7 @@ var PlayerAlive : bool = true;
 var PlayerNotMoving : bool = true;
 
 #characters ai level
+var NightmareToySonicAILevel : int = 20;
 var NightmareToyYoshiAILevel : int = 20;
 var NightmareTaingleAILevel : int = 20;
 

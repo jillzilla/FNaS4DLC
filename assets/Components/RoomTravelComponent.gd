@@ -93,7 +93,7 @@ func _travel() -> void:
 			var camMove : Tween = create_tween();
 			camMove.tween_property(scrolling.get_parent(),"position:y",camPosYEffectEnd,0.5).set_trans(Tween.TRANS_CUBIC);
 			await camMove.finished;
-
+		
 		for i in range(buttonToActivate.size()):
 			if !buttonToActivate[i].visible:
 				buttonToActivate[i].visible = true;

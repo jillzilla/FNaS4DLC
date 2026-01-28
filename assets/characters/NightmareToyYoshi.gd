@@ -102,7 +102,7 @@ func _process(delta: float) -> void:
 				hasPeeked = true;
 				peekingAnimation.play("Peeking");
 				_debugger();
-		if currentPosition == 3 && Position3.visible: #shocking
+		if currentPosition == 3: #shocking
 			if flashlight.is_on && !hasShocked:
 				hasShocked = true;
 				shockSFX.play();
