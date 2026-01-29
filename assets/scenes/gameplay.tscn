@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dj4ueyd0v0uvy"]
+[gd_scene format=3 uid="uid://dj4ueyd0v0uvy"]
 
 [ext_resource type="Script" uid="uid://bi145s4thcg3p" path="res://assets/scripts/nightsetup.gd" id="1_hlo8c"]
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/rooms/office.png" id="1_n5x6c"]
@@ -53,17 +53,17 @@
 
 [sub_resource type="Animation" id="Animation_wrac7"]
 resource_name = "WalkCycle"
-length = 0.3
+length = 0.2
 loop_mode = 2
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("RightFoot:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [-0.567232, 0.9442231]
@@ -75,7 +75,7 @@ tracks/1/path = NodePath("LeftFoot:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.9442231, -0.37873644]
@@ -87,7 +87,7 @@ tracks/2/path = NodePath("LeftFoot:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-184, 15), Vector2(216, -8.000007)]
@@ -96,10 +96,10 @@ tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("RightFoot:position")
-tracks/3/interp = 1
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(264, -58), Vector2(-144.00006, 8.000008)]
@@ -654,15 +654,15 @@ _data = {
 &"fade": SubResource("Animation_f1ux5")
 }
 
-[node name="Gameplay" type="Node" node_paths=PackedStringArray("officeRoomTravel", "ClockTimer", "ClockCounter")]
+[node name="Gameplay" type="Node" unique_id=528663739 node_paths=PackedStringArray("officeRoomTravel", "ClockTimer", "ClockCounter")]
 script = ExtResource("1_hlo8c")
 officeRoomTravel = NodePath("Rooms/Office/RoomTravelComponent")
 ClockTimer = NodePath("Misc/Clock_Timer")
 ClockCounter = NodePath("Misc/GUI/Clock")
 
-[node name="Characters" type="Node" parent="."]
+[node name="Characters" type="Node" parent="." unique_id=913527033]
 
-[node name="NightmareToySonic" type="Node" parent="Characters" node_paths=PackedStringArray("LPosition1", "LPosition2", "RPosition1", "RPosition2", "LFlashlight", "RFlashlight", "Mask", "LVentSFX", "RVentSFX", "shockSFX", "officeRoomTravel", "jumpscareAnimation", "LPeekingAnimation", "RPeekingAnimation", "RunGraphics", "RunAnimation")]
+[node name="NightmareToySonic" type="Node" parent="Characters" unique_id=1997015375 node_paths=PackedStringArray("LPosition1", "LPosition2", "RPosition1", "RPosition2", "LFlashlight", "RFlashlight", "Mask", "LVentSFX", "RVentSFX", "shockSFX", "officeRoomTravel", "jumpscareAnimation", "LPeekingAnimation", "RPeekingAnimation", "RunGraphics", "RunAnimation")]
 script = ExtResource("2_pcblb")
 positionChangingRate = 50.0
 timerChangePosition = 6000.0
@@ -686,7 +686,7 @@ RunGraphics = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation")
 RunAnimation = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation/AnimationPlayer")
 metadata/_custom_type_script = "uid://cfq33rypau5gu"
 
-[node name="NightmareToyYoshi" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "ventSFX", "ventLSFX", "flashlight", "officeRoomTravel", "Mask", "shockSFX", "jumpscareAnimation", "peekingAnimation")]
+[node name="NightmareToyYoshi" type="Node" parent="Characters" unique_id=2130040918 node_paths=PackedStringArray("Position1", "Position2", "Position3", "ventSFX", "ventLSFX", "flashlight", "officeRoomTravel", "Mask", "shockSFX", "jumpscareAnimation", "peekingAnimation")]
 script = ExtResource("3_ejjiw")
 positionChangingRate = 50.0
 timerChangePosition = 6000.0
@@ -707,7 +707,7 @@ jumpscareAnimation = NodePath("../../Misc/GUI/ToyYoshi_Jumpscare/AnimationPlayer
 peekingAnimation = NodePath("../../Rooms/Left_Vent/ClipMask/ToyYoshi_1/Peek")
 metadata/_custom_type_script = "uid://5kr35ro71210"
 
-[node name="NightmareTaingle" type="Node" parent="Characters" node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "radio")]
+[node name="NightmareTaingle" type="Node" parent="Characters" unique_id=825719508 node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "radio")]
 script = ExtResource("1_rybgg")
 positionChangingRate = 50.0
 timerChangePosition = 6000.0
@@ -726,39 +726,38 @@ jumpscareAnimation = NodePath("../../Misc/GUI/Taingle_Jumpscare/AnimationPlayer"
 radio = NodePath("../../Sounds/Taingle_Radio")
 metadata/_custom_type_script = "uid://dslqbhm8b8w8y"
 
-[node name="Sounds" type="Node" parent="."]
+[node name="Sounds" type="Node" parent="." unique_id=1674670979]
 
-[node name="Taingle_Radio" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Taingle_Radio" type="AudioStreamPlayer" parent="Sounds" unique_id=2037132696]
 stream = ExtResource("31_u63jk")
 volume_db = -80.0
 autoplay = true
 
-[node name="Walk_SFX" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Walk_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=507489596]
 stream = ExtResource("22_bkfnj")
 
-[node name="Flashlight_SFX" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Flashlight_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=1318500623]
 stream = ExtResource("3_5jwmk")
 
-[node name="Shock_SFX" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Shock_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=168874207]
 stream = ExtResource("4_ugpla")
 volume_db = -15.0
 
-[node name="Vent_Leave_SFX" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Vent_Leave_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=665036641]
 stream = ExtResource("8_3khrc")
 
-[node name="Rooms" type="Node" parent="."]
+[node name="Rooms" type="Node" parent="." unique_id=1063837608]
 
-[node name="Office" type="Sprite2D" parent="Rooms"]
+[node name="Office" type="Sprite2D" parent="Rooms" unique_id=1170553675]
 texture = ExtResource("1_n5x6c")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Office" node_paths=PackedStringArray("button", "walkSFX", "TimerMouseEnteredCD", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "roomToLeave", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Office" unique_id=1453186721 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "roomToLeave", "mask")]
 script = ExtResource("2_f1ux5")
 input = 0
 button = NodePath("../../../Misc/GUI/Office_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
-TimerMouseEnteredCD = NodePath("../../../Misc/Timer_CD_Entered")
 room = NodePath("..")
 fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
@@ -772,56 +771,55 @@ roomToLeavePosition = Array[Vector2]([Vector2(-1920, 710), Vector2(-1920, 710), 
 mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="Ceiling" type="Sprite2D" parent="Rooms"]
+[node name="Ceiling" type="Sprite2D" parent="Rooms" unique_id=924976390]
 position = Vector2(-1920, 710)
 texture = ExtResource("2_kqp6g")
 metadata/_edit_lock_ = true
 
-[node name="ClipMask" type="Sprite2D" parent="Rooms/Ceiling"]
+[node name="ClipMask" type="Sprite2D" parent="Rooms/Ceiling" unique_id=371066533]
 clip_children = 1
 texture = ExtResource("7_kgr1o")
 metadata/_edit_lock_ = true
 
-[node name="Taingle_1" type="Sprite2D" parent="Rooms/Ceiling/ClipMask"]
+[node name="Taingle_1" type="Sprite2D" parent="Rooms/Ceiling/ClipMask" unique_id=2077833066]
 visible = false
 position = Vector2(0, -566.5)
 texture = ExtResource("7_ugpla")
 metadata/_edit_lock_ = true
 
-[node name="Taingle_2" type="Sprite2D" parent="Rooms/Ceiling/ClipMask"]
+[node name="Taingle_2" type="Sprite2D" parent="Rooms/Ceiling/ClipMask" unique_id=1013068849]
 visible = false
 position = Vector2(0, -510)
 texture = ExtResource("8_kgr1o")
 metadata/_edit_lock_ = true
 
-[node name="Taingle_3" type="Sprite2D" parent="Rooms/Ceiling/ClipMask"]
+[node name="Taingle_3" type="Sprite2D" parent="Rooms/Ceiling/ClipMask" unique_id=820026602]
 visible = false
 position = Vector2(0, -457)
 texture = ExtResource("9_rybgg")
 metadata/_edit_lock_ = true
 
-[node name="Taingle_4" type="Sprite2D" parent="Rooms/Ceiling/ClipMask"]
+[node name="Taingle_4" type="Sprite2D" parent="Rooms/Ceiling/ClipMask" unique_id=86824682]
 visible = false
 position = Vector2(0, -431.5)
 texture = ExtResource("10_hlo8c")
 metadata/_edit_lock_ = true
 
-[node name="Light" type="Sprite2D" parent="Rooms/Ceiling"]
+[node name="Light" type="Sprite2D" parent="Rooms/Ceiling" unique_id=1664641956]
 position = Vector2(0, -350)
 texture = ExtResource("4_ixvey")
 metadata/_edit_lock_ = true
 
-[node name="Dark" type="Sprite2D" parent="Rooms/Ceiling"]
+[node name="Dark" type="Sprite2D" parent="Rooms/Ceiling" unique_id=1797219172]
 position = Vector2(0, -350)
 texture = ExtResource("5_br2i6")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Ceiling" node_paths=PackedStringArray("button", "walkSFX", "TimerMouseEnteredCD", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Ceiling" unique_id=1390035240 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 input = 0
 button = NodePath("../../../Buttons/Ceiling_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
-TimerMouseEnteredCD = NodePath("../../../Misc/Timer_CD_Entered")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
@@ -834,7 +832,7 @@ flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Rooms/Ceiling" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
+[node name="FlashLightComponent" type="Node" parent="Rooms/Ceiling" unique_id=699796376 node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
 script = ExtResource("16_br2i6")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
@@ -843,51 +841,48 @@ travel = NodePath("../RoomTravelComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 
-[node name="Desk" type="Sprite2D" parent="Rooms"]
+[node name="Desk" type="Sprite2D" parent="Rooms" unique_id=1189033946]
 clip_children = 2
 position = Vector2(-640, 710)
 texture = ExtResource("3_f1ux5")
 metadata/_edit_lock_ = true
 
-[node name="ToySonic_Desk_Animation" type="Node2D" parent="Rooms/Desk"]
+[node name="ToySonic_Desk_Animation" type="Node2D" parent="Rooms/Desk" unique_id=1320112195]
 visible = false
-position = Vector2(0, -280)
+position = Vector2(0, -298)
 metadata/_edit_lock_ = true
 
-[node name="RightFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation"]
+[node name="RightFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=430797307]
 position = Vector2(264, -58)
 rotation = -0.567232
 texture = ExtResource("47_f7gff")
 metadata/_edit_lock_ = true
 
-[node name="Pelvis" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation"]
+[node name="Pelvis" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=553854893]
 position = Vector2(0, -216)
 texture = ExtResource("48_wrac7")
 metadata/_edit_lock_ = true
 
-[node name="LeftFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation"]
+[node name="LeftFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=23704651]
 position = Vector2(-184, 15)
 rotation = 0.9442231
 texture = ExtResource("49_1mjni")
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Desk/ToySonic_Desk_Animation"]
-libraries = {
-&"": SubResource("AnimationLibrary_kaecm")
-}
-autoplay = "WalkCycle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=1727731689]
+libraries/ = SubResource("AnimationLibrary_kaecm")
+autoplay = &"WalkCycle"
 speed_scale = 2.0
 
-[node name="Overlay" type="Sprite2D" parent="Rooms/Desk"]
+[node name="Overlay" type="Sprite2D" parent="Rooms/Desk" unique_id=1351403676]
 position = Vector2(0, -350)
 texture = ExtResource("22_wrac7")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Desk" node_paths=PackedStringArray("button", "walkSFX", "TimerMouseEnteredCD", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Desk" unique_id=457189910 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Desk_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
-TimerMouseEnteredCD = NodePath("../../../Misc/Timer_CD_Entered")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
@@ -899,73 +894,68 @@ buttonToActivate = [NodePath("../../../Misc/GUI/Office_Button")]
 mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="Left_Vent" type="Sprite2D" parent="Rooms"]
+[node name="Left_Vent" type="Sprite2D" parent="Rooms" unique_id=637293085]
 position = Vector2(-1920, 2134)
 texture = ExtResource("4_qk4f4")
 metadata/_edit_lock_ = true
 
-[node name="ClipMask" type="Sprite2D" parent="Rooms/Left_Vent"]
+[node name="ClipMask" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=395958951]
 clip_children = 1
 texture = ExtResource("20_t2peh")
 metadata/_edit_lock_ = true
 
-[node name="ToySonic_1" type="Sprite2D" parent="Rooms/Left_Vent/ClipMask"]
+[node name="ToySonic_1" type="Sprite2D" parent="Rooms/Left_Vent/ClipMask" unique_id=1696695848]
 visible = false
 position = Vector2(88, -446)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("24_vx1u2")
 metadata/_edit_lock_ = true
 
-[node name="Peek" type="AnimationPlayer" parent="Rooms/Left_Vent/ClipMask/ToySonic_1"]
-libraries = {
-&"": SubResource("AnimationLibrary_pcblb")
-}
+[node name="Peek" type="AnimationPlayer" parent="Rooms/Left_Vent/ClipMask/ToySonic_1" unique_id=724888713]
+libraries/ = SubResource("AnimationLibrary_pcblb")
 
-[node name="ToyYoshi_1" type="Sprite2D" parent="Rooms/Left_Vent/ClipMask"]
+[node name="ToyYoshi_1" type="Sprite2D" parent="Rooms/Left_Vent/ClipMask" unique_id=2025409001]
 visible = false
 position = Vector2(78, -462)
 scale = Vector2(0.46, 0.46)
 texture = ExtResource("21_h887p")
 metadata/_edit_lock_ = true
 
-[node name="Peek" type="AnimationPlayer" parent="Rooms/Left_Vent/ClipMask/ToyYoshi_1"]
-libraries = {
-&"": SubResource("AnimationLibrary_ondv3")
-}
+[node name="Peek" type="AnimationPlayer" parent="Rooms/Left_Vent/ClipMask/ToyYoshi_1" unique_id=1506408351]
+libraries/ = SubResource("AnimationLibrary_ondv3")
 
-[node name="ToyYoshi_2" type="Sprite2D" parent="Rooms/Left_Vent"]
+[node name="ToyYoshi_2" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=667445097]
 visible = false
 position = Vector2(-56, -414)
 texture = ExtResource("22_ondv3")
 metadata/_edit_lock_ = true
 
-[node name="ToyYoshi_3" type="Sprite2D" parent="Rooms/Left_Vent"]
+[node name="ToyYoshi_3" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=1566347697]
 visible = false
 position = Vector2(-16, -390)
 texture = ExtResource("23_ejjiw")
 metadata/_edit_lock_ = true
 
-[node name="ToySonic_2" type="Sprite2D" parent="Rooms/Left_Vent"]
+[node name="ToySonic_2" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=1338458425]
 visible = false
 position = Vector2(-16, -398)
 texture = ExtResource("27_mmgny")
 metadata/_edit_lock_ = true
 
-[node name="Light" type="Sprite2D" parent="Rooms/Left_Vent"]
+[node name="Light" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=1261748066]
 position = Vector2(0, -350)
 texture = ExtResource("8_iuexx")
 metadata/_edit_lock_ = true
 
-[node name="Dark" type="Sprite2D" parent="Rooms/Left_Vent"]
+[node name="Dark" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=2125541915]
 position = Vector2(0, -350)
 texture = ExtResource("9_b4idp")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Left_Vent" node_paths=PackedStringArray("button", "walkSFX", "TimerMouseEnteredCD", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Left_Vent" unique_id=2079638592 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Left_Vent_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
-TimerMouseEnteredCD = NodePath("../../../Misc/Timer_CD_Entered")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
@@ -979,7 +969,7 @@ mask = NodePath("../../../Misc/GUI/Mask")
 canUseMaskHere = true
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Rooms/Left_Vent" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
+[node name="FlashLightComponent" type="Node" parent="Rooms/Left_Vent" unique_id=165882029 node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
 script = ExtResource("16_br2i6")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
@@ -988,50 +978,47 @@ travel = NodePath("../RoomTravelComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 
-[node name="Right_Vent" type="Sprite2D" parent="Rooms"]
+[node name="Right_Vent" type="Sprite2D" parent="Rooms" unique_id=1183835767]
 position = Vector2(-640, 2134)
 texture = ExtResource("5_hogfr")
 metadata/_edit_lock_ = true
 
-[node name="ClipMask" type="Sprite2D" parent="Rooms/Right_Vent"]
+[node name="ClipMask" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1764599257]
 clip_children = 1
 texture = ExtResource("20_t2peh")
 flip_h = true
 metadata/_edit_lock_ = true
 
-[node name="ToySonic_21" type="Sprite2D" parent="Rooms/Right_Vent/ClipMask"]
+[node name="ToySonic_21" type="Sprite2D" parent="Rooms/Right_Vent/ClipMask" unique_id=65395048]
 visible = false
 position = Vector2(-87.999985, -454)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("31_82o30")
 metadata/_edit_lock_ = true
 
-[node name="Peek" type="AnimationPlayer" parent="Rooms/Right_Vent/ClipMask/ToySonic_21"]
-libraries = {
-&"": SubResource("AnimationLibrary_5ld61")
-}
+[node name="Peek" type="AnimationPlayer" parent="Rooms/Right_Vent/ClipMask/ToySonic_21" unique_id=1904931740]
+libraries/ = SubResource("AnimationLibrary_5ld61")
 
-[node name="ToySonic_22" type="Sprite2D" parent="Rooms/Right_Vent"]
+[node name="ToySonic_22" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=94174987]
 visible = false
 position = Vector2(0, -398)
 texture = ExtResource("27_mmgny")
 metadata/_edit_lock_ = true
 
-[node name="Light" type="Sprite2D" parent="Rooms/Right_Vent"]
+[node name="Light" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1343539431]
 position = Vector2(0, -350)
 texture = ExtResource("8_iuexx")
 metadata/_edit_lock_ = true
 
-[node name="Dark" type="Sprite2D" parent="Rooms/Right_Vent"]
+[node name="Dark" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=738275984]
 position = Vector2(0, -350)
 texture = ExtResource("9_b4idp")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Right_Vent" node_paths=PackedStringArray("button", "walkSFX", "TimerMouseEnteredCD", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Right_Vent" unique_id=568625009 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Right_Vent_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
-TimerMouseEnteredCD = NodePath("../../../Misc/Timer_CD_Entered")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
@@ -1045,7 +1032,7 @@ mask = NodePath("../../../Misc/GUI/Mask")
 canUseMaskHere = true
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Rooms/Right_Vent" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
+[node name="FlashLightComponent" type="Node" parent="Rooms/Right_Vent" unique_id=1019073008 node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
 script = ExtResource("16_br2i6")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
@@ -1054,26 +1041,25 @@ travel = NodePath("../RoomTravelComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 
-[node name="Hallway" type="Sprite2D" parent="Rooms"]
+[node name="Hallway" type="Sprite2D" parent="Rooms" unique_id=824772550]
 position = Vector2(-1920, 3558)
 texture = ExtResource("6_ndvee")
 metadata/_edit_lock_ = true
 
-[node name="Light" type="Sprite2D" parent="Rooms/Hallway"]
+[node name="Light" type="Sprite2D" parent="Rooms/Hallway" unique_id=869873923]
 position = Vector2(0, -350)
 texture = ExtResource("12_b68su")
 metadata/_edit_lock_ = true
 
-[node name="Dark" type="Sprite2D" parent="Rooms/Hallway"]
+[node name="Dark" type="Sprite2D" parent="Rooms/Hallway" unique_id=1837365997]
 position = Vector2(0, -350)
 texture = ExtResource("13_qautv")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Hallway" node_paths=PackedStringArray("button", "walkSFX", "TimerMouseEnteredCD", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Hallway" unique_id=1839462096 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Hallway_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
-TimerMouseEnteredCD = NodePath("../../../Misc/Timer_CD_Entered")
 room = NodePath("..")
 roomPosition = Vector2(1040, 710)
 fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
@@ -1086,7 +1072,7 @@ flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Rooms/Hallway" node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
+[node name="FlashLightComponent" type="Node" parent="Rooms/Hallway" unique_id=1845314344 node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
 script = ExtResource("16_br2i6")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
@@ -1095,9 +1081,9 @@ travel = NodePath("../RoomTravelComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 
-[node name="Buttons" type="Node" parent="."]
+[node name="Buttons" type="Node" parent="." unique_id=1709933186]
 
-[node name="Left_Vent_Button" type="Button" parent="Buttons"]
+[node name="Left_Vent_Button" type="Button" parent="Buttons" unique_id=337033368]
 anchors_preset = -1
 anchor_left = 0.24400002
 anchor_top = 0.8
@@ -1113,7 +1099,7 @@ action_mode = 0
 flat = true
 metadata/_edit_lock_ = true
 
-[node name="Right_Vent_Button" type="Button" parent="Buttons"]
+[node name="Right_Vent_Button" type="Button" parent="Buttons" unique_id=399480226]
 anchors_preset = -1
 anchor_left = 1.3750001
 anchor_top = 0.8
@@ -1129,7 +1115,7 @@ action_mode = 0
 flat = true
 metadata/_edit_lock_ = true
 
-[node name="Desk_Button" type="Button" parent="Buttons"]
+[node name="Desk_Button" type="Button" parent="Buttons" unique_id=855707449]
 anchors_preset = -1
 anchor_left = 0.809
 anchor_top = 0.883
@@ -1145,7 +1131,7 @@ action_mode = 0
 flat = true
 metadata/_edit_lock_ = true
 
-[node name="Hallway_Button" type="Button" parent="Buttons"]
+[node name="Hallway_Button" type="Button" parent="Buttons" unique_id=2003360439]
 anchors_preset = -1
 anchor_left = 0.81200004
 anchor_top = 0.50600004
@@ -1161,7 +1147,7 @@ action_mode = 0
 flat = true
 metadata/_edit_lock_ = true
 
-[node name="Ceiling_Button" type="Button" parent="Buttons"]
+[node name="Ceiling_Button" type="Button" parent="Buttons" unique_id=2069473949]
 anchors_preset = -1
 anchor_left = 0.81200004
 anchor_top = 0.12200001
@@ -1178,18 +1164,14 @@ action_mode = 0
 flat = true
 metadata/_edit_lock_ = true
 
-[node name="Misc" type="Node" parent="."]
+[node name="Misc" type="Node" parent="." unique_id=1344092833]
 
-[node name="Clock_Timer" type="Timer" parent="Misc"]
+[node name="Clock_Timer" type="Timer" parent="Misc" unique_id=501047622]
 wait_time = 45.0
 one_shot = true
 autostart = true
 
-[node name="Timer_CD_Entered" type="Timer" parent="Misc"]
-wait_time = 0.05
-one_shot = true
-
-[node name="Scrolling" type="Camera2D" parent="Misc"]
+[node name="Scrolling" type="Camera2D" parent="Misc" unique_id=1859451726]
 position = Vector2(1040, 360)
 limit_left = 0
 limit_top = 0
@@ -1199,7 +1181,7 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 metadata/_edit_lock_ = true
 
-[node name="ScrollingComponent" type="Node" parent="Misc/Scrolling" node_paths=PackedStringArray("camera")]
+[node name="ScrollingComponent" type="Node" parent="Misc/Scrolling" unique_id=2020745077 node_paths=PackedStringArray("camera")]
 script = ExtResource("2_mrbpc")
 camera = NodePath("..")
 scrollSpeed = 20.0
@@ -1207,35 +1189,33 @@ scrollDistance = 300.0
 xResolution = 1280
 metadata/_custom_type_script = "uid://cnhe33f3mmlmb"
 
-[node name="GUI" type="CanvasLayer" parent="Misc"]
+[node name="GUI" type="CanvasLayer" parent="Misc" unique_id=435901319]
 
-[node name="ToySonic_Jumpscare" type="Node2D" parent="Misc/GUI"]
+[node name="ToySonic_Jumpscare" type="Node2D" parent="Misc/GUI" unique_id=1591942461]
 metadata/_edit_lock_ = true
 
-[node name="Body" type="Sprite2D" parent="Misc/GUI/ToySonic_Jumpscare"]
+[node name="Body" type="Sprite2D" parent="Misc/GUI/ToySonic_Jumpscare" unique_id=1252051721]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(640, 1080)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_kv0yu")
 metadata/_edit_lock_ = true
 
-[node name="Head" type="Sprite2D" parent="Misc/GUI/ToySonic_Jumpscare"]
+[node name="Head" type="Sprite2D" parent="Misc/GUI/ToySonic_Jumpscare" unique_id=1724567559]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(648, 888)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("38_5ld61")
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/ToySonic_Jumpscare"]
-libraries = {
-&"": SubResource("AnimationLibrary_wrac7")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/ToySonic_Jumpscare" unique_id=1644383556]
+libraries/ = SubResource("AnimationLibrary_wrac7")
 speed_scale = 1.5
 
-[node name="ToyYoshi_Jumpscare" type="Node2D" parent="Misc/GUI"]
+[node name="ToyYoshi_Jumpscare" type="Node2D" parent="Misc/GUI" unique_id=646146059]
 metadata/_edit_lock_ = true
 
-[node name="ToyYoshi" type="Sprite2D" parent="Misc/GUI/ToyYoshi_Jumpscare"]
+[node name="ToyYoshi" type="Sprite2D" parent="Misc/GUI/ToyYoshi_Jumpscare" unique_id=1880657813]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(247.99997, 1008)
 rotation = -0.43633232
@@ -1243,7 +1223,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("32_0v48r")
 metadata/_edit_lock_ = true
 
-[node name="Claw" type="Sprite2D" parent="Misc/GUI/ToyYoshi_Jumpscare"]
+[node name="Claw" type="Sprite2D" parent="Misc/GUI/ToyYoshi_Jumpscare" unique_id=369284185]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(488.00006, 1056)
 rotation = 0.47472957
@@ -1251,39 +1231,35 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("33_4ldp1")
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/ToyYoshi_Jumpscare"]
-libraries = {
-&"": SubResource("AnimationLibrary_vx1u2")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/ToyYoshi_Jumpscare" unique_id=417062581]
+libraries/ = SubResource("AnimationLibrary_vx1u2")
 speed_scale = 1.5
 
-[node name="Taingle_Jumpscare" type="Node2D" parent="Misc/GUI"]
+[node name="Taingle_Jumpscare" type="Node2D" parent="Misc/GUI" unique_id=454248012]
 metadata/_edit_lock_ = true
 
-[node name="Taingle" type="Sprite2D" parent="Misc/GUI/Taingle_Jumpscare"]
+[node name="Taingle" type="Sprite2D" parent="Misc/GUI/Taingle_Jumpscare" unique_id=1992263344]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(408, -303)
 rotation = -1.5707964
 texture = ExtResource("26_3txkv")
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/Taingle_Jumpscare"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/Taingle_Jumpscare" unique_id=358507075]
 root_node = NodePath("../Taingle")
-libraries = {
-&"": SubResource("AnimationLibrary_u63jk")
-}
+libraries/ = SubResource("AnimationLibrary_u63jk")
 speed_scale = 1.5
 
-[node name="Mask" parent="Misc/GUI" node_paths=PackedStringArray("scrolling", "travel") instance=ExtResource("16_iuexx")]
+[node name="Mask" parent="Misc/GUI" unique_id=506660624 node_paths=PackedStringArray("scrolling", "travel") instance=ExtResource("16_iuexx")]
 scrolling = NodePath("../../Scrolling/ScrollingComponent")
 travel = NodePath("../../../Rooms/Office/RoomTravelComponent")
 
-[node name="Vignette" type="Sprite2D" parent="Misc/GUI"]
+[node name="Vignette" type="Sprite2D" parent="Misc/GUI" unique_id=454113464]
 texture = ExtResource("2_un4qs")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Transition" type="ColorRect" parent="Misc/GUI"]
+[node name="Transition" type="ColorRect" parent="Misc/GUI" unique_id=583876284]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1294,26 +1270,24 @@ color = Color(0, 0, 0, 0)
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/Transition"]
-libraries = {
-&"": SubResource("AnimationLibrary_hogfr")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/Transition" unique_id=1116591569]
+libraries/ = SubResource("AnimationLibrary_hogfr")
 
-[node name="2DAudios" type="Node2D" parent="Misc/GUI"]
+[node name="2DAudios" type="Node2D" parent="Misc/GUI" unique_id=60922802]
 position = Vector2(640, 360)
 metadata/_edit_lock_ = true
 
-[node name="LeftVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios"]
+[node name="LeftVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1811588009]
 position = Vector2(-400, 0)
 stream = ExtResource("37_4ldp1")
 metadata/_edit_lock_ = true
 
-[node name="RightVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios"]
+[node name="RightVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=576099952]
 position = Vector2(400, 0)
 stream = ExtResource("37_4ldp1")
 metadata/_edit_lock_ = true
 
-[node name="Clock" type="Label" parent="Misc/GUI"]
+[node name="Clock" type="Label" parent="Misc/GUI" unique_id=226524177]
 anchors_preset = -1
 anchor_left = 0.92200005
 anchor_top = 0.034
@@ -1331,7 +1305,7 @@ text = "12 AM"
 horizontal_alignment = 2
 metadata/_edit_lock_ = true
 
-[node name="Office_Button" type="Button" parent="Misc/GUI"]
+[node name="Office_Button" type="Button" parent="Misc/GUI" unique_id=747761303]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.883

@@ -21,5 +21,5 @@ func _on_clock_timer_timeout() -> void:
 	if ClockIteration < 8:
 		ClockCounter.text = ClockOutputs[ClockIteration];
 		ClockTimer.start();
-	elif ClockIteration == 8:
+	elif ClockIteration >= 8:
 		get_tree().change_scene_to_file("res://assets/scenes/win_screen.tscn");

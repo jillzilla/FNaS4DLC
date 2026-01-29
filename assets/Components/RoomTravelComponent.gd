@@ -8,7 +8,6 @@ enum inputs {ENTERED,PRESSED};
 @export var input : Variant = inputs.PRESSED;
 @export var button : Button;
 @export var walkSFX : AudioStreamPlayer;
-@export var TimerMouseEnteredCD : Timer;
 
 @export var room : Sprite2D;
 @export var roomPosition : Vector2;
@@ -47,7 +46,7 @@ func _ready() -> void:
 				roomToLeave[i].position = roomToLeavePosition[i];
 
 func _travel() -> void:
-	if scrolling.get_parent().position.y == camPosYEffectEnd && !mask.isUsingMask && mask.get_node("CD_Timer").is_stopped():
+	if main.PlayerNotMoving && !mask.isUsingMask && !mask.PuttingMask:
 		main.PlayerNotMoving = false;
 
 		walkSFX.play();
@@ -55,6 +54,9 @@ func _travel() -> void:
 
 		for i in range(buttonToDisable.size()):
 			buttonToDisable[i].mouse_filter = Control.MOUSE_FILTER_IGNORE;
+			
+		for i in range(buttonToActivate.size()):
+			buttonToActivate[i].mouse_filter = Control.MOUSE_FILTER_STOP;
 
 		if roomToLeave != []:
 			for i in range(roomToLeave.size()):
@@ -93,12 +95,6 @@ func _travel() -> void:
 			var camMove : Tween = create_tween();
 			camMove.tween_property(scrolling.get_parent(),"position:y",camPosYEffectEnd,0.5).set_trans(Tween.TRANS_CUBIC);
 			await camMove.finished;
-		
-		for i in range(buttonToActivate.size()):
-			if buttonToActivate[i].name == "Office_Button" || buttonToActivate[i].name == "Ceiling_Button":
-				if TimerMouseEnteredCD.is_stopped():
-					TimerMouseEnteredCD.start();
-			buttonToActivate[i].mouse_filter = Control.MOUSE_FILTER_STOP;
 
 		if canUseMaskHere:
 			mask.canUseMask = true;
@@ -113,12 +109,8 @@ func _travel() -> void:
 func _pressed() -> void:
 	if input == inputs.PRESSED && main.PlayerAlive:
 		_travel();
-		print("Pressed")
 
 func _entered() -> void:
 	if !main.ntsDeskRunning:
-		if !TimerMouseEnteredCD.is_stopped():
-			return;
-		elif input == inputs.ENTERED && main.PlayerAlive && TimerMouseEnteredCD.is_stopped():
+		if input == inputs.ENTERED && main.PlayerAlive:
 			_travel();
-			print("Entered")

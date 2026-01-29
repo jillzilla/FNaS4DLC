@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bocmtkamvkla5"]
+[gd_scene format=3 uid="uid://bocmtkamvkla5"]
 
 [ext_resource type="Theme" uid="uid://ddy4wy360a77j" path="res://assets/main_theme.tres" id="1_4f5tl"]
 [ext_resource type="Texture2D" uid="uid://cctg4aalwd40x" path="res://assets/images/title/sky.png" id="1_ntt0c"]
@@ -108,33 +108,33 @@ _data = {
 &"flash": SubResource("Animation_x5pu0")
 }
 
-[node name="NightScreen" type="Node"]
+[node name="NightScreen" type="Node" unique_id=153087263]
 script = ExtResource("1_x5pu0")
 
-[node name="Sky" type="Sprite2D" parent="."]
+[node name="Sky" type="Sprite2D" parent="." unique_id=2061776575]
 scale = Vector2(1.272, 1.272)
 texture = ExtResource("1_ntt0c")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Clouds" type="Parallax2D" parent="."]
+[node name="Clouds" type="Parallax2D" parent="." unique_id=821097517]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(1636, 0)
 autoscroll = Vector2(60, 0)
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="Sprites" type="Sprite2D" parent="Clouds"]
+[node name="Sprites" type="Sprite2D" parent="Clouds" unique_id=880835527]
 texture = ExtResource("2_1wr7x")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Pizzeria" type="Sprite2D" parent="."]
+[node name="Pizzeria" type="Sprite2D" parent="." unique_id=530238869]
 position = Vector2(640, 591.5)
 texture = ExtResource("1_xrr74")
 metadata/_edit_lock_ = true
 
-[node name="NightCounter" type="Label" parent="."]
+[node name="NightCounter" type="Label" parent="." unique_id=1865394812]
 visible = false
 anchors_preset = -1
 anchor_left = 0.5
@@ -155,7 +155,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Flash" type="ColorRect" parent="."]
+[node name="Flash" type="ColorRect" parent="." unique_id=1304497929]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -165,7 +165,7 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="Fade" type="ColorRect" parent="."]
+[node name="Fade" type="ColorRect" parent="." unique_id=1887598373]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -175,16 +175,14 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1902707016]
 root_node = NodePath("../Flash")
-libraries = {
-&"": SubResource("AnimationLibrary_4upot")
-}
-autoplay = "flash"
+libraries/ = SubResource("AnimationLibrary_4upot")
+autoplay = &"flash"
 
-[node name="StartSFX" type="AudioStreamPlayer" parent="."]
+[node name="StartSFX" type="AudioStreamPlayer" parent="." unique_id=452882404]
 
-[node name="Timer_Start_Ambience" type="Timer" parent="."]
+[node name="Timer_Start_Ambience" type="Timer" parent="." unique_id=701185149]
 wait_time = 2.0
 one_shot = true
 autostart = true
