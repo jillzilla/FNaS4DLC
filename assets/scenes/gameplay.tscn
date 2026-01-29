@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b0sqggxvrlvcg" path="res://assets/sounds/[8] Flashlight_Sound.ogg" id="3_5jwmk"]
 [ext_resource type="Script" uid="uid://5kr35ro71210" path="res://assets/characters/NightmareToyYoshi.gd" id="3_ejjiw"]
 [ext_resource type="Texture2D" uid="uid://elgiuam7pf50" path="res://assets/images/gameplay/rooms/desk.png" id="3_f1ux5"]
+[ext_resource type="Script" uid="uid://bmdn5tvhdnymc" path="res://assets/characters/NightmareToyMario.gd" id="3_k61gk"]
 [ext_resource type="Texture2D" uid="uid://c6rjhmv2s0mpc" path="res://assets/images/gameplay/rooms/flashlight/ceiling_on.png" id="4_ixvey"]
 [ext_resource type="Texture2D" uid="uid://c6kb2g6kljsaa" path="res://assets/images/gameplay/rooms/left_vent.png" id="4_qk4f4"]
 [ext_resource type="AudioStream" uid="uid://cu6fakcxj137a" path="res://assets/sounds/[27] Shock.ogg" id="4_ugpla"]
@@ -1076,6 +1077,26 @@ timerStep = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation/Timer_Step")
 stepSfx = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation/Steps")
 ventLeaveSFX = NodePath("../../Sounds/Vent_Leave_SFX")
 metadata/_custom_type_script = "uid://cfq33rypau5gu"
+
+[node name="NightmareToyMario" type="Node" parent="Characters" unique_id=776099062 node_paths=PackedStringArray("Position1", "Position1Pupils", "Position2", "Position2Pupils", "Position3", "Position3Pupils", "flashlight", "ventSFX", "shockSFX", "peekingAnimation")]
+script = ExtResource("3_k61gk")
+positionChangingRate = 50.0
+timerChangePosition = 6000.0
+counterExposureLevel = 25
+counterExposure = 1000.0
+jumpscareExposureLevel = 10
+jumpscareExposure = 2500.0
+Position1 = NodePath("../../Rooms/Right_Vent/ClipMask/ToyMario_1")
+Position1Pupils = NodePath("../../Rooms/Right_Vent/ClipMask/ToyMario_1/Pupils")
+Position2 = NodePath("../../Rooms/Right_Vent/ToyMario_2")
+Position2Pupils = NodePath("../../Rooms/Right_Vent/ToyMario_2/Pupils")
+Position3 = NodePath("../../Rooms/Right_Vent/ToyMario_3")
+Position3Pupils = NodePath("../../Rooms/Right_Vent/ToyMario_3/Pupils")
+flashlight = NodePath("../../Rooms/Right_Vent/FlashLightComponent")
+ventSFX = NodePath("../../Misc/GUI/2DAudios/RightVentSound")
+shockSFX = NodePath("../../Sounds/Shock_SFX")
+peekingAnimation = NodePath("../../Rooms/Right_Vent/ClipMask/ToyMario_1/AnimationPlayer")
+metadata/_custom_type_script = "uid://bmdn5tvhdnymc"
 
 [node name="NightmareToyYoshi" type="Node" parent="Characters" unique_id=2130040918 node_paths=PackedStringArray("Position1", "Position2", "Position3", "ventSFX", "ventLSFX", "flashlight", "officeRoomTravel", "Mask", "shockSFX", "jumpscareAnimation", "peekingAnimation")]
 script = ExtResource("3_ejjiw")

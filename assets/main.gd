@@ -12,7 +12,7 @@ var ntsDeskRunning : bool = false;
 
 #characters ai level
 var NightmareToySonicAILevel : int = 0;
-var NightmareToyMarioAILevel : int = 0;
+var NightmareToyMarioAILevel : int = 25;
 var NightmareToyYoshiAILevel : int = 0;
 var NightmareTaingleAILevel : int = 0;
 
