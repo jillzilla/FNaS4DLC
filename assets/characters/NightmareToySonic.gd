@@ -33,6 +33,9 @@ var Direction : Variant = Directions.NONE;
 @export var RPeekingAnimation : AnimationPlayer;
 @export var RunGraphics : Node2D;
 @export var RunAnimation : AnimationPlayer;
+@export var timerStep : Timer;
+@export var stepSfx : AudioStreamPlayer2D;
+@export var ventLeaveSFX : AudioStreamPlayer;
 
 var cp : float;
 var je : float;
@@ -50,7 +53,7 @@ var canAttack : bool = false;
 func _ready() -> void:
 	cp = timerChangePosition;
 	je = jumpscareExposure;
-	
+	timerStep.connect("timeout",_made_a_step);
 	_handle_positions();
 	
 func _process(delta: float) -> void:
@@ -73,18 +76,27 @@ func _process(delta: float) -> void:
 		if currentPosition >= positionsAvailable && main.PlayerPosition == "Desk" && hasShocked && !main.ntsDeskRunning && main.PlayerNotMoving:
 			main.ntsDeskRunning = true;
 			if Direction == Directions.LEFT:
+				RunGraphics.move_child(RunGraphics.get_node("RightFoot"),0);
+				RunGraphics.get_node("RightFoot").scale = Vector2(1,1);
+				RunGraphics.move_child(RunGraphics.get_node("LeftFoot"),2);
 				RunGraphics.scale.x = 1;
 				RunGraphics.position.x = -1240;
 			else:
+				RunGraphics.move_child(RunGraphics.get_node("RightFoot"),2);
+				RunGraphics.get_node("RightFoot").scale = Vector2(1.2,1.2);
+				RunGraphics.move_child(RunGraphics.get_node("LeftFoot"),0);
 				RunGraphics.scale.x = -1;
 				RunGraphics.position.x = 1240;
 			RunGraphics.visible = true;
+			timerStep.start();
 			var t : Tween = create_tween();
 			if Direction == Directions.LEFT:
 				t.tween_property(RunGraphics,"position:x",1240,0.5);
 			else:
 				t.tween_property(RunGraphics,"position:x",-1240,0.5);
 			await t.finished;
+			timerStep.stop();
+			ventLeaveSFX.play();
 			RunGraphics.visible = false;
 			RunGraphics.scale.x = 1;
 			RunGraphics.position.x = 0;
@@ -189,6 +201,9 @@ func _handle_positions() -> void:
 			canAttack = true;
 				
 	_debugger();
+
+func _made_a_step() -> void:
+	stepSfx.play();
 
 func _debugger() -> void:
 	if debug:

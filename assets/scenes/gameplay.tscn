@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cqavnkrwi222l" path="res://assets/images/gameplay/rooms/deskoverlay.png" id="22_wrac7"]
 [ext_resource type="Texture2D" uid="uid://dd4oklmi170cu" path="res://assets/images/gameplay/characters/yoshi/yoshi_3.png" id="23_ejjiw"]
 [ext_resource type="Texture2D" uid="uid://cwnw6finkb365" path="res://assets/images/gameplay/characters/tsonic/toysonic1.png" id="24_vx1u2"]
+[ext_resource type="AudioStream" uid="uid://b31mag886u1jf" path="res://assets/sounds/Desk_Step.ogg" id="25_1mjni"]
 [ext_resource type="Texture2D" uid="uid://dagj5ybgry1hp" path="res://assets/images/gameplay/characters/taingle/taingle_jumpscare.png" id="26_3txkv"]
 [ext_resource type="Texture2D" uid="uid://u170nc4742i1" path="res://assets/images/gameplay/characters/tsonic/toysonic2.png" id="27_mmgny"]
 [ext_resource type="Theme" uid="uid://ddy4wy360a77j" path="res://assets/main_theme.tres" id="29_21wbi"]
@@ -60,7 +61,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("RightFoot:rotation")
-tracks/0/interp = 2
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
@@ -96,7 +97,7 @@ tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("RightFoot:position")
-tracks/3/interp = 2
+tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2),
@@ -662,7 +663,7 @@ ClockCounter = NodePath("Misc/GUI/Clock")
 
 [node name="Characters" type="Node" parent="." unique_id=913527033]
 
-[node name="NightmareToySonic" type="Node" parent="Characters" unique_id=1997015375 node_paths=PackedStringArray("LPosition1", "LPosition2", "RPosition1", "RPosition2", "LFlashlight", "RFlashlight", "Mask", "LVentSFX", "RVentSFX", "shockSFX", "officeRoomTravel", "jumpscareAnimation", "LPeekingAnimation", "RPeekingAnimation", "RunGraphics", "RunAnimation")]
+[node name="NightmareToySonic" type="Node" parent="Characters" unique_id=1997015375 node_paths=PackedStringArray("LPosition1", "LPosition2", "RPosition1", "RPosition2", "LFlashlight", "RFlashlight", "Mask", "LVentSFX", "RVentSFX", "shockSFX", "officeRoomTravel", "jumpscareAnimation", "LPeekingAnimation", "RPeekingAnimation", "RunGraphics", "RunAnimation", "timerStep", "stepSfx", "ventLeaveSFX")]
 script = ExtResource("2_pcblb")
 positionChangingRate = 50.0
 timerChangePosition = 6000.0
@@ -684,6 +685,9 @@ LPeekingAnimation = NodePath("../../Rooms/Left_Vent/ClipMask/ToySonic_1/Peek")
 RPeekingAnimation = NodePath("../../Rooms/Right_Vent/ClipMask/ToySonic_21/Peek")
 RunGraphics = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation")
 RunAnimation = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation/AnimationPlayer")
+timerStep = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation/Timer_Step")
+stepSfx = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation/Steps")
+ventLeaveSFX = NodePath("../../Sounds/Vent_Leave_SFX")
 metadata/_custom_type_script = "uid://cfq33rypau5gu"
 
 [node name="NightmareToyYoshi" type="Node" parent="Characters" unique_id=2130040918 node_paths=PackedStringArray("Position1", "Position2", "Position3", "ventSFX", "ventLSFX", "flashlight", "officeRoomTravel", "Mask", "shockSFX", "jumpscareAnimation", "peekingAnimation")]
@@ -741,7 +745,6 @@ stream = ExtResource("3_5jwmk")
 
 [node name="Shock_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=168874207]
 stream = ExtResource("4_ugpla")
-volume_db = -15.0
 
 [node name="Vent_Leave_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=665036641]
 stream = ExtResource("8_3khrc")
@@ -849,7 +852,7 @@ metadata/_edit_lock_ = true
 
 [node name="ToySonic_Desk_Animation" type="Node2D" parent="Rooms/Desk" unique_id=1320112195]
 visible = false
-position = Vector2(0, -298)
+position = Vector2(0, -365)
 metadata/_edit_lock_ = true
 
 [node name="RightFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=430797307]
@@ -866,13 +869,22 @@ metadata/_edit_lock_ = true
 [node name="LeftFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=23704651]
 position = Vector2(-184, 15)
 rotation = 0.9442231
+scale = Vector2(0.9999998, 0.9999998)
 texture = ExtResource("49_1mjni")
 metadata/_edit_lock_ = true
+
+[node name="Steps" type="AudioStreamPlayer2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=1459543770]
+stream = ExtResource("25_1mjni")
+attenuation = 2.0
+metadata/_edit_lock_ = true
+
+[node name="Timer_Step" type="Timer" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=1965417997]
+wait_time = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=1727731689]
 libraries/ = SubResource("AnimationLibrary_kaecm")
 autoplay = &"WalkCycle"
-speed_scale = 2.0
+speed_scale = 1.7
 
 [node name="Overlay" type="Sprite2D" parent="Rooms/Desk" unique_id=1351403676]
 position = Vector2(0, -350)
@@ -1280,11 +1292,13 @@ metadata/_edit_lock_ = true
 [node name="LeftVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1811588009]
 position = Vector2(-400, 0)
 stream = ExtResource("37_4ldp1")
+attenuation = 2.0
 metadata/_edit_lock_ = true
 
 [node name="RightVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=576099952]
 position = Vector2(400, 0)
 stream = ExtResource("37_4ldp1")
+attenuation = 2.0
 metadata/_edit_lock_ = true
 
 [node name="Clock" type="Label" parent="Misc/GUI" unique_id=226524177]
