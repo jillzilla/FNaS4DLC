@@ -11,9 +11,10 @@ var PlayerNotMoving : bool = true;
 var ntsDeskRunning : bool = false;
 
 #characters ai level
-var NightmareToySonicAILevel : int = 25;
-var NightmareToyYoshiAILevel : int = 25;
-var NightmareTaingleAILevel : int = 25;
+var NightmareToySonicAILevel : int = 0;
+var NightmareToyMarioAILevel : int = 0;
+var NightmareToyYoshiAILevel : int = 0;
+var NightmareTaingleAILevel : int = 0;
 
 #functions
 func random_chance(percent: float) -> bool:

@@ -38,7 +38,10 @@
 [ext_resource type="Texture2D" uid="uid://cwnw6finkb365" path="res://assets/images/gameplay/characters/tsonic/toysonic1.png" id="24_vx1u2"]
 [ext_resource type="AudioStream" uid="uid://b31mag886u1jf" path="res://assets/sounds/Desk_Step.ogg" id="25_1mjni"]
 [ext_resource type="Texture2D" uid="uid://dagj5ybgry1hp" path="res://assets/images/gameplay/characters/taingle/taingle_jumpscare.png" id="26_3txkv"]
+[ext_resource type="Texture2D" uid="uid://bb308cdl2cx4i" path="res://assets/images/gameplay/characters/tmario/tmariorleftleg.png" id="26_e3d00"]
 [ext_resource type="Texture2D" uid="uid://u170nc4742i1" path="res://assets/images/gameplay/characters/tsonic/toysonic2.png" id="27_mmgny"]
+[ext_resource type="Texture2D" uid="uid://lx6pb7qibjaj" path="res://assets/images/gameplay/characters/tmario/tmariopelvis.png" id="27_w0wri"]
+[ext_resource type="Texture2D" uid="uid://7bjybixcf0l3" path="res://assets/images/gameplay/characters/tmario/tmariorightleg.png" id="28_bt1i2"]
 [ext_resource type="Theme" uid="uid://ddy4wy360a77j" path="res://assets/main_theme.tres" id="29_21wbi"]
 [ext_resource type="FontFile" uid="uid://d2a6fttewcype" path="res://assets/fonts/SUBWT___.ttf" id="29_l5brk"]
 [ext_resource type="Texture2D" uid="uid://dspjkfre872ju" path="res://assets/images/gameplay/characters/tsonic/toysonic21.png" id="31_82o30"]
@@ -48,9 +51,17 @@
 [ext_resource type="AudioStream" uid="uid://becm6j6c27siq" path="res://assets/sounds/sfx_vent.ogg" id="37_4ldp1"]
 [ext_resource type="Texture2D" uid="uid://d1870mb3e7j71" path="res://assets/images/gameplay/characters/tsonic/tsonicjumpscarebody.png" id="37_kv0yu"]
 [ext_resource type="Texture2D" uid="uid://b3s0vn0u2pcl7" path="res://assets/images/gameplay/characters/tsonic/tsonicjumpscarehead.png" id="38_5ld61"]
+[ext_resource type="Texture2D" uid="uid://bjwteioe57fn7" path="res://assets/images/gameplay/characters/tmario/tmario_1.png" id="38_wo7lr"]
+[ext_resource type="Texture2D" uid="uid://b5atjuh2w1p6q" path="res://assets/images/gameplay/characters/tmario/tmario_12.png" id="39_ccbml"]
+[ext_resource type="Texture2D" uid="uid://cmp3o3ninwqks" path="res://assets/images/gameplay/characters/tmario/tmario_2.png" id="40_ulcru"]
+[ext_resource type="Texture2D" uid="uid://jvy5ivkon0by" path="res://assets/images/gameplay/characters/tmario/tmario_22.png" id="41_uerps"]
+[ext_resource type="Texture2D" uid="uid://d2wgu40veso38" path="res://assets/images/gameplay/characters/tmario/tmario_3.png" id="42_6s7sv"]
+[ext_resource type="Texture2D" uid="uid://blok7hwuqbhwg" path="res://assets/images/gameplay/characters/tmario/tmario_32.png" id="43_gs8up"]
 [ext_resource type="Texture2D" uid="uid://ct5t8s1gp55aa" path="res://assets/images/gameplay/characters/tsonic/tsonicrightfoot.png" id="47_f7gff"]
 [ext_resource type="Texture2D" uid="uid://dxr7q74afj2e6" path="res://assets/images/gameplay/characters/tsonic/tsonicpelvis.png" id="48_wrac7"]
 [ext_resource type="Texture2D" uid="uid://ckkpwi621bua1" path="res://assets/images/gameplay/characters/tsonic/tsonicleftfoot.png" id="49_1mjni"]
+[ext_resource type="Texture2D" uid="uid://c3r8ff5cxr3px" path="res://assets/images/gameplay/characters/tmario/tmarioheadjumpscare.png" id="61_bt1i2"]
+[ext_resource type="Texture2D" uid="uid://dvea17q2h4ti" path="res://assets/images/gameplay/characters/tmario/tmariobodyjumpscare.png" id="62_k61gk"]
 
 [sub_resource type="Animation" id="Animation_wrac7"]
 resource_name = "WalkCycle"
@@ -109,6 +120,115 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kaecm"]
 _data = {
 &"WalkCycle": SubResource("Animation_wrac7")
+}
+
+[sub_resource type="Animation" id="Animation_k61gk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftFoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-168, 208)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftFoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.16929694]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightFoot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96, 216)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightFoot:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.50963616]
+}
+
+[sub_resource type="Animation" id="Animation_8dshm"]
+resource_name = "WalkCycle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftFoot:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-168, 208), Vector2(88, 208)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftFoot:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.16929694, -0.50963616]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightFoot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(96, 216), Vector2(-176, 200)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightFoot:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.50963616, 0.33859387]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4td0"]
+_data = {
+&"RESET": SubResource("Animation_k61gk"),
+&"WalkCycle": SubResource("Animation_8dshm")
 }
 
 [sub_resource type="Animation" id="Animation_82o30"]
@@ -297,6 +417,68 @@ _data = {
 &"RESET": SubResource("Animation_kv0yu")
 }
 
+[sub_resource type="Animation" id="Animation_6s7sv"]
+resource_name = "Peeking"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-91, -467), Vector2(-224, -478)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.50963616]
+}
+
+[sub_resource type="Animation" id="Animation_gs8up"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-91, -467)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_quckd"]
+_data = {
+&"Peeking": SubResource("Animation_6s7sv"),
+&"RESET": SubResource("Animation_gs8up")
+}
+
 [sub_resource type="Animation" id="Animation_g7uen"]
 resource_name = "jumpscare"
 step = 0.1
@@ -400,6 +582,211 @@ tracks/7/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wrac7"]
 _data = {
 &"jumpscare": SubResource("Animation_g7uen")
+}
+
+[sub_resource type="Animation" id="Animation_bt1i2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(658.6, 1070.6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Head:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(690.6, 894.6)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.6)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Head:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.6)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Head:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_u4td0"]
+resource_name = "jumpscare"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(658.6, 1070.6), Vector2(656.80005, 720.8), Vector2(647.99994, 687.99994)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Head:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(690.6, 894.6), Vector2(688, 479.99997), Vector2(575.99994, 311.99997)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.8, 0.8), Vector2(1.2, 1.2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Head:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.8, 0.8), Vector2(1.2, 1.2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Head:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.3403392]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.16929694]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dsnmp"]
+_data = {
+&"RESET": SubResource("Animation_bt1i2"),
+&"jumpscare": SubResource("Animation_u4td0")
 }
 
 [sub_resource type="Animation" id="Animation_3khrc"]
@@ -681,8 +1068,8 @@ RVentSFX = NodePath("../../Misc/GUI/2DAudios/RightVentSound")
 shockSFX = NodePath("../../Sounds/Shock_SFX")
 officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 jumpscareAnimation = NodePath("../../Misc/GUI/ToySonic_Jumpscare/AnimationPlayer")
-LPeekingAnimation = NodePath("../../Rooms/Left_Vent/ClipMask/ToySonic_1/Peek")
-RPeekingAnimation = NodePath("../../Rooms/Right_Vent/ClipMask/ToySonic_21/Peek")
+LPeekingAnimation = NodePath("../../Rooms/Left_Vent/ClipMask/ToySonic_1/AnimationPlayer")
+RPeekingAnimation = NodePath("../../Rooms/Right_Vent/ClipMask/ToySonic_21/AnimationPlayer")
 RunGraphics = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation")
 RunAnimation = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation/AnimationPlayer")
 timerStep = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation/Timer_Step")
@@ -708,7 +1095,7 @@ officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 Mask = NodePath("../../Misc/GUI/Mask")
 shockSFX = NodePath("../../Sounds/Shock_SFX")
 jumpscareAnimation = NodePath("../../Misc/GUI/ToyYoshi_Jumpscare/AnimationPlayer")
-peekingAnimation = NodePath("../../Rooms/Left_Vent/ClipMask/ToyYoshi_1/Peek")
+peekingAnimation = NodePath("../../Rooms/Left_Vent/ClipMask/ToyYoshi_1/AnimationPlayer")
 metadata/_custom_type_script = "uid://5kr35ro71210"
 
 [node name="NightmareTaingle" type="Node" parent="Characters" unique_id=825719508 node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "radio")]
@@ -886,6 +1273,40 @@ libraries/ = SubResource("AnimationLibrary_kaecm")
 autoplay = &"WalkCycle"
 speed_scale = 1.7
 
+[node name="ToyMario_Desk_Animation" type="Node2D" parent="Rooms/Desk" unique_id=1438147781]
+visible = false
+position = Vector2(16, -542)
+metadata/_edit_lock_ = true
+
+[node name="LeftFoot" type="Sprite2D" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=1068198718]
+position = Vector2(-168, 208)
+rotation = 0.16929694
+texture = ExtResource("26_e3d00")
+metadata/_edit_lock_ = true
+
+[node name="Pelvis" type="Sprite2D" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=1453439863]
+position = Vector2(0, -16)
+texture = ExtResource("27_w0wri")
+metadata/_edit_lock_ = true
+
+[node name="RightFoot" type="Sprite2D" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=907659631]
+position = Vector2(96, 216)
+rotation = -0.50963616
+texture = ExtResource("28_bt1i2")
+metadata/_edit_lock_ = true
+
+[node name="Steps" type="AudioStreamPlayer2D" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=108190165]
+stream = ExtResource("25_1mjni")
+attenuation = 2.0
+metadata/_edit_lock_ = true
+
+[node name="Timer_Step" type="Timer" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=925466175]
+wait_time = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=1124445082]
+libraries/ = SubResource("AnimationLibrary_u4td0")
+autoplay = &"WalkCycle"
+
 [node name="Overlay" type="Sprite2D" parent="Rooms/Desk" unique_id=1351403676]
 position = Vector2(0, -350)
 texture = ExtResource("22_wrac7")
@@ -923,7 +1344,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("24_vx1u2")
 metadata/_edit_lock_ = true
 
-[node name="Peek" type="AnimationPlayer" parent="Rooms/Left_Vent/ClipMask/ToySonic_1" unique_id=724888713]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Left_Vent/ClipMask/ToySonic_1" unique_id=724888713]
 libraries/ = SubResource("AnimationLibrary_pcblb")
 
 [node name="ToyYoshi_1" type="Sprite2D" parent="Rooms/Left_Vent/ClipMask" unique_id=2025409001]
@@ -933,7 +1354,7 @@ scale = Vector2(0.46, 0.46)
 texture = ExtResource("21_h887p")
 metadata/_edit_lock_ = true
 
-[node name="Peek" type="AnimationPlayer" parent="Rooms/Left_Vent/ClipMask/ToyYoshi_1" unique_id=1506408351]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Left_Vent/ClipMask/ToyYoshi_1" unique_id=1506408351]
 libraries/ = SubResource("AnimationLibrary_ondv3")
 
 [node name="ToyYoshi_2" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=667445097]
@@ -1008,8 +1429,45 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("31_82o30")
 metadata/_edit_lock_ = true
 
-[node name="Peek" type="AnimationPlayer" parent="Rooms/Right_Vent/ClipMask/ToySonic_21" unique_id=1904931740]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Right_Vent/ClipMask/ToySonic_21" unique_id=1904931740]
 libraries/ = SubResource("AnimationLibrary_5ld61")
+
+[node name="ToyMario_1" type="Sprite2D" parent="Rooms/Right_Vent/ClipMask" unique_id=1907191612]
+visible = false
+position = Vector2(-91, -467)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("38_wo7lr")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Pupils" type="Sprite2D" parent="Rooms/Right_Vent/ClipMask/ToyMario_1" unique_id=1354859337]
+texture = ExtResource("39_ccbml")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Right_Vent/ClipMask/ToyMario_1" unique_id=1581690450]
+libraries/ = SubResource("AnimationLibrary_quckd")
+
+[node name="ToyMario_2" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1296227063]
+visible = false
+position = Vector2(32, -406)
+texture = ExtResource("40_ulcru")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Pupils" type="Sprite2D" parent="Rooms/Right_Vent/ToyMario_2" unique_id=1650178831]
+texture = ExtResource("41_uerps")
+metadata/_edit_lock_ = true
+
+[node name="ToyMario_3" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=341175458]
+visible = false
+position = Vector2(32, -398)
+texture = ExtResource("42_6s7sv")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Pupils" type="Sprite2D" parent="Rooms/Right_Vent/ToyMario_3" unique_id=1344641789]
+texture = ExtResource("43_gs8up")
+metadata/_edit_lock_ = true
 
 [node name="ToySonic_22" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=94174987]
 visible = false
@@ -1222,6 +1680,27 @@ metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/ToySonic_Jumpscare" unique_id=1644383556]
 libraries/ = SubResource("AnimationLibrary_wrac7")
+speed_scale = 1.5
+
+[node name="ToyMario_Jumpscare" type="Node2D" parent="Misc/GUI" unique_id=917706040]
+metadata/_edit_lock_ = true
+
+[node name="Body" type="Sprite2D" parent="Misc/GUI/ToyMario_Jumpscare" unique_id=906313226]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(658.6, 1070.6)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("62_k61gk")
+metadata/_edit_lock_ = true
+
+[node name="Head" type="Sprite2D" parent="Misc/GUI/ToyMario_Jumpscare" unique_id=1253964121]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(690.6, 894.6)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("61_bt1i2")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/ToyMario_Jumpscare" unique_id=645689646]
+libraries/ = SubResource("AnimationLibrary_dsnmp")
 speed_scale = 1.5
 
 [node name="ToyYoshi_Jumpscare" type="Node2D" parent="Misc/GUI" unique_id=646146059]

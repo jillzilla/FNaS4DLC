@@ -29,3 +29,6 @@ func _handle_gameover_art() -> void:
 		"Nightmare Toy Sonic":
 			get_node("Overlays/Mask").visible = true;
 			get_node("Characters/ToySonic").visible = true;
+		"Nightmare Toy Mario":
+			get_node("Overlays/Mask").visible = true;
+			get_node("Characters/ToyMario").visible = true;

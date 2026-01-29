@@ -2,6 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://6d05aeqfh87" path="res://assets/sounds/Taingle_Jumpscare_Sound.ogg" id="1_16a0g"]
 [ext_resource type="AudioStream" uid="uid://gcbtakfd0h61" path="res://assets/sounds/Sonic_Jumpscare.ogg" id="1_uw54k"]
+[ext_resource type="AudioStream" uid="uid://d3wrtl0ognv75" path="res://assets/sounds/Mario_Jumpscare_Sound.ogg" id="2_ai53t"]
 [ext_resource type="AudioStream" uid="uid://cusv86h8dho52" path="res://assets/sounds/High_Ambiance.ogg" id="2_eqqed"]
 [ext_resource type="AudioStream" uid="uid://d3ja6ngefvmcx" path="res://assets/sounds/Yoshi_Jumpscare_Sound.ogg" id="2_shhgd"]
 [ext_resource type="AudioStream" uid="uid://emssrvtwm15u" path="res://assets/sounds/Selection_Sound.ogg" id="3_shhgd"]
@@ -10,6 +11,9 @@
 
 [node name="Sonic_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=497682462]
 stream = ExtResource("1_uw54k")
+
+[node name="Mario_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1474882084]
+stream = ExtResource("2_ai53t")
 
 [node name="Taingle_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=876443532]
 stream = ExtResource("1_16a0g")
