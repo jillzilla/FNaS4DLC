@@ -28,8 +28,16 @@ var PupilsState : Variant = PupilsStates.DEFAULT;
 @export var debug : bool = false;
 @export var flashlight : FlashLightComponent;
 @export var ventSFX : AudioStreamPlayer2D;
+@export var ventLSFX : AudioStreamPlayer;
 @export var shockSFX : AudioStreamPlayer;
+@export var Mask : Node2D;
 @export var peekingAnimation : AnimationPlayer;
+@export var jumpscareAnimation : AnimationPlayer;
+@export var officeRoomTravel : RoomTravelComponent;
+@export var RunGraphics : Node2D;
+@export var RunAnimation : AnimationPlayer;
+@export var timerStep : Timer;
+@export var stepSfx : AudioStreamPlayer2D;
 
 var cp : float;
 var ce : float;
@@ -50,7 +58,7 @@ func _ready() -> void:
 	cp = timerChangePosition;
 	ce = counterExposure;
 	je = jumpscareExposure;
-	
+	timerStep.connect("timeout",_made_a_step);
 	#character setup
 	_handle_positions();
 
@@ -67,6 +75,58 @@ func _process(delta: float) -> void:
 					ventSFX.play();
 					currentPosition += 1;
 					_handle_positions();
+		#counter
+		if currentPosition >= positionsAvailable && hasShocked:
+			if PupilsState == PupilsStates.ON:
+				if main.PlayerPosition == "Right_Vent" && Mask.isUsingMask:
+					counterExposure -= NewDelta * counterExposureLevel;
+					if counterExposure <= 0:
+						timerChangePosition = cp;
+						counterExposure = ce;
+						jumpscareExposure = je;
+						ventLSFX.play();
+						currentPosition = 0;
+						_handle_positions();
+			else:
+				if main.PlayerPosition == "Desk" && !main.ntmDeskWalking:
+					main.ntmDeskWalking = true;
+					RunGraphics.position.x = 1240;
+					RunGraphics.visible = true;
+					timerStep.start();
+					var t : Tween = create_tween();
+					t.tween_property(RunGraphics,"position:x",-1240,3);
+					await t.finished;
+					timerStep.stop();
+					ventLSFX.play();
+					RunGraphics.visible = false;
+					RunGraphics.scale.x = 1;
+					RunGraphics.position.x = 0;
+					timerChangePosition = cp;
+					jumpscareExposure = je;
+					currentPosition = 0;
+					main.ntmDeskWalking = false;
+					_handle_positions();
+		#jumpscare
+		elif canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking:
+			jumpscareExposure -= NewDelta * jumpscareExposureLevel;
+			if jumpscareExposure <= 0:
+				main.killedBy = "Nightmare Toy Mario";
+				jumpscare = true;
+				jumpscareExposure = je;
+				main.PlayerAlive = false;
+				Position3.visible = false;
+				if main.PlayerPosition != "Office":
+					if Mask.isUsingMask:
+						Mask.get_node("CD_Timer").stop();
+						Mask._remove();
+						await Mask.MaskIsRemoved;
+					officeRoomTravel._travel();
+					await officeRoomTravel.doneTraveling;
+				jumpscareAnimation.play("jumpscare");
+				GlobalAudioManager.get_node("Mario_Jumpscare").play();
+				await jumpscareAnimation.animation_finished;
+				_debugger();
+				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
 		#special events
 		if currentPosition == 1: #peeking
 			if flashlight.is_on && !hasPeeked:
@@ -125,6 +185,9 @@ func _handle_positions() -> void:
 			canAttack = true;
 			
 	_debugger();
+
+func _made_a_step() -> void:
+	stepSfx.play();
 
 func _debugger() -> void:
 	if debug:

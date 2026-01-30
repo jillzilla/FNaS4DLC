@@ -1078,7 +1078,7 @@ stepSfx = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation/Steps")
 ventLeaveSFX = NodePath("../../Sounds/Vent_Leave_SFX")
 metadata/_custom_type_script = "uid://cfq33rypau5gu"
 
-[node name="NightmareToyMario" type="Node" parent="Characters" unique_id=776099062 node_paths=PackedStringArray("Position1", "Position1Pupils", "Position2", "Position2Pupils", "Position3", "Position3Pupils", "flashlight", "ventSFX", "shockSFX", "peekingAnimation")]
+[node name="NightmareToyMario" type="Node" parent="Characters" unique_id=776099062 node_paths=PackedStringArray("Position1", "Position1Pupils", "Position2", "Position2Pupils", "Position3", "Position3Pupils", "flashlight", "ventSFX", "ventLSFX", "shockSFX", "Mask", "peekingAnimation", "jumpscareAnimation", "officeRoomTravel", "RunGraphics", "RunAnimation", "timerStep", "stepSfx")]
 script = ExtResource("3_k61gk")
 positionChangingRate = 50.0
 timerChangePosition = 6000.0
@@ -1094,8 +1094,16 @@ Position3 = NodePath("../../Rooms/Right_Vent/ToyMario_3")
 Position3Pupils = NodePath("../../Rooms/Right_Vent/ToyMario_3/Pupils")
 flashlight = NodePath("../../Rooms/Right_Vent/FlashLightComponent")
 ventSFX = NodePath("../../Misc/GUI/2DAudios/RightVentSound")
+ventLSFX = NodePath("../../Sounds/Vent_Leave_SFX")
 shockSFX = NodePath("../../Sounds/Shock_SFX")
+Mask = NodePath("../../Misc/GUI/Mask")
 peekingAnimation = NodePath("../../Rooms/Right_Vent/ClipMask/ToyMario_1/AnimationPlayer")
+jumpscareAnimation = NodePath("../../Misc/GUI/ToyMario_Jumpscare/AnimationPlayer")
+officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
+RunGraphics = NodePath("../../Rooms/Desk/ToyMario_Desk_Animation")
+RunAnimation = NodePath("../../Rooms/Desk/ToyMario_Desk_Animation/AnimationPlayer")
+timerStep = NodePath("../../Rooms/Desk/ToyMario_Desk_Animation/Timer_Step")
+stepSfx = NodePath("../../Rooms/Desk/ToyMario_Desk_Animation/Steps")
 metadata/_custom_type_script = "uid://bmdn5tvhdnymc"
 
 [node name="NightmareToyYoshi" type="Node" parent="Characters" unique_id=2130040918 node_paths=PackedStringArray("Position1", "Position2", "Position3", "ventSFX", "ventLSFX", "flashlight", "officeRoomTravel", "Mask", "shockSFX", "jumpscareAnimation", "peekingAnimation")]
@@ -1322,7 +1330,6 @@ attenuation = 2.0
 metadata/_edit_lock_ = true
 
 [node name="Timer_Step" type="Timer" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=925466175]
-wait_time = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=1124445082]
 libraries/ = SubResource("AnimationLibrary_u4td0")

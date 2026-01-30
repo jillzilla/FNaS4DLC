@@ -111,6 +111,6 @@ func _pressed() -> void:
 		_travel();
 
 func _entered() -> void:
-	if !main.ntsDeskRunning:
+	if !main.ntsDeskRunning && !main.ntmDeskWalking:
 		if input == inputs.ENTERED && main.PlayerAlive:
 			_travel();

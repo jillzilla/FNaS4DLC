@@ -9,6 +9,7 @@ var PlayerPosition : String = "";
 var PlayerAlive : bool = true;
 var PlayerNotMoving : bool = true;
 var ntsDeskRunning : bool = false;
+var ntmDeskWalking : bool = false;
 
 #characters ai level
 var NightmareToySonicAILevel : int = 0;
