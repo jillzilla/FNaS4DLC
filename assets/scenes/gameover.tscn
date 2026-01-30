@@ -8,10 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cfaxilomr33c" path="res://assets/images/gameover/characters/toysonicgameover.png" id="2_ulb84"]
 [ext_resource type="Texture2D" uid="uid://ds348cpcekf1k" path="res://assets/images/gameover/characters/yoshi_gameover.png" id="3_1slms"]
 [ext_resource type="Texture2D" uid="uid://tpaauent2abr" path="res://assets/images/gameover/characters/tmariogameover.png" id="3_pinjy"]
-[ext_resource type="FontFile" uid="uid://d2a6fttewcype" path="res://assets/fonts/SUBWT___.ttf" id="6_3ktt8"]
-[ext_resource type="Theme" uid="uid://ddy4wy360a77j" path="res://assets/main_theme.tres" id="6_npv0f"]
 [ext_resource type="AudioStream" uid="uid://c82bnvup0rg6x" path="res://assets/sounds/Game_Over_Static_Sound.ogg" id="7_ojgh7"]
-[ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/Components/ButtonComponent.gd" id="8_u872d"]
+[ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="8_u872d"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="9_ulb84"]
 
 [sub_resource type="Animation" id="Animation_6om16"]
 length = 0.001
@@ -171,7 +170,7 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Static" type="AnimatedSprite2D" parent="." unique_id=1914565438]
-modulate = Color(0.54102784, 0.20906562, 0.24269372, 1)
+modulate = Color(0.32941177, 0.10980392, 0.21176471, 1)
 scale = Vector2(0.6666666, 0.6666667)
 sprite_frames = ExtResource("1_w7pm3")
 autoplay = "default"
@@ -187,7 +186,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource("6_npv0f")
+theme = ExtResource("9_ulb84")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
@@ -204,7 +203,6 @@ offset_right = 196.12
 offset_bottom = 33.12
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("6_3ktt8")
 theme_override_font_sizes/font_size = 64
 text = "GAME OVER"
 metadata/_edit_lock_ = true

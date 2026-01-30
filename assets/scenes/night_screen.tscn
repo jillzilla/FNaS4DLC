@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bocmtkamvkla5"]
 
-[ext_resource type="Theme" uid="uid://ddy4wy360a77j" path="res://assets/main_theme.tres" id="1_4f5tl"]
 [ext_resource type="Texture2D" uid="uid://cctg4aalwd40x" path="res://assets/images/title/sky.png" id="1_ntt0c"]
 [ext_resource type="Script" uid="uid://dflt4mb4em4ok" path="res://assets/scripts/night_screen.gd" id="1_x5pu0"]
 [ext_resource type="Texture2D" uid="uid://cvq7xr83lc5no" path="res://assets/images/nightscreen/shpp2.png" id="1_xrr74"]
 [ext_resource type="Texture2D" uid="uid://beqplr2jytell" path="res://assets/images/title/clouds.png" id="2_1wr7x"]
 [ext_resource type="AudioStream" uid="uid://bwjtc6lxv4l4h" path="res://assets/sounds/Night_Start_Sound.ogg" id="5_4opvj"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="5_x5pu0"]
 
 [sub_resource type="Animation" id="Animation_3oht6"]
 length = 0.001
@@ -49,7 +49,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_x5pu0"]
 resource_name = "flash"
 length = 6.0
-step = 0.05
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -147,7 +147,7 @@ offset_right = 160.0
 offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_4f5tl")
+theme = ExtResource("5_x5pu0")
 theme_override_font_sizes/font_size = 64
 text = "Night 0
 12:00 AM"

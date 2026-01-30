@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://bi145s4thcg3p" path="res://assets/scripts/nightsetup.gd" id="1_hlo8c"]
 [ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/rooms/office.png" id="1_n5x6c"]
 [ext_resource type="Script" uid="uid://dslqbhm8b8w8y" path="res://assets/characters/NightmareTaingle.gd" id="1_rybgg"]
-[ext_resource type="Script" uid="uid://chkw6deyn5h6a" path="res://assets/Components/RoomTravelComponent.gd" id="2_f1ux5"]
+[ext_resource type="Script" uid="uid://chkw6deyn5h6a" path="res://assets/components/RoomTravelComponent.gd" id="2_f1ux5"]
 [ext_resource type="Texture2D" uid="uid://1jfqrmyfgxtv" path="res://assets/images/gameplay/rooms/ceiling.png" id="2_kqp6g"]
-[ext_resource type="Script" uid="uid://cnhe33f3mmlmb" path="res://assets/Components/ScrollingComponent.gd" id="2_mrbpc"]
+[ext_resource type="Script" uid="uid://cnhe33f3mmlmb" path="res://assets/components/ScrollingComponent.gd" id="2_mrbpc"]
 [ext_resource type="Script" uid="uid://cfq33rypau5gu" path="res://assets/characters/NightmareToySonic.gd" id="2_pcblb"]
 [ext_resource type="Texture2D" uid="uid://25ibt2ltkgin" path="res://assets/images/misc/vignette.tres" id="2_un4qs"]
 [ext_resource type="AudioStream" uid="uid://b0sqggxvrlvcg" path="res://assets/sounds/[8] Flashlight_Sound.ogg" id="3_5jwmk"]
@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://nb6tg6pvsdjj" path="res://assets/images/gameplay/characters/taingle/taingle_4.png" id="10_hlo8c"]
 [ext_resource type="Texture2D" uid="uid://c8rfx7wqcgir4" path="res://assets/images/gameplay/rooms/flashlight/hallway_on.png" id="12_b68su"]
 [ext_resource type="Texture2D" uid="uid://btxeri3280sqp" path="res://assets/images/gameplay/rooms/flashlight/hallway_off.png" id="13_qautv"]
-[ext_resource type="Script" uid="uid://bn757rkvxcpdt" path="res://assets/Components/FlashlightComponent.gd" id="16_br2i6"]
+[ext_resource type="Script" uid="uid://bn757rkvxcpdt" path="res://assets/components/FlashlightComponent.gd" id="16_br2i6"]
 [ext_resource type="PackedScene" uid="uid://bud1bsy5ye6yc" path="res://assets/scenes/mask.tscn" id="16_iuexx"]
 [ext_resource type="Texture2D" uid="uid://c2pxe3ehd4qtn" path="res://assets/images/gameplay/rooms/clipmask/vent.png" id="20_t2peh"]
 [ext_resource type="Texture2D" uid="uid://v3lx10cvmtha" path="res://assets/images/gameplay/characters/yoshi/yoshi_1.png" id="21_h887p"]
@@ -43,8 +43,6 @@
 [ext_resource type="Texture2D" uid="uid://u170nc4742i1" path="res://assets/images/gameplay/characters/tsonic/toysonic2.png" id="27_mmgny"]
 [ext_resource type="Texture2D" uid="uid://lx6pb7qibjaj" path="res://assets/images/gameplay/characters/tmario/tmariopelvis.png" id="27_w0wri"]
 [ext_resource type="Texture2D" uid="uid://7bjybixcf0l3" path="res://assets/images/gameplay/characters/tmario/tmariorightleg.png" id="28_bt1i2"]
-[ext_resource type="Theme" uid="uid://ddy4wy360a77j" path="res://assets/main_theme.tres" id="29_21wbi"]
-[ext_resource type="FontFile" uid="uid://d2a6fttewcype" path="res://assets/fonts/SUBWT___.ttf" id="29_l5brk"]
 [ext_resource type="Texture2D" uid="uid://dspjkfre872ju" path="res://assets/images/gameplay/characters/tsonic/toysonic21.png" id="31_82o30"]
 [ext_resource type="AudioStream" uid="uid://baqctxt57reor" path="res://assets/sounds/Toy_Tails_Radio.ogg" id="31_u63jk"]
 [ext_resource type="Texture2D" uid="uid://bu0dnpxqjv2ck" path="res://assets/images/gameplay/characters/yoshi/tyoshijumpscare.png" id="32_0v48r"]
@@ -62,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://dxr7q74afj2e6" path="res://assets/images/gameplay/characters/tsonic/tsonicpelvis.png" id="48_wrac7"]
 [ext_resource type="Texture2D" uid="uid://ckkpwi621bua1" path="res://assets/images/gameplay/characters/tsonic/tsonicleftfoot.png" id="49_1mjni"]
 [ext_resource type="Texture2D" uid="uid://c3r8ff5cxr3px" path="res://assets/images/gameplay/characters/tmario/tmarioheadjumpscare.png" id="61_bt1i2"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="62_bt1i2"]
 [ext_resource type="Texture2D" uid="uid://dvea17q2h4ti" path="res://assets/images/gameplay/characters/tmario/tmariobodyjumpscare.png" id="62_k61gk"]
 
 [sub_resource type="Animation" id="Animation_wrac7"]
@@ -1293,7 +1292,6 @@ metadata/_edit_lock_ = true
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=1459543770]
 stream = ExtResource("25_1mjni")
-attenuation = 2.0
 metadata/_edit_lock_ = true
 
 [node name="Timer_Step" type="Timer" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=1965417997]
@@ -1328,11 +1326,10 @@ metadata/_edit_lock_ = true
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=108190165]
 stream = ExtResource("25_1mjni")
-attenuation = 2.0
 metadata/_edit_lock_ = true
 
 [node name="Timer_Step" type="Timer" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=925466175]
-wait_time = 0.2
+wait_time = 0.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=1124445082]
 libraries/ = SubResource("AnimationLibrary_u4td0")
@@ -1802,13 +1799,11 @@ metadata/_edit_lock_ = true
 [node name="LeftVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1811588009]
 position = Vector2(-400, 0)
 stream = ExtResource("37_4ldp1")
-attenuation = 2.0
 metadata/_edit_lock_ = true
 
 [node name="RightVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=576099952]
 position = Vector2(400, 0)
 stream = ExtResource("37_4ldp1")
-attenuation = 2.0
 metadata/_edit_lock_ = true
 
 [node name="Clock" type="Label" parent="Misc/GUI" unique_id=226524177]
@@ -1821,10 +1816,7 @@ offset_left = -92.160034
 offset_top = -16.480001
 offset_right = 91.839966
 offset_bottom = 16.519999
-theme = ExtResource("29_21wbi")
-theme_override_colors/font_color = Color(0.5411765, 0.20784314, 0.24313726, 1)
-theme_override_fonts/font = ExtResource("29_l5brk")
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("62_bt1i2")
 text = "12 AM"
 horizontal_alignment = 2
 metadata/_edit_lock_ = true
