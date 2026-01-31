@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtgd0sn6b0i55"
+path="res://.godot/imported/empty hallway (FNaS 4 RE-TAKE night music).mp3-9f0cbc281cb7ac329b1bad2502653823.mp3str"
+
+[deps]
+
+source_file="res://assets/music/empty hallway (FNaS 4 RE-TAKE night music).mp3"
+dest_files=["res://.godot/imported/empty hallway (FNaS 4 RE-TAKE night music).mp3-9f0cbc281cb7ac329b1bad2502653823.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
