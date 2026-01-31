@@ -8,7 +8,7 @@
 
 [node name="CustomNight" type="Node" unique_id=1823592247]
 script = ExtResource("1_8gqf7")
-metadata/_edit_horizontal_guides_ = [1005.0, 690.0]
+metadata/_edit_horizontal_guides_ = [1005.0, 868.0]
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=60568684]
 stream = ExtResource("1_8182v")

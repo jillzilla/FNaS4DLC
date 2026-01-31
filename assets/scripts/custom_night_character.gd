@@ -27,50 +27,64 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if !canAddFocus && !canSubFocus:
+		if !get_node("Timer_Change").is_stopped():
+			get_node("Timer_Change").stop();
 		return;
 	
-	if canAddFocus:
+	elif canAddFocus:
 		if get_node("Timer_Change").is_stopped():
 			_add();
 			get_node("Timer_Change").start();
 		await get_node("Timer_Change").timeout;
 		
-	if canSubFocus:
+	elif canSubFocus:
 		if get_node("Timer_Change").is_stopped():
 			_sub();
 			get_node("Timer_Change").start();
 		await get_node("Timer_Change").timeout;
 		
 func _on_left_button_down() -> void:
-	_sub();
-	get_node("Timer_Focus").start();
-	await get_node("Timer_Focus").timeout;
-	canSubFocus = true;
+	if get_node("Timer_Focus").is_stopped():
+		_sub();
+		get_node("Timer_Focus").start();
+		await get_node("Timer_Focus").timeout;
+		canSubFocus = true;
+		canAddFocus = false;
 
 func _on_right_button_down() -> void:
-	_add();
-	get_node("Timer_Focus").start();
-	await get_node("Timer_Focus").timeout;
-	canAddFocus = true;
+	if get_node("Timer_Focus").is_stopped():
+		_add();
+		get_node("Timer_Focus").start();
+		await get_node("Timer_Focus").timeout;
+		canAddFocus = true;
+		canSubFocus = false;
 	
 func _on_left_button_up() -> void:
+	canAddFocus = false;
 	canSubFocus = false;
-	get_node("Timer_Focus").stop();
+	if !get_node("Timer_Focus").is_stopped():
+		get_node("Timer_Focus").stop();
 	get_node("Timer_Change").stop();
 	
 func _on_left_mouse_exited() -> void:
+	canAddFocus = false;
 	canSubFocus = false;
-	get_node("Timer_Focus").stop();
+	if !get_node("Timer_Focus").is_stopped():
+		get_node("Timer_Focus").stop();
 	get_node("Timer_Change").stop();
 
 func _on_right_button_up() -> void:
 	canAddFocus = false;
-	get_node("Timer_Focus").stop();
+	canSubFocus = false;
+	if !get_node("Timer_Focus").is_stopped():
+		get_node("Timer_Focus").stop();
 	get_node("Timer_Change").stop();
 
 func _on_right_mouse_exited() -> void:
 	canAddFocus = false;
-	get_node("Timer_Focus").stop();
+	canSubFocus = false;
+	if !get_node("Timer_Focus").is_stopped():
+		get_node("Timer_Focus").stop();
 	get_node("Timer_Change").stop();
 	
 func _add() -> void:
@@ -104,3 +118,4 @@ func _update_ai_counter() -> void:
 	else:
 		modulate.a = 0.2;
 		get_node("AiLevel/Counter").text = "X";
+	print(str(canAddFocus) + "," + str(canSubFocus));

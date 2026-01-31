@@ -77,7 +77,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Timer_Change" type="Timer" parent="." unique_id=1860983513]
-wait_time = 0.1
+wait_time = 0.05
 one_shot = true
 
 [connection signal="button_down" from="AiLevel/Left" to="." method="_on_left_button_down"]
