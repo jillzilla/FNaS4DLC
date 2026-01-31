@@ -118,4 +118,3 @@ func _update_ai_counter() -> void:
 	else:
 		modulate.a = 0.2;
 		get_node("AiLevel/Counter").text = "X";
-	print(str(canAddFocus) + "," + str(canSubFocus));

@@ -1,5 +1,7 @@
 extends Node
 
+@export var characters : Array[VBoxContainer];
+
 #functions
 func _ready() -> void:
 	main.isPlayingCustomNight = true;
@@ -10,3 +12,15 @@ func _on_back_pressed() -> void:
 
 func _on_ready_pressed() -> void:
 	get_tree().change_scene_to_file("res://assets/scenes/night_screen.tscn");
+
+func _on_min_pressed() -> void:
+	for i in range(characters.size()):
+		characters[i]._set_min();
+
+func _on_max_pressed() -> void:
+	for i in range(characters.size()):
+		characters[i]._set_max();
+
+func _on_random_pressed() -> void:
+	for i in range(characters.size()):
+		characters[i]._set_random();

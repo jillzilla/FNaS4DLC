@@ -6,8 +6,9 @@
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_00ogn"]
 [ext_resource type="PackedScene" uid="uid://cxttec8xvsjfx" path="res://assets/scenes/custom_night_character.tscn" id="4_k8lu8"]
 
-[node name="CustomNight" type="Node" unique_id=1823592247]
+[node name="CustomNight" type="Node" unique_id=1823592247 node_paths=PackedStringArray("characters")]
 script = ExtResource("1_8gqf7")
+characters = [NodePath("Control/Characters/Sonic"), NodePath("Control/Characters/Mario"), NodePath("Control/Characters/Yoshi"), NodePath("Control/Characters/Taingle"), NodePath("Control/Characters/BT")]
 metadata/_edit_horizontal_guides_ = [1005.0, 868.0]
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=60568684]
@@ -283,4 +284,7 @@ parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control/AILevelSetupButtons/Min" to="." method="_on_min_pressed"]
+[connection signal="pressed" from="Control/AILevelSetupButtons/Max" to="." method="_on_max_pressed"]
+[connection signal="pressed" from="Control/AILevelSetupButtons/Random" to="." method="_on_random_pressed"]
 [connection signal="pressed" from="Control/Ready" to="." method="_on_ready_pressed"]
