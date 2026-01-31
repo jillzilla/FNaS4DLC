@@ -296,4 +296,5 @@ metadata/_edit_group_ = true
 libraries/ = SubResource("AnimationLibrary_ulb84")
 
 [connection signal="pressed" from="Control/TryAgainButton" to="." method="_on_try_again_button_pressed"]
+[connection signal="pressed" from="Control/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

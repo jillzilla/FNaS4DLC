@@ -47,6 +47,7 @@
 [ext_resource type="AudioStream" uid="uid://baqctxt57reor" path="res://assets/sounds/Toy_Tails_Radio.ogg" id="31_u63jk"]
 [ext_resource type="Texture2D" uid="uid://bu0dnpxqjv2ck" path="res://assets/images/gameplay/characters/yoshi/tyoshijumpscare.png" id="32_0v48r"]
 [ext_resource type="Texture2D" uid="uid://4d2byfqh0dbl" path="res://assets/images/gameplay/characters/yoshi/tyoshiclaw.png" id="33_4ldp1"]
+[ext_resource type="Texture2D" uid="uid://cwx3t0pb835r0" path="res://assets/images/gameplay/characters/bt/bt1.png" id="36_8dshm"]
 [ext_resource type="AudioStream" uid="uid://becm6j6c27siq" path="res://assets/sounds/sfx_vent.ogg" id="37_4ldp1"]
 [ext_resource type="Texture2D" uid="uid://d1870mb3e7j71" path="res://assets/images/gameplay/characters/tsonic/tsonicjumpscarebody.png" id="37_kv0yu"]
 [ext_resource type="Texture2D" uid="uid://b3s0vn0u2pcl7" path="res://assets/images/gameplay/characters/tsonic/tsonicjumpscarehead.png" id="38_5ld61"]
@@ -62,6 +63,7 @@
 [ext_resource type="Texture2D" uid="uid://c3r8ff5cxr3px" path="res://assets/images/gameplay/characters/tmario/tmarioheadjumpscare.png" id="61_bt1i2"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="62_bt1i2"]
 [ext_resource type="Texture2D" uid="uid://dvea17q2h4ti" path="res://assets/images/gameplay/characters/tmario/tmariobodyjumpscare.png" id="62_k61gk"]
+[ext_resource type="Texture2D" uid="uid://cvie5h5snq23a" path="res://assets/images/gameplay/characters/bt/bt2.png" id="63_k61gk"]
 
 [sub_resource type="Animation" id="Animation_wrac7"]
 resource_name = "WalkCycle"
@@ -1173,6 +1175,12 @@ texture = ExtResource("1_n5x6c")
 centered = false
 metadata/_edit_lock_ = true
 
+[node name="BT_2" type="Sprite2D" parent="Rooms/Office" unique_id=519208876]
+visible = false
+position = Vector2(1040, 658)
+texture = ExtResource("63_k61gk")
+metadata/_edit_lock_ = true
+
 [node name="RoomTravelComponent" type="Node" parent="Rooms/Office" unique_id=1453186721 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "roomToLeave", "mask")]
 script = ExtResource("2_f1ux5")
 input = 0
@@ -1384,6 +1392,13 @@ metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Left_Vent/ClipMask/ToyYoshi_1" unique_id=1506408351]
 libraries/ = SubResource("AnimationLibrary_ondv3")
+
+[node name="BT_1" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=975212372]
+visible = false
+position = Vector2(120, -438)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("36_8dshm")
+metadata/_edit_lock_ = true
 
 [node name="ToyYoshi_2" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=667445097]
 visible = false
