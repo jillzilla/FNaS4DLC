@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://qnkhaexp1cfi"]
-
-[ext_resource type="Script" uid="uid://bmacdpvvelv3" path="res://assets/main.gd" id="1_db5cl"]
-
-[node name="Main" type="Node" unique_id=2105806658]
-script = ExtResource("1_db5cl")

@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://cno0evdpungoy"]
+
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="1_e2c8y"]
+[ext_resource type="Script" uid="uid://b5w5va0mso8xm" path="res://assets/scripts/intro.gd" id="1_vxlar"]
+
+[sub_resource type="Gradient" id="Gradient_vxlar"]
+colors = PackedColorArray(0, 0, 0, 1, 0.32941177, 0.10980392, 0.21176471, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y745p"]
+gradient = SubResource("Gradient_vxlar")
+width = 1280
+height = 720
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[node name="Intro" type="Node" unique_id=454415649]
+script = ExtResource("1_vxlar")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1676978548]
+texture = SubResource("GradientTexture2D_y745p")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="." unique_id=1932539693]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_e2c8y")
+metadata/_edit_lock_ = true
+
+[node name="Message" type="Label" parent="Control" unique_id=1746678479]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "This is what happens when an inside joke turns
+into a series of games, along with some
+cancelled ones. And 2 fans then decided
+to revive the cancelled DLC for the
+fourth chapter!
+
+Here is Five Nights at Sonic's 4 DLC!"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Hint" type="Label" parent="Control" unique_id=713745908]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.933
+anchor_right = 0.5
+anchor_bottom = 0.933
+offset_left = -126.0
+offset_top = -31.76001
+offset_right = 126.0
+offset_bottom = 32.23999
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "(Click to continue)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="." unique_id=1734463457]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+action_mode = 0
+flat = true
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

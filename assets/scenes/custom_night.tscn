@@ -1,0 +1,286 @@
+[gd_scene format=3 uid="uid://bekew5j02li0q"]
+
+[ext_resource type="Script" uid="uid://u38qaihcbnrj" path="res://assets/scripts/custom_night.gd" id="1_8gqf7"]
+[ext_resource type="AudioStream" uid="uid://ov2yg3pftbf2" path="res://assets/music/ToyKingdom_~_CustomNight.mp3" id="1_8182v"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="1_o8hl8"]
+[ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_00ogn"]
+[ext_resource type="PackedScene" uid="uid://cxttec8xvsjfx" path="res://assets/scenes/custom_night_character.tscn" id="4_k8lu8"]
+
+[node name="CustomNight" type="Node" unique_id=1823592247]
+script = ExtResource("1_8gqf7")
+metadata/_edit_horizontal_guides_ = [1005.0, 690.0]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=60568684]
+stream = ExtResource("1_8182v")
+autoplay = true
+
+[node name="Control" type="Control" parent="." unique_id=1164448981]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_o8hl8")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="ColorRect" parent="Control" unique_id=153330391]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="Control" unique_id=1178783075]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.106000006
+anchor_top = 0.117000006
+anchor_right = 0.106000006
+anchor_bottom = 0.117000006
+offset_left = -119.68001
+offset_top = -68.240005
+offset_right = 120.31999
+offset_bottom = 67.759995
+theme_override_font_sizes/font_size = 64
+text = "Custom
+Night"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Characters" type="GridContainer" parent="Control" unique_id=1611893534]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.39400002
+anchor_right = 0.5
+anchor_bottom = 0.39400002
+offset_left = -452.0
+offset_top = -279.73212
+offset_right = 452.0
+offset_bottom = 280.26785
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sonic" parent="Control/Characters" unique_id=1868036126 instance=ExtResource("4_k8lu8")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+charName = "Nightmare Toy Sonic"
+iconPath = "res://assets/images/customnight/ntsIcon.png"
+metadata/_edit_lock_ = true
+
+[node name="Mario" parent="Control/Characters" unique_id=447377998 instance=ExtResource("4_k8lu8")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+charName = "Nightmare Toy Mario"
+iconPath = "res://assets/images/customnight/ntmIcon.png"
+charID = 1
+metadata/_edit_lock_ = true
+
+[node name="Yoshi" parent="Control/Characters" unique_id=1931477606 instance=ExtResource("4_k8lu8")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+charName = "Nightmare Toy Yoshi"
+iconPath = "res://assets/images/customnight/ntyIcon.png"
+charID = 2
+metadata/_edit_lock_ = true
+
+[node name="Taingle" parent="Control/Characters" unique_id=753376245 instance=ExtResource("4_k8lu8")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+charName = "Nightmare Taingle"
+iconPath = "res://assets/images/customnight/ntIcon.png"
+charID = 3
+metadata/_edit_lock_ = true
+
+[node name="BT" parent="Control/Characters" unique_id=1668436749 instance=ExtResource("4_k8lu8")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+charName = "Nightmare B.T."
+iconPath = "res://assets/images/customnight/btIcon.png"
+charID = 4
+metadata/_edit_lock_ = true
+
+[node name="Challenges" type="HBoxContainer" parent="Control" unique_id=1362725539]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.799
+anchor_right = 0.5
+anchor_bottom = 0.799
+offset_left = -152.5
+offset_top = -31.28003
+offset_right = 152.5
+offset_bottom = 32.71997
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 32
+metadata/_edit_lock_ = true
+
+[node name="Left" type="Button" parent="Control/Challenges" unique_id=507811364]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 64
+action_mode = 0
+text = "<<"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/Challenges/Left" unique_id=2057332149 node_paths=PackedStringArray("parent")]
+script = ExtResource("3_00ogn")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Challenge_Name" type="Label" parent="Control/Challenges" unique_id=657289225]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 48
+text = "Custom Night"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Right" type="Button" parent="Control/Challenges" unique_id=933023197]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 64
+action_mode = 0
+text = ">>"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/Challenges/Right" unique_id=744153323 node_paths=PackedStringArray("parent")]
+script = ExtResource("3_00ogn")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Back" type="Button" parent="Control" unique_id=1559279935]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.060000002
+anchor_top = 0.93200004
+anchor_right = 0.060000002
+anchor_bottom = 0.93200004
+offset_left = -60.800003
+offset_top = -25.04004
+offset_right = 60.199997
+offset_bottom = 24.95996
+pivot_offset_ratio = Vector2(0.5, 0.5)
+focus_mode = 0
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Back"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/Back" unique_id=683326735 node_paths=PackedStringArray("parent")]
+script = ExtResource("3_00ogn")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="AILevelSetupButtons" type="HBoxContainer" parent="Control" unique_id=618722374]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.94100004
+anchor_right = 0.5
+anchor_bottom = 0.94100004
+offset_left = -383.99997
+offset_top = -37.52002
+offset_right = 384.0
+offset_bottom = 37.47998
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Min" type="Button" parent="Control/AILevelSetupButtons" unique_id=494910810]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "All Min"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/AILevelSetupButtons/Min" unique_id=1687229005 node_paths=PackedStringArray("parent")]
+script = ExtResource("3_00ogn")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Max" type="Button" parent="Control/AILevelSetupButtons" unique_id=1186119771]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "All Max"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/AILevelSetupButtons/Max" unique_id=1751502200 node_paths=PackedStringArray("parent")]
+script = ExtResource("3_00ogn")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Random" type="Button" parent="Control/AILevelSetupButtons" unique_id=1427159122]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "Randomize"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/AILevelSetupButtons/Random" unique_id=791683 node_paths=PackedStringArray("parent")]
+script = ExtResource("3_00ogn")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Ready" type="Button" parent="Control" unique_id=1197133074]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.90900004
+anchor_top = 0.924
+anchor_right = 0.90900004
+anchor_bottom = 0.924
+offset_left = -99.52002
+offset_top = -33.28003
+offset_right = 99.47998
+offset_bottom = 32.71997
+focus_mode = 0
+theme_override_font_sizes/font_size = 64
+action_mode = 0
+text = "Ready"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/Ready" unique_id=1982494799 node_paths=PackedStringArray("parent")]
+script = ExtResource("3_00ogn")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control/Ready" to="." method="_on_ready_pressed"]

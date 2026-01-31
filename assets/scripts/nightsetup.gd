@@ -15,6 +15,8 @@ func _ready() -> void:
 	main.PlayerAlive = true;
 	main.PlayerPosition = officeRoomTravel.room.name;
 	main.PlayerNotMoving = true;
+	
+	main._update_ai_levels();
 
 func _on_clock_timer_timeout() -> void:
 	ClockIteration += 1;

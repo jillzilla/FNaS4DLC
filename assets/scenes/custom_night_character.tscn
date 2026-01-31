@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cxttec8xvsjfx"]
+
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="1_udq8f"]
+[ext_resource type="Script" uid="uid://bsj7jklwg2p88" path="res://assets/scripts/custom_night_character.gd" id="2_ilgc2"]
+[ext_resource type="Texture2D" uid="uid://cyq7cdc4b11kp" path="res://assets/images/customnight/ntsIcon.png" id="2_xcfi6"]
+[ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_xcfi6"]
+
+[node name="CustomNight_Character" type="VBoxContainer" unique_id=1868036126]
+offset_right = 168.0
+offset_bottom = 272.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme = ExtResource("1_udq8f")
+script = ExtResource("2_ilgc2")
+metadata/_edit_group_ = true
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1832565570]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_xcfi6")
+stretch_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="Name" type="Label" parent="." unique_id=1982739395]
+custom_minimum_size = Vector2(168, 69)
+layout_mode = 2
+text = "CharName"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="AiLevel" type="HBoxContainer" parent="." unique_id=655409290]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Left" type="Button" parent="AiLevel" unique_id=1833797603]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+action_mode = 0
+text = "<<"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="AiLevel/Left" unique_id=89822781 node_paths=PackedStringArray("parent")]
+script = ExtResource("3_xcfi6")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Counter" type="Label" parent="AiLevel" unique_id=1512247604]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Right" type="Button" parent="AiLevel" unique_id=137405889]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+action_mode = 0
+text = ">>"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="AiLevel/Right" unique_id=1279515181 node_paths=PackedStringArray("parent")]
+script = ExtResource("3_xcfi6")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Timer_Focus" type="Timer" parent="." unique_id=2109116080]
+wait_time = 0.5
+one_shot = true
+
+[node name="Timer_Change" type="Timer" parent="." unique_id=1860983513]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="button_down" from="AiLevel/Left" to="." method="_on_left_button_down"]
+[connection signal="button_up" from="AiLevel/Left" to="." method="_on_left_button_up"]
+[connection signal="mouse_exited" from="AiLevel/Left" to="." method="_on_left_mouse_exited"]
+[connection signal="button_down" from="AiLevel/Right" to="." method="_on_right_button_down"]
+[connection signal="button_up" from="AiLevel/Right" to="." method="_on_right_button_up"]
+[connection signal="mouse_exited" from="AiLevel/Right" to="." method="_on_right_mouse_exited"]

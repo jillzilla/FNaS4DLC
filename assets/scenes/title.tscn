@@ -414,7 +414,7 @@ offset_top = -16.680054
 offset_right = 68.2
 offset_bottom = 16.319946
 theme_override_font_sizes/font_size = 32
-text = "V1.0.0.O"
+text = "BETA 1"
 vertical_alignment = 2
 metadata/_edit_lock_ = true
 
@@ -435,3 +435,10 @@ metadata/_edit_lock_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1176152679]
 libraries/ = SubResource("AnimationLibrary_qxslq")
 autoplay = &"Intro"
+
+[connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/CustomNight" to="." method="_on_custom_night_pressed"]
+[connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Play/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Night6" to="." method="_on_night_6_pressed"]
+[connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Extras" to="." method="_on_extras_pressed"]
+[connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Quit" to="." method="_on_quit_pressed"]
