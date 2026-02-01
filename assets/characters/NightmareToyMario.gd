@@ -38,6 +38,7 @@ var PupilsState : Variant = PupilsStates.DEFAULT;
 @export var RunAnimation : AnimationPlayer;
 @export var timerStep : Timer;
 @export var stepSfx : AudioStreamPlayer2D;
+@export var charAway : AnimationPlayer;
 
 var cp : float;
 var ce : float;
@@ -84,6 +85,7 @@ func _process(delta: float) -> void:
 				jumpscareExposure = je;
 				ventLSFX.play();
 				currentPosition = 0;
+				charAway.play_backwards("fade");
 				_handle_positions();
 		elif currentPosition >= positionsAvailable && hasShocked && PupilsState == PupilsStates.OFF && main.PlayerPosition == "Desk" && !main.ntmDeskWalking:
 			main.ntmDeskWalking = true;

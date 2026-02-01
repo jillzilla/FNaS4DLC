@@ -28,6 +28,7 @@ class_name NightmareToyYoshi extends Node
 @export var shockSFX : AudioStreamPlayer;
 @export var jumpscareAnimation : AnimationPlayer;
 @export var peekingAnimation : AnimationPlayer;
+@export var charAway : AnimationPlayer;
 
 var cp : float;
 var ce : float;
@@ -74,6 +75,7 @@ func _process(delta: float) -> void:
 				jumpscareExposure = je;
 				ventLSFX.play();
 				currentPosition = 0;
+				charAway.play_backwards("fade");
 				_handle_positions();
 		#jumpscare
 		elif canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking:
