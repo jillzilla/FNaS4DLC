@@ -352,6 +352,7 @@ parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Settings" type="Button" parent="UI/Control/ButtonsContainer/MainButtons" unique_id=966034820]
+visible = false
 layout_mode = 2
 focus_mode = 0
 mouse_filter = 2
@@ -380,6 +381,7 @@ parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Credits" type="Button" parent="UI/Control/ButtonsContainer" unique_id=1685344281]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.897
