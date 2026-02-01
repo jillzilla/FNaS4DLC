@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxttec8xvsjfx"]
 
-[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="1_udq8f"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_udq8f"]
 [ext_resource type="Script" uid="uid://bsj7jklwg2p88" path="res://assets/scripts/custom_night_character.gd" id="2_ilgc2"]
 [ext_resource type="Texture2D" uid="uid://cyq7cdc4b11kp" path="res://assets/images/customnight/ntsIcon.png" id="2_xcfi6"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_xcfi6"]

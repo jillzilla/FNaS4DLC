@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bl1f8fi47vxi8"]
 
 [ext_resource type="Script" uid="uid://yo34tnm6bp1l" path="res://assets/scripts/win_screen.gd" id="1_qkwhx"]
-[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="2_w12c8"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="2_w12c8"]
 [ext_resource type="AudioStream" uid="uid://ccnvc31bwjev0" path="res://assets/sounds/End_of_Night_Bells.ogg" id="3_qkwhx"]
 
 [sub_resource type="Animation" id="Animation_3levj"]

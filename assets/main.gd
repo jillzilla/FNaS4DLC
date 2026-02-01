@@ -3,6 +3,7 @@ extends Node
 #variables
 var fpsTarget : float = 60.0;
 var isPlayingCustomNight : bool = false;
+var isOnDialogue : bool = false;
 
 #player status
 var killedBy : String = "";

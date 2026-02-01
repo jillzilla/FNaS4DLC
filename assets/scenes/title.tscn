@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://beqplr2jytell" path="res://assets/images/title/clouds.png" id="2_w0xr6"]
 [ext_resource type="Texture2D" uid="uid://dwos45otusoh8" path="res://assets/images/title/4DLCLogo.png" id="5_qxslq"]
 [ext_resource type="AudioStream" uid="uid://bwjtc6lxv4l4h" path="res://assets/sounds/Night_Start_Sound.ogg" id="6_4c3p0"]
-[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="6_fv6c7"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="6_fv6c7"]
 [ext_resource type="Texture2D" uid="uid://bap70d4fgowjy" path="res://assets/images/title/Star_Title_0.png" id="7_s21ad"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="7_t2yek"]
 

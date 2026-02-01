@@ -63,7 +63,7 @@
 [ext_resource type="Texture2D" uid="uid://ckkpwi621bua1" path="res://assets/images/gameplay/characters/tsonic/tsonicleftfoot.png" id="49_1mjni"]
 [ext_resource type="Script" uid="uid://vbev0wmin1fa" path="res://assets/scripts/poster_button.gd" id="54_dsnmp"]
 [ext_resource type="Texture2D" uid="uid://c3r8ff5cxr3px" path="res://assets/images/gameplay/characters/tmario/tmarioheadjumpscare.png" id="61_bt1i2"]
-[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="62_bt1i2"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="62_bt1i2"]
 [ext_resource type="Texture2D" uid="uid://dvea17q2h4ti" path="res://assets/images/gameplay/characters/tmario/tmariobodyjumpscare.png" id="62_k61gk"]
 [ext_resource type="Texture2D" uid="uid://cvie5h5snq23a" path="res://assets/images/gameplay/characters/bt/bt2.png" id="63_k61gk"]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cno0evdpungoy"]
 
-[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="1_e2c8y"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_e2c8y"]
 [ext_resource type="Script" uid="uid://b5w5va0mso8xm" path="res://assets/scripts/intro.gd" id="1_vxlar"]
 
 [sub_resource type="Gradient" id="Gradient_vxlar"]

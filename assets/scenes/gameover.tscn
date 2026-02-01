@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://tpaauent2abr" path="res://assets/images/gameover/characters/tmariogameover.png" id="3_pinjy"]
 [ext_resource type="AudioStream" uid="uid://c82bnvup0rg6x" path="res://assets/sounds/Game_Over_Static_Sound.ogg" id="7_ojgh7"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="8_u872d"]
-[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="9_ulb84"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="9_ulb84"]
 
 [sub_resource type="Animation" id="Animation_6om16"]
 length = 0.001
