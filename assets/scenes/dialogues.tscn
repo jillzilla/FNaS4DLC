@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://4p1uwjj1skxe"]
+
+[ext_resource type="Theme" uid="uid://bvx1bcadxurmm" path="res://assets/dialogues_theme.tres" id="1_36aul"]
+
+[node name="Dialogues" type="Control" unique_id=106731051]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_36aul")
+metadata/_edit_lock_ = true
+
+[node name="DialogueBox" type="PanelContainer" parent="." unique_id=884881191]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -290.0
+offset_right = 512.0
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="DialogueText" type="Label" parent="DialogueBox" unique_id=322747016]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "Skibidi Fortnite."
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true

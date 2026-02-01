@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cx1vyvqdy6l10" path="res://assets/images/gameplay/characters/taingle/taingle_3.png" id="9_rybgg"]
 [ext_resource type="Texture2D" uid="uid://nb6tg6pvsdjj" path="res://assets/images/gameplay/characters/taingle/taingle_4.png" id="10_hlo8c"]
 [ext_resource type="Texture2D" uid="uid://c8rfx7wqcgir4" path="res://assets/images/gameplay/rooms/flashlight/hallway_on.png" id="12_b68su"]
+[ext_resource type="AudioStream" uid="uid://d1yuul7iss4ws" path="res://assets/sounds/Nose_Sound.ogg" id="12_u4td0"]
 [ext_resource type="Texture2D" uid="uid://btxeri3280sqp" path="res://assets/images/gameplay/rooms/flashlight/hallway_off.png" id="13_qautv"]
 [ext_resource type="Script" uid="uid://bn757rkvxcpdt" path="res://assets/components/FlashlightComponent.gd" id="16_br2i6"]
 [ext_resource type="PackedScene" uid="uid://bud1bsy5ye6yc" path="res://assets/scenes/mask.tscn" id="16_iuexx"]
@@ -60,6 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://ct5t8s1gp55aa" path="res://assets/images/gameplay/characters/tsonic/tsonicrightfoot.png" id="47_f7gff"]
 [ext_resource type="Texture2D" uid="uid://dxr7q74afj2e6" path="res://assets/images/gameplay/characters/tsonic/tsonicpelvis.png" id="48_wrac7"]
 [ext_resource type="Texture2D" uid="uid://ckkpwi621bua1" path="res://assets/images/gameplay/characters/tsonic/tsonicleftfoot.png" id="49_1mjni"]
+[ext_resource type="Script" uid="uid://vbev0wmin1fa" path="res://assets/scripts/poster_button.gd" id="54_dsnmp"]
 [ext_resource type="Texture2D" uid="uid://c3r8ff5cxr3px" path="res://assets/images/gameplay/characters/tmario/tmarioheadjumpscare.png" id="61_bt1i2"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/4dlctheme.tres" id="62_bt1i2"]
 [ext_resource type="Texture2D" uid="uid://dvea17q2h4ti" path="res://assets/images/gameplay/characters/tmario/tmariobodyjumpscare.png" id="62_k61gk"]
@@ -1175,6 +1177,11 @@ texture = ExtResource("1_n5x6c")
 centered = false
 metadata/_edit_lock_ = true
 
+[node name="Nose_Honk" type="AudioStreamPlayer2D" parent="Rooms/Office" unique_id=361249753]
+position = Vector2(296, 328)
+stream = ExtResource("12_u4td0")
+metadata/_edit_lock_ = true
+
 [node name="BT_2" type="Sprite2D" parent="Rooms/Office" unique_id=519208876]
 visible = false
 position = Vector2(1040, 658)
@@ -1193,7 +1200,7 @@ disableScrolling = false
 camEffect = false
 camPosYEffectEnd = 360.0
 buttonToDisable = [NodePath("../../../Misc/GUI/Office_Button")]
-buttonToActivate = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button")]
+buttonToActivate = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button"), NodePath("../../../Buttons/Poster_Button")]
 roomToLeave = [NodePath("../../Ceiling"), NodePath("../../Desk"), NodePath("../../Left_Vent"), NodePath("../../Right_Vent"), NodePath("../../Hallway")]
 roomToLeavePosition = Array[Vector2]([Vector2(-1920, 710), Vector2(-1920, 710), Vector2(-1920, 710), Vector2(-1920, 710), Vector2(-1920, 710)])
 mask = NodePath("../../../Misc/GUI/Mask")
@@ -1254,7 +1261,7 @@ fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
 camPosYEffectStart = 1060.0
 camPosYEffectEnd = 360.0
-buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button")]
+buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button"), NodePath("../../../Buttons/Poster_Button")]
 buttonToActivate = [NodePath("../../../Misc/GUI/Office_Button")]
 flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
@@ -1358,7 +1365,7 @@ fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
 camPosYEffectStart = 1060.0
 camPosYEffectEnd = 360.0
-buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button")]
+buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button"), NodePath("../../../Buttons/Poster_Button")]
 buttonToActivate = [NodePath("../../../Misc/GUI/Office_Button")]
 mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
@@ -1438,7 +1445,7 @@ fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
 camPosYEffectStart = 1060.0
 camPosYEffectEnd = 360.0
-buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button")]
+buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button"), NodePath("../../../Buttons/Poster_Button")]
 buttonToActivate = [NodePath("../../../Misc/GUI/Office_Button")]
 flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
@@ -1538,7 +1545,7 @@ fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
 camPosYEffectStart = 1060.0
 camPosYEffectEnd = 360.0
-buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button")]
+buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button"), NodePath("../../../Buttons/Poster_Button")]
 buttonToActivate = [NodePath("../../../Misc/GUI/Office_Button")]
 flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
@@ -1579,7 +1586,7 @@ fadeTransition = NodePath("../../../Misc/GUI/Transition/AnimationPlayer")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
 camPosYEffectStart = 1060.0
 camPosYEffectEnd = 360.0
-buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button")]
+buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../../../Buttons/Right_Vent_Button"), NodePath("../../../Buttons/Desk_Button"), NodePath("../../../Buttons/Hallway_Button"), NodePath("../../../Buttons/Ceiling_Button"), NodePath("../../../Buttons/Poster_Button")]
 buttonToActivate = [NodePath("../../../Misc/GUI/Office_Button")]
 flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
@@ -1675,6 +1682,23 @@ mouse_default_cursor_shape = 2
 disabled = true
 action_mode = 0
 flat = true
+metadata/_edit_lock_ = true
+
+[node name="Poster_Button" type="Button" parent="Buttons" unique_id=644610537 node_paths=PackedStringArray("Sound")]
+anchors_preset = -1
+anchor_left = 0.22800002
+anchor_top = 0.45000002
+anchor_right = 0.22800002
+anchor_bottom = 0.45000002
+offset_left = -11.840027
+offset_top = -12.0
+offset_right = 12.159973
+offset_bottom = 12.0
+focus_mode = 0
+action_mode = 0
+flat = true
+script = ExtResource("54_dsnmp")
+Sound = NodePath("../../Rooms/Office/Nose_Honk")
 metadata/_edit_lock_ = true
 
 [node name="Misc" type="Node" parent="." unique_id=1344092833]
@@ -1854,4 +1878,5 @@ action_mode = 0
 flat = true
 metadata/_edit_lock_ = true
 
+[connection signal="pressed" from="Buttons/Poster_Button" to="Buttons/Poster_Button" method="_on_pressed"]
 [connection signal="timeout" from="Misc/Clock_Timer" to="." method="_on_clock_timer_timeout"]
