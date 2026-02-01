@@ -23,6 +23,8 @@ config/icon="res://icon.svg"
 
 GlobalAudioManager="*res://assets/scenes/global_audio_manager.tscn"
 main="*uid://bmacdpvvelv3"
+DiscordRPCLoader="*uid://ctkkyf8urrv7n"
+DiscordManager="*uid://dufg3qqflr2d5"
 
 [display]
 
@@ -39,6 +41,10 @@ window/vsync/vsync_mode=0
 [dotnet]
 
 project/assembly_name="Five Nights at Sonic-s 4 DLC"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg")
 
 [input]
 

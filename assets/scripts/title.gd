@@ -1,6 +1,10 @@
 extends Node
 
 #functions
+func _ready() -> void:
+	DiscordManager._update_details("Title Screen");
+	DiscordManager._update_state("");
+
 func _on_button_pressed() -> void: #play, forgot to name the signal properly oops
 	pass # Replace with function body.
 

@@ -1,6 +1,10 @@
 extends Node
 
 #functions
+func _ready() -> void:
+	DiscordManager._update_details("Night Screen");
+	DiscordManager._update_state("");
+
 func _on_timer_start_ambience_timeout() -> void:
 	GlobalAudioManager.get_node("Ambience").play();
 

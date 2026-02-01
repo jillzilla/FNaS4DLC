@@ -3,6 +3,9 @@ extends Node
 #functions
 func _ready() -> void:
 	GlobalAudioManager.get_node("Ambience").stop();
+	
+	DiscordManager._update_details("Win Screen");
+	DiscordManager._update_state("Night 0");
 
 func _on_timer_timeout() -> void:
 	get_node("Control/Clock_2/AnimationPlayer").play("lowtaperfade");

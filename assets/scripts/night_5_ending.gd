@@ -6,6 +6,9 @@ extends Node
 
 #functions
 func _ready() -> void:
+	DiscordManager._update_details("Night 5 Ending");
+	DiscordManager._update_state("");
+	
 	dialoguemanager.get_node("Dialogues/Night5Ending")._begin_dialogue();
 	await dialoguemanager.get_node("Dialogues/Night5Ending").dialogueFinished;
 	animation.play("motion");

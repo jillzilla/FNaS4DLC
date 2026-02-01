@@ -4,6 +4,9 @@ extends Node
 func _ready() -> void:
 	GlobalAudioManager.get_node("Ambience").stop();
 	_handle_gameover_art();
+	
+	DiscordManager._update_details("Game Over Screen");
+	DiscordManager._update_state("Killed by " + main.killedBy);
 
 func _on_try_again_button_pressed() -> void:
 	get_node("Control/TryAgainButton").visible = false;

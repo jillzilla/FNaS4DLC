@@ -5,6 +5,9 @@ extends Node
 #functions
 func _ready() -> void:
 	main.isPlayingCustomNight = true;
+	
+	DiscordManager._update_details("Custom Night Menu");
+	DiscordManager._update_state("");
 
 func _on_back_pressed() -> void:
 	main.isPlayingCustomNight = false;
