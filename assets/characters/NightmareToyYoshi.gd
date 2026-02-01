@@ -19,7 +19,6 @@ class_name NightmareToyYoshi extends Node
 @export var Position3 : Sprite2D;
 
 @export_group("Mechanicals")
-@export var debug : bool = false;
 @export var ventSFX : AudioStreamPlayer2D;
 @export var ventLSFX : AudioStreamPlayer;
 @export var flashlight : FlashLightComponent;
@@ -96,19 +95,16 @@ func _process(delta: float) -> void:
 				jumpscareAnimation.play("jumpscare");
 				GlobalAudioManager.get_node("Yoshi_Jumpscare").play();
 				await jumpscareAnimation.animation_finished;
-				_debugger();
 				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
 		#special events
 		if currentPosition == 1: #peeking
 			if flashlight.is_on && !hasPeeked:
 				hasPeeked = true;
 				peekingAnimation.play("Peeking");
-				_debugger();
 		if currentPosition == 3: #shocking
 			if flashlight.is_on && !hasShocked:
 				hasShocked = true;
 				shockSFX.play();
-				_debugger();
 
 func _handle_positions() -> void:
 	if flashlight.is_on:
@@ -138,17 +134,3 @@ func _handle_positions() -> void:
 			Position2.visible = false;
 			Position3.visible = true;
 			canAttack = true;
-			
-	_debugger();
-
-func _debugger() -> void:
-	if debug:
-		print(">> Nightmare Yoshi");
-		print("Current Position: " + str(currentPosition));
-		print("Timer Change Position: " + str(timerChangePosition));
-		print("Counter Exposure: " + str(counterExposure));
-		print("Jumpscare Exposure: " + str(jumpscareExposure));
-		print("Can Attack: " + str(canAttack));
-		print("Jumpscare: " + str(jumpscare));
-		print("Has Peeked: " + str(hasPeeked));
-		print("Has Shocked: " + str(hasShocked));

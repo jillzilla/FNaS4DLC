@@ -18,6 +18,7 @@ func _ready() -> void:
 	main.PlayerAlive = true;
 	main.PlayerPosition = officeRoomTravel.room.name;
 	main.PlayerNotMoving = true;
+	main.isBTInOffice = false;
 	
 	main._update_ai_levels();
 

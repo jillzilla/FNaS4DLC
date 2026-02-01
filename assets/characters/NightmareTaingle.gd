@@ -20,7 +20,6 @@ class_name NightmareTaingle extends Node
 @export var Position4 : Sprite2D;
 
 @export_group("Mechanicals")
-@export var debug : bool = false;
 @export var flashlight : FlashLightComponent;
 @export var officeRoomTravel : RoomTravelComponent;
 @export var Mask : Node2D;
@@ -89,7 +88,6 @@ func _process(delta: float) -> void:
 				jumpscareAnimation.play("jumpscare");
 				GlobalAudioManager.get_node("Taingle_Jumpscare").play();
 				await jumpscareAnimation.animation_finished;
-				_debugger();
 				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
 
 func _handle_positions() -> void:
@@ -129,15 +127,3 @@ func _handle_positions() -> void:
 			Position4.visible = true;
 			canAttack = true;
 			radio.volume_db = 0;
-			
-	_debugger();
-			
-func _debugger() -> void:
-	if debug:
-		print(">> Nightmare Taingle");
-		print("Current Position: " + str(currentPosition));
-		print("Timer Change Position: " + str(timerChangePosition));
-		print("Counter Exposure: " + str(counterExposure));
-		print("Jumpscare Exposure: " + str(jumpscareExposure));
-		print("Can Attack: " + str(canAttack));
-		print("Jumpscare: " + str(jumpscare));

@@ -25,7 +25,6 @@ var PupilsState : Variant = PupilsStates.DEFAULT;
 @export var Position3Pupils : Sprite2D;
 
 @export_group("Mechanicals")
-@export var debug : bool = false;
 @export var flashlight : FlashLightComponent;
 @export var ventSFX : AudioStreamPlayer2D;
 @export var ventLSFX : AudioStreamPlayer;
@@ -124,19 +123,16 @@ func _process(delta: float) -> void:
 				jumpscareAnimation.play("jumpscare");
 				GlobalAudioManager.get_node("Mario_Jumpscare").play();
 				await jumpscareAnimation.animation_finished;
-				_debugger();
 				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
 		#special events
 		if currentPosition == 1: #peeking
 			if flashlight.is_on && !hasPeeked:
 				hasPeeked = true;
 				peekingAnimation.play("Peeking");
-				_debugger();
 		if currentPosition == 3: #shocking
 			if flashlight.is_on && !hasShocked:
 				hasShocked = true;
 				shockSFX.play();
-				_debugger();
 
 func _choose_pupils_state() -> void:
 	if main.random_chance(60):
@@ -183,19 +179,5 @@ func _handle_positions() -> void:
 			Position3.visible = true;
 			canAttack = true;
 			
-	_debugger();
-
 func _made_a_step() -> void:
 	stepSfx.play();
-
-func _debugger() -> void:
-	if debug:
-		print(">> Nightmare Toy Mario");
-		print("Pupils: " + str(PupilsState));
-		print("Current Position: " + str(currentPosition));
-		print("Timer Change Position: " + str(timerChangePosition));
-		print("Jumpscare Exposure: " + str(jumpscareExposure));
-		print("Can Attack: " + str(canAttack));
-		print("Jumpscare: " + str(jumpscare));
-		print("Has Peeked: " + str(hasPeeked));
-		print("Has Shocked: " + str(hasShocked));

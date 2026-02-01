@@ -33,6 +33,8 @@ enum inputs {ENTERED,PRESSED};
 @export var mask : Node2D;
 @export var canUseMaskHere : bool = false;
 
+@export var disabled : bool = false;
+
 #functions
 func _ready() -> void:
 	button.connect("pressed",_pressed);
@@ -107,10 +109,10 @@ func _travel() -> void:
 		doneTraveling.emit();
 
 func _pressed() -> void:
-	if input == inputs.PRESSED && main.PlayerAlive:
+	if input == inputs.PRESSED && main.PlayerAlive && !disabled:
 		_travel();
 
 func _entered() -> void:
 	if !main.ntsDeskRunning && !main.ntmDeskWalking:
-		if input == inputs.ENTERED && main.PlayerAlive:
+		if input == inputs.ENTERED && main.PlayerAlive && !disabled:
 			_travel();

@@ -1,6 +1,7 @@
 class_name FlashLightComponent extends Node
 
 #variables
+@export var BT : NightmareBT;
 @export var spriteAsFlashlight : Sprite2D;
 @export var scrolling : ScrollingComponent;
 @export var flashlightSFX : AudioStreamPlayer;
@@ -13,6 +14,11 @@ var is_on : bool = false;
 func _turn_on() -> void:
 	flashlightSFX.play();
 	spriteAsFlashlight.visible = false;
+	
+	if BT:
+		if BT.canAttack && main.PlayerPosition == "Left_Vent":
+			BT.flashCounter += 1;
+	
 	is_on = true;
 	
 func _turn_off() -> void:

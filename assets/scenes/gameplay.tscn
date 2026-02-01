@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cu6fakcxj137a" path="res://assets/sounds/[27] Shock.ogg" id="4_ugpla"]
 [ext_resource type="Texture2D" uid="uid://dn5tntmkmfmfr" path="res://assets/images/gameplay/rooms/flashlight/ceiling_off.png" id="5_br2i6"]
 [ext_resource type="Texture2D" uid="uid://2a1g4hdo3rql" path="res://assets/images/gameplay/rooms/right_vent.png" id="5_hogfr"]
+[ext_resource type="Script" uid="uid://bfrimgj8ipm58" path="res://assets/characters/NightmareBT.gd" id="6_64gvx"]
 [ext_resource type="Texture2D" uid="uid://d23jw7vmq03lb" path="res://assets/images/gameplay/rooms/hallway.png" id="6_ndvee"]
 [ext_resource type="Texture2D" uid="uid://c502v777dd53r" path="res://assets/images/gameplay/rooms/clipmask/ceiling.png" id="7_kgr1o"]
 [ext_resource type="Texture2D" uid="uid://ci88c0f206wu3" path="res://assets/images/gameplay/characters/taingle/taingle_1.png" id="7_ugpla"]
@@ -1175,6 +1176,23 @@ jumpscareAnimation = NodePath("../../Misc/GUI/Taingle_Jumpscare/AnimationPlayer"
 radio = NodePath("../../Sounds/Taingle_Radio")
 metadata/_custom_type_script = "uid://dslqbhm8b8w8y"
 
+[node name="NightmareBT" type="Node" parent="Characters" unique_id=744484019 node_paths=PackedStringArray("Position1", "OfficeSprite", "flashlight", "ventSFX", "ventLSFX", "Mask", "officeRoomTravel", "deskRoomTravel", "charAway")]
+script = ExtResource("6_64gvx")
+positionChangingRate = 50.0
+timerChangePosition = 6000.0
+EnteringExposureLevel = 10
+EnteringExposure = 2500.0
+Position1 = NodePath("../../Rooms/Left_Vent/BT_1")
+OfficeSprite = NodePath("../../Rooms/Office/BT_2")
+flashlight = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
+ventSFX = NodePath("../../Misc/GUI/2DAudios/LeftVentSound")
+ventLSFX = NodePath("../../Sounds/Vent_Leave_SFX")
+Mask = NodePath("../../Misc/GUI/Mask")
+officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
+deskRoomTravel = NodePath("../../Rooms/Desk/RoomTravelComponent")
+charAway = NodePath("../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
+metadata/_custom_type_script = "uid://bfrimgj8ipm58"
+
 [node name="Sounds" type="Node" parent="." unique_id=1674670979]
 
 [node name="Taingle_Radio" type="AudioStreamPlayer" parent="Sounds" unique_id=2037132696]
@@ -1476,8 +1494,9 @@ mask = NodePath("../../../Misc/GUI/Mask")
 canUseMaskHere = true
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Rooms/Left_Vent" unique_id=165882029 node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
+[node name="FlashLightComponent" type="Node" parent="Rooms/Left_Vent" unique_id=165882029 node_paths=PackedStringArray("BT", "spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
 script = ExtResource("16_br2i6")
+BT = NodePath("../../../Characters/NightmareBT")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
 flashlightSFX = NodePath("../../../Sounds/Flashlight_SFX")

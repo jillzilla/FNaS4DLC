@@ -1,0 +1,93 @@
+class_name NightmareBT extends Node
+
+#variables
+@export_group("Status")
+@export var currentPosition : int = 0;
+
+@export var positionChangingRate : float = 0;
+@export var timerChangePosition : float = 0;
+
+var flashCounter : int = 0;
+const flashNeeded : int = 5;
+
+@export var EnteringExposureLevel : int = 0;
+@export var EnteringExposure : float = 0;
+
+@export_group("Sprites")
+@export var Position1 : Sprite2D;
+@export var OfficeSprite : Sprite2D;
+
+@export_group("Mechanicals")
+@export var flashlight : FlashLightComponent;
+@export var ventSFX : AudioStreamPlayer2D;
+@export var ventLSFX : AudioStreamPlayer;
+@export var Mask : Node2D;
+@export var officeRoomTravel : RoomTravelComponent;
+@export var deskRoomTravel : RoomTravelComponent;
+@export var charAway : AnimationPlayer;
+
+var positionsAvailable : int = 1;
+var canAttack : bool = false;
+
+var cp : float;
+var ee : float;
+
+#functions
+func _ready() -> void:
+	#working variables
+	cp = timerChangePosition;
+	ee = EnteringExposure;
+	
+	#character setup
+	_handle_positions();
+	
+func _process(delta: float) -> void:
+	var NewDelta : float = delta * main.fpsTarget;
+	
+	if main.NightmareBTAILevel != 0 && main.PlayerAlive && !main.isBTInOffice:
+		#movement
+		if currentPosition < positionsAvailable:
+			timerChangePosition -= NewDelta * main.NightmareBTAILevel;
+			if timerChangePosition <= 0:
+				timerChangePosition = cp;
+				if main.random_chance(positionChangingRate):
+					ventSFX.play();
+					currentPosition += 1;
+					_handle_positions();
+		#counter
+		if flashCounter >= flashNeeded:
+			EnteringExposure = ee;
+			flashCounter = 0;
+			timerChangePosition = cp;
+			ventLSFX.play();
+			currentPosition = 0;
+			charAway.play_backwards("fade");
+			_handle_positions();
+		#attack
+		if canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking:
+			EnteringExposure -= NewDelta * EnteringExposureLevel;
+			if EnteringExposure <= 0:
+				EnteringExposure = ee;
+				main.isBTInOffice = true;
+				deskRoomTravel.disabled = true;
+				canAttack = false;
+				Position1.visible = false;
+				OfficeSprite.visible = true;
+				if main.PlayerPosition == "Office":
+					charAway.play_backwards("fade");
+				else:
+					if main.PlayerPosition == "Desk":
+						officeRoomTravel._travel();
+					
+func _handle_positions():
+	if flashlight.is_on:
+		flashlight._turn_off();
+		
+	match(currentPosition):
+		0:
+			Position1.visible = false;
+			if canAttack:
+				canAttack = false;
+		1:
+			Position1.visible = true;
+			canAttack = true;

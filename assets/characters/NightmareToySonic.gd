@@ -20,7 +20,6 @@ var Direction : Variant = Directions.NONE;
 @export var RPosition2 : Sprite2D;
 
 @export_group("Mechanicals")
-@export var debug : bool = false;
 @export var LFlashlight : FlashLightComponent;
 @export var RFlashlight : FlashLightComponent;
 @export var Mask : Node2D;
@@ -127,7 +126,6 @@ func _process(delta: float) -> void:
 				jumpscareAnimation.play("jumpscare");
 				GlobalAudioManager.get_node("Sonic_Jumpscare").play();
 				await jumpscareAnimation.animation_finished;
-				_debugger();
 				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
 		#special events
 		if currentPosition == 1: #peeking
@@ -199,20 +197,6 @@ func _handle_positions() -> void:
 				RPosition1.visible = false;
 				RPosition2.visible = true;
 			canAttack = true;
-				
-	_debugger();
 
 func _made_a_step() -> void:
 	stepSfx.play();
-
-func _debugger() -> void:
-	if debug:
-		print(">> Nightmare Toy Sonic");
-		print("Direction: " + str(Direction));
-		print("Current Position: " + str(currentPosition));
-		print("Timer Change Position: " + str(timerChangePosition));
-		print("Jumpscare Exposure: " + str(jumpscareExposure));
-		print("Can Attack: " + str(canAttack));
-		print("Jumpscare: " + str(jumpscare));
-		print("Has Peeked: " + str(hasPeeked));
-		print("Has Shocked: " + str(hasShocked));
