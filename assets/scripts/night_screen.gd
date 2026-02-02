@@ -2,7 +2,7 @@ extends Node
 
 #functions
 func _ready() -> void:
-	DiscordManager._update_details("Night Screen");
+	DiscordManager._update_details("Entering Night 0");
 	DiscordManager._update_state("");
 
 func _on_timer_start_ambience_timeout() -> void:
