@@ -72,17 +72,14 @@ script = ExtResource("3_xcfi6")
 parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
-[node name="Timer_Focus" type="Timer" parent="." unique_id=2109116080]
-wait_time = 0.5
-one_shot = true
-
-[node name="Timer_Change" type="Timer" parent="." unique_id=1860983513]
+[node name="Timer_Change_AI_Level" type="Timer" parent="." unique_id=1860983513]
 wait_time = 0.05
 one_shot = true
 
-[connection signal="button_down" from="AiLevel/Left" to="." method="_on_left_button_down"]
-[connection signal="button_up" from="AiLevel/Left" to="." method="_on_left_button_up"]
+[connection signal="mouse_entered" from="AiLevel/Left" to="." method="_on_left_mouse_entered"]
 [connection signal="mouse_exited" from="AiLevel/Left" to="." method="_on_left_mouse_exited"]
-[connection signal="button_down" from="AiLevel/Right" to="." method="_on_right_button_down"]
-[connection signal="button_up" from="AiLevel/Right" to="." method="_on_right_button_up"]
+[connection signal="pressed" from="AiLevel/Left" to="." method="_on_left_pressed"]
+[connection signal="mouse_entered" from="AiLevel/Right" to="." method="_on_right_mouse_entered"]
 [connection signal="mouse_exited" from="AiLevel/Right" to="." method="_on_right_mouse_exited"]
+[connection signal="pressed" from="AiLevel/Right" to="." method="_on_right_pressed"]
+[connection signal="timeout" from="Timer_Change_AI_Level" to="." method="_on_timer_change_ai_level_timeout"]

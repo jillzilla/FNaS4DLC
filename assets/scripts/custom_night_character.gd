@@ -5,11 +5,14 @@ extends VBoxContainer
 @export var iconPath : String;
 @export_range(0,9) var charID : int = 0;
 
+var holdTime : float = 0.0;
+const requiredHoldTime : float = 0.15;
+
 const minlevel : int = 0;
 const maxlevel : int = 25;
 
-var canAddFocus : bool = false;
-var canSubFocus : bool = false;
+var HoverLeft : bool = false;
+var HoverRight : bool = false;
 
 #functions
 func _ready() -> void:
@@ -25,67 +28,16 @@ func _ready() -> void:
 	
 	_update_ai_counter();
 
-func _process(_delta: float) -> void:
-	if !canAddFocus && !canSubFocus:
-		if !get_node("Timer_Change").is_stopped():
-			get_node("Timer_Change").stop();
-		return;
-	
-	elif canAddFocus:
-		if get_node("Timer_Change").is_stopped():
-			_add();
-			get_node("Timer_Change").start();
-		await get_node("Timer_Change").timeout;
-		
-	elif canSubFocus:
-		if get_node("Timer_Change").is_stopped():
-			_sub();
-			get_node("Timer_Change").start();
-		await get_node("Timer_Change").timeout;
-		
-func _on_left_button_down() -> void:
-	if get_node("Timer_Focus").is_stopped():
-		_sub();
-		get_node("Timer_Focus").start();
-		await get_node("Timer_Focus").timeout;
-		canSubFocus = true;
-		canAddFocus = false;
-
-func _on_right_button_down() -> void:
-	if get_node("Timer_Focus").is_stopped():
-		_add();
-		get_node("Timer_Focus").start();
-		await get_node("Timer_Focus").timeout;
-		canAddFocus = true;
-		canSubFocus = false;
-	
-func _on_left_button_up() -> void:
-	canAddFocus = false;
-	canSubFocus = false;
-	if !get_node("Timer_Focus").is_stopped():
-		get_node("Timer_Focus").stop();
-	get_node("Timer_Change").stop();
-	
-func _on_left_mouse_exited() -> void:
-	canAddFocus = false;
-	canSubFocus = false;
-	if !get_node("Timer_Focus").is_stopped():
-		get_node("Timer_Focus").stop();
-	get_node("Timer_Change").stop();
-
-func _on_right_button_up() -> void:
-	canAddFocus = false;
-	canSubFocus = false;
-	if !get_node("Timer_Focus").is_stopped():
-		get_node("Timer_Focus").stop();
-	get_node("Timer_Change").stop();
-
-func _on_right_mouse_exited() -> void:
-	canAddFocus = false;
-	canSubFocus = false;
-	if !get_node("Timer_Focus").is_stopped():
-		get_node("Timer_Focus").stop();
-	get_node("Timer_Change").stop();
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("CLICK") && HoverLeft || Input.is_action_pressed("CLICK") && HoverRight:
+		holdTime += delta;
+		if holdTime >= requiredHoldTime:
+			if get_node("Timer_Change_AI_Level").is_stopped():
+				get_node("Timer_Change_AI_Level").start();
+	else:
+		if !get_node("Timer_Change_AI_Level").is_stopped():
+			get_node("Timer_Change_AI_Level").stop();
+		holdTime = 0;
 	
 func _add() -> void:
 	main.aiLevelsAsArrays[charID] += 1;
@@ -118,3 +70,27 @@ func _update_ai_counter() -> void:
 	else:
 		modulate.a = 0.2;
 		get_node("AiLevel/Counter").text = "X";
+
+func _on_left_pressed() -> void:
+	_sub();
+
+func _on_right_pressed() -> void:
+	_add();
+
+func _on_left_mouse_entered() -> void:
+	HoverLeft = true;
+
+func _on_right_mouse_entered() -> void:
+	HoverRight = true;
+
+func _on_left_mouse_exited() -> void:
+	HoverLeft = false;
+
+func _on_right_mouse_exited() -> void:
+	HoverRight = false;
+
+func _on_timer_change_ai_level_timeout() -> void:
+	if HoverLeft:
+		_sub();
+	elif HoverRight:
+		_add();

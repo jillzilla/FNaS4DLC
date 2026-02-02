@@ -23,11 +23,13 @@ var ntmDeskWalking : bool = false;
 var isBTInOffice : bool = false;
 
 #characters ai level
-var NightmareToySonicAILevel : int = 0;
-var NightmareToyMarioAILevel : int = 0;
-var NightmareToyYoshiAILevel : int = 0;
-var NightmareTaingleAILevel : int = 0;
-var NightmareBTAILevel : int = 0;
+const aiDefaultLevel : int = 5;
+
+var NightmareToySonicAILevel : int = aiDefaultLevel;
+var NightmareToyMarioAILevel : int = aiDefaultLevel;
+var NightmareToyYoshiAILevel : int = aiDefaultLevel;
+var NightmareTaingleAILevel : int = aiDefaultLevel;
+var NightmareBTAILevel : int = aiDefaultLevel;
 
 var aiLevelsAsArrays : Array[int] = [NightmareToySonicAILevel,NightmareToyMarioAILevel,NightmareToyYoshiAILevel,NightmareTaingleAILevel,NightmareBTAILevel];
 
@@ -38,6 +40,11 @@ func _update_ai_levels() -> void:
 	NightmareToyYoshiAILevel = aiLevelsAsArrays[2];
 	NightmareTaingleAILevel = aiLevelsAsArrays[3];
 	NightmareBTAILevel = aiLevelsAsArrays[4];
+	
+func _reset_ai() -> void:
+	for i in range(aiLevelsAsArrays.size()):
+		aiLevelsAsArrays[i] = aiDefaultLevel;
+	_update_ai_levels();
 
 func random_chance(percent: float) -> bool:
 	return randf() * 100 < percent;

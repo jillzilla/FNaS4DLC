@@ -7,6 +7,8 @@ func _ready() -> void:
 	
 	DiscordManager._update_details("Game Over Screen");
 	DiscordManager._update_state("Killed by " + main.killedBy);
+	
+	main._reset_ai();
 
 func _on_try_again_button_pressed() -> void:
 	get_node("Control/TryAgainButton").visible = false;
@@ -24,8 +26,6 @@ func _on_menu_button_pressed() -> void:
 	get_node("Fade/AnimationPlayer").play("fade");
 	await get_node("Fade/AnimationPlayer").animation_finished;
 	
-	if main.isPlayingCustomNight:
-		main.isPlayingCustomNight = false;
 	get_tree().change_scene_to_file("res://assets/scenes/title.tscn");
 	
 func _on_timer_timeout() -> void:
