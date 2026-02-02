@@ -11,6 +11,23 @@
 [ext_resource type="Texture2D" uid="uid://bap70d4fgowjy" path="res://assets/images/title/Star_Title_0.png" id="7_s21ad"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="7_t2yek"]
 
+[sub_resource type="Animation" id="Animation_s21ad"]
+resource_name = "ChangeScene"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Fade:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_w0xr6"]
 resource_name = "Intro"
 length = 10.05
@@ -177,6 +194,7 @@ tracks/12/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qxslq"]
 _data = {
+&"ChangeScene": SubResource("Animation_s21ad"),
 &"Intro": SubResource("Animation_w0xr6")
 }
 
@@ -276,22 +294,7 @@ mouse_filter = 2
 theme_override_constants/separation = 16
 metadata/_edit_lock_ = true
 
-[node name="CustomNight" type="Button" parent="UI/Control/ButtonsContainer/MainButtons" unique_id=1364874945]
-layout_mode = 2
-focus_mode = 0
-mouse_filter = 2
-theme_override_font_sizes/font_size = 48
-action_mode = 0
-text = "Custom  Night"
-metadata/_edit_lock_ = true
-
-[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/CustomNight" unique_id=330727916 node_paths=PackedStringArray("parent")]
-script = ExtResource("7_t2yek")
-parent = NodePath("..")
-metadata/_custom_type_script = "uid://djncuditdkxsm"
-
 [node name="Play" type="HBoxContainer" parent="UI/Control/ButtonsContainer/MainButtons" unique_id=266877412]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
@@ -332,6 +335,21 @@ text = "6th Night"
 metadata/_edit_lock_ = true
 
 [node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/Night6" unique_id=173851919 node_paths=PackedStringArray("parent")]
+script = ExtResource("7_t2yek")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="CustomNight" type="Button" parent="UI/Control/ButtonsContainer/MainButtons" unique_id=1364874945]
+visible = false
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Custom  Night"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/CustomNight" unique_id=330727916 node_paths=PackedStringArray("parent")]
 script = ExtResource("7_t2yek")
 parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
@@ -416,7 +434,7 @@ offset_top = -16.680054
 offset_right = 68.2
 offset_bottom = 16.319946
 theme_override_font_sizes/font_size = 32
-text = "BETA 1"
+text = "BETA 2"
 vertical_alignment = 2
 metadata/_edit_lock_ = true
 
@@ -438,9 +456,9 @@ metadata/_edit_lock_ = true
 libraries/ = SubResource("AnimationLibrary_qxslq")
 autoplay = &"Intro"
 
-[connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/CustomNight" to="." method="_on_custom_night_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Play/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Night6" to="." method="_on_night_6_pressed"]
+[connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/CustomNight" to="." method="_on_custom_night_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Extras" to="." method="_on_extras_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Quit" to="." method="_on_quit_pressed"]

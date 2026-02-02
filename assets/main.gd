@@ -2,12 +2,18 @@ extends Node
 
 #variables
 var fpsTarget : float = 60.0;
-var isPlayingCustomNight : bool = false;
 var isOnDialogue : bool = false;
+
+var nightcounter : int = 1;
+
+var night5ending : bool = false;
+var night6ending : bool = false;
+var night7ending : bool = false;
 
 #player status
 var killedBy : String = "";
 var PlayerPosition : String = "";
+
 var PlayerAlive : bool = true;
 var PlayerNotMoving : bool = true;
 

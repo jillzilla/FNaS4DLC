@@ -5,16 +5,14 @@ extends Node
 
 #functions
 func _ready() -> void:
-	main.isPlayingCustomNight = true;
-	
 	DiscordManager._update_details("Custom Night Menu");
 	DiscordManager._update_state("");
 
 func _on_back_pressed() -> void:
-	main.isPlayingCustomNight = false;
 	get_tree().change_scene_to_file("res://assets/scenes/title.tscn");
 
 func _on_ready_pressed() -> void:
+	main.nightcounter = 7;
 	get_tree().change_scene_to_file("res://assets/scenes/night_screen.tscn");
 
 func _on_min_pressed() -> void:

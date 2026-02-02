@@ -4,12 +4,38 @@ extends Node
 func _ready() -> void:
 	DiscordManager._update_details("Title Screen");
 	DiscordManager._update_state("");
+	
+	if !main.night5ending:
+		get_node("UI/Control/ButtonsContainer/MainButtons/Play/NightCounter").text = str(main.nightcounter) + "th" + " Night";
+	else:
+		get_node("UI/Control/Star_1").visible = true;
+		get_node("UI/Control/ButtonsContainer/MainButtons/Play/NightCounter").text = "5" + "th" + " Night";
+		get_node("UI/Control/ButtonsContainer/MainButtons/Night6").visible = true;
+	
+	if main.night6ending:
+		get_node("UI/Control/Star_2").visible = true;
+		get_node("UI/Control/ButtonsContainer/MainButtons/CustomNight").visible = true;
+		get_node("UI/Control/ButtonsContainer/MainButtons/Extras").visible = true;
+		
+	if main.night7ending:
+		get_node("UI/Control/Star_3").visible = true;
 
 func _on_button_pressed() -> void: #play, forgot to name the signal properly oops
-	pass # Replace with function body.
+	if main.night5ending:
+		main.nightcounter = 5;
+		
+	get_node("UI/Control/ButtonsContainer").visible = false;
+	get_node("AnimationPlayer").play("ChangeScene");
+	await get_node("AnimationPlayer").animation_finished;
+	get_tree().change_scene_to_file("res://assets/scenes/night_screen.tscn");
 
 func _on_night_6_pressed() -> void:
-	pass # Replace with function body.
+	main.nightcounter = 6;
+	
+	get_node("UI/Control/ButtonsContainer").visible = false;
+	get_node("AnimationPlayer").play("ChangeScene");
+	await get_node("AnimationPlayer").animation_finished;
+	get_tree().change_scene_to_file("res://assets/scenes/night_screen.tscn");
 
 func _on_extras_pressed() -> void:
 	pass # Replace with function body.

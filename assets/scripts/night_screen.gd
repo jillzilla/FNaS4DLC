@@ -2,7 +2,9 @@ extends Node
 
 #functions
 func _ready() -> void:
-	DiscordManager._update_details("Entering Night 0");
+	get_node("NightCounter").text = "Night " + str(main.nightcounter) + "\n12:00 AM";
+	
+	DiscordManager._update_details("Entering Night " + str(main.nightcounter));
 	DiscordManager._update_state("");
 
 func _on_timer_start_ambience_timeout() -> void:
