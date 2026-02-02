@@ -56,12 +56,12 @@ func _process(delta: float) -> void:
 					_handle_positions();
 		#counter
 		if flashCounter >= flashNeeded:
-			EnteringExposure = ee;
 			flashCounter = 0;
+			EnteringExposure = ee;
 			timerChangePosition = cp;
+			charAway.play_backwards("fade");
 			ventLSFX.play();
 			currentPosition = 0;
-			charAway.play_backwards("fade");
 			_handle_positions();
 		#attack
 		if canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking:

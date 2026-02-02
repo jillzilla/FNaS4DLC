@@ -1179,7 +1179,7 @@ metadata/_custom_type_script = "uid://dslqbhm8b8w8y"
 [node name="NightmareBT" type="Node" parent="Characters" unique_id=744484019 node_paths=PackedStringArray("Position1", "OfficeSprite", "flashlight", "ventSFX", "ventLSFX", "Mask", "officeRoomTravel", "deskRoomTravel", "charAway")]
 script = ExtResource("6_64gvx")
 positionChangingRate = 50.0
-timerChangePosition = 6000.0
+timerChangePosition = 8000.0
 EnteringExposureLevel = 10
 EnteringExposure = 2500.0
 Position1 = NodePath("../../Rooms/Left_Vent/BT_1")

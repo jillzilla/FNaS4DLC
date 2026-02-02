@@ -27,7 +27,7 @@ func _turn_off() -> void:
 	is_on = false;
 
 func _process(_delta: float) -> void:
-	if enabled && main.PlayerAlive && !mask.isUsingMask:
+	if enabled && main.PlayerAlive && !mask.isUsingMask && !main.isBTInOffice:
 		if Input.is_action_just_pressed("FLASHLIGHT"):
 			_turn_on();
 
