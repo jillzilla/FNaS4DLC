@@ -1,5 +1,6 @@
 extends Node
 
+#variables
 @export var characters : Array[VBoxContainer];
 
 #functions
