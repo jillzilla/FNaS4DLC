@@ -18,6 +18,9 @@ const flashNeeded : int = 5;
 @export var OfficeSprite : Sprite2D;
 
 @export_group("Mechanicals")
+@export var BT_Laugh : AudioStreamPlayer;
+@export var BT_Move1 : AudioStreamPlayer2D;
+@export var BT_Move2 : AudioStreamPlayer2D;
 @export var flashlight : FlashLightComponent;
 @export var ventSFX : AudioStreamPlayer2D;
 @export var ventLSFX : AudioStreamPlayer;
@@ -51,6 +54,10 @@ func _process(delta: float) -> void:
 			if timerChangePosition <= 0:
 				timerChangePosition = cp;
 				if main.random_chance(positionChangingRate):
+					if main.random_chance(50):
+						BT_Move2.play();
+					else:
+						BT_Move1.play();
 					ventSFX.play();
 					currentPosition += 1;
 					_handle_positions();
@@ -71,6 +78,7 @@ func _process(delta: float) -> void:
 				main.isBTInOffice = true;
 				deskRoomTravel.disabled = true;
 				canAttack = false;
+				BT_Laugh.play();
 				Position1.visible = false;
 				OfficeSprite.visible = true;
 				if main.PlayerPosition == "Office":

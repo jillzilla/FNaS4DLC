@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cx1vyvqdy6l10" path="res://assets/images/gameplay/characters/taingle/taingle_3.png" id="9_rybgg"]
 [ext_resource type="Texture2D" uid="uid://nb6tg6pvsdjj" path="res://assets/images/gameplay/characters/taingle/taingle_4.png" id="10_hlo8c"]
 [ext_resource type="Texture2D" uid="uid://c8rfx7wqcgir4" path="res://assets/images/gameplay/rooms/flashlight/hallway_on.png" id="12_b68su"]
+[ext_resource type="AudioStream" uid="uid://u1rbqt7xqt8" path="res://assets/sounds/Toad_Laughing.ogg" id="12_p0msi"]
 [ext_resource type="AudioStream" uid="uid://d1yuul7iss4ws" path="res://assets/sounds/Nose_Sound.ogg" id="12_u4td0"]
 [ext_resource type="Texture2D" uid="uid://btxeri3280sqp" path="res://assets/images/gameplay/rooms/flashlight/hallway_off.png" id="13_qautv"]
 [ext_resource type="Script" uid="uid://bn757rkvxcpdt" path="res://assets/components/FlashlightComponent.gd" id="16_br2i6"]
@@ -67,6 +68,8 @@
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="62_bt1i2"]
 [ext_resource type="Texture2D" uid="uid://dvea17q2h4ti" path="res://assets/images/gameplay/characters/tmario/tmariobodyjumpscare.png" id="62_k61gk"]
 [ext_resource type="Texture2D" uid="uid://cvie5h5snq23a" path="res://assets/images/gameplay/characters/bt/bt2.png" id="63_k61gk"]
+[ext_resource type="AudioStream" uid="uid://cwu0xlhkaqq0i" path="res://assets/sounds/Toad_Moving_1.ogg" id="67_8bh6l"]
+[ext_resource type="AudioStream" uid="uid://dosa7cqf136xx" path="res://assets/sounds/Toad_Moving_2.ogg" id="68_50646"]
 
 [sub_resource type="Animation" id="Animation_wrac7"]
 resource_name = "WalkCycle"
@@ -1176,14 +1179,17 @@ jumpscareAnimation = NodePath("../../Misc/GUI/Taingle_Jumpscare/AnimationPlayer"
 radio = NodePath("../../Sounds/Taingle_Radio")
 metadata/_custom_type_script = "uid://dslqbhm8b8w8y"
 
-[node name="NightmareBT" type="Node" parent="Characters" unique_id=744484019 node_paths=PackedStringArray("Position1", "OfficeSprite", "flashlight", "ventSFX", "ventLSFX", "Mask", "officeRoomTravel", "deskRoomTravel", "charAway")]
+[node name="NightmareBT" type="Node" parent="Characters" unique_id=744484019 node_paths=PackedStringArray("Position1", "OfficeSprite", "BT_Laugh", "BT_Move1", "BT_Move2", "flashlight", "ventSFX", "ventLSFX", "Mask", "officeRoomTravel", "deskRoomTravel", "charAway")]
 script = ExtResource("6_64gvx")
 positionChangingRate = 50.0
-timerChangePosition = 8000.0
+timerChangePosition = 6000.0
 EnteringExposureLevel = 10
 EnteringExposure = 2500.0
 Position1 = NodePath("../../Rooms/Left_Vent/BT_1")
 OfficeSprite = NodePath("../../Rooms/Office/BT_2")
+BT_Laugh = NodePath("../../Sounds/Toad_Laugh_SFX")
+BT_Move1 = NodePath("../../Misc/GUI/2DAudios/BT_Move_1")
+BT_Move2 = NodePath("../../Misc/GUI/2DAudios/BT_Move_2")
 flashlight = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
 ventSFX = NodePath("../../Misc/GUI/2DAudios/LeftVentSound")
 ventLSFX = NodePath("../../Sounds/Vent_Leave_SFX")
@@ -1211,6 +1217,10 @@ stream = ExtResource("4_ugpla")
 
 [node name="Vent_Leave_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=665036641]
 stream = ExtResource("8_3khrc")
+
+[node name="Toad_Laugh_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=870326276]
+stream = ExtResource("12_p0msi")
+pitch_scale = 0.8
 
 [node name="Rooms" type="Node" parent="." unique_id=1063837608]
 
@@ -1893,14 +1903,30 @@ libraries/ = SubResource("AnimationLibrary_hogfr")
 position = Vector2(640, 360)
 metadata/_edit_lock_ = true
 
+[node name="BT_Move_1" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1995508303]
+position = Vector2(-400, 0)
+stream = ExtResource("67_8bh6l")
+pitch_scale = 0.9
+panning_strength = 2.0
+metadata/_edit_lock_ = true
+
+[node name="BT_Move_2" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=926631251]
+position = Vector2(-400, 0)
+stream = ExtResource("68_50646")
+pitch_scale = 0.9
+panning_strength = 2.0
+metadata/_edit_lock_ = true
+
 [node name="LeftVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1811588009]
 position = Vector2(-400, 0)
 stream = ExtResource("37_4ldp1")
+panning_strength = 2.0
 metadata/_edit_lock_ = true
 
 [node name="RightVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=576099952]
 position = Vector2(400, 0)
 stream = ExtResource("37_4ldp1")
+panning_strength = 2.0
 metadata/_edit_lock_ = true
 
 [node name="Clock" type="Label" parent="Misc/GUI" unique_id=226524177]
