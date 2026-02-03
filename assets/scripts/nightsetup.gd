@@ -39,34 +39,34 @@ func _set_ai_levels() -> void:
 	match(main.nightcounter):
 		1:
 			main.aiLevelsAsArrays[0] = 0;
-			main.aiLevelsAsArrays[1] = 0;
-			main.aiLevelsAsArrays[2] = 0;
-			main.aiLevelsAsArrays[3] = 0;
+			main.aiLevelsAsArrays[1] = 5;
+			main.aiLevelsAsArrays[2] = 5;
+			main.aiLevelsAsArrays[3] = 5;
 			main.aiLevelsAsArrays[4] = 0;
 		2:
-			main.aiLevelsAsArrays[0] = 0;
-			main.aiLevelsAsArrays[1] = 0;
-			main.aiLevelsAsArrays[2] = 0;
-			main.aiLevelsAsArrays[3] = 0;
-			main.aiLevelsAsArrays[4] = 0;
+			main.aiLevelsAsArrays[0] = 5;
+			main.aiLevelsAsArrays[1] = 6;
+			main.aiLevelsAsArrays[2] = 6;
+			main.aiLevelsAsArrays[3] = 6;
+			main.aiLevelsAsArrays[4] = 5;
 		3:
-			main.aiLevelsAsArrays[0] = 0;
-			main.aiLevelsAsArrays[1] = 0;
-			main.aiLevelsAsArrays[2] = 0;
-			main.aiLevelsAsArrays[3] = 0;
-			main.aiLevelsAsArrays[4] = 0;
+			main.aiLevelsAsArrays[0] = 6;
+			main.aiLevelsAsArrays[1] = 8;
+			main.aiLevelsAsArrays[2] = 8;
+			main.aiLevelsAsArrays[3] = 8;
+			main.aiLevelsAsArrays[4] = 6;
 		4:
-			main.aiLevelsAsArrays[0] = 0;
-			main.aiLevelsAsArrays[1] = 0;
-			main.aiLevelsAsArrays[2] = 0;
-			main.aiLevelsAsArrays[3] = 0;
-			main.aiLevelsAsArrays[4] = 0;
+			main.aiLevelsAsArrays[0] = 8;
+			main.aiLevelsAsArrays[1] = 10;
+			main.aiLevelsAsArrays[2] = 10;
+			main.aiLevelsAsArrays[3] = 10;
+			main.aiLevelsAsArrays[4] = 8;
 		5:
-			main.aiLevelsAsArrays[0] = 0;
-			main.aiLevelsAsArrays[1] = 0;
-			main.aiLevelsAsArrays[2] = 0;
-			main.aiLevelsAsArrays[3] = 0;
-			main.aiLevelsAsArrays[4] = 0;
+			main.aiLevelsAsArrays[0] = 10;
+			main.aiLevelsAsArrays[1] = 12;
+			main.aiLevelsAsArrays[2] = 12;
+			main.aiLevelsAsArrays[3] = 12;
+			main.aiLevelsAsArrays[4] = 10;
 		6:
 			main.aiLevelsAsArrays[0] = 0;
 			main.aiLevelsAsArrays[1] = 0;

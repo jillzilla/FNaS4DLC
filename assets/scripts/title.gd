@@ -5,20 +5,24 @@ func _ready() -> void:
 	DiscordManager._update_details("Title Screen");
 	DiscordManager._update_state("");
 	
+	if main.night7ending:
+		if !main.night6ending:
+			main.night6ending = true;
+		get_node("UI/Control/Star_3").visible = true;
+		
+	if main.night6ending:
+		if !main.night5ending:
+			main.night5ending = true;
+		get_node("UI/Control/Star_2").visible = true;
+		get_node("UI/Control/ButtonsContainer/MainButtons/CustomNight").visible = true;
+		get_node("UI/Control/ButtonsContainer/MainButtons/Extras").visible = true;
+	
 	if !main.night5ending:
 		get_node("UI/Control/ButtonsContainer/MainButtons/Play/NightCounter").text = str(main.nightcounter) + "th" + " Night";
 	else:
 		get_node("UI/Control/Star_1").visible = true;
 		get_node("UI/Control/ButtonsContainer/MainButtons/Play/NightCounter").text = "5" + "th" + " Night";
 		get_node("UI/Control/ButtonsContainer/MainButtons/Night6").visible = true;
-	
-	if main.night6ending:
-		get_node("UI/Control/Star_2").visible = true;
-		get_node("UI/Control/ButtonsContainer/MainButtons/CustomNight").visible = true;
-		get_node("UI/Control/ButtonsContainer/MainButtons/Extras").visible = true;
-		
-	if main.night7ending:
-		get_node("UI/Control/Star_3").visible = true;
 
 func _on_button_pressed() -> void: #play, forgot to name the signal properly oops
 	if main.night5ending:

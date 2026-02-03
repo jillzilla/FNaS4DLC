@@ -6,9 +6,9 @@ var isOnDialogue : bool = false;
 
 var nightcounter : int = 1;
 
-var night5ending : bool = false;
-var night6ending : bool = false;
-var night7ending : bool = false;
+var night5ending : bool = true;
+var night6ending : bool = true;
+var night7ending : bool = true;
 
 #player status
 var killedBy : String = "";
