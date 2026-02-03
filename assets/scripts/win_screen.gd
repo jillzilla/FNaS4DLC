@@ -29,6 +29,8 @@ func _ready() -> void:
 		main.nightcounter += 1;
 		
 	main._reset_ai();
+	
+	main._save_game();
 
 func _on_timer_timeout() -> void:
 	get_node("Control/Clock_2/AnimationPlayer").play("lowtaperfade");

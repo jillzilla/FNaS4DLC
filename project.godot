@@ -16,6 +16,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Five Nights at Sonic's 4 DLC"
 run/main_scene="uid://cno0evdpungoy"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="FNaS4DLC"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://dbfigk0lm0h00"
 

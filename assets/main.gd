@@ -1,11 +1,13 @@
 extends Node
 
 #variables
+const saveDataPath : String = "user://FNaS4DLC.save";
+const saveDataPassword : String = "2<0r2eX1&2:<Cd";
+
 var fpsTarget : float = 60.0;
 var isOnDialogue : bool = false;
 
 var nightcounter : int = 1;
-
 var night5ending : bool = false;
 var night6ending : bool = false;
 var night7ending : bool = false;
@@ -34,6 +36,12 @@ var NightmareBTAILevel : int = aiDefaultLevel;
 var aiLevelsAsArrays : Array[int] = [NightmareToySonicAILevel,NightmareToyMarioAILevel,NightmareToyYoshiAILevel,NightmareTaingleAILevel,NightmareBTAILevel];
 
 #functions
+func _ready() -> void:
+	_load_game();
+
+func random_chance(percent: float) -> bool:
+	return randf() * 100 < percent;
+
 func _update_ai_levels() -> void:
 	NightmareToySonicAILevel = aiLevelsAsArrays[0];
 	NightmareToyMarioAILevel = aiLevelsAsArrays[1];
@@ -45,6 +53,39 @@ func _reset_ai() -> void:
 	for i in range(aiLevelsAsArrays.size()):
 		aiLevelsAsArrays[i] = aiDefaultLevel;
 	_update_ai_levels();
+	
+func _save() -> Dictionary:
+	var saveDict : Dictionary = {
+		"NIGHTCOUNTER" : nightcounter,
+		"NIGHT5ENDING" : night5ending,
+		"NIGHT6ENDING" : night6ending,
+		"NIGHT7ENDING" : night7ending,
+	};
+	return saveDict;
 
-func random_chance(percent: float) -> bool:
-	return randf() * 100 < percent;
+func _save_game() -> void:
+	var SaveGame := FileAccess.open_encrypted_with_pass(saveDataPath,FileAccess.WRITE,saveDataPassword);
+	var jsonString = JSON.stringify(_save());
+	SaveGame.store_line(jsonString);
+
+func _load_game() -> void:
+	if !FileAccess.file_exists(saveDataPath):
+		_save_game();
+		return;
+	else:
+		var SaveGame := FileAccess.open_encrypted_with_pass(saveDataPath,FileAccess.READ,saveDataPassword);
+		while SaveGame.get_position() < SaveGame.get_length():
+			var JSONString := SaveGame.get_line();
+			var json := JSON.new();
+			
+			@warning_ignore("unused_variable")
+			var parseResult := json.parse(JSONString);
+			
+			var data = json.get_data();
+			
+			nightcounter = data["NIGHTCOUNTER"];
+			night5ending = data["NIGHT5ENDING"];
+			night6ending = data["NIGHT6ENDING"];
+			night7ending = data["NIGHT7ENDING"];
+			
+			print(data);
