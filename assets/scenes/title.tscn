@@ -370,7 +370,6 @@ parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Settings" type="Button" parent="UI/Control/ButtonsContainer/MainButtons" unique_id=966034820]
-visible = false
 layout_mode = 2
 focus_mode = 0
 mouse_filter = 2
@@ -399,7 +398,6 @@ parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Credits" type="Button" parent="UI/Control/ButtonsContainer" unique_id=1685344281]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.897
@@ -434,7 +432,7 @@ offset_top = -16.680054
 offset_right = 68.2
 offset_bottom = 16.319946
 theme_override_font_sizes/font_size = 32
-text = "BETA 2"
+text = "V1.0.0.0"
 vertical_alignment = 2
 metadata/_edit_lock_ = true
 
