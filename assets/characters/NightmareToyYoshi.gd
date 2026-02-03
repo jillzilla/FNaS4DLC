@@ -105,7 +105,7 @@ func _process(delta: float) -> void:
 			if flashlight.is_on && !hasShocked:
 				hasShocked = true;
 				shockSFX.play();
-
+				
 func _handle_positions() -> void:
 	if flashlight.is_on:
 		flashlight._turn_off();

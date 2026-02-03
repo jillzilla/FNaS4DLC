@@ -7,6 +7,7 @@ const saveDataPassword : String = "2<0r2eX1&2:<Cd";
 var fpsTarget : float = 60.0;
 var isOnDialogue : bool = false;
 
+#data to save/load
 var nightcounter : int = 1;
 var night5ending : bool = false;
 var night6ending : bool = false;

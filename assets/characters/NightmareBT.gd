@@ -86,7 +86,7 @@ func _process(delta: float) -> void:
 				else:
 					if main.PlayerPosition == "Desk":
 						officeRoomTravel._travel();
-					
+		
 func _handle_positions():
 	if flashlight.is_on:
 		flashlight._turn_off();

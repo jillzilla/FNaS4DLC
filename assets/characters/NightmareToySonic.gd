@@ -146,7 +146,7 @@ func _process(delta: float) -> void:
 				if RFlashlight.is_on && !hasShocked:
 					hasShocked = true;
 					shockSFX.play();
-					
+		
 func _choose_path() -> void:
 	if main.random_chance(50):
 		Direction = Directions.LEFT;
