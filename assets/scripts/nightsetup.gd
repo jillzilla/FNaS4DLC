@@ -22,7 +22,7 @@ func _ready() -> void:
 	main.ntmDeskWalking = false;
 	main.isBTInOffice = false;
 	
-	if main.nightcounter < 6:
+	if main.nightcounter < 7:
 		_set_ai_levels();
 	main._update_ai_levels();
 
@@ -45,28 +45,28 @@ func _set_ai_levels() -> void:
 			main.aiLevelsAsArrays[4] = 0;
 		2:
 			main.aiLevelsAsArrays[0] = 5;
-			main.aiLevelsAsArrays[1] = 6;
-			main.aiLevelsAsArrays[2] = 6;
-			main.aiLevelsAsArrays[3] = 6;
-			main.aiLevelsAsArrays[4] = 5;
-		3:
-			main.aiLevelsAsArrays[0] = 6;
 			main.aiLevelsAsArrays[1] = 8;
 			main.aiLevelsAsArrays[2] = 8;
 			main.aiLevelsAsArrays[3] = 8;
-			main.aiLevelsAsArrays[4] = 6;
-		4:
+			main.aiLevelsAsArrays[4] = 5;
+		3:
 			main.aiLevelsAsArrays[0] = 8;
 			main.aiLevelsAsArrays[1] = 10;
 			main.aiLevelsAsArrays[2] = 10;
 			main.aiLevelsAsArrays[3] = 10;
 			main.aiLevelsAsArrays[4] = 8;
-		5:
+		4:
 			main.aiLevelsAsArrays[0] = 10;
 			main.aiLevelsAsArrays[1] = 12;
 			main.aiLevelsAsArrays[2] = 12;
 			main.aiLevelsAsArrays[3] = 12;
 			main.aiLevelsAsArrays[4] = 10;
+		5:
+			main.aiLevelsAsArrays[0] = 12;
+			main.aiLevelsAsArrays[1] = 15;
+			main.aiLevelsAsArrays[2] = 15;
+			main.aiLevelsAsArrays[3] = 15;
+			main.aiLevelsAsArrays[4] = 12;
 		6:
 			main.aiLevelsAsArrays[0] = 0;
 			main.aiLevelsAsArrays[1] = 0;

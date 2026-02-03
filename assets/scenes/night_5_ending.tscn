@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dxlcjuwbmf65s" path="res://assets/scripts/night_5_ending.gd" id="1_p5hyo"]
 [ext_resource type="Texture2D" uid="uid://bad4t0b4vfmx2" path="res://assets/images/endings/night5end.png" id="1_un4g4"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="2_3oxpp"]
-[ext_resource type="PackedScene" uid="uid://4p1uwjj1skxe" path="res://assets/scenes/dialoguemanager.tscn" id="3_6m8ba"]
 
 [sub_resource type="Animation" id="Animation_6m8ba"]
 resource_name = "motion"
@@ -75,10 +74,8 @@ _data = {
 &"motion": SubResource("Animation_6m8ba")
 }
 
-[node name="Night5Ending" type="Node" unique_id=1519838927 node_paths=PackedStringArray("dialoguemanager", "animation")]
+[node name="Night5Ending" type="Node" unique_id=1519838927]
 script = ExtResource("1_p5hyo")
-dialoguemanager = NodePath("GUI/DialogueManager")
-animation = NodePath("AnimationPlayer")
 
 [node name="Artwork" type="Sprite2D" parent="." unique_id=977200613]
 texture = ExtResource("1_un4g4")
@@ -101,6 +98,7 @@ metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=811199740]
 libraries/ = SubResource("AnimationLibrary_nr7in")
+autoplay = &"motion"
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=218001533]
 
@@ -140,8 +138,6 @@ text = "(Click to continue)"
 horizontal_alignment = 2
 vertical_alignment = 2
 metadata/_edit_lock_ = true
-
-[node name="DialogueManager" parent="GUI" unique_id=106731051 instance=ExtResource("3_6m8ba")]
 
 [node name="Button" type="Button" parent="GUI" unique_id=1751141834]
 anchors_preset = 15
