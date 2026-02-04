@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://d3ja6ngefvmcx" path="res://assets/sounds/Yoshi_Jumpscare_Sound.ogg" id="2_shhgd"]
 [ext_resource type="AudioStream" uid="uid://emssrvtwm15u" path="res://assets/sounds/Selection_Sound.ogg" id="3_shhgd"]
 [ext_resource type="AudioStream" uid="uid://dtgd0sn6b0i55" path="res://assets/music/empty hallway (FNaS 4 RE-TAKE night music).mp3" id="5_ai53t"]
+[ext_resource type="AudioStream" uid="uid://dxsbn0hl6opus" path="res://assets/sounds/Jumpscare_Noise.ogg" id="5_wb4mn"]
 
 [node name="Global_Audio_Manager" type="Node" unique_id=147038882]
 
@@ -20,6 +21,10 @@ stream = ExtResource("1_16a0g")
 
 [node name="Yoshi_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1073957951]
 stream = ExtResource("2_shhgd")
+
+[node name="Salvage_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1937665387]
+stream = ExtResource("5_wb4mn")
+volume_db = -5.0
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=500643790]
 stream = ExtResource("5_ai53t")

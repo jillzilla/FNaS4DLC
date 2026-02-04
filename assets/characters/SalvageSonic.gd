@@ -29,6 +29,7 @@ var timerChangePosition : float = 0;
 @export var Position7 : Sprite2D;
 
 @export_group("Mechanicals")
+@export var charAway : AnimationPlayer;
 @export var monitor : Node2D;
 @export var laugh : AudioStreamPlayer;
 @export var flashlight : FlashLightComponent;
@@ -43,6 +44,7 @@ var positionsAvailable : int = 6;
 
 var canAttack : bool = false;
 var jumpscare : bool = false;
+var haslaughed : bool = false;
 
 #functions
 func _ready() -> void:
@@ -60,14 +62,49 @@ func _process(delta: float) -> void:
 	if main.NightmareSalvageAiLevel != 0 && !jumpscare && main.PlayerAlive:
 		#movement
 		if currentPosition < positionsAvailable && !monitor.didSignalLost:
-			timerChangePosition -= NewDelta * main.NightmareSalvageAiLevel;
-			if timerChangePosition <= 0:
+			if currentPosition >= 5 && !flashlight.is_on || currentPosition < 5:
+				timerChangePosition -= NewDelta * main.NightmareSalvageAiLevel;
+				if timerChangePosition <= 0:
+					timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+					counterExposure = ce;
+					if main.random_chance(SkipMovementChance):
+						currentPosition += 1;
+						_handle_positions();
+						if currentPosition < positionsAvailable:
+							moved.emit();
+		#counter
+		if currentPosition >= positionsAvailable - 1 && flashlight.is_on && main.PlayerPosition == "Hallway":
+			counterExposure -= NewDelta * counterExposureLevel;
+			if counterExposure <= 0:
 				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
-				if main.random_chance(SkipMovementChance):
-					currentPosition += 1;
-					_handle_positions();
-					if currentPosition < 6:
-						moved.emit();
+				counterExposure = ce;
+				jumpscareExposure = je;
+				if !Position6.visible:
+					currentPosition -= 1;
+				else:
+					charAway.play_backwards("fade");
+					currentPosition = 0;
+				_handle_positions();
+		#jumpscare
+		elif canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking:
+			jumpscareExposure -= NewDelta * jumpscareExposureLevel;
+			if jumpscareExposure <= 0:
+				main.killedBy = "Nightmare Salvage Sonic";
+				jumpscare = true;
+				jumpscareExposure = je;
+				main.PlayerAlive = false;
+				Position7.visible = false;
+				if main.PlayerPosition != "Office":
+					if Mask.isUsingMask:
+						Mask.get_node("CD_Timer").stop();
+						Mask._remove();
+						await Mask.MaskIsRemoved;
+					officeRoomTravel._travel();
+					await officeRoomTravel.doneTraveling;
+				jumpscareAnimation.play("jumpscare");
+				GlobalAudioManager.get_node("Salvage_Jumpscare").play();
+				await jumpscareAnimation.animation_finished;
+				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
 	
 func _handle_positions():
 	if flashlight.is_on && currentPosition > 4:
@@ -84,6 +121,8 @@ func _handle_positions():
 			Position7.visible = false;
 			if canAttack:
 				canAttack = false;
+			if haslaughed:
+				haslaughed = false;
 		1:
 			Position1.visible = false;
 			Position2.visible = true;
@@ -124,7 +163,11 @@ func _handle_positions():
 			Position5.visible = false;
 			Position6.visible = true;
 			Position7.visible = false;
-			laugh.play();
+			if !haslaughed:
+				laugh.play();
+				haslaughed = true;
+			if canAttack:
+				canAttack = false;
 		6:
 			Position1.visible = false;
 			Position2.visible = false;
