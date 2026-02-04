@@ -21,10 +21,10 @@ class_name NightmareToyYoshi extends Node
 @export_group("Mechanicals")
 @export var ventSFX : AudioStreamPlayer2D;
 @export var ventLSFX : AudioStreamPlayer;
+@export var shockSFX : AudioStreamPlayer;
 @export var flashlight : FlashLightComponent;
 @export var officeRoomTravel : RoomTravelComponent;
 @export var Mask : Node2D;
-@export var shockSFX : AudioStreamPlayer;
 @export var jumpscareAnimation : AnimationPlayer;
 @export var peekingAnimation : AnimationPlayer;
 @export var charAway : AnimationPlayer;

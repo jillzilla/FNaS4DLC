@@ -108,8 +108,9 @@ _data = {
 &"flash": SubResource("Animation_x5pu0")
 }
 
-[node name="NightScreen" type="Node" unique_id=153087263]
+[node name="NightScreen" type="Node" unique_id=153087263 node_paths=PackedStringArray("nightcounter")]
 script = ExtResource("1_x5pu0")
+nightcounter = NodePath("NightCounter")
 
 [node name="Sky" type="Sprite2D" parent="." unique_id=2061776575]
 scale = Vector2(1.272, 1.272)

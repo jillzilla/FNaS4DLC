@@ -19,14 +19,14 @@ const flashNeeded : int = 5;
 
 @export_group("Mechanicals")
 @export var BT_Laugh : AudioStreamPlayer;
+@export var ventLSFX : AudioStreamPlayer;
 @export var BT_Move1 : AudioStreamPlayer2D;
 @export var BT_Move2 : AudioStreamPlayer2D;
-@export var flashlight : FlashLightComponent;
 @export var ventSFX : AudioStreamPlayer2D;
-@export var ventLSFX : AudioStreamPlayer;
-@export var Mask : Node2D;
 @export var officeRoomTravel : RoomTravelComponent;
 @export var deskRoomTravel : RoomTravelComponent;
+@export var flashlight : FlashLightComponent;
+@export var Mask : Node2D;
 @export var charAway : AnimationPlayer;
 
 var positionsAvailable : int = 1;
@@ -61,6 +61,7 @@ func _process(delta: float) -> void:
 					ventSFX.play();
 					currentPosition += 1;
 					_handle_positions();
+					
 		#counter
 		if flashCounter >= flashNeeded:
 			flashCounter = 0;
@@ -70,6 +71,7 @@ func _process(delta: float) -> void:
 			ventLSFX.play();
 			currentPosition = 0;
 			_handle_positions();
+			
 		#attack
 		if canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking:
 			EnteringExposure -= NewDelta * EnteringExposureLevel;

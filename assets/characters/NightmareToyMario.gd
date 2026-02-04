@@ -26,18 +26,18 @@ var PupilsState : Variant = PupilsStates.DEFAULT;
 
 @export_group("Mechanicals")
 @export var flashlight : FlashLightComponent;
+@export var officeRoomTravel : RoomTravelComponent;
 @export var ventSFX : AudioStreamPlayer2D;
+@export var stepSfx : AudioStreamPlayer2D;
 @export var ventLSFX : AudioStreamPlayer;
 @export var shockSFX : AudioStreamPlayer;
 @export var Mask : Node2D;
+@export var RunGraphics : Node2D;
 @export var peekingAnimation : AnimationPlayer;
 @export var jumpscareAnimation : AnimationPlayer;
-@export var officeRoomTravel : RoomTravelComponent;
-@export var RunGraphics : Node2D;
 @export var RunAnimation : AnimationPlayer;
-@export var timerStep : Timer;
-@export var stepSfx : AudioStreamPlayer2D;
 @export var charAway : AnimationPlayer;
+@export var timerStep : Timer;
 
 var cp : float;
 var ce : float;
@@ -135,7 +135,7 @@ func _process(delta: float) -> void:
 				shockSFX.play();
 
 func _choose_pupils_state() -> void:
-	if main.random_chance(60):
+	if main.random_chance(50):
 		PupilsState = PupilsStates.ON;
 	else:
 		PupilsState = PupilsStates.OFF;

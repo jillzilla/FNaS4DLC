@@ -1,11 +1,14 @@
 extends Node
 
+#variables
+@export var nightcounter : Label;
+
 #functions
 func _ready() -> void:
-	get_node("NightCounter").text = "Night " + str(main.nightcounter) + "\n12:00 AM";
-	
 	DiscordManager._update_details("Entering Night " + str(main.nightcounter));
 	DiscordManager._update_state("");
+	
+	nightcounter.text = "Night " + str(main.nightcounter) + "\n12:00 AM";
 
 func _on_timer_start_ambience_timeout() -> void:
 	GlobalAudioManager.get_node("Ambience").play();

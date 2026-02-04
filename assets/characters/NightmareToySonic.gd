@@ -22,19 +22,19 @@ var Direction : Variant = Directions.NONE;
 @export_group("Mechanicals")
 @export var LFlashlight : FlashLightComponent;
 @export var RFlashlight : FlashLightComponent;
+@export var officeRoomTravel : RoomTravelComponent;
 @export var Mask : Node2D;
+@export var RunGraphics : Node2D;
 @export var LVentSFX : AudioStreamPlayer2D;
 @export var RVentSFX : AudioStreamPlayer2D;
+@export var stepSfx : AudioStreamPlayer2D;
 @export var shockSFX : AudioStreamPlayer;
-@export var officeRoomTravel : RoomTravelComponent;
+@export var ventLeaveSFX : AudioStreamPlayer;
 @export var jumpscareAnimation : AnimationPlayer;
 @export var LPeekingAnimation : AnimationPlayer;
 @export var RPeekingAnimation : AnimationPlayer;
-@export var RunGraphics : Node2D;
 @export var RunAnimation : AnimationPlayer;
 @export var timerStep : Timer;
-@export var stepSfx : AudioStreamPlayer2D;
-@export var ventLeaveSFX : AudioStreamPlayer;
 
 var cp : float;
 var je : float;

@@ -30,7 +30,6 @@ func _process(_delta: float) -> void:
 	if enabled && main.PlayerAlive && !mask.isUsingMask && !main.isBTInOffice:
 		if Input.is_action_just_pressed("FLASHLIGHT"):
 			_turn_on();
-
 		elif Input.is_action_just_released("FLASHLIGHT"):
 			_turn_off();
 	else:
