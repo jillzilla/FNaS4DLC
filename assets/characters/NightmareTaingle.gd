@@ -4,8 +4,12 @@ class_name NightmareTaingle extends Node
 @export_group("Status")
 @export var currentPosition : int = 0;
 
-@export var positionChangingRate : float = 0;
-@export var timerChangePosition : float = 0;
+var timerChangePosition : float = 0;
+
+@export var SkipMovementChance : float;
+
+@export var minTimerChangePosition : float;
+@export var maxTimerChangePosition : float;
 
 @export var counterExposureLevel : int = 0;
 @export var counterExposure : float = 0;
@@ -26,7 +30,6 @@ class_name NightmareTaingle extends Node
 @export var jumpscareAnimation : AnimationPlayer;
 @export var radio : AudioStreamPlayer;
 
-var cp : float;
 var ce : float;
 var je : float;
 
@@ -38,7 +41,7 @@ var jumpscare : bool = false;
 #functions
 func _ready() -> void:
 	#working variables
-	cp = timerChangePosition;
+	timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
 	ce = counterExposure;
 	je = jumpscareExposure;
 	
@@ -54,8 +57,8 @@ func _process(delta: float) -> void:
 			if currentPosition > 0 && !flashlight.is_on || currentPosition == 0:
 				timerChangePosition -= NewDelta * main.NightmareTaingleAILevel;
 				if timerChangePosition <= 0:
-					timerChangePosition = cp;
-					if main.random_chance(positionChangingRate):
+					timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+					if main.random_chance(SkipMovementChance):
 						counterExposure = ce;
 						currentPosition += 1;
 						_handle_positions();
@@ -63,7 +66,7 @@ func _process(delta: float) -> void:
 		if currentPosition > 0 && flashlight.is_on && main.PlayerPosition == "Ceiling":
 			counterExposure -= NewDelta * counterExposureLevel;
 			if counterExposure <= 0:
-				timerChangePosition = cp;
+				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
 				counterExposure = ce;
 				jumpscareExposure = je;
 				currentPosition -= 1;

@@ -7,8 +7,12 @@ var PupilsState : Variant = PupilsStates.DEFAULT;
 @export_group("Status")
 @export var currentPosition : int = 0;
 
-@export var positionChangingRate : float = 0;
-@export var timerChangePosition : float = 0;
+var timerChangePosition : float = 0;
+
+@export var SkipMovementChance : float;
+
+@export var minTimerChangePosition : float;
+@export var maxTimerChangePosition : float;
 
 @export var counterExposureLevel : int = 0;
 @export var counterExposure : float = 0;
@@ -39,7 +43,6 @@ var PupilsState : Variant = PupilsStates.DEFAULT;
 @export var charAway : AnimationPlayer;
 @export var timerStep : Timer;
 
-var cp : float;
 var ce : float;
 var je : float;
 
@@ -55,7 +58,7 @@ var canAttack : bool = false;
 #functions
 func _ready() -> void:
 	#working variables
-	cp = timerChangePosition;
+	timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
 	ce = counterExposure;
 	je = jumpscareExposure;
 	timerStep.connect("timeout",_made_a_step);
@@ -70,8 +73,8 @@ func _process(delta: float) -> void:
 		if currentPosition < positionsAvailable:
 			timerChangePosition -= NewDelta * main.NightmareToyMarioAILevel;
 			if timerChangePosition <= 0:
-				timerChangePosition = cp;
-				if main.random_chance(positionChangingRate):
+				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+				if main.random_chance(SkipMovementChance):
 					ventSFX.play();
 					currentPosition += 1;
 					_handle_positions();
@@ -79,7 +82,7 @@ func _process(delta: float) -> void:
 		if currentPosition >= positionsAvailable && hasShocked && PupilsState == PupilsStates.ON && main.PlayerPosition == "Right_Vent" && Mask.isUsingMask:
 			counterExposure -= NewDelta * counterExposureLevel;
 			if counterExposure <= 0:
-				timerChangePosition = cp;
+				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
 				counterExposure = ce;
 				jumpscareExposure = je;
 				ventLSFX.play();
@@ -99,7 +102,7 @@ func _process(delta: float) -> void:
 			RunGraphics.visible = false;
 			RunGraphics.scale.x = 1;
 			RunGraphics.position.x = 0;
-			timerChangePosition = cp;
+			timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
 			jumpscareExposure = je;
 			currentPosition = 0;
 			main.ntmDeskWalking = false;

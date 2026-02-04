@@ -8,7 +8,7 @@
 
 [node name="CustomNight" type="Node" unique_id=1823592247 node_paths=PackedStringArray("characters")]
 script = ExtResource("1_8gqf7")
-characters = [NodePath("Control/Characters/Sonic"), NodePath("Control/Characters/Mario"), NodePath("Control/Characters/Yoshi"), NodePath("Control/Characters/Taingle"), NodePath("Control/Characters/BT")]
+characters = [NodePath("Control/Characters/Sonic"), NodePath("Control/Characters/Mario"), NodePath("Control/Characters/Yoshi"), NodePath("Control/Characters/Taingle"), NodePath("Control/Characters/BT"), NodePath("Control/Characters/Salvage")]
 metadata/_edit_horizontal_guides_ = [1005.0, 868.0]
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=60568684]
@@ -119,6 +119,15 @@ size_flags_vertical = 6
 charName = "Nightmare B.T."
 iconPath = "res://assets/images/customnight/btIcon.png"
 charID = 4
+metadata/_edit_lock_ = true
+
+[node name="Salvage" parent="Control/Characters" unique_id=1148718633 instance=ExtResource("4_k8lu8")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+charName = "Nightmare S. Sonic"
+iconPath = "res://assets/images/customnight/salvageicon.png"
+charID = 5
 metadata/_edit_lock_ = true
 
 [node name="Challenges" type="HBoxContainer" parent="Control" unique_id=1362725539]

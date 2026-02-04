@@ -4,8 +4,12 @@ class_name NightmareToyYoshi extends Node
 @export_group("Status")
 @export var currentPosition : int = 0;
 
-@export var positionChangingRate : float = 0;
-@export var timerChangePosition : float = 0;
+var timerChangePosition : float = 0;
+
+@export var SkipMovementChance : float;
+
+@export var minTimerChangePosition : float;
+@export var maxTimerChangePosition : float;
 
 @export var counterExposureLevel : int = 0;
 @export var counterExposure : float = 0;
@@ -29,7 +33,6 @@ class_name NightmareToyYoshi extends Node
 @export var peekingAnimation : AnimationPlayer;
 @export var charAway : AnimationPlayer;
 
-var cp : float;
 var ce : float;
 var je : float;
 
@@ -45,7 +48,7 @@ var canAttack : bool = false;
 #functions
 func _ready() -> void:
 	#working variables
-	cp = timerChangePosition;
+	timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
 	ce = counterExposure;
 	je = jumpscareExposure;
 	
@@ -60,8 +63,8 @@ func _process(delta: float) -> void:
 		if currentPosition < positionsAvailable:
 			timerChangePosition -= NewDelta * main.NightmareToyYoshiAILevel;
 			if timerChangePosition <= 0:
-				timerChangePosition = cp;
-				if main.random_chance(positionChangingRate):
+				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+				if main.random_chance(SkipMovementChance):
 					ventSFX.play();
 					currentPosition += 1;
 					_handle_positions();
@@ -69,7 +72,7 @@ func _process(delta: float) -> void:
 		if currentPosition >= positionsAvailable && Mask.isUsingMask && hasShocked && main.PlayerPosition == "Left_Vent":
 			counterExposure -= NewDelta * counterExposureLevel;
 			if counterExposure <= 0:
-				timerChangePosition = cp;
+				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
 				counterExposure = ce;
 				jumpscareExposure = je;
 				ventLSFX.play();

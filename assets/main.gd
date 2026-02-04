@@ -33,8 +33,9 @@ var NightmareToyMarioAILevel : int = aiDefaultLevel;
 var NightmareToyYoshiAILevel : int = aiDefaultLevel;
 var NightmareTaingleAILevel : int = aiDefaultLevel;
 var NightmareBTAILevel : int = aiDefaultLevel;
+var NightmareSalvageAiLevel : int = aiDefaultLevel;
 
-var aiLevelsAsArrays : Array[int] = [NightmareToySonicAILevel,NightmareToyMarioAILevel,NightmareToyYoshiAILevel,NightmareTaingleAILevel,NightmareBTAILevel];
+var aiLevelsAsArrays : Array[int] = [NightmareToySonicAILevel,NightmareToyMarioAILevel,NightmareToyYoshiAILevel,NightmareTaingleAILevel,NightmareBTAILevel,NightmareSalvageAiLevel];
 
 #functions
 func _ready() -> void:
@@ -49,6 +50,7 @@ func _update_ai_levels() -> void:
 	NightmareToyYoshiAILevel = aiLevelsAsArrays[2];
 	NightmareTaingleAILevel = aiLevelsAsArrays[3];
 	NightmareBTAILevel = aiLevelsAsArrays[4];
+	NightmareSalvageAiLevel = aiLevelsAsArrays[5];
 	
 func _reset_ai() -> void:
 	for i in range(aiLevelsAsArrays.size()):

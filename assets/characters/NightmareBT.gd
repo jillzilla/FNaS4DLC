@@ -4,8 +4,12 @@ class_name NightmareBT extends Node
 @export_group("Status")
 @export var currentPosition : int = 0;
 
-@export var positionChangingRate : float = 0;
-@export var timerChangePosition : float = 0;
+var timerChangePosition : float = 0;
+
+@export var SkipMovementChance : float;
+
+@export var minTimerChangePosition : float;
+@export var maxTimerChangePosition : float;
 
 var flashCounter : int = 0;
 const flashNeeded : int = 5;
@@ -32,13 +36,12 @@ const flashNeeded : int = 5;
 var positionsAvailable : int = 1;
 var canAttack : bool = false;
 
-var cp : float;
 var ee : float;
 
 #functions
 func _ready() -> void:
 	#working variables
-	cp = timerChangePosition;
+	timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
 	ee = EnteringExposure;
 	
 	#character setup
@@ -52,8 +55,8 @@ func _process(delta: float) -> void:
 		if currentPosition < positionsAvailable:
 			timerChangePosition -= NewDelta * main.NightmareBTAILevel;
 			if timerChangePosition <= 0:
-				timerChangePosition = cp;
-				if main.random_chance(positionChangingRate):
+				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+				if main.random_chance(SkipMovementChance):
 					if main.random_chance(50):
 						BT_Move2.play();
 					else:
@@ -66,7 +69,7 @@ func _process(delta: float) -> void:
 		if flashCounter >= flashNeeded:
 			flashCounter = 0;
 			EnteringExposure = ee;
-			timerChangePosition = cp;
+			timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
 			charAway.play_backwards("fade");
 			ventLSFX.play();
 			currentPosition = 0;

@@ -70,6 +70,15 @@ func _update_ai_counter() -> void:
 	else:
 		modulate.a = 0.2;
 		get_node("AiLevel/Counter").text = "X";
+		
+	if main.aiLevelsAsArrays[charID] == maxlevel:
+		modulate.r = 1;
+		modulate.g = 0;
+		modulate.b = 0;
+	else:
+		modulate.r = 1;
+		modulate.g = 1;
+		modulate.b = 1;
 
 func _on_left_pressed() -> void:
 	_sub();
