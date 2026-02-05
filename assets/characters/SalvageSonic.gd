@@ -29,9 +29,9 @@ var timerChangePosition : float = 0;
 @export var Position7 : Sprite2D;
 
 @export_group("Mechanicals")
-@export var charAway : AnimationPlayer;
 @export var monitor : Node2D;
 @export var laugh : AudioStreamPlayer;
+@export var dangersound : AudioStreamPlayer;
 @export var flashlight : FlashLightComponent;
 @export var officeRoomTravel : RoomTravelComponent;
 @export var Mask : Node2D;
@@ -82,7 +82,6 @@ func _process(delta: float) -> void:
 				if !Position6.visible:
 					currentPosition -= 1;
 				else:
-					charAway.play_backwards("fade");
 					currentPosition = 0;
 				_handle_positions();
 		#jumpscare
@@ -107,9 +106,6 @@ func _process(delta: float) -> void:
 				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
 	
 func _handle_positions():
-	if flashlight.is_on && currentPosition > 4:
-		flashlight._turn_off();
-		
 	match(currentPosition):
 		0:
 			Position1.visible = true;
@@ -119,6 +115,8 @@ func _handle_positions():
 			Position5.visible = false;
 			Position6.visible = false;
 			Position7.visible = false;
+			if dangersound.is_playing():
+				dangersound.stop();
 			if canAttack:
 				canAttack = false;
 			if haslaughed:
@@ -166,6 +164,8 @@ func _handle_positions():
 			if !haslaughed:
 				laugh.play();
 				haslaughed = true;
+			if !dangersound.is_playing():
+				dangersound.play();
 			if canAttack:
 				canAttack = false;
 		6:
