@@ -2080,6 +2080,7 @@ metadata/_edit_lock_ = true
 libraries/ = SubResource("AnimationLibrary_quckd")
 
 [node name="Cream_1" type="Sprite2D" parent="Rooms/Right_Vent/ClipMask" unique_id=1515986698]
+visible = false
 position = Vector2(-98.999985, -451)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("58_y222l")
