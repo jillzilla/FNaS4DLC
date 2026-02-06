@@ -34,8 +34,9 @@ var NightmareToyYoshiAILevel : int = aiDefaultLevel;
 var NightmareTaingleAILevel : int = aiDefaultLevel;
 var NightmareBTAILevel : int = aiDefaultLevel;
 var NightmareSalvageAiLevel : int = aiDefaultLevel;
+var NightmareCreamAiLevel : int = aiDefaultLevel;
 
-var aiLevelsAsArrays : Array[int] = [NightmareToySonicAILevel,NightmareToyMarioAILevel,NightmareToyYoshiAILevel,NightmareTaingleAILevel,NightmareBTAILevel,NightmareSalvageAiLevel];
+var aiLevelsAsArrays : Array[int] = [NightmareToySonicAILevel,NightmareToyMarioAILevel,NightmareToyYoshiAILevel,NightmareTaingleAILevel,NightmareBTAILevel,NightmareSalvageAiLevel,NightmareCreamAiLevel];
 
 #functions
 func _ready() -> void:
@@ -51,6 +52,7 @@ func _update_ai_levels() -> void:
 	NightmareTaingleAILevel = aiLevelsAsArrays[3];
 	NightmareBTAILevel = aiLevelsAsArrays[4];
 	NightmareSalvageAiLevel = aiLevelsAsArrays[5];
+	NightmareCreamAiLevel = aiLevelsAsArrays[6];
 	
 func _reset_ai() -> void:
 	for i in range(aiLevelsAsArrays.size()):
@@ -77,6 +79,7 @@ func _load_game() -> void:
 		return;
 	else:
 		var SaveGame := FileAccess.open_encrypted_with_pass(saveDataPath,FileAccess.READ,saveDataPassword);
+		
 		while SaveGame.get_position() < SaveGame.get_length():
 			var JSONString := SaveGame.get_line();
 			var json := JSON.new();

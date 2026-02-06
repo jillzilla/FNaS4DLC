@@ -49,3 +49,6 @@ func _handle_gameover_art() -> void:
 		"Nightmare Salvage Sonic":
 			get_node("AmyDeath").visible = true;
 			get_node("Characters/Salvage").visible = true;
+		"Nightmare Cream":
+			get_node("AmyDeath").visible = true;
+			get_node("Characters/Cream").visible = true;

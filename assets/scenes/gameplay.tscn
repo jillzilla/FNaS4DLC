@@ -76,18 +76,28 @@
 [ext_resource type="Texture2D" uid="uid://dxr7q74afj2e6" path="res://assets/images/gameplay/characters/tsonic/tsonicpelvis.png" id="48_wrac7"]
 [ext_resource type="Texture2D" uid="uid://ckkpwi621bua1" path="res://assets/images/gameplay/characters/tsonic/tsonicleftfoot.png" id="49_1mjni"]
 [ext_resource type="Script" uid="uid://vbev0wmin1fa" path="res://assets/scripts/poster_button.gd" id="54_dsnmp"]
+[ext_resource type="Texture2D" uid="uid://wokd4u00mmgi" path="res://assets/images/gameplay/characters/cream/cream1.png" id="58_y222l"]
 [ext_resource type="Texture2D" uid="uid://c3r8ff5cxr3px" path="res://assets/images/gameplay/characters/tmario/tmarioheadjumpscare.png" id="61_bt1i2"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="62_bt1i2"]
 [ext_resource type="Texture2D" uid="uid://dvea17q2h4ti" path="res://assets/images/gameplay/characters/tmario/tmariobodyjumpscare.png" id="62_k61gk"]
 [ext_resource type="Texture2D" uid="uid://ccgvydypkx0l2" path="res://assets/images/gameplay/characters/salvage/salvage_6.png" id="62_ntnck"]
 [ext_resource type="Texture2D" uid="uid://cvie5h5snq23a" path="res://assets/images/gameplay/characters/bt/bt2.png" id="63_k61gk"]
 [ext_resource type="Texture2D" uid="uid://ctxri6aagc8ae" path="res://assets/images/gameplay/characters/salvage/salvage_7.png" id="63_q42g3"]
+[ext_resource type="Texture2D" uid="uid://dyjxx8pf7g14v" path="res://assets/images/gameplay/characters/cream/cream2.png" id="64_olnhb"]
+[ext_resource type="Texture2D" uid="uid://d0w4wxd8m4cb1" path="res://assets/images/gameplay/characters/cream/cream3.png" id="65_etbyd"]
 [ext_resource type="AudioStream" uid="uid://cwu0xlhkaqq0i" path="res://assets/sounds/Toad_Moving_1.ogg" id="67_8bh6l"]
 [ext_resource type="AudioStream" uid="uid://dosa7cqf136xx" path="res://assets/sounds/Toad_Moving_2.ogg" id="68_50646"]
 [ext_resource type="Texture2D" uid="uid://bjc1440wjiewj" path="res://assets/images/gameplay/characters/salvage/salvagebody.png" id="78_1vyyi"]
 [ext_resource type="Texture2D" uid="uid://baduy64ia1npk" path="res://assets/images/gameplay/characters/salvage/salvagehead.png" id="79_riiyp"]
 [ext_resource type="Texture2D" uid="uid://bd68xarqth3c0" path="res://assets/images/gameplay/characters/salvage/salvagehead2.png" id="81_bcox0"]
 [ext_resource type="Texture2D" uid="uid://clrxch43d4rth" path="res://assets/images/gameplay/characters/salvage/salvagehead3.png" id="82_y222l"]
+[ext_resource type="Texture2D" uid="uid://1yn1ptpmbryj" path="res://assets/images/gameplay/characters/cream/creamj1.png" id="89_6ronx"]
+[ext_resource type="Texture2D" uid="uid://cjllisg858sou" path="res://assets/images/gameplay/characters/cream/cheesej.png" id="90_fu0fk"]
+[ext_resource type="Texture2D" uid="uid://duvwg0uebmiae" path="res://assets/images/gameplay/characters/cream/creamj2.png" id="91_uniq7"]
+[ext_resource type="Texture2D" uid="uid://be01d2yk4g64e" path="res://assets/images/gameplay/characters/cream/creamj3.png" id="92_83irj"]
+[ext_resource type="Texture2D" uid="uid://dfik7kmfqua8" path="res://assets/images/gameplay/characters/cream/leftleg.png" id="92_osqdk"]
+[ext_resource type="Texture2D" uid="uid://csmnv6hrgwyex" path="res://assets/images/gameplay/characters/cream/rightleg.png" id="93_eysab"]
+[ext_resource type="Texture2D" uid="uid://cmpjt858jqbqr" path="res://assets/images/gameplay/characters/cream/skirt.png" id="94_6ronx"]
 
 [sub_resource type="Animation" id="Animation_wrac7"]
 resource_name = "WalkCycle"
@@ -232,7 +242,7 @@ tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("RightFoot:position")
-tracks/2/interp = 1
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
@@ -244,7 +254,7 @@ tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("RightFoot:rotation")
-tracks/3/interp = 1
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5),
@@ -257,6 +267,65 @@ tracks/3/keys = {
 _data = {
 &"RESET": SubResource("Animation_k61gk"),
 &"WalkCycle": SubResource("Animation_8dshm")
+}
+
+[sub_resource type="Animation" id="Animation_osqdk"]
+resource_name = "WalkCycle"
+length = 0.5
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rooms/Desk/CreamDeskAnimation/RightLeg:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(152, 368), Vector2(-136, 368)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rooms/Desk/CreamDeskAnimation/RightLeg:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.5427974, 0.4660029]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Rooms/Desk/CreamDeskAnimation/LeftLeg:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-136, 368), Vector2(120, 360)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rooms/Desk/CreamDeskAnimation/LeftLeg:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.3874631, -0.3874631]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eysab"]
+_data = {
+&"WalkCycle": SubResource("Animation_osqdk")
 }
 
 [sub_resource type="Animation" id="Animation_82o30"]
@@ -505,6 +574,68 @@ tracks/1/keys = {
 _data = {
 &"Peeking": SubResource("Animation_6s7sv"),
 &"RESET": SubResource("Animation_gs8up")
+}
+
+[sub_resource type="Animation" id="Animation_olnhb"]
+resource_name = "Peeking"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-98.999985, -451), Vector2(-206.99997, -476)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.6981317]
+}
+
+[sub_resource type="Animation" id="Animation_etbyd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-98.999985, -451)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hh0om"]
+_data = {
+&"Peeking": SubResource("Animation_olnhb"),
+&"RESET": SubResource("Animation_etbyd")
 }
 
 [sub_resource type="Animation" id="Animation_g7uen"]
@@ -1165,6 +1296,123 @@ _data = {
 &"jumpscare": SubResource("Animation_bcox0")
 }
 
+[sub_resource type="Animation" id="Animation_7sthw"]
+resource_name = "jumpscare"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Her:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(544, 1032), Vector2(567.99994, 504), Vector2(888.00006, 448)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Her:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.31066862, 0.28797933]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Her:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AndLilBlud:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(176, -208), Vector2(344, 144), Vector2(312, 328.00003)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AndLilBlud:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3874631, -0.38920844]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AndLilBlud:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.7, 0.7), Vector2(1.2, 1.2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Her:texture")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("89_6ronx"), ExtResource("89_6ronx"), ExtResource("91_uniq7"), ExtResource("92_83irj")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Her:modulate")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AndLilBlud:modulate")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yxvbo"]
+_data = {
+&"jumpscare": SubResource("Animation_7sthw")
+}
+
 [sub_resource type="Animation" id="Animation_dsnmp"]
 resource_name = "fade"
 length = 0.6
@@ -1648,6 +1896,41 @@ wait_time = 0.5
 libraries/ = SubResource("AnimationLibrary_u4td0")
 autoplay = &"WalkCycle"
 
+[node name="CreamDeskAnimation" type="Node2D" parent="Rooms/Desk" unique_id=432718494]
+visible = false
+position = Vector2(-24, -686)
+metadata/_edit_lock_ = true
+
+[node name="LeftLeg" type="Sprite2D" parent="Rooms/Desk/CreamDeskAnimation" unique_id=1677358238]
+position = Vector2(-136, 368)
+rotation = 0.3874631
+texture = ExtResource("92_osqdk")
+metadata/_edit_lock_ = true
+
+[node name="RightLeg" type="Sprite2D" parent="Rooms/Desk/CreamDeskAnimation" unique_id=653464888]
+position = Vector2(152, 368)
+rotation = -0.5427974
+texture = ExtResource("93_eysab")
+metadata/_edit_lock_ = true
+
+[node name="Skirt" type="Sprite2D" parent="Rooms/Desk/CreamDeskAnimation" unique_id=1911974349]
+position = Vector2(19, 129)
+texture = ExtResource("94_6ronx")
+metadata/_edit_lock_ = true
+
+[node name="Steps" type="AudioStreamPlayer2D" parent="Rooms/Desk/CreamDeskAnimation" unique_id=1750074192]
+position = Vector2(40, 144)
+stream = ExtResource("25_1mjni")
+metadata/_edit_lock_ = true
+
+[node name="Timer_Step" type="Timer" parent="Rooms/Desk/CreamDeskAnimation" unique_id=1444505640]
+wait_time = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Desk/CreamDeskAnimation" unique_id=394837513]
+root_node = NodePath("../../../..")
+libraries/ = SubResource("AnimationLibrary_eysab")
+autoplay = &"WalkCycle"
+
 [node name="Overlay" type="Sprite2D" parent="Rooms/Desk" unique_id=1351403676]
 position = Vector2(0, -350)
 texture = ExtResource("22_wrac7")
@@ -1796,6 +2079,15 @@ metadata/_edit_lock_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Right_Vent/ClipMask/ToyMario_1" unique_id=1581690450]
 libraries/ = SubResource("AnimationLibrary_quckd")
 
+[node name="Cream_1" type="Sprite2D" parent="Rooms/Right_Vent/ClipMask" unique_id=1515986698]
+position = Vector2(-98.999985, -451)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("58_y222l")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Right_Vent/ClipMask/Cream_1" unique_id=316190302]
+libraries/ = SubResource("AnimationLibrary_hh0om")
+
 [node name="ToyMario_2" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1296227063]
 visible = false
 position = Vector2(32, -406)
@@ -1806,6 +2098,16 @@ metadata/_edit_group_ = true
 [node name="Pupils" type="Sprite2D" parent="Rooms/Right_Vent/ToyMario_2" unique_id=1650178831]
 texture = ExtResource("41_uerps")
 metadata/_edit_lock_ = true
+
+[node name="Cream_2" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1689361755]
+visible = false
+position = Vector2(-30, -372)
+texture = ExtResource("64_olnhb")
+
+[node name="Cream_3" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=307706582]
+visible = false
+position = Vector2(-3, -392)
+texture = ExtResource("65_etbyd")
 
 [node name="ToyMario_3" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=341175458]
 visible = false
@@ -2138,6 +2440,27 @@ metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/Salvage_Jumpscare" unique_id=347570255]
 libraries/ = SubResource("AnimationLibrary_y222l")
+speed_scale = 1.5
+
+[node name="Cream_Jumpscare" type="Node2D" parent="Misc/GUI" unique_id=1108071875]
+metadata/_edit_lock_ = true
+
+[node name="Her" type="Sprite2D" parent="Misc/GUI/Cream_Jumpscare" unique_id=1133692370]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(544, 1032)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("89_6ronx")
+metadata/_edit_lock_ = true
+
+[node name="AndLilBlud" type="Sprite2D" parent="Misc/GUI/Cream_Jumpscare" unique_id=1932101244]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(176, -208)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("90_fu0fk")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/Cream_Jumpscare" unique_id=971384645]
+libraries/ = SubResource("AnimationLibrary_yxvbo")
 speed_scale = 1.5
 
 [node name="Mask" parent="Misc/GUI" unique_id=506660624 node_paths=PackedStringArray("scrolling", "travel") instance=ExtResource("16_iuexx")]
