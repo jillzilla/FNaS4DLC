@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://ci88c0f206wu3" path="res://assets/images/gameplay/characters/taingle/taingle_1.png" id="7_ugpla"]
 [ext_resource type="Script" uid="uid://ju5j25cmysi6" path="res://assets/characters/SalvageSonic.gd" id="7_xs04x"]
 [ext_resource type="AudioStream" uid="uid://dg4vteonqhqb0" path="res://assets/sounds/Vent_Far.ogg" id="8_3khrc"]
+[ext_resource type="Script" uid="uid://bdgylcg452v26" path="res://assets/characters/NightmareCream.gd" id="8_83irj"]
 [ext_resource type="Texture2D" uid="uid://dd56tc7irhp2r" path="res://assets/images/gameplay/rooms/flashlight/vent_on.png" id="8_iuexx"]
 [ext_resource type="Texture2D" uid="uid://bdlmu7wbqans7" path="res://assets/images/gameplay/characters/taingle/taingle_2.png" id="8_kgr1o"]
 [ext_resource type="Texture2D" uid="uid://0f8oes41ekud" path="res://assets/images/gameplay/rooms/flashlight/vent_off.png" id="9_b4idp"]
@@ -1628,6 +1629,29 @@ officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 Mask = NodePath("../../Misc/GUI/Mask")
 jumpscareAnimation = NodePath("../../Misc/GUI/Salvage_Jumpscare/AnimationPlayer")
 metadata/_custom_type_script = "uid://ju5j25cmysi6"
+
+[node name="NightmareCream" type="Node" parent="Characters" unique_id=828925855 node_paths=PackedStringArray("Position1", "Position2", "Position3", "ventSFX", "stepSfx", "ventLSFX", "shockSFX", "flashlight", "officeRoomTravel", "Mask", "RunGraphics", "jumpscareAnimation", "peekingAnimation", "timerStep")]
+script = ExtResource("8_83irj")
+SkipMovementChance = 55.0
+minTimerChangePosition = 5000.0
+maxTimerChangePosition = 6000.0
+jumpscareExposureLevel = 13
+jumpscareExposure = 2800.0
+Position1 = NodePath("../../Rooms/Right_Vent/ClipMask/Cream_1")
+Position2 = NodePath("../../Rooms/Right_Vent/Cream_2")
+Position3 = NodePath("../../Rooms/Right_Vent/Cream_3")
+ventSFX = NodePath("../../Misc/GUI/2DAudios/RightVentSound")
+stepSfx = NodePath("../../Rooms/Desk/CreamDeskAnimation/Steps")
+ventLSFX = NodePath("../../Sounds/Vent_Leave_SFX")
+shockSFX = NodePath("../../Sounds/Shock_SFX")
+flashlight = NodePath("../../Rooms/Right_Vent/FlashLightComponent")
+officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
+Mask = NodePath("../../Misc/GUI/Mask")
+RunGraphics = NodePath("../../Rooms/Desk/CreamDeskAnimation")
+jumpscareAnimation = NodePath("../../Misc/GUI/Cream_Jumpscare/AnimationPlayer")
+peekingAnimation = NodePath("../../Rooms/Right_Vent/ClipMask/Cream_1/AnimationPlayer")
+timerStep = NodePath("../../Rooms/Desk/CreamDeskAnimation/Timer_Step")
+metadata/_custom_type_script = "uid://bdgylcg452v26"
 
 [node name="Sounds" type="Node" parent="." unique_id=1674670979]
 

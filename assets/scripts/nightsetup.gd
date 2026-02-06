@@ -22,6 +22,7 @@ func _ready() -> void:
 	main.PlayerNotMoving = true;
 	main.ntsDeskRunning = false;
 	main.ntmDeskWalking = false;
+	main.ncDeskWalking = false;
 	main.isBTInOffice = false;
 	
 	if main.nightcounter < 7:

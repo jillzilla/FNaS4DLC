@@ -23,6 +23,7 @@ var PlayerNotMoving : bool = true;
 #characters stuff
 var ntsDeskRunning : bool = false;
 var ntmDeskWalking : bool = false;
+var ncDeskWalking : bool = false;
 var isBTInOffice : bool = false;
 
 #characters ai level

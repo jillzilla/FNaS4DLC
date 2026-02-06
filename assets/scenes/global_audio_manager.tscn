@@ -26,6 +26,10 @@ stream = ExtResource("2_shhgd")
 stream = ExtResource("5_wb4mn")
 volume_db = -5.0
 
+[node name="Cream_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1161609733]
+stream = ExtResource("2_shhgd")
+pitch_scale = 1.25
+
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=500643790]
 stream = ExtResource("5_ai53t")
 

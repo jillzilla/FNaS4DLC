@@ -76,7 +76,7 @@ func _process(delta: float) -> void:
 			_handle_positions();
 			
 		#attack
-		if canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking:
+		if canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking && !main.ncDeskWalking:
 			EnteringExposure -= NewDelta * EnteringExposureLevel;
 			if EnteringExposure <= 0:
 				EnteringExposure = ee;
