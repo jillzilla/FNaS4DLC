@@ -33,10 +33,10 @@ func _ready() -> void:
 		extrasbutton.visible = true;
 	
 	if !main.night5ending:
-		nightcounter.text = str(main.nightcounter) + "th" + " Night";
+		nightcounter.text = "Night " + str(main.nightcounter);
 	else:
 		star1.visible = true;
-		nightcounter.text = "5" + "th" + " Night";
+		nightcounter.text = "Night 5";
 		night6button.visible = true;
 
 func _on_button_pressed() -> void: #play, forgot to name the signal properly oops

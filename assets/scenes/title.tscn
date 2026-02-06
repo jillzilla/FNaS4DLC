@@ -340,7 +340,7 @@ focus_mode = 0
 mouse_filter = 2
 theme_override_font_sizes/font_size = 48
 action_mode = 0
-text = "6th Night"
+text = "Night 6"
 metadata/_edit_lock_ = true
 
 [node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/Night6" unique_id=173851919 node_paths=PackedStringArray("parent")]
