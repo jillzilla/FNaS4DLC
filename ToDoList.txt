@@ -1,15 +1,13 @@
 Five Nights at Sonic's 4 DLC :: To-Do List:
-	add salvage [X]
-	add cream [X]
-	add tails doll [X]
-	add knuckles [X]
-	add luiginette [X]
-	add custom night challenges [X]
-	add extras [X]
-	add settings [X]
-	add credits [X]
-	add minigame [X]
-	add night 6 ending [X]
-	add night 7 ending [X]
-	finish night 5 ending [X]
-	add custom night prizes [X]
+	add tails doll
+	add knuckles
+	add luiginette
+	add custom night challenges
+	add extras
+	add settings
+	add credits
+	add minigame
+	add night 6 ending
+	add night 7 ending
+	finish night 5 ending
+	add custom night prizes

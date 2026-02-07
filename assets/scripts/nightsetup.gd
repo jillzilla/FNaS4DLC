@@ -89,4 +89,5 @@ func _set_ai_levels() -> void:
 			main.aiLevelsAsArrays[2] = 0;
 			main.aiLevelsAsArrays[3] = 0;
 			main.aiLevelsAsArrays[4] = 0;
+			main.aiLevelsAsArrays[5] = 0;
 			main.aiLevelsAsArrays[6] = 0;
