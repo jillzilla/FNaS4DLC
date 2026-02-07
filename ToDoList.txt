@@ -1,13 +1,12 @@
-Five Nights at Sonic's 4 DLC :: To-Do List:
-	add tails doll
-	add knuckles
+Five Nights at Sonic's 4 DLC ~ To-Do List:
 	add luiginette
-	add custom night challenges
+	add knuckles
+	add tails doll
 	add extras
 	add settings
 	add credits
 	add minigame
 	add night 6 ending
 	add night 7 ending
-	finish night 5 ending
+	add custom night challenges
 	add custom night prizes

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dxlcjuwbmf65s" path="res://assets/scripts/night_5_ending.gd" id="1_p5hyo"]
 [ext_resource type="Texture2D" uid="uid://bad4t0b4vfmx2" path="res://assets/images/endings/night5end.png" id="1_un4g4"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="2_3oxpp"]
+[ext_resource type="AudioStream" uid="uid://cm3g1tn3ejosx" path="res://assets/sounds/night5cutsceneambience.mp3" id="4_p5hyo"]
 
 [sub_resource type="Animation" id="Animation_6m8ba"]
 resource_name = "motion"
@@ -150,5 +151,9 @@ mouse_filter = 2
 action_mode = 0
 flat = true
 metadata/_edit_lock_ = true
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1826350734]
+stream = ExtResource("4_p5hyo")
+autoplay = true
 
 [connection signal="pressed" from="GUI/Button" to="." method="_on_button_pressed"]
