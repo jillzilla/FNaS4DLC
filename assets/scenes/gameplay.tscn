@@ -1422,12 +1422,13 @@ _data = {
 &"fade": SubResource("Animation_f1ux5")
 }
 
-[node name="Gameplay" type="Node" unique_id=528663739 node_paths=PackedStringArray("officeRoomTravel", "ClockTimer", "ClockCounter", "monitor")]
+[node name="Gameplay" type="Node" unique_id=528663739 node_paths=PackedStringArray("characters", "charAway", "officeRoomTravel", "ClockTimer", "ClockCounter")]
 script = ExtResource("1_hlo8c")
+characters = [NodePath("Characters/NightmareToySonic"), NodePath("Characters/NightmareToyMario"), NodePath("Characters/NightmareToyYoshi"), NodePath("Characters/NightmareTaingle"), NodePath("Characters/NightmareBT"), NodePath("Characters/SalvageSonic"), NodePath("Characters/NightmareCream")]
+charAway = NodePath("Misc/GUI/CharacterAwayFade/AnimationPlayer")
 officeRoomTravel = NodePath("Rooms/Office/RoomTravelComponent")
 ClockTimer = NodePath("Misc/Clock_Timer")
 ClockCounter = NodePath("Misc/GUI/Clock")
-monitor = NodePath("Rooms/Office/Monitor")
 
 [node name="Characters" type="Node" parent="." unique_id=913527033]
 

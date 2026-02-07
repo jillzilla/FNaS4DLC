@@ -106,6 +106,11 @@ func _process(delta: float) -> void:
 				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
 	
 func _handle_positions():
+	if main.NightmareSalvageAiLevel != 0:
+		monitor.visible = true;
+	else:
+		monitor.visible = false;
+	
 	match(currentPosition):
 		0:
 			Position1.visible = true;

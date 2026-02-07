@@ -99,8 +99,13 @@ func _handle_positions():
 	match(currentPosition):
 		0:
 			Position1.visible = false;
+			OfficeSprite.visible = false;
 			if canAttack:
 				canAttack = false;
+			if main.isBTInOffice:
+				main.isBTInOffice = false;
+			BT_Laugh.stop();
+			
 		1:
 			Position1.visible = true;
 			canAttack = true;
