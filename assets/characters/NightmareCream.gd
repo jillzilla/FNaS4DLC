@@ -72,7 +72,7 @@ func _process(delta: float) -> void:
 			RunGraphics.visible = true;
 			timerStep.start();
 			var t : Tween = create_tween();
-			t.tween_property(RunGraphics,"position:x",-1240,3);
+			t.tween_property(RunGraphics,"position:x",-1240,4);
 			await t.finished;
 			timerStep.stop();
 			ventLSFX.play();

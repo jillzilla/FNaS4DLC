@@ -1,4 +1,4 @@
 Five Nights at Sonic's 4 DLC ~ To-Do List:
 	add luiginette
-	add credits
-	add settings
+	add tutorials
+	add night 6 ending screen
