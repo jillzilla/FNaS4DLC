@@ -14,13 +14,6 @@ func _ready() -> void:
 		_set_ai_levels();
 	main._update_ai_levels();
 
-func _on_timer_start_ambience_timeout() -> void:
-	GlobalAudioManager.get_node("Ambience").play();
-
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "flash":
-		get_tree().change_scene_to_file("res://assets/scenes/gameplay.tscn");
-
 func _set_ai_levels() -> void:
 	match(main.nightcounter):
 		1:
@@ -77,3 +70,10 @@ func _set_ai_levels() -> void:
 			main.aiLevelsAsArrays[5] = 0;
 			main.aiLevelsAsArrays[6] = 0;
 			main.aiLevelsAsArrays[7] = 30;
+
+func _on_timer_start_ambience_timeout() -> void:
+	GlobalAudioManager.get_node("Ambience").play();
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "flash":
+		get_tree().change_scene_to_file("res://assets/scenes/gameplay.tscn");

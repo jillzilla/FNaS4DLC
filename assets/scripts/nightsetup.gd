@@ -4,6 +4,11 @@ extends Node
 @export var characters : Array[Node];
 @export var charAway : AnimationPlayer;
 
+@export var shockSFX : AudioStreamPlayer;
+@export var ventleaveSFX : AudioStreamPlayer;
+@export var leftventSFX : AudioStreamPlayer2D;
+@export var rightventSFX : AudioStreamPlayer2D;
+
 @export var officeRoomTravel : RoomTravelComponent;
 
 @export var ClockTimer : Timer;
@@ -32,6 +37,11 @@ func _on_clock_timer_timeout() -> void:
 	if ClockIteration == 4:
 		if main.nightcounter == 5:
 			charAway.play_backwards("fade");
+			
+			shockSFX.stop();
+			ventleaveSFX.stop();
+			leftventSFX.stop();
+			rightventSFX.stop();
 			
 			for i in range(characters.size()):
 				if i != 7:

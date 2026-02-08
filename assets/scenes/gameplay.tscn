@@ -64,6 +64,7 @@
 [ext_resource type="Texture2D" uid="uid://bu0dnpxqjv2ck" path="res://assets/images/gameplay/characters/yoshi/tyoshijumpscare.png" id="32_0v48r"]
 [ext_resource type="Texture2D" uid="uid://4d2byfqh0dbl" path="res://assets/images/gameplay/characters/yoshi/tyoshiclaw.png" id="33_4ldp1"]
 [ext_resource type="Texture2D" uid="uid://cwx3t0pb835r0" path="res://assets/images/gameplay/characters/bt/bt1.png" id="36_8dshm"]
+[ext_resource type="Texture2D" uid="uid://3a3ol8b5piea" path="res://assets/images/gameplay/characters/nluigi/nluigiceiling.png" id="36_yxvbo"]
 [ext_resource type="AudioStream" uid="uid://becm6j6c27siq" path="res://assets/sounds/sfx_vent.ogg" id="37_4ldp1"]
 [ext_resource type="Texture2D" uid="uid://d1870mb3e7j71" path="res://assets/images/gameplay/characters/tsonic/tsonicjumpscarebody.png" id="37_kv0yu"]
 [ext_resource type="Texture2D" uid="uid://b3s0vn0u2pcl7" path="res://assets/images/gameplay/characters/tsonic/tsonicjumpscarehead.png" id="38_5ld61"]
@@ -78,6 +79,7 @@
 [ext_resource type="Texture2D" uid="uid://ckkpwi621bua1" path="res://assets/images/gameplay/characters/tsonic/tsonicleftfoot.png" id="49_1mjni"]
 [ext_resource type="Script" uid="uid://vbev0wmin1fa" path="res://assets/scripts/poster_button.gd" id="54_dsnmp"]
 [ext_resource type="Texture2D" uid="uid://wokd4u00mmgi" path="res://assets/images/gameplay/characters/cream/cream1.png" id="58_y222l"]
+[ext_resource type="Texture2D" uid="uid://cgk4cko2kcsvn" path="res://assets/images/gameplay/characters/nluigi/nluigivents.png" id="60_dcs2j"]
 [ext_resource type="Texture2D" uid="uid://c3r8ff5cxr3px" path="res://assets/images/gameplay/characters/tmario/tmarioheadjumpscare.png" id="61_bt1i2"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="62_bt1i2"]
 [ext_resource type="Texture2D" uid="uid://dvea17q2h4ti" path="res://assets/images/gameplay/characters/tmario/tmariobodyjumpscare.png" id="62_k61gk"]
@@ -88,6 +90,7 @@
 [ext_resource type="Texture2D" uid="uid://d0w4wxd8m4cb1" path="res://assets/images/gameplay/characters/cream/cream3.png" id="65_etbyd"]
 [ext_resource type="AudioStream" uid="uid://cwu0xlhkaqq0i" path="res://assets/sounds/Toad_Moving_1.ogg" id="67_8bh6l"]
 [ext_resource type="AudioStream" uid="uid://dosa7cqf136xx" path="res://assets/sounds/Toad_Moving_2.ogg" id="68_50646"]
+[ext_resource type="Texture2D" uid="uid://d4f0e3pkepyr2" path="res://assets/images/gameplay/characters/nluigi/nluigihallway.png" id="77_dcs2j"]
 [ext_resource type="Texture2D" uid="uid://bjc1440wjiewj" path="res://assets/images/gameplay/characters/salvage/salvagebody.png" id="78_1vyyi"]
 [ext_resource type="Texture2D" uid="uid://baduy64ia1npk" path="res://assets/images/gameplay/characters/salvage/salvagehead.png" id="79_riiyp"]
 [ext_resource type="Texture2D" uid="uid://bd68xarqth3c0" path="res://assets/images/gameplay/characters/salvage/salvagehead2.png" id="81_bcox0"]
@@ -1422,10 +1425,14 @@ _data = {
 &"fade": SubResource("Animation_f1ux5")
 }
 
-[node name="Gameplay" type="Node" unique_id=528663739 node_paths=PackedStringArray("characters", "charAway", "officeRoomTravel", "ClockTimer", "ClockCounter")]
+[node name="Gameplay" type="Node" unique_id=528663739 node_paths=PackedStringArray("characters", "charAway", "shockSFX", "ventleaveSFX", "leftventSFX", "rightventSFX", "officeRoomTravel", "ClockTimer", "ClockCounter")]
 script = ExtResource("1_hlo8c")
 characters = [NodePath("Characters/NightmareToySonic"), NodePath("Characters/NightmareToyMario"), NodePath("Characters/NightmareToyYoshi"), NodePath("Characters/NightmareTaingle"), NodePath("Characters/NightmareBT"), NodePath("Characters/SalvageSonic"), NodePath("Characters/NightmareCream")]
 charAway = NodePath("Misc/GUI/CharacterAwayFade/AnimationPlayer")
+shockSFX = NodePath("Sounds/Shock_SFX")
+ventleaveSFX = NodePath("Sounds/Vent_Leave_SFX")
+leftventSFX = NodePath("Misc/GUI/2DAudios/LeftVentSound")
+rightventSFX = NodePath("Misc/GUI/2DAudios/RightVentSound")
 officeRoomTravel = NodePath("Rooms/Office/RoomTravelComponent")
 ClockTimer = NodePath("Misc/Clock_Timer")
 ClockCounter = NodePath("Misc/GUI/Clock")
@@ -1759,6 +1766,12 @@ position = Vector2(0, -431.5)
 texture = ExtResource("10_hlo8c")
 metadata/_edit_lock_ = true
 
+[node name="NLuigiCeiling" type="Sprite2D" parent="Rooms/Ceiling/ClipMask" unique_id=916243069]
+visible = false
+position = Vector2(-95, -447)
+texture = ExtResource("36_yxvbo")
+metadata/_edit_lock_ = true
+
 [node name="Light" type="Sprite2D" parent="Rooms/Ceiling" unique_id=1664641956]
 position = Vector2(0, -350)
 texture = ExtResource("4_ixvey")
@@ -1871,7 +1884,7 @@ autoplay = &"WalkCycle"
 
 [node name="CreamDeskAnimation" type="Node2D" parent="Rooms/Desk" unique_id=432718494]
 visible = false
-position = Vector2(-24, -686)
+position = Vector2(-24, -627)
 metadata/_edit_lock_ = true
 
 [node name="LeftLeg" type="Sprite2D" parent="Rooms/Desk/CreamDeskAnimation" unique_id=1677358238]
@@ -1979,6 +1992,12 @@ position = Vector2(-16, -398)
 texture = ExtResource("27_mmgny")
 metadata/_edit_lock_ = true
 
+[node name="NLuigiVent" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=161753759]
+visible = false
+position = Vector2(-64, -398)
+texture = ExtResource("60_dcs2j")
+metadata/_edit_lock_ = true
+
 [node name="Light" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=1261748066]
 position = Vector2(0, -350)
 texture = ExtResource("8_iuexx")
@@ -2077,11 +2096,19 @@ metadata/_edit_lock_ = true
 visible = false
 position = Vector2(-30, -372)
 texture = ExtResource("64_olnhb")
+metadata/_edit_lock_ = true
 
 [node name="Cream_3" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=307706582]
 visible = false
 position = Vector2(-3, -392)
 texture = ExtResource("65_etbyd")
+metadata/_edit_lock_ = true
+
+[node name="NLuigiVent" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1610885542]
+visible = false
+position = Vector2(-24, -398)
+texture = ExtResource("60_dcs2j")
+metadata/_edit_lock_ = true
 
 [node name="ToyMario_3" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=341175458]
 visible = false
@@ -2151,6 +2178,12 @@ metadata/_edit_lock_ = true
 visible = false
 position = Vector2(-3, -296)
 texture = ExtResource("63_q42g3")
+metadata/_edit_lock_ = true
+
+[node name="NLuigiHallway" type="Sprite2D" parent="Rooms/Hallway" unique_id=1755099800]
+visible = false
+position = Vector2(-24, -366)
+texture = ExtResource("77_dcs2j")
 metadata/_edit_lock_ = true
 
 [node name="Light" type="Sprite2D" parent="Rooms/Hallway" unique_id=869873923]
