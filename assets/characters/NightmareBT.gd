@@ -105,7 +105,6 @@ func _handle_positions():
 			if main.isBTInOffice:
 				main.isBTInOffice = false;
 			BT_Laugh.stop();
-			
 		1:
 			Position1.visible = true;
 			canAttack = true;
