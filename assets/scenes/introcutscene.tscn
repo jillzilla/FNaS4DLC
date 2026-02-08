@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://cgv1gtnt7p1a0"]
+
+[ext_resource type="Script" uid="uid://3ed6l0hievol" path="res://assets/scripts/introcutscene.gd" id="1_cf51k"]
+[ext_resource type="Texture2D" uid="uid://bs26y8d1mu4ep" path="res://assets/images/introscene/amywakeup.png" id="1_gxw81"]
+[ext_resource type="AudioStream" uid="uid://csf2kr68opon4" path="res://assets/sounds/Cutscene_Ambiance.ogg" id="2_5x501"]
+[ext_resource type="Texture2D" uid="uid://booxakoxtxk0x" path="res://assets/images/introscene/amywakeup1.png" id="2_pdr3i"]
+[ext_resource type="Texture2D" uid="uid://cki333u0e3ebr" path="res://assets/images/introscene/lookinaround.png" id="3_cf51k"]
+[ext_resource type="Texture2D" uid="uid://dwos45otusoh8" path="res://assets/images/title/4DLCLogo.png" id="4_qanse"]
+
+[sub_resource type="Animation" id="Animation_f1nxd"]
+resource_name = "animation"
+length = 40.5
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ambience")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_5x501")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites2:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites3:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites3:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 9, 15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fade:modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 23, 24),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Logo:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 26, 30, 35),
+"transitions": PackedFloat32Array(1, 1, 1, 0),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Logo:scale")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 26, 35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(2.5, 2.5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Ambience:volume_db")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 39, 40.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x56jf"]
+_data = {
+&"animation": SubResource("Animation_f1nxd")
+}
+
+[node name="IntroCutscene" type="Node" unique_id=1596648644]
+script = ExtResource("1_cf51k")
+
+[node name="Sprites" type="Sprite2D" parent="." unique_id=216187255]
+texture = ExtResource("1_gxw81")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Sprites2" type="Sprite2D" parent="." unique_id=46049454]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("2_pdr3i")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Sprites3" type="Sprite2D" parent="." unique_id=929926972]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("3_cf51k")
+metadata/_edit_lock_ = true
+
+[node name="Fade" type="ColorRect" parent="." unique_id=2090792712]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=1577772133]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(640, 360)
+texture = ExtResource("4_qanse")
+metadata/_edit_lock_ = true
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=584488275]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=683589583]
+libraries/ = SubResource("AnimationLibrary_x56jf")
+autoplay = &"animation"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

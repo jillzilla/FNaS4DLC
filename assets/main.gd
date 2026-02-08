@@ -8,6 +8,7 @@ var fpsTarget : float = 60.0;
 var isOnDialogue : bool = false;
 
 #data to save/load
+var introscenewatched : bool = false;
 var nightcounter : int = 1;
 var night5ending : bool = false;
 var night6ending : bool = false;
@@ -36,8 +37,9 @@ var NightmareTaingleAILevel : int = aiDefaultLevel;
 var NightmareBTAILevel : int = aiDefaultLevel;
 var NightmareSalvageAiLevel : int = aiDefaultLevel;
 var NightmareCreamAiLevel : int = aiDefaultLevel;
+var NightmareLuiginetteAiLevel : int = aiDefaultLevel;
 
-var aiLevelsAsArrays : Array[int] = [NightmareToySonicAILevel,NightmareToyMarioAILevel,NightmareToyYoshiAILevel,NightmareTaingleAILevel,NightmareBTAILevel,NightmareSalvageAiLevel,NightmareCreamAiLevel];
+var aiLevelsAsArrays : Array[int] = [NightmareToySonicAILevel,NightmareToyMarioAILevel,NightmareToyYoshiAILevel,NightmareTaingleAILevel,NightmareBTAILevel,NightmareSalvageAiLevel,NightmareCreamAiLevel,NightmareLuiginetteAiLevel];
 
 #functions
 func _ready() -> void:
@@ -54,6 +56,7 @@ func _update_ai_levels() -> void:
 	NightmareBTAILevel = aiLevelsAsArrays[4];
 	NightmareSalvageAiLevel = aiLevelsAsArrays[5];
 	NightmareCreamAiLevel = aiLevelsAsArrays[6];
+	NightmareLuiginetteAiLevel = aiLevelsAsArrays[7];
 	
 func _reset_ai() -> void:
 	for i in range(aiLevelsAsArrays.size()):
@@ -66,6 +69,7 @@ func _save() -> Dictionary:
 		"NIGHT5ENDING" : night5ending,
 		"NIGHT6ENDING" : night6ending,
 		"NIGHT7ENDING" : night7ending,
+		"INTROCUTSEEN" : introscenewatched,
 	};
 	return saveDict;
 
@@ -94,5 +98,6 @@ func _load_game() -> void:
 			night5ending = data["NIGHT5ENDING"];
 			night6ending = data["NIGHT6ENDING"];
 			night7ending = data["NIGHT7ENDING"];
+			introscenewatched = data["INTROCUTSEEN"];
 			
 			print(data);
