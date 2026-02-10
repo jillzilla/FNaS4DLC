@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://buctj8g01lbef"]
+
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_g8wgg"]
+[ext_resource type="Script" uid="uid://cm60ndafc34ka" path="res://assets/scripts/tutorials.gd" id="1_l135b"]
+
+[node name="Tutorials" type="Node" unique_id=445370292]
+script = ExtResource("1_l135b")
+
+[node name="GUIWorld" type="Control" parent="." unique_id=1236848483]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_g8wgg")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Background" type="ColorRect" parent="GUIWorld" unique_id=1051555802]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Night" type="Label" parent="GUIWorld" unique_id=1291721939]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.089
+anchor_right = 0.5
+anchor_bottom = 0.089
+offset_left = -272.0
+offset_top = -48.08
+offset_right = 272.0
+offset_bottom = 47.92
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "TUTORIAL (Night 1)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Text" type="Label" parent="GUIWorld" unique_id=961182897]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.55
+anchor_right = 0.5
+anchor_bottom = 0.55
+offset_left = -576.0
+offset_top = -284.0
+offset_right = 576.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Click to one the entrances to go to a location, you
+can check the vents, the hallway, the ceiling, and
+the desk. While being on the vents, you can use
+the mask [Shift]. Hold [CTRL] to shine
+the flashlight.
+
+If you hear a radio, go to the ceiling and shine
+it until the threat goes away.
+
+If you hear someone coming from the vent, if it's
+green, always use your mask if it gets too close.
+
+If it's red, and his pupils are visible, you use the
+mask, or else you hide under the desk until it
+walks past it."
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Continue" type="Label" parent="GUIWorld" unique_id=755222476]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.098000005
+anchor_top = 0.97200006
+anchor_right = 0.098000005
+anchor_bottom = 0.97200006
+offset_left = -117.44
+offset_top = -12.840027
+offset_right = 118.56
+offset_bottom = 12.159973
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "(Click to continue)"
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="GUIWorld" unique_id=62150892]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="GUIWorld/Button" to="." method="_on_button_pressed"]

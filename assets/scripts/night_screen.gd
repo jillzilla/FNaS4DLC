@@ -2,6 +2,7 @@ extends Node
 
 #variables
 @export var nightcounter : Label;
+var sceneDestination : String;
 
 #functions
 func _ready() -> void:
@@ -10,7 +11,10 @@ func _ready() -> void:
 	
 	nightcounter.text = "Night " + str(main.nightcounter) + "\n12:00 AM";
 	
+	sceneDestination = "res://assets/scenes/gameplay.tscn";
+	
 	if main.nightcounter < 7:
+		sceneDestination = "res://assets/scenes/tutorials.tscn";
 		_set_ai_levels();
 	main._update_ai_levels();
 
@@ -76,4 +80,4 @@ func _on_timer_start_ambience_timeout() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "flash":
-		get_tree().change_scene_to_file("res://assets/scenes/gameplay.tscn");
+		get_tree().change_scene_to_file(sceneDestination);
