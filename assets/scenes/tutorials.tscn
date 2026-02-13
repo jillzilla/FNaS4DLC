@@ -3,8 +3,9 @@
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_g8wgg"]
 [ext_resource type="Script" uid="uid://cm60ndafc34ka" path="res://assets/scripts/tutorials.gd" id="1_l135b"]
 
-[node name="Tutorials" type="Node" unique_id=445370292]
+[node name="Tutorials" type="Node" unique_id=445370292 node_paths=PackedStringArray("night")]
 script = ExtResource("1_l135b")
+night = NodePath("GUIWorld/Night")
 
 [node name="GUIWorld" type="Control" parent="." unique_id=1236848483]
 layout_mode = 3
@@ -48,6 +49,7 @@ vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Text" type="Label" parent="GUIWorld" unique_id=961182897]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -70,12 +72,111 @@ the flashlight.
 If you hear a radio, go to the ceiling and shine
 it until the threat goes away.
 
-If you hear someone coming from the vent, if it's
+If you hear someone coming from the vents, if it's
 green, always use your mask if it gets too close.
 
 If it's red, and his pupils are visible, you use the
 mask, if not hide under the desk until it walks
 past it."
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Text2" type="Label" parent="GUIWorld" unique_id=1946421797]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.55
+anchor_right = 0.5
+anchor_bottom = 0.55
+offset_left = -576.0
+offset_top = -284.0
+offset_right = 576.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "The blue ones don't get fooled by the mask. If one startles
+you from the vents, hide under the desk.
+
+A mushroom will also grow tonight. If you hear him laughing
+check the left vent, and flash him repeatedly until he
+gives up.
+
+As for the rest it's all the same
+as usual, good luck."
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Text3" type="Label" parent="GUIWorld" unique_id=165184980]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.55
+anchor_right = 0.5
+anchor_bottom = 0.55
+offset_left = -576.0
+offset_top = -284.0
+offset_right = 576.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "The other blue one will slowly walks towards you from
+the hallway, you'll be able to check on him from the
+monitor on your desk. If you hear his laugh, hold
+the light on him until he goes away.
+
+You are close to the truth, Amy."
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Text4" type="Label" parent="GUIWorld" unique_id=277056774]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.55
+anchor_right = 0.5
+anchor_bottom = 0.55
+offset_left = -576.0
+offset_top = -284.0
+offset_right = 576.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "A dear old friend will join tonight, she won't be very dangerous,
+if she tries to attack, just hide under the desk. Nothing too
+complicated."
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Text5" type="Label" parent="GUIWorld" unique_id=579748196]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.55
+anchor_right = 0.5
+anchor_bottom = 0.55
+offset_left = -576.0
+offset_top = -284.0
+offset_right = 576.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Everyone will be very aggressive this night, but not
+for too long. At a certain point, things will change...
+And when that happens keep in mind this:
+
+From the vents to the mask.
+From the hallway to the desk.
+From the ceiling to the flashlight.
+
+It's your time to shine."
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 

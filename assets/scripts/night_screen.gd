@@ -14,12 +14,12 @@ func _ready() -> void:
 	
 	sceneDestination = "res://assets/scenes/gameplay.tscn";
 	
-	if main.nightcounter < 7:
+	if main.nightcounter < 6:
 		sceneDestination = "res://assets/scenes/tutorials.tscn";
 		_set_ai_levels();
 		
 	main._update_ai_levels();
-
+	
 func _set_ai_levels() -> void:
 	match(main.nightcounter):
 		1:
