@@ -2,6 +2,7 @@ extends Node
 
 #variables
 @export var nightcounter : Label;
+
 var sceneDestination : String;
 
 #functions
@@ -16,6 +17,7 @@ func _ready() -> void:
 	if main.nightcounter < 7:
 		sceneDestination = "res://assets/scenes/tutorials.tscn";
 		_set_ai_levels();
+		
 	main._update_ai_levels();
 
 func _set_ai_levels() -> void:
