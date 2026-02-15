@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://bdgylcg452v26" path="res://assets/characters/NightmareCream.gd" id="8_83irj"]
 [ext_resource type="Texture2D" uid="uid://dd56tc7irhp2r" path="res://assets/images/gameplay/rooms/flashlight/vent_on.png" id="8_iuexx"]
 [ext_resource type="Texture2D" uid="uid://bdlmu7wbqans7" path="res://assets/images/gameplay/characters/taingle/taingle_2.png" id="8_kgr1o"]
+[ext_resource type="Script" uid="uid://d1ep2smha42dq" path="res://assets/characters/NightmareLuiginette.gd" id="9_aflu3"]
 [ext_resource type="Texture2D" uid="uid://0f8oes41ekud" path="res://assets/images/gameplay/rooms/flashlight/vent_off.png" id="9_b4idp"]
 [ext_resource type="Texture2D" uid="uid://cx1vyvqdy6l10" path="res://assets/images/gameplay/characters/taingle/taingle_3.png" id="9_rybgg"]
 [ext_resource type="Texture2D" uid="uid://nb6tg6pvsdjj" path="res://assets/images/gameplay/characters/taingle/taingle_4.png" id="10_hlo8c"]
@@ -45,8 +46,11 @@
 [ext_resource type="Texture2D" uid="uid://bjlnfkshadsqs" path="res://assets/images/gameplay/characters/salvage/salvage_4.png" id="17_n2j6p"]
 [ext_resource type="Script" uid="uid://dd1lr8eoffc1m" path="res://assets/scripts/fnas3monitor.gd" id="17_r3tsk"]
 [ext_resource type="Texture2D" uid="uid://dpqu8d0aejsjm" path="res://assets/images/gameplay/characters/salvage/salvage_5.png" id="18_ntnck"]
+[ext_resource type="AudioStream" uid="uid://b5usewcbo6gqh" path="res://assets/sounds/Walking_1.ogg" id="19_cptix"]
 [ext_resource type="SpriteFrames" uid="uid://b0m55v6egjly4" path="res://assets/spriteframes/static.tres" id="19_psqdk"]
+[ext_resource type="AudioStream" uid="uid://vws82qu5ple8" path="res://assets/sounds/Walking_2.ogg" id="20_k63c8"]
 [ext_resource type="Texture2D" uid="uid://c2pxe3ehd4qtn" path="res://assets/images/gameplay/rooms/clipmask/vent.png" id="20_t2peh"]
+[ext_resource type="AudioStream" uid="uid://b45lrfsxaou4l" path="res://assets/sounds/Walking_3.ogg" id="21_66s47"]
 [ext_resource type="Texture2D" uid="uid://v3lx10cvmtha" path="res://assets/images/gameplay/characters/yoshi/yoshi_1.png" id="21_h887p"]
 [ext_resource type="AudioStream" uid="uid://blrhwp7bm001r" path="res://assets/sounds/[7] Run_to_Door_Sound.ogg" id="22_bkfnj"]
 [ext_resource type="Texture2D" uid="uid://c8mjrs7bc20p1" path="res://assets/images/gameplay/characters/yoshi/yoshi_2.png" id="22_ondv3"]
@@ -1284,6 +1288,32 @@ peekingAnimation = NodePath("../../Rooms/Right_Vent/ClipMask/Cream_1/AnimationPl
 timerStep = NodePath("../../Rooms/Desk/CreamDeskAnimation/Timer_Step")
 metadata/_custom_type_script = "uid://bdgylcg452v26"
 
+[node name="NightmareLuiginette" type="Node" parent="Characters" unique_id=652455852 node_paths=PackedStringArray("leftventSprite", "rightventSprite", "hallwaySprite", "ceilingSprite", "Mask", "LFlashlight", "RFlashlight", "FFlashlight", "CFlashlight", "ventLSFX", "shockSFX", "LVentSFX", "RVentSFX", "charAway", "walkingSounds")]
+script = ExtResource("9_aflu3")
+SkipMovementChance = 50.0
+minTimerChangePosition = 8000.0
+maxTimerChangePosition = 10000.0
+counterExposureLevel = 25
+counterExposure = 800.0
+jumpscareExposureLevel = 13
+jumpscareExposure = 2800.0
+leftventSprite = NodePath("../../Rooms/Left_Vent/NLuigiVent")
+rightventSprite = NodePath("../../Rooms/Right_Vent/NLuigiVent")
+hallwaySprite = NodePath("../../Rooms/Hallway/NLuigiHallway")
+ceilingSprite = NodePath("../../Rooms/Ceiling/ClipMask/NLuigiCeiling")
+Mask = NodePath("../../Misc/GUI/Mask")
+LFlashlight = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
+RFlashlight = NodePath("../../Rooms/Right_Vent/FlashLightComponent")
+FFlashlight = NodePath("../../Rooms/Hallway/FlashLightComponent")
+CFlashlight = NodePath("../../Rooms/Ceiling/FlashLightComponent")
+ventLSFX = NodePath("../../Sounds/Vent_Leave_SFX")
+shockSFX = NodePath("../../Sounds/Shock_SFX")
+LVentSFX = NodePath("../../Misc/GUI/2DAudios/LeftVentSound")
+RVentSFX = NodePath("../../Misc/GUI/2DAudios/RightVentSound")
+charAway = NodePath("../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
+walkingSounds = [NodePath("../../Sounds/Walking_SFX_1"), NodePath("../../Sounds/Walking_SFX_2"), NodePath("../../Sounds/Walking_SFX_3")]
+metadata/_custom_type_script = "uid://d1ep2smha42dq"
+
 [node name="Sounds" type="Node" parent="." unique_id=1674670979]
 
 [node name="Taingle_Radio" type="AudioStreamPlayer" parent="Sounds" unique_id=2037132696]
@@ -1315,6 +1345,15 @@ stream = ExtResource("15_3xapl")
 
 [node name="Danger_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=192029308]
 stream = ExtResource("16_riiyp")
+
+[node name="Walking_SFX_1" type="AudioStreamPlayer" parent="Sounds" unique_id=17205823]
+stream = ExtResource("19_cptix")
+
+[node name="Walking_SFX_2" type="AudioStreamPlayer" parent="Sounds" unique_id=75994074]
+stream = ExtResource("20_k63c8")
+
+[node name="Walking_SFX_3" type="AudioStreamPlayer" parent="Sounds" unique_id=72479642]
+stream = ExtResource("21_66s47")
 
 [node name="Rooms" type="Node" parent="." unique_id=1063837608]
 
