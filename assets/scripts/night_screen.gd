@@ -2,7 +2,6 @@ extends Node
 
 #variables
 @export var nightcounter : Label;
-
 var sceneDestination : String;
 
 #functions
@@ -14,10 +13,11 @@ func _ready() -> void:
 	
 	sceneDestination = "res://assets/scenes/gameplay.tscn";
 	
+	if main.nightcounter < 7:
+		_set_ai_levels();
+	
 	if main.nightcounter < 6:
 		sceneDestination = "res://assets/scenes/tutorials.tscn";
-	elif main.nightcounter < 7:
-		_set_ai_levels();
 		
 	main._update_ai_levels();
 	
@@ -76,7 +76,7 @@ func _set_ai_levels() -> void:
 			main.aiLevelsAsArrays[4] = 0;
 			main.aiLevelsAsArrays[5] = 0;
 			main.aiLevelsAsArrays[6] = 0;
-			main.aiLevelsAsArrays[7] = 30;
+			main.aiLevelsAsArrays[7] = 50;
 
 func _on_timer_start_ambience_timeout() -> void:
 	GlobalAudioManager.get_node("Ambience").play();

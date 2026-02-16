@@ -50,7 +50,6 @@ func _on_clock_timer_timeout() -> void:
 					characters[i].currentPosition = 0;
 					main._update_ai_levels();
 					characters[i]._handle_positions();
-					
 			main.aiLevelsAsArrays[7] = 25;
 			main._update_ai_levels();
 			

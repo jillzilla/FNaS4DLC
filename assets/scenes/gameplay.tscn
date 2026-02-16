@@ -1328,8 +1328,8 @@ metadata/_custom_type_script = "uid://bdgylcg452v26"
 [node name="NightmareLuiginette" type="Node" parent="Characters" unique_id=652455852 node_paths=PackedStringArray("leftventSprite", "rightventSprite", "hallwaySprite", "ceilingSprite", "Mask", "LFlashlight", "RFlashlight", "FFlashlight", "CFlashlight", "shockSFX", "LVentSFX", "RVentSFX", "RunGraphics", "charAway", "walkingSounds")]
 script = ExtResource("9_aflu3")
 SkipMovementChance = 50.0
-minTimerChangePosition = 8000.0
-maxTimerChangePosition = 10000.0
+minTimerChangePosition = 2500.0
+maxTimerChangePosition = 3000.0
 counterExposureLevel = 25
 counterExposure = 800.0
 jumpscareExposureLevel = 13
