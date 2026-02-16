@@ -29,6 +29,7 @@ func _ready() -> void:
 	main.ntsDeskRunning = false;
 	main.ntmDeskWalking = false;
 	main.ncDeskWalking = false;
+	main.nlnDeskWalking = false;
 	main.isBTInOffice = false;
 
 func _on_clock_timer_timeout() -> void:

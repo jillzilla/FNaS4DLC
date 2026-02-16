@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 			main.ncDeskWalking = false;
 			_handle_positions();
 		#jumpscare
-		elif canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking && !main.ncDeskWalking:
+		elif canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking && !main.ncDeskWalking && !main.nlnDeskWalking:
 			jumpscareExposure -= NewDelta * jumpscareExposureLevel;
 			if jumpscareExposure <= 0:
 				main.killedBy = "Nightmare Cream";

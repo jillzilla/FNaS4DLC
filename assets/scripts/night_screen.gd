@@ -16,6 +16,7 @@ func _ready() -> void:
 	
 	if main.nightcounter < 6:
 		sceneDestination = "res://assets/scenes/tutorials.tscn";
+	elif main.nightcounter < 7:
 		_set_ai_levels();
 		
 	main._update_ai_levels();

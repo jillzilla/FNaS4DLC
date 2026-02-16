@@ -37,7 +37,6 @@ var timerChangePosition : float = 0;
 @export var jumpscareAnimation : AnimationPlayer;
 @export var LPeekingAnimation : AnimationPlayer;
 @export var RPeekingAnimation : AnimationPlayer;
-@export var RunAnimation : AnimationPlayer;
 @export var timerStep : Timer;
 
 var je : float;
@@ -108,7 +107,7 @@ func _process(delta: float) -> void:
 			main.ntsDeskRunning = false;
 			_handle_positions();
 		#jumpscare
-		elif canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking && !main.ncDeskWalking:
+		elif canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking && !main.ncDeskWalking && !main.nlnDeskWalking:
 			jumpscareExposure -= NewDelta * jumpscareExposureLevel;
 			if jumpscareExposure <= 0:
 				main.killedBy = "Nightmare Toy Sonic";

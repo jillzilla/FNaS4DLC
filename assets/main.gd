@@ -26,6 +26,7 @@ var ntsDeskRunning : bool = false;
 var ntmDeskWalking : bool = false;
 var ncDeskWalking : bool = false;
 var isBTInOffice : bool = false;
+var nlnDeskWalking : bool = false;
 
 #characters ai level
 const aiDefaultLevel : int = 5;

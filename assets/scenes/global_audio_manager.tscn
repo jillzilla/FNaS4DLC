@@ -24,7 +24,7 @@ stream = ExtResource("2_shhgd")
 
 [node name="Salvage_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1937665387]
 stream = ExtResource("5_wb4mn")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="Cream_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1161609733]
 stream = ExtResource("2_shhgd")

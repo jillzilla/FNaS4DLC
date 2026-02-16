@@ -24,8 +24,7 @@ const flashNeeded : int = 5;
 @export_group("Mechanicals")
 @export var BT_Laugh : AudioStreamPlayer;
 @export var ventLSFX : AudioStreamPlayer;
-@export var BT_Move1 : AudioStreamPlayer2D;
-@export var BT_Move2 : AudioStreamPlayer2D;
+@export var BT_MoveSFXs : Array[AudioStreamPlayer2D];
 @export var ventSFX : AudioStreamPlayer2D;
 @export var officeRoomTravel : RoomTravelComponent;
 @export var deskRoomTravel : RoomTravelComponent;
@@ -57,14 +56,10 @@ func _process(delta: float) -> void:
 			if timerChangePosition <= 0:
 				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
 				if main.random_chance(SkipMovementChance):
-					if main.random_chance(50):
-						BT_Move2.play();
-					else:
-						BT_Move1.play();
+					BT_MoveSFXs.pick_random().play();
 					ventSFX.play();
 					currentPosition += 1;
 					_handle_positions();
-					
 		#counter
 		if flashCounter >= flashNeeded:
 			flashCounter = 0;
@@ -74,7 +69,6 @@ func _process(delta: float) -> void:
 			ventLSFX.play();
 			currentPosition = 0;
 			_handle_positions();
-			
 		#attack
 		if canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking && !main.ncDeskWalking:
 			EnteringExposure -= NewDelta * EnteringExposureLevel;

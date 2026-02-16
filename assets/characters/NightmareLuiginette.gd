@@ -35,6 +35,7 @@ var timerChangePosition : float = 0;
 @export var shockSFX : AudioStreamPlayer;
 @export var LVentSFX : AudioStreamPlayer2D;
 @export var RVentSFX : AudioStreamPlayer2D;
+@export var RunGraphics : Node2D;
 @export var charAway : AnimationPlayer;
 @export var walkingSounds : Array[AudioStreamPlayer];
 
@@ -68,6 +69,7 @@ func _process(delta: float) -> void:
 					_handle_positions();
 				else:
 					_switch_path();
+		#counter
 		if currentPosition >= positionsAvailable && hasShocked && Direction == Directions.LEFT && main.PlayerPosition == "Left_Vent" && Mask.isUsingMask || currentPosition >= positionsAvailable && hasShocked && Direction == Directions.RIGHT && main.PlayerPosition == "Right_Vent" && Mask.isUsingMask || currentPosition >= positionsAvailable && hasShocked && CFlashlight.is_on && main.PlayerPosition == "Ceiling":
 			counterExposure -= NewDelta * counterExposureLevel;
 			if counterExposure <= 0:
@@ -77,6 +79,22 @@ func _process(delta: float) -> void:
 				currentPosition = 0;
 				charAway.play_backwards("fade");
 				_handle_positions();
+		elif currentPosition >= positionsAvailable && hasShocked && Direction == Directions.HALLWAY && main.PlayerPosition == "Desk" && !main.nlnDeskWalking:
+			main.nlnDeskWalking = true;
+			RunGraphics.position.x = 1240;
+			RunGraphics.visible = true;
+			var t : Tween = create_tween();
+			t.tween_property(RunGraphics,"position:x",-1240,2.5);
+			await t.finished;
+			charAway.play_backwards("fade");
+			RunGraphics.visible = false;
+			RunGraphics.scale.x = 1;
+			RunGraphics.position.x = 0;
+			timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+			jumpscareExposure = je;
+			currentPosition = 0;
+			main.nlnDeskWalking = false;
+			_handle_positions();
 		#special events
 		if currentPosition == 1 && !hasShocked: #shocking
 			match(Direction):
