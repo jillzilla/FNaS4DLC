@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://emssrvtwm15u" path="res://assets/sounds/Selection_Sound.ogg" id="3_shhgd"]
 [ext_resource type="AudioStream" uid="uid://dtgd0sn6b0i55" path="res://assets/music/GameplayAmbienceTheme.mp3" id="5_ai53t"]
 [ext_resource type="AudioStream" uid="uid://dxsbn0hl6opus" path="res://assets/sounds/Jumpscare_Noise.ogg" id="5_wb4mn"]
+[ext_resource type="AudioStream" uid="uid://cntxk7ywn0r1x" path="res://assets/sounds/Jumpscaref2.ogg" id="6_kw54n"]
 
 [node name="Global_Audio_Manager" type="Node" unique_id=147038882]
 
@@ -24,11 +25,16 @@ stream = ExtResource("2_shhgd")
 
 [node name="Salvage_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1937665387]
 stream = ExtResource("5_wb4mn")
-volume_db = -10.0
+volume_db = -5.0
 
 [node name="Cream_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1161609733]
 stream = ExtResource("2_shhgd")
 pitch_scale = 1.25
+
+[node name="Luigi_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=2084689703]
+stream = ExtResource("6_kw54n")
+volume_db = -5.0
+pitch_scale = 0.8
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=500643790]
 stream = ExtResource("5_ai53t")

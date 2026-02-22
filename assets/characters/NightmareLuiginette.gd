@@ -117,7 +117,7 @@ func _process(delta: float) -> void:
 					officeRoomTravel._travel();
 					await officeRoomTravel.doneTraveling;
 				jumpscareAnimation.play("jumpscare");
-				GlobalAudioManager.get_node("Taingle_Jumpscare").play();
+				GlobalAudioManager.get_node("Luigi_Jumpscare").play();
 				await jumpscareAnimation.animation_finished;
 				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
 		#special events
