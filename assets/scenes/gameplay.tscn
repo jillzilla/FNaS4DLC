@@ -1325,7 +1325,7 @@ peekingAnimation = NodePath("../../Rooms/Right_Vent/ClipMask/Cream_1/AnimationPl
 timerStep = NodePath("../../Rooms/Desk/CreamDeskAnimation/Timer_Step")
 metadata/_custom_type_script = "uid://bdgylcg452v26"
 
-[node name="NightmareLuiginette" type="Node" parent="Characters" unique_id=652455852 node_paths=PackedStringArray("leftventSprite", "rightventSprite", "hallwaySprite", "ceilingSprite", "Mask", "LFlashlight", "RFlashlight", "FFlashlight", "CFlashlight", "shockSFX", "LVentSFX", "RVentSFX", "RunGraphics", "charAway", "walkingSounds")]
+[node name="NightmareLuiginette" type="Node" parent="Characters" unique_id=652455852 node_paths=PackedStringArray("leftventSprite", "rightventSprite", "hallwaySprite", "ceilingSprite", "officeRoomTravel", "Mask", "LFlashlight", "RFlashlight", "FFlashlight", "CFlashlight", "shockSFX", "LVentSFX", "RVentSFX", "RunGraphics", "charAway", "jumpscareAnimation", "walkingSounds")]
 script = ExtResource("9_aflu3")
 SkipMovementChance = 50.0
 minTimerChangePosition = 2500.0
@@ -1338,6 +1338,7 @@ leftventSprite = NodePath("../../Rooms/Left_Vent/NLuigiVent")
 rightventSprite = NodePath("../../Rooms/Right_Vent/NLuigiVent")
 hallwaySprite = NodePath("../../Rooms/Hallway/NLuigiHallway")
 ceilingSprite = NodePath("../../Rooms/Ceiling/ClipMask/NLuigiCeiling")
+officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 Mask = NodePath("../../Misc/GUI/Mask")
 LFlashlight = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
 RFlashlight = NodePath("../../Rooms/Right_Vent/FlashLightComponent")
@@ -1348,6 +1349,7 @@ LVentSFX = NodePath("../../Misc/GUI/2DAudios/LeftVentSound")
 RVentSFX = NodePath("../../Misc/GUI/2DAudios/RightVentSound")
 RunGraphics = NodePath("../../Rooms/Desk/LuiginetteDeskAnimation")
 charAway = NodePath("../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
+jumpscareAnimation = NodePath("../../Misc/GUI/ToySonic_Jumpscare/AnimationPlayer")
 walkingSounds = [NodePath("../../Sounds/Walking_SFX_1"), NodePath("../../Sounds/Walking_SFX_2"), NodePath("../../Sounds/Walking_SFX_3")]
 metadata/_custom_type_script = "uid://d1ep2smha42dq"
 

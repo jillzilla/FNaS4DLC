@@ -27,6 +27,7 @@ var timerChangePosition : float = 0;
 @export var ceilingSprite : Sprite2D;
 
 @export_group("Mechanicals")
+@export var officeRoomTravel : RoomTravelComponent;
 @export var Mask : Node2D;
 @export var LFlashlight : FlashLightComponent;
 @export var RFlashlight : FlashLightComponent;
@@ -37,6 +38,7 @@ var timerChangePosition : float = 0;
 @export var RVentSFX : AudioStreamPlayer2D;
 @export var RunGraphics : Node2D;
 @export var charAway : AnimationPlayer;
+@export var jumpscareAnimation : AnimationPlayer;
 @export var walkingSounds : Array[AudioStreamPlayer];
 
 var positionsAvailable : int = 1;
@@ -70,7 +72,7 @@ func _process(delta: float) -> void:
 				else:
 					_switch_path();
 		#counter
-		if currentPosition >= positionsAvailable && hasShocked && Direction == Directions.LEFT && main.PlayerPosition == "Left_Vent" && Mask.isUsingMask || currentPosition >= positionsAvailable && hasShocked && Direction == Directions.RIGHT && main.PlayerPosition == "Right_Vent" && Mask.isUsingMask || currentPosition >= positionsAvailable && hasShocked && CFlashlight.is_on && main.PlayerPosition == "Ceiling":
+		if currentPosition >= positionsAvailable && hasShocked && Direction == Directions.LEFT && main.PlayerPosition == "Left_Vent" && Mask.isUsingMask || currentPosition >= positionsAvailable && hasShocked && Direction == Directions.RIGHT && main.PlayerPosition == "Right_Vent" && Mask.isUsingMask || currentPosition >= positionsAvailable && hasShocked && Direction == Directions.CEILING && CFlashlight.is_on && main.PlayerPosition == "Ceiling":
 			counterExposure -= NewDelta * counterExposureLevel;
 			if counterExposure <= 0:
 				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
@@ -95,6 +97,29 @@ func _process(delta: float) -> void:
 			currentPosition = 0;
 			main.nlnDeskWalking = false;
 			_handle_positions();
+		#jumpscare
+		elif canAttack && main.PlayerNotMoving && !Mask.PuttingMask && !main.ntsDeskRunning && !main.ntmDeskWalking && !main.ncDeskWalking && !main.nlnDeskWalking:
+			jumpscareExposure -= NewDelta * jumpscareExposureLevel;
+			if jumpscareExposure <= 0:
+				main.killedBy = "Nightmare Luiginette";
+				jumpscare = true;
+				jumpscareExposure = je;
+				main.PlayerAlive = false;
+				leftventSprite.visible = false;
+				rightventSprite.visible = false;
+				hallwaySprite.visible = false;
+				ceilingSprite.visible = false;
+				if main.PlayerPosition != "Office":
+					if Mask.isUsingMask:
+						Mask.get_node("CD_Timer").stop();
+						Mask._remove();
+						await Mask.MaskIsRemoved;
+					officeRoomTravel._travel();
+					await officeRoomTravel.doneTraveling;
+				jumpscareAnimation.play("jumpscare");
+				GlobalAudioManager.get_node("Taingle_Jumpscare").play();
+				await jumpscareAnimation.animation_finished;
+				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
 		#special events
 		if currentPosition == 1 && !hasShocked: #shocking
 			match(Direction):

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b05hsvdcaqafw" path="res://assets/images/minigame/light.png" id="7_f55rg"]
 [ext_resource type="AudioStream" uid="uid://b0sqggxvrlvcg" path="res://assets/sounds/[8] Flashlight_Sound.ogg" id="8_atcph"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="8_f55rg"]
-[ext_resource type="AudioStream" uid="uid://dn5x0feaw5815" path="res://assets/music/Kingdom of Darkness (FNaS 4 DLC RETAKE).mp3" id="9_di7mb"]
+[ext_resource type="AudioStream" uid="uid://dn5x0feaw5815" path="res://assets/music/MinigameAmbienceTheme.mp3" id="9_di7mb"]
 
 [node name="Minigame" type="Node" unique_id=1088740456 node_paths=PackedStringArray("Light", "flashSound")]
 script = ExtResource("1_atcph")

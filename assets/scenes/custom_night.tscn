@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://bekew5j02li0q"]
 
 [ext_resource type="Script" uid="uid://u38qaihcbnrj" path="res://assets/scripts/custom_night.gd" id="1_8gqf7"]
-[ext_resource type="AudioStream" uid="uid://ov2yg3pftbf2" path="res://assets/music/ToyKingdom_~_CustomNight.mp3" id="1_8182v"]
+[ext_resource type="AudioStream" uid="uid://ov2yg3pftbf2" path="res://assets/music/CustomNightTheme.mp3" id="1_8182v"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_o8hl8"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_00ogn"]
 [ext_resource type="PackedScene" uid="uid://cxttec8xvsjfx" path="res://assets/scenes/custom_night_character.tscn" id="4_k8lu8"]
+[ext_resource type="Texture2D" uid="uid://bap70d4fgowjy" path="res://assets/images/title/Star_Title_0.png" id="5_cyr1o"]
 
 [node name="CustomNight" type="Node" unique_id=1823592247 node_paths=PackedStringArray("characters")]
 script = ExtResource("1_8gqf7")
 characters = [NodePath("Control/Characters/Sonic"), NodePath("Control/Characters/Mario"), NodePath("Control/Characters/Yoshi"), NodePath("Control/Characters/Taingle"), NodePath("Control/Characters/BT"), NodePath("Control/Characters/Salvage"), NodePath("Control/Characters/Cream"), NodePath("Control/Characters/Luigi")]
-metadata/_edit_horizontal_guides_ = [1005.0, 868.0]
+metadata/_edit_horizontal_guides_ = [3566.0]
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=60568684]
 stream = ExtResource("1_8182v")
@@ -152,23 +153,30 @@ metadata/_edit_lock_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.799
+anchor_top = 0.79200006
 anchor_right = 0.5
-anchor_bottom = 0.799
+anchor_bottom = 0.79200006
 offset_left = -152.5
-offset_top = -31.28003
+offset_top = -26.240051
 offset_right = 152.5
-offset_bottom = 32.71997
+offset_bottom = 37.75995
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 theme_override_constants/separation = 32
 metadata/_edit_lock_ = true
 
+[node name="Star1" type="TextureRect" parent="Control/Challenges" unique_id=901176579]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_cyr1o")
+stretch_mode = 2
+metadata/_edit_lock_ = true
+
 [node name="Left" type="Button" parent="Control/Challenges" unique_id=507811364]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 64
 action_mode = 0
@@ -182,7 +190,8 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Challenge_Name" type="Label" parent="Control/Challenges" unique_id=657289225]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 48
 text = "Custom Night"
 horizontal_alignment = 1
@@ -191,8 +200,7 @@ metadata/_edit_lock_ = true
 
 [node name="Right" type="Button" parent="Control/Challenges" unique_id=933023197]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 64
 action_mode = 0
@@ -203,6 +211,14 @@ metadata/_edit_lock_ = true
 script = ExtResource("3_00ogn")
 parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Star2" type="TextureRect" parent="Control/Challenges" unique_id=866868504]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_cyr1o")
+stretch_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="Back" type="Button" parent="Control" unique_id=1559279935]
 layout_mode = 1
