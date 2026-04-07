@@ -1,0 +1,16 @@
+[gd_resource type="Theme" format=3 uid="uid://dv17usjw8ic3f"]
+
+[ext_resource type="FontFile" uid="uid://d0uy50tkokff2" path="res://assets/fonts/VL Gothic regular.ttf" id="1_0cl1w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrsh3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[resource]
+default_font = ExtResource("1_0cl1w")
+default_font_size = 32
+Panel/styles/panel = SubResource("StyleBoxFlat_mrsh3")

@@ -15,6 +15,8 @@ extends Node
 @export var customnightbutton : Button;
 @export var extrasbutton : Button;
 
+@export var credits : Control;
+
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Title Screen");
@@ -57,7 +59,7 @@ func _on_night_6_pressed() -> void:
 	get_tree().change_scene_to_file("res://assets/scenes/night_screen.tscn");
 
 func _on_extras_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://assets/scenes/extras.tscn");
 
 func _on_custom_night_pressed() -> void:
 	get_tree().change_scene_to_file("res://assets/scenes/custom_night.tscn");
@@ -67,3 +69,6 @@ func _on_settings_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit();
+
+func _on_credits_pressed() -> void:
+	credits.visible = true;

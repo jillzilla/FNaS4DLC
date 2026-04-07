@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://bk0janpvstfkp"]
+
+[ext_resource type="Script" uid="uid://8tqxc6gh0526" path="res://assets/scripts/extras.gd" id="1_0rbc8"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_aixqm"]
+[ext_resource type="AudioStream" uid="uid://cmkb4tb0nllhn" path="res://assets/music/ExtrasTheme.mp3" id="2_yo3hy"]
+[ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/Components/ButtonComponent.gd" id="4_ufd8u"]
+
+[node name="Extras" type="Node" unique_id=2092156553]
+script = ExtResource("1_0rbc8")
+metadata/_edit_vertical_guides_ = [16.0, 320.0]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1892507387]
+stream = ExtResource("2_yo3hy")
+autoplay = true
+
+[node name="Control" type="Control" parent="." unique_id=1706568724]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_aixqm")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="ColorRect" parent="Control" unique_id=405111892]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Control" unique_id=1881017544]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13100001
+anchor_top = 0.116000004
+anchor_right = 0.13100001
+anchor_bottom = 0.116000004
+offset_left = -151.68002
+offset_top = -67.520004
+offset_right = 152.31998
+offset_bottom = 67.479996
+theme_override_font_sizes/font_size = 64
+text = "Extras
+Content"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Buttons" type="VBoxContainer" parent="Control" unique_id=569623872]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13100001
+anchor_top = 0.62200004
+anchor_right = 0.13100001
+anchor_bottom = 0.62200004
+offset_left = -151.68002
+offset_top = -255.84003
+offset_right = 152.31998
+offset_bottom = 256.15997
+theme_override_constants/separation = 24
+metadata/_edit_lock_ = true
+
+[node name="Chars" type="Button" parent="Control/Buttons" unique_id=958494563]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "Characters"
+metadata/_edit_lock_ = true
+
+[node name="Jumpscares" type="Button" parent="Control/Buttons" unique_id=1258408938]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "Jumpscares"
+metadata/_edit_lock_ = true
+
+[node name="Gallery" type="Button" parent="Control/Buttons" unique_id=130261156]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "Gallery"
+metadata/_edit_lock_ = true
+
+[node name="OldNights" type="Button" parent="Control/Buttons" unique_id=160714128]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "Night 1-4"
+metadata/_edit_lock_ = true
+
+[node name="Survival" type="Button" parent="Control/Buttons" unique_id=1980773218]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "Endless Mode"
+metadata/_edit_lock_ = true
+
+[node name="Minigame" type="Button" parent="Control/Buttons" unique_id=1393019658]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "Mini Game"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/Buttons" unique_id=506401861 node_paths=PackedStringArray("parent")]
+script = ExtResource("4_ufd8u")
+parent = NodePath("../Chars")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="ButtonComponent2" type="Node" parent="Control/Buttons" unique_id=768766036 node_paths=PackedStringArray("parent")]
+script = ExtResource("4_ufd8u")
+parent = NodePath("../Jumpscares")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="ButtonComponent3" type="Node" parent="Control/Buttons" unique_id=117744520 node_paths=PackedStringArray("parent")]
+script = ExtResource("4_ufd8u")
+parent = NodePath("../Gallery")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="ButtonComponent4" type="Node" parent="Control/Buttons" unique_id=1480716104 node_paths=PackedStringArray("parent")]
+script = ExtResource("4_ufd8u")
+parent = NodePath("../OldNights")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="ButtonComponent5" type="Node" parent="Control/Buttons" unique_id=727855595 node_paths=PackedStringArray("parent")]
+script = ExtResource("4_ufd8u")
+parent = NodePath("../Survival")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="ButtonComponent6" type="Node" parent="Control/Buttons" unique_id=603824594 node_paths=PackedStringArray("parent")]
+script = ExtResource("4_ufd8u")
+parent = NodePath("../Minigame")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Back" type="Button" parent="Control" unique_id=604882572]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.93100005
+anchor_top = 0.933
+anchor_right = 0.93100005
+anchor_bottom = 0.933
+offset_left = -71.68005
+offset_top = -31.76001
+offset_right = 72.31995
+offset_bottom = 32.23999
+focus_mode = 0
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Back"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/Back" unique_id=1683035341 node_paths=PackedStringArray("parent")]
+script = ExtResource("4_ufd8u")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]

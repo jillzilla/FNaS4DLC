@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://u38qaihcbnrj" path="res://assets/scripts/custom_night.gd" id="1_8gqf7"]
 [ext_resource type="AudioStream" uid="uid://ov2yg3pftbf2" path="res://assets/music/CustomNightTheme.mp3" id="1_8182v"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_o8hl8"]
-[ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_00ogn"]
+[ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/Components/ButtonComponent.gd" id="3_00ogn"]
 [ext_resource type="PackedScene" uid="uid://cxttec8xvsjfx" path="res://assets/scenes/custom_night_character.tscn" id="4_k8lu8"]
 [ext_resource type="Texture2D" uid="uid://bap70d4fgowjy" path="res://assets/images/title/Star_Title_0.png" id="5_cyr1o"]
 

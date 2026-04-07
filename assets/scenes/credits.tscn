@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://dwwq031lbo8e1"]
+
+[ext_resource type="Theme" uid="uid://dv17usjw8ic3f" path="res://assets/themes/fancy.tres" id="1_32ixl"]
+[ext_resource type="Script" uid="uid://clnplhem74dns" path="res://assets/scripts/credits.gd" id="1_c4ovu"]
+[ext_resource type="Texture2D" uid="uid://dwos45otusoh8" path="res://assets/images/title/4DLCLogo.png" id="1_x7m8g"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="2_tpyj6"]
+[ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/Components/ButtonComponent.gd" id="3_32ixl"]
+
+[node name="Credits" type="Control" unique_id=1880212058 node_paths=PackedStringArray("scrollContainer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c4ovu")
+scrollContainer = NodePath("Panel/ScrollContainer")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=380714086]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("1_32ixl")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=647990640]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51900005
+anchor_top = 0.5
+anchor_right = 0.51900005
+anchor_bottom = 0.5
+offset_left = -316.16003
+offset_top = -224.0
+offset_right = 291.83997
+offset_bottom = 224.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=828701698]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Logo" type="TextureRect" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1165484029]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+texture = ExtResource("1_x7m8g")
+metadata/_edit_lock_ = true
+
+[node name="Separator" type="HSeparator" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1650600448]
+layout_mode = 2
+theme_override_constants/separation = 16
+metadata/_edit_lock_ = true
+
+[node name="CoolPeople" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=362374402]
+custom_minimum_size = Vector2(600, 525)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "- CREDITS -
+
+Director - CwoodsWDC.
+
+Co-Director - Jill Zilla.
+
+Artist - CwoodsWDC.
+
+Programmer - Jill Zilla.
+
+Composers - MrBluePuffball, djeningblat."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="BackButton" type="Button" parent="." unique_id=1597588224]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.70000005
+anchor_top = 0.86700004
+anchor_right = 0.70000005
+anchor_bottom = 0.86700004
+offset_left = -64.00006
+offset_top = -16.240051
+offset_right = 63.99994
+offset_bottom = 16.759949
+focus_mode = 0
+theme = ExtResource("2_tpyj6")
+action_mode = 0
+text = "Back"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="BackButton" unique_id=1731561103 node_paths=PackedStringArray("parent")]
+script = ExtResource("3_32ixl")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

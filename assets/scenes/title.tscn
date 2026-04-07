@@ -10,6 +10,7 @@
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="6_fv6c7"]
 [ext_resource type="Texture2D" uid="uid://bap70d4fgowjy" path="res://assets/images/title/Star_Title_0.png" id="7_s21ad"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/Components/ButtonComponent.gd" id="7_t2yek"]
+[ext_resource type="PackedScene" uid="uid://dwwq031lbo8e1" path="res://assets/scenes/credits.tscn" id="10_4l0ss"]
 
 [sub_resource type="Animation" id="Animation_s21ad"]
 resource_name = "ChangeScene"
@@ -198,7 +199,7 @@ _data = {
 &"Intro": SubResource("Animation_w0xr6")
 }
 
-[node name="Title" type="Node" unique_id=574844742 node_paths=PackedStringArray("animations", "buttonscontainer", "nightcounter", "star1", "star2", "star3", "night6button", "customnightbutton", "extrasbutton")]
+[node name="Title" type="Node" unique_id=574844742 node_paths=PackedStringArray("animations", "buttonscontainer", "nightcounter", "star1", "star2", "star3", "night6button", "customnightbutton", "extrasbutton", "credits")]
 script = ExtResource("1_f2nfk")
 animations = NodePath("AnimationPlayer")
 buttonscontainer = NodePath("UI/Control/ButtonsContainer")
@@ -209,6 +210,7 @@ star3 = NodePath("UI/Control/Star_3")
 night6button = NodePath("UI/Control/ButtonsContainer/MainButtons/Night6")
 customnightbutton = NodePath("UI/Control/ButtonsContainer/MainButtons/CustomNight")
 extrasbutton = NodePath("UI/Control/ButtonsContainer/MainButtons/Extras")
+credits = NodePath("UI/Credits")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1912542665]
 stream = ExtResource("1_w0xr6")
@@ -452,6 +454,9 @@ text = "V1.0.0.0"
 vertical_alignment = 2
 metadata/_edit_lock_ = true
 
+[node name="Credits" parent="UI" unique_id=1880212058 instance=ExtResource("10_4l0ss")]
+visible = false
+
 [node name="Fade" type="ColorRect" parent="UI" unique_id=1440987267]
 anchors_preset = 15
 anchor_right = 1.0
@@ -476,3 +481,4 @@ autoplay = &"Intro"
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Extras" to="." method="_on_extras_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="UI/Control/ButtonsContainer/Credits" to="." method="_on_credits_pressed"]
