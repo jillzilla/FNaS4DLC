@@ -6,6 +6,14 @@
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="2_tpyj6"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/Components/ButtonComponent.gd" id="3_32ixl"]
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_c4ovu"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+color = Color(1, 1, 1, 1)
+thickness = 2
+
 [node name="Credits" type="Control" unique_id=1880212058 node_paths=PackedStringArray("scrollContainer")]
 layout_mode = 3
 anchors_preset = 15
@@ -68,6 +76,7 @@ metadata/_edit_lock_ = true
 [node name="Separator" type="HSeparator" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1650600448]
 layout_mode = 2
 theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxLine_c4ovu")
 metadata/_edit_lock_ = true
 
 [node name="CoolPeople" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=362374402]
@@ -85,7 +94,29 @@ Artist - CwoodsWDC.
 
 Programmer - Jill Zilla.
 
-Composers - MrBluePuffball, djeningblat."
+Composers - MrBluePuffball, djeningblat.
+
+- SPECIAL THANKS -
+
+Nikita Kuznetsova
+
+Coldsky
+
+Lust
+
+Mister Generic
+
+Kimiri
+
+volteon_k
+
+Jaime
+
+Glittertrash
+
+RyanTSM
+
+You <3"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
