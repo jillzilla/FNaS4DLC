@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dc5qw1qilmv8l"]
+
+[ext_resource type="Theme" uid="uid://dv17usjw8ic3f" path="res://assets/themes/fancy.tres" id="1_p6eue"]
+
+[node name="AreYouSure" type="Control" unique_id=416344205]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_p6eue")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1823496523]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -120.0
+offset_right = 240.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Panel" unique_id=1663032933]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -42.5
+offset_right = 128.0
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Are you sure you
+want to do this?"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=1613345145]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.83100003
+anchor_right = 0.5
+anchor_bottom = 0.83100003
+offset_left = -192.0
+offset_top = -24.440002
+offset_right = 192.0
+offset_bottom = 24.559998
+theme_override_constants/separation = 128
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="Panel/HBoxContainer" unique_id=1248345731]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+action_mode = 0
+text = "Yes"
+metadata/_edit_lock_ = true
+
+[node name="Button2" type="Button" parent="Panel/HBoxContainer" unique_id=418384063]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+focus_mode = 0
+action_mode = 0
+text = " No"
+metadata/_edit_lock_ = true
