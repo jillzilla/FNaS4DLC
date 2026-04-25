@@ -6,14 +6,6 @@
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="2_tpyj6"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/Components/ButtonComponent.gd" id="3_32ixl"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_c4ovu"]
-content_margin_left = 4.0
-content_margin_top = 0.0
-content_margin_right = 4.0
-content_margin_bottom = 0.0
-color = Color(1, 1, 1, 1)
-thickness = 2
-
 [node name="Credits" type="Control" unique_id=1880212058 node_paths=PackedStringArray("scrollContainer")]
 layout_mode = 3
 anchors_preset = 15
@@ -21,11 +13,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_32ixl")
 script = ExtResource("1_c4ovu")
-scrollContainer = NodePath("Panel/ScrollContainer")
+scrollContainer = NodePath("MarginContainer/Panel/MarginContainer/ScrollContainer")
 metadata/_edit_lock_ = true
 
-[node name="Panel" type="Panel" parent="." unique_id=380714086]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2032023526]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,48 +31,52 @@ offset_right = 320.0
 offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme = ExtResource("1_32ixl")
 metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=647990640]
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=636365295]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel" unique_id=863267000]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.51900005
-anchor_top = 0.5
-anchor_right = 0.51900005
-anchor_bottom = 0.5
-offset_left = -316.16003
-offset_top = -224.0
-offset_right = 291.83997
-offset_bottom = 224.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_lock_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=2020734968]
+layout_mode = 2
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 2
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=828701698]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/ScrollContainer" unique_id=1001345165]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="Logo" type="TextureRect" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1165484029]
+[node name="Logo" type="TextureRect" parent="MarginContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1831565722]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 2
 texture = ExtResource("1_x7m8g")
 metadata/_edit_lock_ = true
 
-[node name="Separator" type="HSeparator" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1650600448]
+[node name="Separator" type="HSeparator" parent="MarginContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1740152643]
 layout_mode = 2
-theme_override_constants/separation = 16
-theme_override_styles/separator = SubResource("StyleBoxLine_c4ovu")
+theme_override_constants/separation = 12
 metadata/_edit_lock_ = true
 
-[node name="CoolPeople" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=362374402]
+[node name="CoolPeople" type="Label" parent="MarginContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1484944371]
 custom_minimum_size = Vector2(600, 525)
 layout_mode = 2
 size_flags_vertical = 3
@@ -121,20 +118,20 @@ PN_Cherryz
 You <3"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
+autowrap_mode = 2
 metadata/_edit_lock_ = true
 
 [node name="BackButton" type="Button" parent="." unique_id=1597588224]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.70000005
-anchor_top = 0.86700004
-anchor_right = 0.70000005
-anchor_bottom = 0.86700004
-offset_left = -64.00006
-offset_top = -16.240051
-offset_right = 63.99994
-offset_bottom = 16.759949
+anchor_left = 0.675
+anchor_top = 0.87200004
+anchor_right = 0.675
+anchor_bottom = 0.87200004
+offset_left = -96.0
+offset_top = -19.840027
+offset_right = 96.0
+offset_bottom = 20.159973
 focus_mode = 0
 theme = ExtResource("2_tpyj6")
 action_mode = 0

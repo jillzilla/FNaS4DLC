@@ -2,20 +2,55 @@
 
 [ext_resource type="FontFile" uid="uid://d0uy50tkokff2" path="res://assets/fonts/VL Gothic regular.ttf" id="1_0cl1w"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_0cl1w"]
-color = Color(1, 1, 1, 1)
-thickness = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrsh3"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cl1w"]
+bg_color = Color(0.07450981, 0.16470589, 0.3137255, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
+border_color = Color(1, 0.50980395, 0.654902, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_usrqw"]
+bg_color = Color(0.17022151, 0.3272615, 0.5889948, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.50980395, 0.654902, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0cl1w"]
+color = Color(1, 0.50980395, 0.654902, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrsh3"]
+bg_color = Color(0.07450981, 0.16470589, 0.3137255, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.50980395, 0.654902, 1)
 
 [resource]
 default_font = ExtResource("1_0cl1w")
 default_font_size = 32
+Button/colors/font_color = Color(1, 0.50980395, 0.654902, 1)
+Button/colors/font_focus_color = Color(1, 0.50980395, 0.654902, 1)
+Button/colors/font_hover_color = Color(1, 0.50980395, 0.654902, 1)
+Button/colors/font_hover_pressed_color = Color(1, 0.50980395, 0.654902, 1)
+Button/colors/font_pressed_color = Color(1, 0.50980395, 0.654902, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_0cl1w")
+Button/styles/focus = SubResource("StyleBoxFlat_usrqw")
+Button/styles/hover = SubResource("StyleBoxFlat_usrqw")
+Button/styles/normal = SubResource("StyleBoxFlat_0cl1w")
+Button/styles/pressed = SubResource("StyleBoxFlat_usrqw")
 HSeparator/styles/separator = SubResource("StyleBoxLine_0cl1w")
+Label/colors/font_color = Color(1, 0.50980395, 0.654902, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_mrsh3")
