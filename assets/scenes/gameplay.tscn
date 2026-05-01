@@ -1359,43 +1359,55 @@ metadata/_custom_type_script = "uid://d1ep2smha42dq"
 stream = ExtResource("31_u63jk")
 volume_db = -80.0
 autoplay = true
+bus = &"Sounds"
 
 [node name="Walk_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=507489596]
 stream = ExtResource("22_bkfnj")
+bus = &"Sounds"
 
 [node name="Flashlight_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=1318500623]
 stream = ExtResource("3_5jwmk")
+bus = &"Sounds"
 
 [node name="Shock_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=168874207]
 stream = ExtResource("4_ugpla")
+bus = &"Sounds"
 
 [node name="Vent_Leave_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=665036641]
 stream = ExtResource("8_3khrc")
+bus = &"Sounds"
 
 [node name="Toad_Laugh_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=870326276]
 stream = ExtResource("12_p0msi")
 pitch_scale = 0.8
+bus = &"Sounds"
 
 [node name="Salvage_Laugh_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=753140065]
 stream = ExtResource("14_q42g3")
+bus = &"Sounds"
 
 [node name="ChangeCam_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=1055441695]
 stream = ExtResource("15_3xapl")
+bus = &"Sounds"
 
 [node name="Danger_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=192029308]
 stream = ExtResource("16_riiyp")
+bus = &"Sounds"
 
 [node name="Walking_SFX_1" type="AudioStreamPlayer" parent="Sounds" unique_id=17205823]
 stream = ExtResource("19_cptix")
 volume_db = 15.0
+bus = &"Sounds"
 
 [node name="Walking_SFX_2" type="AudioStreamPlayer" parent="Sounds" unique_id=75994074]
 stream = ExtResource("20_k63c8")
 volume_db = 15.0
+bus = &"Sounds"
 
 [node name="Walking_SFX_3" type="AudioStreamPlayer" parent="Sounds" unique_id=72479642]
 stream = ExtResource("21_66s47")
 volume_db = 15.0
+bus = &"Sounds"
 
 [node name="Rooms" type="Node" parent="." unique_id=1063837608]
 
@@ -1462,6 +1474,7 @@ metadata/_edit_lock_ = true
 [node name="Nose_Honk" type="AudioStreamPlayer2D" parent="Rooms/Office" unique_id=361249753]
 position = Vector2(296, 328)
 stream = ExtResource("12_u4td0")
+bus = &"Sounds"
 metadata/_edit_lock_ = true
 
 [node name="BT_2" type="Sprite2D" parent="Rooms/Office" unique_id=519208876]
@@ -1595,6 +1608,7 @@ metadata/_edit_lock_ = true
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=1459543770]
 stream = ExtResource("25_1mjni")
+bus = &"Sounds"
 metadata/_edit_lock_ = true
 
 [node name="Timer_Step" type="Timer" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=1965417997]
@@ -1629,6 +1643,7 @@ metadata/_edit_lock_ = true
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=108190165]
 stream = ExtResource("25_1mjni")
+bus = &"Sounds"
 metadata/_edit_lock_ = true
 
 [node name="Timer_Step" type="Timer" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=925466175]
@@ -1663,6 +1678,7 @@ metadata/_edit_lock_ = true
 [node name="Steps" type="AudioStreamPlayer2D" parent="Rooms/Desk/CreamDeskAnimation" unique_id=1750074192]
 position = Vector2(40, 144)
 stream = ExtResource("25_1mjni")
+bus = &"Sounds"
 metadata/_edit_lock_ = true
 
 [node name="Timer_Step" type="Timer" parent="Rooms/Desk/CreamDeskAnimation" unique_id=1444505640]
@@ -2287,6 +2303,7 @@ position = Vector2(-640, 0)
 stream = ExtResource("67_8bh6l")
 pitch_scale = 0.9
 panning_strength = 2.0
+bus = &"Sounds"
 metadata/_edit_lock_ = true
 
 [node name="BT_Move_2" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=926631251]
@@ -2294,18 +2311,21 @@ position = Vector2(-640, 0)
 stream = ExtResource("68_50646")
 pitch_scale = 0.9
 panning_strength = 2.0
+bus = &"Sounds"
 metadata/_edit_lock_ = true
 
 [node name="LeftVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1811588009]
 position = Vector2(-640, 0)
 stream = ExtResource("37_4ldp1")
 panning_strength = 2.0
+bus = &"Sounds"
 metadata/_edit_lock_ = true
 
 [node name="RightVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=576099952]
 position = Vector2(1280, 0)
 stream = ExtResource("37_4ldp1")
 panning_strength = 2.0
+bus = &"Sounds"
 metadata/_edit_lock_ = true
 
 [node name="Clock" type="Label" parent="Misc/GUI" unique_id=226524177]

@@ -15,6 +15,7 @@ metadata/_edit_horizontal_guides_ = [3566.0]
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=60568684]
 stream = ExtResource("1_8182v")
 autoplay = true
+bus = &"Music"
 
 [node name="Control" type="Control" parent="." unique_id=1164448981]
 layout_mode = 3

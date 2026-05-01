@@ -19,6 +19,7 @@ run/main_scene="uid://cno0evdpungoy"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="FNaS4DLC"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+run/max_fps=60
 config/icon="uid://dbfigk0lm0h00"
 
 [autoload]
@@ -39,7 +40,6 @@ window/size/maximize_disabled=true
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-window/vsync/vsync_mode=0
 
 [dotnet]
 
@@ -81,6 +81,7 @@ SKIPNIGHT={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
