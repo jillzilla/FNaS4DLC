@@ -1,0 +1,444 @@
+[gd_scene format=3 uid="uid://bdxfeqwt3r0b2"]
+
+[ext_resource type="Script" uid="uid://cglqgn5sadkfp" path="res://assets/scripts/night_6_ending.gd" id="1_d876i"]
+[ext_resource type="Texture2D" uid="uid://5g8qiat2k60f" path="res://assets/images/endings/nette.png" id="1_f6kle"]
+[ext_resource type="AudioStream" uid="uid://cm3g1tn3ejosx" path="res://assets/sounds/night5cutsceneambience.mp3" id="1_kv2k7"]
+[ext_resource type="Texture2D" uid="uid://4kbv5i4x13sw" path="res://assets/images/endings/amylooking.png" id="2_d876i"]
+[ext_resource type="Texture2D" uid="uid://ci0aishlgjobj" path="res://assets/images/shadows.png" id="3_uiq8j"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="6_uiq8j"]
+[ext_resource type="Texture2D" uid="uid://bfuytoeejki6v" path="res://assets/images/endings/blindamy.png" id="7_l8e0o"]
+
+[sub_resource type="Animation" id="Animation_l3hkr"]
+resource_name = "float"
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1np0"]
+_data = {
+&"float": SubResource("Animation_l3hkr")
+}
+
+[sub_resource type="Animation" id="Animation_l8e0o"]
+resource_name = "movement"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1048, 528), Vector2(672, 528)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Erase:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vvyrx"]
+resource_name = "movement2"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(128, 200), Vector2(648, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_qkqjb"]
+resource_name = "movement3"
+length = 5.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(640, 360), Vector2(640, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Erase:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l40iu"]
+_data = {
+&"movement": SubResource("Animation_l8e0o"),
+&"movement2": SubResource("Animation_vvyrx"),
+&"movement3": SubResource("Animation_qkqjb")
+}
+
+[sub_resource type="Animation" id="Animation_uiq8j"]
+resource_name = "fade"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l8e0o"]
+_data = {
+&"fade": SubResource("Animation_uiq8j")
+}
+
+[sub_resource type="Animation" id="Animation_xh03l"]
+resource_name = "flash"
+length = 10.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 5.2, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Nette:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Amy:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_d876i"), ExtResource("7_l8e0o")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Control:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Button:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dbl5i"]
+_data = {
+&"flash": SubResource("Animation_xh03l")
+}
+
+[node name="Night_6_Ending" type="Node" unique_id=1025675653]
+script = ExtResource("1_d876i")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1040621271]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Nette" type="Sprite2D" parent="." unique_id=383312038]
+texture = ExtResource("1_f6kle")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Nette" unique_id=575494552]
+libraries/ = SubResource("AnimationLibrary_f1np0")
+autoplay = &"float"
+
+[node name="Amy" type="Sprite2D" parent="." unique_id=811151079]
+texture = ExtResource("2_d876i")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1617708232]
+texture = ExtResource("3_uiq8j")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1529232687]
+stream = ExtResource("1_kv2k7")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1409248935]
+position = Vector2(1048, 528)
+zoom = Vector2(2, 2)
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D" unique_id=2069335608]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_l40iu")
+autoplay = &"movement"
+
+[node name="Fade" type="ColorRect" parent="." unique_id=1605984692]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fade" unique_id=1442425208]
+libraries/ = SubResource("AnimationLibrary_l8e0o")
+autoplay = &"fade"
+
+[node name="Label" type="Label" parent="." unique_id=1401851000]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.711
+anchor_right = 0.5
+anchor_bottom = 0.711
+offset_left = -313.0
+offset_top = -63.920013
+offset_right = 313.0
+offset_bottom = 64.07999
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_uiq8j")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 64
+text = "Click to erase him."
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="." unique_id=1847707094]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+action_mode = 0
+flat = true
+metadata/_edit_lock_ = true
+
+[node name="Erase" type="Button" parent="." unique_id=1946161824]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+disabled = true
+action_mode = 0
+flat = true
+metadata/_edit_lock_ = true
+
+[node name="Flash" type="ColorRect" parent="." unique_id=1476454432]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Flash" unique_id=201876293]
+libraries/ = SubResource("AnimationLibrary_dbl5i")
+
+[node name="Control" type="Control" parent="." unique_id=1226529008]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("6_uiq8j")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Control" unique_id=1554613073]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13700001
+anchor_top = 0.068
+anchor_right = 0.13700001
+anchor_bottom = 0.068
+offset_left = -159.36002
+offset_top = -32.960003
+offset_right = 159.63998
+offset_bottom = 33.039997
+theme_override_font_sizes/font_size = 64
+text = "Good Job!"
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="Control" unique_id=582452249]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.119
+anchor_top = 0.128
+anchor_right = 0.119
+anchor_bottom = 0.128
+offset_left = -136.32
+offset_top = -12.160004
+offset_right = 136.68
+offset_bottom = 12.839996
+theme_override_font_sizes/font_size = 24
+text = "But is it really over?"
+metadata/_edit_lock_ = true
+
+[node name="Label3" type="Label" parent="Control" unique_id=1654044198]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.90200007
+anchor_top = 0.97300005
+anchor_right = 0.90200007
+anchor_bottom = 0.97300005
+offset_left = -114.56006
+offset_top = -12.560059
+offset_right = 113.43994
+offset_bottom = 12.439941
+theme_override_font_sizes/font_size = 24
+text = "Click to Continue."
+metadata/_edit_lock_ = true
+
+[connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Erase" to="." method="_on_erase_pressed"]

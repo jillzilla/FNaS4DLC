@@ -22,7 +22,7 @@ func _ready() -> void:
 	elif main.nightcounter == 6:
 		if !main.night6ending:
 			main.night6ending = true;
-		nextscene = "res://assets/scenes/title.tscn";
+		nextscene = "res://assets/scenes/night_6_ending.tscn";
 		
 	elif main.nightcounter == 7:
 		if !main.night7ending:

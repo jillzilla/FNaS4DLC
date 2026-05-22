@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://clnplhem74dns" path="res://assets/scripts/credits.gd" id="1_c4ovu"]
 [ext_resource type="Texture2D" uid="uid://dwos45otusoh8" path="res://assets/images/title/4DLCLogo.png" id="1_x7m8g"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="2_tpyj6"]
-[ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/Components/ButtonComponent.gd" id="3_32ixl"]
+[ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_32ixl"]
 
 [node name="Credits" type="Control" unique_id=1880212058 node_paths=PackedStringArray("scrollContainer")]
 layout_mode = 3

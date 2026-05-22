@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://8tqxc6gh0526" path="res://assets/scripts/extras.gd" id="1_0rbc8"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_aixqm"]
 [ext_resource type="AudioStream" uid="uid://cmkb4tb0nllhn" path="res://assets/music/ExtrasTheme.mp3" id="2_yo3hy"]
-[ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/Components/ButtonComponent.gd" id="4_ufd8u"]
+[ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="4_ufd8u"]
 
 [node name="Extras" type="Node" unique_id=2092156553]
 script = ExtResource("1_0rbc8")

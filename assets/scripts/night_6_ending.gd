@@ -1,0 +1,24 @@
+extends Node
+
+@onready var animation_camera : AnimationPlayer = $Camera2D/AnimationPlayer;
+
+#functions
+func _ready() -> void:
+	DiscordManager._update_details("Night 6 Ending");
+	DiscordManager._update_state("");
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "movement":
+		animation_camera.play("movement2");
+	elif anim_name == "movement2":
+		animation_camera.play("movement3");
+	elif anim_name == "movement3":
+		pass;
+
+func _on_erase_pressed() -> void:
+	$Erase.queue_free();
+	$Label.queue_free();
+	$Flash/AnimationPlayer.play("flash");
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://assets/scenes/title.tscn");
