@@ -5,11 +5,12 @@ const saveDataPath : String = "user://FNaS4DLC.save";
 const saveDataPassword : String = "2<0r2eX1&2:<Cd";
 
 var fpsTarget : float = 60.0;
-var isOnDialogue : bool = false;
+
+var nightcounter : int = 0;
 
 #data to save/load
 var introscenewatched : bool = false;
-var nightcounter : int = 1;
+var night_to_play : int = 1;
 var night5ending : bool = false;
 var night6ending : bool = false;
 var night7ending : bool = false;
@@ -66,11 +67,11 @@ func _reset_ai() -> void:
 	
 func _save() -> Dictionary:
 	var saveDict : Dictionary = {
-		"NIGHTCOUNTER" : nightcounter,
 		"NIGHT5ENDING" : night5ending,
 		"NIGHT6ENDING" : night6ending,
 		"NIGHT7ENDING" : night7ending,
 		"INTROCUTSEEN" : introscenewatched,
+		"NIGHT2PLAY" : night_to_play,
 	};
 	return saveDict;
 
@@ -95,10 +96,10 @@ func _load_game() -> void:
 			
 			var data = json.get_data();
 			
-			nightcounter = data["NIGHTCOUNTER"];
 			night5ending = data["NIGHT5ENDING"];
 			night6ending = data["NIGHT6ENDING"];
 			night7ending = data["NIGHT7ENDING"];
 			introscenewatched = data["INTROCUTSEEN"];
+			night_to_play = data["NIGHT2PLAY"];
 			
 			print(data);

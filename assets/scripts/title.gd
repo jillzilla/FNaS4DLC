@@ -22,6 +22,10 @@ func _ready() -> void:
 	DiscordManager._update_details("Title Screen");
 	DiscordManager._update_state("");
 	
+	if main.night5ending:
+		night6button.visible = true;
+		star1.visible = true;
+	
 	if main.night7ending:
 		if !main.night6ending:
 			main.night6ending = true;
@@ -34,17 +38,11 @@ func _ready() -> void:
 		customnightbutton.visible = true;
 		extrasbutton.visible = true;
 	
-	if !main.night5ending:
-		nightcounter.text = "Night " + str(main.nightcounter);
-	else:
-		star1.visible = true;
-		nightcounter.text = "Night 5";
-		night6button.visible = true;
+	nightcounter.text = "Night " + str(main.night_to_play);
 
 func _on_button_pressed() -> void: #play, forgot to name the signal properly oops
-	if main.night5ending:
-		main.nightcounter = 5;
-		
+	main.nightcounter = main.night_to_play;
+	
 	buttonscontainer.visible = false;
 	animations.play("ChangeScene");
 	await animations.animation_finished;
