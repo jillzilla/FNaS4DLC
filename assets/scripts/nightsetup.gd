@@ -38,22 +38,28 @@ func _on_clock_timer_timeout() -> void:
 	if ClockIteration == 4:
 		if main.nightcounter == 5:
 			charAway.play_backwards("fade");
-			
 			shockSFX.stop();
 			ventleaveSFX.stop();
 			leftventSFX.stop();
 			rightventSFX.stop();
-			
 			for i in range(characters.size()):
 				if i != 7:
 					main.aiLevelsAsArrays[i] = 0;
 					characters[i].currentPosition = 0;
 					main._update_ai_levels();
 					characters[i]._handle_positions();
-			main.aiLevelsAsArrays[7] = 25;
+			main.aiLevelsAsArrays[7] = 30;
 			main._update_ai_levels();
 			
 	if ClockIteration < 8:
+		if main.nightcounter != 7:
+			for i in range(characters.size()):
+				if main.aiLevelsAsArrays[i] != 0:
+					if main.random_chance(80):
+						main.aiLevelsAsArrays[i] += 2;
+					else:
+						main.aiLevelsAsArrays[i] += 3;
+			main._update_ai_levels();
 		ClockCounter.text = ClockOutputs[ClockIteration];
 		DiscordManager._update_state(ClockOutputs[ClockIteration]);
 		ClockTimer.start();

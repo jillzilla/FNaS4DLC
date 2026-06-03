@@ -10,7 +10,7 @@ var nightcounter : int = 0;
 
 #data to save/load
 var introscenewatched : bool = false;
-var night_to_play : int = 1;
+var night_to_play : int = 1; #campaign only
 var night5ending : bool = false;
 var night6ending : bool = false;
 var night7ending : bool = false;
@@ -93,7 +93,6 @@ func _load_game() -> void:
 			
 			@warning_ignore("unused_variable")
 			var parseResult := json.parse(JSONString);
-			
 			var data = json.get_data();
 			
 			night5ending = data["NIGHT5ENDING"];
