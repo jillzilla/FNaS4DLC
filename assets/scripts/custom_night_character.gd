@@ -8,8 +8,8 @@ extends VBoxContainer
 var holdTime : float = 0.0;
 const requiredHoldTime : float = 0.15;
 
-const minlevel : int = 0;
-const maxlevel : int = 25;
+@export var minlevel : int = 0;
+@export var maxlevel : int = 25;
 
 var HoverLeft : bool = false;
 var HoverRight : bool = false;

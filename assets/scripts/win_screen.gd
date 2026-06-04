@@ -11,12 +11,6 @@ func _ready() -> void:
 	
 	GlobalAudioManager.get_node("Ambience").stop();
 	
-	if main.night_to_play < 5:
-		main.night_to_play += 1;
-		
-		if main.nightcounter != main.night_to_play:
-			main.nightcounter = main.night_to_play;
-	
 	if main.nightcounter < 5:
 		nextscene = "res://assets/scenes/night_screen.tscn";
 		
@@ -34,6 +28,11 @@ func _ready() -> void:
 		if !main.night7ending:
 			main.night7ending = true;
 		nextscene = "res://assets/scenes/title.tscn";
+		
+	if main.night_to_play < 5:
+		main.night_to_play += 1;
+		if main.nightcounter != main.night_to_play:
+			main.nightcounter = main.night_to_play;
 		
 	main._reset_ai();
 	main._save_game();

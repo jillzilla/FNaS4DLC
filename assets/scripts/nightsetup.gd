@@ -67,6 +67,6 @@ func _on_clock_timer_timeout() -> void:
 	elif ClockIteration >= 8:
 		get_tree().change_scene_to_file("res://assets/scenes/win_screen.tscn");
 
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("SKIPNIGHT"):
-		#get_tree().change_scene_to_file("res://assets/scenes/win_screen.tscn");
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("SKIPNIGHT"):
+		get_tree().change_scene_to_file("res://assets/scenes/win_screen.tscn");

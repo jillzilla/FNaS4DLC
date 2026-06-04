@@ -352,22 +352,6 @@ script = ExtResource("7_t2yek")
 parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
-[node name="CustomNight" type="Button" parent="UI/Control/ButtonsContainer/MainButtons" unique_id=1364874945]
-visible = false
-layout_mode = 2
-focus_mode = 0
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 48
-action_mode = 0
-text = "Custom  Night"
-metadata/_edit_lock_ = true
-
-[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/CustomNight" unique_id=330727916 node_paths=PackedStringArray("parent")]
-script = ExtResource("7_t2yek")
-parent = NodePath("..")
-metadata/_custom_type_script = "uid://djncuditdkxsm"
-
 [node name="Extras" type="Button" parent="UI/Control/ButtonsContainer/MainButtons" unique_id=995179270]
 visible = false
 layout_mode = 2
@@ -380,6 +364,22 @@ text = "Extras"
 metadata/_edit_lock_ = true
 
 [node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/Extras" unique_id=1878044292 node_paths=PackedStringArray("parent")]
+script = ExtResource("7_t2yek")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="CustomNight" type="Button" parent="UI/Control/ButtonsContainer/MainButtons" unique_id=1364874945]
+visible = false
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Custom  Night"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/CustomNight" unique_id=330727916 node_paths=PackedStringArray("parent")]
 script = ExtResource("7_t2yek")
 parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
@@ -477,8 +477,8 @@ autoplay = &"Intro"
 
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Play/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Night6" to="." method="_on_night_6_pressed"]
-[connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/CustomNight" to="." method="_on_custom_night_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Extras" to="." method="_on_extras_pressed"]
+[connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/CustomNight" to="." method="_on_custom_night_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/Credits" to="." method="_on_credits_pressed"]

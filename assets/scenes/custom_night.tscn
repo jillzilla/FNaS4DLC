@@ -148,6 +148,7 @@ size_flags_vertical = 6
 charName = "Nightmare Luiginette"
 iconPath = "res://assets/images/customnight/luigiicon.png"
 charID = 7
+maxlevel = 12
 metadata/_edit_lock_ = true
 
 [node name="Challenges" type="HBoxContainer" parent="Control" unique_id=1362725539]

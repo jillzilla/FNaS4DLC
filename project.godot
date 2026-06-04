@@ -33,6 +33,7 @@ DiscordManager="*uid://dufg3qqflr2d5"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=4
 window/size/resizable=false
 window/size/minimize_disabled=true
 window/size/maximize_disabled=true
