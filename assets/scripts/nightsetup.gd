@@ -48,7 +48,7 @@ func _on_clock_timer_timeout() -> void:
 					characters[i].currentPosition = 0;
 					main._update_ai_levels();
 					characters[i]._handle_positions();
-			main.aiLevelsAsArrays[7] = 45;
+			main.aiLevelsAsArrays[7] = 48;
 			main._update_ai_levels();
 			
 	if ClockIteration < 8:
@@ -56,9 +56,9 @@ func _on_clock_timer_timeout() -> void:
 			for i in range(characters.size()):
 				if main.aiLevelsAsArrays[i] != 0:
 					if main.random_chance(80):
-						main.aiLevelsAsArrays[i] += 2;
+						main.aiLevelsAsArrays[i] += 1;
 					else:
-						main.aiLevelsAsArrays[i] += 3;
+						main.aiLevelsAsArrays[i] += 2;
 			main._update_ai_levels();
 		ClockCounter.text = ClockOutputs[ClockIteration];
 		DiscordManager._update_state(ClockOutputs[ClockIteration]);

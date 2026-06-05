@@ -17,6 +17,8 @@ extends Node
 
 @export var credits : Control;
 
+@export var settings : Control;
+
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Title Screen");
@@ -63,7 +65,7 @@ func _on_custom_night_pressed() -> void:
 	get_tree().change_scene_to_file("res://assets/scenes/custom_night.tscn");
 
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	settings.show();
 
 func _on_quit_pressed() -> void:
 	get_tree().quit();

@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bap70d4fgowjy" path="res://assets/images/title/Star_Title_0.png" id="7_s21ad"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="7_t2yek"]
 [ext_resource type="PackedScene" uid="uid://dwwq031lbo8e1" path="res://assets/scenes/credits.tscn" id="10_4l0ss"]
+[ext_resource type="PackedScene" uid="uid://ce1c76lv6sisp" path="res://assets/scenes/settings.tscn" id="11_mb7to"]
 
 [sub_resource type="Animation" id="Animation_s21ad"]
 resource_name = "ChangeScene"
@@ -199,7 +200,7 @@ _data = {
 &"Intro": SubResource("Animation_w0xr6")
 }
 
-[node name="Title" type="Node" unique_id=574844742 node_paths=PackedStringArray("animations", "buttonscontainer", "nightcounter", "star1", "star2", "star3", "night6button", "customnightbutton", "extrasbutton", "credits")]
+[node name="Title" type="Node" unique_id=574844742 node_paths=PackedStringArray("animations", "buttonscontainer", "nightcounter", "star1", "star2", "star3", "night6button", "customnightbutton", "extrasbutton", "credits", "settings")]
 script = ExtResource("1_f2nfk")
 animations = NodePath("AnimationPlayer")
 buttonscontainer = NodePath("UI/Control/ButtonsContainer")
@@ -211,6 +212,7 @@ night6button = NodePath("UI/Control/ButtonsContainer/MainButtons/Night6")
 customnightbutton = NodePath("UI/Control/ButtonsContainer/MainButtons/CustomNight")
 extrasbutton = NodePath("UI/Control/ButtonsContainer/MainButtons/Extras")
 credits = NodePath("UI/Credits")
+settings = NodePath("UI/Settings")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1912542665]
 stream = ExtResource("1_w0xr6")
@@ -324,9 +326,8 @@ action_mode = 0
 text = "Play"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/Play/Button" unique_id=1648868472 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/Play/Button" unique_id=1648868472]
 script = ExtResource("7_t2yek")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="NightCounter" type="Label" parent="UI/Control/ButtonsContainer/MainButtons/Play" unique_id=940245941]
@@ -347,9 +348,8 @@ action_mode = 0
 text = "Night 6"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/Night6" unique_id=173851919 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/Night6" unique_id=173851919]
 script = ExtResource("7_t2yek")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Extras" type="Button" parent="UI/Control/ButtonsContainer/MainButtons" unique_id=995179270]
@@ -363,9 +363,8 @@ action_mode = 0
 text = "Extras"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/Extras" unique_id=1878044292 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/Extras" unique_id=1878044292]
 script = ExtResource("7_t2yek")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="CustomNight" type="Button" parent="UI/Control/ButtonsContainer/MainButtons" unique_id=1364874945]
@@ -379,9 +378,8 @@ action_mode = 0
 text = "Custom  Night"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/CustomNight" unique_id=330727916 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/CustomNight" unique_id=330727916]
 script = ExtResource("7_t2yek")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Settings" type="Button" parent="UI/Control/ButtonsContainer/MainButtons" unique_id=966034820]
@@ -394,9 +392,8 @@ action_mode = 0
 text = "Settings"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/Settings" unique_id=1525296467 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/Settings" unique_id=1525296467]
 script = ExtResource("7_t2yek")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Quit" type="Button" parent="UI/Control/ButtonsContainer/MainButtons" unique_id=541641437]
@@ -409,9 +406,8 @@ action_mode = 0
 text = "Quit Game"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/Quit" unique_id=356505786 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/MainButtons/Quit" unique_id=356505786]
 script = ExtResource("7_t2yek")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Credits" type="Button" parent="UI/Control/ButtonsContainer" unique_id=1685344281]
@@ -433,9 +429,8 @@ action_mode = 0
 text = "Credits"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/Credits" unique_id=1286646766 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/Credits" unique_id=1286646766]
 script = ExtResource("7_t2yek")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Version" type="Label" parent="UI/Control" unique_id=1090667348]
@@ -466,6 +461,9 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
+
+[node name="Settings" parent="UI" unique_id=1957756881 instance=ExtResource("11_mb7to")]
+visible = false
 
 [node name="POV" type="Camera2D" parent="." unique_id=1672662638]
 position = Vector2(640, 360)

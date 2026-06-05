@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://ce1c76lv6sisp"]
+
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_48ty2"]
+[ext_resource type="Theme" uid="uid://dv17usjw8ic3f" path="res://assets/themes/fancy.tres" id="2_fdwte"]
+[ext_resource type="Script" uid="uid://c0v5nenvfp03x" path="res://assets/scripts/settings.gd" id="2_k5a6f"]
+[ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_fdwte"]
+
+[node name="Settings" type="Control" unique_id=1957756881]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_48ty2")
+script = ExtResource("2_k5a6f")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="ColorRect" parent="." unique_id=1160025598]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+metadata/_edit_lock_ = true
+
+[node name="ThingsContainer" type="VBoxContainer" parent="." unique_id=1208848066]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18400002
+anchor_top = 0.48900002
+anchor_right = 0.18400002
+anchor_bottom = 0.48900002
+offset_left = -211.52002
+offset_top = -328.08002
+offset_right = 212.47998
+offset_bottom = 327.91998
+theme_override_constants/separation = 48
+metadata/_edit_lock_ = true
+
+[node name="Settings" type="Label" parent="ThingsContainer" unique_id=359293982]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Separator1" type="HSeparator" parent="ThingsContainer" unique_id=703932832]
+layout_mode = 2
+theme = ExtResource("2_fdwte")
+theme_override_constants/separation = 32
+metadata/_edit_lock_ = true
+
+[node name="Video" type="Button" parent="ThingsContainer" unique_id=517420505]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Video"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="ThingsContainer/Video" unique_id=1859248517]
+script = ExtResource("3_fdwte")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Audio" type="Button" parent="ThingsContainer" unique_id=1742554771]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Audio"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="ThingsContainer/Audio" unique_id=115763064]
+script = ExtResource("3_fdwte")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Misc" type="Button" parent="ThingsContainer" unique_id=1351888968]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Misc."
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="ThingsContainer/Misc" unique_id=303812038]
+script = ExtResource("3_fdwte")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Separator2" type="HSeparator" parent="ThingsContainer" unique_id=816923789]
+layout_mode = 2
+theme = ExtResource("2_fdwte")
+theme_override_constants/separation = 60
+metadata/_edit_lock_ = true
+
+[node name="Apply" type="Button" parent="ThingsContainer" unique_id=1516391875]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 64
+action_mode = 0
+text = "Apply"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="ThingsContainer/Apply" unique_id=865750364]
+script = ExtResource("3_fdwte")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[connection signal="pressed" from="ThingsContainer/Apply" to="." method="_on_apply_pressed"]

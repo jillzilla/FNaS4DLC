@@ -5,8 +5,9 @@
 [ext_resource type="Theme" uid="uid://dv17usjw8ic3f" path="res://assets/themes/fancy.tres" id="2_yf6nb"]
 [ext_resource type="PackedScene" uid="uid://dc5qw1qilmv8l" path="res://assets/scenes/confirmpopup.tscn" id="3_yf6nb"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="4_p3xyv"]
+[ext_resource type="PackedScene" uid="uid://ce1c76lv6sisp" path="res://assets/scenes/settings.tscn" id="6_vl0uo"]
 
-[node name="PauseMenu" type="Control" unique_id=203952170 node_paths=PackedStringArray("confirm")]
+[node name="PauseMenu" type="Control" unique_id=203952170 node_paths=PackedStringArray("confirm", "settings")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -17,6 +18,7 @@ grow_vertical = 2
 theme = ExtResource("1_uo1om")
 script = ExtResource("2_yaadq")
 confirm = NodePath("ConfirmPopUp")
+settings = NodePath("Settings")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -44,6 +46,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/separation = 32
 metadata/_edit_lock_ = true
 
 [node name="PAUSED" type="Label" parent="ThingsContainer" unique_id=1508884798]
@@ -68,9 +71,8 @@ action_mode = 0
 text = "Resume"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="ThingsContainer/Resume" unique_id=798562419 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="ThingsContainer/Resume" unique_id=798562419]
 script = ExtResource("4_p3xyv")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Restart" type="Button" parent="ThingsContainer" unique_id=179542290]
@@ -81,9 +83,20 @@ action_mode = 0
 text = "Restart"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="ThingsContainer/Restart" unique_id=1099742574 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="ThingsContainer/Restart" unique_id=1099742574]
 script = ExtResource("4_p3xyv")
-parent = NodePath("..")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Settings" type="Button" parent="ThingsContainer" unique_id=1174251029]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Settings"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="ThingsContainer/Settings" unique_id=65818995]
+script = ExtResource("4_p3xyv")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Quit" type="Button" parent="ThingsContainer" unique_id=2088361708]
@@ -94,15 +107,19 @@ action_mode = 0
 text = "Quit"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="ThingsContainer/Quit" unique_id=366800308 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="ThingsContainer/Quit" unique_id=366800308]
 script = ExtResource("4_p3xyv")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="ConfirmPopUp" parent="." unique_id=416344205 instance=ExtResource("3_yf6nb")]
 visible = false
 layout_mode = 1
 
+[node name="Settings" parent="." unique_id=1957756881 instance=ExtResource("6_vl0uo")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="ThingsContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="ThingsContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="ThingsContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="ThingsContainer/Quit" to="." method="_on_quit_pressed"]
