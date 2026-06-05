@@ -48,7 +48,7 @@ func _on_clock_timer_timeout() -> void:
 					characters[i].currentPosition = 0;
 					main._update_ai_levels();
 					characters[i]._handle_positions();
-			main.aiLevelsAsArrays[7] = 30;
+			main.aiLevelsAsArrays[7] = 45;
 			main._update_ai_levels();
 			
 	if ClockIteration < 8:
