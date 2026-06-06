@@ -83,39 +83,32 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 32
 text = "- CREDITS -
 
-Director - CwoodsWDC.
+- Revived by -
+CwoodsWDC
+Jill Zilla
 
-Co-Director - Jill Zilla.
+- Artist - 
+CwoodsWDC
 
-Artist - CwoodsWDC.
+- Programmer -
+Jill Zilla
 
-Programmer - Jill Zilla.
+- Composers -
+MrBluePuffball
+djeningblat
 
-Composers - MrBluePuffball, djeningblat.
+- FNaS Owners -
+TheCyVap
+Spiral
 
-- SPECIAL THANKS -
+- FNaF Owner - 
+Scott Cawthon
 
-Nikita Kuznetsova
+- Super Mario Owners -
+Nintendo
 
-Coldsky
-
-Lust
-
-Mister Generic
-
-Kimiri
-
-volteon_k
-
-Jaime
-
-Glittertrash
-
-RyanTSM
-
-PN_Cherryz
-
-You <3"
+- Sonic Owners -
+Sega"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -138,9 +131,8 @@ action_mode = 0
 text = "Back"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="BackButton" unique_id=1731561103 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="BackButton" unique_id=1731561103]
 script = ExtResource("3_32ixl")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
