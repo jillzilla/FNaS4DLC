@@ -55,6 +55,7 @@
 [ext_resource type="AudioStream" uid="uid://blrhwp7bm001r" path="res://assets/sounds/[7] Run_to_Door_Sound.ogg" id="22_bkfnj"]
 [ext_resource type="Texture2D" uid="uid://c8mjrs7bc20p1" path="res://assets/images/gameplay/characters/yoshi/yoshi_2.png" id="22_ondv3"]
 [ext_resource type="Texture2D" uid="uid://cqavnkrwi222l" path="res://assets/images/gameplay/rooms/deskoverlay.png" id="22_wrac7"]
+[ext_resource type="Texture2D" uid="uid://cekw4v8bu55sj" path="res://assets/images/gameplay/nightmaretoyshadowmario.png" id="23_d1e08"]
 [ext_resource type="Texture2D" uid="uid://dd4oklmi170cu" path="res://assets/images/gameplay/characters/yoshi/yoshi_3.png" id="23_ejjiw"]
 [ext_resource type="Texture2D" uid="uid://cwnw6finkb365" path="res://assets/images/gameplay/characters/tsonic/toysonic1.png" id="24_vx1u2"]
 [ext_resource type="AudioStream" uid="uid://b31mag886u1jf" path="res://assets/sounds/Desk_Step.ogg" id="25_1mjni"]
@@ -95,11 +96,14 @@
 [ext_resource type="Texture2D" uid="uid://d0w4wxd8m4cb1" path="res://assets/images/gameplay/characters/cream/cream3.png" id="65_etbyd"]
 [ext_resource type="AudioStream" uid="uid://cwu0xlhkaqq0i" path="res://assets/sounds/Toad_Moving_1.ogg" id="67_8bh6l"]
 [ext_resource type="AudioStream" uid="uid://dosa7cqf136xx" path="res://assets/sounds/Toad_Moving_2.ogg" id="68_50646"]
+[ext_resource type="Texture2D" uid="uid://csmmmdfh816ml" path="res://assets/images/gameplay/toadette.png" id="70_vq8ol"]
 [ext_resource type="Texture2D" uid="uid://d4f0e3pkepyr2" path="res://assets/images/gameplay/characters/nluigi/nluigihallway.png" id="77_dcs2j"]
 [ext_resource type="Texture2D" uid="uid://bjc1440wjiewj" path="res://assets/images/gameplay/characters/salvage/salvagebody.png" id="78_1vyyi"]
 [ext_resource type="Texture2D" uid="uid://baduy64ia1npk" path="res://assets/images/gameplay/characters/salvage/salvagehead.png" id="79_riiyp"]
 [ext_resource type="Texture2D" uid="uid://bd68xarqth3c0" path="res://assets/images/gameplay/characters/salvage/salvagehead2.png" id="81_bcox0"]
+[ext_resource type="Texture2D" uid="uid://2oh2g433grda" path="res://assets/images/gameplay/nightmarebig.png" id="81_vca6n"]
 [ext_resource type="Texture2D" uid="uid://clrxch43d4rth" path="res://assets/images/gameplay/characters/salvage/salvagehead3.png" id="82_y222l"]
+[ext_resource type="Texture2D" uid="uid://cmlq5u312o1d2" path="res://assets/images/gameplay/SONIC.png" id="86_dcxdq"]
 [ext_resource type="Texture2D" uid="uid://1yn1ptpmbryj" path="res://assets/images/gameplay/characters/cream/creamj1.png" id="89_6ronx"]
 [ext_resource type="Texture2D" uid="uid://cjllisg858sou" path="res://assets/images/gameplay/characters/cream/cheesej.png" id="90_fu0fk"]
 [ext_resource type="Texture2D" uid="uid://duvwg0uebmiae" path="res://assets/images/gameplay/characters/cream/creamj2.png" id="91_uniq7"]
@@ -1449,6 +1453,13 @@ texture = ExtResource("1_n5x6c")
 centered = false
 metadata/_edit_lock_ = true
 
+[node name="ShadowMario" type="Sprite2D" parent="Rooms/Office" unique_id=1772860531]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(524, 315)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_d1e08")
+metadata/_edit_lock_ = true
+
 [node name="Monitor" type="Node2D" parent="Rooms/Office" unique_id=1558958197 node_paths=PackedStringArray("changeSFX", "Static", "Lsignal", "salvage")]
 visible = false
 position = Vector2(715, 507)
@@ -1516,7 +1527,7 @@ position = Vector2(1040, 658)
 texture = ExtResource("63_k61gk")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Office" unique_id=1453186721 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "roomToLeave", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Office" unique_id=1453186721 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "roomToLeave", "mask", "shadow_mario")]
 script = ExtResource("2_f1ux5")
 input = 0
 button = NodePath("../../../Misc/GUI/Office_Button")
@@ -1532,6 +1543,7 @@ buttonToActivate = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../
 roomToLeave = [NodePath("../../Ceiling"), NodePath("../../Desk"), NodePath("../../Left_Vent"), NodePath("../../Right_Vent"), NodePath("../../Hallway")]
 roomToLeavePosition = Array[Vector2]([Vector2(-1920, 710), Vector2(-1920, 710), Vector2(-1920, 710), Vector2(-1920, 710), Vector2(-1920, 710)])
 mask = NodePath("../../../Misc/GUI/Mask")
+shadow_mario = NodePath("../ShadowMario")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
 [node name="Ceiling" type="Sprite2D" parent="Rooms" unique_id=924976390]
@@ -1761,6 +1773,13 @@ position = Vector2(-1920, 2134)
 texture = ExtResource("4_qk4f4")
 metadata/_edit_lock_ = true
 
+[node name="Toadette" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=950520626]
+visible = false
+position = Vector2(-93, -431)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("70_vq8ol")
+metadata/_edit_lock_ = true
+
 [node name="ClipMask" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=395958951]
 clip_children = 1
 texture = ExtResource("20_t2peh")
@@ -1827,7 +1846,7 @@ position = Vector2(0, -350)
 texture = ExtResource("9_b4idp")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Left_Vent" unique_id=2079638592 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Left_Vent" unique_id=2079638592 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask", "toadette")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Left_Vent_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
@@ -1842,6 +1861,7 @@ buttonToActivate = [NodePath("../../../Misc/GUI/Office_Button")]
 flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
 canUseMaskHere = true
+toadette = NodePath("../Toadette")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
 [node name="FlashLightComponent" type="Node" parent="Rooms/Left_Vent" unique_id=165882029 node_paths=PackedStringArray("BT", "spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
@@ -1857,6 +1877,13 @@ metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 [node name="Right_Vent" type="Sprite2D" parent="Rooms" unique_id=1183835767]
 position = Vector2(-640, 2134)
 texture = ExtResource("5_hogfr")
+metadata/_edit_lock_ = true
+
+[node name="Toadette" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1605657573]
+visible = false
+position = Vector2(94, -432)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("70_vq8ol")
 metadata/_edit_lock_ = true
 
 [node name="ClipMask" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1764599257]
@@ -1956,7 +1983,7 @@ position = Vector2(0, -350)
 texture = ExtResource("9_b4idp")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Right_Vent" unique_id=568625009 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Right_Vent" unique_id=568625009 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask", "toadette")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Right_Vent_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
@@ -1971,6 +1998,7 @@ buttonToActivate = [NodePath("../../../Misc/GUI/Office_Button")]
 flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
 canUseMaskHere = true
+toadette = NodePath("../Toadette")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
 [node name="FlashLightComponent" type="Node" parent="Rooms/Right_Vent" unique_id=1019073008 node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
@@ -1985,6 +2013,13 @@ metadata/_custom_type_script = "uid://bn757rkvxcpdt"
 [node name="Hallway" type="Sprite2D" parent="Rooms" unique_id=824772550]
 position = Vector2(-1920, 3558)
 texture = ExtResource("6_ndvee")
+metadata/_edit_lock_ = true
+
+[node name="Big" type="Sprite2D" parent="Rooms/Hallway" unique_id=1802266455]
+visible = false
+position = Vector2(-62.5, -369)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("81_vca6n")
 metadata/_edit_lock_ = true
 
 [node name="Salvage6" type="Sprite2D" parent="Rooms/Hallway" unique_id=645673741]
@@ -2005,6 +2040,13 @@ position = Vector2(-24, -366)
 texture = ExtResource("77_dcs2j")
 metadata/_edit_lock_ = true
 
+[node name="SONIC" type="Sprite2D" parent="Rooms/Hallway" unique_id=1109663006]
+visible = false
+modulate = Color(1, 1, 1, 0.3)
+position = Vector2(-16, -358)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("86_dcxdq")
+
 [node name="Light" type="Sprite2D" parent="Rooms/Hallway" unique_id=869873923]
 position = Vector2(0, -350)
 texture = ExtResource("12_b68su")
@@ -2015,7 +2057,7 @@ position = Vector2(0, -350)
 texture = ExtResource("13_qautv")
 metadata/_edit_lock_ = true
 
-[node name="RoomTravelComponent" type="Node" parent="Rooms/Hallway" unique_id=1839462096 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask")]
+[node name="RoomTravelComponent" type="Node" parent="Rooms/Hallway" unique_id=1839462096 node_paths=PackedStringArray("button", "walkSFX", "room", "fadeTransition", "scrolling", "buttonToDisable", "buttonToActivate", "flashlight", "mask", "big", "golden")]
 script = ExtResource("2_f1ux5")
 button = NodePath("../../../Buttons/Hallway_Button")
 walkSFX = NodePath("../../../Sounds/Walk_SFX")
@@ -2029,6 +2071,8 @@ buttonToDisable = [NodePath("../../../Buttons/Left_Vent_Button"), NodePath("../.
 buttonToActivate = [NodePath("../../../Misc/GUI/Office_Button")]
 flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
+big = NodePath("../Big")
+golden = NodePath("../SONIC")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
 [node name="FlashLightComponent" type="Node" parent="Rooms/Hallway" unique_id=1845314344 node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]

@@ -35,6 +35,11 @@ enum inputs {ENTERED,PRESSED};
 
 @export var disabled : bool = false;
 
+@export var shadow_mario : Sprite2D;
+@export var big : Sprite2D;
+@export var toadette : Sprite2D;
+@export var golden : Sprite2D;
+
 #functions
 func _ready() -> void:
 	button.connect("pressed",_pressed);
@@ -74,6 +79,29 @@ func _travel() -> void:
 		await fadeTransition.animation_finished;
 
 		fadeTransition.play_backwards("fade");
+		
+		if get_parent().name == "Office":
+			if main.random_chance(0.1):
+				shadow_mario.modulate.a = 1;
+				var tween : Tween = create_tween();
+				tween.tween_property(shadow_mario,"modulate:a",0,0.5).set_trans(Tween.TRANS_CUBIC);
+
+		elif get_parent().name == "Hallway":
+			if main.random_chance(0.5):
+				big.visible = true;
+			else:
+				big.visible = false;
+			
+			if main.random_chance(0.2):
+				golden.visible = true;
+			else:
+				golden.visible = false;
+				
+		elif get_parent().name == "Left_Vent" || get_parent().name == "Right_Vent":
+			if main.random_chance(0.8):
+				toadette.visible = true;
+			else:
+				toadette.visible = false;
 
 		if !disableScrolling:
 			scrolling.disable = false;

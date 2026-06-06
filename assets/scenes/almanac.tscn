@@ -69,6 +69,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="TSonic" type="TextureButton" parent="Buttons/GridContainer" unique_id=779188765]
+visible = false
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
@@ -90,6 +91,7 @@ texture_normal = ExtResource("4_1ckbt")
 metadata/_edit_lock_ = true
 
 [node name="NTaingle" type="TextureButton" parent="Buttons/GridContainer" unique_id=581248771]
+visible = false
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
@@ -97,6 +99,7 @@ texture_normal = ExtResource("5_6jbbm")
 metadata/_edit_lock_ = true
 
 [node name="BT" type="TextureButton" parent="Buttons/GridContainer" unique_id=889591768]
+visible = false
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
@@ -104,6 +107,7 @@ texture_normal = ExtResource("6_hx5ro")
 metadata/_edit_lock_ = true
 
 [node name="SS" type="TextureButton" parent="Buttons/GridContainer" unique_id=784860126]
+visible = false
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
@@ -111,6 +115,7 @@ texture_normal = ExtResource("7_xw2wa")
 metadata/_edit_lock_ = true
 
 [node name="Cream" type="TextureButton" parent="Buttons/GridContainer" unique_id=561280350]
+visible = false
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
@@ -118,6 +123,7 @@ texture_normal = ExtResource("8_q7hlf")
 metadata/_edit_lock_ = true
 
 [node name="Luiginette" type="TextureButton" parent="Buttons/GridContainer" unique_id=119002444]
+visible = false
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
@@ -125,6 +131,7 @@ texture_normal = ExtResource("9_kritx")
 metadata/_edit_lock_ = true
 
 [node name="Back" type="Button" parent="." unique_id=568936385]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.89100003
