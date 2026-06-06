@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cglqgn5sadkfp" path="res://assets/scripts/night_6_ending.gd" id="1_d876i"]
 [ext_resource type="Texture2D" uid="uid://5g8qiat2k60f" path="res://assets/images/endings/nette.png" id="1_f6kle"]
-[ext_resource type="AudioStream" uid="uid://cm3g1tn3ejosx" path="res://assets/sounds/night5cutsceneambience.mp3" id="1_kv2k7"]
 [ext_resource type="Texture2D" uid="uid://4kbv5i4x13sw" path="res://assets/images/endings/amylooking.png" id="2_d876i"]
 [ext_resource type="Texture2D" uid="uid://ci0aishlgjobj" path="res://assets/images/shadows.png" id="3_uiq8j"]
+[ext_resource type="AudioStream" uid="uid://blrxd82bvcbwf" path="res://assets/sounds/night5cutsceneambience.ogg" id="5_vvyrx"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="6_uiq8j"]
 [ext_resource type="Texture2D" uid="uid://bfuytoeejki6v" path="res://assets/images/endings/blindamy.png" id="7_l8e0o"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="8_vvyrx"]
@@ -297,7 +297,7 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1529232687]
-stream = ExtResource("1_kv2k7")
+stream = ExtResource("5_vvyrx")
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1409248935]

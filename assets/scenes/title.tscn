@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cm2ejfiijejpi" path="res://assets/scripts/title.gd" id="1_f2nfk"]
 [ext_resource type="Texture2D" uid="uid://cctg4aalwd40x" path="res://assets/images/title/sky.png" id="1_np7yl"]
-[ext_resource type="AudioStream" uid="uid://cjoi7gqaxuhls" path="res://assets/music/TitleTheme.mp3" id="1_w0xr6"]
+[ext_resource type="AudioStream" uid="uid://dne52pojod8lg" path="res://assets/music/TitleTheme.ogg" id="2_p4c3g"]
 [ext_resource type="Texture2D" uid="uid://bwgt7oqf018b2" path="res://assets/images/title/characters.png" id="2_tpua6"]
 [ext_resource type="Texture2D" uid="uid://beqplr2jytell" path="res://assets/images/title/clouds.png" id="2_w0xr6"]
 [ext_resource type="Texture2D" uid="uid://dwos45otusoh8" path="res://assets/images/title/4DLCLogo.png" id="5_qxslq"]
@@ -216,7 +216,7 @@ credits = NodePath("UI/Credits")
 settings = NodePath("UI/Settings")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1912542665]
-stream = ExtResource("1_w0xr6")
+stream = ExtResource("2_p4c3g")
 
 [node name="Sound" type="AudioStreamPlayer" parent="." unique_id=267184815]
 
