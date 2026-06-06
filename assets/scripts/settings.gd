@@ -118,8 +118,7 @@ func _confirmed_action() -> void:
 	elif deletedata:
 		if get_tree().paused:
 			get_tree().paused = false;
-		DirAccess.remove_absolute(main.SAVE_DATA_PATH);
-		_reset_settings();
-		main._save_game();
-		main._apply_settings();
-		get_tree().change_scene_to_file("res://assets/scenes/intro.tscn");
+		if FileAccess.file_exists(main.SAVE_DATA_PATH):
+			DirAccess.remove_absolute(main.SAVE_DATA_PATH);
+		OS.alert("Save file successfully deleted. Reload the game to apply the settings.", "Five Nights at Sonic's 4 DLC")
+		get_tree().quit();
