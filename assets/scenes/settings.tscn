@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://dv17usjw8ic3f" path="res://assets/themes/fancy.tres" id="2_fdwte"]
 [ext_resource type="Script" uid="uid://c0v5nenvfp03x" path="res://assets/scripts/settings.gd" id="2_k5a6f"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_fdwte"]
+[ext_resource type="PackedScene" uid="uid://dc5qw1qilmv8l" path="res://assets/scenes/confirmpopup.tscn" id="5_s7awf"]
 
 [node name="Settings" type="Control" unique_id=1957756881]
 process_mode = 3
@@ -109,4 +110,317 @@ metadata/_edit_lock_ = true
 script = ExtResource("3_fdwte")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1452956904]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.70000005
+anchor_top = 0.517
+anchor_right = 0.70000005
+anchor_bottom = 0.517
+offset_left = -320.00006
+offset_top = -308.24002
+offset_right = 319.99994
+offset_bottom = 307.75998
+metadata/_edit_lock_ = true
+
+[node name="Video" type="ScrollContainer" parent="MarginContainer" unique_id=1512224978]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="VideoContainer" type="VBoxContainer" parent="MarginContainer/Video" unique_id=1477655483]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+metadata/_edit_lock_ = true
+
+[node name="WindowMode" type="HBoxContainer" parent="MarginContainer/Video/VideoContainer" unique_id=94166546]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Video/VideoContainer/WindowMode" unique_id=53655832]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Window Mode:"
+metadata/_edit_lock_ = true
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/Video/VideoContainer/WindowMode" unique_id=1214404956]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+selected = 0
+item_count = 3
+popup/item_0/text = "Windowed (Default)"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless Fullscreen"
+popup/item_2/id = 2
+metadata/_edit_lock_ = true
+
+[node name="Resolution" type="HBoxContainer" parent="MarginContainer/Video/VideoContainer" unique_id=48114448]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Video/VideoContainer/Resolution" unique_id=1606516662]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Resolution:"
+metadata/_edit_lock_ = true
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/Video/VideoContainer/Resolution" unique_id=378391866]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+selected = 1
+item_count = 3
+popup/item_0/text = "640 x 360"
+popup/item_0/id = 0
+popup/item_1/text = "1280 x 720 (Default)"
+popup/item_1/id = 1
+popup/item_2/text = "1920 x 1080"
+popup/item_2/id = 2
+metadata/_edit_lock_ = true
+
+[node name="VSync" type="HBoxContainer" parent="MarginContainer/Video/VideoContainer" unique_id=1235894634]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Video/VideoContainer/VSync" unique_id=808836375]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "V-SYNC:"
+metadata/_edit_lock_ = true
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/Video/VideoContainer/VSync" unique_id=1599502252]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+action_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="FPSCap" type="HBoxContainer" parent="MarginContainer/Video/VideoContainer" unique_id=577272657]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Video/VideoContainer/FPSCap" unique_id=13485016]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "FPS Cap:"
+metadata/_edit_lock_ = true
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/Video/VideoContainer/FPSCap" unique_id=355334451]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+selected = 1
+item_count = 4
+popup/item_0/text = "30"
+popup/item_0/id = 0
+popup/item_1/text = "60 (Default)"
+popup/item_1/id = 1
+popup/item_2/text = "120"
+popup/item_2/id = 2
+popup/item_3/text = "Unlimited"
+popup/item_3/id = 3
+metadata/_edit_lock_ = true
+
+[node name="Audio" type="ScrollContainer" parent="MarginContainer" unique_id=2137863572]
+visible = false
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="AudioContainer" type="VBoxContainer" parent="MarginContainer/Audio" unique_id=891052001]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="MasterVolume" type="HBoxContainer" parent="MarginContainer/Audio/AudioContainer" unique_id=431568535]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Audio/AudioContainer/MasterVolume" unique_id=338126985]
+layout_mode = 2
+text = "Master Volume: "
+metadata/_edit_lock_ = true
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Audio/AudioContainer/MasterVolume" unique_id=423904585]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+max_value = 1.0
+step = 0.1
+value = 1.0
+metadata/_edit_lock_ = true
+
+[node name="MusicVolume" type="HBoxContainer" parent="MarginContainer/Audio/AudioContainer" unique_id=723185914]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Audio/AudioContainer/MusicVolume" unique_id=241599046]
+layout_mode = 2
+text = "Music Volume: "
+metadata/_edit_lock_ = true
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Audio/AudioContainer/MusicVolume" unique_id=450422686]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+max_value = 1.0
+step = 0.1
+value = 1.0
+metadata/_edit_lock_ = true
+
+[node name="SoundsVolume" type="HBoxContainer" parent="MarginContainer/Audio/AudioContainer" unique_id=323564002]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Audio/AudioContainer/SoundsVolume" unique_id=1554885967]
+layout_mode = 2
+text = "Sounds Volume: "
+metadata/_edit_lock_ = true
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Audio/AudioContainer/SoundsVolume" unique_id=729318962]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+max_value = 1.0
+step = 0.1
+value = 1.0
+metadata/_edit_lock_ = true
+
+[node name="JumpscareVolume" type="HBoxContainer" parent="MarginContainer/Audio/AudioContainer" unique_id=1879911012]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Audio/AudioContainer/JumpscareVolume" unique_id=1623275341]
+layout_mode = 2
+text = "Jumpscare Volume: "
+metadata/_edit_lock_ = true
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Audio/AudioContainer/JumpscareVolume" unique_id=1423573446]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+max_value = 1.0
+step = 0.1
+value = 1.0
+metadata/_edit_lock_ = true
+
+[node name="Misc" type="ScrollContainer" parent="MarginContainer" unique_id=483173660]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="MiscContainer" type="VBoxContainer" parent="MarginContainer/Misc" unique_id=447446477]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+metadata/_edit_lock_ = true
+
+[node name="FPSCounter" type="HBoxContainer" parent="MarginContainer/Misc/MiscContainer" unique_id=717889788]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Misc/MiscContainer/FPSCounter" unique_id=1177507127]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "FPS Counter:"
+metadata/_edit_lock_ = true
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/Misc/MiscContainer/FPSCounter" unique_id=1334778638]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+action_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="ResetSettings" type="HBoxContainer" parent="MarginContainer/Misc/MiscContainer" unique_id=1623309704]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Misc/MiscContainer/ResetSettings" unique_id=854223119]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Reset Settings:"
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="MarginContainer/Misc/MiscContainer/ResetSettings" unique_id=1446299376]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+action_mode = 0
+text = "Click Here!"
+alignment = 0
+metadata/_edit_lock_ = true
+
+[node name="DeleteData" type="HBoxContainer" parent="MarginContainer/Misc/MiscContainer" unique_id=236663244]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Misc/MiscContainer/DeleteData" unique_id=1855385768]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.827451, 0, 0, 1)
+text = "Delete Data:"
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="MarginContainer/Misc/MiscContainer/DeleteData" unique_id=178563399]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+action_mode = 0
+text = "Click Here!"
+alignment = 0
+metadata/_edit_lock_ = true
+
+[node name="ConfirmPopUp" parent="." unique_id=416344205 instance=ExtResource("5_s7awf")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="ThingsContainer/Video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="ThingsContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="ThingsContainer/Misc" to="." method="_on_misc_pressed"]
 [connection signal="pressed" from="ThingsContainer/Apply" to="." method="_on_apply_pressed"]
+[connection signal="item_selected" from="MarginContainer/Video/VideoContainer/WindowMode/OptionButton" to="." method="_on_windowmode_item_selected"]
+[connection signal="item_selected" from="MarginContainer/Video/VideoContainer/Resolution/OptionButton" to="." method="_on_resolution_item_selected"]
+[connection signal="toggled" from="MarginContainer/Video/VideoContainer/VSync/CheckBox" to="." method="_on_vsync_check_box_toggled"]
+[connection signal="item_selected" from="MarginContainer/Video/VideoContainer/FPSCap/OptionButton" to="." method="_on_fpscap_item_selected"]
+[connection signal="value_changed" from="MarginContainer/Audio/AudioContainer/MasterVolume/HSlider" to="." method="_on_mastah_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Audio/AudioContainer/MusicVolume/HSlider" to="." method="_on_moosic_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Audio/AudioContainer/SoundsVolume/HSlider" to="." method="_on_sounds_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Audio/AudioContainer/JumpscareVolume/HSlider" to="." method="_on_jumpscares_value_changed"]
+[connection signal="toggled" from="MarginContainer/Misc/MiscContainer/FPSCounter/CheckBox" to="." method="_on_fps_counter_toggled"]
+[connection signal="pressed" from="MarginContainer/Misc/MiscContainer/ResetSettings/Button" to="." method="_on_resetsettings_pressed"]
+[connection signal="pressed" from="MarginContainer/Misc/MiscContainer/DeleteData/Button" to="." method="_on_deletedata_pressed"]
