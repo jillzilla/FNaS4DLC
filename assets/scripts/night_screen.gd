@@ -85,6 +85,11 @@ func _on_timer_start_ambience_timeout() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "flash":
-		loading._load_scene(sceneDestination);
-		await loading.scene_loaded;
-		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
+		if main.random_chance(95):
+			loading._load_scene(sceneDestination);
+			await loading.scene_loaded;
+			get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
+		else:
+			loading._load_scene("res://assets/scenes/rare_screens.tscn");
+			await loading.scene_loaded;
+			get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
