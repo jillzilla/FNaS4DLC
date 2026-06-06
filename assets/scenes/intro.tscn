@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_e2c8y"]
 [ext_resource type="Script" uid="uid://b5w5va0mso8xm" path="res://assets/scripts/intro.gd" id="1_vxlar"]
+[ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="3_y745p"]
 
 [sub_resource type="Gradient" id="Gradient_vxlar"]
 colors = PackedColorArray(0, 0, 0, 1, 0.32941177, 0.10980392, 0.21176471, 1)
@@ -83,5 +84,8 @@ mouse_default_cursor_shape = 2
 action_mode = 0
 flat = true
 metadata/_edit_lock_ = true
+
+[node name="Loading" parent="." unique_id=220536216 instance=ExtResource("3_y745p")]
+visible = false
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

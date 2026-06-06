@@ -4,6 +4,8 @@ extends Node
 @export var nightcounter : Label;
 var sceneDestination : String;
 
+@onready var loading : Control = $Loading;
+
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Entering Night " + str(main.nightcounter));
@@ -83,4 +85,6 @@ func _on_timer_start_ambience_timeout() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "flash":
-		get_tree().change_scene_to_file(sceneDestination);
+		loading._load_scene(sceneDestination);
+		await loading.scene_loaded;
+		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);

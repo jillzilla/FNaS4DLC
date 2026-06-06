@@ -2,6 +2,8 @@ class_name SalvageSonic extends Node
 
 signal moved;
 
+@export var loading : Control = null;
+
 #variables
 @export_group("Status")
 @export var currentPosition : int = 0;
@@ -103,7 +105,9 @@ func _process(delta: float) -> void:
 				jumpscareAnimation.play("jumpscare");
 				GlobalAudioManager.get_node("Salvage_Jumpscare").play();
 				await jumpscareAnimation.animation_finished;
-				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
+				loading._load_scene("res://assets/scenes/gameover.tscn");
+				await loading.scene_loaded;
+				get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 	
 func _handle_positions():
 	if main.NightmareSalvageAiLevel != 0:

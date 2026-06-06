@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_00ogn"]
 [ext_resource type="PackedScene" uid="uid://cxttec8xvsjfx" path="res://assets/scenes/custom_night_character.tscn" id="4_k8lu8"]
 [ext_resource type="Texture2D" uid="uid://bap70d4fgowjy" path="res://assets/images/title/Star_Title_0.png" id="5_cyr1o"]
+[ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="7_syqq0"]
 
 [node name="CustomNight" type="Node" unique_id=1823592247 node_paths=PackedStringArray("characters")]
 script = ExtResource("1_8gqf7")
@@ -185,9 +186,8 @@ action_mode = 0
 text = "<<"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/Challenges/Left" unique_id=2057332149 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="Control/Challenges/Left" unique_id=2057332149]
 script = ExtResource("3_00ogn")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Challenge_Name" type="Label" parent="Control/Challenges" unique_id=657289225]
@@ -209,9 +209,8 @@ action_mode = 0
 text = ">>"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/Challenges/Right" unique_id=744153323 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="Control/Challenges/Right" unique_id=744153323]
 script = ExtResource("3_00ogn")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Star2" type="TextureRect" parent="Control/Challenges" unique_id=866868504]
@@ -240,9 +239,8 @@ action_mode = 0
 text = "Back"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/Back" unique_id=683326735 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="Control/Back" unique_id=683326735]
 script = ExtResource("3_00ogn")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="AILevelSetupButtons" type="HBoxContainer" parent="Control" unique_id=618722374]
@@ -271,9 +269,8 @@ action_mode = 0
 text = "All Min"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/AILevelSetupButtons/Min" unique_id=1687229005 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="Control/AILevelSetupButtons/Min" unique_id=1687229005]
 script = ExtResource("3_00ogn")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Max" type="Button" parent="Control/AILevelSetupButtons" unique_id=1186119771]
@@ -286,9 +283,8 @@ action_mode = 0
 text = "All Max"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/AILevelSetupButtons/Max" unique_id=1751502200 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="Control/AILevelSetupButtons/Max" unique_id=1751502200]
 script = ExtResource("3_00ogn")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Random" type="Button" parent="Control/AILevelSetupButtons" unique_id=1427159122]
@@ -301,9 +297,8 @@ action_mode = 0
 text = "Randomize"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/AILevelSetupButtons/Random" unique_id=791683 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="Control/AILevelSetupButtons/Random" unique_id=791683]
 script = ExtResource("3_00ogn")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Ready" type="Button" parent="Control" unique_id=1197133074]
@@ -323,10 +318,12 @@ action_mode = 0
 text = "Ready"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/Ready" unique_id=1982494799 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="Control/Ready" unique_id=1982494799]
 script = ExtResource("3_00ogn")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Loading" parent="." unique_id=220536216 instance=ExtResource("7_syqq0")]
+visible = false
 
 [connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Control/AILevelSetupButtons/Min" to="." method="_on_min_pressed"]

@@ -1,5 +1,7 @@
 extends Node
 
+@onready var loading : Control = $Loading;
+
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Intro Cutscene");
@@ -10,4 +12,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		if !main.introscenewatched:
 			main.introscenewatched = true;
 		main._save_game();
-		get_tree().change_scene_to_file("res://assets/scenes/title.tscn");
+		loading._load_scene("res://assets/scenes/title.tscn");
+		await loading.scene_loaded;
+		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);

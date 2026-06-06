@@ -1,5 +1,7 @@
 extends Node
 
+@onready var loading : Control = $Loading;
+
 #functions
 func _ready() -> void:
 	GlobalAudioManager.get_node("Ambience").stop();
@@ -14,8 +16,10 @@ func _on_try_again_button_pressed() -> void:
 	
 	get_node("Fade/AnimationPlayer").play("fade");
 	await get_node("Fade/AnimationPlayer").animation_finished;
-
-	get_tree().change_scene_to_file("res://assets/scenes/night_screen.tscn");
+	
+	loading._load_scene("res://assets/scenes/night_screen.tscn");
+	await loading.scene_loaded;
+	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
 func _on_menu_button_pressed() -> void:
 	main._reset_ai();
@@ -26,7 +30,9 @@ func _on_menu_button_pressed() -> void:
 	get_node("Fade/AnimationPlayer").play("fade");
 	await get_node("Fade/AnimationPlayer").animation_finished;
 	
-	get_tree().change_scene_to_file("res://assets/scenes/title.tscn");
+	loading._load_scene("res://assets/scenes/title.tscn");
+	await loading.scene_loaded;
+	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 	
 func _on_timer_timeout() -> void:
 	get_node("Control").visible = true;

@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_aixqm"]
 [ext_resource type="AudioStream" uid="uid://cmkb4tb0nllhn" path="res://assets/music/ExtrasTheme.mp3" id="2_yo3hy"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="4_ufd8u"]
+[ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="5_fj8mu"]
 
 [node name="Extras" type="Node" unique_id=2092156553]
 script = ExtResource("1_0rbc8")
@@ -109,34 +110,28 @@ action_mode = 0
 text = "Mini Game"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/Buttons" unique_id=506401861 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="Control/Buttons" unique_id=506401861]
 script = ExtResource("4_ufd8u")
-parent = NodePath("../Chars")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
-[node name="ButtonComponent2" type="Node" parent="Control/Buttons" unique_id=768766036 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent2" type="Node" parent="Control/Buttons" unique_id=768766036]
 script = ExtResource("4_ufd8u")
-parent = NodePath("../Jumpscares")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
-[node name="ButtonComponent3" type="Node" parent="Control/Buttons" unique_id=117744520 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent3" type="Node" parent="Control/Buttons" unique_id=117744520]
 script = ExtResource("4_ufd8u")
-parent = NodePath("../Gallery")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
-[node name="ButtonComponent4" type="Node" parent="Control/Buttons" unique_id=1480716104 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent4" type="Node" parent="Control/Buttons" unique_id=1480716104]
 script = ExtResource("4_ufd8u")
-parent = NodePath("../OldNights")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
-[node name="ButtonComponent5" type="Node" parent="Control/Buttons" unique_id=727855595 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent5" type="Node" parent="Control/Buttons" unique_id=727855595]
 script = ExtResource("4_ufd8u")
-parent = NodePath("../Survival")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
-[node name="ButtonComponent6" type="Node" parent="Control/Buttons" unique_id=603824594 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent6" type="Node" parent="Control/Buttons" unique_id=603824594]
 script = ExtResource("4_ufd8u")
-parent = NodePath("../Minigame")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Back" type="Button" parent="Control" unique_id=604882572]
@@ -156,9 +151,11 @@ action_mode = 0
 text = "Back"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/Back" unique_id=1683035341 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="Control/Back" unique_id=1683035341]
 script = ExtResource("4_ufd8u")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Loading" parent="." unique_id=220536216 instance=ExtResource("5_fj8mu")]
+visible = false
 
 [connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]

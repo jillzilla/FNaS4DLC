@@ -134,7 +134,7 @@ func _update_ai_levels() -> void:
 	NightmareBTAILevel = aiLevelsAsArrays[4];
 	NightmareSalvageAiLevel = aiLevelsAsArrays[5];
 	NightmareCreamAiLevel = aiLevelsAsArrays[6];
-	NightmareLuiginetteAiLevel = aiLevelsAsArrays[7];
+	NightmareLuiginetteAiLevel = aiLevelsAsArrays[7];;
 	
 func _reset_ai() -> void:
 	for i in range(aiLevelsAsArrays.size()):

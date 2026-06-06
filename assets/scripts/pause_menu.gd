@@ -1,5 +1,7 @@
 extends Control
 
+@onready var loading : Control = $Loading;
+
 @export var confirm : Control;
 @export var settings : Control;
 
@@ -40,6 +42,11 @@ func _confirmed_action() -> void:
 	main._reset_ai();
 	
 	if reload:
-		get_tree().change_scene_to_file("res://assets/scenes/night_screen.tscn");
+		loading._load_scene("res://assets/scenes/night_screen.tscn");
+		await loading.scene_loaded;
+		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
+
 	elif quit:
-		get_tree().change_scene_to_file("res://assets/scenes/title.tscn");
+		loading._load_scene("res://assets/scenes/title.tscn");
+		await loading.scene_loaded;
+		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);

@@ -1,5 +1,7 @@
 extends Node
 
+@onready var loading : Control = $UI/Loading;
+
 #variables
 @export var animations : AnimationPlayer;
 
@@ -48,7 +50,9 @@ func _on_button_pressed() -> void: #play, forgot to name the signal properly oop
 	buttonscontainer.visible = false;
 	animations.play("ChangeScene");
 	await animations.animation_finished;
-	get_tree().change_scene_to_file("res://assets/scenes/night_screen.tscn");
+	loading._load_scene("res://assets/scenes/night_screen.tscn");
+	await loading.scene_loaded;
+	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
 func _on_night_6_pressed() -> void:
 	main.nightcounter = 6;
@@ -56,13 +60,19 @@ func _on_night_6_pressed() -> void:
 	buttonscontainer.visible = false;
 	animations.play("ChangeScene");
 	await animations.animation_finished;
-	get_tree().change_scene_to_file("res://assets/scenes/night_screen.tscn");
+	loading._load_scene("res://assets/scenes/night_screen.tscn");
+	await loading.scene_loaded;
+	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
 func _on_extras_pressed() -> void:
-	get_tree().change_scene_to_file("res://assets/scenes/extras.tscn");
+	loading._load_scene("res://assets/scenes/extras.tscn");
+	await loading.scene_loaded;
+	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
 func _on_custom_night_pressed() -> void:
-	get_tree().change_scene_to_file("res://assets/scenes/custom_night.tscn");
+	loading._load_scene("res://assets/scenes/custom_night.tscn");
+	await loading.scene_loaded;
+	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
 func _on_settings_pressed() -> void:
 	settings.show();

@@ -1,5 +1,7 @@
 class_name NightmareToySonic extends Node
 
+@export var loading : Control = null;
+
 #variables
 enum Directions {NONE,LEFT,RIGHT};
 var Direction : Variant = Directions.NONE;
@@ -128,7 +130,9 @@ func _process(delta: float) -> void:
 				jumpscareAnimation.play("jumpscare");
 				GlobalAudioManager.get_node("Sonic_Jumpscare").play();
 				await jumpscareAnimation.animation_finished;
-				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
+				loading._load_scene("res://assets/scenes/gameover.tscn");
+				await loading.scene_loaded;
+				get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 		#special events
 		if currentPosition == 1: #peeking
 			if Direction == Directions.LEFT:

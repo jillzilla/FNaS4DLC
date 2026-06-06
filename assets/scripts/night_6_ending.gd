@@ -1,5 +1,7 @@
 extends Node
 
+@onready var loading : Control = $Loading;
+
 @onready var animation_camera : AnimationPlayer = $Camera2D/AnimationPlayer;
 
 #functions
@@ -21,4 +23,6 @@ func _on_erase_pressed() -> void:
 	$Flash/AnimationPlayer.play("flash");
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://assets/scenes/title.tscn");
+	loading._load_scene("res://assets/scenes/title.tscn");
+	await loading.scene_loaded;
+	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);

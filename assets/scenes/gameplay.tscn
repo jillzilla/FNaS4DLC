@@ -109,6 +109,7 @@
 [ext_resource type="Texture2D" uid="uid://cmpjt858jqbqr" path="res://assets/images/gameplay/characters/cream/skirt.png" id="94_6ronx"]
 [ext_resource type="Texture2D" uid="uid://62tvdpjyiadl" path="res://assets/images/gameplay/characters/nluigi/luiginettejumpsc.png" id="102_66s47"]
 [ext_resource type="PackedScene" uid="uid://bw8fe2whqjhf0" path="res://assets/scenes/pause_menu.tscn" id="109_xnjdx"]
+[ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="110_mehod"]
 
 [sub_resource type="Animation" id="Animation_wrac7"]
 resource_name = "WalkCycle"
@@ -1183,8 +1184,9 @@ ClockCounter = NodePath("Misc/GUI/Clock")
 
 [node name="Characters" type="Node" parent="." unique_id=913527033]
 
-[node name="NightmareToySonic" type="Node" parent="Characters" unique_id=1997015375 node_paths=PackedStringArray("LPosition1", "LPosition2", "RPosition1", "RPosition2", "LFlashlight", "RFlashlight", "officeRoomTravel", "Mask", "RunGraphics", "LVentSFX", "RVentSFX", "stepSfx", "shockSFX", "ventLeaveSFX", "jumpscareAnimation", "LPeekingAnimation", "RPeekingAnimation", "timerStep")]
+[node name="NightmareToySonic" type="Node" parent="Characters" unique_id=1997015375 node_paths=PackedStringArray("loading", "LPosition1", "LPosition2", "RPosition1", "RPosition2", "LFlashlight", "RFlashlight", "officeRoomTravel", "Mask", "RunGraphics", "LVentSFX", "RVentSFX", "stepSfx", "shockSFX", "ventLeaveSFX", "jumpscareAnimation", "LPeekingAnimation", "RPeekingAnimation", "timerStep")]
 script = ExtResource("2_pcblb")
+loading = NodePath("../../Misc/GUI/Loading")
 SkipMovementChance = 75.0
 minTimerChangePosition = 10000.0
 maxTimerChangePosition = 15000.0
@@ -1210,8 +1212,9 @@ RPeekingAnimation = NodePath("../../Rooms/Right_Vent/ClipMask/ToySonic_21/Animat
 timerStep = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation/Timer_Step")
 metadata/_custom_type_script = "uid://cfq33rypau5gu"
 
-[node name="NightmareToyMario" type="Node" parent="Characters" unique_id=776099062 node_paths=PackedStringArray("Position1", "Position1Pupils", "Position2", "Position2Pupils", "Position3", "Position3Pupils", "flashlight", "officeRoomTravel", "ventSFX", "stepSfx", "ventLSFX", "shockSFX", "Mask", "RunGraphics", "peekingAnimation", "jumpscareAnimation", "charAway", "timerStep")]
+[node name="NightmareToyMario" type="Node" parent="Characters" unique_id=776099062 node_paths=PackedStringArray("loading", "Position1", "Position1Pupils", "Position2", "Position2Pupils", "Position3", "Position3Pupils", "flashlight", "officeRoomTravel", "ventSFX", "stepSfx", "ventLSFX", "shockSFX", "Mask", "RunGraphics", "peekingAnimation", "jumpscareAnimation", "charAway", "timerStep")]
 script = ExtResource("3_k61gk")
+loading = NodePath("../../Misc/GUI/Loading")
 SkipMovementChance = 50.0
 minTimerChangePosition = 5000.0
 maxTimerChangePosition = 8000.0
@@ -1239,8 +1242,9 @@ charAway = NodePath("../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
 timerStep = NodePath("../../Rooms/Desk/ToyMario_Desk_Animation/Timer_Step")
 metadata/_custom_type_script = "uid://bmdn5tvhdnymc"
 
-[node name="NightmareToyYoshi" type="Node" parent="Characters" unique_id=2130040918 node_paths=PackedStringArray("Position1", "Position2", "Position3", "ventSFX", "ventLSFX", "shockSFX", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "peekingAnimation", "charAway")]
+[node name="NightmareToyYoshi" type="Node" parent="Characters" unique_id=2130040918 node_paths=PackedStringArray("loading", "Position1", "Position2", "Position3", "ventSFX", "ventLSFX", "shockSFX", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "peekingAnimation", "charAway")]
 script = ExtResource("3_ejjiw")
+loading = NodePath("../../Misc/GUI/Loading")
 SkipMovementChance = 50.0
 minTimerChangePosition = 5000.0
 maxTimerChangePosition = 8000.0
@@ -1262,8 +1266,9 @@ peekingAnimation = NodePath("../../Rooms/Left_Vent/ClipMask/ToyYoshi_1/Animation
 charAway = NodePath("../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
 metadata/_custom_type_script = "uid://5kr35ro71210"
 
-[node name="NightmareTaingle" type="Node" parent="Characters" unique_id=825719508 node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "radio")]
+[node name="NightmareTaingle" type="Node" parent="Characters" unique_id=825719508 node_paths=PackedStringArray("loading", "Position1", "Position2", "Position3", "Position4", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation", "radio")]
 script = ExtResource("1_rybgg")
+loading = NodePath("../../Misc/GUI/Loading")
 SkipMovementChance = 50.0
 minTimerChangePosition = 5000.0
 maxTimerChangePosition = 8000.0
@@ -1302,8 +1307,9 @@ Mask = NodePath("../../Misc/GUI/Mask")
 charAway = NodePath("../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
 metadata/_custom_type_script = "uid://bfrimgj8ipm58"
 
-[node name="SalvageSonic" type="Node" parent="Characters" unique_id=110577390 node_paths=PackedStringArray("Position1", "Position2", "Position3", "Position4", "Position5", "Position6", "Position7", "monitor", "laugh", "dangersound", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation")]
+[node name="SalvageSonic" type="Node" parent="Characters" unique_id=110577390 node_paths=PackedStringArray("loading", "Position1", "Position2", "Position3", "Position4", "Position5", "Position6", "Position7", "monitor", "laugh", "dangersound", "flashlight", "officeRoomTravel", "Mask", "jumpscareAnimation")]
 script = ExtResource("7_xs04x")
+loading = NodePath("../../Misc/GUI/Loading")
 SkipMovementChance = 50.0
 minTimerChangePosition = 3000.0
 maxTimerChangePosition = 5000.0
@@ -1327,8 +1333,9 @@ Mask = NodePath("../../Misc/GUI/Mask")
 jumpscareAnimation = NodePath("../../Misc/GUI/Salvage_Jumpscare/AnimationPlayer")
 metadata/_custom_type_script = "uid://ju5j25cmysi6"
 
-[node name="NightmareCream" type="Node" parent="Characters" unique_id=828925855 node_paths=PackedStringArray("Position1", "Position2", "Position3", "ventSFX", "stepSfx", "ventLSFX", "shockSFX", "flashlight", "officeRoomTravel", "Mask", "RunGraphics", "jumpscareAnimation", "peekingAnimation", "timerStep")]
+[node name="NightmareCream" type="Node" parent="Characters" unique_id=828925855 node_paths=PackedStringArray("loading", "Position1", "Position2", "Position3", "ventSFX", "stepSfx", "ventLSFX", "shockSFX", "flashlight", "officeRoomTravel", "Mask", "RunGraphics", "jumpscareAnimation", "peekingAnimation", "timerStep")]
 script = ExtResource("8_83irj")
+loading = NodePath("../../Misc/GUI/Loading")
 SkipMovementChance = 50.0
 minTimerChangePosition = 5000.0
 maxTimerChangePosition = 8000.0
@@ -1350,8 +1357,9 @@ peekingAnimation = NodePath("../../Rooms/Right_Vent/ClipMask/Cream_1/AnimationPl
 timerStep = NodePath("../../Rooms/Desk/CreamDeskAnimation/Timer_Step")
 metadata/_custom_type_script = "uid://bdgylcg452v26"
 
-[node name="NightmareLuiginette" type="Node" parent="Characters" unique_id=652455852 node_paths=PackedStringArray("leftventSprite", "rightventSprite", "hallwaySprite", "ceilingSprite", "officeRoomTravel", "Mask", "LFlashlight", "RFlashlight", "FFlashlight", "CFlashlight", "shockSFX", "LVentSFX", "RVentSFX", "RunGraphics", "charAway", "jumpscareAnimation", "walkingSounds")]
+[node name="NightmareLuiginette" type="Node" parent="Characters" unique_id=652455852 node_paths=PackedStringArray("loading", "leftventSprite", "rightventSprite", "hallwaySprite", "ceilingSprite", "officeRoomTravel", "Mask", "LFlashlight", "RFlashlight", "FFlashlight", "CFlashlight", "shockSFX", "LVentSFX", "RVentSFX", "RunGraphics", "charAway", "jumpscareAnimation", "walkingSounds")]
 script = ExtResource("9_aflu3")
+loading = NodePath("../../Misc/GUI/Loading")
 SkipMovementChance = 25.0
 minTimerChangePosition = 4000.0
 maxTimerChangePosition = 5000.0
@@ -2398,6 +2406,9 @@ flat = true
 metadata/_edit_lock_ = true
 
 [node name="PauseMenu" parent="Misc/GUI" unique_id=203952170 instance=ExtResource("109_xnjdx")]
+visible = false
+
+[node name="Loading" parent="Misc/GUI" unique_id=220536216 instance=ExtResource("110_mehod")]
 visible = false
 
 [connection signal="pressed" from="Buttons/Poster_Button" to="Buttons/Poster_Button" method="_on_pressed"]

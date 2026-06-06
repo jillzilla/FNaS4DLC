@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="8_u872d"]
 [ext_resource type="Texture2D" uid="uid://dh1fe66vqsoog" path="res://assets/images/gameover/characters/luigigameover.png" id="9_8ih3l"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="9_ulb84"]
+[ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="16_hnuoa"]
 
 [sub_resource type="Animation" id="Animation_w7pm3"]
 resource_name = "flash"
@@ -211,9 +212,8 @@ text = "Try again"
 flat = true
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/TryAgainButton" unique_id=687884550 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="Control/TryAgainButton" unique_id=687884550]
 script = ExtResource("8_u872d")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="MenuButton" type="Button" parent="Control" unique_id=832784594]
@@ -237,9 +237,8 @@ text = "Back to menu"
 flat = true
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/MenuButton" unique_id=1812827193 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="Control/MenuButton" unique_id=1812827193]
 script = ExtResource("8_u872d")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Flash" type="ColorRect" parent="." unique_id=951649348]
@@ -279,6 +278,9 @@ metadata/_edit_group_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fade" unique_id=1251385615]
 libraries/ = SubResource("AnimationLibrary_ulb84")
+
+[node name="Loading" parent="." unique_id=220536216 instance=ExtResource("16_hnuoa")]
+visible = false
 
 [connection signal="pressed" from="Control/TryAgainButton" to="." method="_on_try_again_button_pressed"]
 [connection signal="pressed" from="Control/MenuButton" to="." method="_on_menu_button_pressed"]

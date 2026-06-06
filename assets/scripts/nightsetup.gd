@@ -1,5 +1,7 @@
 extends Node
 
+@onready var loading : Control = $Misc/GUI/Loading;
+
 #variables
 @export var characters : Array[Node];
 @export var charAway : AnimationPlayer;
@@ -65,8 +67,16 @@ func _on_clock_timer_timeout() -> void:
 		ClockTimer.start();
 		
 	elif ClockIteration >= 8:
-		get_tree().change_scene_to_file("res://assets/scenes/win_screen.tscn");
+		get_tree().paused = true;
+		loading._load_scene("res://assets/scenes/win_screen.tscn");
+		await loading.scene_loaded;
+		get_tree().paused = false;
+		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("SKIPNIGHT"):
-		get_tree().change_scene_to_file("res://assets/scenes/win_screen.tscn");
+		get_tree().paused = true;
+		loading._load_scene("res://assets/scenes/win_screen.tscn");
+		await loading.scene_loaded;
+		get_tree().paused = false;
+		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);

@@ -1,5 +1,7 @@
 class_name NightmareToyMario extends Node
 
+@export var loading : Control = null;
+
 #variables
 enum PupilsStates {DEFAULT,ON,OFF};
 var PupilsState : Variant = PupilsStates.DEFAULT;
@@ -125,7 +127,9 @@ func _process(delta: float) -> void:
 				jumpscareAnimation.play("jumpscare");
 				GlobalAudioManager.get_node("Mario_Jumpscare").play();
 				await jumpscareAnimation.animation_finished;
-				get_tree().change_scene_to_file("res://assets/scenes/gameover.tscn");
+				loading._load_scene("res://assets/scenes/gameover.tscn");
+				await loading.scene_loaded;
+				get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 		#special events
 		if currentPosition == 1: #peeking
 			if flashlight.is_on && !hasPeeked:

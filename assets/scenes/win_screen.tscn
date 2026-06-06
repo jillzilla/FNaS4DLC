@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://yo34tnm6bp1l" path="res://assets/scripts/win_screen.gd" id="1_qkwhx"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="2_w12c8"]
 [ext_resource type="AudioStream" uid="uid://ccnvc31bwjev0" path="res://assets/sounds/End_of_Night_Bells.ogg" id="3_qkwhx"]
+[ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="4_77wy8"]
 
 [sub_resource type="Animation" id="Animation_5eic3"]
 resource_name = "lowtaperfade"
@@ -203,6 +204,9 @@ metadata/_edit_lock_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1163781986]
 libraries/ = SubResource("AnimationLibrary_3levj")
 autoplay = &"win"
+
+[node name="Loading" parent="." unique_id=220536216 instance=ExtResource("4_77wy8")]
+visible = false
 
 [connection signal="timeout" from="Control/Clock_2/Timer" to="." method="_on_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

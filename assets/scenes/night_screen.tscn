@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://beqplr2jytell" path="res://assets/images/title/clouds.png" id="2_1wr7x"]
 [ext_resource type="AudioStream" uid="uid://bwjtc6lxv4l4h" path="res://assets/sounds/Night_Start_Sound.ogg" id="5_4opvj"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="5_x5pu0"]
+[ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="7_3oht6"]
 
 [sub_resource type="Animation" id="Animation_x5pu0"]
 resource_name = "flash"
@@ -147,6 +148,9 @@ autoplay = &"flash"
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="Loading" parent="." unique_id=220536216 instance=ExtResource("7_3oht6")]
+visible = false
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer_Start_Ambience" to="." method="_on_timer_start_ambience_timeout"]

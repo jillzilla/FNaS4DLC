@@ -1,5 +1,7 @@
 extends Node
 
+@onready var loading : Control = $Loading;
+
 #variables
 @export var night : Label;
 
@@ -23,4 +25,6 @@ func _ready() -> void:
 			get_node("GUIWorld/Text5").visible = true;
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://assets/scenes/gameplay.tscn");
+	loading._load_scene("res://assets/scenes/gameplay.tscn");
+	await loading.scene_loaded;
+	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dc5qw1qilmv8l" path="res://assets/scenes/confirmpopup.tscn" id="3_yf6nb"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="4_p3xyv"]
 [ext_resource type="PackedScene" uid="uid://ce1c76lv6sisp" path="res://assets/scenes/settings.tscn" id="6_vl0uo"]
+[ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="7_g5jdx"]
 
 [node name="PauseMenu" type="Control" unique_id=203952170 node_paths=PackedStringArray("confirm", "settings")]
 process_mode = 3
@@ -116,6 +117,10 @@ visible = false
 layout_mode = 1
 
 [node name="Settings" parent="." unique_id=1957756881 instance=ExtResource("6_vl0uo")]
+visible = false
+layout_mode = 1
+
+[node name="Loading" parent="." unique_id=220536216 instance=ExtResource("7_g5jdx")]
 visible = false
 layout_mode = 1
 

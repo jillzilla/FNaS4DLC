@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ci0aishlgjobj" path="res://assets/images/shadows.png" id="3_uiq8j"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="6_uiq8j"]
 [ext_resource type="Texture2D" uid="uid://bfuytoeejki6v" path="res://assets/images/endings/blindamy.png" id="7_l8e0o"]
+[ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="8_vvyrx"]
 
 [sub_resource type="Animation" id="Animation_l3hkr"]
 resource_name = "float"
@@ -438,6 +439,9 @@ offset_bottom = 12.439941
 theme_override_font_sizes/font_size = 24
 text = "Click to Continue."
 metadata/_edit_lock_ = true
+
+[node name="Loading" parent="." unique_id=220536216 instance=ExtResource("8_vvyrx")]
+visible = false
 
 [connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

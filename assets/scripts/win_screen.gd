@@ -1,5 +1,7 @@
 extends Node
 
+@onready var loading : Control = $Loading;
+
 #variables
 @export var clockanimation : AnimationPlayer;
 var nextscene : String;
@@ -42,4 +44,6 @@ func _on_timer_timeout() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "win":
-		get_tree().change_scene_to_file(nextscene);
+		loading._load_scene(nextscene);
+		await loading.scene_loaded;
+		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
