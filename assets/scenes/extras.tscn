@@ -76,12 +76,20 @@ action_mode = 0
 text = "Characters"
 metadata/_edit_lock_ = true
 
+[node name="ButtonComponent" type="Node" parent="Control/Buttons/Chars" unique_id=506401861]
+script = ExtResource("4_ufd8u")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
 [node name="Jumpscares" type="Button" parent="Control/Buttons" unique_id=1258408938]
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
 text = "Jumpscares"
 metadata/_edit_lock_ = true
+
+[node name="ButtonComponent2" type="Node" parent="Control/Buttons/Jumpscares" unique_id=768766036]
+script = ExtResource("4_ufd8u")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Gallery" type="Button" parent="Control/Buttons" unique_id=130261156]
 layout_mode = 2
@@ -90,12 +98,20 @@ action_mode = 0
 text = "Gallery"
 metadata/_edit_lock_ = true
 
+[node name="ButtonComponent3" type="Node" parent="Control/Buttons/Gallery" unique_id=117744520]
+script = ExtResource("4_ufd8u")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
 [node name="OldNights" type="Button" parent="Control/Buttons" unique_id=160714128]
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
 text = "Night 1-4"
 metadata/_edit_lock_ = true
+
+[node name="ButtonComponent4" type="Node" parent="Control/Buttons/OldNights" unique_id=1480716104]
+script = ExtResource("4_ufd8u")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Survival" type="Button" parent="Control/Buttons" unique_id=1980773218]
 layout_mode = 2
@@ -104,6 +120,10 @@ action_mode = 0
 text = "Endless Mode"
 metadata/_edit_lock_ = true
 
+[node name="ButtonComponent5" type="Node" parent="Control/Buttons/Survival" unique_id=727855595]
+script = ExtResource("4_ufd8u")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
 [node name="Minigame" type="Button" parent="Control/Buttons" unique_id=1393019658]
 layout_mode = 2
 focus_mode = 0
@@ -111,27 +131,7 @@ action_mode = 0
 text = "Mini Game"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/Buttons" unique_id=506401861]
-script = ExtResource("4_ufd8u")
-metadata/_custom_type_script = "uid://djncuditdkxsm"
-
-[node name="ButtonComponent2" type="Node" parent="Control/Buttons" unique_id=768766036]
-script = ExtResource("4_ufd8u")
-metadata/_custom_type_script = "uid://djncuditdkxsm"
-
-[node name="ButtonComponent3" type="Node" parent="Control/Buttons" unique_id=117744520]
-script = ExtResource("4_ufd8u")
-metadata/_custom_type_script = "uid://djncuditdkxsm"
-
-[node name="ButtonComponent4" type="Node" parent="Control/Buttons" unique_id=1480716104]
-script = ExtResource("4_ufd8u")
-metadata/_custom_type_script = "uid://djncuditdkxsm"
-
-[node name="ButtonComponent5" type="Node" parent="Control/Buttons" unique_id=727855595]
-script = ExtResource("4_ufd8u")
-metadata/_custom_type_script = "uid://djncuditdkxsm"
-
-[node name="ButtonComponent6" type="Node" parent="Control/Buttons" unique_id=603824594]
+[node name="ButtonComponent6" type="Node" parent="Control/Buttons/Minigame" unique_id=603824594]
 script = ExtResource("4_ufd8u")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 

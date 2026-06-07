@@ -21,7 +21,7 @@ func _ready() -> void:
 	confirm.connect("confirmaction", _confirmed_action);
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("PAUSE") && !self.visible && main.PlayerAlive:
+	if event.is_action_pressed("PAUSE") && !self.visible && main.PlayerAlive && !main.isloadingsom:
 		get_tree().paused = true;
 		self.show();
 

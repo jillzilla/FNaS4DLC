@@ -12,9 +12,11 @@ metadata/_edit_lock_ = true
 
 [node name="ON" type="AudioStreamPlayer" parent="." unique_id=1547648974]
 stream = ExtResource("3_qaov2")
+bus = &"Sounds"
 
 [node name="OFF" type="AudioStreamPlayer" parent="." unique_id=1200610104]
 stream = ExtResource("4_p4mkm")
+bus = &"Sounds"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1455460981]
 position = Vector2(640, -360)

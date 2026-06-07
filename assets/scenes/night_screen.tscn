@@ -143,6 +143,7 @@ libraries/ = SubResource("AnimationLibrary_4upot")
 autoplay = &"flash"
 
 [node name="StartSFX" type="AudioStreamPlayer" parent="." unique_id=452882404]
+bus = &"Sounds"
 
 [node name="Timer_Start_Ambience" type="Timer" parent="." unique_id=701185149]
 wait_time = 2.0

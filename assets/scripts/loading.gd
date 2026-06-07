@@ -11,6 +11,7 @@ var scene_to_be_loaded : PackedScene = null;
 #functions
 func _load_scene(scene: String) -> void:
 	if scene:
+		main.isloadingsom = true;
 		self.show();
 		scene_path = scene;
 		ResourceLoader.load_threaded_request(scene_path);
@@ -25,3 +26,4 @@ func _process(_delta: float) -> void:
 			scene_to_be_loaded = ResourceLoader.load_threaded_get(scene_path);
 			scene_loading = false;
 			scene_loaded.emit();
+			main.isloadingsom = false;

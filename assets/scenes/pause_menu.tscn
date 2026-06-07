@@ -109,7 +109,7 @@ layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 48
 action_mode = 0
-text = "Settings"
+text = "Options"
 metadata/_edit_lock_ = true
 
 [node name="ButtonComponent" type="Node" parent="ThingsContainer/Settings" unique_id=65818995]

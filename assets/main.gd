@@ -20,6 +20,8 @@ var fpsTarget : float = 60.0;
 
 var nightcounter : int = 0;
 
+var isloadingsom : bool = false;
+
 #data to save/load
 var introscenewatched : bool = false;
 var night_to_play : int = 1; #campaign only
