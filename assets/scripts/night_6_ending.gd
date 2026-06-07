@@ -1,6 +1,7 @@
 extends Node
 
 @onready var loading : Control = $Loading;
+@onready var click : AudioStreamPlayer = $Click;
 
 @onready var animation_camera : AnimationPlayer = $Camera2D/AnimationPlayer;
 
@@ -18,6 +19,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		pass;
 
 func _on_erase_pressed() -> void:
+	click.play();
 	$Erase.queue_free();
 	$Label.queue_free();
 	$Flash/AnimationPlayer.play("flash");

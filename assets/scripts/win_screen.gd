@@ -15,8 +15,10 @@ func _ready() -> void:
 	
 	if main.nightcounter < 5 && main.night_to_play < 5:
 		nextscene = "res://assets/scenes/night_screen.tscn";
+	elif main.nightcounter < 5 && main.night_to_play >= 5:
+		nextscene = "res://assets/scenes/title.tscn";
 		
-	elif main.nightcounter == 5:
+	if main.nightcounter == 5:
 		if !main.night5ending:
 			main.night5ending = true;
 		nextscene = "res://assets/scenes/night_5_ending.tscn";

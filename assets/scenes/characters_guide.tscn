@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://jgggjl2u0cme" path="res://assets/images/customnight/ntmIcon.png" id="3_0g3e7"]
 [ext_resource type="Texture2D" uid="uid://dr5qd50iwn27o" path="res://assets/images/customnight/ntyIcon.png" id="4_1ckbt"]
 [ext_resource type="Texture2D" uid="uid://bu5njtw0hox3e" path="res://assets/images/customnight/ntIcon.png" id="5_6jbbm"]
+[ext_resource type="Script" uid="uid://dv4to68xsdaxk" path="res://assets/scripts/guide_button.gd" id="5_r7gln"]
 [ext_resource type="Texture2D" uid="uid://b87hkg5il4a7g" path="res://assets/images/customnight/btIcon.png" id="6_hx5ro"]
 [ext_resource type="Texture2D" uid="uid://brm3rxpdf2tmx" path="res://assets/images/customnight/salvageicon.png" id="7_xw2wa"]
 [ext_resource type="Texture2D" uid="uid://dldnoqy2fwxv6" path="res://assets/images/customnight/creamicon.png" id="8_q7hlf"]
@@ -56,7 +57,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1353984329]
+[node name="Label" type="RichTextLabel" parent="." unique_id=214917251]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -70,9 +71,12 @@ offset_bottom = 64.07999
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_cp28i")
-theme_override_font_sizes/font_size = 24
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
 text = "Nightmare Toy Sonic:
-He'll come through both vents. When he gets close, hide under the desk."
+He can come from either side, so when he's about to attack, hide under the desk."
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -100,79 +104,110 @@ layout_mode = 2
 columns = 5
 metadata/_edit_group_ = true
 
-[node name="TSonic" type="TextureButton" parent="Buttons/GridContainer" unique_id=779188765]
+[node name="TSonic" type="TextureButton" parent="Buttons/GridContainer" unique_id=779188765 node_paths=PackedStringArray("label")]
 layout_mode = 2
 focus_mode = 0
+theme = ExtResource("2_cp28i")
 action_mode = 0
 texture_normal = ExtResource("2_b6shy")
+script = ExtResource("5_r7gln")
+label = NodePath("../../../Label")
+text = "Nightmare Toy Sonic:[br]He can come from either side, so when he's about to attack, hide under the desk."
 metadata/_edit_lock_ = true
 
-[node name="TMario" type="TextureButton" parent="Buttons/GridContainer" unique_id=2071670936]
+[node name="TMario" type="TextureButton" parent="Buttons/GridContainer" unique_id=2071670936 node_paths=PackedStringArray("label")]
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
 texture_normal = ExtResource("3_0g3e7")
+script = ExtResource("5_r7gln")
+label = NodePath("../../../Label")
+text = "Nightmare Toy Mario:[br]He'll come from the right vent. Just as he's about to attack, make sure to watch his eyes—if they're off, hide under the desk; if they're on, put on your mask."
 metadata/_edit_lock_ = true
 
-[node name="TYoshi" type="TextureButton" parent="Buttons/GridContainer" unique_id=258930033]
+[node name="TYoshi" type="TextureButton" parent="Buttons/GridContainer" unique_id=258930033 node_paths=PackedStringArray("label")]
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
 texture_normal = ExtResource("4_1ckbt")
+script = ExtResource("5_r7gln")
+label = NodePath("../../../Label")
+text = "Nightmare Toy Yoshi:[br]She'll be coming from the left side; put on your mask just as she's about to attack."
 metadata/_edit_lock_ = true
 
-[node name="NTaingle" type="TextureButton" parent="Buttons/GridContainer" unique_id=581248771]
+[node name="NTaingle" type="TextureButton" parent="Buttons/GridContainer" unique_id=581248771 node_paths=PackedStringArray("label")]
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
 texture_normal = ExtResource("5_6jbbm")
+script = ExtResource("5_r7gln")
+label = NodePath("../../../Label")
+text = "Nightmare Taingle:[br]When you hear the sound of her radio, look up at the ceiling and shine your flashlight on her until she disappears."
 metadata/_edit_lock_ = true
 
-[node name="BT" type="TextureButton" parent="Buttons/GridContainer" unique_id=889591768]
+[node name="BT" type="TextureButton" parent="Buttons/GridContainer" unique_id=889591768 node_paths=PackedStringArray("label")]
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
 texture_normal = ExtResource("6_hx5ro")
+script = ExtResource("5_r7gln")
+label = NodePath("../../../Label")
+text = "Nightmare Balloon Toad:[br]He'll come from the left side; when you hear him laugh, go over there and keep turning the flashlight on and off until he leaves."
 metadata/_edit_lock_ = true
 
-[node name="SS" type="TextureButton" parent="Buttons/GridContainer" unique_id=784860126]
+[node name="SS" type="TextureButton" parent="Buttons/GridContainer" unique_id=784860126 node_paths=PackedStringArray("label")]
 visible = false
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
 texture_normal = ExtResource("7_xw2wa")
+script = ExtResource("5_r7gln")
+label = NodePath("../../../Label")
+text = "Nightmare Salvage Sonic:[br]He'll come down the hallway; you'll be able to see where he is on the monitor on the desk. As soon as you hear him laugh, go to the hallway and shine the flashlight at him until he leaves."
 metadata/_edit_lock_ = true
 
-[node name="Cream" type="TextureButton" parent="Buttons/GridContainer" unique_id=561280350]
+[node name="Cream" type="TextureButton" parent="Buttons/GridContainer" unique_id=561280350 node_paths=PackedStringArray("label")]
 visible = false
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
 texture_normal = ExtResource("8_q7hlf")
+script = ExtResource("5_r7gln")
+label = NodePath("../../../Label")
+text = "Nightmare Cream:[br]She'll come in from the right side; just as she's about to attack, hide under the desk."
 metadata/_edit_lock_ = true
 
-[node name="Knuckles" type="TextureButton" parent="Buttons/GridContainer" unique_id=2128031237]
+[node name="Knuckles" type="TextureButton" parent="Buttons/GridContainer" unique_id=2128031237 node_paths=PackedStringArray("label")]
 visible = false
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
 texture_normal = ExtResource("9_pwbw8")
+script = ExtResource("5_r7gln")
+label = NodePath("../../../Label")
+text = "Nightmare Knuckles:[br]He'll appear in the hallway; when you hear heavy footsteps, go over there and shine your flashlight at him until he leaves."
 metadata/_edit_lock_ = true
 
-[node name="TailsDoll" type="TextureButton" parent="Buttons/GridContainer" unique_id=85695461]
+[node name="TailsDoll" type="TextureButton" parent="Buttons/GridContainer" unique_id=85695461 node_paths=PackedStringArray("label")]
 visible = false
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
 texture_normal = ExtResource("10_cp28i")
+script = ExtResource("5_r7gln")
+label = NodePath("../../../Label")
+text = "Tails Doll:[br]When it appears, it will slowly obscure your vision; guess where it is, and it will go away."
 metadata/_edit_lock_ = true
 
-[node name="Luiginette" type="TextureButton" parent="Buttons/GridContainer" unique_id=119002444]
+[node name="Luiginette" type="TextureButton" parent="Buttons/GridContainer" unique_id=119002444 node_paths=PackedStringArray("label")]
 visible = false
 layout_mode = 2
 focus_mode = 0
 action_mode = 0
 texture_normal = ExtResource("9_kritx")
+script = ExtResource("5_r7gln")
+label = NodePath("../../../Label")
+text = "Nightmare Luiginette:[br]If it comes from the two vents, use the mask; if it comes from the hallway, hide under the desk; and if it reaches the ceiling, shine the flashlight at it until it goes away."
 metadata/_edit_lock_ = true
 
 [node name="Back" type="Button" parent="." unique_id=568936385]
