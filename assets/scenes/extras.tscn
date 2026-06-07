@@ -13,6 +13,7 @@ metadata/_edit_vertical_guides_ = [16.0, 320.0]
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1892507387]
 stream = ExtResource("2_fj8mu")
 autoplay = true
+bus = &"Music"
 
 [node name="Control" type="Control" parent="." unique_id=1706568724]
 layout_mode = 3

@@ -34,6 +34,8 @@ func _set_ai_levels() -> void:
 			main.aiLevelsAsArrays[5] = 0;
 			main.aiLevelsAsArrays[6] = 0;
 			main.aiLevelsAsArrays[7] = 0;
+			main.aiLevelsAsArrays[8] = 0;
+			main.aiLevelsAsArrays[9] = 0;
 		2:
 			main.aiLevelsAsArrays[0] = 5;
 			main.aiLevelsAsArrays[1] = 8;
@@ -43,6 +45,8 @@ func _set_ai_levels() -> void:
 			main.aiLevelsAsArrays[5] = 0;
 			main.aiLevelsAsArrays[6] = 0;
 			main.aiLevelsAsArrays[7] = 0;
+			main.aiLevelsAsArrays[8] = 0;
+			main.aiLevelsAsArrays[9] = 0;
 		3:
 			main.aiLevelsAsArrays[0] = 8;
 			main.aiLevelsAsArrays[1] = 12;
@@ -52,6 +56,8 @@ func _set_ai_levels() -> void:
 			main.aiLevelsAsArrays[5] = 5;
 			main.aiLevelsAsArrays[6] = 0;
 			main.aiLevelsAsArrays[7] = 0;
+			main.aiLevelsAsArrays[8] = 0;
+			main.aiLevelsAsArrays[9] = 0;
 		4:
 			main.aiLevelsAsArrays[0] = 12;
 			main.aiLevelsAsArrays[1] = 15;
@@ -61,6 +67,8 @@ func _set_ai_levels() -> void:
 			main.aiLevelsAsArrays[5] = 8;
 			main.aiLevelsAsArrays[6] = 5;
 			main.aiLevelsAsArrays[7] = 0;
+			main.aiLevelsAsArrays[8] = 0;
+			main.aiLevelsAsArrays[9] = 0;
 		5:
 			main.aiLevelsAsArrays[0] = 15;
 			main.aiLevelsAsArrays[1] = 15;
@@ -70,6 +78,8 @@ func _set_ai_levels() -> void:
 			main.aiLevelsAsArrays[5] = 15;
 			main.aiLevelsAsArrays[6] = 15;
 			main.aiLevelsAsArrays[7] = 0;
+			main.aiLevelsAsArrays[8] = 0;
+			main.aiLevelsAsArrays[9] = 0;
 		6:
 			main.aiLevelsAsArrays[0] = 17;
 			main.aiLevelsAsArrays[1] = 17;
@@ -79,6 +89,8 @@ func _set_ai_levels() -> void:
 			main.aiLevelsAsArrays[5] = 0;
 			main.aiLevelsAsArrays[6] = 0;
 			main.aiLevelsAsArrays[7] = 21;
+			main.aiLevelsAsArrays[8] = 0;
+			main.aiLevelsAsArrays[9] = 0;
 
 func _on_timer_start_ambience_timeout() -> void:
 	GlobalAudioManager.get_node("Ambience").play();

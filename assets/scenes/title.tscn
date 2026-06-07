@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bap70d4fgowjy" path="res://assets/images/title/Star_Title_0.png" id="7_s21ad"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="7_t2yek"]
 [ext_resource type="PackedScene" uid="uid://dwwq031lbo8e1" path="res://assets/scenes/credits.tscn" id="10_4l0ss"]
+[ext_resource type="PackedScene" uid="uid://db82feqkd35s8" path="res://assets/scenes/characters_guide.tscn" id="11_8er8c"]
 [ext_resource type="PackedScene" uid="uid://ce1c76lv6sisp" path="res://assets/scenes/settings.tscn" id="11_mb7to"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="12_p4c3g"]
 
@@ -194,6 +195,18 @@ tracks/12/keys = {
 "update": 1,
 "values": [2, 0]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("UI/Control/ButtonsContainer/Guide:mouse_filter")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 5.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qxslq"]
 _data = {
@@ -201,7 +214,7 @@ _data = {
 &"Intro": SubResource("Animation_w0xr6")
 }
 
-[node name="Title" type="Node" unique_id=574844742 node_paths=PackedStringArray("animations", "buttonscontainer", "nightcounter", "star1", "star2", "star3", "night6button", "customnightbutton", "extrasbutton", "credits", "settings")]
+[node name="Title" type="Node" unique_id=574844742 node_paths=PackedStringArray("animations", "buttonscontainer", "nightcounter", "star1", "star2", "star3", "night6button", "customnightbutton", "extrasbutton", "guidebutton", "credits", "settings", "guide")]
 script = ExtResource("1_f2nfk")
 animations = NodePath("AnimationPlayer")
 buttonscontainer = NodePath("UI/Control/ButtonsContainer")
@@ -212,13 +225,17 @@ star3 = NodePath("UI/Control/Star_3")
 night6button = NodePath("UI/Control/ButtonsContainer/MainButtons/Night6")
 customnightbutton = NodePath("UI/Control/ButtonsContainer/MainButtons/CustomNight")
 extrasbutton = NodePath("UI/Control/ButtonsContainer/MainButtons/Extras")
+guidebutton = NodePath("UI/Control/ButtonsContainer/Guide")
 credits = NodePath("UI/Credits")
 settings = NodePath("UI/Settings")
+guide = NodePath("UI/Almanac")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1912542665]
 stream = ExtResource("2_p4c3g")
+bus = &"Music"
 
 [node name="Sound" type="AudioStreamPlayer" parent="." unique_id=267184815]
+bus = &"Sounds"
 
 [node name="Sky" type="Sprite2D" parent="." unique_id=410600032]
 position = Vector2(1040, 360)
@@ -434,6 +451,26 @@ metadata/_edit_lock_ = true
 script = ExtResource("7_t2yek")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
+[node name="Guide" type="Button" parent="UI/Control/ButtonsContainer" unique_id=517151696]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11800001
+anchor_top = 0.05
+anchor_right = 0.11800001
+anchor_bottom = 0.05
+offset_left = -135.04001
+offset_top = -20.0
+offset_right = 134.95999
+offset_bottom = 20.0
+mouse_filter = 2
+text = "Character Guide"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="UI/Control/ButtonsContainer/Guide" unique_id=1415299311]
+script = ExtResource("7_t2yek")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
 [node name="Version" type="Label" parent="UI/Control" unique_id=1090667348]
 layout_mode = 1
 anchors_preset = -1
@@ -446,7 +483,7 @@ offset_top = -16.680054
 offset_right = 68.2
 offset_bottom = 16.319946
 theme_override_font_sizes/font_size = 32
-text = "EXCLUSIVE DEMO"
+text = "Ver 1.0.0.0"
 vertical_alignment = 2
 metadata/_edit_lock_ = true
 
@@ -462,6 +499,9 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
+
+[node name="Almanac" parent="UI" unique_id=269587860 instance=ExtResource("11_8er8c")]
+visible = false
 
 [node name="Settings" parent="UI" unique_id=1957756881 instance=ExtResource("11_mb7to")]
 visible = false
@@ -484,3 +524,4 @@ autoplay = &"Intro"
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/MainButtons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="UI/Control/ButtonsContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="UI/Control/ButtonsContainer/Guide" to="." method="_on_guide_pressed"]

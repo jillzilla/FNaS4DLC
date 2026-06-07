@@ -263,6 +263,7 @@ autostart = true
 [node name="Static_Sound" type="AudioStreamPlayer" parent="." unique_id=691554381]
 stream = ExtResource("7_ojgh7")
 autoplay = true
+bus = &"Sounds"
 
 [node name="Fade" type="ColorRect" parent="." unique_id=2055479209]
 modulate = Color(1, 1, 1, 0)

@@ -5,10 +5,11 @@
 [ext_resource type="Theme" uid="uid://dv17usjw8ic3f" path="res://assets/themes/fancy.tres" id="2_yf6nb"]
 [ext_resource type="PackedScene" uid="uid://dc5qw1qilmv8l" path="res://assets/scenes/confirmpopup.tscn" id="3_yf6nb"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="4_p3xyv"]
+[ext_resource type="PackedScene" uid="uid://db82feqkd35s8" path="res://assets/scenes/characters_guide.tscn" id="6_bur7s"]
 [ext_resource type="PackedScene" uid="uid://ce1c76lv6sisp" path="res://assets/scenes/settings.tscn" id="6_vl0uo"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="7_g5jdx"]
 
-[node name="PauseMenu" type="Control" unique_id=203952170 node_paths=PackedStringArray("confirm", "settings")]
+[node name="PauseMenu" type="Control" unique_id=203952170 node_paths=PackedStringArray("guidebutton", "confirm", "settings", "guide")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -18,8 +19,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_uo1om")
 script = ExtResource("2_yaadq")
+guidebutton = NodePath("ThingsContainer/Guide")
 confirm = NodePath("ConfirmPopUp")
 settings = NodePath("Settings")
+guide = NodePath("Almanac")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -76,6 +79,19 @@ metadata/_edit_lock_ = true
 script = ExtResource("4_p3xyv")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
+[node name="Guide" type="Button" parent="ThingsContainer" unique_id=1978207788]
+visible = false
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Guide"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="ThingsContainer/Guide" unique_id=1802384857]
+script = ExtResource("4_p3xyv")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
 [node name="Restart" type="Button" parent="ThingsContainer" unique_id=179542290]
 layout_mode = 2
 focus_mode = 0
@@ -116,6 +132,10 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 visible = false
 layout_mode = 1
 
+[node name="Almanac" parent="." unique_id=269587860 instance=ExtResource("6_bur7s")]
+visible = false
+layout_mode = 1
+
 [node name="Settings" parent="." unique_id=1957756881 instance=ExtResource("6_vl0uo")]
 visible = false
 layout_mode = 1
@@ -125,6 +145,7 @@ visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="ThingsContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ThingsContainer/Guide" to="." method="_on_guide_pressed"]
 [connection signal="pressed" from="ThingsContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="ThingsContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="ThingsContainer/Quit" to="." method="_on_quit_pressed"]

@@ -16,15 +16,20 @@ extends Node
 @export var night6button : Button;
 @export var customnightbutton : Button;
 @export var extrasbutton : Button;
+@export var guidebutton : Button;
 
 @export var credits : Control;
 
 @export var settings : Control;
+@export var guide : Control;
 
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Title Screen");
 	DiscordManager._update_state("");
+	
+	if main.night_to_play > 1:
+		guidebutton.visible = true;
 	
 	if main.night5ending:
 		night6button.visible = true;
@@ -82,3 +87,6 @@ func _on_quit_pressed() -> void:
 
 func _on_credits_pressed() -> void:
 	credits.visible = true;
+
+func _on_guide_pressed() -> void:
+	guide.show();

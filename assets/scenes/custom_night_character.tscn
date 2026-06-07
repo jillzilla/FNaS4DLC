@@ -52,9 +52,8 @@ action_mode = 0
 text = "<<"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="AiLevel/Left" unique_id=89822781 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="AiLevel/Left" unique_id=89822781]
 script = ExtResource("3_xcfi6")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Counter" type="Label" parent="AiLevel" unique_id=1512247604]
@@ -74,9 +73,8 @@ action_mode = 0
 text = ">>"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="AiLevel/Right" unique_id=1279515181 node_paths=PackedStringArray("parent")]
+[node name="ButtonComponent" type="Node" parent="AiLevel/Right" unique_id=1279515181]
 script = ExtResource("3_xcfi6")
-parent = NodePath("..")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Timer_Change_AI_Level" type="Timer" parent="." unique_id=1860983513]
