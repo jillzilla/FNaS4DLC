@@ -643,7 +643,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(658.6, 1070.6), Vector2(656.80005, 720.8), Vector2(647.99994, 687.99994)]
+"values": [Vector2(658.6, 1070.6), Vector2(664, 544), Vector2(664, 639)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -655,7 +655,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(690.6, 894.6), Vector2(688, 479.99997), Vector2(575.99994, 311.99997)]
+"values": [Vector2(690.6, 894.6), Vector2(704, 264), Vector2(424.00006, 280.00003)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -667,7 +667,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.6, 0.6), Vector2(0.8, 0.8), Vector2(1.2, 1.2)]
+"values": [Vector2(0.6, 0.6), Vector2(1, 1), Vector2(1.5, 1.5)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -691,7 +691,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, -0.3403392]
+"values": [0.0, 0.0, -0.87266463]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -703,7 +703,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, -0.16929694]
+"values": [0.0, 0.0, -0.34906584]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dsnmp"]
@@ -883,7 +883,7 @@ tracks/0/path = NodePath("Head:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.4, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(-218, 751.00006), Vector2(529, 423), Vector2(651, 350)]
@@ -895,7 +895,7 @@ tracks/1/path = NodePath("Head:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.4, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.3874631]
@@ -907,7 +907,7 @@ tracks/2/path = NodePath("Head:scale")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.4, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0.6, 0.6), Vector2(0.805, 0.805), Vector2(1.185, 1.185)]
@@ -919,7 +919,7 @@ tracks/3/path = NodePath("Body:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.4, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(-216, 981), Vector2(526, 734), Vector2(537.00006, 788)]
@@ -931,7 +931,7 @@ tracks/4/path = NodePath("Body:rotation")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.4, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.23212878]
@@ -943,7 +943,7 @@ tracks/5/path = NodePath("Body:scale")
 tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.4, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0.6, 0.6), Vector2(0.805, 0.805), Vector2(1.385, 1.385)]
@@ -1109,7 +1109,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_mehod"]
 resource_name = "jumpscare"
-length = 0.5
+length = 0.7
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1118,7 +1118,7 @@ tracks/0/path = NodePath("Boi:modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
