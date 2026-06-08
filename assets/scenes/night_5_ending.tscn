@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dxlcjuwbmf65s" path="res://assets/scripts/night_5_ending.gd" id="1_p5hyo"]
 [ext_resource type="Texture2D" uid="uid://bad4t0b4vfmx2" path="res://assets/images/endings/night5end.png" id="1_un4g4"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="2_3oxpp"]
+[ext_resource type="AudioStream" uid="uid://es63bfqmnqh8" path="res://assets/sounds/jingle1.ogg" id="3_nsb21"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="5_nr7in"]
 [ext_resource type="AudioStream" uid="uid://cajs6ay5m71q6" path="res://assets/sounds/night5ambience.ogg" id="5_nsb21"]
 
@@ -70,6 +71,21 @@ tracks/4/keys = {
 "update": 1,
 "values": [2, 0]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Jingle")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_nsb21")
+}],
+"times": PackedFloat32Array(7)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nr7in"]
 _data = {
@@ -160,8 +176,12 @@ visible = false
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1826350734]
 stream = ExtResource("5_nsb21")
-volume_db = 15.0
+volume_db = 10.0
 autoplay = true
+bus = &"Sounds"
+
+[node name="Jingle" type="AudioStreamPlayer" parent="." unique_id=2002448678]
+volume_db = 10.0
 bus = &"Sounds"
 
 [connection signal="pressed" from="GUI/Button" to="." method="_on_button_pressed"]

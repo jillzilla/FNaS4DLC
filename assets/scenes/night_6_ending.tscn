@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://5g8qiat2k60f" path="res://assets/images/endings/nette.png" id="1_f6kle"]
 [ext_resource type="Texture2D" uid="uid://4kbv5i4x13sw" path="res://assets/images/endings/amylooking.png" id="2_d876i"]
 [ext_resource type="Texture2D" uid="uid://ci0aishlgjobj" path="res://assets/images/shadows.png" id="3_uiq8j"]
-[ext_resource type="AudioStream" uid="uid://cwa412fbp2bt" path="res://assets/sounds/night6ambience.ogg" id="5_vvyrx"]
+[ext_resource type="AudioStream" uid="uid://dffaxcqnkfvpq" path="res://assets/sounds/night6heartbeatreal.ogg" id="5_qkqjb"]
+[ext_resource type="AudioStream" uid="uid://drjovkp0l2x74" path="res://assets/sounds/jingle2.ogg" id="6_l40iu"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="6_uiq8j"]
 [ext_resource type="Texture2D" uid="uid://bfuytoeejki6v" path="res://assets/images/endings/blindamy.png" id="7_l8e0o"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="8_vvyrx"]
@@ -195,7 +196,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_xh03l"]
 resource_name = "flash"
-length = 10.0
+length = 12.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -257,6 +258,21 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Jigle")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_l40iu")
+}],
+"times": PackedFloat32Array(10)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dbl5i"]
 _data = {
@@ -299,8 +315,13 @@ texture = ExtResource("3_uiq8j")
 metadata/_edit_lock_ = true
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1529232687]
-stream = ExtResource("5_vvyrx")
+stream = ExtResource("5_qkqjb")
+volume_db = 10.0
 autoplay = true
+bus = &"Sounds"
+
+[node name="Jigle" type="AudioStreamPlayer" parent="." unique_id=894357236]
+volume_db = 10.0
 bus = &"Sounds"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1409248935]
@@ -312,6 +333,7 @@ metadata/_edit_lock_ = true
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_l40iu")
 autoplay = &"movement"
+speed_scale = 0.8
 
 [node name="Fade" type="ColorRect" parent="." unique_id=1605984692]
 anchors_preset = 15
@@ -449,6 +471,7 @@ visible = false
 [node name="Click" type="AudioStreamPlayer" parent="." unique_id=257162073]
 stream = ExtResource("9_qkqjb")
 volume_db = 20.0
+pitch_scale = 0.7
 bus = &"Sounds"
 
 [connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
