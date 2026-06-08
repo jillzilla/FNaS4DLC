@@ -41,6 +41,19 @@ var jumpscares_volume : float = 1;
 
 var fps_counter : bool = false;
 
+var cn_challenge_1 : bool = false;
+var cn_challenge_2 : bool = false;
+var cn_challenge_3 : bool = false;
+var cn_challenge_4 : bool = false;
+var cn_challenge_5 : bool = false;
+var cn_challenge_6 : bool = false;
+var cn_challenge_7 : bool = false;
+var cn_challenge_8 : bool = false;
+var cn_challenge_9 : bool = false;
+var cn_challenge_10 : bool = false;
+var cn_challenge_11 : bool = false;
+var cn_challenge_12 : bool = false;
+
 #player status
 var killedBy : String = "";
 var PlayerPosition : String = "";
@@ -163,6 +176,18 @@ func _save() -> Dictionary:
 		"SOUNDSVOLUME" : sounds_volume,
 		"JUMPSCAREVOLUME" : jumpscares_volume,
 		"FPSCOUNTER" : fps_counter,
+		"CN1" : cn_challenge_1,
+		"CN2" : cn_challenge_2,
+		"CN3" : cn_challenge_3,
+		"CN4" : cn_challenge_4,
+		"CN5" : cn_challenge_5,
+		"CN6" : cn_challenge_6,
+		"CN7" : cn_challenge_7,
+		"CN8" : cn_challenge_8,
+		"CN9" : cn_challenge_9,
+		"CN10" : cn_challenge_10,
+		"CN11" : cn_challenge_11,
+		"CN12" : cn_challenge_12,
 	};
 	return saveDict;
 
@@ -203,5 +228,18 @@ func _load_game() -> void:
 			jumpscares_volume = data["JUMPSCAREVOLUME"];
 			
 			fps_counter = data["FPSCOUNTER"];
+			
+			cn_challenge_1 = data["CN1"];
+			cn_challenge_2 = data["CN2"];
+			cn_challenge_3 = data["CN3"];
+			cn_challenge_4 = data["CN4"];
+			cn_challenge_5 = data["CN5"];
+			cn_challenge_6 = data["CN6"];
+			cn_challenge_7 = data["CN7"];
+			cn_challenge_8 = data["CN8"];
+			cn_challenge_9 = data["CN9"];
+			cn_challenge_10 = data["CN10"];
+			cn_challenge_11 = data["CN11"];
+			cn_challenge_12 = data["CN12"];
 			
 			print(data);
