@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://emssrvtwm15u" path="res://assets/sounds/Selection_Sound.ogg" id="3_shhgd"]
 [ext_resource type="AudioStream" uid="uid://dxsbn0hl6opus" path="res://assets/sounds/Jumpscare_Noise.ogg" id="5_wb4mn"]
 [ext_resource type="AudioStream" uid="uid://cntxk7ywn0r1x" path="res://assets/sounds/Jumpscaref2.ogg" id="6_kw54n"]
+[ext_resource type="AudioStream" uid="uid://cck7hco13mrd8" path="res://assets/sounds/fnas1jumpscare.ogg" id="7_8h5ir"]
 [ext_resource type="AudioStream" uid="uid://btceqj05iece1" path="res://assets/music/GameplayAmbienceTheme.ogg" id="7_kw54n"]
 
 [node name="Global_Audio_Manager" type="Node" unique_id=147038882]
@@ -41,6 +42,12 @@ bus = &"Jumpscare"
 stream = ExtResource("6_kw54n")
 volume_db = -5.0
 pitch_scale = 0.8
+bus = &"Jumpscare"
+
+[node name="Knuckles_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=36720542]
+stream = ExtResource("7_8h5ir")
+volume_db = -5.0
+pitch_scale = 0.75
 bus = &"Jumpscare"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=500643790]

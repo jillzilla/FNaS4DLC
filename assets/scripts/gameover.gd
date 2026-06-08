@@ -61,3 +61,6 @@ func _handle_gameover_art() -> void:
 		"Nightmare Luiginette":
 			get_node("Overlays/POV").visible = true;
 			get_node("Characters/Luigi").visible = true;
+		"Nightmare Knuckles":
+			get_node("AmyDeath").visible = true;
+			get_node("Characters/Knuckles").visible = true;
