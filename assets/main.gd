@@ -70,6 +70,7 @@ var nlnDeskWalking : bool = false;
 
 #characters ai level
 const AIDEFAULTLEVEL : int = 5;
+const AIMAXVALUE : int = 25;
 
 var NightmareToySonicAILevel : int = AIDEFAULTLEVEL;
 var NightmareToyMarioAILevel : int = AIDEFAULTLEVEL;
