@@ -128,7 +128,9 @@
 [ext_resource type="Texture2D" uid="uid://dfik7kmfqua8" path="res://assets/images/gameplay/characters/cream/leftleg.png" id="92_osqdk"]
 [ext_resource type="Texture2D" uid="uid://csmnv6hrgwyex" path="res://assets/images/gameplay/characters/cream/rightleg.png" id="93_eysab"]
 [ext_resource type="Texture2D" uid="uid://cmpjt858jqbqr" path="res://assets/images/gameplay/characters/cream/skirt.png" id="94_6ronx"]
+[ext_resource type="Texture2D" uid="uid://de4ltkfn1p68m" path="res://assets/images/gameplay/characters/nknux/knux_peek.png" id="100_rcbs0"]
 [ext_resource type="Texture2D" uid="uid://62tvdpjyiadl" path="res://assets/images/gameplay/characters/nluigi/luiginettejumpsc.png" id="102_66s47"]
+[ext_resource type="Texture2D" uid="uid://clttnsecl72dv" path="res://assets/images/gameplay/characters/nknux/knux_danger.png" id="103_51y45"]
 [ext_resource type="PackedScene" uid="uid://bw8fe2whqjhf0" path="res://assets/scenes/pause_menu.tscn" id="109_xnjdx"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="110_mehod"]
 [ext_resource type="Texture2D" uid="uid://ekianjpmn03d" path="res://assets/images/gameplay/characters/tailsdoll/tailsdollfilter.png" id="124_pou5s"]
@@ -2198,6 +2200,12 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("81_vca6n")
 metadata/_edit_lock_ = true
 
+[node name="Knuckles1" type="Sprite2D" parent="Rooms/Hallway" unique_id=826589495]
+visible = false
+position = Vector2(67, -382)
+texture = ExtResource("100_rcbs0")
+metadata/_edit_lock_ = true
+
 [node name="Salvage6" type="Sprite2D" parent="Rooms/Hallway" unique_id=645673741]
 visible = false
 position = Vector2(-103, -403)
@@ -2210,9 +2218,16 @@ position = Vector2(-3, -296)
 texture = ExtResource("63_q42g3")
 metadata/_edit_lock_ = true
 
+[node name="Knuckles2" type="Sprite2D" parent="Rooms/Hallway" unique_id=1201906613]
+visible = false
+position = Vector2(200, -318)
+texture = ExtResource("103_51y45")
+metadata/_edit_lock_ = true
+
 [node name="NLuigiHallway" type="Sprite2D" parent="Rooms/Hallway" unique_id=1755099800]
 visible = false
-position = Vector2(-24, -366)
+position = Vector2(-16, -350)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("77_dcs2j")
 metadata/_edit_lock_ = true
 
