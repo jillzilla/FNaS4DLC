@@ -46,7 +46,7 @@ func _get_rid_of_tails(sprite : Sprite2D) -> void:
 		tween_tailsdoll.kill();
 	tween_tailsdoll = create_tween();
 	tween_tailsdoll.tween_property(sprite,"modulate:a",0,0.5);
-	if tailsdoll.effect.is_playing():
+	if tailsdoll.effect.is_playing() && tailsdoll.effect.current_animation_position >= 0.0:
 		tailsdoll.effect.speed_scale = 1.5;
 		tailsdoll.effect.play_backwards("ATTACK");
 	tween_tailsdoll.connect("finished", _tails_stops_disappearing);

@@ -10,16 +10,14 @@ signal moved;
 
 var timerChangePosition : float = 0;
 
-@export var SkipMovementChance : float;
-
 @export var minTimerChangePosition : float;
 @export var maxTimerChangePosition : float;
 
-@export var counterExposureLevel : int = 0;
-@export var counterExposure : float = 0;
+var counterExposureLevel : int = main.COUNTEREXPOSURELEVELDEFAULT;
+var counterExposure : float = main.COUNTEREXPOSUREDEFAULT;
 
-@export var jumpscareExposureLevel : int = 0;
-@export var jumpscareExposure : float = 0;
+var jumpscareExposureLevel : int = main.JUMPSCAREEXPOSURELEVELDEFAULT;
+var jumpscareExposure : float = main.JUMPSCAREEXPOSUREDEFAULT;
 
 @export_group("Sprites")
 @export var Position1 : Sprite2D;
@@ -69,11 +67,10 @@ func _process(delta: float) -> void:
 				if timerChangePosition <= 0:
 					timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
 					counterExposure = ce;
-					if main.random_chance(SkipMovementChance):
-						currentPosition += 1;
-						_handle_positions();
-						if currentPosition < positionsAvailable:
-							moved.emit();
+					currentPosition += 1;
+					_handle_positions();
+					if currentPosition < positionsAvailable:
+						moved.emit();
 		#counter
 		if currentPosition >= positionsAvailable - 1 && flashlight.is_on && main.PlayerPosition == "Hallway":
 			counterExposure -= NewDelta * counterExposureLevel;

@@ -16,11 +16,11 @@ var timerChangePosition : float = 0;
 @export var minTimerChangePosition : float;
 @export var maxTimerChangePosition : float;
 
-@export var counterExposureLevel : int = 0;
-@export var counterExposure : float = 0;
+var counterExposureLevel : int = main.COUNTEREXPOSURELEVELDEFAULT;
+var counterExposure : float = main.COUNTEREXPOSUREDEFAULT;
 
-@export var jumpscareExposureLevel : int = 0;
-@export var jumpscareExposure : float = 0;
+var jumpscareExposureLevel : int = main.JUMPSCAREEXPOSURELEVELDEFAULT;
+var jumpscareExposure : float = main.JUMPSCAREEXPOSUREDEFAULT;
 
 @export_group("Sprites")
 @export var leftventSprite : Sprite2D;

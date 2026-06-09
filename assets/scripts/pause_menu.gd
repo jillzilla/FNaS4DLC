@@ -43,18 +43,19 @@ func _on_quit_pressed() -> void:
 	quit = true;
 
 func _confirmed_action() -> void:
-	get_tree().paused = false;
 	GlobalAudioManager.get_node("Ambience").stop();
 	
 	if reload:
 		loading._load_scene("res://assets/scenes/night_screen.tscn");
 		await loading.scene_loaded;
+		get_tree().paused = false;
 		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
 	elif quit:
 		main._reset_ai();
 		loading._load_scene("res://assets/scenes/title.tscn");
 		await loading.scene_loaded;
+		get_tree().paused = false;
 		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
 func _on_guide_pressed() -> void:

@@ -8,16 +8,14 @@ class_name NightmareTaingle extends Node
 
 var timerChangePosition : float = 0;
 
-@export var SkipMovementChance : float;
-
 @export var minTimerChangePosition : float;
 @export var maxTimerChangePosition : float;
 
-@export var counterExposureLevel : int = 0;
-@export var counterExposure : float = 0;
+var counterExposureLevel : int = main.COUNTEREXPOSURELEVELDEFAULT;
+var counterExposure : float = main.COUNTEREXPOSUREDEFAULT;
 
-@export var jumpscareExposureLevel : int = 0;
-@export var jumpscareExposure : float = 0;
+var jumpscareExposureLevel : int = main.JUMPSCAREEXPOSURELEVELDEFAULT;
+var jumpscareExposure : float = main.JUMPSCAREEXPOSUREDEFAULT;
 
 @export_group("Sprites")
 @export var Position1 : Sprite2D;
@@ -60,10 +58,9 @@ func _process(delta: float) -> void:
 				timerChangePosition -= NewDelta * main.NightmareTaingleAILevel;
 				if timerChangePosition <= 0:
 					timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
-					if main.random_chance(SkipMovementChance):
-						counterExposure = ce;
-						currentPosition += 1;
-						_handle_positions();
+					counterExposure = ce;
+					currentPosition += 1;
+					_handle_positions();
 		#counter
 		if currentPosition > 0 && flashlight.is_on && main.PlayerPosition == "Ceiling":
 			counterExposure -= NewDelta * counterExposureLevel;

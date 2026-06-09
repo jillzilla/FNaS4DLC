@@ -11,16 +11,14 @@ var PupilsState : Variant = PupilsStates.DEFAULT;
 
 var timerChangePosition : float = 0;
 
-@export var SkipMovementChance : float;
-
 @export var minTimerChangePosition : float;
 @export var maxTimerChangePosition : float;
 
-@export var counterExposureLevel : int = 0;
-@export var counterExposure : float = 0;
+var counterExposureLevel : int = main.COUNTEREXPOSURELEVELDEFAULT;
+var counterExposure : float = main.COUNTEREXPOSUREDEFAULT;
 
-@export var jumpscareExposureLevel : int = 0;
-@export var jumpscareExposure : float = 0;
+var jumpscareExposureLevel : int = main.JUMPSCAREEXPOSURELEVELDEFAULT;
+var jumpscareExposure : float = main.JUMPSCAREEXPOSUREDEFAULT;
 
 @export_group("Sprites")
 @export var Position1 : Sprite2D;
@@ -75,10 +73,9 @@ func _process(delta: float) -> void:
 			timerChangePosition -= NewDelta * main.NightmareToyMarioAILevel;
 			if timerChangePosition <= 0:
 				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
-				if main.random_chance(SkipMovementChance):
-					ventSFX.play();
-					currentPosition += 1;
-					_handle_positions();
+				ventSFX.play();
+				currentPosition += 1;
+				_handle_positions();
 		#counter
 		if currentPosition >= positionsAvailable && hasShocked && PupilsState == PupilsStates.ON && main.PlayerPosition == "Right_Vent" && Mask.isUsingMask:
 			counterExposure -= NewDelta * counterExposureLevel;

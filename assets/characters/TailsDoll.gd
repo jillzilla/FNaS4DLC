@@ -41,7 +41,7 @@ func _process(_delta: float) -> void:
 	
 func _movement_opportunity_timeout() -> void:
 	if main.PlayerAlive:
-		if randf() * main.AIMAXVALUE + 5 <= main.TailsDollAiLevel:
+		if main.TailsDollAiLevel >= main.AIMAXVALUE && randf() * main.AIMAXVALUE + 5 <= main.TailsDollAiLevel || main.TailsDollAiLevel < main.AIMAXVALUE && randf() * main.AIMAXVALUE <= main.TailsDollAiLevel:
 			_switch_path();
 			currentPosition += 1;
 			_handle_positions();

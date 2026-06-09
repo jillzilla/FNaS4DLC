@@ -11,13 +11,11 @@ var Direction : Variant = Directions.NONE;
 
 var timerChangePosition : float = 0;
 
-@export var SkipMovementChance : float;
-
 @export var minTimerChangePosition : float;
 @export var maxTimerChangePosition : float;
 
-@export var jumpscareExposureLevel : int = 0;
-@export var jumpscareExposure : float = 0;
+var jumpscareExposureLevel : int = main.JUMPSCAREEXPOSURELEVELDEFAULT;
+var jumpscareExposure : float = main.JUMPSCAREEXPOSUREDEFAULT;
 
 @export_group("Sprites")
 @export var LPosition1 : Sprite2D;
@@ -68,13 +66,12 @@ func _process(delta: float) -> void:
 			timerChangePosition -= NewDelta * main.NightmareToySonicAILevel;
 			if timerChangePosition <= 0:
 				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
-				if main.random_chance(SkipMovementChance):
-					if Direction == Directions.LEFT:
-						LVentSFX.play();
-					else:
-						RVentSFX.play();
-					currentPosition += 1;
-					_handle_positions();
+				if Direction == Directions.LEFT:
+					LVentSFX.play();
+				else:
+					RVentSFX.play();
+				currentPosition += 1;
+				_handle_positions();
 		#counter
 		if currentPosition >= positionsAvailable && main.PlayerPosition == "Desk" && hasShocked && !main.ntsDeskRunning && main.PlayerNotMoving:
 			main.ntsDeskRunning = true;

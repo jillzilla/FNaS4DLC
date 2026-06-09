@@ -6,16 +6,14 @@ class_name NightmareBT extends Node
 
 var timerChangePosition : float = 0;
 
-@export var SkipMovementChance : float;
-
 @export var minTimerChangePosition : float;
 @export var maxTimerChangePosition : float;
 
 var flashCounter : int = 0;
 const flashNeeded : int = 5;
 
-@export var EnteringExposureLevel : int = 0;
-@export var EnteringExposure : float = 0;
+var EnteringExposureLevel : int = main.JUMPSCAREEXPOSURELEVELDEFAULT;
+var EnteringExposure : float = main.JUMPSCAREEXPOSUREDEFAULT;
 
 @export_group("Sprites")
 @export var Position1 : Sprite2D;
@@ -55,11 +53,10 @@ func _process(delta: float) -> void:
 			timerChangePosition -= NewDelta * main.NightmareBTAILevel;
 			if timerChangePosition <= 0:
 				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
-				if main.random_chance(SkipMovementChance):
-					BT_MoveSFXs.pick_random().play();
-					ventSFX.play();
-					currentPosition += 1;
-					_handle_positions();
+				BT_MoveSFXs.pick_random().play();
+				ventSFX.play();
+				currentPosition += 1;
+				_handle_positions();
 		#counter
 		if flashCounter >= flashNeeded:
 			flashCounter = 0;
