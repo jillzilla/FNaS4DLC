@@ -81,24 +81,24 @@ func _travel() -> void:
 		fadeTransition.play_backwards("fade");
 		
 		if get_parent().name == "Office":
-			if main.random_chance(0.1):
+			if main.random_chance(0.05):
 				shadow_mario.modulate.a = 1;
 				var tween : Tween = create_tween();
 				tween.tween_property(shadow_mario,"modulate:a",0,0.5).set_trans(Tween.TRANS_CUBIC);
 
 		elif get_parent().name == "Hallway":
-			if main.random_chance(0.5):
+			if main.random_chance(0.1):
 				big.visible = true;
 			else:
 				big.visible = false;
 			
-			if main.random_chance(0.2):
+			if main.random_chance(0.05):
 				golden.visible = true;
 			else:
 				golden.visible = false;
 				
 		elif get_parent().name == "Left_Vent" || get_parent().name == "Right_Vent":
-			if main.random_chance(0.8):
+			if main.random_chance(0.1):
 				toadette.visible = true;
 			else:
 				toadette.visible = false;

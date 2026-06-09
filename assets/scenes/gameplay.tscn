@@ -26,9 +26,9 @@
 [ext_resource type="Script" uid="uid://bdgylcg452v26" path="res://assets/characters/NightmareCream.gd" id="8_83irj"]
 [ext_resource type="Texture2D" uid="uid://dd56tc7irhp2r" path="res://assets/images/gameplay/rooms/flashlight/vent_on.png" id="8_iuexx"]
 [ext_resource type="Texture2D" uid="uid://bdlmu7wbqans7" path="res://assets/images/gameplay/characters/taingle/taingle_2.png" id="8_kgr1o"]
-[ext_resource type="Script" uid="uid://d1ep2smha42dq" path="res://assets/characters/NightmareLuiginette.gd" id="9_aflu3"]
 [ext_resource type="Texture2D" uid="uid://0f8oes41ekud" path="res://assets/images/gameplay/rooms/flashlight/vent_off.png" id="9_b4idp"]
 [ext_resource type="Texture2D" uid="uid://cx1vyvqdy6l10" path="res://assets/images/gameplay/characters/taingle/taingle_3.png" id="9_rybgg"]
+[ext_resource type="Script" uid="uid://b4687m7qux11" path="res://assets/characters/NightmareLuiginetteV2.gd" id="9_uacgo"]
 [ext_resource type="Texture2D" uid="uid://nb6tg6pvsdjj" path="res://assets/images/gameplay/characters/taingle/taingle_4.png" id="10_hlo8c"]
 [ext_resource type="Script" uid="uid://c16ks5dnxbyq2" path="res://assets/characters/TailsDoll.gd" id="10_ypboq"]
 [ext_resource type="Texture2D" uid="uid://c8rfx7wqcgir4" path="res://assets/images/gameplay/rooms/flashlight/hallway_on.png" id="12_b68su"]
@@ -59,11 +59,15 @@
 [ext_resource type="Texture2D" uid="uid://bxsxgs6u0n1e4" path="res://assets/images/gameplay/custom_night_rewards/paperpalsonic.png" id="23_764v7"]
 [ext_resource type="Texture2D" uid="uid://cekw4v8bu55sj" path="res://assets/images/gameplay/nightmaretoyshadowmario.png" id="23_d1e08"]
 [ext_resource type="Texture2D" uid="uid://dd4oklmi170cu" path="res://assets/images/gameplay/characters/yoshi/yoshi_3.png" id="23_ejjiw"]
+[ext_resource type="AudioStream" uid="uid://bdwpdnhkkpkjj" path="res://assets/sounds/Luigi_Laugh_1.ogg" id="23_uacgo"]
+[ext_resource type="AudioStream" uid="uid://cf4qxwny435xk" path="res://assets/sounds/Luigi_Laugh_2.ogg" id="24_dpljo"]
 [ext_resource type="Texture2D" uid="uid://dl4tm1qej5cbv" path="res://assets/images/gameplay/custom_night_rewards/paperpalsmario.png" id="24_p5adm"]
 [ext_resource type="Texture2D" uid="uid://cwnw6finkb365" path="res://assets/images/gameplay/characters/tsonic/toysonic1.png" id="24_vx1u2"]
 [ext_resource type="AudioStream" uid="uid://b31mag886u1jf" path="res://assets/sounds/Desk_Step.ogg" id="25_1mjni"]
+[ext_resource type="AudioStream" uid="uid://de3mpqv5by8qg" path="res://assets/sounds/Luigi_Laugh_3.ogg" id="25_q5ac0"]
 [ext_resource type="Texture2D" uid="uid://dagj5ybgry1hp" path="res://assets/images/gameplay/characters/taingle/taingle_jumpscare.png" id="26_3txkv"]
 [ext_resource type="Texture2D" uid="uid://bb308cdl2cx4i" path="res://assets/images/gameplay/characters/tmario/tmariorleftleg.png" id="26_e3d00"]
+[ext_resource type="AudioStream" uid="uid://dptku8ykt4cmd" path="res://assets/sounds/luigijump.ogg" id="26_q5ac0"]
 [ext_resource type="Texture2D" uid="uid://u170nc4742i1" path="res://assets/images/gameplay/characters/tsonic/toysonic2.png" id="27_mmgny"]
 [ext_resource type="Texture2D" uid="uid://lx6pb7qibjaj" path="res://assets/images/gameplay/characters/tmario/tmariopelvis.png" id="27_w0wri"]
 [ext_resource type="Texture2D" uid="uid://7bjybixcf0l3" path="res://assets/images/gameplay/characters/tmario/tmariorightleg.png" id="28_bt1i2"]
@@ -136,6 +140,7 @@
 [ext_resource type="Texture2D" uid="uid://ekianjpmn03d" path="res://assets/images/gameplay/characters/tailsdoll/tailsdollfilter.png" id="124_pou5s"]
 [ext_resource type="Texture2D" uid="uid://cies55v38hwky" path="res://assets/images/gameplay/characters/nknux/knux_jumpscare_body.png" id="126_8dojq"]
 [ext_resource type="Texture2D" uid="uid://556xpc32u8gc" path="res://assets/images/gameplay/characters/nknux/doomfist.png" id="127_cykhs"]
+[ext_resource type="AudioStream" uid="uid://bd7c4pnibh3u8" path="res://assets/sounds/LuigiWalking.ogg" id="134_dpljo"]
 
 [sub_resource type="Animation" id="Animation_wrac7"]
 resource_name = "WalkCycle"
@@ -1325,7 +1330,7 @@ _data = {
 process_mode = 1
 script = ExtResource("1_hlo8c")
 custom_night_rewards = [NodePath("Rooms/Office/TSonicPlush"), NodePath("Rooms/Office/ToyMarioPlush"), NodePath("Rooms/Office/NightmareYoshiPlush"), NodePath("Rooms/Office/TainglePlush"), NodePath("Rooms/Office/ToadPlush"), NodePath("Rooms/Office/SalvagePlush"), NodePath("Rooms/Office/CreamPlush"), NodePath("Rooms/Office/KnucklePlush"), NodePath("Rooms/Office/TailsDollPlush"), NodePath("Rooms/Office/PaperpalsSonic"), NodePath("Rooms/Office/PaperpalsMario"), NodePath("Rooms/Office/LuiginettePlush")]
-characters = [NodePath("Characters/NightmareToySonic"), NodePath("Characters/NightmareToyMario"), NodePath("Characters/NightmareToyYoshi"), NodePath("Characters/NightmareTaingle"), NodePath("Characters/NightmareBT"), NodePath("Characters/SalvageSonic"), NodePath("Characters/NightmareCream"), NodePath("Characters/NightmareLuiginette"), NodePath("Characters/TailsDoll")]
+characters = [NodePath("Characters/NightmareToySonic"), NodePath("Characters/NightmareToyMario"), NodePath("Characters/NightmareToyYoshi"), NodePath("Characters/NightmareTaingle"), NodePath("Characters/NightmareBT"), NodePath("Characters/SalvageSonic"), NodePath("Characters/NightmareCream"), NodePath("Characters/NightmareLuiginetteV2"), NodePath("Characters/TailsDoll")]
 charAway = NodePath("Misc/GUI/CharacterAwayFade/AnimationPlayer")
 shockSFX = NodePath("Sounds/Shock_SFX")
 ventleaveSFX = NodePath("Sounds/Vent_Leave_SFX")
@@ -1481,30 +1486,30 @@ peekingAnimation = NodePath("../../Rooms/Right_Vent/ClipMask/Cream_1/AnimationPl
 timerStep = NodePath("../../Rooms/Desk/CreamDeskAnimation/Timer_Step")
 metadata/_custom_type_script = "uid://bdgylcg452v26"
 
-[node name="NightmareLuiginette" type="Node" parent="Characters" unique_id=652455852 node_paths=PackedStringArray("loading", "leftventSprite", "rightventSprite", "hallwaySprite", "ceilingSprite", "officeRoomTravel", "Mask", "LFlashlight", "RFlashlight", "FFlashlight", "CFlashlight", "shockSFX", "LVentSFX", "RVentSFX", "RunGraphics", "charAway", "jumpscareAnimation", "walkingSounds")]
-script = ExtResource("9_aflu3")
-loading = NodePath("../../Misc/GUI/Loading")
-SkipMovementChance = 35.0
-minTimerChangePosition = 4000.0
-maxTimerChangePosition = 6000.0
-leftventSprite = NodePath("../../Rooms/Left_Vent/NLuigiVent")
-rightventSprite = NodePath("../../Rooms/Right_Vent/NLuigiVent")
-hallwaySprite = NodePath("../../Rooms/Hallway/NLuigiHallway")
-ceilingSprite = NodePath("../../Rooms/Ceiling/ClipMask/NLuigiCeiling")
-officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
-Mask = NodePath("../../Misc/GUI/Mask")
-LFlashlight = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
-RFlashlight = NodePath("../../Rooms/Right_Vent/FlashLightComponent")
-FFlashlight = NodePath("../../Rooms/Hallway/FlashLightComponent")
-CFlashlight = NodePath("../../Rooms/Ceiling/FlashLightComponent")
-shockSFX = NodePath("../../Sounds/Shock_SFX")
-LVentSFX = NodePath("../../Misc/GUI/2DAudios/LeftVentSound")
-RVentSFX = NodePath("../../Misc/GUI/2DAudios/RightVentSound")
-RunGraphics = NodePath("../../Rooms/Desk/LuiginetteDeskAnimation")
-charAway = NodePath("../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
-jumpscareAnimation = NodePath("../../Misc/GUI/Luiginette_Jumpscare/AnimationPlayer")
-walkingSounds = [NodePath("../../Sounds/Walking_SFX_1"), NodePath("../../Sounds/Walking_SFX_2"), NodePath("../../Sounds/Walking_SFX_3")]
-metadata/_custom_type_script = "uid://d1ep2smha42dq"
+[node name="NightmareLuiginetteV2" type="Node" parent="Characters" unique_id=953454704 node_paths=PackedStringArray("movement_opportunity_timer", "walk_left", "walk_right", "walk_middle", "laughs", "left_vent", "right_vent", "jump_sound", "get_close_sound", "left_sprite", "right_sprite", "front_sprite", "up_sprite", "flashlight_left", "flashlight_right", "flashlight_up", "flashlight_front")]
+script = ExtResource("9_uacgo")
+movement_opportunity_timer = NodePath("Timer")
+walk_left = NodePath("../../Misc/GUI/2DAudios/Luigi_Walk_Left")
+walk_right = NodePath("../../Misc/GUI/2DAudios/Luigi_Walk_Middle")
+walk_middle = NodePath("../../Misc/GUI/2DAudios/Luigi_Walk_Right")
+laughs = [NodePath("../../Sounds/LuigiLaugh1"), NodePath("../../Sounds/LuigiLaugh2"), NodePath("../../Sounds/LuigiLaugh3")]
+left_vent = NodePath("../../Misc/GUI/2DAudios/LeftVentSound")
+right_vent = NodePath("../../Misc/GUI/2DAudios/RightVentSound")
+jump_sound = NodePath("../../Sounds/LuigiJump")
+get_close_sound = [NodePath("../../Sounds/Walking_SFX_1"), NodePath("../../Sounds/Walking_SFX_2"), NodePath("../../Sounds/Walking_SFX_3")]
+left_sprite = NodePath("../../Rooms/Left_Vent/NLuigiVent")
+right_sprite = NodePath("../../Rooms/Right_Vent/NLuigiVent")
+front_sprite = NodePath("../../Rooms/Hallway/NLuigiHallway")
+up_sprite = NodePath("../../Rooms/Ceiling/ClipMask/NLuigiCeiling")
+flashlight_left = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
+flashlight_right = NodePath("../../Rooms/Right_Vent/FlashLightComponent")
+flashlight_up = NodePath("../../Rooms/Ceiling/FlashLightComponent")
+flashlight_front = NodePath("../../Rooms/Hallway/FlashLightComponent")
+metadata/_custom_type_script = "uid://b4687m7qux11"
+
+[node name="Timer" type="Timer" parent="Characters/NightmareLuiginetteV2" unique_id=1542145609]
+wait_time = 3.0
+one_shot = true
 
 [node name="TailsDoll" type="Node" parent="Characters" unique_id=1580197024 node_paths=PackedStringArray("movement_opportunity_timer", "position_left", "position_right", "position_up", "eyes_left", "eyes_right", "eyes_up", "effect", "LFlashlight", "RFlashlight", "CFlashlight")]
 script = ExtResource("10_ypboq")
@@ -1579,6 +1584,22 @@ bus = &"Sounds"
 [node name="Walking_SFX_3" type="AudioStreamPlayer" parent="Sounds" unique_id=72479642]
 stream = ExtResource("21_66s47")
 volume_db = 15.0
+bus = &"Sounds"
+
+[node name="LuigiLaugh1" type="AudioStreamPlayer" parent="Sounds" unique_id=1899890115]
+stream = ExtResource("23_uacgo")
+bus = &"Sounds"
+
+[node name="LuigiLaugh2" type="AudioStreamPlayer" parent="Sounds" unique_id=594292158]
+stream = ExtResource("24_dpljo")
+bus = &"Sounds"
+
+[node name="LuigiLaugh3" type="AudioStreamPlayer" parent="Sounds" unique_id=1159683751]
+stream = ExtResource("25_q5ac0")
+bus = &"Sounds"
+
+[node name="LuigiJump" type="AudioStreamPlayer" parent="Sounds" unique_id=674372701]
+stream = ExtResource("26_q5ac0")
 bus = &"Sounds"
 
 [node name="Rooms" type="Node" parent="." unique_id=1063837608]
@@ -2682,6 +2703,26 @@ speed_scale = 0.05
 
 [node name="2DAudios" type="Node2D" parent="Misc/GUI" unique_id=60922802]
 position = Vector2(640, 360)
+metadata/_edit_lock_ = true
+
+[node name="Luigi_Walk_Left" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=697889683]
+position = Vector2(-640, 0)
+stream = ExtResource("134_dpljo")
+panning_strength = 2.0
+bus = &"Sounds"
+metadata/_edit_lock_ = true
+
+[node name="Luigi_Walk_Middle" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1502927627]
+stream = ExtResource("134_dpljo")
+panning_strength = 2.0
+bus = &"Sounds"
+metadata/_edit_lock_ = true
+
+[node name="Luigi_Walk_Right" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1840515319]
+position = Vector2(640, 0)
+stream = ExtResource("134_dpljo")
+panning_strength = 2.0
+bus = &"Sounds"
 metadata/_edit_lock_ = true
 
 [node name="BT_Move_1" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1995508303]

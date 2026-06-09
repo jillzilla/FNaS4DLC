@@ -10,7 +10,7 @@
 
 [node name="CustomNight" type="Node" unique_id=1823592247 node_paths=PackedStringArray("characters")]
 script = ExtResource("1_8gqf7")
-characters = [NodePath("Control/Characters/Sonic"), NodePath("Control/Characters/Mario"), NodePath("Control/Characters/Yoshi"), NodePath("Control/Characters/Taingle"), NodePath("Control/Characters/BT"), NodePath("Control/Characters/Salvage"), NodePath("Control/Characters/Cream"), NodePath("Control/Characters/Luigi"), NodePath("Control/Characters/Knuckles"), NodePath("Control/Characters/TailsDoll")]
+characters = [NodePath("Control/Characters/Sonic"), NodePath("Control/Characters/Mario"), NodePath("Control/Characters/Yoshi"), NodePath("Control/Characters/Taingle"), NodePath("Control/Characters/BT"), NodePath("Control/Characters/Salvage"), NodePath("Control/Characters/Cream"), NodePath("Control/Characters/Luigi"), NodePath("Control/Characters/TailsDoll"), NodePath("Control/Characters/Knuckles")]
 metadata/_edit_horizontal_guides_ = [3566.0]
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=60568684]
@@ -148,7 +148,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 charName = "Nightmare Knuckles"
 iconPath = "res://assets/images/customnight/knuxicon.png"
-charID = 8
+charID = 9
 metadata/_edit_lock_ = true
 
 [node name="TailsDoll" parent="Control/Characters" unique_id=566825593 instance=ExtResource("4_k8lu8")]
@@ -157,7 +157,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 charName = "Tails Doll"
 iconPath = "res://assets/images/customnight/tdollicon.png"
-charID = 9
+charID = 8
 metadata/_edit_lock_ = true
 
 [node name="Luigi" parent="Control/Characters" unique_id=1756538997 instance=ExtResource("4_k8lu8")]
@@ -167,7 +167,6 @@ size_flags_vertical = 6
 charName = "Nightmare Luiginette"
 iconPath = "res://assets/images/customnight/luigiicon.png"
 charID = 7
-maxlevel = 12
 metadata/_edit_lock_ = true
 
 [node name="Challenges" type="HBoxContainer" parent="Control" unique_id=1362725539]

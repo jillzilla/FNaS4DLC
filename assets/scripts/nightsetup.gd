@@ -71,6 +71,7 @@ func _on_clock_timer_timeout() -> void:
 						if main.aiLevelsAsArrays[i] > main.AIMAXVALUE:
 							main.aiLevelsAsArrays[i] = main.AIMAXVALUE;
 			main._update_ai_levels();
+
 		ClockCounter.text = ClockOutputs[ClockIteration];
 		DiscordManager._update_state(ClockOutputs[ClockIteration]);
 		ClockTimer.start();
