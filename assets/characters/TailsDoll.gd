@@ -59,16 +59,17 @@ func _switch_path() -> void:
 			Direction = Directions.CEILING;
 
 func _handle_positions() -> void:
-	match(Direction):
-		Directions.LEFT:
-			if LFlashlight.is_on:
-				LFlashlight._turn_off();
-		Directions.RIGHT:
-			if RFlashlight.is_on:
-				RFlashlight._turn_off();
-		Directions.CEILING:
-			if CFlashlight.is_on:
-				CFlashlight._turn_off();
+	if currentPosition == 1:
+		match(Direction):
+			Directions.LEFT:
+				if LFlashlight.is_on:
+					LFlashlight._turn_off();
+			Directions.RIGHT:
+				if RFlashlight.is_on:
+					RFlashlight._turn_off();
+			Directions.CEILING:
+				if CFlashlight.is_on:
+					CFlashlight._turn_off();
 	
 	match(currentPosition):
 		0:
@@ -83,9 +84,6 @@ func _handle_positions() -> void:
 			eyes_right.visible = false;
 			eyes_up.visible = false;
 		1:
-			effect.speed_scale = 0.05;
-			effect.play("ATTACK");
-			
 			match(Direction):
 				Directions.LEFT:
 					position_left.visible = true;
@@ -96,3 +94,6 @@ func _handle_positions() -> void:
 				Directions.CEILING:
 					position_up.visible = true;
 					eyes_up.visible = true;
+			
+			effect.speed_scale = 0.05;
+			effect.play("ATTACK");
