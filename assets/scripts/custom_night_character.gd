@@ -14,6 +14,8 @@ const requiredHoldTime : float = 0.15;
 var HoverLeft : bool = false;
 var HoverRight : bool = false;
 
+@export var binary : bool = false;
+
 #functions
 func _ready() -> void:
 	if !charName:
@@ -66,10 +68,16 @@ func _set_max() -> void:
 func _update_ai_counter() -> void:
 	if main.aiLevelsAsArrays[charID] > minlevel:
 		modulate.a = 1;
-		get_node("AiLevel/Counter").text = str(main.aiLevelsAsArrays[charID]).pad_zeros(2);
+		if !binary:
+			get_node("AiLevel/Counter").text = str(main.aiLevelsAsArrays[charID]).pad_zeros(2);
+		else:
+			get_node("AiLevel/Counter").text = "ON";
 	else:
 		modulate.a = 0.2;
-		get_node("AiLevel/Counter").text = "X";
+		if !binary:
+			get_node("AiLevel/Counter").text = "X";
+		else:
+			get_node("AiLevel/Counter").text = "OFF";
 		
 	if main.aiLevelsAsArrays[charID] == maxlevel:
 		modulate.r = 1;

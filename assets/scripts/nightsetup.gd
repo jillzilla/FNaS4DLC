@@ -7,6 +7,9 @@ extends Node
 @export var characters : Array[Node];
 @export var charAway : AnimationPlayer;
 
+@export var entrance_luiginette_sound : AudioStreamPlayer;
+@export var clock_falling_animation : AnimationPlayer;
+
 @export var shockSFX : AudioStreamPlayer;
 @export var ventleaveSFX : AudioStreamPlayer;
 @export var leftventSFX : AudioStreamPlayer2D;
@@ -34,6 +37,7 @@ func _ready() -> void:
 	main.ncDeskWalking = false;
 	main.nlnDeskWalking = false;
 	main.isBTInOffice = false;
+	main.didrarescreenhappened = false;
 	
 	var cndata : Array[bool] = [main.cn_challenge_1,main.cn_challenge_2,main.cn_challenge_3,main.cn_challenge_4,main.cn_challenge_5,main.cn_challenge_6,main.cn_challenge_7,main.cn_challenge_8,main.cn_challenge_9,main.cn_challenge_10,main.cn_challenge_11,main.cn_challenge_12];
 	
@@ -56,22 +60,22 @@ func _on_clock_timer_timeout() -> void:
 					characters[i].currentPosition = 0;
 					main._update_ai_levels();
 					characters[i]._handle_positions();
-			main.aiLevelsAsArrays[7] = 30;
+			entrance_luiginette_sound.play();
+			clock_falling_animation.play("fall");
+			characters[7].movement_opportunity_timer.start();
 			main._update_ai_levels();
 			
 	if ClockIteration < 8:
 		if main.nightcounter != 7:
 			for i in range(characters.size()):
-				if main.aiLevelsAsArrays[i] != 0:
+				if main.aiLevelsAsArrays[i] != 0 && i != 7:
 					if main.random_chance(50):
 						main.aiLevelsAsArrays[i] += 1;
 					else:
 						main.aiLevelsAsArrays[i] += 2;
-					if i != 7:
-						if main.aiLevelsAsArrays[i] > main.AIMAXVALUE:
-							main.aiLevelsAsArrays[i] = main.AIMAXVALUE;
+					if main.aiLevelsAsArrays[i] >= main.AIMAXVALUE:
+						main.aiLevelsAsArrays[i] = main.AIMAXVALUE;
 			main._update_ai_levels();
-
 		ClockCounter.text = ClockOutputs[ClockIteration];
 		DiscordManager._update_state(ClockOutputs[ClockIteration]);
 		ClockTimer.start();

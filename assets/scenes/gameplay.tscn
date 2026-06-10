@@ -31,6 +31,7 @@
 [ext_resource type="Script" uid="uid://b4687m7qux11" path="res://assets/characters/NightmareLuiginetteV2.gd" id="9_uacgo"]
 [ext_resource type="Texture2D" uid="uid://nb6tg6pvsdjj" path="res://assets/images/gameplay/characters/taingle/taingle_4.png" id="10_hlo8c"]
 [ext_resource type="Script" uid="uid://c16ks5dnxbyq2" path="res://assets/characters/TailsDoll.gd" id="10_ypboq"]
+[ext_resource type="AudioStream" uid="uid://dfkiq2ar0fecj" path="res://assets/sounds/taingleradionew.ogg" id="11_q5ac0"]
 [ext_resource type="Texture2D" uid="uid://c8rfx7wqcgir4" path="res://assets/images/gameplay/rooms/flashlight/hallway_on.png" id="12_b68su"]
 [ext_resource type="AudioStream" uid="uid://u1rbqt7xqt8" path="res://assets/sounds/Toad_Laughing.ogg" id="12_p0msi"]
 [ext_resource type="AudioStream" uid="uid://d1yuul7iss4ws" path="res://assets/sounds/Nose_Sound.ogg" id="12_u4td0"]
@@ -68,11 +69,11 @@
 [ext_resource type="Texture2D" uid="uid://dagj5ybgry1hp" path="res://assets/images/gameplay/characters/taingle/taingle_jumpscare.png" id="26_3txkv"]
 [ext_resource type="Texture2D" uid="uid://bb308cdl2cx4i" path="res://assets/images/gameplay/characters/tmario/tmariorleftleg.png" id="26_e3d00"]
 [ext_resource type="AudioStream" uid="uid://dptku8ykt4cmd" path="res://assets/sounds/luigijump.ogg" id="26_q5ac0"]
+[ext_resource type="AudioStream" uid="uid://b4ft4d4pgltgn" path="res://assets/sounds/luiginette_entrance.ogg" id="27_fmlyk"]
 [ext_resource type="Texture2D" uid="uid://u170nc4742i1" path="res://assets/images/gameplay/characters/tsonic/toysonic2.png" id="27_mmgny"]
 [ext_resource type="Texture2D" uid="uid://lx6pb7qibjaj" path="res://assets/images/gameplay/characters/tmario/tmariopelvis.png" id="27_w0wri"]
 [ext_resource type="Texture2D" uid="uid://7bjybixcf0l3" path="res://assets/images/gameplay/characters/tmario/tmariorightleg.png" id="28_bt1i2"]
 [ext_resource type="Texture2D" uid="uid://dspjkfre872ju" path="res://assets/images/gameplay/characters/tsonic/toysonic21.png" id="31_82o30"]
-[ext_resource type="AudioStream" uid="uid://baqctxt57reor" path="res://assets/sounds/Toy_Tails_Radio.ogg" id="31_u63jk"]
 [ext_resource type="Texture2D" uid="uid://bu0dnpxqjv2ck" path="res://assets/images/gameplay/characters/yoshi/tyoshijumpscare.png" id="32_0v48r"]
 [ext_resource type="Texture2D" uid="uid://4d2byfqh0dbl" path="res://assets/images/gameplay/characters/yoshi/tyoshiclaw.png" id="33_4ldp1"]
 [ext_resource type="Texture2D" uid="uid://cmdsvegeu0ww0" path="res://assets/images/gameplay/custom_night_rewards/sonicplush.png" id="34_j85f1"]
@@ -1326,12 +1327,46 @@ _data = {
 &"ATTACK": SubResource("Animation_pou5s")
 }
 
-[node name="Gameplay" type="Node" unique_id=528663739 node_paths=PackedStringArray("custom_night_rewards", "characters", "charAway", "shockSFX", "ventleaveSFX", "leftventSFX", "rightventSFX", "officeRoomTravel", "ClockTimer", "ClockCounter")]
+[sub_resource type="Animation" id="Animation_fmlyk"]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1169, 8), Vector2(1168, 792)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5707964]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2jy1"]
+_data = {
+&"fall": SubResource("Animation_fmlyk")
+}
+
+[node name="Gameplay" type="Node" unique_id=528663739 node_paths=PackedStringArray("custom_night_rewards", "characters", "charAway", "entrance_luiginette_sound", "clock_falling_animation", "shockSFX", "ventleaveSFX", "leftventSFX", "rightventSFX", "officeRoomTravel", "ClockTimer", "ClockCounter")]
 process_mode = 1
 script = ExtResource("1_hlo8c")
 custom_night_rewards = [NodePath("Rooms/Office/TSonicPlush"), NodePath("Rooms/Office/ToyMarioPlush"), NodePath("Rooms/Office/NightmareYoshiPlush"), NodePath("Rooms/Office/TainglePlush"), NodePath("Rooms/Office/ToadPlush"), NodePath("Rooms/Office/SalvagePlush"), NodePath("Rooms/Office/CreamPlush"), NodePath("Rooms/Office/KnucklePlush"), NodePath("Rooms/Office/TailsDollPlush"), NodePath("Rooms/Office/PaperpalsSonic"), NodePath("Rooms/Office/PaperpalsMario"), NodePath("Rooms/Office/LuiginettePlush")]
 characters = [NodePath("Characters/NightmareToySonic"), NodePath("Characters/NightmareToyMario"), NodePath("Characters/NightmareToyYoshi"), NodePath("Characters/NightmareTaingle"), NodePath("Characters/NightmareBT"), NodePath("Characters/SalvageSonic"), NodePath("Characters/NightmareCream"), NodePath("Characters/NightmareLuiginetteV2"), NodePath("Characters/TailsDoll")]
 charAway = NodePath("Misc/GUI/CharacterAwayFade/AnimationPlayer")
+entrance_luiginette_sound = NodePath("Sounds/EntranceLuiginette")
+clock_falling_animation = NodePath("Misc/GUI/Clock/AnimationPlayer")
 shockSFX = NodePath("Sounds/Shock_SFX")
 ventleaveSFX = NodePath("Sounds/Vent_Leave_SFX")
 leftventSFX = NodePath("Misc/GUI/2DAudios/LeftVentSound")
@@ -1533,7 +1568,7 @@ one_shot = true
 [node name="Sounds" type="Node" parent="." unique_id=1674670979]
 
 [node name="Taingle_Radio" type="AudioStreamPlayer" parent="Sounds" unique_id=2037132696]
-stream = ExtResource("31_u63jk")
+stream = ExtResource("11_q5ac0")
 volume_db = -80.0
 autoplay = true
 bus = &"Sounds"
@@ -1600,6 +1635,10 @@ bus = &"Sounds"
 
 [node name="LuigiJump" type="AudioStreamPlayer" parent="Sounds" unique_id=674372701]
 stream = ExtResource("26_q5ac0")
+bus = &"Sounds"
+
+[node name="EntranceLuiginette" type="AudioStreamPlayer" parent="Sounds" unique_id=383807181]
+stream = ExtResource("27_fmlyk")
 bus = &"Sounds"
 
 [node name="Rooms" type="Node" parent="." unique_id=1063837608]
@@ -2719,7 +2758,7 @@ bus = &"Sounds"
 metadata/_edit_lock_ = true
 
 [node name="Luigi_Walk_Right" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1840515319]
-position = Vector2(640, 0)
+position = Vector2(1280, 0)
 stream = ExtResource("134_dpljo")
 panning_strength = 2.0
 bus = &"Sounds"
@@ -2757,18 +2796,23 @@ metadata/_edit_lock_ = true
 
 [node name="Clock" type="Label" parent="Misc/GUI" unique_id=226524177]
 anchors_preset = -1
-anchor_left = 0.92200005
+anchor_left = 0.95400006
 anchor_top = 0.034
-anchor_right = 0.92200005
+anchor_right = 0.95400006
 anchor_bottom = 0.034
-offset_left = -92.160034
+offset_left = -52.120117
 offset_top = -16.480001
-offset_right = 91.839966
-offset_bottom = 16.519999
+offset_right = 50.879883
+offset_bottom = 16.52012
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme = ExtResource("62_bt1i2")
 text = "12 AM"
 horizontal_alignment = 2
 metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/Clock" unique_id=427652308]
+libraries/ = SubResource("AnimationLibrary_q2jy1")
+speed_scale = 0.1
 
 [node name="Office_Button" type="Button" parent="Misc/GUI" unique_id=747761303]
 anchors_preset = -1

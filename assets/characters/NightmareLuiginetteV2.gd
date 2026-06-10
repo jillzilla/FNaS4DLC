@@ -36,7 +36,7 @@ var has_decided_his_path : bool = false;
 func _ready() -> void:
 	movement_opportunity_timer.connect("timeout", _movement_opportunity_timeout);
 	
-	if main.NightmareLuiginetteAiLevel != 0:
+	if main.NightmareLuiginetteAiLevel != main.AIMINVALUE:
 		movement_opportunity_timer.start();
 	
 func _movement_opportunity_timeout() -> void:
@@ -58,40 +58,36 @@ func _movement_opportunity_timeout() -> void:
 					var possible_direction = directions.MIDDLE;
 					direction = possible_direction;
 					walk_middle.play();
-			if main.random_chance(50):
+			if main.random_chance(60):
 				has_decided_his_path = true;
 			movement_opportunity_timer.start();
 		else:
-			if main.NightmareLuiginetteAiLevel >= main.AIMAXVALUE && randf() * main.NightmareLuiginetteAiLevel + 5 <= main.NightmareLuiginetteAiLevel || main.NightmareLuiginetteAiLevel < main.AIMAXVALUE && randf() * main.AIMAXVALUE <= main.NightmareLuiginetteAiLevel:
-				laughs.pick_random().play();
-				match(direction):
-					directions.LEFT:
-						var possible_attack_position : Variant = attack_positions.LEFT_VENT;
-						attack_position = possible_attack_position;
-						if flashlight_left.is_on:
-							flashlight_left._turn_off();
-						left_sprite.show();
-						left_vent.play();
-					directions.MIDDLE:
-						var possible_attack_positions : Array[Variant] = [attack_positions.CEILING, attack_positions.HALLWAY];
-						attack_position = possible_attack_positions.pick_random();
-						if attack_position == attack_positions.HALLWAY:
-							if flashlight_front.is_on:
-								flashlight_front._turn_off();
-							front_sprite.show();
-							get_close_sound.pick_random().play();
-						else:
-							if flashlight_up.is_on:
-								flashlight_up._turn_off();
-							up_sprite.show();
-							jump_sound.play();
-					directions.RIGHT:
-						var possible_attack_position : Variant = attack_positions.RIGHT_VENT;
-						attack_position = possible_attack_position;
-						if flashlight_right.is_on:
-							flashlight_right._turn_off();
-						right_sprite.show();
-						right_vent.play();
-			else:
-				has_decided_his_path = false;
-				movement_opportunity_timer.start();
+			laughs.pick_random().play();
+			match(direction):
+				directions.LEFT:
+					var possible_attack_position : Variant = attack_positions.LEFT_VENT;
+					attack_position = possible_attack_position;
+					if flashlight_left.is_on:
+						flashlight_left._turn_off();
+					left_sprite.show();
+					left_vent.play();
+				directions.MIDDLE:
+					var possible_attack_positions : Array[Variant] = [attack_positions.CEILING, attack_positions.HALLWAY];
+					attack_position = possible_attack_positions.pick_random();
+					if attack_position == attack_positions.HALLWAY:
+						if flashlight_front.is_on:
+							flashlight_front._turn_off();
+						front_sprite.show();
+						get_close_sound.pick_random().play();
+					else:
+						if flashlight_up.is_on:
+							flashlight_up._turn_off();
+						up_sprite.show();
+						jump_sound.play();
+				directions.RIGHT:
+					var possible_attack_position : Variant = attack_positions.RIGHT_VENT;
+					attack_position = possible_attack_position;
+					if flashlight_right.is_on:
+						flashlight_right._turn_off();
+					right_sprite.show();
+					right_vent.play();

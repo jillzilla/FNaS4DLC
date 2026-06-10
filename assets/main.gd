@@ -22,6 +22,8 @@ var nightcounter : int = 0;
 
 var isloadingsom : bool = false;
 
+var didrarescreenhappened : bool = false;
+
 #data to save/load
 var introscenewatched : bool = false;
 var night_to_play : int = 1; #campaign only
@@ -71,6 +73,7 @@ var nlnDeskWalking : bool = false;
 #characters ai level
 const AIDEFAULTLEVEL : int = 5;
 const AIMAXVALUE : int = 25;
+const AIMINVALUE: int = 0;
 
 var NightmareToySonicAILevel : int = AIDEFAULTLEVEL;
 var NightmareToyMarioAILevel : int = AIDEFAULTLEVEL;
@@ -79,7 +82,7 @@ var NightmareTaingleAILevel : int = AIDEFAULTLEVEL;
 var NightmareBTAILevel : int = AIDEFAULTLEVEL;
 var NightmareSalvageAiLevel : int = AIDEFAULTLEVEL;
 var NightmareCreamAiLevel : int = AIDEFAULTLEVEL;
-var NightmareLuiginetteAiLevel : int = AIDEFAULTLEVEL;
+var NightmareLuiginetteAiLevel : int = AIMINVALUE;
 var NightmareKnucklesAiLevel : int = AIDEFAULTLEVEL;
 var TailsDollAiLevel : int = AIDEFAULTLEVEL;
 
@@ -164,7 +167,10 @@ func _update_ai_levels() -> void:
 	
 func _reset_ai() -> void:
 	for i in range(aiLevelsAsArrays.size()):
-		aiLevelsAsArrays[i] = AIDEFAULTLEVEL;
+		if i != 7:
+			aiLevelsAsArrays[i] = AIDEFAULTLEVEL;
+		else:
+			aiLevelsAsArrays[i] = AIMINVALUE;
 	_update_ai_levels();
 	
 func _save() -> Dictionary:

@@ -8,6 +8,8 @@ extends Node
 @export var luigieyes : CompressedTexture2D = null;
 
 func _ready() -> void:
+	main.didrarescreenhappened = true;
+	
 	DiscordManager._update_details("Rare Screen");
 	DiscordManager._update_state("");
 	
