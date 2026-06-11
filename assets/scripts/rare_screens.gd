@@ -14,6 +14,7 @@ func _ready() -> void:
 	DiscordManager._update_state("");
 	
 	GlobalAudioManager.get_node("Ambience").stop();
+	GlobalAudioManager.get_node("Ambience_Minigame").stop();
 	
 	var chars : Array[Sprite2D] = [golden,luigi];
 	chars.pick_random().visible = true;

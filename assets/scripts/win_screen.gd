@@ -8,10 +8,10 @@ var nextscene : String;
 
 #functions
 func _ready() -> void:
+	GlobalAudioManager.get_node("Ambience").stop();
+	
 	DiscordManager._update_details("Win Screen");
 	DiscordManager._update_state("Night " + str(main.nightcounter));
-	
-	GlobalAudioManager.get_node("Ambience").stop();
 	
 	if main.nightcounter < 5 && main.night_to_play < 5:
 		main.play_minigame = true;

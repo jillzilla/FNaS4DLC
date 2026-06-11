@@ -3,7 +3,6 @@ extends Node
 #variables
 @export var nightcounter : Label;
 var sceneDestination : String;
-
 @onready var loading : Control = $Loading;
 
 #functions
@@ -12,7 +11,10 @@ func _ready() -> void:
 		DiscordManager._update_details("Entering Night " + str(main.nightcounter));
 		DiscordManager._update_state("");
 		
-		nightcounter.text = "Night " + str(main.nightcounter) + "\n12:00 AM";
+		if main.hours_2_skip == 0:
+			nightcounter.text = "Night " + str(main.nightcounter) + "\n" + "12:00 AM";
+		else:
+			nightcounter.text = "Night " + str(main.nightcounter) + "\n" + str(main.hours_2_skip).pad_zeros(2) + ":00 AM";
 		
 		sceneDestination = "res://assets/scenes/gameplay.tscn";
 		

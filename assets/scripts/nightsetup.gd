@@ -25,6 +25,11 @@ var ClockOutputs : Array[String] = ["12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 
 
 #functions
 func _ready() -> void:
+	if main.hours_2_skip != 0:
+		ClockIteration += main.hours_2_skip;
+		ClockCounter.text = ClockOutputs[ClockIteration];
+		main.hours_2_skip = 0;
+	
 	DiscordManager._update_details("Night " + str(main.nightcounter));
 	DiscordManager._update_state(ClockOutputs[ClockIteration]);
 	

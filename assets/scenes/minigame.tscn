@@ -15,10 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://cnc3j3mk1na2" path="res://assets/images/minigame/flashlight.png" id="9_atcph"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="10_d6a20"]
 [ext_resource type="PackedScene" uid="uid://bw8fe2whqjhf0" path="res://assets/scenes/pause_menu.tscn" id="10_di7mb"]
+[ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="15_sbaey"]
 [ext_resource type="AudioStream" uid="uid://blrhwp7bm001r" path="res://assets/sounds/[7] Run_to_Door_Sound.ogg" id="16_al2un"]
+[ext_resource type="Script" uid="uid://dl73mr4e0cek2" path="res://assets/components/FlashlightComponentMinigame.gd" id="17_sw1hc"]
 
-[node name="Minigame" type="Node" unique_id=209191469]
+[node name="Minigame" type="Node" unique_id=209191469 node_paths=PackedStringArray("loading")]
 script = ExtResource("1_6fvem")
+loading = NodePath("HUD/Loading")
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=643294113]
 color = Color(0, 0, 0, 1)
@@ -220,7 +223,43 @@ text = "Power Left: 100%"
 vertical_alignment = 2
 metadata/_edit_lock_ = true
 
+[node name="Win" type="VBoxContainer" parent="HUD/Control" unique_id=198445961]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -51.5
+offset_right = 259.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="HUD/Control/Win" unique_id=1670898343]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Great!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="HUD/Control/Win" unique_id=621329048]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Reward: -0 hours on next night!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
 [node name="PauseMenu" parent="HUD" unique_id=203952170 instance=ExtResource("10_di7mb")]
+visible = false
+
+[node name="Loading" parent="HUD" unique_id=220536216 instance=ExtResource("15_sbaey")]
 visible = false
 
 [node name="Steps" type="AudioStreamPlayer" parent="." unique_id=1917536321]
@@ -228,8 +267,22 @@ stream = ExtResource("16_al2un")
 pitch_scale = 2.0
 bus = &"Sounds"
 
+[node name="FlashlightComponentMinigame" type="Node" parent="." unique_id=1211401470 node_paths=PackedStringArray("light_source", "power_label", "power_timer_drain")]
+script = ExtResource("17_sw1hc")
+light_source = NodePath("../Flashlight")
+power_label = NodePath("../HUD/Control/Power")
+power_timer_drain = NodePath("../Timer_Power_Drain")
+metadata/_custom_type_script = "uid://dl73mr4e0cek2"
+
 [node name="Time_Left" type="Timer" parent="." unique_id=1160444739]
 one_shot = true
 autostart = true
 
+[node name="Timer_switch_scene" type="Timer" parent="." unique_id=2092089553]
+wait_time = 3.5
+one_shot = true
+
+[node name="Timer_Power_Drain" type="Timer" parent="." unique_id=264969813]
+
 [connection signal="timeout" from="Time_Left" to="." method="_on_time_left_timeout"]
+[connection signal="timeout" from="Timer_switch_scene" to="." method="_on_timer_switch_scene_timeout"]

@@ -26,6 +26,8 @@ var didrarescreenhappened : bool = false;
 
 var play_minigame : bool = false;
 
+var hours_2_skip : int = 0;
+
 #data to save/load
 var introscenewatched : bool = false;
 var night_to_play : int = 1; #campaign only
