@@ -202,13 +202,11 @@ text = "You're outside the pizzeria, wanting to get some fresh air,
 but there's a lot of trash outside, and you might also notice
 that the world looks different from how it did last night...
 You don't have time to think about that right now; in this
-mini-game, you'll encounter a hedgehog and a fox. To win,
-you'll have to chase those two creatures a set number
-of times within a set time limit. Always keep your flashlight
-off. When you hear little footsteps, if you find the fox, you’ll
-need to turn the flashlight off and on until it goes away; if you
-find the hedgehog, you’ll need to shine the flashlight
-directly at it."
+mini-game, you'll encounter a hedgehog and a fox.
+Always keep your flashlight off if not needed. When you
+hear little footsteps, if you find the fox, you’ll need to turn
+the flashlight off and on until it goes away; if you find the
+hedgehog, you’ll need to shine the flashlight directly at it."
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
