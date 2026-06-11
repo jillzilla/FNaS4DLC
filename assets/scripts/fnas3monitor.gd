@@ -4,7 +4,6 @@ extends Node2D
 var didSignalLost : bool = false;
 
 @onready var timer : Timer = Timer.new();
-
 @export var changeSFX : AudioStreamPlayer;
 @export var Static : AnimatedSprite2D;
 @export var Lsignal : Sprite2D;
@@ -16,7 +15,6 @@ func _ready() -> void:
 	add_child(timer);
 	timer.wait_time = 1;
 	timer.one_shot = true;
-	
 	salvage.connect("moved",_character_moved);
 
 func _character_moved() -> void:

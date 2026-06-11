@@ -31,6 +31,7 @@ var attack_position : Variant = attack_positions.NONE;
 @export var flashlight_up : FlashLightComponent;
 @export var flashlight_front : FlashLightComponent;
 
+var fails : int = 0;
 var has_decided_his_path : bool = false;
  
 func _ready() -> void:
@@ -58,7 +59,14 @@ func _movement_opportunity_timeout() -> void:
 					var possible_direction = directions.MIDDLE;
 					direction = possible_direction;
 					walk_middle.play();
-			if main.random_chance(60):
+			if fails < 3:
+				if main.random_chance(60):
+					fails = 0;
+					has_decided_his_path = true;
+				else:
+					fails += 1;
+			elif fails >= 3:
+				fails = 0;
 				has_decided_his_path = true;
 			movement_opportunity_timer.start();
 		else:
