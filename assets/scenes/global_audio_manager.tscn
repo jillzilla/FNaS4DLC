@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cntxk7ywn0r1x" path="res://assets/sounds/Jumpscaref2.ogg" id="6_kw54n"]
 [ext_resource type="AudioStream" uid="uid://cck7hco13mrd8" path="res://assets/sounds/fnas1jumpscare.ogg" id="7_8h5ir"]
 [ext_resource type="AudioStream" uid="uid://btceqj05iece1" path="res://assets/music/GameplayAmbienceTheme.ogg" id="7_kw54n"]
+[ext_resource type="AudioStream" uid="uid://brkxxk8o8x7ns" path="res://assets/music/MinigameAmbienceTheme.ogg" id="9_0wrgx"]
 
 [node name="Global_Audio_Manager" type="Node" unique_id=147038882]
 
@@ -52,6 +53,10 @@ bus = &"Jumpscare"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=500643790]
 stream = ExtResource("7_kw54n")
+bus = &"Sounds"
+
+[node name="Ambience_Minigame" type="AudioStreamPlayer" parent="." unique_id=532544059]
+stream = ExtResource("9_0wrgx")
 bus = &"Sounds"
 
 [node name="Select" type="AudioStreamPlayer" parent="." unique_id=25561468]

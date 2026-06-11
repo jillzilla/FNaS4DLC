@@ -5,10 +5,18 @@ extends Node
 #functions
 func _ready() -> void:
 	GlobalAudioManager.get_node("Ambience").stop();
-	_handle_gameover_art();
+	GlobalAudioManager.get_node("Ambience_Minigame").stop();
 	
 	DiscordManager._update_details("Game Over Screen");
 	DiscordManager._update_state("Killed by " + main.killedBy);
+	
+	if main.play_minigame:
+		get_node("Control/GameOver").text = "Too Bad..."
+		
+		get_node("Control/TryAgainButton").visible = false;
+		main.play_minigame = false;
+	
+	_handle_gameover_art();
 
 func _on_try_again_button_pressed() -> void:
 	get_node("Control/TryAgainButton").visible = false;
@@ -64,3 +72,9 @@ func _handle_gameover_art() -> void:
 		"Nightmare Knuckles":
 			get_node("AmyDeath").visible = true;
 			get_node("Characters/Knuckles").visible = true;
+		"Plushnic":
+			get_node("Overlays/POV").visible = true;
+			get_node("Characters/Plushnic").visible = true;
+		"Plushtails":
+			get_node("Overlays/POV").visible = true;
+			get_node("Characters/Plushtails").visible = true;

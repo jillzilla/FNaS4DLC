@@ -24,6 +24,8 @@ var isloadingsom : bool = false;
 
 var didrarescreenhappened : bool = false;
 
+var play_minigame : bool = false;
+
 #data to save/load
 var introscenewatched : bool = false;
 var night_to_play : int = 1; #campaign only
@@ -55,6 +57,8 @@ var cn_challenge_9 : bool = false;
 var cn_challenge_10 : bool = false;
 var cn_challenge_11 : bool = false;
 var cn_challenge_12 : bool = false;
+
+var played_minigame_once : bool = false;
 
 #player status
 var killedBy : String = "";
@@ -201,6 +205,7 @@ func _save() -> Dictionary:
 		"CN10" : cn_challenge_10,
 		"CN11" : cn_challenge_11,
 		"CN12" : cn_challenge_12,
+		"MINIGAMEONCE" : played_minigame_once,
 	};
 	return saveDict;
 
@@ -254,5 +259,7 @@ func _load_game() -> void:
 			cn_challenge_10 = data["CN10"];
 			cn_challenge_11 = data["CN11"];
 			cn_challenge_12 = data["CN12"];
+			
+			played_minigame_once = data["MINIGAMEONCE"];
 			
 			print(data);

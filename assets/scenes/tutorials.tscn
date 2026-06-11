@@ -64,21 +64,20 @@ offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "Click to one the entrances to go to a location, you
-can check the vents, the hallway, the ceiling, and
-the desk. While being on the vents, you can use
-the mask [Shift]. Hold [CTRL] to shine
-the flashlight.
+text = "To navigate around your office, you’ll need to click on one of the
+entrances. You’ll be able to go to the vents, the hallway, the
+ceiling, and finally under the desk. At each entrance (except
+for the desk), you can use the flashlight by holding down
+[Ctrl]. Only in the vents, however, can you use the
+mask by pressing [Shift]
 
-If you hear a radio, go to the ceiling and shine
-it until the threat goes away.
+If you hear a radio, go to the ceiling and shine the
+flashlight on it until the danger goes away.
 
-If you hear someone coming from the vents, if it's
-green, always use your mask if it gets too close.
-
-If it's red, and his pupils are visible, you use the
-mask, if not hide under the desk until it walks
-past it."
+If you hear someone coming from the vents and they’re
+green, use the mask; if they’re red, look at their eyes; if
+they can see you, use the mask; if they can’t see you,
+hide under the desk."
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
@@ -97,15 +96,17 @@ offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "The blue ones don't get fooled by the mask. If one startles
-you from the vents, hide under the desk.
+text = "The blue guys aren't fooled by the mask. If one
+of them dares to attack you from the vents,
+hide under the desk.
 
-A mushroom will also grow tonight. If you hear him laughing
-check the left vent, and flash him repeatedly until he
-gives up.
+A mushroom has also just sprouted tonight; if you
+hear its laughter coming from the left vent, turn
+your flashlight on and off repeatedly until it
+leaves you alone.
 
-As for the rest it's all the same
-as usual, good luck."
+Otherwise, everything else is the same.
+Good luck."
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
@@ -124,12 +125,13 @@ offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "The other blue one will slowly walks towards you from
-the hallway, you'll be able to check on him from the
-monitor on your desk. If you hear his laugh, hold
-the light on him until he goes away.
+text = "That other blue guy will try to slowly approach
+your position from the hallway. You can keep an
+eye on him via the monitor above your desk; if
+you hear him laughing, shine your flashlight
+on him until he goes away.
 
-You are close to the truth, Amy."
+You're close to the truth, Amy."
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
@@ -148,9 +150,9 @@ offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "A dear old friend will join tonight, she won't be very dangerous.
-If she tries to attack, just hide under the desk. Nothing too
-complicated."
+text = "An old acquaintance of yours will be joining us tonight. She won't
+be very dangerous, but if she tries to attack you, hide under the
+desk. Nothing too complicated."
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
@@ -169,15 +171,44 @@ offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "Everyone will be very aggressive this night, but not
-for too long. At a certain point, things will change...
-And when that happens keep in mind this:
+text = "Everyone you've met so far will be more aggressive
+tonight, but not for long... Things are going to
+change, and when they do, keep this in mind:
 
-From the vents to the mask.
-From the hallway to the desk.
-From the ceiling to the flashlight.
+from the vents to the mask,
+from the hallway to the desk,
+from the ceiling to the flashlight.
 
-It's your time to shine."
+It's time to shine."
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Text6" type="Label" parent="GUIWorld" unique_id=307362197]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.55
+anchor_right = 0.5
+anchor_bottom = 0.55
+offset_left = -576.0
+offset_top = -284.0
+offset_right = 576.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "You're outside the pizzeria, wanting to get some fresh air,
+but there's a lot of trash outside, and you might also notice
+that the world looks different from how it did last night...
+You don't have time to think about that right now; in this
+mini-game, you'll encounter a hedgehog and a fox. To win,
+you'll have to chase those two creatures a set number
+of times within a set time limit. Always keep your flashlight
+off. When you hear little footsteps, if you find the fox, you’ll
+need to turn the flashlight off and on until it goes away; if you
+find the hedgehog, you’ll need to shine the flashlight
+directly at it."
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 

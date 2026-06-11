@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://bknmwi788tux6"]
+
+[ext_resource type="Script" uid="uid://dlt07e2bcmgvq" path="res://assets/scripts/minigame.gd" id="1_6fvem"]
+[ext_resource type="Texture2D" uid="uid://8jwwqhv8sr7t" path="res://assets/images/minigame/sky.png" id="2_bjhjj"]
+[ext_resource type="Texture2D" uid="uid://jf6rb2864w7b" path="res://assets/images/minigame/grass.png" id="3_dgfoh"]
+[ext_resource type="Texture2D" uid="uid://3sotrvmnie8p" path="res://assets/images/minigame/props1.png" id="4_f55rg"]
+[ext_resource type="Texture2D" uid="uid://didpvvc0sdpqj" path="res://assets/images/minigame/props2.png" id="5_atcph"]
+[ext_resource type="SpriteFrames" uid="uid://b0m55v6egjly4" path="res://assets/spriteframes/static.tres" id="6_dgfoh"]
+[ext_resource type="Texture2D" uid="uid://bsus6m6slik0" path="res://assets/images/minigame/props3.png" id="6_di7mb"]
+[ext_resource type="Texture2D" uid="uid://cfyiu34cr53tr" path="res://assets/images/minigame/props2_light.png" id="7_f55rg"]
+[ext_resource type="Texture2D" uid="uid://cnc3j3mk1na2" path="res://assets/images/minigame/flashlight.png" id="9_atcph"]
+[ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="10_d6a20"]
+[ext_resource type="PackedScene" uid="uid://bw8fe2whqjhf0" path="res://assets/scenes/pause_menu.tscn" id="10_di7mb"]
+
+[node name="Minigame" type="Node" unique_id=209191469]
+script = ExtResource("1_6fvem")
+
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=643294113]
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Sky" type="Sprite2D" parent="." unique_id=2007184703]
+texture = ExtResource("2_bjhjj")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Grass" type="Sprite2D" parent="." unique_id=648512083]
+texture = ExtResource("3_dgfoh")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Props1" type="Sprite2D" parent="." unique_id=1762718019]
+texture = ExtResource("4_f55rg")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Props2" type="Sprite2D" parent="." unique_id=384520695]
+texture = ExtResource("5_atcph")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Static" type="AnimatedSprite2D" parent="Props2" unique_id=664091071]
+position = Vector2(268.5, 420.99997)
+scale = Vector2(0.059895832, 0.08148151)
+sprite_frames = ExtResource("6_dgfoh")
+autoplay = "default"
+metadata/_edit_lock_ = true
+
+[node name="Static_Light" type="PointLight2D" parent="." unique_id=1496554276]
+position = Vector2(640, 360)
+texture = ExtResource("7_f55rg")
+metadata/_edit_lock_ = true
+
+[node name="Props3" type="Sprite2D" parent="." unique_id=258285578]
+texture = ExtResource("6_di7mb")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Flashlight" type="PointLight2D" parent="." unique_id=569006904]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("9_atcph")
+metadata/_edit_lock_ = true
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1778684257]
+
+[node name="Control" type="Control" parent="HUD" unique_id=712455547]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("10_d6a20")
+metadata/_edit_lock_ = true
+
+[node name="Clock" type="Label" parent="HUD/Control" unique_id=2080648358]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.869
+anchor_top = 0.083000004
+anchor_right = 0.869
+anchor_bottom = 0.083000004
+offset_left = -152.32007
+offset_top = -43.760002
+offset_right = 151.67993
+offset_bottom = 44.239998
+theme_override_font_sizes/font_size = 64
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Points" type="Label" parent="HUD/Control" unique_id=411919456]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13100001
+anchor_top = 0.083000004
+anchor_right = 0.13100001
+anchor_bottom = 0.083000004
+offset_left = -151.68002
+offset_top = -43.760002
+offset_right = 152.31998
+offset_bottom = 44.239998
+theme_override_font_sizes/font_size = 64
+text = "0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="PauseMenu" parent="HUD" unique_id=203952170 instance=ExtResource("10_di7mb")]
+visible = false
