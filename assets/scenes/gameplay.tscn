@@ -1369,8 +1369,8 @@ entrance_luiginette_sound = NodePath("Sounds/EntranceLuiginette")
 clock_falling_animation = NodePath("Misc/GUI/Clock/AnimationPlayer")
 shockSFX = NodePath("Sounds/Shock_SFX")
 ventleaveSFX = NodePath("Sounds/Vent_Leave_SFX")
-leftventSFX = NodePath("Misc/GUI/2DAudios/LeftVentSound")
-rightventSFX = NodePath("Misc/GUI/2DAudios/RightVentSound")
+leftventSFX = NodePath("Misc/2DAudios/LeftVentSound")
+rightventSFX = NodePath("Misc/2DAudios/RightVentSound")
 officeRoomTravel = NodePath("Rooms/Office/RoomTravelComponent")
 ClockTimer = NodePath("Misc/Clock_Timer")
 ClockCounter = NodePath("Misc/GUI/Clock")
@@ -1391,8 +1391,8 @@ RFlashlight = NodePath("../../Rooms/Right_Vent/FlashLightComponent")
 officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 Mask = NodePath("../../Misc/GUI/Mask")
 RunGraphics = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation")
-LVentSFX = NodePath("../../Misc/GUI/2DAudios/LeftVentSound")
-RVentSFX = NodePath("../../Misc/GUI/2DAudios/RightVentSound")
+LVentSFX = NodePath("../../Misc/2DAudios/LeftVentSound")
+RVentSFX = NodePath("../../Misc/2DAudios/RightVentSound")
 stepSfx = NodePath("../../Rooms/Desk/ToySonic_Desk_Animation/Steps")
 shockSFX = NodePath("../../Sounds/Shock_SFX")
 ventLeaveSFX = NodePath("../../Sounds/Vent_Leave_SFX")
@@ -1415,7 +1415,7 @@ Position3 = NodePath("../../Rooms/Right_Vent/ToyMario_3")
 Position3Pupils = NodePath("../../Rooms/Right_Vent/ToyMario_3/Pupils")
 flashlight = NodePath("../../Rooms/Right_Vent/FlashLightComponent")
 officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
-ventSFX = NodePath("../../Misc/GUI/2DAudios/RightVentSound")
+ventSFX = NodePath("../../Misc/2DAudios/RightVentSound")
 stepSfx = NodePath("../../Rooms/Desk/ToyMario_Desk_Animation/Steps")
 ventLSFX = NodePath("../../Sounds/Vent_Leave_SFX")
 shockSFX = NodePath("../../Sounds/Shock_SFX")
@@ -1435,7 +1435,7 @@ maxTimerChangePosition = 10000.0
 Position1 = NodePath("../../Rooms/Left_Vent/ClipMask/ToyYoshi_1")
 Position2 = NodePath("../../Rooms/Left_Vent/ToyYoshi_2")
 Position3 = NodePath("../../Rooms/Left_Vent/ToyYoshi_3")
-ventSFX = NodePath("../../Misc/GUI/2DAudios/LeftVentSound")
+ventSFX = NodePath("../../Misc/2DAudios/LeftVentSound")
 ventLSFX = NodePath("../../Sounds/Vent_Leave_SFX")
 shockSFX = NodePath("../../Sounds/Shock_SFX")
 flashlight = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
@@ -1470,8 +1470,8 @@ Position1 = NodePath("../../Rooms/Left_Vent/BT_1")
 OfficeSprite = NodePath("../../Rooms/Office/BT_2")
 BT_Laugh = NodePath("../../Sounds/Toad_Laugh_SFX")
 ventLSFX = NodePath("../../Sounds/Vent_Leave_SFX")
-BT_MoveSFXs = [NodePath("../../Misc/GUI/2DAudios/BT_Move_1"), NodePath("../../Misc/GUI/2DAudios/BT_Move_2")]
-ventSFX = NodePath("../../Misc/GUI/2DAudios/LeftVentSound")
+BT_MoveSFXs = [NodePath("../../Misc/2DAudios/BT_Move_1"), NodePath("../../Misc/2DAudios/BT_Move_2")]
+ventSFX = NodePath("../../Misc/2DAudios/LeftVentSound")
 officeRoomTravel = NodePath("../../Rooms/Office/RoomTravelComponent")
 deskRoomTravel = NodePath("../../Rooms/Desk/RoomTravelComponent")
 flashlight = NodePath("../../Rooms/Left_Vent/FlashLightComponent")
@@ -1508,7 +1508,7 @@ maxTimerChangePosition = 13000.0
 Position1 = NodePath("../../Rooms/Right_Vent/ClipMask/Cream_1")
 Position2 = NodePath("../../Rooms/Right_Vent/Cream_2")
 Position3 = NodePath("../../Rooms/Right_Vent/Cream_3")
-ventSFX = NodePath("../../Misc/GUI/2DAudios/RightVentSound")
+ventSFX = NodePath("../../Misc/2DAudios/RightVentSound")
 stepSfx = NodePath("../../Rooms/Desk/CreamDeskAnimation/Steps")
 ventLSFX = NodePath("../../Sounds/Vent_Leave_SFX")
 shockSFX = NodePath("../../Sounds/Shock_SFX")
@@ -1524,12 +1524,12 @@ metadata/_custom_type_script = "uid://bdgylcg452v26"
 [node name="NightmareLuiginetteV2" type="Node" parent="Characters" unique_id=953454704 node_paths=PackedStringArray("movement_opportunity_timer", "walk_left", "walk_right", "walk_middle", "laughs", "left_vent", "right_vent", "jump_sound", "get_close_sound", "left_sprite", "right_sprite", "front_sprite", "up_sprite", "flashlight_left", "flashlight_right", "flashlight_up", "flashlight_front")]
 script = ExtResource("9_uacgo")
 movement_opportunity_timer = NodePath("Timer")
-walk_left = NodePath("../../Misc/GUI/2DAudios/Luigi_Walk_Left")
-walk_right = NodePath("../../Misc/GUI/2DAudios/Luigi_Walk_Middle")
-walk_middle = NodePath("../../Misc/GUI/2DAudios/Luigi_Walk_Right")
+walk_left = NodePath("../../Misc/2DAudios/Luigi_Walk_Left")
+walk_right = NodePath("../../Misc/2DAudios/Luigi_Walk_Right")
+walk_middle = NodePath("../../Misc/2DAudios/Luigi_Walk_Middle")
 laughs = [NodePath("../../Sounds/LuigiLaugh1"), NodePath("../../Sounds/LuigiLaugh2"), NodePath("../../Sounds/LuigiLaugh3")]
-left_vent = NodePath("../../Misc/GUI/2DAudios/LeftVentSound")
-right_vent = NodePath("../../Misc/GUI/2DAudios/RightVentSound")
+left_vent = NodePath("../../Misc/2DAudios/LeftVentSound")
+right_vent = NodePath("../../Misc/2DAudios/RightVentSound")
 jump_sound = NodePath("../../Sounds/LuigiJump")
 get_close_sound = [NodePath("../../Sounds/Walking_SFX_1"), NodePath("../../Sounds/Walking_SFX_2"), NodePath("../../Sounds/Walking_SFX_3")]
 left_sprite = NodePath("../../Rooms/Left_Vent/NLuigiVent")
@@ -1787,6 +1787,7 @@ metadata/_edit_lock_ = true
 [node name="Nose_Honk" type="AudioStreamPlayer2D" parent="Rooms/Office" unique_id=361249753]
 position = Vector2(296, 328)
 stream = ExtResource("12_u4td0")
+panning_strength = 3.0
 bus = &"Sounds"
 metadata/_edit_lock_ = true
 
@@ -1896,9 +1897,10 @@ flashlight = NodePath("../FlashLightComponent")
 mask = NodePath("../../../Misc/GUI/Mask")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Rooms/Ceiling" unique_id=699796376 node_paths=PackedStringArray("tailsdoll", "spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
+[node name="FlashLightComponent" type="Node" parent="Rooms/Ceiling" unique_id=699796376 node_paths=PackedStringArray("tailsdoll", "BT", "spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
 script = ExtResource("16_br2i6")
 tailsdoll = NodePath("../../../Characters/TailsDoll")
+BT = NodePath("../../../Characters/NightmareBT")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
 flashlightSFX = NodePath("../../../Sounds/Flashlight_SFX")
@@ -1937,6 +1939,7 @@ metadata/_edit_lock_ = true
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=1459543770]
 stream = ExtResource("25_1mjni")
+panning_strength = 3.0
 bus = &"Sounds"
 metadata/_edit_lock_ = true
 
@@ -1972,6 +1975,7 @@ metadata/_edit_lock_ = true
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=108190165]
 stream = ExtResource("25_1mjni")
+panning_strength = 3.0
 bus = &"Sounds"
 metadata/_edit_lock_ = true
 
@@ -2007,6 +2011,7 @@ metadata/_edit_lock_ = true
 [node name="Steps" type="AudioStreamPlayer2D" parent="Rooms/Desk/CreamDeskAnimation" unique_id=1750074192]
 position = Vector2(40, 144)
 stream = ExtResource("25_1mjni")
+panning_strength = 3.0
 bus = &"Sounds"
 metadata/_edit_lock_ = true
 
@@ -2305,9 +2310,10 @@ canUseMaskHere = true
 toadette = NodePath("../Toadette")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Rooms/Right_Vent" unique_id=1019073008 node_paths=PackedStringArray("tailsdoll", "spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
+[node name="FlashLightComponent" type="Node" parent="Rooms/Right_Vent" unique_id=1019073008 node_paths=PackedStringArray("tailsdoll", "BT", "spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
 script = ExtResource("16_br2i6")
 tailsdoll = NodePath("../../../Characters/TailsDoll")
+BT = NodePath("../../../Characters/NightmareBT")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
 flashlightSFX = NodePath("../../../Sounds/Flashlight_SFX")
@@ -2400,8 +2406,10 @@ big = NodePath("../Big")
 golden = NodePath("../SONIC")
 metadata/_custom_type_script = "uid://chkw6deyn5h6a"
 
-[node name="FlashLightComponent" type="Node" parent="Rooms/Hallway" unique_id=1845314344 node_paths=PackedStringArray("spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
+[node name="FlashLightComponent" type="Node" parent="Rooms/Hallway" unique_id=1845314344 node_paths=PackedStringArray("tailsdoll", "BT", "spriteAsFlashlight", "scrolling", "flashlightSFX", "travel", "mask")]
 script = ExtResource("16_br2i6")
+tailsdoll = NodePath("../../../Characters/TailsDoll")
+BT = NodePath("../../../Characters/NightmareBT")
 spriteAsFlashlight = NodePath("../Dark")
 scrolling = NodePath("../../../Misc/Scrolling/ScrollingComponent")
 flashlightSFX = NodePath("../../../Sounds/Flashlight_SFX")
@@ -2533,6 +2541,61 @@ scrollSpeed = 20.0
 scrollDistance = 300.0
 xResolution = 1280
 metadata/_custom_type_script = "uid://cnhe33f3mmlmb"
+
+[node name="2DAudios" type="Node2D" parent="Misc" unique_id=60922802]
+position = Vector2(1040, 360)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Luigi_Walk_Left" type="AudioStreamPlayer2D" parent="Misc/2DAudios" unique_id=697889683]
+position = Vector2(-1040, 0)
+stream = ExtResource("134_dpljo")
+panning_strength = 3.0
+bus = &"Sounds"
+metadata/_edit_lock_ = true
+
+[node name="Luigi_Walk_Middle" type="AudioStreamPlayer2D" parent="Misc/2DAudios" unique_id=1502927627]
+stream = ExtResource("134_dpljo")
+panning_strength = 3.0
+bus = &"Sounds"
+metadata/_edit_lock_ = true
+
+[node name="Luigi_Walk_Right" type="AudioStreamPlayer2D" parent="Misc/2DAudios" unique_id=1840515319]
+position = Vector2(1040, 0)
+stream = ExtResource("134_dpljo")
+panning_strength = 3.0
+bus = &"Sounds"
+metadata/_edit_lock_ = true
+
+[node name="BT_Move_1" type="AudioStreamPlayer2D" parent="Misc/2DAudios" unique_id=1995508303]
+position = Vector2(-1040, 0)
+stream = ExtResource("67_8bh6l")
+pitch_scale = 0.9
+panning_strength = 3.0
+bus = &"Sounds"
+metadata/_edit_lock_ = true
+
+[node name="BT_Move_2" type="AudioStreamPlayer2D" parent="Misc/2DAudios" unique_id=926631251]
+position = Vector2(-1040, 0)
+stream = ExtResource("68_50646")
+pitch_scale = 0.9
+panning_strength = 3.0
+bus = &"Sounds"
+metadata/_edit_lock_ = true
+
+[node name="LeftVentSound" type="AudioStreamPlayer2D" parent="Misc/2DAudios" unique_id=1811588009]
+position = Vector2(-1040, 0)
+stream = ExtResource("37_4ldp1")
+panning_strength = 3.0
+bus = &"Sounds"
+metadata/_edit_lock_ = true
+
+[node name="RightVentSound" type="AudioStreamPlayer2D" parent="Misc/2DAudios" unique_id=576099952]
+position = Vector2(1040, 0)
+stream = ExtResource("37_4ldp1")
+panning_strength = 3.0
+bus = &"Sounds"
+metadata/_edit_lock_ = true
 
 [node name="GUI" type="CanvasLayer" parent="Misc" unique_id=435901319]
 
@@ -2739,60 +2802,6 @@ metadata/_edit_lock_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/TailsDollEffect" unique_id=673313703]
 libraries/ = SubResource("AnimationLibrary_ypboq")
 speed_scale = 0.05
-
-[node name="2DAudios" type="Node2D" parent="Misc/GUI" unique_id=60922802]
-position = Vector2(640, 360)
-metadata/_edit_lock_ = true
-
-[node name="Luigi_Walk_Left" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=697889683]
-position = Vector2(-640, 0)
-stream = ExtResource("134_dpljo")
-panning_strength = 2.0
-bus = &"Sounds"
-metadata/_edit_lock_ = true
-
-[node name="Luigi_Walk_Middle" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1502927627]
-stream = ExtResource("134_dpljo")
-panning_strength = 2.0
-bus = &"Sounds"
-metadata/_edit_lock_ = true
-
-[node name="Luigi_Walk_Right" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1840515319]
-position = Vector2(1280, 0)
-stream = ExtResource("134_dpljo")
-panning_strength = 2.0
-bus = &"Sounds"
-metadata/_edit_lock_ = true
-
-[node name="BT_Move_1" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1995508303]
-position = Vector2(-640, 0)
-stream = ExtResource("67_8bh6l")
-pitch_scale = 0.9
-panning_strength = 2.0
-bus = &"Sounds"
-metadata/_edit_lock_ = true
-
-[node name="BT_Move_2" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=926631251]
-position = Vector2(-640, 0)
-stream = ExtResource("68_50646")
-pitch_scale = 0.9
-panning_strength = 2.0
-bus = &"Sounds"
-metadata/_edit_lock_ = true
-
-[node name="LeftVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=1811588009]
-position = Vector2(-640, 0)
-stream = ExtResource("37_4ldp1")
-panning_strength = 2.0
-bus = &"Sounds"
-metadata/_edit_lock_ = true
-
-[node name="RightVentSound" type="AudioStreamPlayer2D" parent="Misc/GUI/2DAudios" unique_id=576099952]
-position = Vector2(1280, 0)
-stream = ExtResource("37_4ldp1")
-panning_strength = 2.0
-bus = &"Sounds"
-metadata/_edit_lock_ = true
 
 [node name="Clock" type="Label" parent="Misc/GUI" unique_id=226524177]
 anchors_preset = -1

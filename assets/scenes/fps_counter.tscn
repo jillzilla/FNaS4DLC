@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://di7g4qi7bn5xq" path="res://assets/scripts/fps_counter.gd" id="1_heqp4"]
 
 [node name="FPSCounter" type="CanvasLayer" unique_id=1157171028]
+process_mode = 3
 layer = 10
 script = ExtResource("1_heqp4")
 
