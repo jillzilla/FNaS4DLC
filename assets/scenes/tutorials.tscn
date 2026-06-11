@@ -44,7 +44,7 @@ offset_right = 272.0
 offset_bottom = 47.92
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
-text = "TUTORIAL (Night 1)"
+text = "TUTORIAL (Night 0)"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -150,9 +150,9 @@ offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "An old acquaintance of yours will be joining us tonight. She won't
-be very dangerous, but if she tries to attack you, hide under the
-desk. Nothing too complicated."
+text = "An old acquaintance of yours will be joining us tonight.
+She won't be very dangerous, but if she tries to attack
+you, hide under the desk. Nothing too complicated."
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
