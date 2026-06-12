@@ -15,23 +15,23 @@ func _ready() -> void:
 		2:
 			time_left = 30;
 			get_node("Timer_Power_Drain").wait_time = 0.5;
-			hours_reward = 2;
+			hours_reward = 1;
 		3:
 			time_left = 45;
 			get_node("Timer_Power_Drain").wait_time = 0.5;
-			hours_reward = 2;
+			hours_reward = 1;
 		4:
 			time_left = 60;
 			get_node("Timer_Power_Drain").wait_time = 0.25;
-			hours_reward = 1;
+			hours_reward = 2;
 		5:
 			time_left = 90;
 			get_node("Timer_Power_Drain").wait_time = 0.25;
-			hours_reward = 1;
+			hours_reward = 2;
 		_:
 			time_left = 30;
 			get_node("Timer_Power_Drain").wait_time = 0.5;
-			hours_reward = 2;
+			hours_reward = 1;
 			
 	get_node("HUD/Control/Clock").text =  str(time_left).pad_zeros(2);
 	

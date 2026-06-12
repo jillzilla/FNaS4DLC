@@ -17,12 +17,22 @@
 stream = ExtResource("1_uw54k")
 bus = &"Jumpscare"
 
+[node name="Plushnic_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=887296408]
+stream = ExtResource("1_uw54k")
+pitch_scale = 1.25
+bus = &"Jumpscare"
+
 [node name="Mario_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1474882084]
 stream = ExtResource("2_ai53t")
 bus = &"Jumpscare"
 
 [node name="Taingle_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=876443532]
 stream = ExtResource("1_16a0g")
+bus = &"Jumpscare"
+
+[node name="Plushtails_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=777247018]
+stream = ExtResource("1_16a0g")
+pitch_scale = 1.25
 bus = &"Jumpscare"
 
 [node name="Yoshi_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1073957951]
