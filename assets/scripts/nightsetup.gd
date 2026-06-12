@@ -92,10 +92,10 @@ func _on_clock_timer_timeout() -> void:
 		get_tree().paused = false;
 		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("SKIPNIGHT"):
-		get_tree().paused = true;
-		loading._load_scene("res://assets/scenes/win_screen.tscn");
-		await loading.scene_loaded;
-		get_tree().paused = false;
-		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("SKIPNIGHT"):
+		#get_tree().paused = true;
+		#loading._load_scene("res://assets/scenes/win_screen.tscn");
+		#await loading.scene_loaded;
+		#get_tree().paused = false;
+		#get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);

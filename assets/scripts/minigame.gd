@@ -51,14 +51,20 @@ func _on_time_left_timeout() -> void:
 	if time_left == 0:
 		$HUD/PauseMenu.process_mode = Node.PROCESS_MODE_DISABLED;
 		$FlashlightComponentMinigame.process_mode = Node.PROCESS_MODE_DISABLED;
-		$HUD/Control/Win/Label2.text = "Reward: -" + str(hours_reward) + " hours on next night!";
-		main.hours_2_skip += hours_reward;
+		if !main.night5ending:
+			$HUD/Control/Win/Label2.text = "Reward: -" + str(hours_reward) + " hours on next night!";
+			main.hours_2_skip += hours_reward;
+		else:
+			$HUD/Control/Win/Label2.hide();
 		DiscordManager._update_state("Great!");
 		$HUD/Control/Win.show();
 		get_node("Timer_switch_scene").start();
 
 func _on_timer_switch_scene_timeout() -> void:
-	loading._load_scene("res://assets/scenes/night_screen.tscn");
+	if !main.night5ending:
+		loading._load_scene("res://assets/scenes/night_screen.tscn");
+	else:
+		loading._load_scene("res://assets/scenes/title.tscn");
 	await loading.scene_loaded;
 	GlobalAudioManager.get_node("Ambience_Minigame").stop();
 	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);

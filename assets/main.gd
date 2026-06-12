@@ -17,15 +17,10 @@ const SAVE_DATA_PATH : String = "user://FNaS4DLC.save";
 const SAVE_DATA_PASSWORD : String = "2<0r2eX1&2:<Cd";
 
 var fpsTarget : float = 60.0;
-
 var nightcounter : int = 0;
-
 var isloadingsom : bool = false;
-
 var didrarescreenhappened : bool = false;
-
 var play_minigame : bool = false;
-
 var hours_2_skip : int = 0;
 
 #data to save/load
