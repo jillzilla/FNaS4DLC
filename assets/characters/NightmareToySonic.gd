@@ -1,7 +1,5 @@
 class_name NightmareToySonic extends Node
 
-@export var loading : Control = null;
-
 #variables
 enum Directions {NONE,LEFT,RIGHT};
 var Direction : Variant = Directions.NONE;
@@ -34,7 +32,7 @@ var jumpscareExposure : float = main.JUMPSCAREEXPOSUREDEFAULT;
 @export var stepSfx : AudioStreamPlayer2D;
 @export var shockSFX : AudioStreamPlayer;
 @export var ventLeaveSFX : AudioStreamPlayer;
-@export var jumpscareAnimation : AnimationPlayer;
+@export var jumpscareAnimation : Node2D;
 @export var LPeekingAnimation : AnimationPlayer;
 @export var RPeekingAnimation : AnimationPlayer;
 @export var timerStep : Timer;
@@ -124,12 +122,8 @@ func _process(delta: float) -> void:
 						await Mask.MaskIsRemoved;
 					officeRoomTravel._travel();
 					await officeRoomTravel.doneTraveling;
-				jumpscareAnimation.play("jumpscare");
+				jumpscareAnimation.animation.play("jumpscare");
 				GlobalAudioManager.get_node("Sonic_Jumpscare").play();
-				await jumpscareAnimation.animation_finished;
-				loading._load_scene("res://assets/scenes/gameover.tscn");
-				await loading.scene_loaded;
-				get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 		#special events
 		if currentPosition == 1: #peeking
 			if Direction == Directions.LEFT:

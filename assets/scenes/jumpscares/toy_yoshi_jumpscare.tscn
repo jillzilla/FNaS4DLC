@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://dr3viuc0mfqks"]
+
+[ext_resource type="Texture2D" uid="uid://bu0dnpxqjv2ck" path="res://assets/images/gameplay/characters/yoshi/tyoshijumpscare.png" id="1_hbdbo"]
+[ext_resource type="Script" uid="uid://bq30yv4b0bvfb" path="res://assets/scripts/jumpscare_handler.gd" id="1_rdqt8"]
+[ext_resource type="Texture2D" uid="uid://4d2byfqh0dbl" path="res://assets/images/gameplay/characters/yoshi/tyoshiclaw.png" id="2_rdqt8"]
+
+[sub_resource type="Animation" id="Animation_3khrc"]
+resource_name = "jumpscare"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ToyYoshi:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(247.99997, 1008), Vector2(448, 552), Vector2(408.00006, 624.00006)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ToyYoshi:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.87, 0.87), Vector2(1.2, 1.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ToyYoshi:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.43633232, 0.15707964, -0.25830874]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ToyYoshi:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Claw:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(488.00006, 1056), Vector2(100, 600), Vector2(544, 848)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Claw:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1.095, 1.095), Vector2(2.5, 2.5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Claw:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.47472957, -0.9477138, 0.53407073]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Claw:modulate")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vx1u2"]
+_data = {
+&"jumpscare": SubResource("Animation_3khrc")
+}
+
+[node name="ToyYoshi_Jumpscare" type="Node2D" unique_id=331362373 node_paths=PackedStringArray("animation")]
+script = ExtResource("1_rdqt8")
+animation = NodePath("AnimationPlayer")
+metadata/_edit_lock_ = true
+
+[node name="ToyYoshi" type="Sprite2D" parent="." unique_id=1016951753]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(247.99997, 1008)
+rotation = -0.43633232
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_hbdbo")
+metadata/_edit_lock_ = true
+
+[node name="Claw" type="Sprite2D" parent="." unique_id=985976613]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(488.00006, 1056)
+rotation = 0.47472957
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rdqt8")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2132818789]
+libraries/ = SubResource("AnimationLibrary_vx1u2")
+speed_scale = 1.5

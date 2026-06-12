@@ -1,7 +1,5 @@
 class_name NightmareToyMario extends Node
 
-@export var loading : Control = null;
-
 #variables
 enum PupilsStates {DEFAULT,ON,OFF};
 var PupilsState : Variant = PupilsStates.DEFAULT;
@@ -38,7 +36,7 @@ var jumpscareExposure : float = main.JUMPSCAREEXPOSUREDEFAULT;
 @export var Mask : Node2D;
 @export var RunGraphics : Node2D;
 @export var peekingAnimation : AnimationPlayer;
-@export var jumpscareAnimation : AnimationPlayer;
+@export var jumpscareAnimation : Node2D;
 @export var charAway : AnimationPlayer;
 @export var timerStep : Timer;
 
@@ -121,12 +119,8 @@ func _process(delta: float) -> void:
 						await Mask.MaskIsRemoved;
 					officeRoomTravel._travel();
 					await officeRoomTravel.doneTraveling;
-				jumpscareAnimation.play("jumpscare");
+				jumpscareAnimation.animation.play("jumpscare");
 				GlobalAudioManager.get_node("Mario_Jumpscare").play();
-				await jumpscareAnimation.animation_finished;
-				loading._load_scene("res://assets/scenes/gameover.tscn");
-				await loading.scene_loaded;
-				get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 		#special events
 		if currentPosition == 1: #peeking
 			if flashlight.is_on && !hasPeeked:

@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://cddsbqwxivvqq"]
+
+[ext_resource type="Script" uid="uid://bq30yv4b0bvfb" path="res://assets/scripts/jumpscare_handler.gd" id="1_3v137"]
+[ext_resource type="Texture2D" uid="uid://cies55v38hwky" path="res://assets/images/gameplay/characters/nknux/knux_jumpscare_body.png" id="1_e4kku"]
+[ext_resource type="Texture2D" uid="uid://556xpc32u8gc" path="res://assets/images/gameplay/characters/nknux/doomfist.png" id="2_3v137"]
+
+[sub_resource type="Animation" id="Animation_8dojq"]
+resource_name = "jumpscare"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-176.00002, 952), Vector2(672.00006, 464), Vector2(431.99994, 415.99997)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.5184364, 0.3944444, -0.42586035]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.675, 0.675), Vector2(0.885, 0.885), Vector2(1.37, 1.37)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fist:modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(7.450581e-09, 7.450581e-09, 7.450581e-09, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fist:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.625, 0.625), Vector2(0.525, 0.525), Vector2(1.92, 1.92)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Fist:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 2.125811, -0.15009831]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Fist:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(944, 872.00006), Vector2(983.9999, 711.99994), Vector2(864.00006, 448.00006)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cykhs"]
+_data = {
+&"jumpscare": SubResource("Animation_8dojq")
+}
+
+[node name="Knuckles_Jumpscare" type="Node2D" unique_id=1409463115 node_paths=PackedStringArray("animation")]
+script = ExtResource("1_3v137")
+animation = NodePath("AnimationPlayer")
+metadata/_edit_lock_ = true
+
+[node name="Body" type="Sprite2D" parent="." unique_id=1545024812]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-176.00002, 952)
+rotation = -1.5184364
+scale = Vector2(0.675, 0.675)
+texture = ExtResource("1_e4kku")
+metadata/_edit_lock_ = true
+
+[node name="Fist" type="Sprite2D" parent="." unique_id=1192886780]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(944, 872.00006)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_3v137")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=580857597]
+libraries/ = SubResource("AnimationLibrary_cykhs")
+speed_scale = 1.5

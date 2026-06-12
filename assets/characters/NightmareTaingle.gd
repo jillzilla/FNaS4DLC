@@ -1,7 +1,5 @@
 class_name NightmareTaingle extends Node
 
-@export var loading : Control = null;
-
 #variables
 @export_group("Status")
 @export var currentPosition : int = 0;
@@ -27,7 +25,7 @@ var jumpscareExposure : float = main.JUMPSCAREEXPOSUREDEFAULT;
 @export var flashlight : FlashLightComponent;
 @export var officeRoomTravel : RoomTravelComponent;
 @export var Mask : Node2D;
-@export var jumpscareAnimation : AnimationPlayer;
+@export var jumpscareAnimation : Node2D;
 @export var radio : AudioStreamPlayer;
 
 var ce : float;
@@ -87,12 +85,8 @@ func _process(delta: float) -> void:
 					officeRoomTravel._travel();
 					await officeRoomTravel.doneTraveling;
 				radio.volume_db = -80;
-				jumpscareAnimation.play("jumpscare");
+				jumpscareAnimation.animation.play("jumpscare");
 				GlobalAudioManager.get_node("Taingle_Jumpscare").play();
-				await jumpscareAnimation.animation_finished;
-				loading._load_scene("res://assets/scenes/gameover.tscn");
-				await loading.scene_loaded;
-				get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
 func _handle_positions() -> void:
 	match(currentPosition):

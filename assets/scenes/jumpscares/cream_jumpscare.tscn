@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://b6thg0dlx12x4"]
+
+[ext_resource type="Texture2D" uid="uid://1yn1ptpmbryj" path="res://assets/images/gameplay/characters/cream/creamj1.png" id="1_14okm"]
+[ext_resource type="Script" uid="uid://bq30yv4b0bvfb" path="res://assets/scripts/jumpscare_handler.gd" id="1_o6e3o"]
+[ext_resource type="Texture2D" uid="uid://cjllisg858sou" path="res://assets/images/gameplay/characters/cream/cheesej.png" id="2_o6e3o"]
+[ext_resource type="Texture2D" uid="uid://duvwg0uebmiae" path="res://assets/images/gameplay/characters/cream/creamj2.png" id="3_pcbui"]
+[ext_resource type="Texture2D" uid="uid://be01d2yk4g64e" path="res://assets/images/gameplay/characters/cream/creamj3.png" id="4_1hw4k"]
+
+[sub_resource type="Animation" id="Animation_7sthw"]
+resource_name = "jumpscare"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Her:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(544, 1032), Vector2(567.99994, 504), Vector2(888.00006, 448)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Her:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.31066862, 0.28797933]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Her:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AndLilBlud:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(176, -208), Vector2(344, 144), Vector2(312, 328.00003)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AndLilBlud:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3874631, -0.38920844]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AndLilBlud:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.7, 0.7), Vector2(1.2, 1.2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Her:texture")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_14okm"), ExtResource("1_14okm"), ExtResource("3_pcbui"), ExtResource("4_1hw4k")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Her:modulate")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AndLilBlud:modulate")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yxvbo"]
+_data = {
+&"jumpscare": SubResource("Animation_7sthw")
+}
+
+[node name="Cream_Jumpscare" type="Node2D" unique_id=1063492713 node_paths=PackedStringArray("animation")]
+script = ExtResource("1_o6e3o")
+animation = NodePath("AnimationPlayer")
+metadata/_edit_lock_ = true
+
+[node name="Her" type="Sprite2D" parent="." unique_id=1726164793]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(544, 1032)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_14okm")
+metadata/_edit_lock_ = true
+
+[node name="AndLilBlud" type="Sprite2D" parent="." unique_id=472200886]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(176, -208)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_o6e3o")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1557931974]
+libraries/ = SubResource("AnimationLibrary_yxvbo")
+speed_scale = 1.5

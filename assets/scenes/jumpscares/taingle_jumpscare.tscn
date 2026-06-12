@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://c76hjgljtjud3"]
+
+[ext_resource type="Script" uid="uid://bq30yv4b0bvfb" path="res://assets/scripts/jumpscare_handler.gd" id="1_4yj6b"]
+[ext_resource type="Texture2D" uid="uid://dagj5ybgry1hp" path="res://assets/images/gameplay/characters/taingle/taingle_jumpscare.png" id="1_fwcnv"]
+
+[sub_resource type="Animation" id="Animation_l5brk"]
+resource_name = "jumpscare"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2), Vector2(2.6, 2.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(408, -303), Vector2(480, 0), Vector2(712.00006, -63.99993)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.5707964, 0.0, 0.35081118]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u63jk"]
+_data = {
+&"jumpscare": SubResource("Animation_l5brk")
+}
+
+[node name="Taingle_Jumpscare" type="Node2D" unique_id=910589855 node_paths=PackedStringArray("animation")]
+script = ExtResource("1_4yj6b")
+animation = NodePath("AnimationPlayer")
+metadata/_edit_lock_ = true
+
+[node name="Taingle" type="Sprite2D" parent="." unique_id=1096549657]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(408, -303)
+rotation = -1.5707964
+texture = ExtResource("1_fwcnv")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2146225821]
+root_node = NodePath("../Taingle")
+libraries/ = SubResource("AnimationLibrary_u63jk")
+speed_scale = 1.5
