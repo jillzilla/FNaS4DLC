@@ -42,7 +42,6 @@ func _sync_button_with_options() -> void:
 
 func _on_apply_pressed() -> void:
 	self.hide();
-	
 	main._apply_settings();
 	main._save_game();
 

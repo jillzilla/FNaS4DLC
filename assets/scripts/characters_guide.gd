@@ -1,7 +1,9 @@
 extends Control
 
+#variables
 @export var icons : Array[TextureButton];
 
+#functions
 func _ready() -> void:
 	if main.night_to_play >= 3:
 		icons[5].show();
@@ -14,4 +16,4 @@ func _ready() -> void:
 		icons[8].show();
 		
 func _on_back_pressed() -> void:
-	self.hide();
+	hide();

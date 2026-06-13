@@ -33,7 +33,6 @@ func _on_try_again_button_pressed() -> void:
 	loading._load_scene("res://assets/scenes/night_screen.tscn");
 
 func _on_menu_button_pressed() -> void:
-	main._reset_ai();
 	tryagain.visible = false;
 	menubutton.visible = false;
 	fadeanimation.play("fade");

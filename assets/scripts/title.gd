@@ -22,6 +22,8 @@ func _ready() -> void:
 	DiscordManager._update_details("Title Screen");
 	DiscordManager._update_state("");
 	
+	main._reset_ai();
+	
 	if main.night_to_play > 1:
 		guidebutton.visible = true;
 	

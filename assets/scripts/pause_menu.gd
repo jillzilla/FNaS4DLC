@@ -1,5 +1,6 @@
 extends Control
 
+#variables
 @onready var loading : Control = $Loading;
 
 @export var guidebutton : Button;
@@ -11,13 +12,12 @@ extends Control
 var reload = false;
 var quit = false;
 
+#functions
 func _ready() -> void:
 	get_tree().paused = false;
 	self.hide();
-	
 	if main.night_to_play > 1:
 		guidebutton.visible = true;
-	
 	confirm.connect("confirmaction", _confirmed_action);
 
 func _input(event: InputEvent) -> void:
@@ -46,15 +46,8 @@ func _confirmed_action() -> void:
 	GlobalAudioManager.get_node("Ambience").stop();
 	if reload:
 		loading._load_scene("res://assets/scenes/night_screen.tscn");
-		await loading.scene_loaded;
-		get_tree().paused = false;
-		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 	elif quit:
-		main._reset_ai();
 		loading._load_scene("res://assets/scenes/title.tscn");
-		await loading.scene_loaded;
-		get_tree().paused = false;
-		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
 func _on_guide_pressed() -> void:
 	guide.show();

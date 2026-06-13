@@ -1,5 +1,6 @@
 extends Node
 
+#variables
 @onready var loading : Control = $Loading;
 
 #functions

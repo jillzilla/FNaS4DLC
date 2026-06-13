@@ -2,11 +2,10 @@ extends Control
 
 signal confirmaction;
 
-#cancel
-func _on_button_pressed() -> void:
-	self.hide();
+#functions
+func _on_button_pressed() -> void: #cancel
+	hide();
 
-#confirm
-func _on_button_2_pressed() -> void:
+func _on_button_2_pressed() -> void: #confirm
 	confirmaction.emit();
-	self.hide();
+	hide();

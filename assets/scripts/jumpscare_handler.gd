@@ -15,4 +15,4 @@ func _jumpscare_animation_finished(anim_name : String) -> void:
 			GlobalAudioManager.get_node("Ambience").stop();
 			loading._load_scene("res://assets/scenes/gameover.tscn");
 		else:
-			self.hide();
+			hide();
