@@ -1,0 +1,49 @@
+{
+	"Nightmare Toy Sonic" :
+	{
+		"Character Path" : "Characters/ToySonic",
+		"Overlay" : "Overlays/Mask"
+	},
+
+	"Nightmare Toy Mario" :
+	{
+		"Character Path" : "Characters/ToyMario",
+		"Overlay" : "Overlays/Mask"
+	},
+
+	"Nightmare Toy Yoshi" :
+	{
+		"Character Path" : "Characters/ToyYoshi",
+		"Overlay" : "Overlays/Mask"
+	},
+
+	"Nightmare Taingle" :
+	{
+		"Character Path" : "Characters/Taingle",
+		"Overlay" : "Overlays/Mask"
+	},
+
+	"Nightmare Salvage" :
+	{
+		"Character Path" : "Characters/Salvage",
+		"Overlay" : "Overlays/Mask"
+	},
+
+	"Nightmare Cream" :
+	{
+		"Character Path" : "Characters/Cream",
+		"Overlay" : "AmyDeath"
+	},
+
+	"Nightmare Knuckles" :
+	{
+		"Character Path" : "Characters/Knuckles",
+		"Overlay" : "AmyDeath"
+	},
+
+	"Nightmare Luiginette" :
+	{
+		"Character Path" : "Characters/Luigi",
+		"Overlay" : "Overlays/POV"
+	}
+}

@@ -8,11 +8,22 @@ extends Node
 @onready var fadeanimation : AnimationPlayer = $Fade/AnimationPlayer;
 @onready var static_ : AnimatedSprite2D = $Static;
 
+@export_file_path("*.json") var data_json : String = "";
+var data : Dictionary = {};
+
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Game Over Screen");
 	DiscordManager._update_state("Killed by " + main.killedBy);
-	_handle_gameover_art();
+	
+	var file : FileAccess = FileAccess.open(data_json, FileAccess.READ);
+	var json_text : String = file.get_as_text();
+	file.close();
+	data = JSON.parse_string(json_text);
+	
+	if main.killedBy != "":
+		get_node(data[main.killedBy]["Character Path"]).show();
+		get_node(data[main.killedBy]["Overlay"]).show();
 
 func _on_try_again_button_pressed() -> void:
 	tryagain.visible = false;
@@ -32,30 +43,3 @@ func _on_menu_button_pressed() -> void:
 func _on_timer_timeout() -> void:
 	ui.visible = true;
 	static_.modulate.a = 0.5;
-
-func _handle_gameover_art() -> void:
-	match(main.killedBy):
-		"Nightmare Taingle":
-			get_node("Overlays/Mask").visible = true;
-			get_node("Characters/Taingle").visible = true;
-		"Nightmare Toy Yoshi":
-			get_node("Overlays/Mask").visible = true;
-			get_node("Characters/ToyYoshi").visible = true;
-		"Nightmare Toy Sonic":
-			get_node("Overlays/Mask").visible = true;
-			get_node("Characters/ToySonic").visible = true;
-		"Nightmare Toy Mario":
-			get_node("Overlays/Mask").visible = true;
-			get_node("Characters/ToyMario").visible = true;
-		"Nightmare Salvage Sonic":
-			get_node("AmyDeath").visible = true;
-			get_node("Characters/Salvage").visible = true;
-		"Nightmare Cream":
-			get_node("AmyDeath").visible = true;
-			get_node("Characters/Cream").visible = true;
-		"Nightmare Luiginette":
-			get_node("Overlays/POV").visible = true;
-			get_node("Characters/Luigi").visible = true;
-		"Nightmare Knuckles":
-			get_node("AmyDeath").visible = true;
-			get_node("Characters/Knuckles").visible = true;

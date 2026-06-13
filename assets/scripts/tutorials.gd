@@ -1,25 +1,24 @@
 extends Node
 
 #variables
-@export var night : Label;
+@export var counter : Label;
+@export_file_path("*.json") var data_json : String = "";
 @onready var loading : Control = $Loading;
+@onready var desc : RichTextLabel = $UI/Description;
+var data : Dictionary = {};
 
 #functions
 func _ready() -> void:
 	DiscordManager._update_state("Reading The Tutorial...");
-	night.text = "TUTORIAL " + "(Night " + str(main.nightcounter) + ")";
+	counter.text = "TUTORIAL " + "(Night " + str(main.nightcounter) + ")";
 	
-	match(main.nightcounter):
-		1:
-			get_node("GUIWorld/Text").visible = true;
-		2:
-			get_node("GUIWorld/Text2").visible = true;
-		3:
-			get_node("GUIWorld/Text3").visible = true;
-		4:
-			get_node("GUIWorld/Text4").visible = true;
-		5:
-			get_node("GUIWorld/Text5").visible = true;
+	var file : FileAccess = FileAccess.open(data_json, FileAccess.READ);
+	var json_text : String = file.get_as_text();
+	file.close();
+	data = JSON.parse_string(json_text);
+	
+	if main.nightcounter > 0 && main.nightcounter < 6:
+		desc.text = data[str(main.nightcounter)];
 
 func _on_button_pressed() -> void:
 	loading._load_scene("res://assets/scenes/gameplay.tscn");

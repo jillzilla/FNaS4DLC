@@ -4,11 +4,12 @@
 [ext_resource type="Script" uid="uid://cm60ndafc34ka" path="res://assets/scripts/tutorials.gd" id="1_l135b"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="3_e2gv7"]
 
-[node name="Tutorials" type="Node" unique_id=445370292 node_paths=PackedStringArray("night")]
+[node name="Tutorials" type="Node" unique_id=445370292 node_paths=PackedStringArray("counter")]
 script = ExtResource("1_l135b")
-night = NodePath("GUIWorld/Night")
+counter = NodePath("UI/Counter")
+data_json = "res://assets/data/tutorials.json"
 
-[node name="GUIWorld" type="Control" parent="." unique_id=1236848483]
+[node name="UI" type="Control" parent="." unique_id=1236848483]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +21,7 @@ theme = ExtResource("1_g8wgg")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="Background" type="ColorRect" parent="GUIWorld" unique_id=1051555802]
+[node name="Background" type="ColorRect" parent="UI" unique_id=1051555802]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,17 +32,17 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Night" type="Label" parent="GUIWorld" unique_id=1291721939]
+[node name="Counter" type="Label" parent="UI" unique_id=1291721939]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.089
 anchor_right = 0.5
 anchor_bottom = 0.089
-offset_left = -272.0
-offset_top = -48.08
-offset_right = 272.0
-offset_bottom = 47.92
+offset_left = -640.0
+offset_top = -64.08
+offset_right = 640.0
+offset_bottom = 63.92
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
 text = "TUTORIAL (Night 0)"
@@ -49,141 +50,30 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Text" type="Label" parent="GUIWorld" unique_id=961182897]
-visible = false
+[node name="Description" type="RichTextLabel" parent="UI" unique_id=1495433605]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.55
+anchor_top = 0.53300005
 anchor_right = 0.5
-anchor_bottom = 0.55
+anchor_bottom = 0.53300005
 offset_left = -576.0
-offset_top = -284.0
+offset_top = -255.76004
 offset_right = 576.0
-offset_bottom = 284.0
+offset_bottom = 256.23996
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "To navigate around your office, you’ll need to click on one of the
-entrances. You’ll be able to go to the vents, the hallway, the
-ceiling, and finally under the desk. At each entrance (except
-for the desk), you can use the flashlight by holding down
-[Ctrl]. Only in the vents, however, can you use the
-mask by pressing [Shift]
-
-If you hear a radio, go to the ceiling and shine the
-flashlight on it until the danger goes away.
-
-If you hear someone coming from the vents and they’re
-green, use the mask; if they’re red, look at their eyes; if
-they can see you, use the mask; if they can’t see you,
-hide under the desk."
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.827451, 0.45882353, 1, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Text..."
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Text2" type="Label" parent="GUIWorld" unique_id=1946421797]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.55
-anchor_right = 0.5
-anchor_bottom = 0.55
-offset_left = -576.0
-offset_top = -284.0
-offset_right = 576.0
-offset_bottom = 284.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "The blue guys aren't fooled by the mask. If one
-of them dares to attack you from the vents,
-hide under the desk.
-
-A mushroom has also just sprouted tonight; if you
-hear its laughter coming from the left vent, turn
-your flashlight on and off repeatedly until it
-leaves you alone.
-
-Otherwise, everything else is the same.
-Good luck."
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Text3" type="Label" parent="GUIWorld" unique_id=165184980]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.55
-anchor_right = 0.5
-anchor_bottom = 0.55
-offset_left = -576.0
-offset_top = -284.0
-offset_right = 576.0
-offset_bottom = 284.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "That other blue guy will try to slowly approach
-your position from the hallway. You can keep an
-eye on him via the monitor above your desk; if
-you hear him laughing, shine your flashlight
-on him until he goes away.
-
-You're close to the truth, Amy."
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Text4" type="Label" parent="GUIWorld" unique_id=277056774]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.55
-anchor_right = 0.5
-anchor_bottom = 0.55
-offset_left = -576.0
-offset_top = -284.0
-offset_right = 576.0
-offset_bottom = 284.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "An old acquaintance of yours will be joining us tonight.
-She won't be very dangerous, but if she tries to attack
-you, hide under the desk. Nothing too complicated."
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Text5" type="Label" parent="GUIWorld" unique_id=579748196]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.55
-anchor_right = 0.5
-anchor_bottom = 0.55
-offset_left = -576.0
-offset_top = -284.0
-offset_right = 576.0
-offset_bottom = 284.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "Everyone you've met so far will be more aggressive
-tonight, but not for long... Things are going to
-change, and when they do, keep this in mind:
-
-from the vents to the mask,
-from the hallway to the desk,
-from the ceiling to the flashlight.
-
-It's time to shine."
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Continue" type="Label" parent="GUIWorld" unique_id=755222476]
+[node name="Continue" type="Label" parent="UI" unique_id=755222476]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.098000005
@@ -201,7 +91,7 @@ text = "(Click to continue)"
 vertical_alignment = 2
 metadata/_edit_lock_ = true
 
-[node name="Button" type="Button" parent="GUIWorld" unique_id=62150892]
+[node name="Button" type="Button" parent="UI" unique_id=62150892]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -217,4 +107,4 @@ metadata/_edit_lock_ = true
 [node name="Loading" parent="." unique_id=220536216 instance=ExtResource("3_e2gv7")]
 visible = false
 
-[connection signal="pressed" from="GUIWorld/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
