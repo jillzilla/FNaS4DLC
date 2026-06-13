@@ -1,7 +1,7 @@
 extends Button
 
 #variables
-@export var Sound : AudioStreamPlayer2D;
+@export var Sound: AudioStreamPlayer2D;
 
 #functions
 func _on_pressed() -> void:

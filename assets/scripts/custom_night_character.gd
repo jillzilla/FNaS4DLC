@@ -1,26 +1,26 @@
 extends VBoxContainer
 
 #variables
-const REQUIREDHOLDTIME : float = 0.15;
+const REQUIREDHOLDTIME: float = 0.15;
 
-@export var charName : String;
-@export var iconPath : String;
+@export var charName: String;
+@export var iconPath: String;
 
-@export_range(0,9) var charID : int = 0;
-@export var minlevel : int = 0;
-@export var maxlevel : int = 25;
+@export_range(0, 9) var charID: int = 0;
+@export var minlevel: int = 0;
+@export var maxlevel: int = 25;
 
-@export var binary : bool = false;
+@export var binary: bool = false;
 
-var holdTime : float = 0.0;
+var holdTime: float = 0.0;
 
-var HoverLeft : bool = false;
-var HoverRight : bool = false;
+var HoverLeft: bool = false;
+var HoverRight: bool = false;
 
-@onready var name_ : Label = $Name;
-@onready var ai_counter : Label = $AiLevel/Counter;
-@onready var icon : TextureRect = $Icon;
-@onready var ai_change_timer : Timer = $Timer_Change_AI_Level;
+@onready var name_: Label = $Name;
+@onready var ai_counter: Label = $AiLevel/Counter;
+@onready var icon: TextureRect = $Icon;
+@onready var ai_change_timer: Timer = $Timer_Change_AI_Level;
 
 #functions
 func _ready() -> void:
@@ -39,7 +39,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("CLICK") && HoverLeft || Input.is_action_pressed("CLICK") && HoverRight:
 		holdTime += delta;
-		if holdTime >= REQUIREDHOLDTIME	:
+		if holdTime >= REQUIREDHOLDTIME:
 			if ai_change_timer.is_stopped():
 				ai_change_timer.start();
 	else:
@@ -64,7 +64,7 @@ func _set_min() -> void:
 	_update_ai_counter();
 	
 func _set_random() -> void:
-	main.aiLevelsAsArrays[charID] = randi_range(minlevel,maxlevel);
+	main.aiLevelsAsArrays[charID] = randi_range(minlevel, maxlevel);
 	_update_ai_counter();
 	
 func _set_max() -> void:

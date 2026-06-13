@@ -1,26 +1,26 @@
 extends Control
 
 #variables
-@onready var video_settings : ScrollContainer = $MarginContainer/Video;
-@onready var audio_settings : ScrollContainer = $MarginContainer/Audio;
-@onready var misc_settings : ScrollContainer = $MarginContainer/Misc;
+@onready var video_settings: ScrollContainer = $MarginContainer/Video;
+@onready var audio_settings: ScrollContainer = $MarginContainer/Audio;
+@onready var misc_settings: ScrollContainer = $MarginContainer/Misc;
 
-@onready var windowed_mode_button : OptionButton = $MarginContainer/Video/VideoContainer/WindowMode/OptionButton;
-@onready var resolution_button : OptionButton = $MarginContainer/Video/VideoContainer/Resolution/OptionButton;
-@onready var vsync_button : CheckBox = $MarginContainer/Video/VideoContainer/VSync/CheckBox;
-@onready var fpscap_button : OptionButton = $MarginContainer/Video/VideoContainer/FPSCap/OptionButton;
+@onready var windowed_mode_button: OptionButton = $MarginContainer/Video/VideoContainer/WindowMode/OptionButton;
+@onready var resolution_button: OptionButton = $MarginContainer/Video/VideoContainer/Resolution/OptionButton;
+@onready var vsync_button: CheckBox = $MarginContainer/Video/VideoContainer/VSync/CheckBox;
+@onready var fpscap_button: OptionButton = $MarginContainer/Video/VideoContainer/FPSCap/OptionButton;
 
-@onready var mastervolume_slider : HSlider = $MarginContainer/Audio/AudioContainer/MasterVolume/HSlider;
-@onready var musicvolume_slider : HSlider = $MarginContainer/Audio/AudioContainer/MusicVolume/HSlider;
-@onready var soundsvolume_slider : HSlider = $MarginContainer/Audio/AudioContainer/SoundsVolume/HSlider;
-@onready var jumpscarevolume_slider : HSlider = $MarginContainer/Audio/AudioContainer/JumpscareVolume/HSlider;
+@onready var mastervolume_slider: HSlider = $MarginContainer/Audio/AudioContainer/MasterVolume/HSlider;
+@onready var musicvolume_slider: HSlider = $MarginContainer/Audio/AudioContainer/MusicVolume/HSlider;
+@onready var soundsvolume_slider: HSlider = $MarginContainer/Audio/AudioContainer/SoundsVolume/HSlider;
+@onready var jumpscarevolume_slider: HSlider = $MarginContainer/Audio/AudioContainer/JumpscareVolume/HSlider;
 
-@onready var fps_counter : CheckBox = $MarginContainer/Misc/MiscContainer/FPSCounter/CheckBox;
+@onready var fps_counter: CheckBox = $MarginContainer/Misc/MiscContainer/FPSCounter/CheckBox;
 
-@onready var confirm_popup : Control = $ConfirmPopUp;
+@onready var confirm_popup: Control = $ConfirmPopUp;
 
-var resetdata : bool = false;
-var deletedata : bool = false;
+var resetdata: bool = false;
+var deletedata: bool = false;
 
 #functions
 func _ready() -> void:

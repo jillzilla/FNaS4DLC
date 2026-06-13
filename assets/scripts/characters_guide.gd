@@ -1,7 +1,7 @@
 extends Control
 
 #variables
-@export var icons : Array[TextureButton];
+@export var icons: Array[TextureButton];
 
 #functions
 func _ready() -> void:

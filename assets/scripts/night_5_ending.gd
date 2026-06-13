@@ -1,7 +1,7 @@
 extends Node
 
 #variables
-@onready var loading : Control = $GUI/Loading;
+@onready var loading: Control = $GUI/Loading;
 
 #functions
 func _ready() -> void:

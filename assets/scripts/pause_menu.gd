@@ -1,13 +1,13 @@
 extends Control
 
 #variables
-@onready var loading : Control = $Loading;
+@onready var loading: Control = $Loading;
 
-@export var guidebutton : Button;
+@export var guidebutton: Button;
 
-@export var confirm : Control;
-@export var settings : Control;
-@export var guide : Control;
+@export var confirm: Control;
+@export var settings: Control;
+@export var guide: Control;
 
 var reload = false;
 var quit = false;
@@ -21,7 +21,7 @@ func _ready() -> void:
 	confirm.connect("confirmaction", _confirmed_action);
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("PAUSE") && !self.visible && main.PlayerAlive && !main.isloadingsom:
+	if event.is_action_pressed("PAUSE") && ! self.visible && main.PlayerAlive && !main.isloadingsom:
 		get_tree().paused = true;
 		self.show();
 

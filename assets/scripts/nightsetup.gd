@@ -1,34 +1,34 @@
 extends Node
 
 #variables
-@onready var loading : Control = $Misc/GUI/Loading;
-@export var custom_night_rewards : Array[Sprite2D];
+@onready var loading: Control = $Misc/GUI/Loading;
+@export var custom_night_rewards: Array[Sprite2D];
 
-@export var characters : Array[Node];
-@export var charAway : AnimationPlayer;
+@export var characters: Array[Node];
+@export var charAway: AnimationPlayer;
 
-@export var entrance_luiginette_sound : AudioStreamPlayer;
-@export var clock_falling_animation : AnimationPlayer;
+@export var entrance_luiginette_sound: AudioStreamPlayer;
+@export var clock_falling_animation: AnimationPlayer;
 
-@export var shockSFX : AudioStreamPlayer;
-@export var ventleaveSFX : AudioStreamPlayer;
-@export var leftventSFX : AudioStreamPlayer2D;
-@export var rightventSFX : AudioStreamPlayer2D;
+@export var shockSFX: AudioStreamPlayer;
+@export var ventleaveSFX: AudioStreamPlayer;
+@export var leftventSFX: AudioStreamPlayer2D;
+@export var rightventSFX: AudioStreamPlayer2D;
 
-@export var officeRoomTravel : RoomTravelComponent;
+@export var officeRoomTravel: RoomTravelComponent;
 
-@export var ClockTimer : Timer;
-@export var ClockCounter : Label;
+@export var ClockTimer: Timer;
+@export var ClockCounter: Label;
 
-var ClockIteration : int = 0;
-var ClockOutputs : Array[String] = ["12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM"];
+var ClockIteration: int = 0;
+var ClockOutputs: Array[String] = ["12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM"];
 
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Night " + str(main.nightcounter));
 	DiscordManager._update_state(ClockOutputs[ClockIteration]);
 	
-	var cndata : Array[bool] = [main.cn_challenge_1,main.cn_challenge_2,main.cn_challenge_3,main.cn_challenge_4,main.cn_challenge_5,main.cn_challenge_6,main.cn_challenge_7,main.cn_challenge_8,main.cn_challenge_9,main.cn_challenge_10,main.cn_challenge_11,main.cn_challenge_12];
+	var cndata: Array[bool] = [main.cn_challenge_1, main.cn_challenge_2, main.cn_challenge_3, main.cn_challenge_4, main.cn_challenge_5, main.cn_challenge_6, main.cn_challenge_7, main.cn_challenge_8, main.cn_challenge_9, main.cn_challenge_10, main.cn_challenge_11, main.cn_challenge_12];
 	for i in range(custom_night_rewards.size()):
 		custom_night_rewards[i].visible = cndata[i];
 

@@ -1,7 +1,7 @@
 extends Control
 
 #variables
-@export var scrollContainer : ScrollContainer;
+@export var scrollContainer: ScrollContainer;
 
 #functions
 func _on_back_button_pressed() -> void:

@@ -1,17 +1,17 @@
 class_name FlashLightComponent extends Node
 
 #variables
-@export var tailsdoll : TailsDoll;
-@export var BT : NightmareBT;
-@export var spriteAsFlashlight : Sprite2D;
-@export var scrolling : ScrollingComponent;
-@export var flashlightSFX : AudioStreamPlayer;
-@export var travel : RoomTravelComponent;
-@export var enabled : bool = false;
-@export var mask : Node2D;
-@onready var tween_tailsdoll : Tween = null;
+@export var tailsdoll: TailsDoll;
+@export var BT: NightmareBT;
+@export var spriteAsFlashlight: Sprite2D;
+@export var scrolling: ScrollingComponent;
+@export var flashlightSFX: AudioStreamPlayer;
+@export var travel: RoomTravelComponent;
+@export var enabled: bool = false;
+@export var mask: Node2D;
+@onready var tween_tailsdoll: Tween = null;
 
-var is_on : bool = false;
+var is_on: bool = false;
 
 #functions
 func _turn_on() -> void:
@@ -24,7 +24,7 @@ func _turn_on() -> void:
 		BT.flashCounter += 1;
 		
 	if tailsdoll.currentPosition == 1:
-		match(tailsdoll.Direction):
+		match (tailsdoll.Direction):
 			tailsdoll.Directions.LEFT:
 				if main.PlayerPosition == "Left_Vent":
 					_get_rid_of_tails(tailsdoll.position_left);
@@ -51,14 +51,14 @@ func _process(_delta: float) -> void:
 		if is_on:
 			_turn_off();
 	
-func _get_rid_of_tails(sprite : Sprite2D) -> void:
+func _get_rid_of_tails(sprite: Sprite2D) -> void:
 	tailsdoll.currentPosition = 0;
 	
 	if tween_tailsdoll:
 		tween_tailsdoll.kill();
 	
 	tween_tailsdoll = create_tween();
-	tween_tailsdoll.tween_property(sprite,"modulate:a",0,0.5);
+	tween_tailsdoll.tween_property(sprite, "modulate:a", 0, 0.5);
 	
 	if tailsdoll.effect.is_playing():
 		tailsdoll.effect.speed_scale = 1.5;

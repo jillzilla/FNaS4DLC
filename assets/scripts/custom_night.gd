@@ -1,8 +1,8 @@
 extends Node
 
 #variables
-@export var characters : Array[VBoxContainer];
-@onready var loading : Control = $Loading;
+@export var characters: Array[VBoxContainer];
+@onready var loading: Control = $Loading;
 
 #functions
 func _ready() -> void:

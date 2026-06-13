@@ -4,35 +4,35 @@ class_name NightmareLuiginetteV2 extends Node
 enum directions {LEFT, MIDDLE, RIGHT};
 enum attack_positions {NONE, LEFT_VENT, RIGHT_VENT, CEILING, HALLWAY};
 
-var direction : Variant = directions.MIDDLE;
-var attack_position : Variant = attack_positions.NONE;
+var direction: Variant = directions.MIDDLE;
+var attack_position: Variant = attack_positions.NONE;
 
-@export var movement_opportunity_timer : Timer;
+@export var movement_opportunity_timer: Timer;
 
-@export var walk_left : AudioStreamPlayer2D;
-@export var walk_right : AudioStreamPlayer2D;
-@export var walk_middle : AudioStreamPlayer2D;
+@export var walk_left: AudioStreamPlayer2D;
+@export var walk_right: AudioStreamPlayer2D;
+@export var walk_middle: AudioStreamPlayer2D;
 
-@export var laughs : Array[AudioStreamPlayer];
+@export var laughs: Array[AudioStreamPlayer];
 
-@export var left_vent : AudioStreamPlayer2D;
-@export var right_vent : AudioStreamPlayer2D;
+@export var left_vent: AudioStreamPlayer2D;
+@export var right_vent: AudioStreamPlayer2D;
 
-@export var jump_sound : AudioStreamPlayer;
-@export var get_close_sound : Array[AudioStreamPlayer];
+@export var jump_sound: AudioStreamPlayer;
+@export var get_close_sound: Array[AudioStreamPlayer];
 
-@export var left_sprite : Sprite2D;
-@export var right_sprite : Sprite2D;
-@export var front_sprite : Sprite2D;
-@export var up_sprite : Sprite2D;
+@export var left_sprite: Sprite2D;
+@export var right_sprite: Sprite2D;
+@export var front_sprite: Sprite2D;
+@export var up_sprite: Sprite2D;
 
-@export var flashlight_left : FlashLightComponent;
-@export var flashlight_right : FlashLightComponent;
-@export var flashlight_up : FlashLightComponent;
-@export var flashlight_front : FlashLightComponent;
+@export var flashlight_left: FlashLightComponent;
+@export var flashlight_right: FlashLightComponent;
+@export var flashlight_up: FlashLightComponent;
+@export var flashlight_front: FlashLightComponent;
 
-var fails : int = 0;
-var has_decided_his_path : bool = false;
+var fails: int = 0;
+var has_decided_his_path: bool = false;
  
 func _ready() -> void:
 	movement_opportunity_timer.connect("timeout", _movement_opportunity_timeout);
@@ -43,9 +43,9 @@ func _ready() -> void:
 func _movement_opportunity_timeout() -> void:
 	if main.PlayerAlive:
 		if !has_decided_his_path:
-			match(direction):
+			match (direction):
 				directions.MIDDLE:
-					var possible_directions : Array[Variant] = [directions.LEFT,directions.RIGHT];
+					var possible_directions: Array[Variant] = [directions.LEFT, directions.RIGHT];
 					direction = possible_directions.pick_random();
 					if direction == directions.LEFT:
 						walk_left.play();
@@ -71,16 +71,16 @@ func _movement_opportunity_timeout() -> void:
 			movement_opportunity_timer.start();
 		else:
 			laughs.pick_random().play();
-			match(direction):
+			match (direction):
 				directions.LEFT:
-					var possible_attack_position : Variant = attack_positions.LEFT_VENT;
+					var possible_attack_position: Variant = attack_positions.LEFT_VENT;
 					attack_position = possible_attack_position;
 					if flashlight_left.is_on:
 						flashlight_left._turn_off();
 					left_sprite.show();
 					left_vent.play();
 				directions.MIDDLE:
-					var possible_attack_positions : Array[Variant] = [attack_positions.CEILING, attack_positions.HALLWAY];
+					var possible_attack_positions: Array[Variant] = [attack_positions.CEILING, attack_positions.HALLWAY];
 					attack_position = possible_attack_positions.pick_random();
 					if attack_position == attack_positions.HALLWAY:
 						if flashlight_front.is_on:
@@ -93,7 +93,7 @@ func _movement_opportunity_timeout() -> void:
 						up_sprite.show();
 						jump_sound.play();
 				directions.RIGHT:
-					var possible_attack_position : Variant = attack_positions.RIGHT_VENT;
+					var possible_attack_position: Variant = attack_positions.RIGHT_VENT;
 					attack_position = possible_attack_position;
 					if flashlight_right.is_on:
 						flashlight_right._turn_off();

@@ -1,29 +1,29 @@
 class_name TailsDoll extends Node
 
 #variables
-enum Directions {NONE,LEFT,RIGHT,CEILING};
-var Direction : Variant = Directions.NONE;
-var positionsAvailable : int = 1;
+enum Directions {NONE, LEFT, RIGHT, CEILING};
+var Direction: Variant = Directions.NONE;
+var positionsAvailable: int = 1;
 
 @export_group("Status")
-@export var currentPosition : int = 0;
-@export var movement_opportunity_timer : Timer;
+@export var currentPosition: int = 0;
+@export var movement_opportunity_timer: Timer;
 
 @export_group("Sprites")
-@export var position_left : Sprite2D;
-@export var position_right : Sprite2D;
-@export var position_up : Sprite2D;
-@export var eyes_left : Sprite2D;
-@export var eyes_right : Sprite2D;
-@export var eyes_up : Sprite2D;
+@export var position_left: Sprite2D;
+@export var position_right: Sprite2D;
+@export var position_up: Sprite2D;
+@export var eyes_left: Sprite2D;
+@export var eyes_right: Sprite2D;
+@export var eyes_up: Sprite2D;
 
 @export_group("Mechanicals")
-@export var effect : AnimationPlayer;
-@export var LFlashlight : FlashLightComponent;
-@export var RFlashlight : FlashLightComponent;
-@export var CFlashlight : FlashLightComponent;
+@export var effect: AnimationPlayer;
+@export var LFlashlight: FlashLightComponent;
+@export var RFlashlight: FlashLightComponent;
+@export var CFlashlight: FlashLightComponent;
 
-var fails : int = 0;
+var fails: int = 0;
 
 #functions
 func _ready() -> void:
@@ -51,8 +51,8 @@ func _movement_opportunity_timeout() -> void:
 			movement_opportunity_timer.start();
 		
 func _switch_path() -> void:
-	var path : int = randi_range(1,3);
-	match(path):
+	var path: int = randi_range(1, 3);
+	match (path):
 		1:
 			Direction = Directions.LEFT;
 		2:
@@ -62,7 +62,7 @@ func _switch_path() -> void:
 
 func _handle_positions() -> void:
 	if currentPosition == 1:
-		match(Direction):
+		match (Direction):
 			Directions.LEFT:
 				if LFlashlight.is_on:
 					LFlashlight._turn_off();
@@ -72,7 +72,7 @@ func _handle_positions() -> void:
 			Directions.CEILING:
 				if CFlashlight.is_on:
 					CFlashlight._turn_off();
-	match(currentPosition):
+	match (currentPosition):
 		0:
 			if main.TailsDollAiLevel != 0:
 				movement_opportunity_timer.start();
@@ -85,7 +85,7 @@ func _handle_positions() -> void:
 			eyes_right.visible = false;
 			eyes_up.visible = false;
 		1:
-			match(Direction):
+			match (Direction):
 				Directions.LEFT:
 					position_left.visible = true;
 					eyes_left.visible = true;

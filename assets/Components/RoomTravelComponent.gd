@@ -3,47 +3,47 @@ class_name RoomTravelComponent extends Node
 signal doneTraveling;
 
 #variables
-enum inputs {ENTERED,PRESSED};
+enum inputs {ENTERED, PRESSED};
 
-@export var input : Variant = inputs.PRESSED;
-@export var button : Button;
-@export var walkSFX : AudioStreamPlayer;
+@export var input: Variant = inputs.PRESSED;
+@export var button: Button;
+@export var walkSFX: AudioStreamPlayer;
 
-@export var room : Sprite2D;
-@export var roomPosition : Vector2;
+@export var room: Sprite2D;
+@export var roomPosition: Vector2;
 
-@export var fadeTransition : AnimationPlayer;
+@export var fadeTransition: AnimationPlayer;
 
-@export var scrolling : ScrollingComponent;
-@export var disableScrolling : bool = true;
+@export var scrolling: ScrollingComponent;
+@export var disableScrolling: bool = true;
 
-@export var camEffect : bool = true;
+@export var camEffect: bool = true;
 
-@export var camPosYEffectStart : float;
-@export var camPosYEffectEnd : float;
+@export var camPosYEffectStart: float;
+@export var camPosYEffectEnd: float;
 
-@export var buttonToDisable : Array[Button];
-@export var buttonToActivate : Array[Button];
+@export var buttonToDisable: Array[Button];
+@export var buttonToActivate: Array[Button];
 
-@export var roomToLeave : Array[Sprite2D];
-@export var roomToLeavePosition : Array[Vector2];
+@export var roomToLeave: Array[Sprite2D];
+@export var roomToLeavePosition: Array[Vector2];
 
-@export var flashlight : FlashLightComponent;
+@export var flashlight: FlashLightComponent;
 
-@export var mask : Node2D;
-@export var canUseMaskHere : bool = false;
+@export var mask: Node2D;
+@export var canUseMaskHere: bool = false;
 
-@export var disabled : bool = false;
+@export var disabled: bool = false;
 
-@export var shadow_mario : Sprite2D;
-@export var big : Sprite2D;
-@export var toadette : Sprite2D;
-@export var golden : Sprite2D;
+@export var shadow_mario: Sprite2D;
+@export var big: Sprite2D;
+@export var toadette: Sprite2D;
+@export var golden: Sprite2D;
 
 #functions
 func _ready() -> void:
-	button.connect("pressed",_pressed);
-	button.connect("mouse_entered",_entered);
+	button.connect("pressed", _pressed);
+	button.connect("mouse_entered", _entered);
 	if roomToLeave != []:
 		for i in range(roomToLeave.size()):
 			if roomToLeave[i].visible:
@@ -82,8 +82,8 @@ func _travel() -> void:
 		if get_parent().name == "Office":
 			if main.random_chance(0.05):
 				shadow_mario.modulate.a = 1;
-				var tween : Tween = create_tween();
-				tween.tween_property(shadow_mario,"modulate:a",0,0.5).set_trans(Tween.TRANS_CUBIC);
+				var tween: Tween = create_tween();
+				tween.tween_property(shadow_mario, "modulate:a", 0, 0.5).set_trans(Tween.TRANS_CUBIC);
 
 		elif get_parent().name == "Hallway":
 			if main.random_chance(0.1):
@@ -121,8 +121,8 @@ func _travel() -> void:
 
 		if camEffect:
 			scrolling.get_parent().position.y = camPosYEffectStart;
-			var camMove : Tween = create_tween();
-			camMove.tween_property(scrolling.get_parent(),"position:y",camPosYEffectEnd,0.5).set_trans(Tween.TRANS_CUBIC);
+			var camMove: Tween = create_tween();
+			camMove.tween_property(scrolling.get_parent(), "position:y", camPosYEffectEnd, 0.5).set_trans(Tween.TRANS_CUBIC);
 			await camMove.finished;
 
 		if canUseMaskHere:

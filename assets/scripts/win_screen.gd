@@ -1,15 +1,15 @@
 extends Node
 
 #variables
-@onready var loading : Control = $Loading;
-@export var clockanimation : AnimationPlayer;
+@onready var loading: Control = $Loading;
+@export var clockanimation: AnimationPlayer;
 
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Win Screen");
 	DiscordManager._update_state("Night " + str(main.nightcounter));
 	
-	match(main.nightcounter):
+	match (main.nightcounter):
 		5:
 			main.night5ending = true;
 		6:

@@ -1,6 +1,6 @@
 extends Node
 
-@onready var loading : Control = $Loading;
+@onready var loading: Control = $Loading;
 
 #functions
 func _ready() -> void:

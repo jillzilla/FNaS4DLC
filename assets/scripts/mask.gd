@@ -3,24 +3,24 @@ extends Node2D
 signal MaskIsRemoved;
 
 #variables
-@export var scrolling : ScrollingComponent;
-@export var travel : RoomTravelComponent;
+@export var scrolling: ScrollingComponent;
+@export var travel: RoomTravelComponent;
 
-@onready var dasprite : AnimatedSprite2D = $Sprite;
+@onready var dasprite: AnimatedSprite2D = $Sprite;
 
-@onready var cooldown_timer : Timer = $CD_Timer;
+@onready var cooldown_timer: Timer = $CD_Timer;
 
-@onready var on_SFX : AudioStreamPlayer = $ON;
-@onready var off_SFX : AudioStreamPlayer = $OFF;
+@onready var on_SFX: AudioStreamPlayer = $ON;
+@onready var off_SFX: AudioStreamPlayer = $OFF;
 
-var canUseMask : bool = false;
-var isUsingMask : bool = false;
-var breath : bool = false;
-var PuttingMask : bool = false;
+var canUseMask: bool = false;
+var isUsingMask: bool = false;
+var breath: bool = false;
+var PuttingMask: bool = false;
 
-var breathTime : float;
-var breathradius : float = 50;
-var breathspeed : float = 2;
+var breathTime: float;
+var breathradius: float = 50;
+var breathspeed: float = 2;
 
 #functions
 func _process(_delta: float) -> void:
@@ -52,8 +52,8 @@ func _put_on() -> void:
 
 			on_SFX.play();
 
-			var t : Tween = create_tween();
-			t.tween_property(dasprite,"position:y",360,0.2).set_trans(Tween.TRANS_CUBIC);
+			var t: Tween = create_tween();
+			t.tween_property(dasprite, "position:y", 360, 0.2).set_trans(Tween.TRANS_CUBIC);
 			await t.finished;
 
 			breath = true;
@@ -74,8 +74,8 @@ func _remove() -> void:
 
 		off_SFX.play();
 
-		var t : Tween = create_tween();
-		t.tween_property(dasprite,"position:y",-360,0.2).set_trans(Tween.TRANS_CUBIC);
+		var t: Tween = create_tween();
+		t.tween_property(dasprite, "position:y", -360, 0.2).set_trans(Tween.TRANS_CUBIC);
 		
 		await cooldown_timer.timeout;
 

@@ -4,50 +4,50 @@ signal moved;
 
 #variables
 @export_group("Status")
-@export var currentPosition : int = 0;
+@export var currentPosition: int = 0;
 
-var timerChangePosition : float = 0;
+var timerChangePosition: float = 0;
 
-@export var minTimerChangePosition : float;
-@export var maxTimerChangePosition : float;
+@export var minTimerChangePosition: float;
+@export var maxTimerChangePosition: float;
 
-var counterExposureLevel : int = main.COUNTEREXPOSURELEVELDEFAULT;
-var counterExposure : float = main.COUNTEREXPOSUREDEFAULT;
+var counterExposureLevel: int = main.COUNTEREXPOSURELEVELDEFAULT;
+var counterExposure: float = main.COUNTEREXPOSUREDEFAULT;
 
-var jumpscareExposureLevel : int = main.JUMPSCAREEXPOSURELEVELDEFAULT;
-var jumpscareExposure : float = main.JUMPSCAREEXPOSUREDEFAULT;
+var jumpscareExposureLevel: int = main.JUMPSCAREEXPOSURELEVELDEFAULT;
+var jumpscareExposure: float = main.JUMPSCAREEXPOSUREDEFAULT;
 
 @export_group("Sprites")
-@export var Position1 : Sprite2D;
-@export var Position2 : Sprite2D;
-@export var Position3 : Sprite2D;
-@export var Position4 : Sprite2D;
-@export var Position5 : Sprite2D;
-@export var Position6 : Sprite2D;
-@export var Position7 : Sprite2D;
+@export var Position1: Sprite2D;
+@export var Position2: Sprite2D;
+@export var Position3: Sprite2D;
+@export var Position4: Sprite2D;
+@export var Position5: Sprite2D;
+@export var Position6: Sprite2D;
+@export var Position7: Sprite2D;
 
 @export_group("Mechanicals")
-@export var monitor : Node2D;
-@export var laugh : AudioStreamPlayer;
-@export var dangersound : AudioStreamPlayer;
-@export var flashlight : FlashLightComponent;
-@export var officeRoomTravel : RoomTravelComponent;
-@export var Mask : Node2D;
-@export var jumpscareAnimation : Node2D;
+@export var monitor: Node2D;
+@export var laugh: AudioStreamPlayer;
+@export var dangersound: AudioStreamPlayer;
+@export var flashlight: FlashLightComponent;
+@export var officeRoomTravel: RoomTravelComponent;
+@export var Mask: Node2D;
+@export var jumpscareAnimation: Node2D;
 
-var ce : float;
-var je : float;
+var ce: float;
+var je: float;
 
-var positionsAvailable : int = 6;
+var positionsAvailable: int = 6;
 
-var canAttack : bool = false;
-var jumpscare : bool = false;
-var haslaughed : bool = false;
+var canAttack: bool = false;
+var jumpscare: bool = false;
+var haslaughed: bool = false;
 
 #functions
 func _ready() -> void:
 	#working variables
-	timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+	timerChangePosition = randf_range(minTimerChangePosition, maxTimerChangePosition);
 	ce = counterExposure;
 	je = jumpscareExposure;
 	
@@ -55,7 +55,7 @@ func _ready() -> void:
 	_handle_positions();
 	
 func _process(delta: float) -> void:
-	var NewDelta : float = delta * main.fpsTarget;
+	var NewDelta: float = delta * main.fpsTarget;
 
 	if main.NightmareSalvageAiLevel != 0 && !jumpscare && main.PlayerAlive:
 		#movement
@@ -63,7 +63,7 @@ func _process(delta: float) -> void:
 			if currentPosition >= 5 && !flashlight.is_on || currentPosition < 5:
 				timerChangePosition -= NewDelta * main.NightmareSalvageAiLevel;
 				if timerChangePosition <= 0:
-					timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+					timerChangePosition = randf_range(minTimerChangePosition, maxTimerChangePosition);
 					counterExposure = ce;
 					currentPosition += 1;
 					_handle_positions();
@@ -73,7 +73,7 @@ func _process(delta: float) -> void:
 		if currentPosition >= positionsAvailable - 1 && flashlight.is_on && main.PlayerPosition == "Hallway":
 			counterExposure -= NewDelta * counterExposureLevel;
 			if counterExposure <= 0:
-				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+				timerChangePosition = randf_range(minTimerChangePosition, maxTimerChangePosition);
 				counterExposure = ce;
 				jumpscareExposure = je;
 				if !Position6.visible:
@@ -106,7 +106,7 @@ func _handle_positions():
 	else:
 		monitor.visible = false;
 	
-	match(currentPosition):
+	match (currentPosition):
 		0:
 			Position1.visible = true;
 			Position2.visible = false;

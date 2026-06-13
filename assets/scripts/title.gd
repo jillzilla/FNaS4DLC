@@ -1,21 +1,21 @@
 extends Node
 
 #variables
-@export var animations : AnimationPlayer;
-@export var buttonscontainer : Control;
-@export var nightcounter : Label;
-@export var star1 : Sprite2D;
-@export var star2 : Sprite2D;
-@export var star3 : Sprite2D;
-@export var night6button : Button;
-@export var customnightbutton : Button;
-@export var extrasbutton : Button;
-@export var guidebutton : Button;
-@export var credits : Control;
-@export var settings : Control;
-@export var guide : Control;
+@export var animations: AnimationPlayer;
+@export var buttonscontainer: Control;
+@export var nightcounter: Label;
+@export var star1: Sprite2D;
+@export var star2: Sprite2D;
+@export var star3: Sprite2D;
+@export var night6button: Button;
+@export var customnightbutton: Button;
+@export var extrasbutton: Button;
+@export var guidebutton: Button;
+@export var credits: Control;
+@export var settings: Control;
+@export var guide: Control;
 
-@onready var loading : Control = $UI/Loading;
+@onready var loading: Control = $UI/Loading;
 
 #functions
 func _ready() -> void:
@@ -47,7 +47,7 @@ func _ready() -> void:
 	
 	nightcounter.text = "Night " + str(main.night_to_play);
 
-func _on_button_pressed() -> void: #play, forgot to name the signal properly oops
+func _on_button_pressed() -> void: # play, forgot to name the signal properly oops
 	main.nightcounter = main.night_to_play;
 	buttonscontainer.visible = false;
 	animations.play("ChangeScene");

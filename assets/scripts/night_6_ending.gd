@@ -1,12 +1,12 @@
 extends Node
 
 #variables
-@onready var animation_camera : AnimationPlayer = $Camera2D/AnimationPlayer;
-@onready var flashanimation : AnimationPlayer = $Flash/AnimationPlayer;
-@onready var click : AudioStreamPlayer = $Click;
-@onready var erase : Button = $Erase;
-@onready var label : Label = $Label;
-@onready var loading : Control = $Loading;
+@onready var animation_camera: AnimationPlayer = $Camera2D/AnimationPlayer;
+@onready var flashanimation: AnimationPlayer = $Flash/AnimationPlayer;
+@onready var click: AudioStreamPlayer = $Click;
+@onready var erase: Button = $Erase;
+@onready var label: Label = $Label;
+@onready var loading: Control = $Loading;
 
 #functions
 func _ready() -> void:

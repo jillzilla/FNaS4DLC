@@ -2,51 +2,51 @@ class_name NightmareToyYoshi extends Node
 
 #variables
 @export_group("Status")
-@export var currentPosition : int = 0;
+@export var currentPosition: int = 0;
 
-var timerChangePosition : float = 0;
+var timerChangePosition: float = 0;
 
-@export var minTimerChangePosition : float;
-@export var maxTimerChangePosition : float;
+@export var minTimerChangePosition: float;
+@export var maxTimerChangePosition: float;
 
-var counterExposureLevel : int = main.COUNTEREXPOSURELEVELDEFAULT;
-var counterExposure : float = main.COUNTEREXPOSUREDEFAULT;
+var counterExposureLevel: int = main.COUNTEREXPOSURELEVELDEFAULT;
+var counterExposure: float = main.COUNTEREXPOSUREDEFAULT;
 
-var jumpscareExposureLevel : int = main.JUMPSCAREEXPOSURELEVELDEFAULT;
-var jumpscareExposure : float = main.JUMPSCAREEXPOSUREDEFAULT;
+var jumpscareExposureLevel: int = main.JUMPSCAREEXPOSURELEVELDEFAULT;
+var jumpscareExposure: float = main.JUMPSCAREEXPOSUREDEFAULT;
 
 @export_group("Sprites")
-@export var Position1 : Sprite2D;
-@export var Position2 : Sprite2D;
-@export var Position3 : Sprite2D;
+@export var Position1: Sprite2D;
+@export var Position2: Sprite2D;
+@export var Position3: Sprite2D;
 
 @export_group("Mechanicals")
-@export var ventSFX : AudioStreamPlayer2D;
-@export var ventLSFX : AudioStreamPlayer;
-@export var shockSFX : AudioStreamPlayer;
-@export var flashlight : FlashLightComponent;
-@export var officeRoomTravel : RoomTravelComponent;
-@export var Mask : Node2D;
-@export var jumpscareAnimation : Node2D;
-@export var peekingAnimation : AnimationPlayer;
-@export var charAway : AnimationPlayer;
+@export var ventSFX: AudioStreamPlayer2D;
+@export var ventLSFX: AudioStreamPlayer;
+@export var shockSFX: AudioStreamPlayer;
+@export var flashlight: FlashLightComponent;
+@export var officeRoomTravel: RoomTravelComponent;
+@export var Mask: Node2D;
+@export var jumpscareAnimation: Node2D;
+@export var peekingAnimation: AnimationPlayer;
+@export var charAway: AnimationPlayer;
 
-var ce : float;
-var je : float;
+var ce: float;
+var je: float;
 
-var positionsAvailable : int = 3;
+var positionsAvailable: int = 3;
 
-var jumpscare : bool = false;
+var jumpscare: bool = false;
 
-var hasPeeked : bool = false;
-var hasShocked : bool = false;
+var hasPeeked: bool = false;
+var hasShocked: bool = false;
 
-var canAttack : bool = false;
+var canAttack: bool = false;
 
 #functions
 func _ready() -> void:
 	#working variables
-	timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+	timerChangePosition = randf_range(minTimerChangePosition, maxTimerChangePosition);
 	ce = counterExposure;
 	je = jumpscareExposure;
 	
@@ -54,14 +54,14 @@ func _ready() -> void:
 	_handle_positions();
 
 func _process(delta: float) -> void:
-	var NewDelta : float = delta * main.fpsTarget;
+	var NewDelta: float = delta * main.fpsTarget;
 
 	if main.NightmareToyYoshiAILevel != 0 && !jumpscare && main.PlayerAlive:
 		#movement
 		if currentPosition < positionsAvailable:
 			timerChangePosition -= NewDelta * main.NightmareToyYoshiAILevel;
 			if timerChangePosition <= 0:
-				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+				timerChangePosition = randf_range(minTimerChangePosition, maxTimerChangePosition);
 				ventSFX.play();
 				currentPosition += 1;
 				_handle_positions();
@@ -69,7 +69,7 @@ func _process(delta: float) -> void:
 		if currentPosition >= positionsAvailable && Mask.isUsingMask && hasShocked && main.PlayerPosition == "Left_Vent":
 			counterExposure -= NewDelta * counterExposureLevel;
 			if counterExposure <= 0:
-				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+				timerChangePosition = randf_range(minTimerChangePosition, maxTimerChangePosition);
 				counterExposure = ce;
 				jumpscareExposure = je;
 				ventLSFX.play();
@@ -95,11 +95,11 @@ func _process(delta: float) -> void:
 				jumpscareAnimation.animation.play("jumpscare");
 				GlobalAudioManager.get_node("Yoshi_Jumpscare").play();
 		#special events
-		if currentPosition == 1: #peeking
+		if currentPosition == 1: # peeking
 			if flashlight.is_on && !hasPeeked:
 				hasPeeked = true;
 				peekingAnimation.play("Peeking");
-		if currentPosition == 3: #shocking
+		if currentPosition == 3: # shocking
 			if flashlight.is_on && !hasShocked:
 				hasShocked = true;
 				shockSFX.play();
@@ -108,7 +108,7 @@ func _handle_positions() -> void:
 	if flashlight.is_on:
 		flashlight._turn_off();
 		
-	match(currentPosition):
+	match (currentPosition):
 		0:
 			Position1.visible = false;
 			Position2.visible = false;

@@ -1,19 +1,19 @@
 extends Node
 
 #variables
-@export var counter : Label;
-@export_file_path("*.json") var data_json : String = "";
-@onready var loading : Control = $Loading;
-@onready var desc : RichTextLabel = $UI/Description;
-var data : Dictionary = {};
+@export var counter: Label;
+@export_file_path("*.json") var data_json: String = "";
+@onready var loading: Control = $Loading;
+@onready var desc: RichTextLabel = $UI/Description;
+var data: Dictionary = {};
 
 #functions
 func _ready() -> void:
 	DiscordManager._update_state("Reading The Tutorial...");
 	counter.text = "TUTORIAL " + "(Night " + str(main.nightcounter) + ")";
 	
-	var file : FileAccess = FileAccess.open(data_json, FileAccess.READ);
-	var json_text : String = file.get_as_text();
+	var file: FileAccess = FileAccess.open(data_json, FileAccess.READ);
+	var json_text: String = file.get_as_text();
 	file.close();
 	data = JSON.parse_string(json_text);
 	

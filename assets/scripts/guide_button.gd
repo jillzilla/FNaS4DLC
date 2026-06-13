@@ -1,8 +1,8 @@
 extends TextureButton
 
 #variables
-@export var label : RichTextLabel;
-@export var text : String;
+@export var label: RichTextLabel;
+@export var text: String;
 
 #functions
 func _ready() -> void:

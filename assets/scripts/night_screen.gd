@@ -1,8 +1,11 @@
 extends Node
 
 #variables
-@onready var loading : Control = $Loading;
-@export var nightcounter : Label;
+@onready var loading: Control = $Loading;
+@export var nightcounter: Label;
+
+@export_file_path("*.json") var data_json: String = "";
+var data: Dictionary = {};
 
 #functions
 func _ready() -> void:
@@ -14,79 +17,25 @@ func _ready() -> void:
 	main.killedBy = "";
 	main.PlayerAlive = true;
 	main.isBTInOffice = false;
+
+	var file: FileAccess = FileAccess.open(data_json, FileAccess.READ);
+	var json_text: String = file.get_as_text();
+	file.close();
+	data = JSON.parse_string(json_text);
 	
-	if main.nightcounter < 7:
-		_set_ai_levels();
+	if main.nightcounter > 0 && main.nightcounter < 7:
+		main.aiLevelsAsArrays[0] = data["Night " + str(main.nightcounter)]["Nightmare Toy Sonic"];
+		main.aiLevelsAsArrays[1] = data["Night " + str(main.nightcounter)]["Nightmare Toy Mario"];
+		main.aiLevelsAsArrays[2] = data["Night " + str(main.nightcounter)]["Nightmare Toy Yoshi"];
+		main.aiLevelsAsArrays[3] = data["Night " + str(main.nightcounter)]["Nightmare Taingle"];
+		main.aiLevelsAsArrays[4] = data["Night " + str(main.nightcounter)]["Nightmare BT"];
+		main.aiLevelsAsArrays[5] = data["Night " + str(main.nightcounter)]["Nightmare Salvage"];
+		main.aiLevelsAsArrays[6] = data["Night " + str(main.nightcounter)]["Nightmare Cream"];
+		main.aiLevelsAsArrays[7] = data["Night " + str(main.nightcounter)]["Nightmare Luiginette"];
+		main.aiLevelsAsArrays[8] = data["Night " + str(main.nightcounter)]["Tails Doll"];
+		main.aiLevelsAsArrays[9] = data["Night " + str(main.nightcounter)]["Nightmare Knuckles"];
+
 		main._update_ai_levels();
-	
-func _set_ai_levels() -> void:
-	match(main.nightcounter):
-		1:
-			main.aiLevelsAsArrays[0] = 0;
-			main.aiLevelsAsArrays[1] = 8;
-			main.aiLevelsAsArrays[2] = 8;
-			main.aiLevelsAsArrays[3] = 8;
-			main.aiLevelsAsArrays[4] = 0;
-			main.aiLevelsAsArrays[5] = 0;
-			main.aiLevelsAsArrays[6] = 0;
-			main.aiLevelsAsArrays[7] = 0;
-			main.aiLevelsAsArrays[8] = 0;
-			main.aiLevelsAsArrays[9] = 0;
-		2:
-			main.aiLevelsAsArrays[0] = 8;
-			main.aiLevelsAsArrays[1] = 10;
-			main.aiLevelsAsArrays[2] = 10;
-			main.aiLevelsAsArrays[3] = 10;
-			main.aiLevelsAsArrays[4] = 8;
-			main.aiLevelsAsArrays[5] = 0;
-			main.aiLevelsAsArrays[6] = 0;
-			main.aiLevelsAsArrays[7] = 0;
-			main.aiLevelsAsArrays[8] = 0;
-			main.aiLevelsAsArrays[9] = 0;
-		3:
-			main.aiLevelsAsArrays[0] = 10;
-			main.aiLevelsAsArrays[1] = 12;
-			main.aiLevelsAsArrays[2] = 12;
-			main.aiLevelsAsArrays[3] = 12;
-			main.aiLevelsAsArrays[4] = 10;
-			main.aiLevelsAsArrays[5] = 8;
-			main.aiLevelsAsArrays[6] = 0;
-			main.aiLevelsAsArrays[7] = 0;
-			main.aiLevelsAsArrays[8] = 0;
-			main.aiLevelsAsArrays[9] = 0;
-		4:
-			main.aiLevelsAsArrays[0] = 12;
-			main.aiLevelsAsArrays[1] = 14;
-			main.aiLevelsAsArrays[2] = 14;
-			main.aiLevelsAsArrays[3] = 14;
-			main.aiLevelsAsArrays[4] = 12;
-			main.aiLevelsAsArrays[5] = 10;
-			main.aiLevelsAsArrays[6] = 8;
-			main.aiLevelsAsArrays[7] = 0;
-			main.aiLevelsAsArrays[8] = 0;
-			main.aiLevelsAsArrays[9] = 0;
-		5:
-			main.aiLevelsAsArrays[0] = 14;
-			main.aiLevelsAsArrays[1] = 15;
-			main.aiLevelsAsArrays[2] = 15;
-			main.aiLevelsAsArrays[3] = 15;
-			main.aiLevelsAsArrays[4] = 14;
-			main.aiLevelsAsArrays[5] = 12;
-			main.aiLevelsAsArrays[6] = 10;
-			main.aiLevelsAsArrays[7] = 0;
-			main.aiLevelsAsArrays[8] = 0;
-			main.aiLevelsAsArrays[9] = 0;
-		6:
-			main.aiLevelsAsArrays[0] = 17;
-			main.aiLevelsAsArrays[1] = 17;
-			main.aiLevelsAsArrays[2] = 17;
-			main.aiLevelsAsArrays[3] = 17;
-			main.aiLevelsAsArrays[4] = 0;
-			main.aiLevelsAsArrays[5] = 0;
-			main.aiLevelsAsArrays[6] = 0;
-			main.aiLevelsAsArrays[7] = 1;
-			main.aiLevelsAsArrays[8] = 0;
-			main.aiLevelsAsArrays[9] = 0;
 
 func _on_timer_start_ambience_timeout() -> void:
 	GlobalAudioManager.get_node("Ambience").play();
@@ -95,7 +44,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "flash":
 		if main.random_chance(95) || main.didrarescreenhappened:
 			main.didrarescreenhappened = false;
-			if main.nightcounter < 6:
+			if main.nightcounter > 0 && main.nightcounter < 6:
 				loading._load_scene("res://assets/scenes/tutorials.tscn");
 			else:
 				loading._load_scene("res://assets/scenes/gameplay.tscn");

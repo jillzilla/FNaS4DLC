@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 #variables
-@onready var counter : Label = $MarginContainer/Panel/Label;
-@onready var ui : MarginContainer = $MarginContainer;
+@onready var counter: Label = $MarginContainer/Panel/Label;
+@onready var ui: MarginContainer = $MarginContainer;
 
 #functions
 func _process(_delta: float) -> void:

@@ -1,69 +1,69 @@
 class_name NightmareToySonic extends Node
 
 #variables
-enum Directions {NONE,LEFT,RIGHT};
-var Direction : Variant = Directions.NONE;
+enum Directions {NONE, LEFT, RIGHT};
+var Direction: Variant = Directions.NONE;
 
 @export_group("Status")
-@export var currentPosition : int = 0;
+@export var currentPosition: int = 0;
 
-var timerChangePosition : float = 0;
+var timerChangePosition: float = 0;
 
-@export var minTimerChangePosition : float;
-@export var maxTimerChangePosition : float;
+@export var minTimerChangePosition: float;
+@export var maxTimerChangePosition: float;
 
-var jumpscareExposureLevel : int = main.JUMPSCAREEXPOSURELEVELDEFAULT;
-var jumpscareExposure : float = main.JUMPSCAREEXPOSUREDEFAULT;
+var jumpscareExposureLevel: int = main.JUMPSCAREEXPOSURELEVELDEFAULT;
+var jumpscareExposure: float = main.JUMPSCAREEXPOSUREDEFAULT;
 
 @export_group("Sprites")
-@export var LPosition1 : Sprite2D;
-@export var LPosition2 : Sprite2D;
-@export var RPosition1 : Sprite2D;
-@export var RPosition2 : Sprite2D;
+@export var LPosition1: Sprite2D;
+@export var LPosition2: Sprite2D;
+@export var RPosition1: Sprite2D;
+@export var RPosition2: Sprite2D;
 
 @export_group("Mechanicals")
-@export var LFlashlight : FlashLightComponent;
-@export var RFlashlight : FlashLightComponent;
-@export var officeRoomTravel : RoomTravelComponent;
-@export var Mask : Node2D;
-@export var RunGraphics : Node2D;
-@export var LVentSFX : AudioStreamPlayer2D;
-@export var RVentSFX : AudioStreamPlayer2D;
-@export var stepSfx : AudioStreamPlayer2D;
-@export var shockSFX : AudioStreamPlayer;
-@export var ventLeaveSFX : AudioStreamPlayer;
-@export var jumpscareAnimation : Node2D;
-@export var LPeekingAnimation : AnimationPlayer;
-@export var RPeekingAnimation : AnimationPlayer;
-@export var timerStep : Timer;
+@export var LFlashlight: FlashLightComponent;
+@export var RFlashlight: FlashLightComponent;
+@export var officeRoomTravel: RoomTravelComponent;
+@export var Mask: Node2D;
+@export var RunGraphics: Node2D;
+@export var LVentSFX: AudioStreamPlayer2D;
+@export var RVentSFX: AudioStreamPlayer2D;
+@export var stepSfx: AudioStreamPlayer2D;
+@export var shockSFX: AudioStreamPlayer;
+@export var ventLeaveSFX: AudioStreamPlayer;
+@export var jumpscareAnimation: Node2D;
+@export var LPeekingAnimation: AnimationPlayer;
+@export var RPeekingAnimation: AnimationPlayer;
+@export var timerStep: Timer;
 
-var je : float;
+var je: float;
 
-var positionsAvailable : int = 2;
+var positionsAvailable: int = 2;
 
-var jumpscare : bool = false;
+var jumpscare: bool = false;
 
-var hasPeeked : bool = false;
-var hasShocked : bool = false;
+var hasPeeked: bool = false;
+var hasShocked: bool = false;
 
-var canAttack : bool = false;
+var canAttack: bool = false;
 
 #functions
 func _ready() -> void:
-	timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+	timerChangePosition = randf_range(minTimerChangePosition, maxTimerChangePosition);
 	je = jumpscareExposure;
-	timerStep.connect("timeout",_made_a_step);
+	timerStep.connect("timeout", _made_a_step);
 	_handle_positions();
 	
 func _process(delta: float) -> void:
-	var NewDelta : float = delta * main.fpsTarget;
+	var NewDelta: float = delta * main.fpsTarget;
 
 	if main.NightmareToySonicAILevel != 0 && !jumpscare && main.PlayerAlive:
 		#movement
 		if currentPosition < positionsAvailable:
 			timerChangePosition -= NewDelta * main.NightmareToySonicAILevel;
 			if timerChangePosition <= 0:
-				timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+				timerChangePosition = randf_range(minTimerChangePosition, maxTimerChangePosition);
 				if Direction == Directions.LEFT:
 					LVentSFX.play();
 				else:
@@ -74,31 +74,31 @@ func _process(delta: float) -> void:
 		if currentPosition >= positionsAvailable && main.PlayerPosition == "Desk" && hasShocked && !main.ntsDeskRunning && main.PlayerNotMoving:
 			main.ntsDeskRunning = true;
 			if Direction == Directions.LEFT:
-				RunGraphics.move_child(RunGraphics.get_node("RightFoot"),0);
-				RunGraphics.get_node("RightFoot").scale = Vector2(1,1);
-				RunGraphics.move_child(RunGraphics.get_node("LeftFoot"),2);
+				RunGraphics.move_child(RunGraphics.get_node("RightFoot"), 0);
+				RunGraphics.get_node("RightFoot").scale = Vector2(1, 1);
+				RunGraphics.move_child(RunGraphics.get_node("LeftFoot"), 2);
 				RunGraphics.scale.x = 1;
 				RunGraphics.position.x = -1240;
 			else:
-				RunGraphics.move_child(RunGraphics.get_node("RightFoot"),2);
-				RunGraphics.get_node("RightFoot").scale = Vector2(1.2,1.2);
-				RunGraphics.move_child(RunGraphics.get_node("LeftFoot"),0);
+				RunGraphics.move_child(RunGraphics.get_node("RightFoot"), 2);
+				RunGraphics.get_node("RightFoot").scale = Vector2(1.2, 1.2);
+				RunGraphics.move_child(RunGraphics.get_node("LeftFoot"), 0);
 				RunGraphics.scale.x = -1;
 				RunGraphics.position.x = 1240;
 			RunGraphics.visible = true;
 			timerStep.start();
-			var t : Tween = create_tween();
+			var t: Tween = create_tween();
 			if Direction == Directions.LEFT:
-				t.tween_property(RunGraphics,"position:x",1240,0.5);
+				t.tween_property(RunGraphics, "position:x", 1240, 0.5);
 			else:
-				t.tween_property(RunGraphics,"position:x",-1240,0.5);
+				t.tween_property(RunGraphics, "position:x", -1240, 0.5);
 			await t.finished;
 			timerStep.stop();
 			ventLeaveSFX.play();
 			RunGraphics.visible = false;
 			RunGraphics.scale.x = 1;
 			RunGraphics.position.x = 0;
-			timerChangePosition = randf_range(minTimerChangePosition,maxTimerChangePosition);
+			timerChangePosition = randf_range(minTimerChangePosition, maxTimerChangePosition);
 			jumpscareExposure = je;
 			currentPosition = 0;
 			main.ntsDeskRunning = false;
@@ -125,7 +125,7 @@ func _process(delta: float) -> void:
 				jumpscareAnimation.animation.play("jumpscare");
 				GlobalAudioManager.get_node("Sonic_Jumpscare").play();
 		#special events
-		if currentPosition == 1: #peeking
+		if currentPosition == 1: # peeking
 			if Direction == Directions.LEFT:
 				if LFlashlight.is_on && !hasPeeked:
 					hasPeeked = true;
@@ -134,7 +134,7 @@ func _process(delta: float) -> void:
 				if RFlashlight.is_on && !hasPeeked:
 					hasPeeked = true;
 					RPeekingAnimation.play("Peeking");
-		if currentPosition == 2: #shocking
+		if currentPosition == 2: # shocking
 			if Direction == Directions.LEFT:
 				if LFlashlight.is_on && !hasShocked:
 					hasShocked = true;
@@ -158,7 +158,7 @@ func _handle_positions() -> void:
 		if RFlashlight.is_on:
 			RFlashlight._turn_off();
 		
-	match(currentPosition):
+	match (currentPosition):
 		0:
 			_choose_path();
 			LPosition1.visible = false;

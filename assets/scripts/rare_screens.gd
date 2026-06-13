@@ -1,19 +1,19 @@
 extends Node
 
 #variables
-@onready var loading : Control = $Loading;
-@onready var golden : Sprite2D = $Golden;
-@onready var luigi : Sprite2D = $Luigi;
+@onready var loading: Control = $Loading;
+@onready var golden: Sprite2D = $Golden;
+@onready var luigi: Sprite2D = $Luigi;
 
-@export var goldeneyes : CompressedTexture2D = null;
-@export var luigieyes : CompressedTexture2D = null;
+@export var goldeneyes: CompressedTexture2D = null;
+@export var luigieyes: CompressedTexture2D = null;
 
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Rare Screen");
 	DiscordManager._update_state("");
 	GlobalAudioManager.get_node("Ambience").stop();
-	var chars : Array[Sprite2D] = [golden,luigi];
+	var chars: Array[Sprite2D] = [golden, luigi];
 	chars.pick_random().visible = true;
 	main.didrarescreenhappened = true;
 
