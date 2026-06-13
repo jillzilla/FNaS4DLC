@@ -22,7 +22,7 @@ script = ExtResource("2_yaadq")
 guidebutton = NodePath("ThingsContainer/Guide")
 confirm = NodePath("ConfirmPopUp")
 settings = NodePath("Settings")
-guide = NodePath("Almanac")
+guide = NodePath("Guide")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -132,11 +132,11 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 visible = false
 layout_mode = 1
 
-[node name="Almanac" parent="." unique_id=269587860 instance=ExtResource("6_bur7s")]
+[node name="Settings" parent="." unique_id=1957756881 instance=ExtResource("6_vl0uo")]
 visible = false
 layout_mode = 1
 
-[node name="Settings" parent="." unique_id=1957756881 instance=ExtResource("6_vl0uo")]
+[node name="Guide" parent="." unique_id=269587860 instance=ExtResource("6_bur7s")]
 visible = false
 layout_mode = 1
 

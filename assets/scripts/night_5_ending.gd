@@ -1,5 +1,6 @@
 extends Node
 
+#variables
 @onready var loading : Control = $GUI/Loading;
 
 #functions
@@ -9,5 +10,3 @@ func _ready() -> void:
 
 func _on_button_pressed() -> void:
 	loading._load_scene("res://assets/scenes/title.tscn");
-	await loading.scene_loaded;
-	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);

@@ -1,5 +1,6 @@
 extends Node
 
+#variables
 @onready var loading : Control = $Loading;
 
 #functions
@@ -13,5 +14,3 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			main.introscenewatched = true;
 			main._save_game();
 		loading._load_scene("res://assets/scenes/title.tscn");
-		await loading.scene_loaded;
-		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);

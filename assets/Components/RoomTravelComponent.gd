@@ -44,7 +44,6 @@ enum inputs {ENTERED,PRESSED};
 func _ready() -> void:
 	button.connect("pressed",_pressed);
 	button.connect("mouse_entered",_entered);
-
 	if roomToLeave != []:
 		for i in range(roomToLeave.size()):
 			if roomToLeave[i].visible:

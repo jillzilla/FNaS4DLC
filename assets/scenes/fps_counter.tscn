@@ -25,6 +25,7 @@ metadata/_edit_group_ = true
 
 [node name="Panel" type="Panel" parent="MarginContainer" unique_id=1735086804]
 layout_mode = 2
+mouse_filter = 2
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 

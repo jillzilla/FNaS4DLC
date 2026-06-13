@@ -124,17 +124,6 @@ metadata/_edit_lock_ = true
 script = ExtResource("4_ufd8u")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
-[node name="Minigame" type="Button" parent="Control/Buttons" unique_id=1393019658]
-layout_mode = 2
-focus_mode = 0
-action_mode = 0
-text = "Mini Game"
-metadata/_edit_lock_ = true
-
-[node name="ButtonComponent6" type="Node" parent="Control/Buttons/Minigame" unique_id=603824594]
-script = ExtResource("4_ufd8u")
-metadata/_custom_type_script = "uid://djncuditdkxsm"
-
 [node name="Back" type="Button" parent="Control" unique_id=604882572]
 layout_mode = 1
 anchors_preset = -1

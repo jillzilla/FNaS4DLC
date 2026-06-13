@@ -20,12 +20,12 @@ bus = &"Jumpscare"
 stream = ExtResource("2_ai53t")
 bus = &"Jumpscare"
 
-[node name="Taingle_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=876443532]
-stream = ExtResource("1_16a0g")
-bus = &"Jumpscare"
-
 [node name="Yoshi_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1073957951]
 stream = ExtResource("2_shhgd")
+bus = &"Jumpscare"
+
+[node name="Taingle_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=876443532]
+stream = ExtResource("1_16a0g")
 bus = &"Jumpscare"
 
 [node name="Salvage_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1937665387]
@@ -38,16 +38,16 @@ stream = ExtResource("2_shhgd")
 pitch_scale = 1.25
 bus = &"Jumpscare"
 
-[node name="Luigi_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=2084689703]
-stream = ExtResource("6_kw54n")
-volume_db = -5.0
-pitch_scale = 0.8
-bus = &"Jumpscare"
-
 [node name="Knuckles_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=36720542]
 stream = ExtResource("7_8h5ir")
 volume_db = -5.0
 pitch_scale = 0.75
+bus = &"Jumpscare"
+
+[node name="Luigi_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=2084689703]
+stream = ExtResource("6_kw54n")
+volume_db = -5.0
+pitch_scale = 0.8
 bus = &"Jumpscare"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=500643790]

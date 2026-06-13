@@ -28,19 +28,7 @@ func _ready() -> void:
 	DiscordManager._update_details("Night " + str(main.nightcounter));
 	DiscordManager._update_state(ClockOutputs[ClockIteration]);
 	
-	main.killedBy = "";
-	main.PlayerAlive = true;
-	main.PlayerPosition = officeRoomTravel.room.name;
-	main.PlayerNotMoving = true;
-	main.ntsDeskRunning = false;
-	main.ntmDeskWalking = false;
-	main.ncDeskWalking = false;
-	main.nlnDeskWalking = false;
-	main.isBTInOffice = false;
-	main.didrarescreenhappened = false;
-	
 	var cndata : Array[bool] = [main.cn_challenge_1,main.cn_challenge_2,main.cn_challenge_3,main.cn_challenge_4,main.cn_challenge_5,main.cn_challenge_6,main.cn_challenge_7,main.cn_challenge_8,main.cn_challenge_9,main.cn_challenge_10,main.cn_challenge_11,main.cn_challenge_12];
-	
 	for i in range(custom_night_rewards.size()):
 		custom_night_rewards[i].visible = cndata[i];
 
@@ -79,18 +67,14 @@ func _on_clock_timer_timeout() -> void:
 		ClockCounter.text = ClockOutputs[ClockIteration];
 		DiscordManager._update_state(ClockOutputs[ClockIteration]);
 		ClockTimer.start();
-		
 	elif ClockIteration >= 8:
-		get_tree().paused = true;
-		loading._load_scene("res://assets/scenes/win_screen.tscn");
-		await loading.scene_loaded;
-		get_tree().paused = false;
-		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
+		_win();
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("SKIPNIGHT"):
-		get_tree().paused = true;
-		loading._load_scene("res://assets/scenes/win_screen.tscn");
-		await loading.scene_loaded;
-		get_tree().paused = false;
-		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("SKIPNIGHT"):
+		#_win();
+
+func _win() -> void:
+	GlobalAudioManager.get_node("Ambience").stop();
+	get_tree().paused = true;
+	loading._load_scene("res://assets/scenes/win_screen.tscn");

@@ -8,8 +8,6 @@ var nextscene : String;
 
 #functions
 func _ready() -> void:
-	GlobalAudioManager.get_node("Ambience").stop();
-	
 	DiscordManager._update_details("Win Screen");
 	DiscordManager._update_state("Night " + str(main.nightcounter));
 	

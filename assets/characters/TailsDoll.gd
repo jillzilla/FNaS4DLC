@@ -3,7 +3,6 @@ class_name TailsDoll extends Node
 #variables
 enum Directions {NONE,LEFT,RIGHT,CEILING};
 var Direction : Variant = Directions.NONE;
-
 var positionsAvailable : int = 1;
 
 @export_group("Status")
@@ -14,7 +13,6 @@ var positionsAvailable : int = 1;
 @export var position_left : Sprite2D;
 @export var position_right : Sprite2D;
 @export var position_up : Sprite2D;
-
 @export var eyes_left : Sprite2D;
 @export var eyes_right : Sprite2D;
 @export var eyes_up : Sprite2D;
@@ -97,6 +95,5 @@ func _handle_positions() -> void:
 				Directions.CEILING:
 					position_up.visible = true;
 					eyes_up.visible = true;
-			
 			effect.speed_scale = 0.05;
 			effect.play("ATTACK");

@@ -6,6 +6,13 @@ signal MaskIsRemoved;
 @export var scrolling : ScrollingComponent;
 @export var travel : RoomTravelComponent;
 
+@onready var dasprite : AnimatedSprite2D = $Sprite;
+
+@onready var cooldown_timer : Timer = $CD_Timer;
+
+@onready var on_SFX : AudioStreamPlayer = $ON;
+@onready var off_SFX : AudioStreamPlayer = $OFF;
+
 var canUseMask : bool = false;
 var isUsingMask : bool = false;
 var breath : bool = false;
@@ -27,50 +34,50 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if breath:
 		breathTime += delta * breathspeed;
-		get_node("Sprite").offset.x = breathradius * sin(breathTime);
-		get_node("Sprite").offset.y = breathradius * sin(breathTime) * cos(breathTime);
+		dasprite.offset.x = breathradius * sin(breathTime);
+		dasprite.offset.y = breathradius * sin(breathTime) * cos(breathTime);
 	else:
 		breathTime = 0;
-		if get_node("Sprite").offset.x != 0:
-			get_node("Sprite").offset.x = 0;
-		if get_node("Sprite").offset.y != 0:
-			get_node("Sprite").offset.y = 0;
+		if dasprite.offset.x != 0:
+			dasprite.offset.x = 0;
+		if dasprite.offset.y != 0:
+			dasprite.offset.y = 0;
 
 func _put_on() -> void:
-	if get_node("CD_Timer").is_stopped():
+	if cooldown_timer.is_stopped():
 		if canUseMask:
-			get_node("CD_Timer").start();
+			cooldown_timer.start();
 			isUsingMask = true;
 			PuttingMask = true;
 
-			get_node("ON").play();
+			on_SFX.play();
 
 			var t : Tween = create_tween();
-			t.tween_property(get_node("Sprite"),"position:y",360,0.2).set_trans(Tween.TRANS_CUBIC);
+			t.tween_property(dasprite,"position:y",360,0.2).set_trans(Tween.TRANS_CUBIC);
 			await t.finished;
 
 			breath = true;
-			get_node("Sprite").play("idle");
+			dasprite.play("idle");
 
-			await get_node("CD_Timer").timeout;
+			await cooldown_timer.timeout;
 
 			PuttingMask = false;
 
 func _remove() -> void:
-	if get_node("CD_Timer").is_stopped():
-		get_node("CD_Timer").start();
+	if cooldown_timer.is_stopped():
+		cooldown_timer.start();
 		isUsingMask = false;
 		PuttingMask = true;
 
 		breath = false;
-		get_node("Sprite").play("move");
+		dasprite.play("move");
 
-		get_node("OFF").play();
+		off_SFX.play();
 
 		var t : Tween = create_tween();
-		t.tween_property(get_node("Sprite"),"position:y",-360,0.2).set_trans(Tween.TRANS_CUBIC);
+		t.tween_property(dasprite,"position:y",-360,0.2).set_trans(Tween.TRANS_CUBIC);
 		
-		await get_node("CD_Timer").timeout;
+		await cooldown_timer.timeout;
 
 		PuttingMask = false;
 		MaskIsRemoved.emit();

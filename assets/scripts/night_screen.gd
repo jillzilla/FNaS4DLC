@@ -1,9 +1,8 @@
 extends Node
 
 #variables
-@export var nightcounter : Label;
-var sceneDestination : String;
 @onready var loading : Control = $Loading;
+@export var nightcounter : Label;
 
 #functions
 func _ready() -> void:
@@ -12,15 +11,13 @@ func _ready() -> void:
 	
 	nightcounter.text = "Night " + str(main.nightcounter) + "\n" + "12:00 AM";
 	
-	sceneDestination = "res://assets/scenes/gameplay.tscn";
+	main.killedBy = "";
+	main.PlayerAlive = true;
+	main.isBTInOffice = false;
 	
 	if main.nightcounter < 7:
 		_set_ai_levels();
-	
-	if main.nightcounter < 6:
-		sceneDestination = "res://assets/scenes/tutorials.tscn";
-		
-	main._update_ai_levels();
+		main._update_ai_levels();
 	
 func _set_ai_levels() -> void:
 	match(main.nightcounter):
@@ -96,16 +93,11 @@ func _on_timer_start_ambience_timeout() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "flash":
-		if !main.didrarescreenhappened:
-			if main.random_chance(95):
-				loading._load_scene(sceneDestination);
-				await loading.scene_loaded;
-				get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
+		if main.random_chance(95) || main.didrarescreenhappened:
+			main.didrarescreenhappened = false;
+			if main.nightcounter < 6:
+				loading._load_scene("res://assets/scenes/tutorials.tscn");
 			else:
-				loading._load_scene("res://assets/scenes/rare_screens.tscn");
-				await loading.scene_loaded;
-				get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
+				loading._load_scene("res://assets/scenes/gameplay.tscn");
 		else:
-				loading._load_scene(sceneDestination);
-				await loading.scene_loaded;
-				get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
+			loading._load_scene("res://assets/scenes/rare_screens.tscn");

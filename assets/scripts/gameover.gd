@@ -1,37 +1,37 @@
 extends Node
 
+#variables
 @onready var loading : Control = $Loading;
+@onready var ui : Control = $Control;
+@onready var tryagain : Button = $Control/TryAgainButton;
+@onready var menubutton : Button = $Control/MenuButton;
+@onready var fadeanimation : AnimationPlayer = $Fade/AnimationPlayer;
+@onready var static_ : AnimatedSprite2D = $Static;
 
 #functions
 func _ready() -> void:
-	GlobalAudioManager.get_node("Ambience").stop();
 	DiscordManager._update_details("Game Over Screen");
 	DiscordManager._update_state("Killed by " + main.killedBy);
-	
 	_handle_gameover_art();
 
 func _on_try_again_button_pressed() -> void:
-	get_node("Control/TryAgainButton").visible = false;
-	get_node("Control/MenuButton").visible = false;
-	get_node("Fade/AnimationPlayer").play("fade");
-	await get_node("Fade/AnimationPlayer").animation_finished;
+	tryagain.visible = false;
+	menubutton.visible = false;
+	fadeanimation.play("fade");
+	await fadeanimation.animation_finished;
 	loading._load_scene("res://assets/scenes/night_screen.tscn");
-	await loading.scene_loaded;
-	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
 func _on_menu_button_pressed() -> void:
 	main._reset_ai();
-	get_node("Control/TryAgainButton").visible = false;
-	get_node("Control/MenuButton").visible = false;
-	get_node("Fade/AnimationPlayer").play("fade");
-	await get_node("Fade/AnimationPlayer").animation_finished;
+	tryagain.visible = false;
+	menubutton.visible = false;
+	fadeanimation.play("fade");
+	await fadeanimation.animation_finished;
 	loading._load_scene("res://assets/scenes/title.tscn");
-	await loading.scene_loaded;
-	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 	
 func _on_timer_timeout() -> void:
-	get_node("Control").visible = true;
-	get_node("Static").modulate.a = 0.5;
+	ui.visible = true;
+	static_.modulate.a = 0.5;
 
 func _handle_gameover_art() -> void:
 	match(main.killedBy):

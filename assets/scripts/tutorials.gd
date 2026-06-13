@@ -1,9 +1,8 @@
 extends Node
 
-@onready var loading : Control = $Loading;
-
 #variables
 @export var night : Label;
+@onready var loading : Control = $Loading;
 
 #functions
 func _ready() -> void:
@@ -24,5 +23,3 @@ func _ready() -> void:
 
 func _on_button_pressed() -> void:
 	loading._load_scene("res://assets/scenes/gameplay.tscn");
-	await loading.scene_loaded;
-	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);

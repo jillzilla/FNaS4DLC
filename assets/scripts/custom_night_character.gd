@@ -1,44 +1,50 @@
 extends VBoxContainer
 
 #variables
+const REQUIREDHOLDTIME : float = 0.15;
+
 @export var charName : String;
 @export var iconPath : String;
+
 @export_range(0,9) var charID : int = 0;
-
-var holdTime : float = 0.0;
-const requiredHoldTime : float = 0.15;
-
 @export var minlevel : int = 0;
 @export var maxlevel : int = 25;
+
+@export var binary : bool = false;
+
+var holdTime : float = 0.0;
 
 var HoverLeft : bool = false;
 var HoverRight : bool = false;
 
-@export var binary : bool = false;
+@onready var name_ : Label = $Name;
+@onready var ai_counter : Label = $AiLevel/Counter;
+@onready var icon : TextureRect = $Icon;
+@onready var ai_change_timer : Timer = $Timer_Change_AI_Level;
 
 #functions
 func _ready() -> void:
 	if !charName:
-		get_node("Name").text = "";
+		name_.text = "";
 	else:
-		get_node("Name").text = charName;
+		name_.text = charName;
 		
 	if !iconPath:
-		get_node("Icon").texture = null;
+		icon.texture = null;
 	else:
-		get_node("Icon").texture = load(iconPath);
-	
+		icon.texture = load(iconPath);
+		
 	_update_ai_counter();
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("CLICK") && HoverLeft || Input.is_action_pressed("CLICK") && HoverRight:
 		holdTime += delta;
-		if holdTime >= requiredHoldTime:
-			if get_node("Timer_Change_AI_Level").is_stopped():
-				get_node("Timer_Change_AI_Level").start();
+		if holdTime >= REQUIREDHOLDTIME	:
+			if ai_change_timer.is_stopped():
+				ai_change_timer.start();
 	else:
-		if !get_node("Timer_Change_AI_Level").is_stopped():
-			get_node("Timer_Change_AI_Level").stop();
+		if !ai_change_timer.is_stopped():
+			ai_change_timer.stop();
 		holdTime = 0;
 	
 func _add() -> void:
@@ -67,17 +73,17 @@ func _set_max() -> void:
 	
 func _update_ai_counter() -> void:
 	if main.aiLevelsAsArrays[charID] > minlevel:
+		if !binary:
+			ai_counter.text = str(main.aiLevelsAsArrays[charID]).pad_zeros(2);
+		else:
+			ai_counter.text = "ON";
 		modulate.a = 1;
-		if !binary:
-			get_node("AiLevel/Counter").text = str(main.aiLevelsAsArrays[charID]).pad_zeros(2);
-		else:
-			get_node("AiLevel/Counter").text = "ON";
 	else:
-		modulate.a = 0.2;
 		if !binary:
-			get_node("AiLevel/Counter").text = "X";
+			ai_counter.text = "X";
 		else:
-			get_node("AiLevel/Counter").text = "OFF";
+			ai_counter.text = "OFF";
+		modulate.a = 0.2;
 		
 	if main.aiLevelsAsArrays[charID] == maxlevel:
 		modulate.r = 1;

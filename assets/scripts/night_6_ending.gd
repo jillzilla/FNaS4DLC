@@ -1,9 +1,12 @@
 extends Node
 
-@onready var loading : Control = $Loading;
-@onready var click : AudioStreamPlayer = $Click;
-
+#variables
 @onready var animation_camera : AnimationPlayer = $Camera2D/AnimationPlayer;
+@onready var flashanimation : AnimationPlayer = $Flash/AnimationPlayer;
+@onready var click : AudioStreamPlayer = $Click;
+@onready var erase : Button = $Erase;
+@onready var label : Label = $Label;
+@onready var loading : Control = $Loading;
 
 #functions
 func _ready() -> void:
@@ -15,16 +18,12 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		animation_camera.play("movement2");
 	elif anim_name == "movement2":
 		animation_camera.play("movement3");
-	elif anim_name == "movement3":
-		pass;
 
 func _on_erase_pressed() -> void:
+	erase.queue_free();
+	label.queue_free();
+	flashanimation.play("flash");
 	click.play();
-	$Erase.queue_free();
-	$Label.queue_free();
-	$Flash/AnimationPlayer.play("flash");
 
 func _on_button_pressed() -> void:
 	loading._load_scene("res://assets/scenes/title.tscn");
-	await loading.scene_loaded;
-	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);

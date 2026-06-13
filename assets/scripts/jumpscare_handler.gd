@@ -12,8 +12,7 @@ func _ready() -> void:
 func _jumpscare_animation_finished(anim_name : String) -> void:
 	if anim_name == "jumpscare":
 		if go_to_gameover:
+			GlobalAudioManager.get_node("Ambience").stop();
 			loading._load_scene("res://assets/scenes/gameover.tscn");
-			await loading.scene_loaded;
-			get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 		else:
 			self.hide();

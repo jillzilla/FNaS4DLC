@@ -1,9 +1,8 @@
 extends Node
 
-@onready var loading : Control = $Loading;
-
 #variables
 @export var characters : Array[VBoxContainer];
+@onready var loading : Control = $Loading;
 
 #functions
 func _ready() -> void:
@@ -12,14 +11,10 @@ func _ready() -> void:
 
 func _on_back_pressed() -> void:
 	loading._load_scene("res://assets/scenes/title.tscn");
-	await loading.scene_loaded;
-	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
 func _on_ready_pressed() -> void:
 	main.nightcounter = 7;
 	loading._load_scene("res://assets/scenes/night_screen.tscn");
-	await loading.scene_loaded;
-	get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 
 func _on_min_pressed() -> void:
 	for i in range(characters.size()):
