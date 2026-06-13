@@ -1,9 +1,9 @@
 extends Node
 
+#variables
 @onready var loading : Control = $Misc/GUI/Loading;
 @export var custom_night_rewards : Array[Sprite2D];
 
-#variables
 @export var characters : Array[Node];
 @export var charAway : AnimationPlayer;
 

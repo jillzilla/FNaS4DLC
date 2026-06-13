@@ -25,6 +25,8 @@ var positionsAvailable : int = 1;
 @export var RFlashlight : FlashLightComponent;
 @export var CFlashlight : FlashLightComponent;
 
+var fails : int = 0;
+
 #functions
 func _ready() -> void:
 	movement_opportunity_timer.connect("timeout", _movement_opportunity_timeout);
@@ -41,11 +43,13 @@ func _process(_delta: float) -> void:
 	
 func _movement_opportunity_timeout() -> void:
 	if main.PlayerAlive:
-		if main.TailsDollAiLevel >= main.AIMAXVALUE && randf() * main.AIMAXVALUE + 5 <= main.TailsDollAiLevel || main.TailsDollAiLevel < main.AIMAXVALUE && randf() * main.AIMAXVALUE <= main.TailsDollAiLevel:
+		if main.TailsDollAiLevel >= main.AIMAXVALUE && randf() * main.AIMAXVALUE + 5 <= main.TailsDollAiLevel || main.TailsDollAiLevel < main.AIMAXVALUE && randf() * main.AIMAXVALUE <= main.TailsDollAiLevel || fails >= 3:
+			fails = 0;
 			_switch_path();
 			currentPosition += 1;
 			_handle_positions();
 		else:
+			fails += 1;
 			movement_opportunity_timer.start();
 		
 func _switch_path() -> void:

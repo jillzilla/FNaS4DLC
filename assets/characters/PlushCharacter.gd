@@ -10,6 +10,7 @@ class_name PlushCharacter extends Node
 @export var jumpscare : Node2D;
 @export var time_left : Timer;
 
+var fails : int = 0;
 var movement_opportunity_rate : float;
 
 #functions
@@ -20,14 +21,15 @@ func _ready() -> void:
 
 func _movement_timeout() -> void:
 	if main.PlayerAlive:
-		if randf() * 100 <= movement_opportunity_rate:
+		if randf() * 100 <= movement_opportunity_rate || fails >= 3:
+			fails = 0;
 			if flashlight.is_on:
 				flashlight._turn_off();
 			steps.pick_random().play();
 			sprites.pick_random().show();
 			timer_kill.start();
-			print("walk walk walk")
 		else:
+			fails += 1;
 			timer_movement.start();
 	
 func _kill_timeout() -> void:
