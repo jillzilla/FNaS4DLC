@@ -34,14 +34,14 @@ func _ready() -> void:
 			time_left = 60;
 			get_node("Timer_Power_Drain").wait_time = 0.25;
 			hours_reward = 2;
-			plushnic.movement_opportunity_rate = 55;
+			plushnic.movement_opportunity_rate = 50;
 			plushtails.movement_opportunity_rate = 60;
 		5:
 			time_left = 90;
 			get_node("Timer_Power_Drain").wait_time = 0.25;
 			hours_reward = 2;
-			plushnic.movement_opportunity_rate = 75;
-			plushtails.movement_opportunity_rate = 80
+			plushnic.movement_opportunity_rate = 65;
+			plushtails.movement_opportunity_rate = 75;
 		_:
 			time_left = 30;
 			get_node("Timer_Power_Drain").wait_time = 0.5;
@@ -65,10 +65,11 @@ func _on_time_left_timeout() -> void:
 		get_node("HUD/Control/Clock").text =  str(time_left).pad_zeros(2);
 	
 	if time_left == 0:
-		$HUD/PauseMenu.process_mode = Node.PROCESS_MODE_DISABLED;
-		$FlashlightComponentMinigame.process_mode = Node.PROCESS_MODE_DISABLED;
 		plushnic.process_mode = Node.PROCESS_MODE_DISABLED;
 		plushtails.process_mode = Node.PROCESS_MODE_DISABLED;
+		
+		$HUD/PauseMenu.process_mode = Node.PROCESS_MODE_DISABLED;
+		$FlashlightComponentMinigame.process_mode = Node.PROCESS_MODE_DISABLED;
 		
 		if !main.night5ending:
 			$HUD/Control/Win/Label2.text = "Reward: -" + str(hours_reward) + " hours on next night!";

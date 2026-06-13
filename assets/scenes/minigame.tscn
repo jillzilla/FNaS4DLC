@@ -311,11 +311,11 @@ time_left = NodePath("../Time_Left")
 metadata/_custom_type_script = "uid://bor5635mjhaor"
 
 [node name="Timer_Movement" type="Timer" parent="PlushCharacter" unique_id=594902896]
-wait_time = 4.5
+wait_time = 3.0
 one_shot = true
 
 [node name="Timer_Kill" type="Timer" parent="PlushCharacter" unique_id=1209576170]
-wait_time = 2.5
+wait_time = 3.0
 one_shot = true
 
 [node name="Walk1" type="AudioStreamPlayer" parent="PlushCharacter" unique_id=209118458]
@@ -346,11 +346,11 @@ time_left = NodePath("../Time_Left")
 metadata/_custom_type_script = "uid://bor5635mjhaor"
 
 [node name="Timer_Movement" type="Timer" parent="PlushCharacter2" unique_id=516482665]
-wait_time = 3.0
+wait_time = 2.5
 one_shot = true
 
 [node name="Timer_Kill" type="Timer" parent="PlushCharacter2" unique_id=163765357]
-wait_time = 2.5
+wait_time = 3.0
 one_shot = true
 
 [node name="Walk1" type="AudioStreamPlayer" parent="PlushCharacter2" unique_id=2096290602]
