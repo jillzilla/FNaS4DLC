@@ -8,7 +8,7 @@ class_name FlashlightComponentMinigame extends Node
 @export var sound : AudioStreamPlayer;
 
 var is_on : bool = false;
-var power : int = 50;
+var power : int = 75;
 
 func _ready() -> void:
 	power_timer_drain.connect("timeout", _timeout_timer_power_drain);
@@ -18,10 +18,7 @@ func _process(_delta: float) -> void:
 		light_source.position = get_viewport().get_mouse_position();
 		
 	if !Input.is_action_pressed("FLASHLIGHT") && is_on:
-		sound.stop();
-		power_timer_drain.paused = true;
-		light_source.hide();
-		is_on = false;
+		_turn_off();
 		
 	power_label.text = "Power Left: " + str(power) + "%";
 
@@ -39,7 +36,10 @@ func _input(event: InputEvent) -> void:
 func _timeout_timer_power_drain() -> void:
 	power -= 1;
 	if power <= 0 && is_on:
-		sound.stop();
-		light_source.hide();
-		power_timer_drain.stop();
-		is_on = false;
+		_turn_off();
+
+func _turn_off() -> void:
+	sound.stop();
+	light_source.hide();
+	power_timer_drain.paused = true;
+	is_on = false;

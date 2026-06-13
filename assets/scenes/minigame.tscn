@@ -18,13 +18,40 @@
 [ext_resource type="PackedScene" uid="uid://cpwh2b5jum8v5" path="res://assets/scenes/jumpscares/plushnic_jumpscare.tscn" id="14_v1xnw"]
 [ext_resource type="PackedScene" uid="uid://r1vhnt4nhg55" path="res://assets/scenes/jumpscares/plushtails_jumpscare.tscn" id="15_l5ljq"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="15_sbaey"]
-[ext_resource type="AudioStream" uid="uid://blrhwp7bm001r" path="res://assets/sounds/[7] Run_to_Door_Sound.ogg" id="16_al2un"]
 [ext_resource type="Script" uid="uid://dl73mr4e0cek2" path="res://assets/components/FlashlightComponentMinigame.gd" id="17_sw1hc"]
+[ext_resource type="AudioStream" uid="uid://b5usewcbo6gqh" path="res://assets/sounds/Walking_1.ogg" id="19_pkdr4"]
 [ext_resource type="AudioStream" uid="uid://b0sqggxvrlvcg" path="res://assets/sounds/[8] Flashlight_Sound.ogg" id="19_ybp72"]
+[ext_resource type="AudioStream" uid="uid://vws82qu5ple8" path="res://assets/sounds/Walking_2.ogg" id="20_pyx33"]
+[ext_resource type="AudioStream" uid="uid://b45lrfsxaou4l" path="res://assets/sounds/Walking_3.ogg" id="21_7way7"]
+[ext_resource type="Script" uid="uid://bor5635mjhaor" path="res://assets/characters/PlushCharacter.gd" id="21_v1xnw"]
 
-[node name="Minigame" type="Node" unique_id=209191469 node_paths=PackedStringArray("loading")]
+[node name="Minigame" type="Node" unique_id=209191469 node_paths=PackedStringArray("loading", "plushnic", "plushtails")]
 script = ExtResource("1_6fvem")
 loading = NodePath("HUD/Loading")
+plushnic = NodePath("PlushCharacter")
+plushtails = NodePath("PlushCharacter2")
+
+[node name="FlashlightComponentMinigame" type="Node" parent="." unique_id=1211401470 node_paths=PackedStringArray("light_source", "power_label", "power_timer_drain", "sound")]
+script = ExtResource("17_sw1hc")
+light_source = NodePath("../Flashlight")
+power_label = NodePath("../HUD/Control/Power")
+power_timer_drain = NodePath("../Timer_Power_Drain")
+sound = NodePath("../Flashlight_SFX")
+metadata/_custom_type_script = "uid://dl73mr4e0cek2"
+
+[node name="Time_Left" type="Timer" parent="." unique_id=1160444739]
+one_shot = true
+autostart = true
+
+[node name="Timer_switch_scene" type="Timer" parent="." unique_id=2092089553]
+wait_time = 3.5
+one_shot = true
+
+[node name="Timer_Power_Drain" type="Timer" parent="." unique_id=264969813]
+
+[node name="Flashlight_SFX" type="AudioStreamPlayer" parent="." unique_id=516886209]
+stream = ExtResource("19_ybp72")
+bus = &"Sounds"
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=643294113]
 color = Color(0, 0, 0, 1)
@@ -271,31 +298,74 @@ visible = false
 [node name="Loading" parent="HUD" unique_id=220536216 instance=ExtResource("15_sbaey")]
 visible = false
 
-[node name="Steps" type="AudioStreamPlayer" parent="." unique_id=1917536321]
-stream = ExtResource("16_al2un")
-pitch_scale = 2.0
+[node name="PlushCharacter" type="Node" parent="." unique_id=1462723317 node_paths=PackedStringArray("timer_movement", "timer_kill", "sprites", "steps", "flashlight", "jumpscare", "time_left")]
+script = ExtResource("21_v1xnw")
+char_name = "Plushnic"
+timer_movement = NodePath("Timer_Movement")
+timer_kill = NodePath("Timer_Kill")
+sprites = [NodePath("../Plushnic_1"), NodePath("../Plushnic_2"), NodePath("../Plushnic_3"), NodePath("../Plushnic_4"), NodePath("../Plushnic_5"), NodePath("../Plushnic_6"), NodePath("../Plushnic_7"), NodePath("../Plushnic_8")]
+steps = [NodePath("Walk1"), NodePath("Walk2"), NodePath("Walk3")]
+flashlight = NodePath("../FlashlightComponentMinigame")
+jumpscare = NodePath("../HUD/Plushnic_Jumpscare")
+time_left = NodePath("../Time_Left")
+metadata/_custom_type_script = "uid://bor5635mjhaor"
+
+[node name="Timer_Movement" type="Timer" parent="PlushCharacter" unique_id=594902896]
+wait_time = 4.5
+one_shot = true
+
+[node name="Timer_Kill" type="Timer" parent="PlushCharacter" unique_id=1209576170]
+wait_time = 2.5
+one_shot = true
+
+[node name="Walk1" type="AudioStreamPlayer" parent="PlushCharacter" unique_id=209118458]
+stream = ExtResource("19_pkdr4")
+pitch_scale = 1.25
 bus = &"Sounds"
 
-[node name="FlashlightComponentMinigame" type="Node" parent="." unique_id=1211401470 node_paths=PackedStringArray("light_source", "power_label", "power_timer_drain", "sound")]
-script = ExtResource("17_sw1hc")
-light_source = NodePath("../Flashlight")
-power_label = NodePath("../HUD/Control/Power")
-power_timer_drain = NodePath("../Timer_Power_Drain")
-sound = NodePath("../Flashlight_SFX")
-metadata/_custom_type_script = "uid://dl73mr4e0cek2"
+[node name="Walk2" type="AudioStreamPlayer" parent="PlushCharacter" unique_id=597370808]
+stream = ExtResource("20_pyx33")
+pitch_scale = 1.25
+bus = &"Sounds"
 
-[node name="Time_Left" type="Timer" parent="." unique_id=1160444739]
+[node name="Walk3" type="AudioStreamPlayer" parent="PlushCharacter" unique_id=1975908373]
+stream = ExtResource("21_7way7")
+pitch_scale = 1.25
+bus = &"Sounds"
+
+[node name="PlushCharacter2" type="Node" parent="." unique_id=81282455 node_paths=PackedStringArray("timer_movement", "timer_kill", "sprites", "steps", "flashlight", "jumpscare", "time_left")]
+script = ExtResource("21_v1xnw")
+char_name = "Plushtails"
+timer_movement = NodePath("Timer_Movement")
+timer_kill = NodePath("Timer_Kill")
+sprites = [NodePath("../Plushtails_1"), NodePath("../Plushtails_2"), NodePath("../Plushtails_3"), NodePath("../Plushtails_4"), NodePath("../Plushtails_5"), NodePath("../Plushtails_6")]
+steps = [NodePath("Walk1"), NodePath("Walk2"), NodePath("Walk3")]
+flashlight = NodePath("../FlashlightComponentMinigame")
+jumpscare = NodePath("../HUD/Plushtails_Jumpscare")
+time_left = NodePath("../Time_Left")
+metadata/_custom_type_script = "uid://bor5635mjhaor"
+
+[node name="Timer_Movement" type="Timer" parent="PlushCharacter2" unique_id=516482665]
+wait_time = 3.0
 one_shot = true
-autostart = true
 
-[node name="Timer_switch_scene" type="Timer" parent="." unique_id=2092089553]
-wait_time = 3.5
+[node name="Timer_Kill" type="Timer" parent="PlushCharacter2" unique_id=163765357]
+wait_time = 2.5
 one_shot = true
 
-[node name="Timer_Power_Drain" type="Timer" parent="." unique_id=264969813]
+[node name="Walk1" type="AudioStreamPlayer" parent="PlushCharacter2" unique_id=2096290602]
+stream = ExtResource("19_pkdr4")
+pitch_scale = 1.25
+bus = &"Sounds"
 
-[node name="Flashlight_SFX" type="AudioStreamPlayer" parent="." unique_id=516886209]
-stream = ExtResource("19_ybp72")
+[node name="Walk2" type="AudioStreamPlayer" parent="PlushCharacter2" unique_id=1207786139]
+stream = ExtResource("20_pyx33")
+pitch_scale = 1.25
+bus = &"Sounds"
+
+[node name="Walk3" type="AudioStreamPlayer" parent="PlushCharacter2" unique_id=303832498]
+stream = ExtResource("21_7way7")
+pitch_scale = 1.25
 bus = &"Sounds"
 
 [connection signal="timeout" from="Time_Left" to="." method="_on_time_left_timeout"]

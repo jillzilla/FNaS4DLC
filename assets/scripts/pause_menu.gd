@@ -56,7 +56,6 @@ func _confirmed_action() -> void:
 		await loading.scene_loaded;
 		get_tree().paused = false;
 		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
-
 	elif quit:
 		if main.play_minigame:
 			main.play_minigame = false;
