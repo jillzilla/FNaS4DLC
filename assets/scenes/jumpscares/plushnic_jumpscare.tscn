@@ -74,18 +74,18 @@ _data = {
 &"jumpscare": SubResource("Animation_3d8kw")
 }
 
-[node name="Plushnic_Jumpscare" type="Node2D" unique_id=680611025 node_paths=PackedStringArray("animation")]
+[node name="Plushnic_Jumpscare" type="Node2D" unique_id=2132748941 node_paths=PackedStringArray("animation")]
 script = ExtResource("1_rrypb")
 animation = NodePath("AnimationPlayer")
 metadata/_edit_lock_ = true
 
-[node name="Body" type="Sprite2D" parent="." unique_id=1700630692]
+[node name="Body" type="Sprite2D" parent="." unique_id=1439789968]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(736, -240)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_1twev")
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=967045377]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=58248262]
 libraries/ = SubResource("AnimationLibrary_pkdr4")
 speed_scale = 1.5

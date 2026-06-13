@@ -15,154 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://cnc3j3mk1na2" path="res://assets/images/minigame/flashlight.png" id="9_atcph"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="10_d6a20"]
 [ext_resource type="PackedScene" uid="uid://bw8fe2whqjhf0" path="res://assets/scenes/pause_menu.tscn" id="10_di7mb"]
+[ext_resource type="PackedScene" uid="uid://cpwh2b5jum8v5" path="res://assets/scenes/jumpscares/plushnic_jumpscare.tscn" id="14_v1xnw"]
+[ext_resource type="PackedScene" uid="uid://r1vhnt4nhg55" path="res://assets/scenes/jumpscares/plushtails_jumpscare.tscn" id="15_l5ljq"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="15_sbaey"]
 [ext_resource type="AudioStream" uid="uid://blrhwp7bm001r" path="res://assets/sounds/[7] Run_to_Door_Sound.ogg" id="16_al2un"]
 [ext_resource type="Script" uid="uid://dl73mr4e0cek2" path="res://assets/components/FlashlightComponentMinigame.gd" id="17_sw1hc"]
-[ext_resource type="Texture2D" uid="uid://slxx3so1mod7" path="res://assets/images/minigame/plushnic/psj1.png" id="17_vloes"]
-[ext_resource type="Texture2D" uid="uid://cp3mkqcu0gg06" path="res://assets/images/minigame/plushnic/psj2.png" id="18_l5ljq"]
-[ext_resource type="Texture2D" uid="uid://ctl66utpq0ynu" path="res://assets/images/minigame/plushnic/psj3.png" id="19_r6itk"]
 [ext_resource type="AudioStream" uid="uid://b0sqggxvrlvcg" path="res://assets/sounds/[8] Flashlight_Sound.ogg" id="19_ybp72"]
-[ext_resource type="Texture2D" uid="uid://chygys1eultqx" path="res://assets/images/minigame/plushtails/ptj1.png" id="20_pkdr4"]
-[ext_resource type="Texture2D" uid="uid://bltsitrd3c7qn" path="res://assets/images/minigame/plushtails/ptj2.png" id="21_pyx33"]
-[ext_resource type="Texture2D" uid="uid://d3tq3j5ykwxed" path="res://assets/images/minigame/plushtails/ptj3.png" id="22_7way7"]
-
-[sub_resource type="Animation" id="Animation_3d8kw"]
-resource_name = "jumpscare"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.7, 0.7), Vector2(0.7, 0.7), Vector2(1.775, 1.775)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, -0.27401668]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Body:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(736, -240), Vector2(640, 384.00003), Vector2(663.99994, 560)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Body:modulate")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Body:texture")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.7, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("17_vloes"), ExtResource("18_l5ljq"), ExtResource("19_r6itk")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pkdr4"]
-_data = {
-&"jumpscare": SubResource("Animation_3d8kw")
-}
-
-[sub_resource type="Animation" id="Animation_nqdft"]
-resource_name = "jumpscare"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(399.99997, 896), Vector2(640, 392.0001), Vector2(632, 520)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-0.6370452, -1.3124875974997356, 0.34732053]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Body:scale")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.525, 0.525), Vector2(0.745, 0.745), Vector2(1.75, 1.75)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Body:modulate")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Body:texture")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.7, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("20_pkdr4"), ExtResource("21_pyx33"), ExtResource("22_7way7")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_naeow"]
-_data = {
-&"jumpscare": SubResource("Animation_nqdft")
-}
 
 [node name="Minigame" type="Node" unique_id=209191469 node_paths=PackedStringArray("loading")]
 script = ExtResource("1_6fvem")
@@ -325,34 +183,11 @@ metadata/_edit_lock_ = true
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1778684257]
 
-[node name="Plushnic_Jumpscare" type="Node2D" parent="HUD" unique_id=72192155]
-metadata/_edit_lock_ = true
+[node name="Plushnic_Jumpscare" parent="HUD" unique_id=2132748941 node_paths=PackedStringArray("loading") instance=ExtResource("14_v1xnw")]
+loading = NodePath("../Loading")
 
-[node name="Body" type="Sprite2D" parent="HUD/Plushnic_Jumpscare" unique_id=1712671396]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(736, -240)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("17_vloes")
-metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Plushnic_Jumpscare" unique_id=917692007]
-libraries/ = SubResource("AnimationLibrary_pkdr4")
-speed_scale = 1.5
-
-[node name="Plushtails_Jumpscare" type="Node2D" parent="HUD" unique_id=161930058]
-metadata/_edit_lock_ = true
-
-[node name="Body" type="Sprite2D" parent="HUD/Plushtails_Jumpscare" unique_id=452433447]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(399.99997, 896)
-rotation = -0.6370452
-scale = Vector2(0.525, 0.525)
-texture = ExtResource("20_pkdr4")
-metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Plushtails_Jumpscare" unique_id=1196369143]
-libraries/ = SubResource("AnimationLibrary_naeow")
-speed_scale = 1.5
+[node name="Plushtails_Jumpscare" parent="HUD" unique_id=1432204109 node_paths=PackedStringArray("loading") instance=ExtResource("15_l5ljq")]
+loading = NodePath("../Loading")
 
 [node name="Control" type="Control" parent="HUD" unique_id=712455547]
 layout_mode = 3

@@ -70,7 +70,6 @@ func _handle_positions() -> void:
 			Directions.CEILING:
 				if CFlashlight.is_on:
 					CFlashlight._turn_off();
-	
 	match(currentPosition):
 		0:
 			if main.TailsDollAiLevel != 0:

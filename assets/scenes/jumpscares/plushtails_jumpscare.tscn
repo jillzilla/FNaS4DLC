@@ -74,12 +74,12 @@ _data = {
 &"jumpscare": SubResource("Animation_nqdft")
 }
 
-[node name="Plushtails_Jumpscare" type="Node2D" unique_id=1024394901 node_paths=PackedStringArray("animation")]
+[node name="Plushtails_Jumpscare" type="Node2D" unique_id=1432204109 node_paths=PackedStringArray("animation")]
 script = ExtResource("1_un0dh")
 animation = NodePath("AnimationPlayer")
 metadata/_edit_lock_ = true
 
-[node name="Body" type="Sprite2D" parent="." unique_id=1422393834]
+[node name="Body" type="Sprite2D" parent="." unique_id=1300364913]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(399.99997, 896)
 rotation = -0.6370452
@@ -87,6 +87,6 @@ scale = Vector2(0.525, 0.525)
 texture = ExtResource("1_21us2")
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=416361025]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2065232326]
 libraries/ = SubResource("AnimationLibrary_naeow")
 speed_scale = 1.5
