@@ -7,34 +7,20 @@ var sceneDestination : String;
 
 #functions
 func _ready() -> void:
-	if !main.play_minigame:
-		DiscordManager._update_details("Entering Night " + str(main.nightcounter));
-		DiscordManager._update_state("");
+	DiscordManager._update_details("Entering Night " + str(main.nightcounter));
+	DiscordManager._update_state("");
+	
+	nightcounter.text = "Night " + str(main.nightcounter) + "\n" + "12:00 AM";
+	
+	sceneDestination = "res://assets/scenes/gameplay.tscn";
+	
+	if main.nightcounter < 7:
+		_set_ai_levels();
+	
+	if main.nightcounter < 6:
+		sceneDestination = "res://assets/scenes/tutorials.tscn";
 		
-		if main.hours_2_skip == 0:
-			nightcounter.text = "Night " + str(main.nightcounter) + "\n" + "12:00 AM";
-		else:
-			nightcounter.text = "Night " + str(main.nightcounter) + "\n" + str(main.hours_2_skip).pad_zeros(2) + ":00 AM";
-		
-		sceneDestination = "res://assets/scenes/gameplay.tscn";
-		
-		if main.nightcounter < 7:
-			_set_ai_levels();
-		
-		if main.nightcounter < 6:
-			sceneDestination = "res://assets/scenes/tutorials.tscn";
-			
-		main._update_ai_levels();
-	else:
-		DiscordManager._update_details("Entering Mini-Game");
-		DiscordManager._update_state("");
-		
-		nightcounter.text = "Fun With Plushnic & Plushtails";
-		
-		if !main.played_minigame_once:
-			sceneDestination = "res://assets/scenes/tutorials.tscn";
-		else:
-			sceneDestination = "res://assets/scenes/minigame.tscn";
+	main._update_ai_levels();
 	
 func _set_ai_levels() -> void:
 	match(main.nightcounter):
@@ -106,10 +92,7 @@ func _set_ai_levels() -> void:
 			main.aiLevelsAsArrays[9] = 0;
 
 func _on_timer_start_ambience_timeout() -> void:
-	if !main.play_minigame:
-		GlobalAudioManager.get_node("Ambience").play();
-	else:
-		GlobalAudioManager.get_node("Ambience_Minigame").play();
+	GlobalAudioManager.get_node("Ambience").play();
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "flash":

@@ -9,17 +9,11 @@
 [ext_resource type="AudioStream" uid="uid://cntxk7ywn0r1x" path="res://assets/sounds/Jumpscaref2.ogg" id="6_kw54n"]
 [ext_resource type="AudioStream" uid="uid://cck7hco13mrd8" path="res://assets/sounds/fnas1jumpscare.ogg" id="7_8h5ir"]
 [ext_resource type="AudioStream" uid="uid://btceqj05iece1" path="res://assets/music/GameplayAmbienceTheme.ogg" id="7_kw54n"]
-[ext_resource type="AudioStream" uid="uid://brkxxk8o8x7ns" path="res://assets/music/MinigameAmbienceTheme.ogg" id="9_0wrgx"]
 
 [node name="Global_Audio_Manager" type="Node" unique_id=147038882]
 
 [node name="Sonic_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=497682462]
 stream = ExtResource("1_uw54k")
-bus = &"Jumpscare"
-
-[node name="Plushnic_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=887296408]
-stream = ExtResource("1_uw54k")
-pitch_scale = 1.25
 bus = &"Jumpscare"
 
 [node name="Mario_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1474882084]
@@ -28,11 +22,6 @@ bus = &"Jumpscare"
 
 [node name="Taingle_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=876443532]
 stream = ExtResource("1_16a0g")
-bus = &"Jumpscare"
-
-[node name="Plushtails_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=777247018]
-stream = ExtResource("1_16a0g")
-pitch_scale = 1.25
 bus = &"Jumpscare"
 
 [node name="Yoshi_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1073957951]
@@ -63,10 +52,6 @@ bus = &"Jumpscare"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=500643790]
 stream = ExtResource("7_kw54n")
-bus = &"Sounds"
-
-[node name="Ambience_Minigame" type="AudioStreamPlayer" parent="." unique_id=532544059]
-stream = ExtResource("9_0wrgx")
 bus = &"Sounds"
 
 [node name="Select" type="AudioStreamPlayer" parent="." unique_id=25561468]

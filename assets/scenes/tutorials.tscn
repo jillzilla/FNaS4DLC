@@ -183,33 +183,6 @@ It's time to shine."
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Text6" type="Label" parent="GUIWorld" unique_id=307362197]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.55
-anchor_right = 0.5
-anchor_bottom = 0.55
-offset_left = -576.0
-offset_top = -284.0
-offset_right = 576.0
-offset_bottom = 284.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "You're outside the pizzeria, wanting to get some fresh air,
-but there's a lot of trash outside, and you might also notice
-that the world looks different from how it did last night...
-You don't have time to think about that right now; in this
-mini-game, you'll encounter a hedgehog and a fox.
-Always keep your flashlight off if not needed. When you
-hear little footsteps, if you find the fox, you’ll need to turn
-the flashlight off and on until it goes away; if you find the
-hedgehog, you’ll need to shine the flashlight directly at it."
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
-
 [node name="Continue" type="Label" parent="GUIWorld" unique_id=755222476]
 layout_mode = 1
 anchors_preset = -1

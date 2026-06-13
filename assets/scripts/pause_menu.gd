@@ -16,12 +16,7 @@ func _ready() -> void:
 	self.hide();
 	
 	if main.night_to_play > 1:
-		if !main.play_minigame:
-			guidebutton.visible = true;
-	
-	if main.play_minigame:
-		get_node("ThingsContainer/Restart").hide();
-		get_node("ThingsContainer/Quit").text = "Give Up";
+		guidebutton.visible = true;
 	
 	confirm.connect("confirmaction", _confirmed_action);
 
@@ -49,16 +44,12 @@ func _on_quit_pressed() -> void:
 
 func _confirmed_action() -> void:
 	GlobalAudioManager.get_node("Ambience").stop();
-	GlobalAudioManager.get_node("Ambience_Minigame").stop();
-	
 	if reload:
 		loading._load_scene("res://assets/scenes/night_screen.tscn");
 		await loading.scene_loaded;
 		get_tree().paused = false;
 		get_tree().call_deferred("change_scene_to_packed", loading.scene_to_be_loaded);
 	elif quit:
-		if main.play_minigame:
-			main.play_minigame = false;
 		main._reset_ai();
 		loading._load_scene("res://assets/scenes/title.tscn");
 		await loading.scene_loaded;
