@@ -40,6 +40,11 @@ enum inputs {ENTERED, PRESSED};
 @export var toadette: Sprite2D;
 @export var golden: Sprite2D;
 
+@onready var rng_sm: RandomNumberGenerator = RandomNumberGenerator.new();
+@onready var rng_big: RandomNumberGenerator = RandomNumberGenerator.new();
+@onready var rng_toadette: RandomNumberGenerator = RandomNumberGenerator.new();
+@onready var rng_golden: RandomNumberGenerator = RandomNumberGenerator.new();
+
 #functions
 func _ready() -> void:
 	button.connect("pressed", _pressed);
@@ -80,24 +85,28 @@ func _travel() -> void:
 		fadeTransition.play_backwards("fade");
 		
 		if get_parent().name == "Office":
-			if main.random_chance(0.05):
+			rng_sm.randomize();
+			if rng_sm.randf() <= 0.01:
 				shadow_mario.modulate.a = 1;
 				var tween: Tween = create_tween();
 				tween.tween_property(shadow_mario, "modulate:a", 0, 0.5).set_trans(Tween.TRANS_CUBIC);
 
 		elif get_parent().name == "Hallway":
-			if main.random_chance(0.1):
+			rng_big.randomize();
+			rng_golden.randomize();
+			if rng_big.randf() <= 0.05:
 				big.visible = true;
 			else:
 				big.visible = false;
 			
-			if main.random_chance(0.05):
+			if rng_golden.randf() <= 0.005:
 				golden.visible = true;
 			else:
 				golden.visible = false;
 				
 		elif get_parent().name == "Left_Vent" || get_parent().name == "Right_Vent":
-			if main.random_chance(0.1):
+			rng_toadette.randomize();
+			if rng_toadette.randf() <= 0.1:
 				toadette.visible = true;
 			else:
 				toadette.visible = false;

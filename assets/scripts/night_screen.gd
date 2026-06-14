@@ -7,6 +7,8 @@ extends Node
 @export_file_path("*.json") var data_json: String = "";
 var data: Dictionary = {};
 
+@onready var rng : RandomNumberGenerator = RandomNumberGenerator.new();
+
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Entering Night " + str(main.nightcounter));
@@ -41,11 +43,12 @@ func _on_timer_start_ambience_timeout() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "flash":
-		if main.random_chance(95) || main.didrarescreenhappened:
+		rng.randomize();
+		if rng.randf() <= 0.1 && !main.didrarescreenhappened:
+			loading._load_scene("res://assets/scenes/rare_screens.tscn");
+		else:
 			main.didrarescreenhappened = false;
 			if main.nightcounter > 0 && main.nightcounter < 6:
 				loading._load_scene("res://assets/scenes/tutorials.tscn");
 			else:
 				loading._load_scene("res://assets/scenes/gameplay.tscn");
-		else:
-			loading._load_scene("res://assets/scenes/rare_screens.tscn");

@@ -23,6 +23,8 @@ extends Node
 var ClockIteration: int = 0;
 var ClockOutputs: Array[String] = ["12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM"];
 
+@onready var rng : RandomNumberGenerator = RandomNumberGenerator.new();
+
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Night " + str(main.nightcounter));
@@ -57,7 +59,8 @@ func _on_clock_timer_timeout() -> void:
 		if main.nightcounter != 7:
 			for i in range(characters.size()):
 				if main.aiLevelsAsArrays[i] != 0 && i != 7:
-					if main.random_chance(50):
+					rng.randomize();
+					if rng.randf() <= 0.5:
 						main.aiLevelsAsArrays[i] += 1;
 					else:
 						main.aiLevelsAsArrays[i] += 2;
