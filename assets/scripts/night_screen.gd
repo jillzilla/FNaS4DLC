@@ -34,7 +34,6 @@ func _ready() -> void:
 		main.aiLevelsAsArrays[7] = data["Night " + str(main.nightcounter)]["Nightmare Luiginette"];
 		main.aiLevelsAsArrays[8] = data["Night " + str(main.nightcounter)]["Tails Doll"];
 		main.aiLevelsAsArrays[9] = data["Night " + str(main.nightcounter)]["Nightmare Knuckles"];
-
 		main._update_ai_levels();
 
 func _on_timer_start_ambience_timeout() -> void:
