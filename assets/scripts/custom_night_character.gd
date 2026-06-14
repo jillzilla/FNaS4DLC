@@ -3,12 +3,11 @@ extends VBoxContainer
 #variables
 const REQUIREDHOLDTIME: float = 0.15;
 
-@export var charName: String;
-@export var iconPath: String;
+@export var character_name: String;
+@export_file_path("*.png") var character_icon_path: String;
 
-@export_range(0, 9) var charID: int = 0;
-@export var minlevel: int = 0;
-@export var maxlevel: int = 25;
+@export var minlevel: int = main.AIMINVALUE;
+@export var maxlevel: int = main.AIMAXVALUE;
 
 @export var binary: bool = false;
 
@@ -24,15 +23,15 @@ var HoverRight: bool = false;
 
 #functions
 func _ready() -> void:
-	if !charName:
+	if !character_name:
 		name_.text = "";
 	else:
-		name_.text = charName;
+		name_.text = character_name;
 		
-	if !iconPath:
+	if !character_icon_path:
 		icon.texture = null;
 	else:
-		icon.texture = load(iconPath);
+		icon.texture = load(character_icon_path);
 		
 	_update_ai_counter();
 
@@ -48,33 +47,33 @@ func _process(delta: float) -> void:
 		holdTime = 0;
 	
 func _add() -> void:
-	main.aiLevelsAsArrays[charID] += 1;
-	if main.aiLevelsAsArrays[charID] > maxlevel:
-		main.aiLevelsAsArrays[charID] = minlevel;
+	main.ai_levels[character_name] += 1;
+	if main.ai_levels[character_name] > maxlevel:
+		main.ai_levels[character_name] = minlevel;
 	_update_ai_counter();
 		
 func _sub() -> void:
-	main.aiLevelsAsArrays[charID] -= 1;
-	if main.aiLevelsAsArrays[charID] < minlevel:
-		main.aiLevelsAsArrays[charID] = maxlevel;
+	main.ai_levels[character_name] -= 1;
+	if main.ai_levels[character_name] < minlevel:
+		main.ai_levels[character_name] = maxlevel;
 	_update_ai_counter();
 	
 func _set_min() -> void:
-	main.aiLevelsAsArrays[charID] = minlevel;
+	main.ai_levels[character_name] = minlevel;
 	_update_ai_counter();
 	
 func _set_random() -> void:
-	main.aiLevelsAsArrays[charID] = randi_range(minlevel, maxlevel);
+	main.ai_levels[character_name] = randi_range(minlevel, maxlevel);
 	_update_ai_counter();
 	
 func _set_max() -> void:
-	main.aiLevelsAsArrays[charID] = maxlevel;
+	main.ai_levels[character_name] = maxlevel;
 	_update_ai_counter();
 	
 func _update_ai_counter() -> void:
-	if main.aiLevelsAsArrays[charID] > minlevel:
+	if main.ai_levels[character_name] > minlevel:
 		if !binary:
-			ai_counter.text = str(main.aiLevelsAsArrays[charID]).pad_zeros(2);
+			ai_counter.text = str(main.ai_levels[character_name]).pad_zeros(2);
 		else:
 			ai_counter.text = "ON";
 		modulate.a = 1;
@@ -85,7 +84,7 @@ func _update_ai_counter() -> void:
 			ai_counter.text = "OFF";
 		modulate.a = 0.2;
 		
-	if main.aiLevelsAsArrays[charID] == maxlevel:
+	if main.ai_levels[character_name] == maxlevel:
 		modulate.r = 1;
 		modulate.g = 0;
 		modulate.b = 0;

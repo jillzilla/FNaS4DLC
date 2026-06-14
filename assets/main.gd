@@ -60,36 +60,35 @@ var PlayerPosition: String = "";
 var PlayerAlive: bool = true;
 var PlayerNotMoving: bool = true;
 
-#characters stuff
-var ntsDeskRunning: bool = false;
-var ntmDeskWalking: bool = false;
-var ncDeskWalking: bool = false;
-var isBTInOffice: bool = false;
-var nlnDeskWalking: bool = false;
-
-#characters ai level
-const AIDEFAULTLEVEL: int = 5;
-const AIMAXVALUE: int = 25;
+#character data
 const AIMINVALUE: int = 0;
-
-var NightmareToySonicAILevel: int = AIDEFAULTLEVEL;
-var NightmareToyMarioAILevel: int = AIDEFAULTLEVEL;
-var NightmareToyYoshiAILevel: int = AIDEFAULTLEVEL;
-var NightmareTaingleAILevel: int = AIDEFAULTLEVEL;
-var NightmareBTAILevel: int = AIDEFAULTLEVEL;
-var NightmareSalvageAiLevel: int = AIDEFAULTLEVEL;
-var NightmareCreamAiLevel: int = AIDEFAULTLEVEL;
-var NightmareLuiginetteAiLevel: int = AIMINVALUE;
-var NightmareKnucklesAiLevel: int = AIDEFAULTLEVEL;
-var TailsDollAiLevel: int = AIDEFAULTLEVEL;
-
-var aiLevelsAsArrays: Array[int] = [NightmareToySonicAILevel, NightmareToyMarioAILevel, NightmareToyYoshiAILevel, NightmareTaingleAILevel, NightmareBTAILevel, NightmareSalvageAiLevel, NightmareCreamAiLevel, NightmareLuiginetteAiLevel, TailsDollAiLevel, NightmareKnucklesAiLevel];
+const AIMAXVALUE: int = 25;
+const AIDEFAULTLEVEL: int = 5;
 
 var COUNTEREXPOSURELEVELDEFAULT: int = 25;
 var COUNTEREXPOSUREDEFAULT: float = 800;
 
 var JUMPSCAREEXPOSURELEVELDEFAULT: int = 12;
 var JUMPSCAREEXPOSUREDEFAULT: float = 2500;
+
+var ntsDeskRunning: bool = false;
+var ntmDeskWalking: bool = false;
+var ncDeskWalking: bool = false;
+var isBTInOffice: bool = false;
+var nlnDeskWalking: bool = false;
+
+var ai_levels : Dictionary = {
+	"Nightmare Toy Sonic" : AIDEFAULTLEVEL,
+	"Nightmare Toy Mario" : AIDEFAULTLEVEL,
+	"Nightmare Toy Yoshi" : AIDEFAULTLEVEL,
+	"Nightmare Taingle" : AIDEFAULTLEVEL,
+	"Nightmare BT" : AIDEFAULTLEVEL,
+	"Nightmare S. Sonic" : AIDEFAULTLEVEL,
+	"Nightmare Cream" : AIDEFAULTLEVEL,
+	"Nightmare Luiginette" : AIMINVALUE,
+	"Tails Doll" : AIDEFAULTLEVEL,
+	"Nightmare Knuckles" : AIDEFAULTLEVEL,
+};
 
 #functions
 func _apply_settings() -> void:
@@ -108,7 +107,7 @@ func _apply_settings() -> void:
 			DisplayServer.window_set_size(Vector2(1280, 720), 0);
 		2:
 			DisplayServer.window_set_size(Vector2(1920, 1080), 0);
-			
+	
 	@warning_ignore("integer_division")
 	var center_screen: Vector2i = DisplayServer.screen_get_position() + DisplayServer.screen_get_size() / 2;
 	var window_size: Vector2i = get_window().get_size_with_decorations()
@@ -150,26 +149,20 @@ func _ready() -> void:
 func random_chance(percent: float) -> bool:
 	return randf() * 100 < percent;
 
-func _update_ai_levels() -> void:
-	NightmareToySonicAILevel = aiLevelsAsArrays[0];
-	NightmareToyMarioAILevel = aiLevelsAsArrays[1];
-	NightmareToyYoshiAILevel = aiLevelsAsArrays[2];
-	NightmareTaingleAILevel = aiLevelsAsArrays[3];
-	NightmareBTAILevel = aiLevelsAsArrays[4];
-	NightmareSalvageAiLevel = aiLevelsAsArrays[5];
-	NightmareCreamAiLevel = aiLevelsAsArrays[6];
-	NightmareLuiginetteAiLevel = aiLevelsAsArrays[7];
-	TailsDollAiLevel = aiLevelsAsArrays[8];
-	NightmareKnucklesAiLevel = aiLevelsAsArrays[9];
-	
+func _get_ai_level_as_array() -> Array[String]:
+	return ["Nightmare Toy Sonic", "Nightmare Toy Mario",
+	"Nightmare Toy Yoshi", "Nightmare Taingle", "Nightmare BT", "Nightmare S. Sonic",
+	"Nightmare Cream", "Nightmare Luiginette", "Tails Doll",
+	"Nightmare Knuckles"];
+
 func _reset_ai() -> void:
-	for i in range(aiLevelsAsArrays.size()):
+	for i in range(_get_ai_level_as_array().size()):
 		if i != 7:
-			aiLevelsAsArrays[i] = AIDEFAULTLEVEL;
+			ai_levels[_get_ai_level_as_array()[i]] = AIDEFAULTLEVEL;
 		else:
-			aiLevelsAsArrays[i] = AIMINVALUE;
-	_update_ai_levels();
-	
+			ai_levels[_get_ai_level_as_array()[i]] = AIMINVALUE; #this is for luiginette
+	print(ai_levels);
+	 
 func _save() -> Dictionary:
 	var saveDict: Dictionary = {
 		"NIGHT5ENDING": night5ending,

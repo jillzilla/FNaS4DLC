@@ -26,15 +26,10 @@ func _ready() -> void:
 	data = JSON.parse_string(json_text);
 	
 	if main.nightcounter > 0 && main.nightcounter < 7:
-		var data_as_array: Array[String] = ["Nightmare Toy Sonic", "Nightmare Toy Mario",
-		"Nightmare Toy Yoshi", "Nightmare Taingle", "Nightmare BT", "Nightmare Salvage",
-		"Nightmare Cream", "Nightmare Luiginette", "Tails Doll",
-		"Nightmare Knuckles"];
-
-		for i in range(data_as_array.size()):
-			main.aiLevelsAsArrays[i] = data["Night " + str(main.nightcounter)][data_as_array[i]];
-
-		main._update_ai_levels();
+		for i in range(main._get_ai_level_as_array().size()):
+			main.ai_levels[main._get_ai_level_as_array()[i]] = data["Night " + str(main.nightcounter)][main._get_ai_level_as_array()[i]];
+	
+	print(main.ai_levels);
 
 func _on_timer_start_ambience_timeout() -> void:
 	GlobalAudioManager.get_node("Ambience").play();

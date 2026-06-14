@@ -84,89 +84,80 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-charName = "Nightmare Toy Sonic"
-iconPath = "res://assets/images/customnight/ntsIcon.png"
+character_name = "Nightmare Toy Sonic"
+character_icon_path = "res://assets/images/customnight/ntsIcon.png"
 metadata/_edit_lock_ = true
 
 [node name="Mario" parent="Control/Characters" unique_id=447377998 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-charName = "Nightmare Toy Mario"
-iconPath = "res://assets/images/customnight/ntmIcon.png"
-charID = 1
+character_name = "Nightmare Toy Mario"
+character_icon_path = "res://assets/images/customnight/ntmIcon.png"
 metadata/_edit_lock_ = true
 
 [node name="Yoshi" parent="Control/Characters" unique_id=1931477606 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-charName = "Nightmare Toy Yoshi"
-iconPath = "res://assets/images/customnight/ntyIcon.png"
-charID = 2
+character_name = "Nightmare Toy Yoshi"
+character_icon_path = "res://assets/images/customnight/ntyIcon.png"
 metadata/_edit_lock_ = true
 
 [node name="Taingle" parent="Control/Characters" unique_id=753376245 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-charName = "Nightmare Taingle"
-iconPath = "res://assets/images/customnight/ntIcon.png"
-charID = 3
+character_name = "Nightmare Taingle"
+character_icon_path = "res://assets/images/customnight/ntIcon.png"
 metadata/_edit_lock_ = true
 
 [node name="BT" parent="Control/Characters" unique_id=1668436749 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-charName = "Nightmare B.T."
-iconPath = "res://assets/images/customnight/btIcon.png"
-charID = 4
+character_name = "Nightmare BT"
+character_icon_path = "res://assets/images/customnight/btIcon.png"
 metadata/_edit_lock_ = true
 
 [node name="Salvage" parent="Control/Characters" unique_id=1148718633 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-charName = "Nightmare S. Sonic"
-iconPath = "res://assets/images/customnight/salvageicon.png"
-charID = 5
+character_name = "Nightmare S. Sonic"
+character_icon_path = "res://assets/images/customnight/salvageicon.png"
 metadata/_edit_lock_ = true
 
 [node name="Cream" parent="Control/Characters" unique_id=1540536152 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-charName = "Nightmare Cream"
-iconPath = "res://assets/images/customnight/creamicon.png"
-charID = 6
+character_name = "Nightmare Cream"
+character_icon_path = "res://assets/images/customnight/creamicon.png"
 metadata/_edit_lock_ = true
 
 [node name="Knuckles" parent="Control/Characters" unique_id=235656350 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-charName = "Nightmare Knuckles"
-iconPath = "res://assets/images/customnight/knuxicon.png"
-charID = 9
+character_name = "Nightmare Knuckles"
+character_icon_path = "res://assets/images/customnight/knuxicon.png"
 metadata/_edit_lock_ = true
 
 [node name="TailsDoll" parent="Control/Characters" unique_id=566825593 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-charName = "Tails Doll"
-iconPath = "res://assets/images/customnight/tdollicon.png"
-charID = 8
+character_name = "Tails Doll"
+character_icon_path = "res://assets/images/customnight/tdollicon.png"
 metadata/_edit_lock_ = true
 
 [node name="Luigi" parent="Control/Characters" unique_id=1756538997 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-charName = "Nightmare Luiginette"
-iconPath = "res://assets/images/customnight/luigiicon.png"
-charID = 7
+character_name = "Nightmare Luiginette"
+character_icon_path = "res://assets/images/customnight/luigiicon.png"
 maxlevel = 1
 binary = true
 metadata/_edit_lock_ = true

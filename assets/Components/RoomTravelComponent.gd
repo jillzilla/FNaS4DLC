@@ -86,7 +86,8 @@ func _travel() -> void:
 		
 		if get_parent().name == "Office":
 			rng_sm.randomize();
-			if rng_sm.randf() <= 0.01:
+
+			if rng_sm.randf() <= 0.005:
 				shadow_mario.modulate.a = 1;
 				var tween: Tween = create_tween();
 				tween.tween_property(shadow_mario, "modulate:a", 0, 0.5).set_trans(Tween.TRANS_CUBIC);
@@ -94,19 +95,21 @@ func _travel() -> void:
 		elif get_parent().name == "Hallway":
 			rng_big.randomize();
 			rng_golden.randomize();
-			if rng_big.randf() <= 0.05:
+
+			if rng_big.randf() <= 0.01:
 				big.visible = true;
 			else:
 				big.visible = false;
 			
-			if rng_golden.randf() <= 0.01:
+			if rng_golden.randf() <= 0.005:
 				golden.visible = true;
 			else:
 				golden.visible = false;
 				
 		elif get_parent().name == "Left_Vent" || get_parent().name == "Right_Vent":
 			rng_toadette.randomize();
-			if rng_toadette.randf() <= 0.05:
+			
+			if rng_toadette.randf() <= 0.01:
 				toadette.visible = true;
 			else:
 				toadette.visible = false;
