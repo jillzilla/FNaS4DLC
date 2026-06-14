@@ -1,14 +1,19 @@
 extends Node
 
 #variables
+@onready var clockanimation: AnimationPlayer = $Control/Clock_2/AnimationPlayer;
+
 @onready var loading: Control = $Loading;
-@export var clockanimation: AnimationPlayer;
+
 var next_scene_path : String = "";
 
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Win Screen");
 	DiscordManager._update_state("Night " + str(main.nightcounter));
+
+	if GlobalAudioManager.get_node("Ambience").is_playing():
+		GlobalAudioManager.get_node("Ambience").stop();
 	
 	match (main.nightcounter):
 		5:

@@ -1,7 +1,7 @@
 extends Control
 
 #variables
-@export var scrollContainer: ScrollContainer;
+@onready var scrollContainer: ScrollContainer = $MarginContainer/Panel/MarginContainer/ScrollContainer;
 
 #functions
 func _on_back_button_pressed() -> void:

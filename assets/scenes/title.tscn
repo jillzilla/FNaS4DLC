@@ -214,21 +214,8 @@ _data = {
 &"Intro": SubResource("Animation_w0xr6")
 }
 
-[node name="Title" type="Node" unique_id=574844742 node_paths=PackedStringArray("animations", "buttonscontainer", "nightcounter", "star1", "star2", "star3", "night6button", "customnightbutton", "extrasbutton", "guidebutton", "credits", "settings", "guide")]
+[node name="Title" type="Node" unique_id=574844742]
 script = ExtResource("1_f2nfk")
-animations = NodePath("AnimationPlayer")
-buttonscontainer = NodePath("UI/Control/ButtonsContainer")
-nightcounter = NodePath("UI/Control/ButtonsContainer/MainButtons/Play/NightCounter")
-star1 = NodePath("UI/Control/Star_1")
-star2 = NodePath("UI/Control/Star_2")
-star3 = NodePath("UI/Control/Star_3")
-night6button = NodePath("UI/Control/ButtonsContainer/MainButtons/Night6")
-customnightbutton = NodePath("UI/Control/ButtonsContainer/MainButtons/CustomNight")
-extrasbutton = NodePath("UI/Control/ButtonsContainer/MainButtons/Extras")
-guidebutton = NodePath("UI/Control/ButtonsContainer/Guide")
-credits = NodePath("UI/Credits")
-settings = NodePath("UI/Settings")
-guide = NodePath("UI/Almanac")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1912542665]
 stream = ExtResource("2_p4c3g")
@@ -500,7 +487,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Almanac" parent="UI" unique_id=269587860 instance=ExtResource("11_8er8c")]
+[node name="Guide" parent="UI" unique_id=269587860 instance=ExtResource("11_8er8c")]
 visible = false
 
 [node name="Settings" parent="UI" unique_id=1957756881 instance=ExtResource("11_mb7to")]

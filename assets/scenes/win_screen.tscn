@@ -77,9 +77,8 @@ _data = {
 &"win": SubResource("Animation_77wy8")
 }
 
-[node name="WinScreen" type="Node" unique_id=1710089019 node_paths=PackedStringArray("clockanimation")]
+[node name="WinScreen" type="Node" unique_id=1710089019]
 script = ExtResource("1_qkwhx")
-clockanimation = NodePath("Control/Clock_2/AnimationPlayer")
 
 [node name="Control" type="Control" parent="." unique_id=2119734020]
 layout_mode = 3

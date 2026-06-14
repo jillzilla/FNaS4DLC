@@ -1,26 +1,32 @@
 extends Node
 
 #variables
-@export var animations: AnimationPlayer;
-@export var buttonscontainer: Control;
-@export var nightcounter: Label;
-@export var star1: Sprite2D;
-@export var star2: Sprite2D;
-@export var star3: Sprite2D;
-@export var night6button: Button;
-@export var customnightbutton: Button;
-@export var extrasbutton: Button;
-@export var guidebutton: Button;
-@export var credits: Control;
-@export var settings: Control;
-@export var guide: Control;
+@onready var animations: AnimationPlayer = $AnimationPlayer;
 
+@onready var nightcounter: Label = $UI/Control/ButtonsContainer/MainButtons/Play/NightCounter;
+
+@onready var star1: Sprite2D = $UI/Control/Star_1;
+@onready var star2: Sprite2D = $UI/Control/Star_2;
+@onready var star3: Sprite2D = $UI/Control/Star_3;
+
+@onready var night6button: Button = $UI/Control/ButtonsContainer/MainButtons/Night6;
+@onready var customnightbutton: Button = $UI/Control/ButtonsContainer/MainButtons/CustomNight;
+@onready var extrasbutton: Button = $UI/Control/ButtonsContainer/MainButtons/Extras;
+@onready var guidebutton: Button = $UI/Control/ButtonsContainer/Guide;
+
+@onready var buttonscontainer: Control = $UI/Control/ButtonsContainer;
+@onready var credits: Control = $UI/Credits;
+@onready var settings: Control = $UI/Settings;
+@onready var guide: Control = $UI/Guide;
 @onready var loading: Control = $UI/Loading;
 
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Title Screen");
 	DiscordManager._update_state("");
+
+	if GlobalAudioManager.get_node("Ambience").is_playing():
+		GlobalAudioManager.get_node("Ambience").stop();
 	
 	main._reset_ai();
 	

@@ -1,16 +1,15 @@
 extends Control
 
 #variables
+@onready var guidebutton: Button = $ThingsContainer/Guide;
+
+@onready var confirm: Control = $ConfirmPopUp;
+@onready var settings: Control = $Settings;
+@onready var guide: Control = $Guide;
 @onready var loading: Control = $Loading;
 
-@export var guidebutton: Button;
-
-@export var confirm: Control;
-@export var settings: Control;
-@export var guide: Control;
-
-var reload = false;
-var quit = false;
+var reload : bool = false;
+var quit : bool = false;
 
 #functions
 func _ready() -> void:
@@ -43,7 +42,6 @@ func _on_quit_pressed() -> void:
 	quit = true;
 
 func _confirmed_action() -> void:
-	GlobalAudioManager.get_node("Ambience").stop();
 	if reload:
 		loading._load_scene("res://assets/scenes/night_screen.tscn");
 	elif quit:

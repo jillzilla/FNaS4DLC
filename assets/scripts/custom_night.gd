@@ -2,6 +2,7 @@ extends Node
 
 #variables
 @export var characters: Array[VBoxContainer];
+
 @onready var loading: Control = $Loading;
 
 #functions

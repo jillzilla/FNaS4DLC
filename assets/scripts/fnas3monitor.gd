@@ -1,5 +1,7 @@
 extends Node2D
 
+#DEPRECATED
+
 #variables
 @onready var timer: Timer = Timer.new();
 @export var changeSFX: AudioStreamPlayer;

@@ -1,28 +1,29 @@
 extends Node
 
 #variables
-@onready var loading: Control = $Misc/GUI/Loading;
-@export var custom_night_rewards: Array[Sprite2D];
-
-@export var charAway: AnimationPlayer;
-
-@export var entrance_luiginette_sound: AudioStreamPlayer;
-@export var clock_falling_animation: AnimationPlayer;
-
-@export var shockSFX: AudioStreamPlayer;
-@export var ventleaveSFX: AudioStreamPlayer;
-@export var leftventSFX: AudioStreamPlayer2D;
-@export var rightventSFX: AudioStreamPlayer2D;
-
-@export var officeRoomTravel: RoomTravelComponent;
-
-@export var ClockTimer: Timer;
-@export var ClockCounter: Label;
-
-var ClockIteration: int = 0;
-var ClockOutputs: Array[String] = ["12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM"];
+@export var custom_night_rewards: Array[Sprite2D] = [];
 
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new();
+
+@onready var loading: Control = $Misc/GUI/Loading;
+
+@onready var charAway: AnimationPlayer = $Misc/GUI/CharacterAwayFade/AnimationPlayer;
+@onready var clock_falling_animation: AnimationPlayer = $Misc/GUI/Clock/AnimationPlayer;
+
+@onready var shockSFX: AudioStreamPlayer = $Sounds/Shock_SFX;
+@onready var ventleaveSFX: AudioStreamPlayer = $Sounds/Vent_Leave_SFX;
+@onready var entrance_luiginette_sound: AudioStreamPlayer = $Sounds/EntranceLuiginette;
+
+@onready var leftventSFX: AudioStreamPlayer2D = $"Misc/2DAudios/LeftVentSound";
+@onready var rightventSFX: AudioStreamPlayer2D = $"Misc/2DAudios/RightVentSound";
+
+@onready var ClockTimer: Timer = $Misc/Clock_Timer;
+
+@onready var ClockCounter: Label = $Misc/GUI/Clock;
+
+var ClockIteration: int = 0;
+
+var ClockOutputs: Array[String] = ["12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM"];
 
 #functions
 func _ready() -> void:
@@ -67,7 +68,6 @@ func _increase_ai_aggressiveness() -> void:
 		for i in range(main._get_ai_level_as_array().size()):
 			if main.ai_levels[main._get_ai_level_as_array()[i]] > 0 && i != 7: # skipping luiginette
 				rng.randomize();
-				
 				if rng.randf() <= 0.5:
 					main.ai_levels[main._get_ai_level_as_array()[i]] += 1;
 				else:
@@ -75,12 +75,12 @@ func _increase_ai_aggressiveness() -> void:
 
 				if main.ai_levels[main._get_ai_level_as_array()[i]] > main.AIMAXVALUE:
 					main.ai_levels[main._get_ai_level_as_array()[i]] = main.AIMAXVALUE;
+		print(main.ai_levels);
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("SKIPNIGHT"):
 		_win();
 
 func _win() -> void:
-	GlobalAudioManager.get_node("Ambience").stop();
 	get_tree().paused = true;
 	loading._load_scene("res://assets/scenes/win_screen.tscn");

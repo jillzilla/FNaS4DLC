@@ -1,5 +1,7 @@
 extends Button
 
+#DEPRECATED
+
 #variables
 @export var Sound: AudioStreamPlayer2D;
 

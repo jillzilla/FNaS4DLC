@@ -1,10 +1,14 @@
 extends Node
 
 #variables
-@export var counter: Label;
 @export_file_path("*.json") var data_json: String = "";
+
+@onready var counter: Label = $UI/Counter;
+
 @onready var loading: Control = $Loading;
+
 @onready var desc: RichTextLabel = $UI/Description;
+
 var data: Dictionary = {};
 
 #functions

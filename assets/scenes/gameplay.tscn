@@ -301,21 +301,6 @@ _data = {
 &"WalkCycle": SubResource("Animation_osqdk")
 }
 
-[sub_resource type="Animation" id="Animation_66s47"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Legs:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 180)]
-}
-
 [sub_resource type="Animation" id="Animation_xnjdx"]
 resource_name = "WalkCycle"
 length = 0.5
@@ -336,7 +321,6 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mehod"]
 _data = {
-&"RESET": SubResource("Animation_66s47"),
 &"WalkCycle": SubResource("Animation_xnjdx")
 }
 
@@ -607,20 +591,10 @@ _data = {
 &"fall": SubResource("Animation_fmlyk")
 }
 
-[node name="Gameplay" type="Node" unique_id=528663739 node_paths=PackedStringArray("custom_night_rewards", "charAway", "entrance_luiginette_sound", "clock_falling_animation", "shockSFX", "ventleaveSFX", "leftventSFX", "rightventSFX", "officeRoomTravel", "ClockTimer", "ClockCounter")]
+[node name="Gameplay" type="Node" unique_id=528663739 node_paths=PackedStringArray("custom_night_rewards")]
 process_mode = 1
 script = ExtResource("1_hlo8c")
 custom_night_rewards = [NodePath("Rooms/Office/TSonicPlush"), NodePath("Rooms/Office/ToyMarioPlush"), NodePath("Rooms/Office/NightmareYoshiPlush"), NodePath("Rooms/Office/TainglePlush"), NodePath("Rooms/Office/ToadPlush"), NodePath("Rooms/Office/SalvagePlush"), NodePath("Rooms/Office/CreamPlush"), NodePath("Rooms/Office/KnucklePlush"), NodePath("Rooms/Office/TailsDollPlush"), NodePath("Rooms/Office/PaperpalsSonic"), NodePath("Rooms/Office/PaperpalsMario"), NodePath("Rooms/Office/LuiginettePlush")]
-charAway = NodePath("Misc/GUI/CharacterAwayFade/AnimationPlayer")
-entrance_luiginette_sound = NodePath("Sounds/EntranceLuiginette")
-clock_falling_animation = NodePath("Misc/GUI/Clock/AnimationPlayer")
-shockSFX = NodePath("Sounds/Shock_SFX")
-ventleaveSFX = NodePath("Sounds/Vent_Leave_SFX")
-leftventSFX = NodePath("Misc/2DAudios/LeftVentSound")
-rightventSFX = NodePath("Misc/2DAudios/RightVentSound")
-officeRoomTravel = NodePath("Rooms/Office/RoomTravelComponent")
-ClockTimer = NodePath("Misc/Clock_Timer")
-ClockCounter = NodePath("Misc/GUI/Clock")
 
 [node name="Sounds" type="Node" parent="." unique_id=1674670979]
 

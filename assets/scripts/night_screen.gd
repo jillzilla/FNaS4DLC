@@ -1,18 +1,23 @@
 extends Node
 
 #variables
-@onready var loading: Control = $Loading;
-@export var nightcounter: Label;
-
 @export_file_path("*.json") var data_json: String = "";
-var data: Dictionary = {};
+
+@onready var loading: Control = $Loading;
+
+@onready var nightcounter: Label = $NightCounter;
 
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new();
+
+var data: Dictionary = {};
 
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Entering Night " + str(main.nightcounter));
 	DiscordManager._update_state("");
+
+	if GlobalAudioManager.get_node("Ambience").is_playing():
+		GlobalAudioManager.get_node("Ambience").stop();
 	
 	nightcounter.text = "Night " + str(main.nightcounter) + "\n" + "12:00 AM";
 	
