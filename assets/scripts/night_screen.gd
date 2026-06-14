@@ -7,7 +7,7 @@ extends Node
 @export_file_path("*.json") var data_json: String = "";
 var data: Dictionary = {};
 
-@onready var rng : RandomNumberGenerator = RandomNumberGenerator.new();
+@onready var rng: RandomNumberGenerator = RandomNumberGenerator.new();
 
 #functions
 func _ready() -> void:
@@ -26,16 +26,14 @@ func _ready() -> void:
 	data = JSON.parse_string(json_text);
 	
 	if main.nightcounter > 0 && main.nightcounter < 7:
-		main.aiLevelsAsArrays[0] = data["Night " + str(main.nightcounter)]["Nightmare Toy Sonic"];
-		main.aiLevelsAsArrays[1] = data["Night " + str(main.nightcounter)]["Nightmare Toy Mario"];
-		main.aiLevelsAsArrays[2] = data["Night " + str(main.nightcounter)]["Nightmare Toy Yoshi"];
-		main.aiLevelsAsArrays[3] = data["Night " + str(main.nightcounter)]["Nightmare Taingle"];
-		main.aiLevelsAsArrays[4] = data["Night " + str(main.nightcounter)]["Nightmare BT"];
-		main.aiLevelsAsArrays[5] = data["Night " + str(main.nightcounter)]["Nightmare Salvage"];
-		main.aiLevelsAsArrays[6] = data["Night " + str(main.nightcounter)]["Nightmare Cream"];
-		main.aiLevelsAsArrays[7] = data["Night " + str(main.nightcounter)]["Nightmare Luiginette"];
-		main.aiLevelsAsArrays[8] = data["Night " + str(main.nightcounter)]["Tails Doll"];
-		main.aiLevelsAsArrays[9] = data["Night " + str(main.nightcounter)]["Nightmare Knuckles"];
+		var data_as_array: Array[String] = ["Nightmare Toy Sonic", "Nightmare Toy Mario",
+		"Nightmare Toy Yoshi", "Nightmare Taingle", "Nightmare BT", "Nightmare Salvage",
+		"Nightmare Cream", "Nightmare Luiginette", "Tails Doll",
+		"Nightmare Knuckles"];
+
+		for i in range(data_as_array.size()):
+			main.aiLevelsAsArrays[i] = data["Night " + str(main.nightcounter)][data_as_array[i]];
+
 		main._update_ai_levels();
 
 func _on_timer_start_ambience_timeout() -> void:

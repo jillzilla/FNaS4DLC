@@ -99,14 +99,14 @@ func _travel() -> void:
 			else:
 				big.visible = false;
 			
-			if rng_golden.randf() <= 0.005:
+			if rng_golden.randf() <= 0.01:
 				golden.visible = true;
 			else:
 				golden.visible = false;
 				
 		elif get_parent().name == "Left_Vent" || get_parent().name == "Right_Vent":
 			rng_toadette.randomize();
-			if rng_toadette.randf() <= 0.1:
+			if rng_toadette.randf() <= 0.05:
 				toadette.visible = true;
 			else:
 				toadette.visible = false;
