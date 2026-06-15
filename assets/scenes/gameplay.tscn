@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://crylvvo6p0k44" path="res://assets/components/TimeComponent.gd" id="5_rfeao"]
 [ext_resource type="Texture2D" uid="uid://d23jw7vmq03lb" path="res://assets/images/gameplay/rooms/hallway.png" id="6_ndvee"]
 [ext_resource type="Script" uid="uid://xlfwe3scaswn" path="res://assets/components/RoomComponent.gd" id="6_tv68p"]
+[ext_resource type="Script" uid="uid://c4rlke2hboc5f" path="res://assets/components/FlashlightComponent.gd" id="7_fov1h"]
 [ext_resource type="Texture2D" uid="uid://c502v777dd53r" path="res://assets/images/gameplay/rooms/clipmask/ceiling.png" id="7_kgr1o"]
 [ext_resource type="Script" uid="uid://dvtix3a1a3meg" path="res://assets/components/PlayerComponent.gd" id="7_mliqa"]
 [ext_resource type="Texture2D" uid="uid://ci88c0f206wu3" path="res://assets/images/gameplay/characters/taingle/taingle_1.png" id="7_ugpla"]
@@ -633,7 +634,7 @@ xResolution = 1280
 player_component = NodePath("../Player_Component")
 metadata/_custom_type_script = "uid://cnhe33f3mmlmb"
 
-[node name="RoomComponent_LVent" type="Node" parent="Components" unique_id=1619471013 node_paths=PackedStringArray("button", "walk_sound", "room_go_to", "buttons_to_activate", "transition", "player_component", "scrolling_component")]
+[node name="RoomComponent_LVent" type="Node" parent="Components" unique_id=1619471013 node_paths=PackedStringArray("button", "walk_sound", "room_go_to", "buttons_to_activate", "transition", "player_component", "scrolling_component", "flashlight_component")]
 script = ExtResource("6_tv68p")
 button = NodePath("../../Buttons/Left_Vent_Button_")
 walk_sound = NodePath("../../Sounds/Walk_SFX")
@@ -642,13 +643,13 @@ buttons_to_activate = [NodePath("../../Buttons/Office_Button_")]
 transition = NodePath("../../Misc/GUI/Transition/AnimationPlayer")
 player_component = NodePath("../Player_Component")
 scrolling_component = NodePath("../ScrollingComponent")
+flashlight_component = NodePath("../FlashlightComponent_LVent")
 input = 1
 camera_movement = true
-allow_flashlight = true
 allow_mask = true
 metadata/_custom_type_script = "uid://xlfwe3scaswn"
 
-[node name="RoomComponent_RVent" type="Node" parent="Components" unique_id=1559760442 node_paths=PackedStringArray("button", "walk_sound", "room_go_to", "buttons_to_activate", "transition", "player_component", "scrolling_component")]
+[node name="RoomComponent_RVent" type="Node" parent="Components" unique_id=1559760442 node_paths=PackedStringArray("button", "walk_sound", "room_go_to", "buttons_to_activate", "transition", "player_component", "scrolling_component", "flashlight_component")]
 script = ExtResource("6_tv68p")
 button = NodePath("../../Buttons/Right_Vent_Button_")
 walk_sound = NodePath("../../Sounds/Walk_SFX")
@@ -657,13 +658,13 @@ buttons_to_activate = [NodePath("../../Buttons/Office_Button_")]
 transition = NodePath("../../Misc/GUI/Transition/AnimationPlayer")
 player_component = NodePath("../Player_Component")
 scrolling_component = NodePath("../ScrollingComponent")
+flashlight_component = NodePath("../FlashlightComponent_RVent")
 input = 1
 camera_movement = true
-allow_flashlight = true
 allow_mask = true
 metadata/_custom_type_script = "uid://xlfwe3scaswn"
 
-[node name="RoomComponent_Hallway" type="Node" parent="Components" unique_id=1722599967 node_paths=PackedStringArray("button", "walk_sound", "room_go_to", "buttons_to_activate", "transition", "player_component", "scrolling_component")]
+[node name="RoomComponent_Hallway" type="Node" parent="Components" unique_id=1722599967 node_paths=PackedStringArray("button", "walk_sound", "room_go_to", "buttons_to_activate", "transition", "player_component", "scrolling_component", "flashlight_component")]
 script = ExtResource("6_tv68p")
 button = NodePath("../../Buttons/Hallway_Button_")
 walk_sound = NodePath("../../Sounds/Walk_SFX")
@@ -672,12 +673,12 @@ buttons_to_activate = [NodePath("../../Buttons/Office_Button_")]
 transition = NodePath("../../Misc/GUI/Transition/AnimationPlayer")
 player_component = NodePath("../Player_Component")
 scrolling_component = NodePath("../ScrollingComponent")
+flashlight_component = NodePath("../FlashlightComponent_Hallway")
 input = 1
 camera_movement = true
-allow_flashlight = true
 metadata/_custom_type_script = "uid://xlfwe3scaswn"
 
-[node name="RoomComponent_Ceiling" type="Node" parent="Components" unique_id=846163797 node_paths=PackedStringArray("button", "walk_sound", "room_go_to", "buttons_to_activate", "transition", "player_component", "scrolling_component")]
+[node name="RoomComponent_Ceiling" type="Node" parent="Components" unique_id=846163797 node_paths=PackedStringArray("button", "walk_sound", "room_go_to", "buttons_to_activate", "transition", "player_component", "scrolling_component", "flashlight_component")]
 script = ExtResource("6_tv68p")
 button = NodePath("../../Buttons/Ceiling_Button_")
 walk_sound = NodePath("../../Sounds/Walk_SFX")
@@ -686,9 +687,9 @@ buttons_to_activate = [NodePath("../../Buttons/Office_Button_")]
 transition = NodePath("../../Misc/GUI/Transition/AnimationPlayer")
 player_component = NodePath("../Player_Component")
 scrolling_component = NodePath("../ScrollingComponent")
+flashlight_component = NodePath("../FlashlightComponent_Ceiling")
 input = 2
 camera_movement = true
-allow_flashlight = true
 metadata/_custom_type_script = "uid://xlfwe3scaswn"
 
 [node name="RoomComponent_Desk" type="Node" parent="Components" unique_id=633706428 node_paths=PackedStringArray("button", "walk_sound", "room_go_to", "buttons_to_activate", "transition", "player_component", "scrolling_component")]
@@ -715,6 +716,34 @@ scrolling_component = NodePath("../ScrollingComponent")
 input = 2
 allow_scrolling = true
 metadata/_custom_type_script = "uid://xlfwe3scaswn"
+
+[node name="FlashlightComponent_LVent" type="Node" parent="Components" unique_id=1736811769 node_paths=PackedStringArray("player_component", "sound", "darkness_sprite")]
+script = ExtResource("7_fov1h")
+player_component = NodePath("../Player_Component")
+sound = NodePath("../../Sounds/Flashlight_SFX")
+darkness_sprite = NodePath("../../Rooms/Left_Vent/Dark")
+metadata/_custom_type_script = "uid://c4rlke2hboc5f"
+
+[node name="FlashlightComponent_RVent" type="Node" parent="Components" unique_id=1222364954 node_paths=PackedStringArray("player_component", "sound", "darkness_sprite")]
+script = ExtResource("7_fov1h")
+player_component = NodePath("../Player_Component")
+sound = NodePath("../../Sounds/Flashlight_SFX")
+darkness_sprite = NodePath("../../Rooms/Right_Vent/Dark")
+metadata/_custom_type_script = "uid://c4rlke2hboc5f"
+
+[node name="FlashlightComponent_Hallway" type="Node" parent="Components" unique_id=1852562248 node_paths=PackedStringArray("player_component", "sound", "darkness_sprite")]
+script = ExtResource("7_fov1h")
+player_component = NodePath("../Player_Component")
+sound = NodePath("../../Sounds/Flashlight_SFX")
+darkness_sprite = NodePath("../../Rooms/Hallway/Dark")
+metadata/_custom_type_script = "uid://c4rlke2hboc5f"
+
+[node name="FlashlightComponent_Ceiling" type="Node" parent="Components" unique_id=1885717366 node_paths=PackedStringArray("player_component", "sound", "darkness_sprite")]
+script = ExtResource("7_fov1h")
+player_component = NodePath("../Player_Component")
+sound = NodePath("../../Sounds/Flashlight_SFX")
+darkness_sprite = NodePath("../../Rooms/Ceiling/Dark")
+metadata/_custom_type_script = "uid://c4rlke2hboc5f"
 
 [node name="TimeComponent" type="Node" parent="Components" unique_id=668747829 node_paths=PackedStringArray("loading", "clock_timer", "clock_counter")]
 script = ExtResource("5_rfeao")

@@ -27,12 +27,12 @@ enum inputs {
 @export var transition: AnimationPlayer;
 @export var player_component : Player_Component;
 @export var scrolling_component : ScrollingComponent;
+@export var flashlight_component : FlashlightComponent;
 
 @export_group("Flags")
 @export var input: Variant = inputs.NONE;
 @export var camera_movement: bool = false;
 @export var allow_scrolling: bool = false;
-@export var allow_flashlight: bool = false;
 @export var allow_mask: bool = false;
 
 #functions
@@ -63,7 +63,7 @@ func _go_to_room() -> void:
 			b.input_pickable = true;
 
 		player_component.can_scroll = false;
-		player_component.can_use_flashlight = false;
+		player_component.flashlight = null;
 		player_component.can_use_mask = false;
 
 		walk_sound.play();
@@ -94,8 +94,8 @@ func _go_to_room() -> void:
 		if allow_scrolling:
 			player_component.can_scroll = true;
 
-		if allow_flashlight:
-			player_component.can_use_flashlight = true;
+		if flashlight_component:
+			player_component.flashlight = flashlight_component;
 		
 		if allow_mask:
 			player_component.can_use_mask = true;
