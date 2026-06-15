@@ -1,19 +1,23 @@
 extends Control
 
 #variables
-@export var icons: Array[TextureButton];
+@onready var salvage : TextureButton = $Buttons/GridContainer/SS;
+@onready var cream : TextureButton = $Buttons/GridContainer/Cream;
+@onready var luiginette : TextureButton = $Buttons/GridContainer/Luiginette;
+@onready var tailsdoll : TextureButton = $Buttons/GridContainer/TailsDoll;
+@onready var knuckles : TextureButton = $Buttons/GridContainer/Knuckles;
 
 #functions
 func _ready() -> void:
 	if main.night_to_play >= 3:
-		icons[5].show();
+		salvage.show();
 	if main.night_to_play >= 4:
-		icons[6].show();
+		cream.show();
 	if main.night_to_play >= 5:
-		icons[9].show();
+		luiginette.show();
 	if main.night6ending:
-		icons[7].show();
-		icons[8].show();
+		tailsdoll.show();
+		knuckles.show();
 		
 func _on_back_pressed() -> void:
 	hide();
