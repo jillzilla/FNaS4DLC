@@ -22,7 +22,6 @@ func _ready() -> void:
 	nightcounter.text = "Night " + str(main.nightcounter) + "\n" + "12:00 AM";
 	
 	main.killedBy = "";
-	main.PlayerAlive = true;
 	main.isBTInOffice = false;
 
 	var file: FileAccess = FileAccess.open(data_json, FileAccess.READ);
