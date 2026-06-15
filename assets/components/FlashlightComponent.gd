@@ -14,9 +14,7 @@ var is_flashlight_on : bool = false;
 func _process(_delta: float) -> void:
     if player_component.flashlight == self:
         if Input.is_action_just_pressed("FLASHLIGHT"):
-            is_flashlight_on = true;
-            darkness_sprite.hide();
-            sound.play();
+            _flashlight_on();
     if player_component.flashlight == null || !Input.is_action_pressed("FLASHLIGHT"):
         _flashlight_off();
 

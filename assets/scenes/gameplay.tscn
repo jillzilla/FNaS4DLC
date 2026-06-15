@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bdlmu7wbqans7" path="res://assets/images/gameplay/characters/taingle/taingle_2.png" id="8_kgr1o"]
 [ext_resource type="Texture2D" uid="uid://0f8oes41ekud" path="res://assets/images/gameplay/rooms/flashlight/vent_off.png" id="9_b4idp"]
 [ext_resource type="Texture2D" uid="uid://cx1vyvqdy6l10" path="res://assets/images/gameplay/characters/taingle/taingle_3.png" id="9_rybgg"]
+[ext_resource type="Script" uid="uid://cwylbc3jnkgad" path="res://assets/components/MaskComponent.gd" id="9_tv68p"]
 [ext_resource type="Texture2D" uid="uid://nb6tg6pvsdjj" path="res://assets/images/gameplay/characters/taingle/taingle_4.png" id="10_hlo8c"]
 [ext_resource type="AudioStream" uid="uid://dfkiq2ar0fecj" path="res://assets/sounds/taingleradionew.ogg" id="11_q5ac0"]
 [ext_resource type="Texture2D" uid="uid://c8rfx7wqcgir4" path="res://assets/images/gameplay/rooms/flashlight/hallway_on.png" id="12_b68su"]
@@ -53,9 +54,11 @@
 [ext_resource type="AudioStream" uid="uid://b31mag886u1jf" path="res://assets/sounds/Desk_Step.ogg" id="25_1mjni"]
 [ext_resource type="AudioStream" uid="uid://de3mpqv5by8qg" path="res://assets/sounds/Luigi_Laugh_3.ogg" id="25_q5ac0"]
 [ext_resource type="Texture2D" uid="uid://bb308cdl2cx4i" path="res://assets/images/gameplay/characters/tmario/tmariorleftleg.png" id="26_e3d00"]
+[ext_resource type="AudioStream" uid="uid://werog6u2cjx0" path="res://assets/sounds/Put_Mask_On.ogg" id="26_lmniu"]
 [ext_resource type="AudioStream" uid="uid://dptku8ykt4cmd" path="res://assets/sounds/luigijump.ogg" id="26_q5ac0"]
 [ext_resource type="AudioStream" uid="uid://b4ft4d4pgltgn" path="res://assets/sounds/luiginette_entrance.ogg" id="27_fmlyk"]
 [ext_resource type="Texture2D" uid="uid://u170nc4742i1" path="res://assets/images/gameplay/characters/tsonic/toysonic2.png" id="27_mmgny"]
+[ext_resource type="AudioStream" uid="uid://c7ou81t6u31m0" path="res://assets/sounds/Take_Mask_Off.ogg" id="27_rfeao"]
 [ext_resource type="Texture2D" uid="uid://lx6pb7qibjaj" path="res://assets/images/gameplay/characters/tmario/tmariopelvis.png" id="27_w0wri"]
 [ext_resource type="Texture2D" uid="uid://7bjybixcf0l3" path="res://assets/images/gameplay/characters/tmario/tmariorightleg.png" id="28_bt1i2"]
 [ext_resource type="Texture2D" uid="uid://dspjkfre872ju" path="res://assets/images/gameplay/characters/tsonic/toysonic21.png" id="31_82o30"]
@@ -110,6 +113,7 @@
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="110_mehod"]
 [ext_resource type="PackedScene" uid="uid://tuun86de3ic7" path="res://assets/scenes/jumpscares/toy_sonic_jumpscare.tscn" id="119_8dojq"]
 [ext_resource type="PackedScene" uid="uid://c40m2qp57fkfq" path="res://assets/scenes/jumpscares/toy_mario_jumpscare.tscn" id="120_cykhs"]
+[ext_resource type="Texture2D" uid="uid://cq3cekudwf40e" path="res://assets/images/gameplay/mask/mask_move.png" id="121_rfeao"]
 [ext_resource type="PackedScene" uid="uid://dr3viuc0mfqks" path="res://assets/scenes/jumpscares/toy_yoshi_jumpscare.tscn" id="121_v3n8n"]
 [ext_resource type="PackedScene" uid="uid://c76hjgljtjud3" path="res://assets/scenes/jumpscares/taingle_jumpscare.tscn" id="122_uacgo"]
 [ext_resource type="PackedScene" uid="uid://dk7im18ffh3im" path="res://assets/scenes/jumpscares/salvage_jumpscare.tscn" id="123_dpljo"]
@@ -628,7 +632,7 @@ metadata/_custom_type_script = "uid://ckd2vwl4kaco4"
 [node name="ScrollingComponent" type="Node" parent="Components" unique_id=501926390 node_paths=PackedStringArray("camera", "player_component")]
 script = ExtResource("2_mrbpc")
 camera = NodePath("../../Misc/Camera_Scrolling")
-scrollSpeed = 20.0
+scrollSpeed = 1000.0
 scrollDistance = 300.0
 xResolution = 1280
 player_component = NodePath("../Player_Component")
@@ -753,6 +757,16 @@ clock_counter = NodePath("../../Misc/GUI/Clock")
 clock_outputs = Array[String](["12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM"])
 metadata/_custom_type_script = "uid://crylvvo6p0k44"
 
+[node name="MaskComponent" type="Node" parent="Components" unique_id=1115275991 node_paths=PackedStringArray("player_component", "mask_sprite", "mask_on_SFX", "mask_off_SFX")]
+script = ExtResource("9_tv68p")
+mask_moving_texture_path = "res://assets/images/gameplay/mask/mask_move.png"
+mask_breath_texture_path = "res://assets/images/gameplay/mask/mask_idle.png"
+player_component = NodePath("../Player_Component")
+mask_sprite = NodePath("../../Misc/GUI/Mask")
+mask_on_SFX = NodePath("../../Sounds/Mask_ON")
+mask_off_SFX = NodePath("../../Sounds/Mask_OFF")
+metadata/_custom_type_script = "uid://cwylbc3jnkgad"
+
 [node name="Sounds" type="Node" parent="." unique_id=1674670979]
 
 [node name="Taingle_Radio" type="AudioStreamPlayer" parent="Sounds" unique_id=2037132696]
@@ -827,6 +841,14 @@ bus = &"Sounds"
 
 [node name="EntranceLuiginette" type="AudioStreamPlayer" parent="Sounds" unique_id=383807181]
 stream = ExtResource("27_fmlyk")
+bus = &"Sounds"
+
+[node name="Mask_ON" type="AudioStreamPlayer" parent="Sounds" unique_id=638921057]
+stream = ExtResource("26_lmniu")
+bus = &"Sounds"
+
+[node name="Mask_OFF" type="AudioStreamPlayer" parent="Sounds" unique_id=1777283590]
+stream = ExtResource("27_rfeao")
 bus = &"Sounds"
 
 [node name="Luigi_Walk_Left" type="AudioStreamPlayer2D" parent="Sounds" unique_id=697889683]
@@ -1552,6 +1574,11 @@ loading = NodePath("../Loading")
 
 [node name="Knuckles_Jumpscare" parent="Misc/GUI" unique_id=1409463115 node_paths=PackedStringArray("loading") instance=ExtResource("126_rcbs0")]
 loading = NodePath("../Loading")
+
+[node name="Mask" type="Sprite2D" parent="Misc/GUI" unique_id=1818084202]
+position = Vector2(640, -360)
+texture = ExtResource("121_rfeao")
+metadata/_edit_lock_ = true
 
 [node name="Vignette" type="Sprite2D" parent="Misc/GUI" unique_id=454113464]
 texture = ExtResource("2_un4qs")
