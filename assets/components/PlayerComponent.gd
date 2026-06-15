@@ -5,3 +5,4 @@ class_name Player_Component extends Component
 @export var can_scroll : bool = true;
 @export var can_use_flashlight : bool = false;
 @export var can_use_mask : bool = false;
+@export var can_move : bool = true;

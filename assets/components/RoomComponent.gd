@@ -1,5 +1,7 @@
 class_name RoomComponent extends Component
 
+signal _player_went_to_room;
+
 #variables
 const ROOMSPAWNPOSITION: Vector2 = Vector2(1040.0, 710.0);
 const ROOMDESPAWNPOSITION: Vector2 = Vector2(2752.0, 710.0);
@@ -50,47 +52,53 @@ func _button_mouse_entered() -> void:
 		_go_to_room();
 
 func _go_to_room() -> void:
-	for b in buttons:
-		if b.input_pickable:
-			b.input_pickable = false;
+	if player_component.can_move:
+		player_component.can_move = false;
 
-	player_component.can_scroll = false;
-	player_component.can_use_flashlight = false;
-	player_component.can_use_mask = false;
+		for b in buttons:
+			if b.input_pickable:
+				b.input_pickable = false;
 
-	walk_sound.play();
+		for b in buttons_to_activate:
+			b.input_pickable = true;
 
-	transition.play("fade");
+		player_component.can_scroll = false;
+		player_component.can_use_flashlight = false;
+		player_component.can_use_mask = false;
 
-	await transition.animation_finished;
+		walk_sound.play();
 
-	transition.play_backwards("fade");
+		transition.play("fade");
 
-	for r in rooms:
-		if r.position != ROOMDESPAWNPOSITION:
-			r.position = ROOMDESPAWNPOSITION;
-	
-	if room_go_to != null:
-		room_go_to.position = ROOMSPAWNPOSITION;
+		await transition.animation_finished;
 
-	scrolling_component._center_camera();
+		transition.play_backwards("fade");
 
-	if camera_movement:
-		scrolling_component.camera.position.y = SCROLLINGCAMERASTARTPOSITIONY;
-		if camera_movement_tween:
-			camera_movement_tween.kill();
-		camera_movement_tween = create_tween();
-		camera_movement_tween.tween_property(scrolling_component.camera, "position:y", SCROLLINGCAMERAENDPOSITIONY, 0.5).set_trans(Tween.TRANS_CUBIC);
-		await camera_movement_tween.finished;
-	
-	for b in buttons_to_activate:
-		b.input_pickable = true;
+		for r in rooms:
+			if r.position != ROOMDESPAWNPOSITION:
+				r.position = ROOMDESPAWNPOSITION;
+		
+		if room_go_to != null:
+			room_go_to.position = ROOMSPAWNPOSITION;
 
-	if allow_scrolling:
-		player_component.can_scroll = true;
+		scrolling_component._center_camera();
 
-	if allow_flashlight:
-		player_component.can_use_flashlight = true;
-	
-	if allow_mask:
-		player_component.can_use_mask = true;
+		if camera_movement:
+			scrolling_component.camera.position.y = SCROLLINGCAMERASTARTPOSITIONY;
+			if camera_movement_tween:
+				camera_movement_tween.kill();
+			camera_movement_tween = create_tween();
+			camera_movement_tween.tween_property(scrolling_component.camera, "position:y", SCROLLINGCAMERAENDPOSITIONY, 0.5).set_trans(Tween.TRANS_CUBIC);
+			await camera_movement_tween.finished;
+
+		if allow_scrolling:
+			player_component.can_scroll = true;
+
+		if allow_flashlight:
+			player_component.can_use_flashlight = true;
+		
+		if allow_mask:
+			player_component.can_use_mask = true;
+
+		player_component.can_move = true;
+		_player_went_to_room.emit();

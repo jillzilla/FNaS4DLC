@@ -608,7 +608,7 @@ process_mode = 1
 script = ExtResource("1_hlo8c")
 custom_night_rewards = [NodePath("Rooms/Office/TSonicPlush"), NodePath("Rooms/Office/ToyMarioPlush"), NodePath("Rooms/Office/NightmareYoshiPlush"), NodePath("Rooms/Office/TainglePlush"), NodePath("Rooms/Office/ToadPlush"), NodePath("Rooms/Office/SalvagePlush"), NodePath("Rooms/Office/CreamPlush"), NodePath("Rooms/Office/KnucklePlush"), NodePath("Rooms/Office/TailsDollPlush"), NodePath("Rooms/Office/PaperpalsSonic"), NodePath("Rooms/Office/PaperpalsMario"), NodePath("Rooms/Office/LuiginettePlush")]
 metadata/_edit_horizontal_guides_ = [1420.0, 0.0]
-metadata/_edit_vertical_guides_ = [2080.0, 0.0]
+metadata/_edit_vertical_guides_ = [2080.0, 0.0, -252.0]
 
 [node name="Components" type="Node" parent="." unique_id=397741405]
 script = ExtResource("2_qj8ra")
