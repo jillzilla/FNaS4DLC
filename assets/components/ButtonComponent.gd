@@ -1,7 +1,7 @@
 class_name ButtonComponent extends Component
 
 #variables
-@onready var button : Button = get_parent();
+@onready var button: Button = get_parent();
 
 #functions
 func _ready() -> void:

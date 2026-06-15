@@ -5,7 +5,7 @@ extends Node
 
 @onready var loading: Control = $Loading;
 
-var next_scene_path : String = "";
+var next_scene_path: String = "";
 
 #functions
 func _ready() -> void:
@@ -39,11 +39,11 @@ func _get_next_scene() -> String:
 	if main.nightcounter < 5 && main.night5ending || main.nightcounter == 7:
 		return "res://assets/scenes/title.tscn";
 	elif main.nightcounter == 5:
-		return"res://assets/scenes/night_5_ending.tscn";
+		return "res://assets/scenes/night_5_ending.tscn";
 	elif main.nightcounter == 6:
-		return"res://assets/scenes/night_6_ending.tscn";
+		return "res://assets/scenes/night_6_ending.tscn";
 	else:
-		return"res://assets/scenes/night_screen.tscn";
+		return "res://assets/scenes/night_screen.tscn";
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "win":

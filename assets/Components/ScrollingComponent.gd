@@ -11,7 +11,7 @@ class_name ScrollingComponent extends Component
 @onready var leftPoint: Node2D = Node2D.new();
 @onready var rightPoint: Node2D = Node2D.new();
 
-@export var player_component : Player_Component;
+@export var player_component: Player_Component;
 
 #functions
 func _ready() -> void:
@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 			if mouseX >= rightPoint.position.x:
 				camera.move_local_x(scrollSpeed * delta);
 	camera.position.x = clamp(camera.position.x, camera.limit_left + xResolution, camera.limit_right - xResolution);
-
+ 
 func _center_camera() -> void:
 	@warning_ignore("integer_division")
 	camera.position.x = camera.limit_right / 2;

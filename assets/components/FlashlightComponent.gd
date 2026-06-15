@@ -4,11 +4,11 @@ signal flashlight_is_on;
 signal flashlight_is_off;
 
 #variables
-@export var player_component : Player_Component;
-@export var sound : AudioStreamPlayer;
-@export var darkness_sprite : Sprite2D;
+@export var player_component: Player_Component;
+@export var sound: AudioStreamPlayer;
+@export var darkness_sprite: Sprite2D;
 
-var is_flashlight_on : bool = false;
+var is_flashlight_on: bool = false;
 
 #functions
 func _process(_delta: float) -> void:

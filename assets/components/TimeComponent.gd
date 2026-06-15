@@ -1,17 +1,17 @@
 class_name TimeComponent extends Component
 
 #variables
-@export var loading : Control;
+@export var loading: Control;
 
-@export var clock_timer : Timer;
+@export var clock_timer: Timer;
 
-@export var clock_counter : Label;
+@export var clock_counter: Label;
 
-@export var clock_outputs : Array[String];
+@export var clock_outputs: Array[String];
 
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new();
 
-var clock_iteration : int = 0;
+var clock_iteration: int = 0;
 
 #functions
 func _ready() -> void:

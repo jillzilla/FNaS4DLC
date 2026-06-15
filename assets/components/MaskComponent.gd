@@ -6,13 +6,13 @@ signal mask_is_off;
 #variables
 const BREATHRADIUS: float = 50;
 const BREATHSPEED: float = 2;
-const MASKSPAWNPOSITIONY : float = 360.0;
-const MASKDESPAWNPOSITIONY : float = -360.0;
+const MASKSPAWNPOSITIONY: float = 360.0;
+const MASKDESPAWNPOSITIONY: float = -360.0;
 
 @onready var mask_movement_tween: Tween = null;
 
-@export_file_path("*.png") var mask_moving_texture_path : String = "";
-@export_file_path("*.png") var mask_breath_texture_path : String = "";
+@export_file_path("*.png") var mask_moving_texture_path: String = "";
+@export_file_path("*.png") var mask_breath_texture_path: String = "";
 
 @export var player_component: Player_Component;
 @export var mask_sprite: Sprite2D;
@@ -22,7 +22,7 @@ const MASKDESPAWNPOSITIONY : float = -360.0;
 var breath_time: float;
 
 var can_breath: bool = false;
-var is_using_mask : bool = false;
+var is_using_mask: bool = false;
 
 #functions
 func _process(delta: float) -> void:

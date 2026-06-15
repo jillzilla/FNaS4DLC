@@ -73,17 +73,17 @@ var ncDeskWalking: bool = false;
 var isBTInOffice: bool = false;
 var nlnDeskWalking: bool = false;
 
-var ai_levels : Dictionary = {
-	"Nightmare Toy Sonic" : AIDEFAULTLEVEL,
-	"Nightmare Toy Mario" : AIDEFAULTLEVEL,
-	"Nightmare Toy Yoshi" : AIDEFAULTLEVEL,
-	"Nightmare Taingle" : AIDEFAULTLEVEL,
-	"Nightmare BT" : AIDEFAULTLEVEL,
-	"Nightmare S. Sonic" : AIDEFAULTLEVEL,
-	"Nightmare Cream" : AIDEFAULTLEVEL,
-	"Nightmare Luiginette" : AIMINVALUE,
-	"Tails Doll" : AIDEFAULTLEVEL,
-	"Nightmare Knuckles" : AIDEFAULTLEVEL,
+var ai_levels: Dictionary = {
+	"Nightmare Toy Sonic": AIDEFAULTLEVEL,
+	"Nightmare Toy Mario": AIDEFAULTLEVEL,
+	"Nightmare Toy Yoshi": AIDEFAULTLEVEL,
+	"Nightmare Taingle": AIDEFAULTLEVEL,
+	"Nightmare BT": AIDEFAULTLEVEL,
+	"Nightmare S. Sonic": AIDEFAULTLEVEL,
+	"Nightmare Cream": AIDEFAULTLEVEL,
+	"Nightmare Luiginette": AIMINVALUE,
+	"Tails Doll": AIDEFAULTLEVEL,
+	"Nightmare Knuckles": AIDEFAULTLEVEL,
 };
 
 #functions
@@ -156,7 +156,7 @@ func _reset_ai() -> void:
 		if i != 7:
 			ai_levels[_get_ai_level_as_array()[i]] = AIDEFAULTLEVEL;
 		else:
-			ai_levels[_get_ai_level_as_array()[i]] = AIMINVALUE; #this is for luiginette
+			ai_levels[_get_ai_level_as_array()[i]] = AIMINVALUE; # this is for luiginette
 	print(ai_levels);
 	 
 func _save() -> Dictionary:

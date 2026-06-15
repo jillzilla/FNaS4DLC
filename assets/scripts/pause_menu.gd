@@ -8,8 +8,8 @@ extends Control
 @onready var guide: Control = $Guide;
 @onready var loading: Control = $Loading;
 
-var reload : bool = false;
-var quit : bool = false;
+var reload: bool = false;
+var quit: bool = false;
 
 #functions
 func _ready() -> void:
@@ -20,7 +20,7 @@ func _ready() -> void:
 	confirm.connect("confirmaction", _confirmed_action);
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("PAUSE") && !self.visible && !main.isloadingsom:
+	if event.is_action_pressed("PAUSE") && ! self.visible && !main.isloadingsom:
 		get_tree().paused = true;
 		self.show();
 

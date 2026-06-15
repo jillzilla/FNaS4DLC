@@ -25,9 +25,9 @@ enum inputs {
 @export var room_go_to: Sprite2D;
 @export var buttons_to_activate: Array[Area2D];
 @export var transition: AnimationPlayer;
-@export var player_component : Player_Component;
-@export var scrolling_component : ScrollingComponent;
-@export var flashlight_component : FlashlightComponent;
+@export var player_component: Player_Component;
+@export var scrolling_component: ScrollingComponent;
+@export var flashlight_component: FlashlightComponent;
 
 @export_group("Flags")
 @export var input: Variant = inputs.NONE;
