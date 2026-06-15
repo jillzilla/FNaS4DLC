@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://v5ww5mrqlo2o"]
+
+[ext_resource type="Texture2D" uid="uid://ck6vwfytw3ase" path="res://assets/images/gameplay/characters/salvage/salvage_1.png" id="1_ba127"]
+[ext_resource type="Texture2D" uid="uid://tgiacwavqd5o" path="res://assets/images/gameplay/characters/salvage/salvage_2.png" id="2_sgks2"]
+[ext_resource type="Texture2D" uid="uid://cic2otcgaxvtk" path="res://assets/images/gameplay/characters/salvage/salvage_3.png" id="3_h55yg"]
+[ext_resource type="Texture2D" uid="uid://bjlnfkshadsqs" path="res://assets/images/gameplay/characters/salvage/salvage_4.png" id="4_1834g"]
+[ext_resource type="Texture2D" uid="uid://dpqu8d0aejsjm" path="res://assets/images/gameplay/characters/salvage/salvage_5.png" id="5_5x6ir"]
+[ext_resource type="SpriteFrames" uid="uid://b0m55v6egjly4" path="res://assets/spriteframes/static.tres" id="6_o2jbe"]
+[ext_resource type="Texture2D" uid="uid://bek1og2ddu28w" path="res://assets/images/gameplay/nosignal.png" id="7_ct04n"]
+
+[node name="Monitor" type="Node2D" unique_id=3054217]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Salvage1" type="Sprite2D" parent="." unique_id=1163615221]
+scale = Vector2(0.18945313, 0.19166663)
+texture = ExtResource("1_ba127")
+metadata/_edit_lock_ = true
+
+[node name="Salvage2" type="Sprite2D" parent="." unique_id=1033090515]
+visible = false
+scale = Vector2(0.18945313, 0.19166663)
+texture = ExtResource("2_sgks2")
+metadata/_edit_lock_ = true
+
+[node name="Salvage3" type="Sprite2D" parent="." unique_id=1768002653]
+visible = false
+scale = Vector2(0.18945313, 0.19166663)
+texture = ExtResource("3_h55yg")
+metadata/_edit_lock_ = true
+
+[node name="Salvage4" type="Sprite2D" parent="." unique_id=1592277976]
+visible = false
+scale = Vector2(0.18945313, 0.19166663)
+texture = ExtResource("4_1834g")
+metadata/_edit_lock_ = true
+
+[node name="Salvage5" type="Sprite2D" parent="." unique_id=1294681590]
+visible = false
+scale = Vector2(0.18945313, 0.19166663)
+texture = ExtResource("5_5x6ir")
+metadata/_edit_lock_ = true
+
+[node name="Static" type="AnimatedSprite2D" parent="." unique_id=1948041668]
+modulate = Color(1, 1, 1, 0.6)
+position = Vector2(1.7166138e-05, -7.968474e-06)
+scale = Vector2(0.10104167, 0.12777777)
+sprite_frames = ExtResource("6_o2jbe")
+autoplay = "default"
+metadata/_edit_lock_ = true
+
+[node name="NoSignal" type="Sprite2D" parent="." unique_id=1969405634]
+visible = false
+position = Vector2(5.096197e-06, 1.4623007e-05)
+scale = Vector2(0.51322746, 0.47916657)
+texture = ExtResource("7_ct04n")
+metadata/_edit_lock_ = true

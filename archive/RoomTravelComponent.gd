@@ -1,4 +1,4 @@
-class_name RoomTravelComponent extends Node
+class_name RoomTravelComponent extends Component
 
 signal doneTraveling;
 

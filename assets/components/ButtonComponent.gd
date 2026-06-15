@@ -1,9 +1,12 @@
-class_name ButtonComponent extends Node
+class_name ButtonComponent extends Component
+
+#variables
+@onready var button : Button = get_parent();
 
 #functions
 func _ready() -> void:
-	get_parent().connect("mouse_entered", _make_sound);
-	get_parent().connect("mouse_exited", _make_sound);
+	button.connect("mouse_entered", _make_sound);
+	button.connect("mouse_exited", _make_sound);
 
 func _make_sound() -> void:
 	GlobalAudioManager.get_node("Select").play();

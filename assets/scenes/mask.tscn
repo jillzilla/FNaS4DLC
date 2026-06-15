@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://bud1bsy5ye6yc"]
 
-[ext_resource type="Script" uid="uid://c4c5wagyam8s2" path="res://assets/scripts/mask.gd" id="1_dgvrq"]
 [ext_resource type="SpriteFrames" uid="uid://bysrnghp0tn0f" path="res://assets/spriteframes/mask_spriteframes.tres" id="1_yaxan"]
 [ext_resource type="AudioStream" uid="uid://werog6u2cjx0" path="res://assets/sounds/Put_Mask_On.ogg" id="3_qaov2"]
 [ext_resource type="AudioStream" uid="uid://c7ou81t6u31m0" path="res://assets/sounds/Take_Mask_Off.ogg" id="4_p4mkm"]
 
 [node name="Mask" type="Node2D" unique_id=191082639]
-script = ExtResource("1_dgvrq")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 

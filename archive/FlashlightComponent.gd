@@ -1,13 +1,10 @@
-class_name FlashLightComponent extends Node
+class_name FlashLightComponent extends Component
 
 #variables
 @export var spriteAsFlashlight: Sprite2D;
-@export var scrolling: ScrollingComponent;
 @export var flashlightSFX: AudioStreamPlayer;
-@export var travel: RoomTravelComponent;
 @export var enabled: bool = false;
 @export var mask: Node2D;
-@onready var tween_tailsdoll: Tween = null;
 
 var is_on: bool = false;
 

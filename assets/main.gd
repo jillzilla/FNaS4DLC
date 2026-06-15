@@ -55,10 +55,6 @@ var cn_challenge_12: bool = false;
 
 #player status
 var killedBy: String = "";
-var PlayerPosition: String = "";
-
-var PlayerAlive: bool = true;
-var PlayerNotMoving: bool = true;
 
 #character data
 const AIMINVALUE: int = 0;
