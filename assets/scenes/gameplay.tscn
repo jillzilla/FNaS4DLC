@@ -12,11 +12,13 @@
 [ext_resource type="Script" uid="uid://ckd2vwl4kaco4" path="res://assets/components/HonkComponent.gd" id="4_lmniu"]
 [ext_resource type="Texture2D" uid="uid://c6kb2g6kljsaa" path="res://assets/images/gameplay/rooms/left_vent.png" id="4_qk4f4"]
 [ext_resource type="AudioStream" uid="uid://cu6fakcxj137a" path="res://assets/sounds/[27] Shock.ogg" id="4_ugpla"]
+[ext_resource type="Script" uid="uid://clrl6m2aqut5l" path="res://assets/components/ToyMarioEyesComponent.gd" id="5_2mx70"]
 [ext_resource type="Texture2D" uid="uid://dn5tntmkmfmfr" path="res://assets/images/gameplay/rooms/flashlight/ceiling_off.png" id="5_br2i6"]
 [ext_resource type="Texture2D" uid="uid://2a1g4hdo3rql" path="res://assets/images/gameplay/rooms/right_vent.png" id="5_hogfr"]
 [ext_resource type="Script" uid="uid://crylvvo6p0k44" path="res://assets/components/TimeComponent.gd" id="5_rfeao"]
 [ext_resource type="Texture2D" uid="uid://d23jw7vmq03lb" path="res://assets/images/gameplay/rooms/hallway.png" id="6_ndvee"]
 [ext_resource type="Script" uid="uid://xlfwe3scaswn" path="res://assets/components/RoomComponent.gd" id="6_tv68p"]
+[ext_resource type="Script" uid="uid://d04eigyof3m4l" path="res://assets/components/TaingleRadioComponent.gd" id="6_xk4jm"]
 [ext_resource type="Script" uid="uid://c4rlke2hboc5f" path="res://assets/components/FlashlightComponent.gd" id="7_fov1h"]
 [ext_resource type="Texture2D" uid="uid://c502v777dd53r" path="res://assets/images/gameplay/rooms/clipmask/ceiling.png" id="7_kgr1o"]
 [ext_resource type="Script" uid="uid://dvtix3a1a3meg" path="res://assets/components/PlayerComponent.gd" id="7_mliqa"]
@@ -624,6 +626,121 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 script = ExtResource("7_mliqa")
 metadata/_custom_type_script = "uid://dvtix3a1a3meg"
 
+[node name="NightmareToySonic" type="Node" parent="Components" unique_id=2000918947]
+script = ExtResource("2_qj8ra")
+metadata/_custom_type_script = "uid://dxqook2amacs3"
+
+[node name="CharacterMovementComponent" type="Node" parent="Components/NightmareToySonic" unique_id=1374215998 node_paths=PackedStringArray("sprites_left_vent", "sprite_peek_left_vent", "sprite_shock_left_vent", "flashlight_left_vent", "left_vent", "right_vent", "shock_sound", "character_fadeaway_transition")]
+script = ExtResource("123_mliqa")
+ai_level = 25
+min_movement_timer = 60.0
+max_movement_timer = 80.0
+possible_directions = Array[String](["Left Vent"])
+max_positions_in_directions = Dictionary[String, int]({
+"Ceiling": 0,
+"Hallway": 0,
+"Left Vent": 2,
+"Right Vent": 0
+})
+sprites_left_vent = [NodePath("../../../Rooms/Left_Vent/ClipMask/ToyYoshi_1"), NodePath("../../../Rooms/Left_Vent/ToyYoshi_2"), NodePath("../../../Rooms/Left_Vent/ToyYoshi_3")]
+sprite_peek_left_vent = NodePath("../../../Rooms/Left_Vent/ClipMask/ToyYoshi_1")
+sprite_shock_left_vent = NodePath("../../../Rooms/Left_Vent/ToyYoshi_3")
+flashlight_left_vent = NodePath("../../FlashlightComponent_LVent")
+left_vent = NodePath("../../../Sounds/LeftVentSound")
+right_vent = NodePath("../../../Sounds/RightVentSound")
+shock_sound = NodePath("../../../Sounds/Shock_SFX")
+character_fadeaway_transition = NodePath("../../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
+metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
+
+[node name="NightmareToyMario" type="Node" parent="Components" unique_id=1954419785]
+script = ExtResource("2_qj8ra")
+metadata/_custom_type_script = "uid://dxqook2amacs3"
+
+[node name="CharacterMovementComponent" type="Node" parent="Components/NightmareToyMario" unique_id=1106365591 node_paths=PackedStringArray("sprites_right_vent", "sprite_peek_right_vent", "sprite_shock_right_vent", "flashlight_right_vent", "left_vent", "right_vent", "shock_sound", "character_fadeaway_transition")]
+script = ExtResource("123_mliqa")
+ai_level = 25
+min_movement_timer = 60.0
+max_movement_timer = 80.0
+possible_directions = Array[String](["Right Vent"])
+max_positions_in_directions = Dictionary[String, int]({
+"Ceiling": 0,
+"Hallway": 0,
+"Left Vent": 0,
+"Right Vent": 2
+})
+sprites_right_vent = [NodePath("../../../Rooms/Right_Vent/ClipMask/ToyMario_1"), NodePath("../../../Rooms/Right_Vent/ToyMario_2"), NodePath("../../../Rooms/Right_Vent/ToyMario_3")]
+sprite_peek_right_vent = NodePath("../../../Rooms/Right_Vent/ClipMask/ToyMario_1")
+sprite_shock_right_vent = NodePath("../../../Rooms/Right_Vent/ToyMario_3")
+flashlight_right_vent = NodePath("../../FlashlightComponent_RVent")
+left_vent = NodePath("../../../Sounds/LeftVentSound")
+right_vent = NodePath("../../../Sounds/RightVentSound")
+shock_sound = NodePath("../../../Sounds/Shock_SFX")
+character_fadeaway_transition = NodePath("../../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
+metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
+
+[node name="ToyMarioEyesComponent" type="Node" parent="Components/NightmareToyMario" unique_id=201156996 node_paths=PackedStringArray("pupils", "mario_movement_component")]
+script = ExtResource("5_2mx70")
+pupils = [NodePath("../../../Rooms/Right_Vent/ClipMask/ToyMario_1/Pupils"), NodePath("../../../Rooms/Right_Vent/ToyMario_2/Pupils"), NodePath("../../../Rooms/Right_Vent/ToyMario_3/Pupils")]
+mario_movement_component = NodePath("../CharacterMovementComponent")
+metadata/_custom_type_script = "uid://clrl6m2aqut5l"
+
+[node name="NightmareToyYoshi" type="Node" parent="Components" unique_id=869226557]
+script = ExtResource("2_qj8ra")
+metadata/_custom_type_script = "uid://dxqook2amacs3"
+
+[node name="CharacterMovementComponent" type="Node" parent="Components/NightmareToyYoshi" unique_id=388963872 node_paths=PackedStringArray("sprites_left_vent", "sprites_right_vent", "sprite_peek_left_vent", "sprite_peek_right_vent", "sprite_shock_left_vent", "sprite_shock_right_vent", "flashlight_left_vent", "flashlight_right_vent", "left_vent", "right_vent", "shock_sound", "character_fadeaway_transition")]
+script = ExtResource("123_mliqa")
+ai_level = 25
+min_movement_timer = 60.0
+max_movement_timer = 80.0
+possible_directions = Array[String](["Left Vent", "Right Vent"])
+max_positions_in_directions = Dictionary[String, int]({
+"Ceiling": 0,
+"Hallway": 0,
+"Left Vent": 1,
+"Right Vent": 1
+})
+sprites_left_vent = [NodePath("../../../Rooms/Left_Vent/ClipMask/ToySonic_1"), NodePath("../../../Rooms/Left_Vent/ToySonic_2")]
+sprites_right_vent = [NodePath("../../../Rooms/Right_Vent/ClipMask/ToySonic_21"), NodePath("../../../Rooms/Right_Vent/ToySonic_22")]
+sprite_peek_left_vent = NodePath("../../../Rooms/Left_Vent/ClipMask/ToySonic_1")
+sprite_peek_right_vent = NodePath("../../../Rooms/Right_Vent/ClipMask/ToySonic_21")
+sprite_shock_left_vent = NodePath("../../../Rooms/Left_Vent/ToySonic_2")
+sprite_shock_right_vent = NodePath("../../../Rooms/Right_Vent/ToySonic_22")
+flashlight_left_vent = NodePath("../../FlashlightComponent_LVent")
+flashlight_right_vent = NodePath("../../FlashlightComponent_RVent")
+left_vent = NodePath("../../../Sounds/LeftVentSound")
+right_vent = NodePath("../../../Sounds/RightVentSound")
+shock_sound = NodePath("../../../Sounds/Shock_SFX")
+character_fadeaway_transition = NodePath("../../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
+metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
+
+[node name="NightmareTaingle" type="Node" parent="Components" unique_id=1130329535]
+script = ExtResource("2_qj8ra")
+metadata/_custom_type_script = "uid://dxqook2amacs3"
+
+[node name="CharacterMovementComponent" type="Node" parent="Components/NightmareTaingle" unique_id=1216099616 node_paths=PackedStringArray("sprites_ceiling", "flashlight_ceiling")]
+script = ExtResource("123_mliqa")
+ai_level = 25
+min_movement_timer = 60.0
+max_movement_timer = 80.0
+possible_directions = Array[String](["Ceiling"])
+max_positions_in_directions = Dictionary[String, int]({
+"Ceiling": 3,
+"Hallway": 0,
+"Left Vent": 0,
+"Right Vent": 0
+})
+sprites_ceiling = [NodePath("../../../Rooms/Ceiling/ClipMask/Taingle_1"), NodePath("../../../Rooms/Ceiling/ClipMask/Taingle_2"), NodePath("../../../Rooms/Ceiling/ClipMask/Taingle_3"), NodePath("../../../Rooms/Ceiling/ClipMask/Taingle_4")]
+turn_off_flashlight_when_moving = false
+flashlight_ceiling = NodePath("../../FlashlightComponent_Ceiling")
+metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
+
+[node name="TaingleRadioComponent" type="Node" parent="Components/NightmareTaingle" unique_id=1812024811 node_paths=PackedStringArray("radio", "taingle_movement_component")]
+script = ExtResource("6_xk4jm")
+radio = NodePath("../../../Sounds/Taingle_Radio")
+taingle_movement_component = NodePath("../CharacterMovementComponent")
+metadata/_custom_type_script = "uid://d04eigyof3m4l"
+
 [node name="HonkComponent" type="Node" parent="Components" unique_id=1194363726 node_paths=PackedStringArray("button", "sound")]
 script = ExtResource("4_lmniu")
 button = NodePath("../../Buttons/Poster_Button_")
@@ -767,76 +884,6 @@ mask_sprite = NodePath("../../Misc/GUI/Mask")
 mask_on_SFX = NodePath("../../Sounds/Mask_ON")
 mask_off_SFX = NodePath("../../Sounds/Mask_OFF")
 metadata/_custom_type_script = "uid://cwylbc3jnkgad"
-
-[node name="CharacterMovementComponent_ToySonic" type="Node" parent="Components" unique_id=1374215998 node_paths=PackedStringArray("sprites_left_vent", "sprite_peek_left_vent", "sprite_shock_left_vent", "flashlight_left_vent", "left_vent", "right_vent", "shock_sound", "character_fadeaway_transition")]
-script = ExtResource("123_mliqa")
-ai_level = 25
-min_movement_timer = 60.0
-max_movement_timer = 80.0
-possible_directions = Array[String](["Left Vent"])
-max_positions_in_directions = Dictionary[String, int]({
-"Ceiling": 0,
-"Hallway": 0,
-"Left Vent": 2,
-"Right Vent": 0
-})
-sprites_left_vent = [NodePath("../../Rooms/Left_Vent/ClipMask/ToyYoshi_1"), NodePath("../../Rooms/Left_Vent/ToyYoshi_2"), NodePath("../../Rooms/Left_Vent/ToyYoshi_3")]
-sprite_peek_left_vent = NodePath("../../Rooms/Left_Vent/ClipMask/ToyYoshi_1")
-sprite_shock_left_vent = NodePath("../../Rooms/Left_Vent/ToyYoshi_3")
-flashlight_left_vent = NodePath("../FlashlightComponent_LVent")
-left_vent = NodePath("../../Sounds/LeftVentSound")
-right_vent = NodePath("../../Sounds/RightVentSound")
-shock_sound = NodePath("../../Sounds/Shock_SFX")
-character_fadeaway_transition = NodePath("../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
-metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
-
-[node name="CharacterMovementComponent_ToyMario" type="Node" parent="Components" unique_id=1106365591 node_paths=PackedStringArray("sprites_right_vent", "sprite_peek_right_vent", "sprite_shock_right_vent", "flashlight_right_vent", "left_vent", "right_vent", "shock_sound", "character_fadeaway_transition")]
-script = ExtResource("123_mliqa")
-ai_level = 25
-min_movement_timer = 60.0
-max_movement_timer = 80.0
-possible_directions = Array[String](["Right Vent"])
-max_positions_in_directions = Dictionary[String, int]({
-"Ceiling": 0,
-"Hallway": 0,
-"Left Vent": 0,
-"Right Vent": 2
-})
-sprites_right_vent = [NodePath("../../Rooms/Right_Vent/ClipMask/ToyMario_1"), NodePath("../../Rooms/Right_Vent/ToyMario_2"), NodePath("../../Rooms/Right_Vent/ToyMario_3")]
-sprite_peek_right_vent = NodePath("../../Rooms/Right_Vent/ClipMask/ToyMario_1")
-sprite_shock_right_vent = NodePath("../../Rooms/Right_Vent/ToyMario_3")
-flashlight_right_vent = NodePath("../FlashlightComponent_RVent")
-left_vent = NodePath("../../Sounds/LeftVentSound")
-right_vent = NodePath("../../Sounds/RightVentSound")
-shock_sound = NodePath("../../Sounds/Shock_SFX")
-character_fadeaway_transition = NodePath("../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
-metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
-
-[node name="CharacterMovementComponent_ToyYoshi" type="Node" parent="Components" unique_id=388963872 node_paths=PackedStringArray("sprites_left_vent", "sprites_right_vent", "sprite_peek_left_vent", "sprite_peek_right_vent", "sprite_shock_left_vent", "sprite_shock_right_vent", "flashlight_left_vent", "flashlight_right_vent", "left_vent", "right_vent", "shock_sound", "character_fadeaway_transition")]
-script = ExtResource("123_mliqa")
-ai_level = 25
-min_movement_timer = 60.0
-max_movement_timer = 80.0
-possible_directions = Array[String](["Left Vent", "Right Vent"])
-max_positions_in_directions = Dictionary[String, int]({
-"Ceiling": 0,
-"Hallway": 0,
-"Left Vent": 1,
-"Right Vent": 1
-})
-sprites_left_vent = [NodePath("../../Rooms/Left_Vent/ClipMask/ToySonic_1"), NodePath("../../Rooms/Left_Vent/ToySonic_2")]
-sprites_right_vent = [NodePath("../../Rooms/Right_Vent/ClipMask/ToySonic_21"), NodePath("../../Rooms/Right_Vent/ToySonic_22")]
-sprite_peek_left_vent = NodePath("../../Rooms/Left_Vent/ClipMask/ToySonic_1")
-sprite_peek_right_vent = NodePath("../../Rooms/Right_Vent/ClipMask/ToySonic_21")
-sprite_shock_left_vent = NodePath("../../Rooms/Left_Vent/ToySonic_2")
-sprite_shock_right_vent = NodePath("../../Rooms/Right_Vent/ToySonic_22")
-flashlight_left_vent = NodePath("../FlashlightComponent_LVent")
-flashlight_right_vent = NodePath("../FlashlightComponent_RVent")
-left_vent = NodePath("../../Sounds/LeftVentSound")
-right_vent = NodePath("../../Sounds/RightVentSound")
-shock_sound = NodePath("../../Sounds/Shock_SFX")
-character_fadeaway_transition = NodePath("../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
-metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="Sounds" type="Node" parent="." unique_id=1674670979]
 

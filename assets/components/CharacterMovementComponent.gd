@@ -37,6 +37,8 @@ signal character_moved;
 @export var sprite_shock_hallway: Sprite2D;
 
 @export_group("Flashlight")
+@export var turn_off_flashlight_when_moving : bool = true;
+@export var turn_off_flashlight_when_reset : bool = false;
 @export var flashlight_left_vent: FlashlightComponent;
 @export var flashlight_right_vent: FlashlightComponent;
 @export var flashlight_ceiling: FlashlightComponent;
@@ -62,13 +64,14 @@ var movement_timer: float = 0.0;
 
 #functions
 func _ready() -> void:
+	movement_timer = _get_randomized_movement_timer();
+
 	if flashlight_left_vent != null: flashlight_left_vent.connect("flashlight_is_on", _left_flashlight_on);
 	if flashlight_right_vent != null: flashlight_right_vent.connect("flashlight_is_on", _right_flashlight_on);
 	if flashlight_ceiling != null: flashlight_ceiling.connect("flashlight_is_on", _ceiling_flashlight_on);
 	if flashlight_hallway != null: flashlight_hallway.connect("flashlight_is_on", _hallway_flashlight_on);
 
 	current_direction = possible_directions.pick_random();
-	movement_timer = _get_randomized_movement_timer();
 
 func _physics_process(delta: float) -> void:
 	if ai_level > 0:
@@ -76,34 +79,7 @@ func _physics_process(delta: float) -> void:
 			step += delta * ai_level;
 			if step >= movement_timer:
 				step = 0;
-				current_position += 1;
-				match (current_direction):
-					"Left Vent":
-						left_vent.play();
-						if flashlight_left_vent.is_flashlight_on:
-							flashlight_left_vent._flashlight_off();
-						for s in sprites_left_vent:
-							s.hide();
-						sprites_left_vent[current_position].show();
-					"Right Vent":
-						right_vent.play();
-						if flashlight_right_vent.is_flashlight_on:
-							flashlight_right_vent._flashlight_off();
-						for s in sprites_right_vent:
-							s.hide();
-						sprites_right_vent[current_position].show();
-					"Hallway":
-						if flashlight_hallway.is_flashlight_on:
-							flashlight_hallway._flashlight_off();
-						for s in sprites_hallway:
-							s.hide();
-						sprites_hallway[current_position].show();
-					"Ceiling":
-						if flashlight_ceiling.is_flashlight_on:
-							flashlight_ceiling._flashlight_off();
-						for s in sprites_ceiling:
-							s.hide();
-						sprites_ceiling[current_position].show();
+				_move_character(turn_off_flashlight_when_moving);
 				movement_timer = _get_randomized_movement_timer();
 				character_moved.emit();
 
@@ -167,6 +143,40 @@ func _shock_handler() -> void:
 func _get_randomized_movement_timer() -> float:
 	return randf_range(min_movement_timer, max_movement_timer);
 
+func _move_character(turn_off_flashlight : bool) -> void:
+	current_position += 1;
+	match (current_direction):
+		"Left Vent":
+			left_vent.play();
+			if turn_off_flashlight:
+				if flashlight_left_vent.is_flashlight_on:
+					flashlight_left_vent._flashlight_off();
+			for s in sprites_left_vent:
+				s.hide();
+			sprites_left_vent[current_position].show();
+		"Right Vent":
+			right_vent.play();
+			if turn_off_flashlight:
+				if flashlight_right_vent.is_flashlight_on:
+					flashlight_right_vent._flashlight_off();
+			for s in sprites_right_vent:
+				s.hide();
+			sprites_right_vent[current_position].show();
+		"Hallway":
+			if turn_off_flashlight:
+				if flashlight_hallway.is_flashlight_on:
+					flashlight_hallway._flashlight_off();
+			for s in sprites_hallway:
+				s.hide();
+			sprites_hallway[current_position].show();
+		"Ceiling":
+			if turn_off_flashlight:
+				if flashlight_ceiling.is_flashlight_on:
+					flashlight_ceiling._flashlight_off();
+			for s in sprites_ceiling:
+				s.hide();
+			sprites_ceiling[current_position].show();
+
 func _reset_character_status(turn_flashlight_off : bool = true, enable_character_fadeaway : bool = true) -> void:
 	if current_position > -1:
 		shocked = false;
@@ -201,3 +211,4 @@ func _reset_character_status(turn_flashlight_off : bool = true, enable_character
 
 		current_direction = possible_directions.pick_random();
 		current_position = -1;
+		character_moved.emit();
