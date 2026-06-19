@@ -9,8 +9,6 @@ const REQUIREDHOLDTIME: float = 0.15;
 @export var minlevel: int = main.AIMINVALUE;
 @export var maxlevel: int = main.AIMAXVALUE;
 
-@export var binary: bool = false;
-
 var holdTime: float = 0.0;
 
 var HoverLeft: bool = false;
@@ -72,26 +70,16 @@ func _set_max() -> void:
 	
 func _update_ai_counter() -> void:
 	if main.ai_levels[character_name] > minlevel:
-		if !binary:
-			ai_counter.text = str(main.ai_levels[character_name]).pad_zeros(2);
-		else:
-			ai_counter.text = "ON";
+		ai_counter.text = str(main.ai_levels[character_name]).pad_zeros(2);
 		modulate.a = 1;
 	else:
-		if !binary:
-			ai_counter.text = "X";
-		else:
-			ai_counter.text = "OFF";
+		ai_counter.text = "X";
 		modulate.a = 0.2;
 		
 	if main.ai_levels[character_name] == maxlevel:
-		modulate.r = 1;
-		modulate.g = 0;
-		modulate.b = 0;
+		modulate = Color(1,0,0,modulate.a);
 	else:
-		modulate.r = 1;
-		modulate.g = 1;
-		modulate.b = 1;
+		modulate = Color(1,1,1,modulate.a);
 
 func _on_left_pressed() -> void:
 	_sub();

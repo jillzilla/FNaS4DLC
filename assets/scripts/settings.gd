@@ -25,6 +25,7 @@ var deletedata: bool = false;
 #functions
 func _ready() -> void:
 	confirm_popup.connect("confirmaction", _confirmed_action);
+	fpscap_button.set_item_text(2, str(ceil(main.monitor_refresh_rate)));
 	_sync_button_with_options();
 
 func _sync_button_with_options() -> void:
@@ -115,8 +116,6 @@ func _confirmed_action() -> void:
 		_reset_settings();
 		_sync_button_with_options();
 	elif deletedata:
-		if get_tree().paused:
-			get_tree().paused = false;
 		if FileAccess.file_exists(main.SAVE_DATA_PATH):
 			DirAccess.remove_absolute(main.SAVE_DATA_PATH);
 		OS.alert("Save file successfully deleted. Reload the game to apply the settings.", "Five Nights at Sonic's 4 DLC")

@@ -20,6 +20,7 @@ var fpsTarget: float = 60.0;
 var nightcounter: int = 1;
 var isloadingsom: bool = false;
 var didrarescreenhappened: bool = false;
+var monitor_refresh_rate : float = DisplayServer.screen_get_refresh_rate();
 
 #data to save/load
 var introscenewatched: bool = false;
@@ -81,7 +82,7 @@ var ai_levels: Dictionary = {
 	"Nightmare BT": AIDEFAULTLEVEL,
 	"Nightmare S. Sonic": AIDEFAULTLEVEL,
 	"Nightmare Cream": AIDEFAULTLEVEL,
-	"Nightmare Luiginette": AIMINVALUE,
+	"Nightmare Luiginette": AIDEFAULTLEVEL,
 	"Tails Doll": AIDEFAULTLEVEL,
 	"Nightmare Knuckles": AIDEFAULTLEVEL,
 };
@@ -123,7 +124,7 @@ func _apply_settings() -> void:
 		1:
 			Engine.max_fps = 60;
 		2:
-			Engine.max_fps = 120;
+			Engine.max_fps = ceil(monitor_refresh_rate);
 		3:
 			Engine.max_fps = 0;
 	
@@ -153,10 +154,7 @@ func _get_ai_level_as_array() -> Array[String]:
 
 func _reset_ai() -> void:
 	for i in range(_get_ai_level_as_array().size()):
-		if i != 7:
-			ai_levels[_get_ai_level_as_array()[i]] = AIDEFAULTLEVEL;
-		else:
-			ai_levels[_get_ai_level_as_array()[i]] = AIMINVALUE; # this is for luiginette
+		ai_levels[_get_ai_level_as_array()[i]] = AIDEFAULTLEVEL;
 	print(ai_levels);
 	 
 func _save() -> Dictionary:

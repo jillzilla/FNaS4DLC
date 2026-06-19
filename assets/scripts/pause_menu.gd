@@ -14,7 +14,7 @@ var quit: bool = false;
 #functions
 func _ready() -> void:
 	get_tree().paused = false;
-	self.hide();
+	hide();
 	if main.night_to_play > 1:
 		guidebutton.visible = true;
 	confirm.connect("confirmaction", _confirmed_action);
@@ -22,10 +22,10 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("PAUSE") && ! self.visible && !main.isloadingsom:
 		get_tree().paused = true;
-		self.show();
+		show();
 
 func _on_resume_pressed() -> void:
-	self.hide();
+	hide();
 	get_tree().paused = false;
 
 func _on_restart_pressed() -> void:

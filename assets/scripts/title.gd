@@ -80,7 +80,7 @@ func _on_quit_pressed() -> void:
 	get_tree().quit();
 
 func _on_credits_pressed() -> void:
-	credits.visible = true;
+	credits.show();
 
 func _on_guide_pressed() -> void:
 	guide.show();

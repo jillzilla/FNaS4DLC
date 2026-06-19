@@ -15,7 +15,6 @@ func _ready() -> void:
 	var json_text: String = file.get_as_text();
 	file.close();
 	data = JSON.parse_string(json_text);
-
 	button.connect("mouse_entered", _on_button_mouse_entered);
 
 func _on_button_mouse_entered() -> void:

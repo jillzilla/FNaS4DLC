@@ -2,7 +2,6 @@ extends Node
 
 #variables
 @export var characters: Array[VBoxContainer];
-
 @onready var loading: Control = $Loading;
 
 #functions
@@ -18,13 +17,13 @@ func _on_ready_pressed() -> void:
 	loading._load_scene("res://assets/scenes/night_screen.tscn");
 
 func _on_min_pressed() -> void:
-	for i in range(characters.size()):
-		characters[i]._set_min();
+	for c in characters:
+		c._set_min();
 
 func _on_max_pressed() -> void:
-	for i in range(characters.size()):
-		characters[i]._set_max();
+	for c in characters:
+		c._set_max();
 
 func _on_random_pressed() -> void:
-	for i in range(characters.size()):
-		characters[i]._set_random();
+	for c in characters:
+		c._set_random();

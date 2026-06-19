@@ -6,4 +6,4 @@ extends Control
 #functions
 func _on_back_button_pressed() -> void:
 	scrollContainer.set_deferred("scroll_vertical", 0);
-	self.visible = false;
+	hide();

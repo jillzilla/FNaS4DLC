@@ -17,7 +17,7 @@ func _ready() -> void:
 		GlobalAudioManager.get_node("Ambience").stop();
 
 	var chars: Array[Sprite2D] = [golden, luigi];
-	chars.pick_random().visible = true;
+	chars.pick_random().show();
 	
 	main.didrarescreenhappened = true;
 

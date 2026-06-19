@@ -47,5 +47,5 @@ func _on_menu_button_pressed() -> void:
 	loading._load_scene("res://assets/scenes/title.tscn");
 	
 func _on_timer_timeout() -> void:
-	ui.visible = true;
+	ui.show();
 	static_.modulate.a = 0.5;
