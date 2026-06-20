@@ -6,6 +6,8 @@ signal character_moved;
 @export_range(main.AIMINVALUE, main.AIMAXVALUE) var ai_level: int = 0;
 
 @export_group("Configurations")
+@export var player_component : Player_Component;
+
 @export var min_movement_timer: float = 0.0;
 @export var max_movement_timer: float = 0.0;
 
@@ -64,24 +66,25 @@ var movement_timer: float = 0.0;
 
 #functions
 func _ready() -> void:
-	movement_timer = _get_randomized_movement_timer();
-
 	if flashlight_left_vent != null: flashlight_left_vent.connect("flashlight_is_on", _left_flashlight_on);
 	if flashlight_right_vent != null: flashlight_right_vent.connect("flashlight_is_on", _right_flashlight_on);
 	if flashlight_ceiling != null: flashlight_ceiling.connect("flashlight_is_on", _ceiling_flashlight_on);
 	if flashlight_hallway != null: flashlight_hallway.connect("flashlight_is_on", _hallway_flashlight_on);
 
-	current_direction = possible_directions.pick_random();
+	if ai_level > 0:
+		movement_timer = _get_randomized_movement_timer();
+		current_direction = possible_directions.pick_random();
 
 func _physics_process(delta: float) -> void:
 	if ai_level > 0:
-		if current_position < max_positions_in_directions[current_direction]:
-			step += delta * ai_level;
-			if step >= movement_timer:
-				step = 0;
-				_move_character(turn_off_flashlight_when_moving);
-				movement_timer = _get_randomized_movement_timer();
-				character_moved.emit();
+		if player_component.is_alive:
+			if current_position < max_positions_in_directions[current_direction]:
+				step += delta * ai_level;
+				if step >= movement_timer:
+					step = 0;
+					_move_character(turn_off_flashlight_when_moving);
+					movement_timer = _get_randomized_movement_timer();
+					character_moved.emit();
 
 func _left_flashlight_on() -> void:
 	if sprite_peek_left_vent != null:

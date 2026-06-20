@@ -26,7 +26,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var mouseX: float = camera.get_local_mouse_position().x;
 	
-	if player_component.can_scroll:
+	if player_component.is_alive && player_component.can_scroll:
 		if camera.position.x > camera.limit_left + xResolution:
 			if mouseX <= leftPoint.position.x: camera.move_local_x(-scrollSpeed * delta);
 		if camera.position.x < camera.limit_right - xResolution:

@@ -12,10 +12,10 @@ var is_flashlight_on: bool = false;
 
 #functions
 func _process(_delta: float) -> void:
-    if player_component.flashlight == self:
+    if player_component.flashlight == self && player_component.is_alive:
         if Input.is_action_just_pressed("FLASHLIGHT"):
             _flashlight_on();
-    if player_component.flashlight == null || !Input.is_action_pressed("FLASHLIGHT"):
+    if player_component.flashlight == null || !Input.is_action_pressed("FLASHLIGHT") || !player_component.is_alive:
         _flashlight_off();
 
 func _flashlight_on() -> void:

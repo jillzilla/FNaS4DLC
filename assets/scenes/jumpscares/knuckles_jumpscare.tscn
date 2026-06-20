@@ -109,9 +109,8 @@ _data = {
 &"jumpscare": SubResource("Animation_8dojq")
 }
 
-[node name="Knuckles_Jumpscare" type="Node2D" unique_id=1409463115 node_paths=PackedStringArray("animation")]
+[node name="Knuckles_Jumpscare" type="Node2D" unique_id=1409463115]
 script = ExtResource("1_3v137")
-animation = NodePath("AnimationPlayer")
 metadata/_edit_lock_ = true
 
 [node name="Body" type="Sprite2D" parent="." unique_id=1545024812]
