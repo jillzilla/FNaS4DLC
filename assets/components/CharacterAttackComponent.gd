@@ -17,7 +17,7 @@ func _ready() -> void:
     character_movement_component.connect("character_moved", _character_moved);
 
 func _process(delta: float) -> void:
-    if player_component.is_alive && player_component.can_move:
+    if player_component.is_alive && !player_component.is_moving:
         if can_attack && !is_attacking:
             step += delta;
             if step >= timer_attack:

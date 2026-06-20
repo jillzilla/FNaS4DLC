@@ -55,7 +55,8 @@ func _button_mouse_entered() -> void:
 
 func _go_to_room() -> void:
 	if player_component.can_move:
-		
+		player_component.is_moving = true;
+
 		if room_go_to != null:
 			player_component.direction = room_go_to.name;
 		else:
@@ -109,4 +110,5 @@ func _go_to_room() -> void:
 			player_component.can_use_mask = true;
 
 		player_component.can_move = true;
+		player_component.is_moving = false;
 		_player_went_to_room.emit();

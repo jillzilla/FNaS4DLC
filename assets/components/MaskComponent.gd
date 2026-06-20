@@ -23,6 +23,7 @@ var breath_time: float;
 
 var can_breath: bool = false;
 var is_using_mask: bool = false;
+var is_about_to_do_something : bool = false;
 
 #functions
 func _process(delta: float) -> void:
@@ -43,6 +44,7 @@ func _process(delta: float) -> void:
 
 func _put_mask() -> void:
 	player_component.can_move = false;
+	is_about_to_do_something = true;
 
 	if player_component.flashlight:
 		if player_component.flashlight.is_flashlight_on:
@@ -63,10 +65,13 @@ func _put_mask() -> void:
 	mask_sprite.texture = load(mask_breath_texture_path);
 	can_breath = true;
 
+	is_about_to_do_something = false;
 	mask_is_on.emit();
 
 func _take_off_mask() -> void:
 	is_using_mask = false;
+	is_about_to_do_something = true;
+
 	mask_off_SFX.play();
 
 	mask_sprite.texture = load(mask_moving_texture_path);
@@ -82,4 +87,5 @@ func _take_off_mask() -> void:
 	player_component.can_move = true;
 	player_component.flashlight.process_mode = Node.PROCESS_MODE_INHERIT;
 
+	is_about_to_do_something = false;
 	mask_is_off.emit();
