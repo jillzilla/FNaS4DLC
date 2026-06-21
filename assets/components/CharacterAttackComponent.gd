@@ -4,12 +4,14 @@ signal attack;
 
 #variables
 @export var timer_attack : float = 0.0;
-@export var character_movement_component : CharacterMovementComponent;
+@export_group("Configurations")
 @export var player_component : Player_Component;
 @export var mask_component : MaskComponent;
+@export var character_movement_component : CharacterMovementComponent;
 
 var can_attack : bool = false;
 var is_attacking : bool = false;
+var pause : bool = false;
 
 var step : float = 0.0;
 
@@ -18,7 +20,7 @@ func _ready() -> void:
     character_movement_component.connect("character_moved", _character_moved);
 
 func _process(delta: float) -> void:
-    if player_component.is_alive && !player_component.is_moving && !mask_component.is_about_to_do_something && can_attack && !is_attacking:
+    if !pause && player_component.is_alive && !player_component.is_moving && !mask_component.is_about_to_do_something && can_attack && !is_attacking:
         step += delta;
         if step >= timer_attack:
             attack.emit();

@@ -1,13 +1,16 @@
 class_name JumpscareComponent extends Component
 
 #variables
+@export_group("Components")
 @export var mask_component : MaskComponent;
 @export var office_room_component : RoomComponent;
 @export var player_component : Player_Component;
 @export var character_attack_component : CharacterAttackComponent;
 
+@export_group("Resources")
 @export var jumpscare_animation : Node2D;
 
+@export_group("Data IDs")
 @export var game_over_name : String = "";
 @export var jumpscare_sound_name : String = "";
 

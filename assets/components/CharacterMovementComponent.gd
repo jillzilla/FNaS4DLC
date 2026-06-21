@@ -50,6 +50,7 @@ signal character_moved;
 @export var left_vent: AudioStreamPlayer2D;
 @export var right_vent: AudioStreamPlayer2D;
 @export var shock_sound: AudioStreamPlayer;
+@export var leave_vent_sound : AudioStreamPlayer;
 
 @export_group("Other")
 @export var character_fadeaway_transition : AnimationPlayer;
@@ -180,15 +181,10 @@ func _move_character(turn_off_flashlight : bool) -> void:
 				s.hide();
 			sprites_ceiling[current_position].show();
 
-func _reset_character_status(turn_flashlight_off : bool = true, enable_character_fadeaway : bool = true) -> void:
+func _reset_character_status(turn_flashlight_off : bool = true, enable_character_fadeaway : bool = true, play_leave_vent_sound : bool = true) -> void:
 	if current_position > -1:
 		shocked = false;
 		peeking = false;
-
-		if enable_character_fadeaway:
-			if character_fadeaway_transition.is_playing():
-				character_fadeaway_transition.stop();
-			character_fadeaway_transition.play_backwards("fade");
 
 		match (current_direction):
 			"Left Vent":
@@ -211,6 +207,14 @@ func _reset_character_status(turn_flashlight_off : bool = true, enable_character
 					if flashlight_hallway.is_flashlight_on:
 						flashlight_hallway._flashlight_off();
 				sprites_hallway[current_position].hide();
+
+		if enable_character_fadeaway:
+			if character_fadeaway_transition.is_playing():
+				character_fadeaway_transition.stop();
+			character_fadeaway_transition.play_backwards("fade");
+
+		if play_leave_vent_sound:
+			leave_vent_sound.play();
 
 		current_direction = possible_directions.pick_random();
 		current_position = -1;
