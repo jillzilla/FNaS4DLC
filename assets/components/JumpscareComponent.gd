@@ -18,7 +18,7 @@ func _ready() -> void:
 func _character_attack() -> void:
     player_component.is_alive = false;
 
-    if mask_component.is_about_to_do_something:
+    if mask_component.is_using_mask:
         mask_component._take_off_mask();
         await mask_component.mask_is_off;
 

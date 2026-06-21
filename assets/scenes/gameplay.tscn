@@ -630,6 +630,7 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 
 [node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareToySonic" unique_id=1231552728 node_paths=PackedStringArray("player_component", "sprites_left_vent", "sprites_right_vent", "sprite_peek_left_vent", "sprite_peek_right_vent", "sprite_shock_left_vent", "sprite_shock_right_vent", "flashlight_left_vent", "flashlight_right_vent", "left_vent", "right_vent", "shock_sound")]
 script = ExtResource("123_mliqa")
+ai_level = 25
 player_component = NodePath("../../../Components/Player_Component")
 min_movement_timer = 150.0
 max_movement_timer = 200.0
@@ -653,11 +654,12 @@ right_vent = NodePath("../../../Sounds/RightVentSound")
 shock_sound = NodePath("../../../Sounds/Shock_SFX")
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
-[node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareToySonic" unique_id=233908347 node_paths=PackedStringArray("player_component", "character_movement_component")]
+[node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareToySonic" unique_id=233908347 node_paths=PackedStringArray("character_movement_component", "player_component", "mask_component")]
 script = ExtResource("6_764v7")
-player_component = NodePath("../../../Components/Player_Component")
-character_movement_component = NodePath("../CharacterMovementComponent")
 timer_attack = 2.5
+character_movement_component = NodePath("../CharacterMovementComponent")
+player_component = NodePath("../../../Components/Player_Component")
+mask_component = NodePath("../../../Components/MaskComponent")
 metadata/_custom_type_script = "uid://d3em038vhj7qg"
 
 [node name="JumpscareComponent" type="Node" parent="Characters/NightmareToySonic" unique_id=2074907615 node_paths=PackedStringArray("mask_component", "office_room_component", "player_component", "character_attack_component", "jumpscare_animation")]
@@ -696,11 +698,12 @@ right_vent = NodePath("../../../Sounds/RightVentSound")
 shock_sound = NodePath("../../../Sounds/Shock_SFX")
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
-[node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareToyMario" unique_id=838143323 node_paths=PackedStringArray("player_component", "character_movement_component")]
+[node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareToyMario" unique_id=838143323 node_paths=PackedStringArray("character_movement_component", "player_component", "mask_component")]
 script = ExtResource("6_764v7")
-player_component = NodePath("../../../Components/Player_Component")
-character_movement_component = NodePath("../CharacterMovementComponent")
 timer_attack = 2.5
+character_movement_component = NodePath("../CharacterMovementComponent")
+player_component = NodePath("../../../Components/Player_Component")
+mask_component = NodePath("../../../Components/MaskComponent")
 metadata/_custom_type_script = "uid://d3em038vhj7qg"
 
 [node name="JumpscareComponent" type="Node" parent="Characters/NightmareToyMario" unique_id=225629577 node_paths=PackedStringArray("mask_component", "office_room_component", "player_component", "character_attack_component", "jumpscare_animation")]
@@ -748,17 +751,12 @@ sprites_ceiling = [NodePath("../../../Rooms/Ceiling/ClipMask/Taingle_1"), NodePa
 turn_off_flashlight_when_moving = false
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
-[node name="TaingleRadioComponent" type="Node" parent="Characters/NightmareTaingle" unique_id=144314447 node_paths=PackedStringArray("radio", "taingle_movement_component")]
-script = ExtResource("6_xk4jm")
-radio = NodePath("../../../Sounds/Taingle_Radio")
-taingle_movement_component = NodePath("../CharacterMovementComponent")
-metadata/_custom_type_script = "uid://d04eigyof3m4l"
-
-[node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareTaingle" unique_id=1248689429 node_paths=PackedStringArray("player_component", "character_movement_component")]
+[node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareTaingle" unique_id=1248689429 node_paths=PackedStringArray("character_movement_component", "player_component", "mask_component")]
 script = ExtResource("6_764v7")
-player_component = NodePath("../../../Components/Player_Component")
-character_movement_component = NodePath("../CharacterMovementComponent")
 timer_attack = 2.5
+character_movement_component = NodePath("../CharacterMovementComponent")
+player_component = NodePath("../../../Components/Player_Component")
+mask_component = NodePath("../../../Components/MaskComponent")
 metadata/_custom_type_script = "uid://d3em038vhj7qg"
 
 [node name="JumpscareComponent" type="Node" parent="Characters/NightmareTaingle" unique_id=1437377128 node_paths=PackedStringArray("mask_component", "office_room_component", "player_component", "character_attack_component", "jumpscare_animation")]
@@ -771,6 +769,12 @@ jumpscare_animation = NodePath("../../../Misc/GUI/Taingle_Jumpscare")
 game_over_name = "Nightmare Taingle"
 jumpscare_sound_name = "Taingle_Jumpscare"
 metadata/_custom_type_script = "uid://u3ovbneaky16"
+
+[node name="TaingleRadioComponent" type="Node" parent="Characters/NightmareTaingle" unique_id=144314447 node_paths=PackedStringArray("radio", "taingle_movement_component")]
+script = ExtResource("6_xk4jm")
+radio = NodePath("../../../Sounds/Taingle_Radio")
+taingle_movement_component = NodePath("../CharacterMovementComponent")
+metadata/_custom_type_script = "uid://d04eigyof3m4l"
 
 [node name="NightmareBT" type="Node" parent="Characters" unique_id=281219278]
 script = ExtResource("2_qj8ra")
