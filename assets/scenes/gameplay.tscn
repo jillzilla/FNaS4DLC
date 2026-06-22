@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://dd56tc7irhp2r" path="res://assets/images/gameplay/rooms/flashlight/vent_on.png" id="8_iuexx"]
 [ext_resource type="Texture2D" uid="uid://bdlmu7wbqans7" path="res://assets/images/gameplay/characters/taingle/taingle_2.png" id="8_kgr1o"]
 [ext_resource type="Texture2D" uid="uid://0f8oes41ekud" path="res://assets/images/gameplay/rooms/flashlight/vent_off.png" id="9_b4idp"]
+[ext_resource type="Script" uid="uid://ctmems2pxl6cl" path="res://assets/components/FlashlightMechanicComponent.gd" id="9_o1odc"]
 [ext_resource type="Texture2D" uid="uid://cx1vyvqdy6l10" path="res://assets/images/gameplay/characters/taingle/taingle_3.png" id="9_rybgg"]
 [ext_resource type="Script" uid="uid://cwylbc3jnkgad" path="res://assets/components/MaskComponent.gd" id="9_tv68p"]
 [ext_resource type="Texture2D" uid="uid://nb6tg6pvsdjj" path="res://assets/images/gameplay/characters/taingle/taingle_4.png" id="10_hlo8c"]
@@ -857,6 +858,15 @@ jumpscare_animation = NodePath("../../../Misc/GUI/Taingle_Jumpscare")
 game_over_name = "Nightmare Taingle"
 jumpscare_sound_name = "Taingle_Jumpscare"
 metadata/_custom_type_script = "uid://u3ovbneaky16"
+
+[node name="FlashlightMechanicComponent" type="Node" parent="Characters/NightmareTaingle" unique_id=555338373 node_paths=PackedStringArray("player_component", "movement_component", "attack_component", "flashlight_component")]
+script = ExtResource("9_o1odc")
+timer_counter = 0.5
+player_component = NodePath("../../../Components/Player_Component")
+movement_component = NodePath("../CharacterMovementComponent")
+attack_component = NodePath("../CharacterAttackComponent")
+flashlight_component = NodePath("../../../Components/FlashlightComponent_Ceiling")
+metadata/_custom_type_script = "uid://ctmems2pxl6cl"
 
 [node name="TaingleRadioComponent" type="Node" parent="Characters/NightmareTaingle" unique_id=144314447 node_paths=PackedStringArray("radio", "taingle_movement_component")]
 script = ExtResource("6_xk4jm")

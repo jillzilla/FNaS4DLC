@@ -63,6 +63,8 @@ var shocked: bool = false;
 var step: float = 0.0;
 var movement_timer: float = 0.0;
 
+var pause : bool = false;
+
 #functions
 func _ready() -> void:
 	if flashlight_left_vent != null: flashlight_left_vent.connect("flashlight_is_on", _left_flashlight_on);
@@ -75,18 +77,18 @@ func _ready() -> void:
 		if possible_directions != []:
 			current_direction = possible_directions.pick_random();
 		else:
-			process_mode = Node.PROCESS_MODE_DISABLED;
+			pause = true;
 
 func _physics_process(delta: float) -> void:
-	if main.ai_levels[character_ai_level_id] > 0:
-		if player_component.is_alive:
-			if current_position < max_positions_in_directions[current_direction]:
-				step += delta * main.ai_levels[character_ai_level_id];
-				if step >= movement_timer:
-					step = 0;
-					_move_character(turn_off_flashlight_when_moving);
-					movement_timer = _get_randomized_movement_timer();
-					character_moved.emit();
+	if !pause:
+		if main.ai_levels[character_ai_level_id] > 0:
+			if player_component.is_alive:
+				if current_position < max_positions_in_directions[current_direction]:
+					step += delta * main.ai_levels[character_ai_level_id];
+					if step >= movement_timer:
+						step = 0;
+						current_position += 1;
+						_move_character(turn_off_flashlight_when_moving);
 
 func _left_flashlight_on() -> void:
 	if sprite_peek_left_vent != null:
@@ -149,7 +151,6 @@ func _get_randomized_movement_timer() -> float:
 	return randf_range(min_movement_timer, max_movement_timer);
 
 func _move_character(turn_off_flashlight : bool) -> void:
-	current_position += 1;
 	match (current_direction):
 		"Left Vent":
 			left_vent.play();
@@ -181,6 +182,9 @@ func _move_character(turn_off_flashlight : bool) -> void:
 			for s in sprites_ceiling:
 				s.hide();
 			sprites_ceiling[current_position].show();
+
+	movement_timer = _get_randomized_movement_timer();
+	character_moved.emit();
 
 func _reset_character_status(enable_character_fadeaway : bool = true, play_leave_vent_sound : bool = true) -> void:
 	if current_position > -1:
