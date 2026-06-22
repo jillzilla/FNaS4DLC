@@ -683,6 +683,7 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 
 [node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareToySonic" unique_id=1037910867 node_paths=PackedStringArray("player_component", "sprites_left_vent", "sprites_right_vent", "sprite_peek_left_vent", "sprite_peek_right_vent", "sprite_shock_left_vent", "sprite_shock_right_vent", "flashlight_left_vent", "flashlight_right_vent", "left_vent", "right_vent", "shock_sound", "leave_vent_sound")]
 script = ExtResource("123_mliqa")
+character_ai_level_id = "Nightmare Toy Sonic"
 player_component = NodePath("../../../Components/Player_Component")
 min_movement_timer = 150.0
 max_movement_timer = 200.0
@@ -742,6 +743,7 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 
 [node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareToyMario" unique_id=302218067 node_paths=PackedStringArray("player_component", "sprites_right_vent", "sprite_peek_right_vent", "sprite_shock_right_vent", "flashlight_right_vent", "left_vent", "right_vent", "shock_sound")]
 script = ExtResource("123_mliqa")
+character_ai_level_id = "Nightmare Toy Mario"
 player_component = NodePath("../../../Components/Player_Component")
 min_movement_timer = 100.0
 max_movement_timer = 120.0
@@ -790,8 +792,27 @@ metadata/_custom_type_script = "uid://clrl6m2aqut5l"
 script = ExtResource("2_qj8ra")
 metadata/_custom_type_script = "uid://dxqook2amacs3"
 
-[node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareToyYoshi" unique_id=1073856817]
+[node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareToyYoshi" unique_id=1073856817 node_paths=PackedStringArray("player_component", "sprites_left_vent", "sprite_peek_left_vent", "sprite_shock_left_vent", "flashlight_left_vent", "left_vent", "right_vent", "shock_sound", "leave_vent_sound")]
 script = ExtResource("123_mliqa")
+character_ai_level_id = "Nightmare Toy Yoshi"
+player_component = NodePath("../../../Components/Player_Component")
+min_movement_timer = 80.0
+max_movement_timer = 100.0
+possible_directions = Array[String](["Left Vent"])
+max_positions_in_directions = Dictionary[String, int]({
+"Ceiling": 0,
+"Hallway": 0,
+"Left Vent": 2,
+"Right Vent": 0
+})
+sprites_left_vent = [NodePath("../../../Rooms/Left_Vent/ClipMask/ToyYoshi_1"), NodePath("../../../Rooms/Left_Vent/ToyYoshi_2"), NodePath("../../../Rooms/Left_Vent/ToyYoshi_3")]
+sprite_peek_left_vent = NodePath("../../../Rooms/Left_Vent/ClipMask/ToyYoshi_1")
+sprite_shock_left_vent = NodePath("../../../Rooms/Left_Vent/ToyYoshi_3")
+flashlight_left_vent = NodePath("../../../Components/FlashlightComponent_LVent")
+left_vent = NodePath("../../../Sounds/LeftVentSound")
+right_vent = NodePath("../../../Sounds/RightVentSound")
+shock_sound = NodePath("../../../Sounds/Shock_SFX")
+leave_vent_sound = NodePath("../../../Sounds/Vent_Leave_SFX")
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="NightmareTaingle" type="Node" parent="Characters" unique_id=1430567648]
@@ -800,6 +821,7 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 
 [node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareTaingle" unique_id=363742676 node_paths=PackedStringArray("player_component", "sprites_ceiling")]
 script = ExtResource("123_mliqa")
+character_ai_level_id = "Nightmare Taingle"
 player_component = NodePath("../../../Components/Player_Component")
 min_movement_timer = 110.0
 max_movement_timer = 113.0
@@ -845,6 +867,7 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 
 [node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareBT" unique_id=1199866886]
 script = ExtResource("123_mliqa")
+character_ai_level_id = "Nightmare BT"
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="NightmareSalvageSonic" type="Node" parent="Characters" unique_id=1247791275]
@@ -853,6 +876,7 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 
 [node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareSalvageSonic" unique_id=1781599748]
 script = ExtResource("123_mliqa")
+character_ai_level_id = "Nightmare S. Sonic"
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="NightmareCream" type="Node" parent="Characters" unique_id=1758899278]
@@ -861,6 +885,7 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 
 [node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareCream" unique_id=434313489 node_paths=PackedStringArray("player_component", "sprites_right_vent", "sprite_peek_right_vent", "sprite_shock_right_vent", "flashlight_right_vent", "right_vent", "shock_sound", "leave_vent_sound")]
 script = ExtResource("123_mliqa")
+character_ai_level_id = "Nightmare Cream"
 player_component = NodePath("../../../Components/Player_Component")
 min_movement_timer = 120.0
 max_movement_timer = 130.0
@@ -915,6 +940,7 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 
 [node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=2037572651]
 script = ExtResource("123_mliqa")
+character_ai_level_id = "Nightmare Luiginette"
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="TailsDoll" type="Node" parent="Characters" unique_id=956350046]
@@ -923,6 +949,7 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 
 [node name="CharacterMovementComponent" type="Node" parent="Characters/TailsDoll" unique_id=1457777409]
 script = ExtResource("123_mliqa")
+character_ai_level_id = "Tails Doll"
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="NightmareKnuckles" type="Node" parent="Characters" unique_id=1950792874]
@@ -931,6 +958,7 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 
 [node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareKnuckles" unique_id=187659397]
 script = ExtResource("123_mliqa")
+character_ai_level_id = "Nightmare Knuckles"
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="Components" type="Node" parent="." unique_id=397741405]

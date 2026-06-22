@@ -3,9 +3,8 @@ class_name CharacterMovementComponent extends Component
 signal character_moved;
 
 #variables
-@export_range(main.AIMINVALUE, main.AIMAXVALUE) var ai_level: int = 0;
-
 @export_group("Configurations")
+@export var character_ai_level_id : String = "";
 @export var player_component : Player_Component;
 
 @export var min_movement_timer: float = 0.0;
@@ -71,15 +70,18 @@ func _ready() -> void:
 	if flashlight_ceiling != null: flashlight_ceiling.connect("flashlight_is_on", _ceiling_flashlight_on);
 	if flashlight_hallway != null: flashlight_hallway.connect("flashlight_is_on", _hallway_flashlight_on);
 
-	if ai_level > 0:
+	if main.ai_levels[character_ai_level_id] > 0:
 		movement_timer = _get_randomized_movement_timer();
-		current_direction = possible_directions.pick_random();
+		if possible_directions != []:
+			current_direction = possible_directions.pick_random();
+		else:
+			process_mode = Node.PROCESS_MODE_DISABLED;
 
 func _physics_process(delta: float) -> void:
-	if ai_level > 0:
+	if main.ai_levels[character_ai_level_id] > 0:
 		if player_component.is_alive:
 			if current_position < max_positions_in_directions[current_direction]:
-				step += delta * ai_level;
+				step += delta * main.ai_levels[character_ai_level_id];
 				if step >= movement_timer:
 					step = 0;
 					_move_character(turn_off_flashlight_when_moving);

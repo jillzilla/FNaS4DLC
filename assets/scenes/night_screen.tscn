@@ -69,9 +69,8 @@ _data = {
 &"flash": SubResource("Animation_x5pu0")
 }
 
-[node name="NightScreen" type="Node" unique_id=153087263 node_paths=PackedStringArray("nightcounter")]
+[node name="NightScreen" type="Node" unique_id=153087263]
 script = ExtResource("1_x5pu0")
-nightcounter = NodePath("NightCounter")
 data_json = "res://assets/data/nights_ai_levels.json"
 
 [node name="Sky" type="Sprite2D" parent="." unique_id=2061776575]
