@@ -1,4 +1,4 @@
-class_name NightmareLuiginette extends Node
+extends Node
 
 @export var loading : Control = null;
 
@@ -29,12 +29,12 @@ var jumpscareExposure : float = main.JUMPSCAREEXPOSUREDEFAULT;
 @export var ceilingSprite : Sprite2D;
 
 @export_group("Mechanicals")
-@export var officeRoomTravel : RoomTravelComponent;
+@export var officeRoomTravel : Node;
 @export var Mask : Node2D;
-@export var LFlashlight : FlashLightComponent;
-@export var RFlashlight : FlashLightComponent;
-@export var FFlashlight : FlashLightComponent;
-@export var CFlashlight : FlashLightComponent;
+@export var LFlashlight : Node;
+@export var RFlashlight : Node;
+@export var FFlashlight : Node;
+@export var CFlashlight : Node;
 @export var shockSFX : AudioStreamPlayer;
 @export var LVentSFX : AudioStreamPlayer2D;
 @export var RVentSFX : AudioStreamPlayer2D;

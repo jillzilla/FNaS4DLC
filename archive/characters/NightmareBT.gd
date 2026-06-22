@@ -1,4 +1,4 @@
-class_name NightmareBT extends Node
+extends Node
 
 #variables
 @export_group("Status")
@@ -24,9 +24,9 @@ var EnteringExposure: float = main.JUMPSCAREEXPOSUREDEFAULT;
 @export var ventLSFX: AudioStreamPlayer;
 @export var BT_MoveSFXs: Array[AudioStreamPlayer2D];
 @export var ventSFX: AudioStreamPlayer2D;
-@export var officeRoomTravel: RoomTravelComponent;
-@export var deskRoomTravel: RoomTravelComponent;
-@export var flashlight: FlashLightComponent;
+@export var officeRoomTravel: Node;
+@export var deskRoomTravel: Node;
+@export var flashlight: Node;
 @export var Mask: Node2D;
 @export var charAway: AnimationPlayer;
 

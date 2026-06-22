@@ -1,1 +1,1 @@
-class_name NightmareKnuckles extends Node
+extends Node

@@ -1,4 +1,4 @@
-class_name FlashLightComponent extends Component
+extends Node
 
 #variables
 @export var spriteAsFlashlight: Sprite2D;

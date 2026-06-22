@@ -1,4 +1,4 @@
-class_name NightmareLuiginetteV2 extends Node
+extends Node
 
 #variables
 enum directions {LEFT, MIDDLE, RIGHT};
@@ -26,10 +26,10 @@ var attack_position: Variant = attack_positions.NONE;
 @export var front_sprite: Sprite2D;
 @export var up_sprite: Sprite2D;
 
-@export var flashlight_left: FlashLightComponent;
-@export var flashlight_right: FlashLightComponent;
-@export var flashlight_up: FlashLightComponent;
-@export var flashlight_front: FlashLightComponent;
+@export var flashlight_left: Node;
+@export var flashlight_right: Node;
+@export var flashlight_up: Node;
+@export var flashlight_front: Node;
 
 var fails: int = 0;
 var has_decided_his_path: bool = false;

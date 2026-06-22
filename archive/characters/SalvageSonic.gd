@@ -1,4 +1,4 @@
-class_name SalvageSonic extends Node
+extends Node
 
 signal moved;
 
@@ -30,8 +30,8 @@ var jumpscareExposure: float = main.JUMPSCAREEXPOSUREDEFAULT;
 @export var monitor: Node2D;
 @export var laugh: AudioStreamPlayer;
 @export var dangersound: AudioStreamPlayer;
-@export var flashlight: FlashLightComponent;
-@export var officeRoomTravel: RoomTravelComponent;
+@export var flashlight: Node;
+@export var officeRoomTravel: Node;
 @export var Mask: Node2D;
 @export var jumpscareAnimation: Node2D;
 

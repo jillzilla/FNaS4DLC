@@ -1,4 +1,4 @@
-class_name TailsDoll extends Node
+extends Node
 
 #variables
 enum Directions {NONE, LEFT, RIGHT, CEILING};
@@ -19,9 +19,9 @@ var positionsAvailable: int = 1;
 
 @export_group("Mechanicals")
 @export var effect: AnimationPlayer;
-@export var LFlashlight: FlashLightComponent;
-@export var RFlashlight: FlashLightComponent;
-@export var CFlashlight: FlashLightComponent;
+@export var LFlashlight: Node;
+@export var RFlashlight: Node;
+@export var CFlashlight: Node;
 
 var fails: int = 0;
 

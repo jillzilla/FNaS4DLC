@@ -1,4 +1,4 @@
-class_name NightmareCream extends Node
+extends Node
 
 #variables
 @export_group("Status")
@@ -22,8 +22,8 @@ var jumpscareExposure: float = main.JUMPSCAREEXPOSUREDEFAULT;
 @export var stepSfx: AudioStreamPlayer2D;
 @export var ventLSFX: AudioStreamPlayer;
 @export var shockSFX: AudioStreamPlayer;
-@export var flashlight: FlashLightComponent;
-@export var officeRoomTravel: RoomTravelComponent;
+@export var flashlight: Node;
+@export var officeRoomTravel: Node;
 @export var Mask: Node2D;
 @export var RunGraphics: Node2D;
 @export var jumpscareAnimation: Node2D;

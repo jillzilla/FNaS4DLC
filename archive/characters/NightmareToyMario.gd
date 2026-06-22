@@ -1,4 +1,4 @@
-class_name NightmareToyMario extends Node
+extends Node
 
 #variables
 enum PupilsStates {DEFAULT, ON, OFF};
@@ -27,8 +27,8 @@ var jumpscareExposure: float = main.JUMPSCAREEXPOSUREDEFAULT;
 @export var Position3Pupils: Sprite2D;
 
 @export_group("Mechanicals")
-@export var flashlight: FlashLightComponent;
-@export var officeRoomTravel: RoomTravelComponent;
+@export var flashlight: Node;
+@export var officeRoomTravel: Node;
 @export var ventSFX: AudioStreamPlayer2D;
 @export var stepSfx: AudioStreamPlayer2D;
 @export var ventLSFX: AudioStreamPlayer;

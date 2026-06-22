@@ -10,7 +10,7 @@
 
 [node name="CustomNight" type="Node" unique_id=1823592247 node_paths=PackedStringArray("characters")]
 script = ExtResource("1_8gqf7")
-characters = [NodePath("Control/Characters/Sonic"), NodePath("Control/Characters/Mario"), NodePath("Control/Characters/Yoshi"), NodePath("Control/Characters/Taingle"), NodePath("Control/Characters/BT"), NodePath("Control/Characters/Salvage"), NodePath("Control/Characters/Cream"), NodePath("Control/Characters/Luigi"), NodePath("Control/Characters/TailsDoll"), NodePath("Control/Characters/Knuckles")]
+characters = [NodePath("Control/Characters/Sonic"), NodePath("Control/Characters/Mario"), NodePath("Control/Characters/Yoshi"), NodePath("Control/Characters/Taingle"), NodePath("Control/Characters/BT"), NodePath("Control/Characters/Salvage"), NodePath("Control/Characters/Cream"), NodePath("Control/Characters/Knuckles"), NodePath("Control/Characters/TailsDoll"), NodePath("Control/Characters/Luigi")]
 metadata/_edit_horizontal_guides_ = [3566.0]
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=60568684]

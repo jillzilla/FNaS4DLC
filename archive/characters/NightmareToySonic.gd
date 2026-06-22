@@ -1,4 +1,4 @@
-class_name NightmareToySonic extends Node
+extends Node
 
 #variables
 enum Directions {NONE, LEFT, RIGHT};
@@ -22,9 +22,9 @@ var jumpscareExposure: float = main.JUMPSCAREEXPOSUREDEFAULT;
 @export var RPosition2: Sprite2D;
 
 @export_group("Mechanicals")
-@export var LFlashlight: FlashLightComponent;
-@export var RFlashlight: FlashLightComponent;
-@export var officeRoomTravel: RoomTravelComponent;
+@export var LFlashlight: Node;
+@export var RFlashlight: Node;
+@export var officeRoomTravel: Node;
 @export var Mask: Node2D;
 @export var RunGraphics: Node2D;
 @export var LVentSFX: AudioStreamPlayer2D;

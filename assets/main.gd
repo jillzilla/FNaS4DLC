@@ -70,9 +70,9 @@ var ai_levels: Dictionary = {
 	"Nightmare BT": AIDEFAULTLEVEL,
 	"Nightmare S. Sonic": AIDEFAULTLEVEL,
 	"Nightmare Cream": AIDEFAULTLEVEL,
-	"Nightmare Luiginette": AIDEFAULTLEVEL,
-	"Tails Doll": AIDEFAULTLEVEL,
 	"Nightmare Knuckles": AIDEFAULTLEVEL,
+	"Tails Doll": AIDEFAULTLEVEL,
+	"Nightmare Luiginette": AIDEFAULTLEVEL,
 };
 
 #functions
@@ -134,8 +134,8 @@ func _ready() -> void:
 func _get_ai_level_as_array() -> Array[String]:
 	return ["Nightmare Toy Sonic", "Nightmare Toy Mario",
 	"Nightmare Toy Yoshi", "Nightmare Taingle", "Nightmare BT", "Nightmare S. Sonic",
-	"Nightmare Cream", "Nightmare Luiginette", "Tails Doll",
-	"Nightmare Knuckles"];
+	"Nightmare Cream", "Nightmare Knuckles", "Tails Doll",
+	"Nightmare Luiginette"];
 
 func _reset_ai() -> void:
 	for i in range(_get_ai_level_as_array().size()):
