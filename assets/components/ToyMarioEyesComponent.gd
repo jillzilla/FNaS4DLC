@@ -4,6 +4,8 @@ class_name ToyMarioEyesComponent extends Component
 @onready var rng : RandomNumberGenerator = RandomNumberGenerator.new();
 @export var pupils : Array[Sprite2D];
 @export var mario_movement_component : CharacterMovementComponent;
+@export var mask_mechanic : MaskMechanicComponent;
+@export var desk_mechanic : DeskMechanicComponent;
 
 #functions
 func _ready() -> void:
@@ -15,6 +17,10 @@ func _mario_ready() -> void:
         if rng.randf() <= 0.5:
             for p in pupils:
                 p.show();
+            mask_mechanic.enable = true;
+            desk_mechanic.enable = false;
         else:
             for p in pupils:
                 p.hide();
+            mask_mechanic.enable = false;
+            desk_mechanic.enable = true;

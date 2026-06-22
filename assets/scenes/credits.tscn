@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="2_tpyj6"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_32ixl"]
 
-[node name="Credits" type="Control" unique_id=1880212058 node_paths=PackedStringArray("scrollContainer")]
+[node name="Credits" type="Control" unique_id=1880212058]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +15,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_32ixl")
 script = ExtResource("1_c4ovu")
-scrollContainer = NodePath("MarginContainer/Panel/MarginContainer/ScrollContainer")
 metadata/_edit_lock_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2032023526]
@@ -99,7 +98,7 @@ djeningblat
 
 - FNaS Owners -
 TheCyVap
-Spiral
+Spicy Sweets Dev Team
 
 - FNaF Owner - 
 Scott Cawthon
@@ -118,6 +117,7 @@ coldsky
 Crazy-Chan
 Dedmos
 Eg
+Jaime
 Kosta
 Lust
 Map

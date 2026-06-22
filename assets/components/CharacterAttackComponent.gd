@@ -3,17 +3,17 @@ class_name CharacterAttackComponent extends Component
 signal attack;
 
 #variables
-@export var timer_attack : float = 0.0;
+@export var timer_attack: float = 0.0;
 @export_group("Configurations")
-@export var player_component : Player_Component;
-@export var mask_component : MaskComponent;
-@export var character_movement_component : CharacterMovementComponent;
+@export var player_component: Player_Component;
+@export var mask_component: MaskComponent;
+@export var character_movement_component: CharacterMovementComponent;
 
-var can_attack : bool = false;
-var is_attacking : bool = false;
-var pause : bool = false;
+var can_attack: bool = false;
+var is_attacking: bool = false;
+var pause: bool = false;
 
-var step : float = 0.0;
+var step: float = 0.0;
 
 #functions
 func _ready() -> void:

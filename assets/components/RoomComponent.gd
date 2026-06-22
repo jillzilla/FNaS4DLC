@@ -58,7 +58,7 @@ func _go_to_room() -> void:
 		player_component.is_moving = true;
 
 		if room_go_to != null:
-			player_component.direction = room_go_to.name;
+			player_component.direction = room_go_to.name.to_pascal_case();
 		else:
 			player_component.direction = "Office";
 
