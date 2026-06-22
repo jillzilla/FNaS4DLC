@@ -20,9 +20,6 @@ func _ready() -> void:
 		GlobalAudioManager.get_node("Ambience").stop();
 	
 	nightcounter.text = "Night " + str(main.nightcounter) + "\n" + "12:00 AM";
-	
-	main.killedBy = "";
-	main.isBTInOffice = false;
 
 	var file: FileAccess = FileAccess.open(data_json, FileAccess.READ);
 	var json_text: String = file.get_as_text();

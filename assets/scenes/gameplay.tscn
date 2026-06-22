@@ -129,6 +129,57 @@
 [ext_resource type="PackedScene" uid="uid://cddsbqwxivvqq" path="res://assets/scenes/jumpscares/knuckles_jumpscare.tscn" id="126_rcbs0"]
 [ext_resource type="AudioStream" uid="uid://bd7c4pnibh3u8" path="res://assets/sounds/LuigiWalking.ogg" id="134_dpljo"]
 
+[sub_resource type="Animation" id="Animation_j85f1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightFoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightFoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.1170107]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftFoot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-112, -0.99999666)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftFoot:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.6981317]
+}
+
 [sub_resource type="Animation" id="Animation_wrac7"]
 resource_name = "WalkCycle"
 length = 0.2
@@ -144,7 +195,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-0.567232, 0.9442231]
+"values": [-1.1170107, 0.22514747]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -156,7 +207,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.9442231, -0.37873644]
+"values": [0.6981317, -0.699877]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -168,7 +219,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-184, 15), Vector2(216, -58)]
+"values": [Vector2(-187.12451, -0.00042724615), Vector2(67.49539, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -180,11 +231,12 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(264, -58), Vector2(-144, 15)]
+"values": [Vector2(92.87549, -0.0004272461), Vector2(-188.50464, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kaecm"]
 _data = {
+&"RESET": SubResource("Animation_j85f1"),
 &"WalkCycle": SubResource("Animation_wrac7")
 }
 
@@ -255,7 +307,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Rooms/Desk/CreamDeskAnimation/RightLeg:position")
+tracks/0/path = NodePath("Rooms/Desk/CreamDeskAnimation/RightFoot:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -267,7 +319,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Rooms/Desk/CreamDeskAnimation/RightLeg:rotation")
+tracks/1/path = NodePath("Rooms/Desk/CreamDeskAnimation/RightFoot:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -279,7 +331,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Rooms/Desk/CreamDeskAnimation/LeftLeg:position")
+tracks/2/path = NodePath("Rooms/Desk/CreamDeskAnimation/LeftFoot:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -291,7 +343,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Rooms/Desk/CreamDeskAnimation/LeftLeg:rotation")
+tracks/3/path = NodePath("Rooms/Desk/CreamDeskAnimation/LeftFoot:rotation")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -631,7 +683,6 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 
 [node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareToySonic" unique_id=1037910867 node_paths=PackedStringArray("player_component", "sprites_left_vent", "sprites_right_vent", "sprite_peek_left_vent", "sprite_peek_right_vent", "sprite_shock_left_vent", "sprite_shock_right_vent", "flashlight_left_vent", "flashlight_right_vent", "left_vent", "right_vent", "shock_sound", "leave_vent_sound")]
 script = ExtResource("123_mliqa")
-ai_level = 25
 player_component = NodePath("../../../Components/Player_Component")
 min_movement_timer = 150.0
 max_movement_timer = 200.0
@@ -808,9 +859,55 @@ metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 script = ExtResource("2_qj8ra")
 metadata/_custom_type_script = "uid://dxqook2amacs3"
 
-[node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareCream" unique_id=434313489]
+[node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareCream" unique_id=434313489 node_paths=PackedStringArray("player_component", "sprites_right_vent", "sprite_peek_right_vent", "sprite_shock_right_vent", "flashlight_right_vent", "right_vent", "shock_sound", "leave_vent_sound")]
 script = ExtResource("123_mliqa")
+player_component = NodePath("../../../Components/Player_Component")
+min_movement_timer = 120.0
+max_movement_timer = 130.0
+possible_directions = Array[String](["Right Vent"])
+max_positions_in_directions = Dictionary[String, int]({
+"Ceiling": 0,
+"Hallway": 0,
+"Left Vent": 0,
+"Right Vent": 2
+})
+sprites_right_vent = [NodePath("../../../Rooms/Right_Vent/ClipMask/Cream_1"), NodePath("../../../Rooms/Right_Vent/Cream_2"), NodePath("../../../Rooms/Right_Vent/Cream_3")]
+sprite_peek_right_vent = NodePath("../../../Rooms/Right_Vent/ClipMask/Cream_1")
+sprite_shock_right_vent = NodePath("../../../Rooms/Right_Vent/Cream_3")
+flashlight_right_vent = NodePath("../../../Components/FlashlightComponent_RVent")
+right_vent = NodePath("../../../Sounds/RightVentSound")
+shock_sound = NodePath("../../../Sounds/Shock_SFX")
+leave_vent_sound = NodePath("../../../Sounds/Vent_Leave_SFX")
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
+
+[node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareCream" unique_id=125435431 node_paths=PackedStringArray("player_component", "mask_component", "character_movement_component")]
+script = ExtResource("6_764v7")
+timer_attack = 2.5
+player_component = NodePath("../../../Components/Player_Component")
+mask_component = NodePath("../../../Components/MaskComponent")
+character_movement_component = NodePath("../CharacterMovementComponent")
+metadata/_custom_type_script = "uid://d3em038vhj7qg"
+
+[node name="JumpscareComponent" type="Node" parent="Characters/NightmareCream" unique_id=1372269583 node_paths=PackedStringArray("mask_component", "office_room_component", "player_component", "character_attack_component", "jumpscare_animation")]
+script = ExtResource("7_p5adm")
+mask_component = NodePath("../../../Components/MaskComponent")
+office_room_component = NodePath("../../../Components/RoomComponent_Office")
+player_component = NodePath("../../../Components/Player_Component")
+character_attack_component = NodePath("../CharacterAttackComponent")
+jumpscare_animation = NodePath("../../../Misc/GUI/Cream_Jumpscare")
+game_over_name = "Nightmare Cream"
+jumpscare_sound_name = "Cream_Jumpscare"
+metadata/_custom_type_script = "uid://u3ovbneaky16"
+
+[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareCream" unique_id=1519514728 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation")]
+script = ExtResource("6_j85f1")
+player_component = NodePath("../../../Components/Player_Component")
+character_attack_component = NodePath("../CharacterAttackComponent")
+character_movement_component = NodePath("../CharacterMovementComponent")
+desk_room_component = NodePath("../../../Components/RoomComponent_Desk")
+desk_character_animation = NodePath("../../../Rooms/Desk/CreamDeskAnimation")
+animation_speed = 3.0
+metadata/_custom_type_script = "uid://dmrygnokdj0s1"
 
 [node name="NightmareLuiginette" type="Node" parent="Characters" unique_id=474358321]
 script = ExtResource("2_qj8ra")
@@ -844,8 +941,9 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 script = ExtResource("7_mliqa")
 metadata/_custom_type_script = "uid://dvtix3a1a3meg"
 
-[node name="HonkComponent" type="Node" parent="Components" unique_id=1194363726 node_paths=PackedStringArray("button", "sound")]
+[node name="HonkComponent" type="Node" parent="Components" unique_id=1194363726 node_paths=PackedStringArray("player_component", "button", "sound")]
 script = ExtResource("4_lmniu")
+player_component = NodePath("../Player_Component")
 button = NodePath("../../Buttons/Poster_Button_")
 sound = NodePath("../../Sounds/Nose_Honk")
 metadata/_custom_type_script = "uid://ckd2vwl4kaco4"
@@ -1303,10 +1401,11 @@ visible = false
 position = Vector2(0, -365)
 metadata/_edit_lock_ = true
 
-[node name="RightFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=430797307]
-position = Vector2(264, -58)
-rotation = -0.567232
-texture = ExtResource("47_f7gff")
+[node name="LeftFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=23704651]
+position = Vector2(-112, -0.99999666)
+rotation = 0.6981317
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("49_1mjni")
 metadata/_edit_lock_ = true
 
 [node name="Pelvis" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=553854893]
@@ -1314,11 +1413,11 @@ position = Vector2(0, -216)
 texture = ExtResource("48_wrac7")
 metadata/_edit_lock_ = true
 
-[node name="LeftFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=23704651]
-position = Vector2(-184, 15)
-rotation = 0.9442231
-scale = Vector2(0.9999998, 0.9999998)
-texture = ExtResource("49_1mjni")
+[node name="RightFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=430797307]
+position = Vector2(168, 0)
+rotation = -1.1170107
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("47_f7gff")
 metadata/_edit_lock_ = true
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=1459543770]
@@ -1354,6 +1453,7 @@ metadata/_edit_lock_ = true
 [node name="RightFoot" type="Sprite2D" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=907659631]
 position = Vector2(96, 200)
 rotation = -0.50963616
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("28_bt1i2")
 metadata/_edit_lock_ = true
 
@@ -1375,15 +1475,16 @@ visible = false
 position = Vector2(-24, -627)
 metadata/_edit_lock_ = true
 
-[node name="LeftLeg" type="Sprite2D" parent="Rooms/Desk/CreamDeskAnimation" unique_id=1677358238]
+[node name="LeftFoot" type="Sprite2D" parent="Rooms/Desk/CreamDeskAnimation" unique_id=1677358238]
 position = Vector2(-136, 368)
 rotation = 0.3874631
 texture = ExtResource("92_osqdk")
 metadata/_edit_lock_ = true
 
-[node name="RightLeg" type="Sprite2D" parent="Rooms/Desk/CreamDeskAnimation" unique_id=653464888]
+[node name="RightFoot" type="Sprite2D" parent="Rooms/Desk/CreamDeskAnimation" unique_id=653464888]
 position = Vector2(152, 300)
 rotation = -0.5427974
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("93_eysab")
 metadata/_edit_lock_ = true
 

@@ -19,16 +19,17 @@ func _ready() -> void:
     character_attack_component.connect("attack", _character_attack);
 
 func _character_attack() -> void:
-    player_component.is_alive = false;
+    if player_component.is_alive:
+        player_component.is_alive = false;
 
-    if mask_component.is_using_mask:
-        mask_component._take_off_mask();
-        await mask_component.mask_is_off;
+        if mask_component.is_using_mask:
+            mask_component._take_off_mask();
+            await mask_component.mask_is_off;
 
-    if player_component.direction != "Office":
-        office_room_component._go_to_room();
-        await office_room_component._player_went_to_room;
+        if player_component.direction != "Office":
+            office_room_component._go_to_room();
+            await office_room_component._player_went_to_room;
 
-    main.killedBy = game_over_name;
-    jumpscare_animation.get_node("AnimationPlayer").play("jumpscare");
-    GlobalAudioManager.get_node(jumpscare_sound_name).play();
+        main.killedBy = game_over_name;
+        jumpscare_animation.get_node("AnimationPlayer").play("jumpscare");
+        GlobalAudioManager.get_node(jumpscare_sound_name).play();

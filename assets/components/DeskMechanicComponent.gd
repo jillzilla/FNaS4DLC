@@ -1,13 +1,16 @@
 class_name DeskMechanicComponent extends Component
 
 #variables
-const STARTPOSLEFT : float = -1240;
-const STARTPOSRIGHT : float = 1240;
+const STARTPOSLEFT: float = -1240;
+const STARTPOSRIGHT: float = 1240;
 
-const ENDPOSLEFT : float = 1240;
-const ENDPOSRIGHT : float = -1240;
+const ENDPOSLEFT: float = 1240;
+const ENDPOSRIGHT: float = -1240;
 
-@onready var tween_movement : Tween = null;
+const BODYPARTMINSCALE: float = 1;
+const BODYPARTMAXSCALE: float = 1.2;
+
+@onready var tween_movement: Tween = null;
 
 @export_group("Components")
 @export var player_component: Player_Component;
@@ -19,9 +22,12 @@ const ENDPOSRIGHT : float = -1240;
 @export var desk_character_animation: Node2D;
 
 @export_group("Custom Flags")
-@export var animation_speed : float = 0.0;
-@export var do_the_character_fade_away_effect_when_reset : bool = false;
-@export var play_vent_sound_when_reset : bool = true;
+@export var animation_speed: float = 0.0;
+@export var do_the_character_fade_away_effect_when_reset: bool = false;
+@export var play_vent_sound_when_reset: bool = true;
+
+var switch_parts_right: bool = true;
+var switch_parts_left: bool = false;
 
 #functions
 func _ready() -> void:
@@ -32,28 +38,67 @@ func _ready() -> void:
 
 func _player_is_under_desk() -> void:
     if character_movement_component.shocked:
-        player_component.can_move = false;
+        player_component.characters_walking_on_desk.push_back(self);
         
-        character_attack_component.pause = true;
+        if player_component.can_move:
+            player_component.can_move = false;
+
+        character_attack_component.can_attack = false;
+        character_attack_component.step = 0;
 
         if desk_character_animation.get_node("Timer_Step") != null:
             desk_character_animation.get_node("Timer_Step").start();
 
         if tween_movement:
             tween_movement.kill();
-        
         tween_movement = create_tween();
 
-        var start : float = 0;
-        var end : float = 0;
+        var start: float = 0;
+        var end: float = 0;
 
-        match(character_movement_component.current_direction):
+        match (character_movement_component.current_direction):
             "Right Vent":
-                desk_character_animation.scale.x = -1;
+                if desk_character_animation.get_node("LeftFoot") != null && desk_character_animation.get_node("RightFoot") != null:
+                    if !switch_parts_right:
+                        var index_a: int = desk_character_animation.get_node("RightFoot").get_index();
+                        var index_b: int = desk_character_animation.get_node("LeftFoot").get_index();
+                        var index_c: int = index_a;
+
+                        index_a = index_b;
+                        index_b = index_c;
+
+                        desk_character_animation.move_child(desk_character_animation.get_node("RightFoot"), index_a);
+                        desk_character_animation.move_child(desk_character_animation.get_node("LeftFoot"), index_b);
+
+                        desk_character_animation.get_node("LeftFoot").scale = Vector2(BODYPARTMINSCALE, BODYPARTMINSCALE);
+                        desk_character_animation.get_node("RightFoot").scale = Vector2(BODYPARTMAXSCALE, BODYPARTMAXSCALE);
+
+                        switch_parts_left = false;
+                        switch_parts_right = true;
+
+                desk_character_animation.scale.x = 1;
                 start = STARTPOSRIGHT;
                 end = ENDPOSRIGHT;
             _:
-                desk_character_animation.scale.x = 1;
+                if desk_character_animation.get_node("LeftFoot") != null && desk_character_animation.get_node("RightFoot") != null:
+                    if !switch_parts_left:
+                        var index_a: int = desk_character_animation.get_node("RightFoot").get_index();
+                        var index_b: int = desk_character_animation.get_node("LeftFoot").get_index();
+                        var index_c: int = index_a;
+
+                        index_a = index_b;
+                        index_b = index_c;
+
+                        desk_character_animation.move_child(desk_character_animation.get_node("RightFoot"), index_a);
+                        desk_character_animation.move_child(desk_character_animation.get_node("LeftFoot"), index_b);
+
+                        desk_character_animation.get_node("LeftFoot").scale = Vector2(BODYPARTMAXSCALE, BODYPARTMAXSCALE);
+                        desk_character_animation.get_node("RightFoot").scale = Vector2(BODYPARTMINSCALE, BODYPARTMINSCALE);
+                        
+                        switch_parts_left = true;
+                        switch_parts_right = false;
+
+                desk_character_animation.scale.x = -1;
                 start = STARTPOSLEFT;
                 end = ENDPOSLEFT;
 
@@ -67,13 +112,12 @@ func _player_is_under_desk() -> void:
         if desk_character_animation.get_node("Timer_Step") != null:
             desk_character_animation.get_node("Timer_Step").stop();
 
-        player_component.can_move = true;
+        player_component.characters_walking_on_desk.pop_front();
 
-        character_attack_component.step = 0;
-        character_attack_component.can_attack = false;
-        character_attack_component.pause = false;
+        if player_component.characters_walking_on_desk == []:
+            player_component.can_move = true;
 
-        character_movement_component._reset_character_status(false, do_the_character_fade_away_effect_when_reset, play_vent_sound_when_reset);
+        character_movement_component._reset_character_status(do_the_character_fade_away_effect_when_reset, play_vent_sound_when_reset);
 
 func _step_timer_timeout() -> void:
     desk_character_animation.get_node("Steps").play();

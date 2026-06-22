@@ -20,7 +20,7 @@ func _ready() -> void:
     character_movement_component.connect("character_moved", _character_moved);
 
 func _process(delta: float) -> void:
-    if !pause && player_component.is_alive && !player_component.is_moving && !mask_component.is_about_to_do_something && can_attack && !is_attacking:
+    if !pause && player_component.is_alive && !player_component.is_moving && player_component.characters_walking_on_desk == [] && !mask_component.is_about_to_do_something && can_attack && !is_attacking:
         step += delta;
         if step >= timer_attack:
             attack.emit();

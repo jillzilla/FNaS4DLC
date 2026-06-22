@@ -34,7 +34,7 @@ func _clock_timer_timeout() -> void:
 func _increase_ai_aggressiveness() -> void:
 	if main.nightcounter > 0 && main.nightcounter < 7:
 		for i in range(main._get_ai_level_as_array().size()):
-			if main.ai_levels[main._get_ai_level_as_array()[i]] > 0: # skipping luiginette
+			if main.ai_levels[main._get_ai_level_as_array()[i]] > 0:
 				rng.randomize();
 				if rng.randf() <= 0.5:
 					main.ai_levels[main._get_ai_level_as_array()[i]] += 1;

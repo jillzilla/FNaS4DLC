@@ -20,7 +20,7 @@ var fpsTarget: float = 60.0;
 var nightcounter: int = 1;
 var isloadingsom: bool = false;
 var didrarescreenhappened: bool = false;
-var monitor_refresh_rate : float = DisplayServer.screen_get_refresh_rate();
+var monitor_refresh_rate: float = DisplayServer.screen_get_refresh_rate();
 
 #data to save/load
 var introscenewatched: bool = false;
@@ -62,18 +62,6 @@ const AIMINVALUE: int = 0;
 const AIMAXVALUE: int = 25;
 const AIDEFAULTLEVEL: int = 5;
 
-var COUNTEREXPOSURELEVELDEFAULT: int = 25;
-var COUNTEREXPOSUREDEFAULT: float = 800;
-
-var JUMPSCAREEXPOSURELEVELDEFAULT: int = 12;
-var JUMPSCAREEXPOSUREDEFAULT: float = 2500;
-
-var ntsDeskRunning: bool = false;
-var ntmDeskWalking: bool = false;
-var ncDeskWalking: bool = false;
-var isBTInOffice: bool = false;
-var nlnDeskWalking: bool = false;
-
 var ai_levels: Dictionary = {
 	"Nightmare Toy Sonic": AIDEFAULTLEVEL,
 	"Nightmare Toy Mario": AIDEFAULTLEVEL,
@@ -111,7 +99,7 @@ func _apply_settings() -> void:
 	@warning_ignore("integer_division")
 	var new_window_position: Vector2i = center_screen - window_size / 2;
 	get_window().set_position(new_window_position);
-			
+	
 	match (vsync):
 		false:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED);
@@ -135,16 +123,13 @@ func _apply_settings() -> void:
 	
 	match (fps_counter):
 		false:
-			FpsCounter.get_node("MarginContainer").visible = false;
+			FpsCounter.get_node("MarginContainer").hide();
 		true:
-			FpsCounter.get_node("MarginContainer").visible = true;
+			FpsCounter.get_node("MarginContainer").show();
 
 func _ready() -> void:
 	_load_game();
 	_apply_settings();
-
-func random_chance(percent: float) -> bool:
-	return randf() * 100 < percent;
 
 func _get_ai_level_as_array() -> Array[String]:
 	return ["Nightmare Toy Sonic", "Nightmare Toy Mario",

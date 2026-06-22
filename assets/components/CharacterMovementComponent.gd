@@ -40,7 +40,6 @@ signal character_moved;
 
 @export_group("Flashlight")
 @export var turn_off_flashlight_when_moving : bool = true;
-@export var turn_off_flashlight_when_reset : bool = false;
 @export var flashlight_left_vent: FlashlightComponent;
 @export var flashlight_right_vent: FlashlightComponent;
 @export var flashlight_ceiling: FlashlightComponent;
@@ -181,31 +180,19 @@ func _move_character(turn_off_flashlight : bool) -> void:
 				s.hide();
 			sprites_ceiling[current_position].show();
 
-func _reset_character_status(turn_flashlight_off : bool = true, enable_character_fadeaway : bool = true, play_leave_vent_sound : bool = true) -> void:
+func _reset_character_status(enable_character_fadeaway : bool = true, play_leave_vent_sound : bool = true) -> void:
 	if current_position > -1:
 		shocked = false;
 		peeking = false;
 
 		match (current_direction):
 			"Left Vent":
-				if turn_flashlight_off:
-					if flashlight_left_vent.is_flashlight_on:
-						flashlight_left_vent._flashlight_off();
 				sprites_left_vent[current_position].hide();
 			"Right Vent":
-				if turn_flashlight_off:
-					if flashlight_right_vent.is_flashlight_on:
-						flashlight_right_vent._flashlight_off();
 				sprites_right_vent[current_position].hide();
 			"Ceiling":
-				if turn_flashlight_off:
-					if flashlight_ceiling.is_flashlight_on:
-						flashlight_ceiling._flashlight_off();
 				sprites_ceiling[current_position].hide();
 			"Hallway":
-				if turn_flashlight_off:
-					if flashlight_hallway.is_flashlight_on:
-						flashlight_hallway._flashlight_off();
 				sprites_hallway[current_position].hide();
 
 		if enable_character_fadeaway:

@@ -31,6 +31,8 @@ func _ready() -> void:
 	if main.killedBy != "":
 		get_node(data[main.killedBy]["Character Path"]).show();
 		get_node(data[main.killedBy]["Overlay"]).show();
+	
+	main.killedBy = "";
 
 func _on_try_again_button_pressed() -> void:
 	tryagain.visible = false;
