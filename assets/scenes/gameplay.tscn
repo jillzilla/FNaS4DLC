@@ -130,57 +130,6 @@
 [ext_resource type="PackedScene" uid="uid://cddsbqwxivvqq" path="res://assets/scenes/jumpscares/knuckles_jumpscare.tscn" id="126_rcbs0"]
 [ext_resource type="AudioStream" uid="uid://bd7c4pnibh3u8" path="res://assets/sounds/LuigiWalking.ogg" id="134_dpljo"]
 
-[sub_resource type="Animation" id="Animation_j85f1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RightFoot:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(168, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RightFoot:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.1170107]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LeftFoot:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-112, -0.99999666)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("LeftFoot:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.6981317]
-}
-
 [sub_resource type="Animation" id="Animation_wrac7"]
 resource_name = "WalkCycle"
 length = 0.2
@@ -237,7 +186,6 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kaecm"]
 _data = {
-&"RESET": SubResource("Animation_j85f1"),
 &"WalkCycle": SubResource("Animation_wrac7")
 }
 
@@ -1485,7 +1433,7 @@ position = Vector2(0, -365)
 metadata/_edit_lock_ = true
 
 [node name="LeftFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=23704651]
-position = Vector2(-112, -0.99999666)
+position = Vector2(-187.12451, -0.00042724615)
 rotation = 0.6981317
 scale = Vector2(0.9999998, 0.9999998)
 texture = ExtResource("49_1mjni")
@@ -1497,7 +1445,7 @@ texture = ExtResource("48_wrac7")
 metadata/_edit_lock_ = true
 
 [node name="RightFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=430797307]
-position = Vector2(168, 0)
+position = Vector2(92.87549, -0.0004272461)
 rotation = -1.1170107
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("47_f7gff")
