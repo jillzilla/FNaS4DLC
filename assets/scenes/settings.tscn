@@ -32,16 +32,17 @@ metadata/_edit_lock_ = true
 [node name="ThingsContainer" type="VBoxContainer" parent="." unique_id=1208848066]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.18400002
+anchor_left = 0.194
 anchor_top = 0.5
-anchor_right = 0.18400002
+anchor_right = 0.194
 anchor_bottom = 0.5
-offset_left = -211.52002
-offset_top = -336.0
-offset_right = 212.47998
+offset_left = -232.32
+offset_top = -344.0
+offset_right = 231.68
 offset_bottom = 344.0
 theme_override_constants/separation = 48
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Settings" type="Label" parent="ThingsContainer" unique_id=359293982]
 layout_mode = 2
@@ -133,6 +134,7 @@ offset_top = -308.24002
 offset_right = 319.99994
 offset_bottom = 307.75998
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Video" type="ScrollContainer" parent="MarginContainer" unique_id=1512224978]
 visible = false
@@ -371,7 +373,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 1
 action_mode = 0
-text = "Ctrl"
 script = ExtResource("5_dvflm")
 action = "FLASHLIGHT"
 metadata/_edit_lock_ = true
@@ -393,7 +394,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 1
 action_mode = 0
-text = "Shift"
 script = ExtResource("5_dvflm")
 action = "MASK"
 metadata/_edit_lock_ = true
@@ -415,7 +415,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 1
 action_mode = 0
-text = "Escape"
 script = ExtResource("5_dvflm")
 action = "PAUSE"
 metadata/_edit_lock_ = true

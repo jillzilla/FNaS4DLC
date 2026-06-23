@@ -20,8 +20,8 @@ func _toggled(toggled_on: bool) -> void:
 func _process(_delta: float) -> void:
     if is_remapping && !has_focus():
         button_pressed = false;
-        _update_text();
         is_remapping = false;
+        _update_text();
 
 func _unhandled_input(event: InputEvent) -> void:
     if event.pressed:

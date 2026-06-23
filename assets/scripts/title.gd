@@ -35,16 +35,16 @@ func _ready() -> void:
 	
 	if main.night7ending:
 		if !main.night6ending:
-			main.night6ending = true;
 			main._save_game();
+			main.night6ending = true;
 		star3.show();
 	
 	if main.night6ending:
 		if !main.night5ending:
-			main.night5ending = true;
 			main.night_to_play = 5;
 			guide._update_icon_visibility();
 			main._save_game();
+			main.night5ending = true;
 		star2.show();
 		customnightbutton.show();
 		extrasbutton.show();

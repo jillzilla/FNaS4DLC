@@ -3,6 +3,8 @@ class_name ScrollingComponent extends Component
 #variables
 @export var camera: Camera2D;
 
+@export var player_component: Player_Component;
+
 @export var scrollSpeed: float;
 @export var scrollDistance: float;
 
@@ -10,8 +12,6 @@ class_name ScrollingComponent extends Component
 
 @onready var leftPoint: Node2D = Node2D.new();
 @onready var rightPoint: Node2D = Node2D.new();
-
-@export var player_component: Player_Component;
 
 #functions
 func _ready() -> void:

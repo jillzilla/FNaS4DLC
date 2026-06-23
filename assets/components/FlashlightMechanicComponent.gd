@@ -31,16 +31,19 @@ func _process(delta: float) -> void:
         if movement_component.current_position >= position_where_counter_is_possible && player_component.direction == movement_component.current_direction.to_pascal_case() && flashlight_component.is_flashlight_on:
             step += delta;
             if step >= timer_counter:
+                movement_component.step = 0;
+                movement_component.pause = false;
+
                 attack_component.can_attack = false;
                 attack_component.step = 0;
                 attack_component.pause = false;
-                movement_component.step = 0;
-                movement_component.pause = false;
+
                 if movement_component.current_position != position_where_reset_is_possible:
                     movement_component.current_position -= 1;
                     movement_component._move_character(movement_component.turn_off_flashlight_when_moving)
                 else:
                     movement_component._reset_character_status(do_the_character_fade_away_effect_when_reset, play_vent_sound_when_reset);
+                
                 step = 0;
 
 func flashlight_is_on() -> void:

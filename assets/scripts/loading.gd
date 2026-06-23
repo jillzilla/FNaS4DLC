@@ -14,7 +14,7 @@ func _ready() -> void:
 func _load_scene(scene: String) -> void:
 	if scene:
 		main.isloadingsom = true;
-		self.show();
+		show();
 		scene_path = scene;
 		ResourceLoader.load_threaded_request(scene_path);
 		scene_loading = true;

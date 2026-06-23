@@ -35,15 +35,15 @@ func _ready() -> void:
 	main.killedBy = "";
 
 func _on_try_again_button_pressed() -> void:
-	tryagain.visible = false;
-	menubutton.visible = false;
+	tryagain.hide();
+	menubutton.hide();
 	fadeanimation.play("fade");
 	await fadeanimation.animation_finished;
 	loading._load_scene("res://assets/scenes/night_screen.tscn");
 
 func _on_menu_button_pressed() -> void:
-	tryagain.visible = false;
-	menubutton.visible = false;
+	tryagain.hide();
+	menubutton.hide();
 	fadeanimation.play("fade");
 	await fadeanimation.animation_finished;
 	loading._load_scene("res://assets/scenes/title.tscn");
