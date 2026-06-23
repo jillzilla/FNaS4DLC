@@ -16,7 +16,6 @@ const DEFAULT_FPSCOUNTER: bool = false;
 const SAVE_DATA_PATH: String = "user://FNaS4DLC.save";
 const SAVE_DATA_PASSWORD: String = "2<0r2eX1&2:<Cd";
 
-var fpsTarget: float = 60.0;
 var nightcounter: int = 1;
 var isloadingsom: bool = false;
 var didrarescreenhappened: bool = false;
@@ -33,6 +32,12 @@ var windowmode: int = 0;
 var resolution: int = 1;
 var vsync: bool = true;
 var fpscap: int = 1;
+
+var keys: Dictionary[String, Key] = {
+	"FLASHLIGHT": KEY_CTRL,
+	"MASK": KEY_SHIFT,
+	"PAUSE": KEY_ESCAPE
+};
 
 var master_volume: float = 1;
 var music_volume: float = 1;
@@ -115,6 +120,23 @@ func _apply_settings() -> void:
 			Engine.max_fps = ceil(monitor_refresh_rate);
 		3:
 			Engine.max_fps = 0;
+
+	var mask_input_key: InputEvent = InputEventKey.new();
+	var flash_input_key: InputEvent = InputEventKey.new();
+	var pause_input_key: InputEvent = InputEventKey.new();
+
+	flash_input_key.keycode = keys["FLASHLIGHT"];
+	mask_input_key.keycode = keys["MASK"];
+	pause_input_key.keycode = keys["PAUSE"];
+
+	InputMap.action_erase_events("FLASHLIGHT");
+	InputMap.action_add_event("FLASHLIGHT", flash_input_key);
+
+	InputMap.action_erase_events("MASK");
+	InputMap.action_add_event("MASK", mask_input_key);
+
+	InputMap.action_erase_events("PAUSE");
+	InputMap.action_add_event("PAUSE", pause_input_key);
 	
 	AudioServer.set_bus_volume_linear(0, master_volume);
 	AudioServer.set_bus_volume_linear(1, music_volume);
@@ -170,6 +192,9 @@ func _save() -> Dictionary:
 		"CN10": cn_challenge_10,
 		"CN11": cn_challenge_11,
 		"CN12": cn_challenge_12,
+		"FLASHKEY": keys["FLASHLIGHT"],
+		"MASKKEY": keys["MASK"],
+		"PAUSEKEY": keys["PAUSE"],
 	};
 	return saveDict;
 
@@ -203,6 +228,10 @@ func _load_game() -> void:
 			resolution = data["RESOLUTION"];
 			vsync = data["VSYNC"];
 			fpscap = data["FPSCAP"];
+			
+			keys["FLASHLIGHT"] = data["FLASHKEY"];
+			keys["MASK"] = data["MASKKEY"];
+			keys["PAUSE"] = data["PAUSEKEY"];
 			
 			master_volume = data["MASTERVOLUME"];
 			music_volume = data["MUSICVOLUME"];

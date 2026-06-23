@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://dv17usjw8ic3f" path="res://assets/themes/fancy.tres" id="2_fdwte"]
 [ext_resource type="Script" uid="uid://c0v5nenvfp03x" path="res://assets/scripts/settings.gd" id="2_k5a6f"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_fdwte"]
+[ext_resource type="Script" uid="uid://b532bu0ovdb8y" path="res://assets/scripts/input_remapper.gd" id="5_dvflm"]
 [ext_resource type="PackedScene" uid="uid://dc5qw1qilmv8l" path="res://assets/scenes/confirmpopup.tscn" id="5_s7awf"]
 
 [node name="Settings" type="Control" unique_id=1957756881]
@@ -32,13 +33,13 @@ metadata/_edit_lock_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18400002
-anchor_top = 0.48900002
+anchor_top = 0.5
 anchor_right = 0.18400002
-anchor_bottom = 0.48900002
+anchor_bottom = 0.5
 offset_left = -211.52002
-offset_top = -328.08002
+offset_top = -336.0
 offset_right = 212.47998
-offset_bottom = 327.91998
+offset_bottom = 344.0
 theme_override_constants/separation = 48
 metadata/_edit_lock_ = true
 
@@ -53,7 +54,6 @@ metadata/_edit_lock_ = true
 [node name="Separator1" type="HSeparator" parent="ThingsContainer" unique_id=703932832]
 layout_mode = 2
 theme = ExtResource("2_fdwte")
-theme_override_constants/separation = 32
 metadata/_edit_lock_ = true
 
 [node name="Video" type="Button" parent="ThingsContainer" unique_id=517420505]
@@ -80,6 +80,18 @@ metadata/_edit_lock_ = true
 script = ExtResource("3_fdwte")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
+[node name="Input" type="Button" parent="ThingsContainer" unique_id=527476175]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Input"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="ThingsContainer/Input" unique_id=1958254867]
+script = ExtResource("3_fdwte")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
 [node name="Misc" type="Button" parent="ThingsContainer" unique_id=1351888968]
 layout_mode = 2
 focus_mode = 0
@@ -95,7 +107,6 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 [node name="Separator2" type="HSeparator" parent="ThingsContainer" unique_id=816923789]
 layout_mode = 2
 theme = ExtResource("2_fdwte")
-theme_override_constants/separation = 60
 metadata/_edit_lock_ = true
 
 [node name="Apply" type="Button" parent="ThingsContainer" unique_id=1516391875]
@@ -238,6 +249,7 @@ metadata/_edit_lock_ = true
 [node name="Audio" type="ScrollContainer" parent="MarginContainer" unique_id=2137863572]
 visible = false
 layout_mode = 2
+horizontal_scroll_mode = 0
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
@@ -329,6 +341,85 @@ step = 0.1
 value = 1.0
 metadata/_edit_lock_ = true
 
+[node name="Input" type="ScrollContainer" parent="MarginContainer" unique_id=1633463668]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="InputContainer" type="VBoxContainer" parent="MarginContainer/Input" unique_id=893615442]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="Flashlight" type="HBoxContainer" parent="MarginContainer/Input/InputContainer" unique_id=811481014]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Input/InputContainer/Flashlight" unique_id=1540962297]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Flashlight: "
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="MarginContainer/Input/InputContainer/Flashlight" unique_id=207703753]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 1
+action_mode = 0
+text = "Ctrl"
+script = ExtResource("5_dvflm")
+action = "FLASHLIGHT"
+metadata/_edit_lock_ = true
+
+[node name="Mask" type="HBoxContainer" parent="MarginContainer/Input/InputContainer" unique_id=834749444]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Input/InputContainer/Mask" unique_id=1001900189]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Mask: "
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="MarginContainer/Input/InputContainer/Mask" unique_id=785243812]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 1
+action_mode = 0
+text = "Shift"
+script = ExtResource("5_dvflm")
+action = "MASK"
+metadata/_edit_lock_ = true
+
+[node name="Pause" type="HBoxContainer" parent="MarginContainer/Input/InputContainer" unique_id=789414076]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Input/InputContainer/Pause" unique_id=744981005]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Pause:"
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="MarginContainer/Input/InputContainer/Pause" unique_id=1648228950]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 1
+action_mode = 0
+text = "Escape"
+script = ExtResource("5_dvflm")
+action = "PAUSE"
+metadata/_edit_lock_ = true
+
 [node name="Misc" type="ScrollContainer" parent="MarginContainer" unique_id=483173660]
 visible = false
 layout_mode = 2
@@ -411,6 +502,7 @@ layout_mode = 1
 
 [connection signal="pressed" from="ThingsContainer/Video" to="." method="_on_video_pressed"]
 [connection signal="pressed" from="ThingsContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="ThingsContainer/Input" to="." method="_on_input_pressed"]
 [connection signal="pressed" from="ThingsContainer/Misc" to="." method="_on_misc_pressed"]
 [connection signal="pressed" from="ThingsContainer/Apply" to="." method="_on_apply_pressed"]
 [connection signal="item_selected" from="MarginContainer/Video/VideoContainer/WindowMode/OptionButton" to="." method="_on_windowmode_item_selected"]

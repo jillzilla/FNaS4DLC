@@ -2,6 +2,7 @@ extends Control
 
 #variables
 @onready var video_settings: ScrollContainer = $MarginContainer/Video;
+@onready var input_settings : ScrollContainer = $MarginContainer/Input;
 @onready var audio_settings: ScrollContainer = $MarginContainer/Audio;
 @onready var misc_settings: ScrollContainer = $MarginContainer/Misc;
 
@@ -9,6 +10,10 @@ extends Control
 @onready var resolution_button: OptionButton = $MarginContainer/Video/VideoContainer/Resolution/OptionButton;
 @onready var vsync_button: CheckBox = $MarginContainer/Video/VideoContainer/VSync/CheckBox;
 @onready var fpscap_button: OptionButton = $MarginContainer/Video/VideoContainer/FPSCap/OptionButton;
+
+@onready var flashlight_key_button : Button = $MarginContainer/Input/InputContainer/Flashlight/Button;
+@onready var mask_key_button : Button = $MarginContainer/Input/InputContainer/Mask/Button;
+@onready var pause_key_button : Button = $MarginContainer/Input/InputContainer/Pause/Button;
 
 @onready var mastervolume_slider: HSlider = $MarginContainer/Audio/AudioContainer/MasterVolume/HSlider;
 @onready var musicvolume_slider: HSlider = $MarginContainer/Audio/AudioContainer/MusicVolume/HSlider;
@@ -33,6 +38,10 @@ func _sync_button_with_options() -> void:
 	resolution_button.selected = main.resolution;
 	vsync_button.button_pressed = main.vsync;
 	fpscap_button.selected = main.fpscap;
+
+	flashlight_key_button._update_text();
+	mask_key_button._update_text();
+	pause_key_button._update_text();
 	
 	mastervolume_slider.value = main.master_volume;
 	musicvolume_slider.value = main.music_volume;
@@ -43,21 +52,36 @@ func _sync_button_with_options() -> void:
 
 func _on_apply_pressed() -> void:
 	self.hide();
+
+	video_settings.show();
+	input_settings.hide();
+	audio_settings.hide();
+	misc_settings.hide();
+
 	main._apply_settings();
 	main._save_game();
 
 func _on_video_pressed() -> void:
 	video_settings.show();
+	input_settings.hide();
+	audio_settings.hide();
+	misc_settings.hide();
+
+func _on_input_pressed() -> void:
+	video_settings.hide();
+	input_settings.show();
 	audio_settings.hide();
 	misc_settings.hide();
 
 func _on_audio_pressed() -> void:
 	video_settings.hide();
+	input_settings.hide();
 	audio_settings.show();
 	misc_settings.hide();
 
 func _on_misc_pressed() -> void:
 	video_settings.hide();
+	input_settings.hide();
 	audio_settings.hide();
 	misc_settings.show();
 
@@ -103,6 +127,10 @@ func _reset_settings() -> void:
 	main.resolution = main.DEFAULT_RESOLUTION;
 	main.vsync = main.DEFAULT_VSYNC;
 	main.fpscap = main.DEFAULT_FPSCAP;
+
+	main.keys["FLASHLIGHT"] = KEY_CTRL;
+	main.keys["MASK"] = KEY_SHIFT;
+	main.keys["PAUSE"] = KEY_ESCAPE;
 	
 	main.master_volume = main.DEFAULT_MASTER_VOLUME;
 	main.music_volume = main.DEFAULT_MUSIC_VOLUME;

@@ -4,9 +4,8 @@
 [ext_resource type="Script" uid="uid://cm60ndafc34ka" path="res://assets/scripts/tutorials.gd" id="1_l135b"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="3_e2gv7"]
 
-[node name="Tutorials" type="Node" unique_id=445370292 node_paths=PackedStringArray("counter")]
+[node name="Tutorials" type="Node" unique_id=445370292]
 script = ExtResource("1_l135b")
-counter = NodePath("UI/Counter")
 data_json = "res://assets/data/tutorials.json"
 
 [node name="UI" type="Control" parent="." unique_id=1236848483]
