@@ -635,8 +635,8 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 script = ExtResource("123_mliqa")
 character_ai_level_id = "Nightmare Toy Sonic"
 player_component = NodePath("../../../Components/Player_Component")
-min_movement_timer = 150.0
-max_movement_timer = 200.0
+min_movement_timer = 200.0
+max_movement_timer = 250.0
 possible_directions = Array[String](["Left Vent", "Right Vent"])
 max_positions_in_directions = Dictionary[String, int]({
 "Ceiling": 0,
@@ -660,7 +660,7 @@ metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareToySonic" unique_id=824348831 node_paths=PackedStringArray("player_component", "mask_component", "character_movement_component")]
 script = ExtResource("6_764v7")
-timer_attack = 2.5
+timer_attack = 3.5
 player_component = NodePath("../../../Components/Player_Component")
 mask_component = NodePath("../../../Components/MaskComponent")
 character_movement_component = NodePath("../CharacterMovementComponent")
@@ -695,8 +695,8 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 script = ExtResource("123_mliqa")
 character_ai_level_id = "Nightmare Toy Mario"
 player_component = NodePath("../../../Components/Player_Component")
-min_movement_timer = 100.0
-max_movement_timer = 120.0
+min_movement_timer = 150.0
+max_movement_timer = 180.0
 possible_directions = Array[String](["Right Vent"])
 max_positions_in_directions = Dictionary[String, int]({
 "Ceiling": 0,
@@ -717,7 +717,7 @@ metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareToyMario" unique_id=838143323 node_paths=PackedStringArray("player_component", "mask_component", "character_movement_component")]
 script = ExtResource("6_764v7")
-timer_attack = 2.5
+timer_attack = 3.5
 player_component = NodePath("../../../Components/Player_Component")
 mask_component = NodePath("../../../Components/MaskComponent")
 character_movement_component = NodePath("../CharacterMovementComponent")
@@ -771,8 +771,8 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 script = ExtResource("123_mliqa")
 character_ai_level_id = "Nightmare Toy Yoshi"
 player_component = NodePath("../../../Components/Player_Component")
-min_movement_timer = 80.0
-max_movement_timer = 100.0
+min_movement_timer = 100.0
+max_movement_timer = 150.0
 possible_directions = Array[String](["Left Vent"])
 max_positions_in_directions = Dictionary[String, int]({
 "Ceiling": 0,
@@ -793,7 +793,7 @@ metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareToyYoshi" unique_id=1112880949 node_paths=PackedStringArray("player_component", "mask_component", "character_movement_component")]
 script = ExtResource("6_764v7")
-timer_attack = 2.5
+timer_attack = 3.5
 player_component = NodePath("../../../Components/Player_Component")
 mask_component = NodePath("../../../Components/MaskComponent")
 character_movement_component = NodePath("../CharacterMovementComponent")
@@ -827,8 +827,8 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 script = ExtResource("123_mliqa")
 character_ai_level_id = "Nightmare Taingle"
 player_component = NodePath("../../../Components/Player_Component")
-min_movement_timer = 110.0
-max_movement_timer = 113.0
+min_movement_timer = 150.0
+max_movement_timer = 200.0
 possible_directions = Array[String](["Ceiling"])
 max_positions_in_directions = Dictionary[String, int]({
 "Ceiling": 3,
@@ -842,7 +842,7 @@ metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareTaingle" unique_id=1248689429 node_paths=PackedStringArray("player_component", "mask_component", "character_movement_component")]
 script = ExtResource("6_764v7")
-timer_attack = 2.5
+timer_attack = 3.5
 player_component = NodePath("../../../Components/Player_Component")
 mask_component = NodePath("../../../Components/MaskComponent")
 character_movement_component = NodePath("../CharacterMovementComponent")
@@ -901,7 +901,7 @@ script = ExtResource("123_mliqa")
 character_ai_level_id = "Nightmare Cream"
 player_component = NodePath("../../../Components/Player_Component")
 min_movement_timer = 120.0
-max_movement_timer = 130.0
+max_movement_timer = 140.0
 possible_directions = Array[String](["Right Vent"])
 max_positions_in_directions = Dictionary[String, int]({
 "Ceiling": 0,
@@ -920,7 +920,7 @@ metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareCream" unique_id=125435431 node_paths=PackedStringArray("player_component", "mask_component", "character_movement_component")]
 script = ExtResource("6_764v7")
-timer_attack = 2.5
+timer_attack = 3.5
 player_component = NodePath("../../../Components/Player_Component")
 mask_component = NodePath("../../../Components/MaskComponent")
 character_movement_component = NodePath("../CharacterMovementComponent")
@@ -944,7 +944,7 @@ character_attack_component = NodePath("../CharacterAttackComponent")
 character_movement_component = NodePath("../CharacterMovementComponent")
 desk_room_component = NodePath("../../../Components/RoomComponent_Desk")
 desk_character_animation = NodePath("../../../Rooms/Desk/CreamDeskAnimation")
-animation_speed = 3.0
+animation_speed = 4.0
 metadata/_custom_type_script = "uid://dmrygnokdj0s1"
 
 [node name="NightmareLuiginette" type="Node" parent="Characters" unique_id=474358321]

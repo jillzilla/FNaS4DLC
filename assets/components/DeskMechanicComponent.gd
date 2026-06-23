@@ -62,44 +62,22 @@ func _player_is_under_desk() -> void:
                 "Right Vent":
                     if desk_character_animation.get_node("LeftFoot") != null && desk_character_animation.get_node("RightFoot") != null:
                         if !switch_parts_right:
-                            var index_a: int = desk_character_animation.get_node("RightFoot").get_index();
-                            var index_b: int = desk_character_animation.get_node("LeftFoot").get_index();
-                            var index_c: int = index_a;
-
-                            index_a = index_b;
-                            index_b = index_c;
-
-                            desk_character_animation.move_child(desk_character_animation.get_node("RightFoot"), index_a);
-                            desk_character_animation.move_child(desk_character_animation.get_node("LeftFoot"), index_b);
-
+                            _switch_feet_layer_index();
                             desk_character_animation.get_node("LeftFoot").scale = Vector2(BODYPARTMINSCALE, BODYPARTMINSCALE);
                             desk_character_animation.get_node("RightFoot").scale = Vector2(BODYPARTMAXSCALE, BODYPARTMAXSCALE);
-
                             switch_parts_left = false;
                             switch_parts_right = true;
-
                     desk_character_animation.scale.x = 1;
                     start = STARTPOSRIGHT;
                     end = ENDPOSRIGHT;
                 _:
                     if desk_character_animation.get_node("LeftFoot") != null && desk_character_animation.get_node("RightFoot") != null:
                         if !switch_parts_left:
-                            var index_a: int = desk_character_animation.get_node("RightFoot").get_index();
-                            var index_b: int = desk_character_animation.get_node("LeftFoot").get_index();
-                            var index_c: int = index_a;
-
-                            index_a = index_b;
-                            index_b = index_c;
-
-                            desk_character_animation.move_child(desk_character_animation.get_node("RightFoot"), index_a);
-                            desk_character_animation.move_child(desk_character_animation.get_node("LeftFoot"), index_b);
-
+                            _switch_feet_layer_index();
                             desk_character_animation.get_node("LeftFoot").scale = Vector2(BODYPARTMAXSCALE, BODYPARTMAXSCALE);
                             desk_character_animation.get_node("RightFoot").scale = Vector2(BODYPARTMINSCALE, BODYPARTMINSCALE);
-                            
                             switch_parts_left = true;
                             switch_parts_right = false;
-
                     desk_character_animation.scale.x = -1;
                     start = STARTPOSLEFT;
                     end = ENDPOSLEFT;
@@ -124,3 +102,14 @@ func _player_is_under_desk() -> void:
 func _step_timer_timeout() -> void:
     if enable:
         desk_character_animation.get_node("Steps").play();
+
+func _switch_feet_layer_index() -> void:
+    var index_a: int = desk_character_animation.get_node("RightFoot").get_index();
+    var index_b: int = desk_character_animation.get_node("LeftFoot").get_index();
+    var index_c: int = index_a;
+
+    index_a = index_b;
+    index_b = index_c;
+
+    desk_character_animation.move_child(desk_character_animation.get_node("RightFoot"), index_a);
+    desk_character_animation.move_child(desk_character_animation.get_node("LeftFoot"), index_b);

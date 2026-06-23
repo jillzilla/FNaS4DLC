@@ -10,7 +10,7 @@ extends Node
 
 #functions
 func _ready() -> void:
-	DiscordManager._update_details("Rare Screen");
+	DiscordManager._update_details("???");
 	DiscordManager._update_state("");
 
 	if GlobalAudioManager.get_node("Ambience").is_playing():

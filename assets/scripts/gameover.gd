@@ -17,7 +17,7 @@ var data: Dictionary = {};
 
 #functions
 func _ready() -> void:
-	DiscordManager._update_details("Game Over Screen");
+	DiscordManager._update_details("Game Over...");
 	DiscordManager._update_state("Killed by " + main.killedBy);
 
 	if GlobalAudioManager.get_node("Ambience").is_playing():

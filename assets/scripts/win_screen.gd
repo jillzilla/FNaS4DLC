@@ -9,7 +9,7 @@ var next_scene_path: String = "";
 
 #functions
 func _ready() -> void:
-	DiscordManager._update_details("Win Screen");
+	DiscordManager._update_details("8 AM!");
 	DiscordManager._update_state("Night " + str(main.nightcounter));
 
 	if GlobalAudioManager.get_node("Ambience").is_playing():

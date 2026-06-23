@@ -5,7 +5,7 @@ extends Node
 
 #functions
 func _ready() -> void:
-	DiscordManager._update_details("Intro Screen");
+	DiscordManager._update_details("This is what happens...");
 	DiscordManager._update_state("");
 
 func _on_button_pressed() -> void:

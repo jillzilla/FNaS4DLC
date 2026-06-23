@@ -31,38 +31,40 @@ func _ready() -> void:
 	main._reset_ai();
 	
 	if main.night_to_play > 1:
-		guidebutton.visible = true;
+		guidebutton.show();
 	
 	if main.night7ending:
 		if !main.night6ending:
 			main.night6ending = true;
 			main._save_game();
-		star3.visible = true;
+		star3.show();
 	
 	if main.night6ending:
 		if !main.night5ending:
 			main.night5ending = true;
+			main.night_to_play = 5;
+			guide._update_icon_visibility();
 			main._save_game();
-		star2.visible = true;
-		customnightbutton.visible = true;
-		extrasbutton.visible = true;
+		star2.show();
+		customnightbutton.show();
+		extrasbutton.show();
 	
 	if main.night5ending:
-		night6button.visible = true;
-		star1.visible = true;
+		night6button.show();
+		star1.show();
 	
 	nightcounter.text = "Night " + str(main.night_to_play);
 
 func _on_button_pressed() -> void: # play, forgot to name the signal properly oops
 	main.nightcounter = main.night_to_play;
-	buttonscontainer.visible = false;
+	buttonscontainer.hide();
 	animations.play("ChangeScene");
 	await animations.animation_finished;
 	loading._load_scene("res://assets/scenes/night_screen.tscn");
 
 func _on_night_6_pressed() -> void:
 	main.nightcounter = 6;
-	buttonscontainer.visible = false;
+	buttonscontainer.hide();
 	animations.play("ChangeScene");
 	await animations.animation_finished;
 	loading._load_scene("res://assets/scenes/night_screen.tscn");
