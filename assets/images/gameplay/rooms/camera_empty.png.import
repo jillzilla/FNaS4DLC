@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck6vwfytw3ase"
-path="res://.godot/imported/salvage_1.png-c750a3f5d4f2e2c1d0659fa1fb8a7ab4.ctex"
+path="res://.godot/imported/camera_empty.png-a8e1445ca24cc84288797b14972f8ec5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/gameplay/characters/salvage/salvage_1.png"
-dest_files=["res://.godot/imported/salvage_1.png-c750a3f5d4f2e2c1d0659fa1fb8a7ab4.ctex"]
+source_file="res://assets/images/gameplay/rooms/camera_empty.png"
+dest_files=["res://.godot/imported/camera_empty.png-a8e1445ca24cc84288797b14972f8ec5.ctex"]
 
 [params]
 

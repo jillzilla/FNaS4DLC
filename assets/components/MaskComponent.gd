@@ -27,7 +27,7 @@ var is_about_to_do_something : bool = false;
 
 #functions
 func _process(delta: float) -> void:
-	if player_component.is_alive && player_component.can_use_mask:
+	if player_component.is_alive && player_component.can_use_mask && !is_about_to_do_something:
 		if Input.is_action_just_pressed("MASK"):
 			if !is_using_mask:
 				_put_mask();

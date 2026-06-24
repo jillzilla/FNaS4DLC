@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tgiacwavqd5o"
-path="res://.godot/imported/salvage_2.png-7cd7ac8d4858efc9a9f0eaf532879d65.ctex"
+uid="uid://d1weco57ks3nc"
+path="res://.godot/imported/ss3.png-89c131f7e4c2d62194eafec9b6ca2f3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/gameplay/characters/salvage/salvage_2.png"
-dest_files=["res://.godot/imported/salvage_2.png-7cd7ac8d4858efc9a9f0eaf532879d65.ctex"]
+source_file="res://assets/images/gameplay/characters/salvage/ss3.png"
+dest_files=["res://.godot/imported/ss3.png-89c131f7e4c2d62194eafec9b6ca2f3f.ctex"]
 
 [params]
 
