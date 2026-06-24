@@ -36,6 +36,7 @@
 [ext_resource type="Script" uid="uid://cwylbc3jnkgad" path="res://assets/components/MaskComponent.gd" id="9_tv68p"]
 [ext_resource type="Texture2D" uid="uid://nb6tg6pvsdjj" path="res://assets/images/gameplay/characters/taingle/taingle_4.png" id="10_hlo8c"]
 [ext_resource type="Script" uid="uid://xpl5plir63t7" path="res://assets/components/SalvageSoundsComponent.gd" id="11_cykhs"]
+[ext_resource type="Script" uid="uid://ddiyytexu4c5w" path="res://assets/components/BTSoundsComponent.gd" id="11_fmlyk"]
 [ext_resource type="AudioStream" uid="uid://dfkiq2ar0fecj" path="res://assets/sounds/taingleradionew.ogg" id="11_q5ac0"]
 [ext_resource type="Texture2D" uid="uid://c8rfx7wqcgir4" path="res://assets/images/gameplay/rooms/flashlight/hallway_on.png" id="12_b68su"]
 [ext_resource type="AudioStream" uid="uid://u1rbqt7xqt8" path="res://assets/sounds/Toad_Laughing.ogg" id="12_p0msi"]
@@ -48,7 +49,9 @@
 [ext_resource type="AudioStream" uid="uid://b5usewcbo6gqh" path="res://assets/sounds/Walking_1.ogg" id="19_cptix"]
 [ext_resource type="AudioStream" uid="uid://vws82qu5ple8" path="res://assets/sounds/Walking_2.ogg" id="20_k63c8"]
 [ext_resource type="Texture2D" uid="uid://c2pxe3ehd4qtn" path="res://assets/images/gameplay/rooms/clipmask/vent.png" id="20_t2peh"]
+[ext_resource type="Script" uid="uid://cupidlfbaj51p" path="res://assets/components/EasterEggComponent.gd" id="20_uacgo"]
 [ext_resource type="AudioStream" uid="uid://b45lrfsxaou4l" path="res://assets/sounds/Walking_3.ogg" id="21_66s47"]
+[ext_resource type="Script" uid="uid://cu2sd5p1bnw2g" path="res://assets/components/NightmareShadowToyMarioComponent.gd" id="21_dpljo"]
 [ext_resource type="Texture2D" uid="uid://v3lx10cvmtha" path="res://assets/images/gameplay/characters/yoshi/yoshi_1.png" id="21_h887p"]
 [ext_resource type="AudioStream" uid="uid://blrhwp7bm001r" path="res://assets/sounds/[7] Run_to_Door_Sound.ogg" id="22_bkfnj"]
 [ext_resource type="Texture2D" uid="uid://c8mjrs7bc20p1" path="res://assets/images/gameplay/characters/yoshi/yoshi_2.png" id="22_ondv3"]
@@ -908,6 +911,14 @@ mask_component = NodePath("../../../Components/MaskComponent")
 character_movement_component = NodePath("../CharacterMovementComponent")
 metadata/_custom_type_script = "uid://d3em038vhj7qg"
 
+[node name="BTSoundsComponent" type="Node" parent="Characters/NightmareBT" unique_id=116688584 node_paths=PackedStringArray("laugh_sound", "movement_sounds", "movement_component", "attack_component")]
+script = ExtResource("11_fmlyk")
+laugh_sound = NodePath("../../../Sounds/Toad_Laugh_SFX")
+movement_sounds = [NodePath("../../../Sounds/BT_Move_1"), NodePath("../../../Sounds/BT_Move_2")]
+movement_component = NodePath("../CharacterMovementComponent")
+attack_component = NodePath("../CharacterAttackComponent")
+metadata/_custom_type_script = "uid://ddiyytexu4c5w"
+
 [node name="NightmareSalvageSonic" type="Node" parent="Characters" unique_id=1247791275]
 script = ExtResource("2_qj8ra")
 metadata/_custom_type_script = "uid://dxqook2amacs3"
@@ -1210,6 +1221,41 @@ mask_sprite = NodePath("../../Misc/GUI/Mask")
 mask_on_SFX = NodePath("../../Sounds/Mask_ON")
 mask_off_SFX = NodePath("../../Sounds/Mask_OFF")
 metadata/_custom_type_script = "uid://cwylbc3jnkgad"
+
+[node name="EasterEggComponent_Big" type="Node" parent="Components" unique_id=901268958 node_paths=PackedStringArray("sprite", "room")]
+script = ExtResource("20_uacgo")
+sprite = NodePath("../../Rooms/Hallway/Big")
+room = NodePath("../RoomComponent_Hallway")
+random_encounter = 0.05
+metadata/_custom_type_script = "uid://cupidlfbaj51p"
+
+[node name="EasterEggComponent_Toadette_Left" type="Node" parent="Components" unique_id=1609316729 node_paths=PackedStringArray("sprite", "room")]
+script = ExtResource("20_uacgo")
+sprite = NodePath("../../Rooms/Left_Vent/Toadette")
+room = NodePath("../RoomComponent_LVent")
+random_encounter = 0.01
+metadata/_custom_type_script = "uid://cupidlfbaj51p"
+
+[node name="EasterEggComponent_Toadette_Right" type="Node" parent="Components" unique_id=772526423 node_paths=PackedStringArray("sprite", "room")]
+script = ExtResource("20_uacgo")
+sprite = NodePath("../../Rooms/Right_Vent/Toadette")
+room = NodePath("../RoomComponent_RVent")
+random_encounter = 0.01
+metadata/_custom_type_script = "uid://cupidlfbaj51p"
+
+[node name="EasterEggComponent_Golden" type="Node" parent="Components" unique_id=1248163094 node_paths=PackedStringArray("sprite", "room")]
+script = ExtResource("20_uacgo")
+sprite = NodePath("../../Rooms/Hallway/SONIC")
+room = NodePath("../RoomComponent_Hallway")
+random_encounter = 0.001
+metadata/_custom_type_script = "uid://cupidlfbaj51p"
+
+[node name="NightmareShadowToyMarioComponent" type="Node" parent="Components" unique_id=1244707947 node_paths=PackedStringArray("sprite", "room")]
+script = ExtResource("21_dpljo")
+sprite = NodePath("../../Rooms/Office/ShadowMario")
+room = NodePath("../RoomComponent_Office")
+random_encounter = 0.001
+metadata/_custom_type_script = "uid://cu2sd5p1bnw2g"
 
 [node name="Sounds" type="Node" parent="." unique_id=1674670979]
 

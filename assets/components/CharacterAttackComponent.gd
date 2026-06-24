@@ -24,6 +24,15 @@ func _process(delta: float) -> void:
         step += delta;
         if step >= timer_attack:
             attack.emit();
+            match(character_movement_component.current_direction):
+                "Left Vent":
+                    character_movement_component.sprites_left_vent[character_movement_component.current_position].hide();
+                "Right Vent":
+                    character_movement_component.sprites_right_vent[character_movement_component.current_position].hide();
+                "Ceiling":
+                    character_movement_component.sprites_ceiling[character_movement_component.current_position].hide();
+                "Hallway":
+                    character_movement_component.sprites_hallway[character_movement_component.current_position].hide();
             is_attacking = true;
 
 func _character_moved() -> void:
