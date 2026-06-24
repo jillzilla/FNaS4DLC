@@ -4,7 +4,7 @@ signal MaskIsRemoved;
 
 #variables
 @export var scrolling: ScrollingComponent;
-@export var travel: RoomTravelComponent;
+@export var travel: Node;
 
 @onready var dasprite: AnimatedSprite2D = $Sprite;
 

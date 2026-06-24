@@ -153,7 +153,8 @@ func _get_randomized_movement_timer() -> float:
 func _move_character(turn_off_flashlight : bool) -> void:
 	match (current_direction):
 		"Left Vent":
-			left_vent.play();
+			if left_vent:
+				left_vent.play();
 			if turn_off_flashlight:
 				if flashlight_left_vent.is_flashlight_on:
 					flashlight_left_vent._flashlight_off();
@@ -161,7 +162,8 @@ func _move_character(turn_off_flashlight : bool) -> void:
 				s.hide();
 			sprites_left_vent[current_position].show();
 		"Right Vent":
-			right_vent.play();
+			if right_vent:
+				right_vent.play();
 			if turn_off_flashlight:
 				if flashlight_right_vent.is_flashlight_on:
 					flashlight_right_vent._flashlight_off();

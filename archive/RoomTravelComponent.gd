@@ -28,7 +28,7 @@ enum inputs {ENTERED, PRESSED};
 @export var roomToLeave: Array[Sprite2D];
 @export var roomToLeavePosition: Array[Vector2];
 
-@export var flashlight: FlashLightComponent;
+@export var flashlight: Node;
 
 @export var mask: Node2D;
 @export var canUseMaskHere: bool = false;
