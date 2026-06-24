@@ -5,6 +5,7 @@ class_name JumpscareComponent extends Component
 @export var mask_component : MaskComponent;
 @export var office_room_component : RoomComponent;
 @export var player_component : Player_Component;
+@export var clock_timer : Timer;
 @export var character_attack_component : CharacterAttackComponent;
 
 @export_group("Resources")
@@ -20,6 +21,7 @@ func _ready() -> void:
 
 func _character_attack() -> void:
     if player_component.is_alive:
+        clock_timer.stop();
         player_component.is_alive = false;
 
         if mask_component.is_using_mask:

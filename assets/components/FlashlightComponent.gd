@@ -9,13 +9,14 @@ signal flashlight_is_off;
 @export var darkness_sprite: Sprite2D;
 
 var is_flashlight_on: bool = false;
+var disable : bool = false;
 
 #functions
 func _process(_delta: float) -> void:
-    if player_component.flashlight == self && player_component.is_alive:
+    if player_component.flashlight == self && player_component.is_alive && !disable:
         if Input.is_action_just_pressed("FLASHLIGHT"):
             _flashlight_on();
-    if player_component.flashlight == null || !Input.is_action_pressed("FLASHLIGHT") || !player_component.is_alive:
+    if player_component.flashlight == null || !Input.is_action_pressed("FLASHLIGHT") || !player_component.is_alive || disable:
         _flashlight_off();
 
 func _flashlight_on() -> void:

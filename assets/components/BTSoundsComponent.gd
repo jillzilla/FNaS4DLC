@@ -14,6 +14,8 @@ func _ready() -> void:
 func bt_moved() -> void:
     if movement_component.current_position == 0:
         movement_sounds.pick_random().play();
+    if movement_component.current_position == -1:
+        laugh_sound.stop();
 
 func bt_attacked() -> void:
     laugh_sound.play();

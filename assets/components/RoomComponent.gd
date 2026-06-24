@@ -35,6 +35,8 @@ enum inputs {
 @export var allow_scrolling: bool = false;
 @export var allow_mask: bool = false;
 
+var disable : bool = false;
+
 #functions
 func _ready() -> void:
 	button.connect("input_event", _button_pressed);
@@ -45,12 +47,12 @@ func _ready() -> void:
 func _button_pressed(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-			if player_component.is_alive:
+			if player_component.is_alive && !disable:
 				_go_to_room();
 
 func _button_mouse_entered() -> void:
 	if input == inputs.ENTERED:
-		if player_component.is_alive:
+		if player_component.is_alive && !disable:
 			_go_to_room();
 
 func _go_to_room() -> void:
