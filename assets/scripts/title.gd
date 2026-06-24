@@ -20,6 +20,8 @@ extends Node
 @onready var guide: Control = $UI/Guide;
 @onready var loading: Control = $UI/Loading;
 
+@onready var version_counter : Label = $UI/Control/Version;
+
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Title Screen");
@@ -27,6 +29,8 @@ func _ready() -> void:
 
 	if GlobalAudioManager.get_node("Ambience").is_playing():
 		GlobalAudioManager.get_node("Ambience").stop();
+	
+	version_counter.text = "Ver. " + ProjectSettings.get_setting("application/config/version");
 	
 	main._reset_ai();
 	

@@ -14,27 +14,37 @@
 
 [node name="Sonic_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=497682462]
 stream = ExtResource("1_uw54k")
+volume_db = -5.0
+pitch_scale = 0.95
 bus = &"Jumpscare"
 
 [node name="Mario_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1474882084]
 stream = ExtResource("2_ai53t")
+volume_db = -5.0
+pitch_scale = 0.95
 bus = &"Jumpscare"
 
 [node name="Yoshi_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1073957951]
 stream = ExtResource("2_shhgd")
+volume_db = -5.0
+pitch_scale = 0.95
 bus = &"Jumpscare"
 
 [node name="Taingle_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=876443532]
 stream = ExtResource("1_16a0g")
+volume_db = -5.0
+pitch_scale = 0.95
 bus = &"Jumpscare"
 
 [node name="Salvage_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1937665387]
 stream = ExtResource("5_wb4mn")
 volume_db = -5.0
+pitch_scale = 0.85
 bus = &"Jumpscare"
 
 [node name="Cream_Jumpscare" type="AudioStreamPlayer" parent="." unique_id=1161609733]
 stream = ExtResource("2_shhgd")
+volume_db = -5.0
 pitch_scale = 1.25
 bus = &"Jumpscare"
 

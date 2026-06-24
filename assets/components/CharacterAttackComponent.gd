@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
                     character_movement_component.sprites_ceiling[character_movement_component.current_position].hide();
                 "Hallway":
                     character_movement_component.sprites_hallway[character_movement_component.current_position].hide();
+            can_attack = false;
             is_attacking = true;
 
 func _character_moved() -> void:

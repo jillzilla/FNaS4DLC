@@ -29,9 +29,7 @@ func _process(delta: float) -> void:
                 attack_component.can_attack = false;
                 attack_component.step = 0;
                 attack_component.pause = false;
-
                 movement_component._reset_character_status(do_the_character_fade_away_effect_when_reset, play_vent_sound_when_reset);
-                
                 step = 0;
 
 func _mask_is_on() -> void:
