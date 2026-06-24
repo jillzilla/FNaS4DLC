@@ -89,7 +89,7 @@ func _apply_settings() -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN);
 		2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN);
-			
+		
 	match (resolution):
 		0:
 			DisplayServer.window_set_size(Vector2(640, 360), 0);

@@ -17,7 +17,8 @@ class_name JumpscareComponent extends Component
 
 #functions
 func _ready() -> void:
-    character_attack_component.connect("attack", _character_attack);
+    if character_attack_component != null:
+        character_attack_component.connect("attack", _character_attack);
 
 func _character_attack() -> void:
     if player_component.is_alive:
