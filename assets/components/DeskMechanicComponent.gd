@@ -22,6 +22,9 @@ const BODYPARTMAXSCALE: float = 1.2;
 
 @export_group("Resources")
 @export var desk_character_animation: Node2D;
+@export var timer_step : Timer;
+@export var right_foot : Sprite2D;
+@export var left_foot : Sprite2D;
 
 @export_group("Custom Flags")
 @export var animation_speed: float = 0.0;
@@ -34,8 +37,8 @@ var switch_parts_left: bool = false;
 #functions
 func _ready() -> void:
     desk_room_component.connect("_player_went_to_room", _player_is_under_desk);
-    if desk_character_animation.get_node("Timer_Step") != null:
-        desk_character_animation.get_node("Timer_Step").connect("timeout", _step_timer_timeout);
+    if timer_step != null:
+        timer_step.connect("timeout", _step_timer_timeout);
 
 func _player_is_under_desk() -> void:
     if enable:
@@ -48,8 +51,8 @@ func _player_is_under_desk() -> void:
             character_attack_component.can_attack = false;
             character_attack_component.step = 0;
 
-            if desk_character_animation.get_node("Timer_Step") != null:
-                desk_character_animation.get_node("Timer_Step").start();
+            if timer_step != null:
+                timer_step.start();
 
             if tween_movement:
                 tween_movement.kill();
@@ -60,22 +63,22 @@ func _player_is_under_desk() -> void:
 
             match (character_movement_component.current_direction):
                 "Right Vent":
-                    if desk_character_animation.get_node("LeftFoot") != null && desk_character_animation.get_node("RightFoot") != null:
+                    if left_foot != null && right_foot != null:
                         if !switch_parts_right:
                             _switch_feet_layer_index();
-                            desk_character_animation.get_node("LeftFoot").scale = Vector2(BODYPARTMINSCALE, BODYPARTMINSCALE);
-                            desk_character_animation.get_node("RightFoot").scale = Vector2(BODYPARTMAXSCALE, BODYPARTMAXSCALE);
+                            left_foot.scale = Vector2(BODYPARTMINSCALE, BODYPARTMINSCALE);
+                            right_foot.scale = Vector2(BODYPARTMAXSCALE, BODYPARTMAXSCALE);
                             switch_parts_left = false;
                             switch_parts_right = true;
                     desk_character_animation.scale.x = 1;
                     start = STARTPOSRIGHT;
                     end = ENDPOSRIGHT;
                 _:
-                    if desk_character_animation.get_node("LeftFoot") != null && desk_character_animation.get_node("RightFoot") != null:
+                    if left_foot != null && right_foot != null:
                         if !switch_parts_left:
                             _switch_feet_layer_index();
-                            desk_character_animation.get_node("LeftFoot").scale = Vector2(BODYPARTMAXSCALE, BODYPARTMAXSCALE);
-                            desk_character_animation.get_node("RightFoot").scale = Vector2(BODYPARTMINSCALE, BODYPARTMINSCALE);
+                            desk_character_animation.left_foot.scale = Vector2(BODYPARTMAXSCALE, BODYPARTMAXSCALE);
+                            right_foot.scale = Vector2(BODYPARTMINSCALE, BODYPARTMINSCALE);
                             switch_parts_left = true;
                             switch_parts_right = false;
                     desk_character_animation.scale.x = -1;
@@ -89,8 +92,8 @@ func _player_is_under_desk() -> void:
 
             await tween_movement.finished;
 
-            if desk_character_animation.get_node("Timer_Step") != null:
-                desk_character_animation.get_node("Timer_Step").stop();
+            if timer_step != null:
+                timer_step.stop();
 
             player_component.characters_walking_on_desk.pop_front();
 
@@ -101,15 +104,15 @@ func _player_is_under_desk() -> void:
 
 func _step_timer_timeout() -> void:
     if enable:
-        desk_character_animation.get_node("Steps").play();
+        timer_step.play();
 
 func _switch_feet_layer_index() -> void:
-    var index_a: int = desk_character_animation.get_node("RightFoot").get_index();
-    var index_b: int = desk_character_animation.get_node("LeftFoot").get_index();
+    var index_a: int = right_foot.get_index();
+    var index_b: int = left_foot.get_index();
     var index_c: int = index_a;
 
     index_a = index_b;
     index_b = index_c;
 
-    desk_character_animation.move_child(desk_character_animation.get_node("RightFoot"), index_a);
-    desk_character_animation.move_child(desk_character_animation.get_node("LeftFoot"), index_b);
+    desk_character_animation.move_child(right_foot, index_a);
+    desk_character_animation.move_child(left_foot, index_b);

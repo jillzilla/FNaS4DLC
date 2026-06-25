@@ -51,7 +51,9 @@
 [ext_resource type="AudioStream" uid="uid://b1trcjkmy1vnc" path="res://assets/sounds/High_Danger.ogg" id="16_riiyp"]
 [ext_resource type="Script" uid="uid://b1dgrkwfhhh0y" path="res://assets/components/KnucklesStallingMechanicComponent.gd" id="16_sem20"]
 [ext_resource type="Script" uid="uid://du5aktvgtpf1m" path="res://assets/components/TailsDollMechanicComponent.gd" id="18_kqqos"]
+[ext_resource type="Script" uid="uid://c6wohqq8ufa1l" path="res://assets/components/LuiginetteMechanicsSelectionComponent.gd" id="19_asafi"]
 [ext_resource type="AudioStream" uid="uid://b5usewcbo6gqh" path="res://assets/sounds/Walking_1.ogg" id="19_cptix"]
+[ext_resource type="Script" uid="uid://b0a7hodnklbkc" path="res://assets/components/LuiginetteSoundsComponent.gd" id="20_78ypo"]
 [ext_resource type="AudioStream" uid="uid://vws82qu5ple8" path="res://assets/sounds/Walking_2.ogg" id="20_k63c8"]
 [ext_resource type="Texture2D" uid="uid://c2pxe3ehd4qtn" path="res://assets/images/gameplay/rooms/clipmask/vent.png" id="20_t2peh"]
 [ext_resource type="Script" uid="uid://cupidlfbaj51p" path="res://assets/components/EasterEggComponent.gd" id="20_uacgo"]
@@ -108,6 +110,7 @@
 [ext_resource type="Texture2D" uid="uid://dxr7q74afj2e6" path="res://assets/images/gameplay/characters/tsonic/tsonicpelvis.png" id="48_wrac7"]
 [ext_resource type="Texture2D" uid="uid://ckkpwi621bua1" path="res://assets/images/gameplay/characters/tsonic/tsonicleftfoot.png" id="49_1mjni"]
 [ext_resource type="Texture2D" uid="uid://d1weco57ks3nc" path="res://assets/images/gameplay/characters/salvage/ss3.png" id="49_v3n8n"]
+[ext_resource type="AudioStream" uid="uid://bj4egeb2c7ql" path="res://assets/sounds/16. Computerscreech.ogg" id="50_71yt4"]
 [ext_resource type="Texture2D" uid="uid://dpqu8d0aejsjm" path="res://assets/images/gameplay/characters/salvage/ss4.png" id="50_uacgo"]
 [ext_resource type="Texture2D" uid="uid://bllvgjlfwlk8r" path="res://assets/images/gameplay/characters/tailsdoll/tails_doll_ceiling.png" id="53_o1odc"]
 [ext_resource type="Texture2D" uid="uid://bh8ts3kech7s" path="res://assets/images/gameplay/characters/nluigi/nluigidesk.png" id="55_k63c8"]
@@ -675,13 +678,16 @@ game_over_name = "Nightmare Toy Sonic"
 jumpscare_sound_name = "Sonic_Jumpscare"
 metadata/_custom_type_script = "uid://u3ovbneaky16"
 
-[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareToySonic" unique_id=1345397109 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation")]
+[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareToySonic" unique_id=1345397109 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation", "timer_step", "right_foot", "left_foot")]
 script = ExtResource("6_j85f1")
 player_component = NodePath("../../../Components/Player_Component")
 character_attack_component = NodePath("../CharacterAttackComponent")
 character_movement_component = NodePath("../CharacterMovementComponent")
 desk_room_component = NodePath("../../../Components/RoomComponent_Desk")
 desk_character_animation = NodePath("../../../Rooms/Desk/ToySonic_Desk_Animation")
+timer_step = NodePath("../../../Rooms/Desk/ToySonic_Desk_Animation/Timer_Step")
+right_foot = NodePath("../../../Rooms/Desk/ToySonic_Desk_Animation/RightFoot")
+left_foot = NodePath("../../../Rooms/Desk/ToySonic_Desk_Animation/LeftFoot")
 animation_speed = 0.5
 metadata/_custom_type_script = "uid://dmrygnokdj0s1"
 
@@ -734,7 +740,7 @@ game_over_name = "Nightmare Toy Mario"
 jumpscare_sound_name = "Mario_Jumpscare"
 metadata/_custom_type_script = "uid://u3ovbneaky16"
 
-[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareToyMario" unique_id=1287320402 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation")]
+[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareToyMario" unique_id=1287320402 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation", "timer_step", "right_foot", "left_foot")]
 script = ExtResource("6_j85f1")
 enable = false
 player_component = NodePath("../../../Components/Player_Component")
@@ -742,6 +748,9 @@ character_attack_component = NodePath("../CharacterAttackComponent")
 character_movement_component = NodePath("../CharacterMovementComponent")
 desk_room_component = NodePath("../../../Components/RoomComponent_Desk")
 desk_character_animation = NodePath("../../../Rooms/Desk/ToyMario_Desk_Animation")
+timer_step = NodePath("../../../Rooms/Desk/ToyMario_Desk_Animation/Timer_Step")
+right_foot = NodePath("../../../Rooms/Desk/ToyMario_Desk_Animation/RightFoot")
+left_foot = NodePath("../../../Rooms/Desk/ToyMario_Desk_Animation/LeftFoot")
 animation_speed = 3.0
 metadata/_custom_type_script = "uid://dmrygnokdj0s1"
 
@@ -1049,13 +1058,16 @@ game_over_name = "Nightmare Cream"
 jumpscare_sound_name = "Cream_Jumpscare"
 metadata/_custom_type_script = "uid://u3ovbneaky16"
 
-[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareCream" unique_id=1519514728 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation")]
+[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareCream" unique_id=1519514728 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation", "timer_step", "right_foot", "left_foot")]
 script = ExtResource("6_j85f1")
 player_component = NodePath("../../../Components/Player_Component")
 character_attack_component = NodePath("../CharacterAttackComponent")
 character_movement_component = NodePath("../CharacterMovementComponent")
 desk_room_component = NodePath("../../../Components/RoomComponent_Desk")
 desk_character_animation = NodePath("../../../Rooms/Desk/CreamDeskAnimation")
+timer_step = NodePath("../../../Rooms/Desk/CreamDeskAnimation/Timer_Step")
+right_foot = NodePath("../../../Rooms/Desk/CreamDeskAnimation/RightFoot")
+left_foot = NodePath("../../../Rooms/Desk/CreamDeskAnimation/LeftFoot")
 animation_speed = 4.0
 metadata/_custom_type_script = "uid://dmrygnokdj0s1"
 
@@ -1152,10 +1164,103 @@ metadata/_custom_type_script = "uid://du5aktvgtpf1m"
 script = ExtResource("2_qj8ra")
 metadata/_custom_type_script = "uid://dxqook2amacs3"
 
-[node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=2037572651]
+[node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=2037572651 node_paths=PackedStringArray("player_component", "sprites_left_vent", "sprites_right_vent", "sprites_ceiling", "sprites_hallway", "sprite_shock_left_vent", "sprite_shock_right_vent", "sprite_shock_ceiling", "sprite_shock_hallway", "flashlight_left_vent", "flashlight_right_vent", "flashlight_ceiling", "flashlight_hallway", "left_vent", "right_vent", "shock_sound", "leave_vent_sound", "character_fadeaway_transition")]
 script = ExtResource("123_mliqa")
 character_ai_level_id = "Nightmare Luiginette"
+player_component = NodePath("../../../Components/Player_Component")
+min_movement_timer = 50.0
+max_movement_timer = 100.0
+possible_directions = Array[String](["Left Vent", "Right Vent", "Ceiling", "Hallway"])
+sprites_left_vent = [NodePath("../../../Rooms/Left_Vent/NLuigiVent")]
+sprites_right_vent = [NodePath("../../../Rooms/Right_Vent/NLuigiVent")]
+sprites_ceiling = [NodePath("../../../Rooms/Ceiling/ClipMask/NLuigiCeiling")]
+sprites_hallway = [NodePath("../../../Rooms/Hallway/NLuigiHallway")]
+sprite_shock_left_vent = NodePath("../../../Rooms/Left_Vent/NLuigiVent")
+sprite_shock_right_vent = NodePath("../../../Rooms/Right_Vent/NLuigiVent")
+sprite_shock_ceiling = NodePath("../../../Rooms/Ceiling/ClipMask/NLuigiCeiling")
+sprite_shock_hallway = NodePath("../../../Rooms/Hallway/NLuigiHallway")
+flashlight_left_vent = NodePath("../../../Components/FlashlightComponent_LVent")
+flashlight_right_vent = NodePath("../../../Components/FlashlightComponent_RVent")
+flashlight_ceiling = NodePath("../../../Components/FlashlightComponent_Ceiling")
+flashlight_hallway = NodePath("../../../Components/FlashlightComponent_Hallway")
+left_vent = NodePath("../../../Sounds/LeftVentSound")
+right_vent = NodePath("../../../Sounds/RightVentSound")
+shock_sound = NodePath("../../../Sounds/Shock_SFX")
+leave_vent_sound = NodePath("../../../Sounds/Vent_Leave_SFX")
+character_fadeaway_transition = NodePath("../../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
+
+[node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=2019056760 node_paths=PackedStringArray("player_component", "mask_component", "character_movement_component")]
+script = ExtResource("6_764v7")
+timer_attack = 2.0
+player_component = NodePath("../../../Components/Player_Component")
+mask_component = NodePath("../../../Components/MaskComponent")
+character_movement_component = NodePath("../CharacterMovementComponent")
+metadata/_custom_type_script = "uid://d3em038vhj7qg"
+
+[node name="JumpscareComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=1989353279 node_paths=PackedStringArray("mask_component", "office_room_component", "player_component", "clock_timer", "character_attack_component", "tails_doll_mechanic_component", "jumpscare_animation")]
+script = ExtResource("7_p5adm")
+mask_component = NodePath("../../../Components/MaskComponent")
+office_room_component = NodePath("../../../Components/RoomComponent_Office")
+player_component = NodePath("../../../Components/Player_Component")
+clock_timer = NodePath("../../../Misc/Clock_Timer")
+character_attack_component = NodePath("../CharacterAttackComponent")
+tails_doll_mechanic_component = NodePath("../../TailsDoll/TailsDollMechanicComponent")
+jumpscare_animation = NodePath("../../../Misc/GUI/Luiginette_Jumpscare")
+game_over_name = "Nightmare Luiginette"
+jumpscare_sound_name = "Luigi_Jumpscare"
+metadata/_custom_type_script = "uid://u3ovbneaky16"
+
+[node name="MaskMechanicComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=1045684659 node_paths=PackedStringArray("player_component", "movement_component", "attack_component", "mask_component")]
+script = ExtResource("7_jrrtj")
+enable = false
+timer_counter = 0.25
+player_component = NodePath("../../../Components/Player_Component")
+movement_component = NodePath("../CharacterMovementComponent")
+attack_component = NodePath("../CharacterAttackComponent")
+mask_component = NodePath("../../../Components/MaskComponent")
+metadata/_custom_type_script = "uid://bbrk1o1epkmgc"
+
+[node name="FlashlightMechanicComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=494656216 node_paths=PackedStringArray("player_component", "movement_component", "attack_component", "flashlight_component", "computer_screech")]
+script = ExtResource("9_o1odc")
+enable = false
+timer_counter = 0.8
+player_component = NodePath("../../../Components/Player_Component")
+movement_component = NodePath("../CharacterMovementComponent")
+attack_component = NodePath("../CharacterAttackComponent")
+flashlight_component = NodePath("../../../Components/FlashlightComponent_Ceiling")
+play_computer_screech = true
+do_the_character_fade_away_effect_when_reset = true
+computer_screech = NodePath("../../../Sounds/ComputerScreech")
+metadata/_custom_type_script = "uid://ctmems2pxl6cl"
+
+[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=368177149 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation")]
+script = ExtResource("6_j85f1")
+enable = false
+player_component = NodePath("../../../Components/Player_Component")
+character_attack_component = NodePath("../CharacterAttackComponent")
+character_movement_component = NodePath("../CharacterMovementComponent")
+desk_room_component = NodePath("../../../Components/RoomComponent_Desk")
+desk_character_animation = NodePath("../../../Rooms/Desk/LuiginetteDeskAnimation")
+animation_speed = 2.5
+do_the_character_fade_away_effect_when_reset = true
+metadata/_custom_type_script = "uid://dmrygnokdj0s1"
+
+[node name="LuiginetteMechanicsSelectionComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=230162493 node_paths=PackedStringArray("movement_component", "mask_mechanic_component", "flashlight_mechanic_component", "desk_mechanic_component")]
+script = ExtResource("19_asafi")
+movement_component = NodePath("../CharacterMovementComponent")
+mask_mechanic_component = NodePath("../MaskMechanicComponent")
+flashlight_mechanic_component = NodePath("../FlashlightMechanicComponent")
+desk_mechanic_component = NodePath("../DeskMechanicComponent")
+metadata/_custom_type_script = "uid://c6wohqq8ufa1l"
+
+[node name="LuiginetteSoundsComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=1337249820 node_paths=PackedStringArray("movement_component", "walking", "laughing", "jump")]
+script = ExtResource("20_78ypo")
+movement_component = NodePath("../CharacterMovementComponent")
+walking = [NodePath("../../../Sounds/Walking_SFX_1"), NodePath("../../../Sounds/Walking_SFX_2"), NodePath("../../../Sounds/Walking_SFX_3")]
+laughing = [NodePath("../../../Sounds/LuigiLaugh1"), NodePath("../../../Sounds/LuigiLaugh2"), NodePath("../../../Sounds/LuigiLaugh3")]
+jump = NodePath("../../../Sounds/LuigiJump")
+metadata/_custom_type_script = "uid://b0a7hodnklbkc"
 
 [node name="Components" type="Node" parent="." unique_id=397741405]
 script = ExtResource("2_qj8ra")
@@ -1403,18 +1508,22 @@ bus = &"Sounds"
 
 [node name="LuigiLaugh1" type="AudioStreamPlayer" parent="Sounds" unique_id=1899890115]
 stream = ExtResource("23_uacgo")
+volume_db = -10.0
 bus = &"Sounds"
 
 [node name="LuigiLaugh2" type="AudioStreamPlayer" parent="Sounds" unique_id=594292158]
 stream = ExtResource("24_dpljo")
+volume_db = -10.0
 bus = &"Sounds"
 
 [node name="LuigiLaugh3" type="AudioStreamPlayer" parent="Sounds" unique_id=1159683751]
 stream = ExtResource("25_q5ac0")
+volume_db = -10.0
 bus = &"Sounds"
 
 [node name="LuigiJump" type="AudioStreamPlayer" parent="Sounds" unique_id=674372701]
 stream = ExtResource("26_q5ac0")
+volume_db = -5.0
 bus = &"Sounds"
 
 [node name="EntranceLuiginette" type="AudioStreamPlayer" parent="Sounds" unique_id=383807181]
@@ -1431,6 +1540,11 @@ bus = &"Sounds"
 
 [node name="Knux_Steps" type="AudioStreamPlayer" parent="Sounds" unique_id=1456245274]
 stream = ExtResource("44_wfj4s")
+bus = &"Sounds"
+
+[node name="ComputerScreech" type="AudioStreamPlayer" parent="Sounds" unique_id=1356865059]
+stream = ExtResource("50_71yt4")
+volume_db = -15.0
 bus = &"Sounds"
 
 [node name="Luigi_Walk_Left" type="AudioStreamPlayer2D" parent="Sounds" unique_id=697889683]

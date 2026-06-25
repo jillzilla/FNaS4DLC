@@ -17,8 +17,12 @@ var step: float = 0.0;
 @export var flashlight_component: FlashlightComponent;
 
 @export_group("Custom Flags")
+@export var play_computer_screech : bool = false;
 @export var do_the_character_fade_away_effect_when_reset: bool = false;
 @export var play_vent_sound_when_reset: bool = false;
+
+@export_group("Audio")
+@export var computer_screech : AudioStreamPlayer;
 
 #functions
 func _ready() -> void:
@@ -38,6 +42,9 @@ func _process(delta: float) -> void:
                 attack_component.step = 0;
                 attack_component.pause = false;
 
+                if play_computer_screech:
+                    computer_screech.stop();
+
                 if movement_component.current_position != position_where_reset_is_possible:
                     movement_component.current_position -= 1;
                     movement_component._move_character(movement_component.turn_off_flashlight_when_moving)
@@ -49,12 +56,16 @@ func _process(delta: float) -> void:
 func flashlight_is_on() -> void:
     if enable:
         if movement_component.current_position >= position_where_counter_is_possible && player_component.direction == movement_component.current_direction.to_pascal_case():
+            if play_computer_screech:
+                computer_screech.play();
             attack_component.pause = true;
             movement_component.pause = true;
 
 func flashlight_is_off() -> void:
     if enable:
         if movement_component.current_position >= position_where_counter_is_possible && player_component.direction == movement_component.current_direction.to_pascal_case():
+            if play_computer_screech:
+                computer_screech.stop();
             attack_component.pause = false;
             movement_component.pause = false;
 
@@ -62,5 +73,7 @@ func character_moved() -> void:
     step = 0;
     if enable:
         if movement_component.current_position >= position_where_counter_is_possible && player_component.direction == movement_component.current_direction.to_pascal_case() && flashlight_component.is_flashlight_on:
+            if play_computer_screech:
+                computer_screech.play();
             attack_component.pause = true;
             movement_component.pause = true;
