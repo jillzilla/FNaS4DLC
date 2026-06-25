@@ -1,13 +1,14 @@
 class_name BTCounterMechanicComponent extends Component
 
 #variables
-@export var flash_count : int = 5;
-var flash : int = 0;
-
 @export var player_component : Player_Component;
 @export var movement_component : CharacterMovementComponent;
 @export var attack_component : CharacterAttackComponent;
 @export var flashlight_component : FlashlightComponent;
+
+@export var flash_count : int = 5;
+
+var flash : int = 0;
 
 #functions
 func _ready() -> void:

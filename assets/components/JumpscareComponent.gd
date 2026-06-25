@@ -7,6 +7,7 @@ class_name JumpscareComponent extends Component
 @export var player_component : Player_Component;
 @export var clock_timer : Timer;
 @export var character_attack_component : CharacterAttackComponent;
+@export var tails_doll_mechanic_component : TailsDollMechanicComponent;
 
 @export_group("Resources")
 @export var jumpscare_animation : Node2D;
@@ -22,6 +23,9 @@ func _ready() -> void:
 
 func _character_attack() -> void:
     if player_component.is_alive:
+        if tails_doll_mechanic_component.tails_doll_effect.modulate.a != 0:
+            tails_doll_mechanic_component._make_face_disappear();
+            
         clock_timer.stop();
         player_component.is_alive = false;
 

@@ -4,6 +4,7 @@ class_name MaskMechanicComponent extends Component
 @export var enable : bool = true;
 
 @export var timer_counter: float = 0.0;
+
 var step: float = 0.0;
 
 @export_group("Configurations")

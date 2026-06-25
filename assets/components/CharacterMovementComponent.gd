@@ -184,7 +184,6 @@ func _move_character(turn_off_flashlight : bool) -> void:
 			for s in sprites_ceiling:
 				s.hide();
 			sprites_ceiling[current_position].show();
-
 	movement_timer = _get_randomized_movement_timer();
 	character_moved.emit();
 

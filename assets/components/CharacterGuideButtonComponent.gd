@@ -5,6 +5,7 @@ class_name CharacterGuideButtonComponent extends Component
 @export var character_name : String;
 
 @export var button : TextureButton;
+
 @export var description : RichTextLabel;
 
 var data : Dictionary = {};
