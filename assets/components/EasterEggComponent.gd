@@ -1,12 +1,12 @@
 class_name EasterEggComponent extends Component
 
 #variables
-@export var sprite : Sprite2D;
-@export var room : RoomComponent;
+@export var sprite: Sprite2D;
+@export var room: RoomComponent;
 
-@export_range(0,1) var random_encounter : float;
+@export_range(0, 1) var random_encounter: float;
 
-@onready var rng : RandomNumberGenerator = RandomNumberGenerator.new();
+@onready var rng: RandomNumberGenerator = RandomNumberGenerator.new();
 
 #functions
 func _ready() -> void:

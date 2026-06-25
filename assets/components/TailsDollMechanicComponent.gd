@@ -83,7 +83,7 @@ func _kill_tailsdoll(sprite: Sprite2D, eyes: Sprite2D) -> void:
    
     await tween_eyes_fade.finished;
     
-    movement_component._reset_character_status(false,false);
+    movement_component._reset_character_status(false, false);
 
     sprite.modulate.a = TAILSDOLLEFFECTMAX;
     eyes.modulate.a = TAILSDOLLEFFECTMAX;

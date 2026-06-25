@@ -20,7 +20,7 @@ extends Node
 @onready var guide: Control = $UI/Guide;
 @onready var loading: Control = $UI/Loading;
 
-@onready var version_counter : Label = $UI/Control/Version;
+@onready var version_counter: Label = $UI/Control/Version;
 
 #functions
 func _ready() -> void:

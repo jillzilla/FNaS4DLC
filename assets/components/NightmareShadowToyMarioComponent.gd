@@ -1,17 +1,17 @@
 class_name NightmareShadowToyMarioComponent extends Component
 
 #variables
-const FADESPEED : float = 0.5;
-const MINALPHA : float = 0.0;
-const MAXALPHA : float = 1;
+const FADESPEED: float = 0.5;
+const MINALPHA: float = 0.0;
+const MAXALPHA: float = 1;
 
-@export var sprite : Sprite2D;
-@export var room : RoomComponent;
+@export var sprite: Sprite2D;
+@export var room: RoomComponent;
 
-@export_range(0,1) var random_encounter : float;
+@export_range(0, 1) var random_encounter: float;
 
-@onready var rng : RandomNumberGenerator = RandomNumberGenerator.new();
-@onready var tween_disappear : Tween = null;
+@onready var rng: RandomNumberGenerator = RandomNumberGenerator.new();
+@onready var tween_disappear: Tween = null;
 
 #functions
 func _ready() -> void:

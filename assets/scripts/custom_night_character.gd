@@ -77,9 +77,9 @@ func _update_ai_counter() -> void:
 		modulate.a = 0.2;
 		
 	if main.ai_levels[character_name] == maxlevel:
-		modulate = Color(1,0,0,modulate.a);
+		modulate = Color(1, 0, 0, modulate.a);
 	else:
-		modulate = Color(1,1,1,modulate.a);
+		modulate = Color(1, 1, 1, modulate.a);
 
 func _on_left_pressed() -> void:
 	_sub();

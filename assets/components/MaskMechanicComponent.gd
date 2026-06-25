@@ -1,7 +1,7 @@
 class_name MaskMechanicComponent extends Component
 
 #variables
-@export var enable : bool = true;
+@export var enable: bool = true;
 
 @export var timer_counter: float = 0.0;
 

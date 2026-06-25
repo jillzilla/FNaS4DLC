@@ -1,10 +1,10 @@
 class_name LuiginetteMechanicsSelectionComponent extends Component
 
 #variables
-@export var movement_component : CharacterMovementComponent;
-@export var mask_mechanic_component : MaskMechanicComponent;
-@export var flashlight_mechanic_component : FlashlightMechanicComponent;
-@export var desk_mechanic_component : DeskMechanicComponent;
+@export var movement_component: CharacterMovementComponent;
+@export var mask_mechanic_component: MaskMechanicComponent;
+@export var flashlight_mechanic_component: FlashlightMechanicComponent;
+@export var desk_mechanic_component: DeskMechanicComponent;
 
 #functions
 func _ready() -> void:
@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func luiginette_moved() -> void:
     if movement_component.current_position > -1:
-        match(movement_component.current_direction):
+        match (movement_component.current_direction):
             "Left Vent":
                mask_mechanic_component.enable = true;
                flashlight_mechanic_component.enable = false;

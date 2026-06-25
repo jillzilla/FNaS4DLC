@@ -1,16 +1,16 @@
 class_name BTOfficeComponent extends Component
 
 #variables
-@export var player_component : Player_Component;
-@export var movement_component : CharacterMovementComponent;
-@export var office_room_component : RoomComponent;
-@export var desk_room_component : RoomComponent;
-@export var attack_component : CharacterAttackComponent;
+@export var player_component: Player_Component;
+@export var movement_component: CharacterMovementComponent;
+@export var office_room_component: RoomComponent;
+@export var desk_room_component: RoomComponent;
+@export var attack_component: CharacterAttackComponent;
 
-@export var sprite : Sprite2D;
-@export var flashlight_list : Array[FlashlightComponent];
+@export var sprite: Sprite2D;
+@export var flashlight_list: Array[FlashlightComponent];
 
-@export var character_fade_away_effect : AnimationPlayer;
+@export var character_fade_away_effect: AnimationPlayer;
 
 #functions
 func _ready() -> void:
@@ -28,7 +28,7 @@ func bt_attack() -> void:
     desk_room_component.disable = true;
 
 func bt_moved() -> void:
-    if movement_component.current_position < 0 && sprite.visible:
+    if movement_component.current_position != -1 && sprite.visible:
         sprite.hide();
         for f in flashlight_list:
             f.disable = false;

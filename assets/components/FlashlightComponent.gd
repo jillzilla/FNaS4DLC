@@ -9,7 +9,7 @@ signal flashlight_is_off;
 @export var darkness_sprite: Sprite2D;
 
 var is_flashlight_on: bool = false;
-var disable : bool = false;
+var disable: bool = false;
 
 #functions
 func _process(_delta: float) -> void:

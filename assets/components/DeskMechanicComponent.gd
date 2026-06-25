@@ -12,7 +12,7 @@ const BODYPARTMAXSCALE: float = 1.2;
 
 @onready var tween_movement: Tween = null;
 
-@export var enable : bool = true;
+@export var enable: bool = true;
 
 @export_group("Components")
 @export var player_component: Player_Component;
@@ -22,9 +22,9 @@ const BODYPARTMAXSCALE: float = 1.2;
 
 @export_group("Resources")
 @export var desk_character_animation: Node2D;
-@export var timer_step : Timer;
-@export var right_foot : Sprite2D;
-@export var left_foot : Sprite2D;
+@export var timer_step: Timer;
+@export var right_foot: Sprite2D;
+@export var left_foot: Sprite2D;
 
 @export_group("Custom Flags")
 @export var animation_speed: float = 0.0;

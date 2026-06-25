@@ -117,14 +117,18 @@
 [ext_resource type="Texture2D" uid="uid://c8kpf3v0f65rf" path="res://assets/images/gameplay/characters/tailsdoll/tailsdoll_eyes_ceiling.png" id="57_pou5s"]
 [ext_resource type="Texture2D" uid="uid://wokd4u00mmgi" path="res://assets/images/gameplay/characters/cream/cream1.png" id="58_y222l"]
 [ext_resource type="Texture2D" uid="uid://cgk4cko2kcsvn" path="res://assets/images/gameplay/characters/nluigi/nluigivents.png" id="60_dcs2j"]
+[ext_resource type="Texture2D" uid="uid://cqi2aeoi226vk" path="res://assets/images/gameplay/characters/nluigi/llhall1.png" id="61_p5pbk"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="62_bt1i2"]
 [ext_resource type="Texture2D" uid="uid://ccgvydypkx0l2" path="res://assets/images/gameplay/characters/salvage/ss5.png" id="62_ntnck"]
+[ext_resource type="Texture2D" uid="uid://uim4fau6yu2k" path="res://assets/images/gameplay/characters/nluigi/llhall2.png" id="63_ihc8j"]
 [ext_resource type="Texture2D" uid="uid://cvie5h5snq23a" path="res://assets/images/gameplay/characters/bt/bt2.png" id="63_k61gk"]
 [ext_resource type="Texture2D" uid="uid://ctxri6aagc8ae" path="res://assets/images/gameplay/characters/salvage/ss6.png" id="63_q42g3"]
 [ext_resource type="Texture2D" uid="uid://dyjxx8pf7g14v" path="res://assets/images/gameplay/characters/cream/cream2.png" id="64_olnhb"]
+[ext_resource type="Texture2D" uid="uid://de82r5st7u7c2" path="res://assets/images/gameplay/characters/nluigi/llhall3.png" id="65_8jjp4"]
 [ext_resource type="Texture2D" uid="uid://d0w4wxd8m4cb1" path="res://assets/images/gameplay/characters/cream/cream3.png" id="65_etbyd"]
 [ext_resource type="AudioStream" uid="uid://cwu0xlhkaqq0i" path="res://assets/sounds/Toad_Moving_1.ogg" id="67_8bh6l"]
 [ext_resource type="AudioStream" uid="uid://dosa7cqf136xx" path="res://assets/sounds/Toad_Moving_2.ogg" id="68_50646"]
+[ext_resource type="Texture2D" uid="uid://d36ooomp6rna1" path="res://assets/images/gameplay/characters/nluigi/llhall4.png" id="68_l0km7"]
 [ext_resource type="Texture2D" uid="uid://csmmmdfh816ml" path="res://assets/images/gameplay/toadette.png" id="70_vq8ol"]
 [ext_resource type="Texture2D" uid="uid://d4f0e3pkepyr2" path="res://assets/images/gameplay/characters/nluigi/nluigihallway.png" id="77_dcs2j"]
 [ext_resource type="Texture2D" uid="uid://crx1ixv0vis36" path="res://assets/images/gameplay/characters/tailsdoll/tailsdollvents.png" id="79_p5adm"]
@@ -138,6 +142,7 @@
 [ext_resource type="Texture2D" uid="uid://clttnsecl72dv" path="res://assets/images/gameplay/characters/nknux/knux_danger.png" id="103_51y45"]
 [ext_resource type="PackedScene" uid="uid://bw8fe2whqjhf0" path="res://assets/scenes/pause_menu.tscn" id="109_xnjdx"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="110_mehod"]
+[ext_resource type="Texture2D" uid="uid://ciu21v1gkdpgp" path="res://assets/images/gameplay/characters/nluigi/luiginette_vent1.png" id="112_ihc8j"]
 [ext_resource type="PackedScene" uid="uid://tuun86de3ic7" path="res://assets/scenes/jumpscares/toy_sonic_jumpscare.tscn" id="119_8dojq"]
 [ext_resource type="PackedScene" uid="uid://c40m2qp57fkfq" path="res://assets/scenes/jumpscares/toy_mario_jumpscare.tscn" id="120_cykhs"]
 [ext_resource type="Texture2D" uid="uid://cq3cekudwf40e" path="res://assets/images/gameplay/mask/mask_move.png" id="121_rfeao"]
@@ -1643,6 +1648,13 @@ scale = Vector2(0.18554686, 0.18611103)
 texture = ExtResource("46_pou5s")
 metadata/_edit_lock_ = true
 
+[node name="Lnette1" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=578858799]
+visible = false
+position = Vector2(4, -22)
+scale = Vector2(0.135, 0.135)
+texture = ExtResource("61_p5pbk")
+metadata/_edit_lock_ = true
+
 [node name="Salvage_1" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1047107748]
 visible = false
 position = Vector2(0.6875115, -13.9999895)
@@ -1650,11 +1662,25 @@ scale = Vector2(0.1416673, 0.1416673)
 texture = ExtResource("47_8dojq")
 metadata/_edit_lock_ = true
 
+[node name="Lnette2" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1467882663]
+visible = false
+position = Vector2(18, -7)
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("63_ihc8j")
+metadata/_edit_lock_ = true
+
 [node name="Salvage_2" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=582453989]
 visible = false
 position = Vector2(-24.50005, 7.6936765)
 scale = Vector2(0.17916684, 0.17916682)
 texture = ExtResource("48_cykhs")
+metadata/_edit_lock_ = true
+
+[node name="Lnette3" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=86762287]
+visible = false
+position = Vector2(-23.800049, 12.099976)
+scale = Vector2(0.19701493, 0.200365)
+texture = ExtResource("65_8jjp4")
 metadata/_edit_lock_ = true
 
 [node name="Salvage_3" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1808550587]
@@ -1669,6 +1695,13 @@ visible = false
 position = Vector2(-35.118507, 15.5)
 scale = Vector2(0.30233794, 0.29178458)
 texture = ExtResource("50_uacgo")
+metadata/_edit_lock_ = true
+
+[node name="Lnette4" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1857944624]
+visible = false
+position = Vector2(10, 1)
+scale = Vector2(0.24595462, 0.25047433)
+texture = ExtResource("68_l0km7")
 metadata/_edit_lock_ = true
 
 [node name="NoSignal" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1367646535]
@@ -1999,6 +2032,13 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("36_8dshm")
 metadata/_edit_lock_ = true
 
+[node name="LuiginetteVent1" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=2008959679]
+visible = false
+position = Vector2(-18.999992, -453.99997)
+scale = Vector2(0.775, 0.775)
+texture = ExtResource("112_ihc8j")
+metadata/_edit_lock_ = true
+
 [node name="ToyYoshi_2" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=667445097]
 visible = false
 position = Vector2(-56, -414)
@@ -2097,6 +2137,13 @@ metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Right_Vent/ClipMask/Cream_1" unique_id=316190302]
 libraries/ = SubResource("AnimationLibrary_hh0om")
+
+[node name="LuiginetteVent1" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1516367397]
+visible = false
+position = Vector2(-19, -453.99997)
+scale = Vector2(0.775, 0.775)
+texture = ExtResource("112_ihc8j")
+metadata/_edit_lock_ = true
 
 [node name="ToyMario_2" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1296227063]
 visible = false
@@ -2217,6 +2264,7 @@ modulate = Color(1, 1, 1, 0.3)
 position = Vector2(-16, -358)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("86_dcxdq")
+metadata/_edit_lock_ = true
 
 [node name="Light" type="Sprite2D" parent="Rooms/Hallway" unique_id=869873923]
 position = Vector2(0, -350)

@@ -1,7 +1,7 @@
 class_name HonkComponent extends Component
 
 #variables
-@export var player_component : Player_Component;
+@export var player_component: Player_Component;
 @export var button: Area2D;
 @export var sound: AudioStreamPlayer2D;
 

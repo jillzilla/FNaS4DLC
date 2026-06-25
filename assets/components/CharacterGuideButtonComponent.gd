@@ -1,14 +1,14 @@
 class_name CharacterGuideButtonComponent extends Component
 
 #variables
-@export_file_path("*.json") var data_json : String = "";
-@export var character_name : String;
+@export_file_path("*.json") var data_json: String = "";
+@export var character_name: String;
 
-@export var button : TextureButton;
+@export var button: TextureButton;
 
-@export var description : RichTextLabel;
+@export var description: RichTextLabel;
 
-var data : Dictionary = {};
+var data: Dictionary = {};
 
 #functions
 func _ready() -> void:

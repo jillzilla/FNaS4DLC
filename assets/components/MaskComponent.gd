@@ -23,7 +23,7 @@ var breath_time: float;
 
 var can_breath: bool = false;
 var is_using_mask: bool = false;
-var is_about_to_do_something : bool = false;
+var is_about_to_do_something: bool = false;
 
 #functions
 func _process(delta: float) -> void:

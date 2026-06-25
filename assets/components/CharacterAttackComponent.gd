@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
         step += delta;
         if step >= timer_attack:
             attack.emit();
-            match(character_movement_component.current_direction):
+            match (character_movement_component.current_direction):
                 "Left Vent":
                     character_movement_component.sprites_left_vent[character_movement_component.current_position].hide();
                 "Right Vent":

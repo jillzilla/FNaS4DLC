@@ -8,8 +8,8 @@ class_name Player_Component extends Component
 
 @export var flashlight: FlashlightComponent;
 
-var direction : String = "Office";
+var direction: String = "Office";
 
-var is_moving : bool = false;
+var is_moving: bool = false;
 
-var characters_walking_on_desk : Array[DeskMechanicComponent] = [];
+var characters_walking_on_desk: Array[DeskMechanicComponent] = [];

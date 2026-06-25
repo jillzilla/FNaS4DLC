@@ -35,7 +35,7 @@ enum inputs {
 @export var allow_scrolling: bool = false;
 @export var allow_mask: bool = false;
 
-var disable : bool = false;
+var disable: bool = false;
 
 #functions
 func _ready() -> void:

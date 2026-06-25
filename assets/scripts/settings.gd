@@ -2,7 +2,7 @@ extends Control
 
 #variables
 @onready var video_settings: ScrollContainer = $MarginContainer/Video;
-@onready var input_settings : ScrollContainer = $MarginContainer/Input;
+@onready var input_settings: ScrollContainer = $MarginContainer/Input;
 @onready var audio_settings: ScrollContainer = $MarginContainer/Audio;
 @onready var misc_settings: ScrollContainer = $MarginContainer/Misc;
 
@@ -11,9 +11,9 @@ extends Control
 @onready var vsync_button: CheckBox = $MarginContainer/Video/VideoContainer/VSync/CheckBox;
 @onready var fpscap_button: OptionButton = $MarginContainer/Video/VideoContainer/FPSCap/OptionButton;
 
-@onready var flashlight_key_button : Button = $MarginContainer/Input/InputContainer/Flashlight/Button;
-@onready var mask_key_button : Button = $MarginContainer/Input/InputContainer/Mask/Button;
-@onready var pause_key_button : Button = $MarginContainer/Input/InputContainer/Pause/Button;
+@onready var flashlight_key_button: Button = $MarginContainer/Input/InputContainer/Flashlight/Button;
+@onready var mask_key_button: Button = $MarginContainer/Input/InputContainer/Mask/Button;
+@onready var pause_key_button: Button = $MarginContainer/Input/InputContainer/Pause/Button;
 
 @onready var mastervolume_slider: HSlider = $MarginContainer/Audio/AudioContainer/MasterVolume/HSlider;
 @onready var musicvolume_slider: HSlider = $MarginContainer/Audio/AudioContainer/MusicVolume/HSlider;

@@ -3,9 +3,11 @@ class_name CharacterMovementComponent extends Component
 signal character_moved;
 
 #variables
+@export var disabled: bool = false;
+
 @export_group("Configurations")
-@export var character_ai_level_id : String = "";
-@export var player_component : Player_Component;
+@export var character_ai_level_id: String = "";
+@export var player_component: Player_Component;
 
 @export var min_movement_timer: float = 0.0;
 @export var max_movement_timer: float = 0.0;
@@ -38,7 +40,7 @@ signal character_moved;
 @export var sprite_shock_hallway: Sprite2D;
 
 @export_group("Flashlight")
-@export var turn_off_flashlight_when_moving : bool = true;
+@export var turn_off_flashlight_when_moving: bool = true;
 @export var flashlight_left_vent: FlashlightComponent;
 @export var flashlight_right_vent: FlashlightComponent;
 @export var flashlight_ceiling: FlashlightComponent;
@@ -48,10 +50,10 @@ signal character_moved;
 @export var left_vent: AudioStreamPlayer2D;
 @export var right_vent: AudioStreamPlayer2D;
 @export var shock_sound: AudioStreamPlayer;
-@export var leave_vent_sound : AudioStreamPlayer;
+@export var leave_vent_sound: AudioStreamPlayer;
 
 @export_group("Other")
-@export var character_fadeaway_transition : AnimationPlayer;
+@export var character_fadeaway_transition: AnimationPlayer;
 
 var current_direction: String = "";
 
@@ -63,7 +65,7 @@ var shocked: bool = false;
 var step: float = 0.0;
 var movement_timer: float = 0.0;
 
-var pause : bool = false;
+var pause: bool = false;
 
 #functions
 func _ready() -> void:
@@ -77,10 +79,10 @@ func _ready() -> void:
 		if possible_directions != []:
 			current_direction = possible_directions.pick_random();
 		else:
-			pause = true;
+			disabled = true;
 
 func _physics_process(delta: float) -> void:
-	if !pause:
+	if !pause && !disabled:
 		if main.ai_levels[character_ai_level_id] > 0:
 			if player_component.is_alive:
 				if current_position < max_positions_in_directions[current_direction]:
@@ -150,7 +152,7 @@ func _shock_handler() -> void:
 func _get_randomized_movement_timer() -> float:
 	return randf_range(min_movement_timer, max_movement_timer);
 
-func _move_character(turn_off_flashlight : bool) -> void:
+func _move_character(turn_off_flashlight: bool) -> void:
 	match (current_direction):
 		"Left Vent":
 			if left_vent:
@@ -187,7 +189,7 @@ func _move_character(turn_off_flashlight : bool) -> void:
 	movement_timer = _get_randomized_movement_timer();
 	character_moved.emit();
 
-func _reset_character_status(enable_character_fadeaway : bool = true, play_leave_vent_sound : bool = true) -> void:
+func _reset_character_status(enable_character_fadeaway: bool = true, play_leave_vent_sound: bool = true) -> void:
 	if current_position > -1:
 		shocked = false;
 		peeking = false;
