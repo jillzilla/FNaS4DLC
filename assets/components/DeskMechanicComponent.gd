@@ -25,6 +25,7 @@ const BODYPARTMAXSCALE: float = 1.2;
 @export var timer_step: Timer;
 @export var right_foot: Sprite2D;
 @export var left_foot: Sprite2D;
+@export var step_sfx : AudioStreamPlayer2D;
 
 @export_group("Custom Flags")
 @export var animation_speed: float = 0.0;
@@ -77,7 +78,7 @@ func _player_is_under_desk() -> void:
                     if left_foot != null && right_foot != null:
                         if !switch_parts_left:
                             _switch_feet_layer_index();
-                            desk_character_animation.left_foot.scale = Vector2(BODYPARTMAXSCALE, BODYPARTMAXSCALE);
+                            left_foot.scale = Vector2(BODYPARTMAXSCALE, BODYPARTMAXSCALE);
                             right_foot.scale = Vector2(BODYPARTMINSCALE, BODYPARTMINSCALE);
                             switch_parts_left = true;
                             switch_parts_right = false;
@@ -104,7 +105,7 @@ func _player_is_under_desk() -> void:
 
 func _step_timer_timeout() -> void:
     if enable:
-        timer_step.play();
+        step_sfx.play();
 
 func _switch_feet_layer_index() -> void:
     var index_a: int = right_foot.get_index();

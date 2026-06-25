@@ -683,7 +683,7 @@ game_over_name = "Nightmare Toy Sonic"
 jumpscare_sound_name = "Sonic_Jumpscare"
 metadata/_custom_type_script = "uid://u3ovbneaky16"
 
-[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareToySonic" unique_id=1345397109 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation", "timer_step", "right_foot", "left_foot")]
+[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareToySonic" unique_id=1345397109 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation", "timer_step", "right_foot", "left_foot", "step_sfx")]
 script = ExtResource("6_j85f1")
 player_component = NodePath("../../../Components/Player_Component")
 character_attack_component = NodePath("../CharacterAttackComponent")
@@ -693,6 +693,7 @@ desk_character_animation = NodePath("../../../Rooms/Desk/ToySonic_Desk_Animation
 timer_step = NodePath("../../../Rooms/Desk/ToySonic_Desk_Animation/Timer_Step")
 right_foot = NodePath("../../../Rooms/Desk/ToySonic_Desk_Animation/RightFoot")
 left_foot = NodePath("../../../Rooms/Desk/ToySonic_Desk_Animation/LeftFoot")
+step_sfx = NodePath("../../../Rooms/Desk/ToySonic_Desk_Animation/Steps")
 animation_speed = 0.5
 metadata/_custom_type_script = "uid://dmrygnokdj0s1"
 
@@ -745,7 +746,7 @@ game_over_name = "Nightmare Toy Mario"
 jumpscare_sound_name = "Mario_Jumpscare"
 metadata/_custom_type_script = "uid://u3ovbneaky16"
 
-[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareToyMario" unique_id=1287320402 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation", "timer_step", "right_foot", "left_foot")]
+[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareToyMario" unique_id=1287320402 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation", "timer_step", "right_foot", "left_foot", "step_sfx")]
 script = ExtResource("6_j85f1")
 enable = false
 player_component = NodePath("../../../Components/Player_Component")
@@ -756,6 +757,7 @@ desk_character_animation = NodePath("../../../Rooms/Desk/ToyMario_Desk_Animation
 timer_step = NodePath("../../../Rooms/Desk/ToyMario_Desk_Animation/Timer_Step")
 right_foot = NodePath("../../../Rooms/Desk/ToyMario_Desk_Animation/RightFoot")
 left_foot = NodePath("../../../Rooms/Desk/ToyMario_Desk_Animation/LeftFoot")
+step_sfx = NodePath("../../../Rooms/Desk/ToyMario_Desk_Animation/Steps")
 animation_speed = 3.0
 metadata/_custom_type_script = "uid://dmrygnokdj0s1"
 
@@ -1063,7 +1065,7 @@ game_over_name = "Nightmare Cream"
 jumpscare_sound_name = "Cream_Jumpscare"
 metadata/_custom_type_script = "uid://u3ovbneaky16"
 
-[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareCream" unique_id=1519514728 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation", "timer_step", "right_foot", "left_foot")]
+[node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareCream" unique_id=1519514728 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation", "timer_step", "right_foot", "left_foot", "step_sfx")]
 script = ExtResource("6_j85f1")
 player_component = NodePath("../../../Components/Player_Component")
 character_attack_component = NodePath("../CharacterAttackComponent")
@@ -1073,6 +1075,7 @@ desk_character_animation = NodePath("../../../Rooms/Desk/CreamDeskAnimation")
 timer_step = NodePath("../../../Rooms/Desk/CreamDeskAnimation/Timer_Step")
 right_foot = NodePath("../../../Rooms/Desk/CreamDeskAnimation/RightFoot")
 left_foot = NodePath("../../../Rooms/Desk/CreamDeskAnimation/LeftFoot")
+step_sfx = NodePath("../../../Rooms/Desk/CreamDeskAnimation/Steps")
 animation_speed = 4.0
 metadata/_custom_type_script = "uid://dmrygnokdj0s1"
 

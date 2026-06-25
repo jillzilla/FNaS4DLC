@@ -1,6 +1,8 @@
 extends Node
 
 #variables
+const CANSKIPNIGHTS : bool = false;
+
 const DEFAULT_WINDOW_MODE: int = 0;
 const DEFAULT_RESOLUTION: int = 1;
 const DEFAULT_VSYNC: bool = true;
