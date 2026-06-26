@@ -63,15 +63,18 @@ func flashlight_is_on() -> void:
 
 func flashlight_is_off() -> void:
     if enable:
+        if play_computer_screech:
+             computer_screech.stop();
+
         if movement_component.current_position >= position_where_counter_is_possible && player_component.direction == movement_component.current_direction.to_pascal_case():
-            if play_computer_screech:
-                computer_screech.stop();
             attack_component.pause = false;
             movement_component.pause = false;
 
 func character_moved() -> void:
     step = 0;
     if enable:
-        if movement_component.current_position >= position_where_counter_is_possible && player_component.direction == movement_component.current_direction.to_pascal_case() && flashlight_component.is_flashlight_on:
+        if movement_component.current_position >= position_where_counter_is_possible && player_component.direction == movement_component.current_direction.to_pascal_case():
+            if play_computer_screech:
+                computer_screech.play();
             attack_component.pause = true;
             movement_component.pause = true;

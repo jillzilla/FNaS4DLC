@@ -1302,6 +1302,7 @@ metadata/_custom_type_script = "uid://tbjaqe8d5xtg"
 
 [node name="LuiginetteSetupComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=1124316958 node_paths=PackedStringArray("gameplay_node", "direction_handler", "movement", "attack", "flashlight_mechanic", "mask_mechanic", "fnas3monitor")]
 script = ExtResource("21_8jjp4")
+active = false
 gameplay_node = NodePath("../../..")
 data_json = "res://assets/data/luiginette_setup.json"
 direction_handler = NodePath("../NightmareLuiginetteDirectionHandlerComponent")
