@@ -32,8 +32,8 @@
 		"DirMaxTimerMovement": 115.0
 	},
 	"Night 7": {
-		"TimerMovementMin": 115.0,
-		"TimerMovementMax": 135.0,
+		"TimerMovementMin": 145.0,
+		"TimerMovementMax": 185.0,
 		"AttackTimer": 3.0,
 		"FlashlightCounterTimer": 0.5,
 		"MaskCounterTimer": 0.5,
@@ -62,7 +62,7 @@
 		"TurnOffFlashlightInHallwayWhen": 4.0,
 		"DirMinMovement": 1.0,
 		"DirMaxMovement": 5.0,
-		"DirMinTimerMovement": 125.0,
-		"DirMaxTimerMovement": 145.0
+		"DirMinTimerMovement": 135.0,
+		"DirMaxTimerMovement": 165.0
 	}
 }

@@ -1,11 +1,11 @@
 class_name DeskMechanicComponent extends Component
 
 #variables
-const STARTPOSLEFT: float = -1240;
-const STARTPOSRIGHT: float = 1240;
+const STARTPOSLEFT: float = -1150;
+const STARTPOSRIGHT: float = 1150;
 
-const ENDPOSLEFT: float = 1240;
-const ENDPOSRIGHT: float = -1240;
+const ENDPOSLEFT: float = 1150;
+const ENDPOSRIGHT: float = -1150;
 
 const BODYPARTMINSCALE: float = 1;
 const BODYPARTMAXSCALE: float = 1.2;

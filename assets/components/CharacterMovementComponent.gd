@@ -54,6 +54,7 @@ signal character_moved;
 @export var leave_vent_sound: AudioStreamPlayer;
 
 @export_group("Other")
+@export var can_move_when_hiding : bool = false;
 @export var character_fadeaway_transition: AnimationPlayer;
 @export var let_external_component_handle_direction : bool = false;
 
@@ -86,12 +87,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if main.ai_levels[character_ai_level_id] > 0 && !pause && !disabled && player_component.is_alive:
-		if current_position < max_positions_in_directions[current_direction]:
-			step += delta * main.ai_levels[character_ai_level_id];
-			if step >= movement_timer:
-				step = 0;
-				current_position += 1;
-				_move_character(turn_off_flashlight_when_moving);
+		if can_move_when_hiding && player_component.characters_walking_on_desk == [] || !can_move_when_hiding:
+			if current_position < max_positions_in_directions[current_direction]:
+				step += delta * main.ai_levels[character_ai_level_id];
+				if step >= movement_timer:
+					step = 0;
+					current_position += 1;
+					_move_character(turn_off_flashlight_when_moving);
 
 func _left_flashlight_on() -> void:
 	if sprite_peek_left_vent != null:

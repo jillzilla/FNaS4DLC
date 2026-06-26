@@ -1102,6 +1102,7 @@ max_positions_in_directions = Dictionary[String, int]({
 sprites_hallway = [NodePath("../../../Rooms/Hallway/Knuckles1"), NodePath("../../../Rooms/Hallway/Knuckles2")]
 turn_off_flashlight_when_moving = false
 flashlight_hallway = NodePath("../../../Components/FlashlightComponent_Hallway")
+can_move_when_hiding = true
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareKnuckles" unique_id=1607393089 node_paths=PackedStringArray("player_component", "mask_component", "character_movement_component")]
@@ -1905,6 +1906,7 @@ metadata/_edit_lock_ = true
 visible = false
 position = Vector2(0, -365)
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="LeftFoot" type="Sprite2D" parent="Rooms/Desk/ToySonic_Desk_Animation" unique_id=23704651]
 position = Vector2(-187.12451, -0.00042724615)
@@ -1941,8 +1943,10 @@ speed_scale = 1.7
 
 [node name="ToyMario_Desk_Animation" type="Node2D" parent="Rooms/Desk" unique_id=1438147781]
 visible = false
-position = Vector2(16, -542)
+position = Vector2(0, -542)
+scale = Vector2(1.05, 1.05)
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="LeftFoot" type="Sprite2D" parent="Rooms/Desk/ToyMario_Desk_Animation" unique_id=1068198718]
 position = Vector2(-168, 200)
@@ -1977,8 +1981,10 @@ autoplay = &"WalkCycle"
 
 [node name="CreamDeskAnimation" type="Node2D" parent="Rooms/Desk" unique_id=432718494]
 visible = false
-position = Vector2(-24, -627)
+position = Vector2(0, -627)
+scale = Vector2(1.1, 1.1)
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="LeftFoot" type="Sprite2D" parent="Rooms/Desk/CreamDeskAnimation" unique_id=1677358238]
 position = Vector2(-136, 368)
@@ -2015,7 +2021,7 @@ autoplay = &"WalkCycle"
 
 [node name="LuiginetteDeskAnimation" type="Node2D" parent="Rooms/Desk" unique_id=719237010]
 visible = false
-position = Vector2(0, -480)
+position = Vector2(0, -440)
 metadata/_edit_lock_ = true
 
 [node name="Legs" type="Sprite2D" parent="Rooms/Desk/LuiginetteDeskAnimation" unique_id=326589284]
