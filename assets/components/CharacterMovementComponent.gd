@@ -55,6 +55,7 @@ signal character_moved;
 
 @export_group("Other")
 @export var character_fadeaway_transition: AnimationPlayer;
+@export var let_external_component_handle_direction : bool = false;
 
 var current_direction: String = "";
 
@@ -77,7 +78,7 @@ func _ready() -> void:
 
 	if main.ai_levels[character_ai_level_id] > 0:
 		movement_timer = _get_randomized_movement_timer();
-		if possible_directions != []:
+		if possible_directions != [] && !let_external_component_handle_direction:
 			current_direction = possible_directions.pick_random();
 		else:
 			disabled = true;
@@ -214,6 +215,7 @@ func _reset_character_status(enable_character_fadeaway: bool = true, play_leave_
 		if play_leave_vent_sound:
 			leave_vent_sound.play();
 
-		current_direction = possible_directions.pick_random();
+		if !let_external_component_handle_direction:
+			current_direction = possible_directions.pick_random();
 		current_position = -1;
 		character_moved.emit();

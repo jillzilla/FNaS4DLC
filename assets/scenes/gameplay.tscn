@@ -1028,8 +1028,8 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 script = ExtResource("123_mliqa")
 character_ai_level_id = "Nightmare Cream"
 player_component = NodePath("../../../Components/Player_Component")
-min_movement_timer = 145.0
-max_movement_timer = 185.0
+min_movement_timer = 180.0
+max_movement_timer = 200.0
 possible_directions = Array[String](["Right Vent"])
 max_positions_in_directions = Dictionary[String, int]({
 "Ceiling": 0,
@@ -1089,8 +1089,8 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 script = ExtResource("123_mliqa")
 character_ai_level_id = "Nightmare Knuckles"
 player_component = NodePath("../../../Components/Player_Component")
-min_movement_timer = 400.0
-max_movement_timer = 450.0
+min_movement_timer = 500.0
+max_movement_timer = 500.0
 possible_directions = Array[String](["Hallway"])
 max_positions_in_directions = Dictionary[String, int]({
 "Ceiling": 0,
@@ -1176,6 +1176,7 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 
 [node name="CharacterMovementComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=2037572651 node_paths=PackedStringArray("player_component", "sprites_left_vent", "sprites_right_vent", "sprites_ceiling", "sprites_hallway", "sprite_shock_left_vent", "sprite_shock_right_vent", "sprite_shock_ceiling", "sprite_shock_hallway", "flashlight_left_vent", "flashlight_right_vent", "flashlight_ceiling", "flashlight_hallway", "left_vent", "right_vent", "shock_sound", "leave_vent_sound", "character_fadeaway_transition")]
 script = ExtResource("123_mliqa")
+disabled = true
 character_ai_level_id = "Nightmare Luiginette"
 player_component = NodePath("../../../Components/Player_Component")
 min_movement_timer = 50.0
@@ -1198,6 +1199,7 @@ right_vent = NodePath("../../../Sounds/RightVentSound")
 shock_sound = NodePath("../../../Sounds/Shock_SFX")
 leave_vent_sound = NodePath("../../../Sounds/Vent_Leave_SFX")
 character_fadeaway_transition = NodePath("../../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
+let_external_component_handle_direction = true
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
 
 [node name="CharacterAttackComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=2019056760 node_paths=PackedStringArray("player_component", "mask_component", "character_movement_component")]
