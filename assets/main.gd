@@ -1,12 +1,16 @@
 extends Node
 
 #variables
-const CANSKIPNIGHTS : bool = true;
+const CANSKIPNIGHTS: bool = false;
 
 const DEFAULT_WINDOW_MODE: int = 0;
 const DEFAULT_RESOLUTION: int = 1;
 const DEFAULT_VSYNC: bool = true;
 const DEFAULT_FPSCAP: int = 1;
+
+const DEFAULT_FLASHLIGHTHOTKEY: Key = KEY_CTRL;
+const DEFAULT_MASKHOTKEY: Key = KEY_SHIFT;
+const DEFAULT_PAUSEHOTKEY: Key = KEY_ESCAPE;
 
 const DEFAULT_MASTER_VOLUME: float = 1;
 const DEFAULT_MUSIC_VOLUME: float = 1;
@@ -30,23 +34,23 @@ var night5ending: bool = false;
 var night6ending: bool = false;
 var night7ending: bool = false;
 
-var windowmode: int = 0;
-var resolution: int = 1;
-var vsync: bool = true;
-var fpscap: int = 1;
+var windowmode: int = DEFAULT_WINDOW_MODE;
+var resolution: int = DEFAULT_RESOLUTION;
+var vsync: bool = DEFAULT_VSYNC;
+var fpscap: int = DEFAULT_FPSCAP;
 
 var keys: Dictionary[String, Key] = {
-	"FLASHLIGHT": KEY_CTRL,
-	"MASK": KEY_SHIFT,
-	"PAUSE": KEY_ESCAPE
+	"FLASHLIGHT": DEFAULT_FLASHLIGHTHOTKEY,
+	"MASK": DEFAULT_MASKHOTKEY,
+	"PAUSE": DEFAULT_PAUSEHOTKEY
 };
 
-var master_volume: float = 1;
-var music_volume: float = 1;
-var sounds_volume: float = 1;
-var jumpscares_volume: float = 1;
+var master_volume: float = DEFAULT_MASTER_VOLUME;
+var music_volume: float = DEFAULT_MUSIC_VOLUME;
+var sounds_volume: float = DEFAULT_SOUNDS_VOLUME;
+var jumpscares_volume: float = DEFAULT_JUMPSCARE_VOLUME;
 
-var fps_counter: bool = false;
+var fps_counter: bool = DEFAULT_FPSCOUNTER;
 
 var cn_challenge_1: bool = false;
 var cn_challenge_2: bool = false;

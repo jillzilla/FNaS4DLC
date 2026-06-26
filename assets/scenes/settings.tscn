@@ -232,7 +232,7 @@ size_flags_vertical = 1
 text = "FPS Cap:"
 metadata/_edit_lock_ = true
 
-[node name="OptionButton" type="OptionButton" parent="MarginContainer/Video/VideoContainer/FPSCap" unique_id=355334451]
+[node name="OptionButton1" type="OptionButton" parent="MarginContainer/Video/VideoContainer/FPSCap" unique_id=355334451]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -244,6 +244,24 @@ popup/item_1/text = "60 (Default)"
 popup/item_1/id = 1
 popup/item_2/text = "120"
 popup/item_2/id = 2
+popup/item_3/text = "Unlimited"
+popup/item_3/id = 3
+metadata/_edit_lock_ = true
+
+[node name="OptionButton2" type="OptionButton" parent="MarginContainer/Video/VideoContainer/FPSCap" unique_id=1544873962]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+selected = 1
+item_count = 4
+popup/item_0/text = "30"
+popup/item_0/id = 0
+popup/item_1/text = "60 (Default)"
+popup/item_1/id = 1
+popup/item_2/text = "Not Supported"
+popup/item_2/id = 3
+popup/item_2/disabled = true
 popup/item_3/text = "Unlimited"
 popup/item_3/id = 3
 metadata/_edit_lock_ = true
@@ -507,7 +525,8 @@ layout_mode = 1
 [connection signal="item_selected" from="MarginContainer/Video/VideoContainer/WindowMode/OptionButton" to="." method="_on_windowmode_item_selected"]
 [connection signal="item_selected" from="MarginContainer/Video/VideoContainer/Resolution/OptionButton" to="." method="_on_resolution_item_selected"]
 [connection signal="toggled" from="MarginContainer/Video/VideoContainer/VSync/CheckBox" to="." method="_on_vsync_check_box_toggled"]
-[connection signal="item_selected" from="MarginContainer/Video/VideoContainer/FPSCap/OptionButton" to="." method="_on_fpscap_item_selected"]
+[connection signal="item_selected" from="MarginContainer/Video/VideoContainer/FPSCap/OptionButton1" to="." method="_on_fpscap_item_selected"]
+[connection signal="item_selected" from="MarginContainer/Video/VideoContainer/FPSCap/OptionButton2" to="." method="_on_fpscap_item_selected"]
 [connection signal="value_changed" from="MarginContainer/Audio/AudioContainer/MasterVolume/HSlider" to="." method="_on_mastah_value_changed"]
 [connection signal="value_changed" from="MarginContainer/Audio/AudioContainer/MusicVolume/HSlider" to="." method="_on_moosic_value_changed"]
 [connection signal="value_changed" from="MarginContainer/Audio/AudioContainer/SoundsVolume/HSlider" to="." method="_on_sounds_value_changed"]

@@ -9,7 +9,8 @@ extends Control
 @onready var windowed_mode_button: OptionButton = $MarginContainer/Video/VideoContainer/WindowMode/OptionButton;
 @onready var resolution_button: OptionButton = $MarginContainer/Video/VideoContainer/Resolution/OptionButton;
 @onready var vsync_button: CheckBox = $MarginContainer/Video/VideoContainer/VSync/CheckBox;
-@onready var fpscap_button: OptionButton = $MarginContainer/Video/VideoContainer/FPSCap/OptionButton;
+@onready var fpscap_button1: OptionButton = $MarginContainer/Video/VideoContainer/FPSCap/OptionButton1;
+@onready var fpscap_button2: OptionButton = $MarginContainer/Video/VideoContainer/FPSCap/OptionButton2;
 
 @onready var flashlight_key_button: Button = $MarginContainer/Input/InputContainer/Flashlight/Button;
 @onready var mask_key_button: Button = $MarginContainer/Input/InputContainer/Mask/Button;
@@ -29,15 +30,20 @@ var deletedata: bool = false;
 
 #functions
 func _ready() -> void:
+	if main.monitor_refresh_rate <= 60.0:
+		fpscap_button1.hide();
+		fpscap_button2.show();
+
 	confirm_popup.connect("confirmaction", _confirmed_action);
-	fpscap_button.set_item_text(2, str(ceil(main.monitor_refresh_rate)));
+	fpscap_button1.set_item_text(2, str(ceil(main.monitor_refresh_rate)));
 	_sync_button_with_options();
 
 func _sync_button_with_options() -> void:
 	windowed_mode_button.selected = main.windowmode;
 	resolution_button.selected = main.resolution;
 	vsync_button.button_pressed = main.vsync;
-	fpscap_button.selected = main.fpscap;
+	fpscap_button1.selected = main.fpscap;
+	fpscap_button2.selected = main.fpscap;
 
 	flashlight_key_button._update_text();
 	mask_key_button._update_text();
@@ -128,9 +134,9 @@ func _reset_settings() -> void:
 	main.vsync = main.DEFAULT_VSYNC;
 	main.fpscap = main.DEFAULT_FPSCAP;
 
-	main.keys["FLASHLIGHT"] = KEY_CTRL;
-	main.keys["MASK"] = KEY_SHIFT;
-	main.keys["PAUSE"] = KEY_ESCAPE;
+	main.keys["FLASHLIGHT"] = main.DEFAULT_FLASHLIGHTHOTKEY;
+	main.keys["MASK"] = main.DEFAULT_MASKHOTKEY;
+	main.keys["PAUSE"] = main.DEFAULT_PAUSEHOTKEY;
 	
 	main.master_volume = main.DEFAULT_MASTER_VOLUME;
 	main.music_volume = main.DEFAULT_MUSIC_VOLUME;

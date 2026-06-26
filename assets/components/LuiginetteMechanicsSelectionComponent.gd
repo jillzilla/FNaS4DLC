@@ -11,7 +11,7 @@ func _ready() -> void:
     movement_component.connect("character_moved", luiginette_moved);
 
 func luiginette_moved() -> void:
-    if movement_component.current_position > -1:
+    if movement_component.current_position == 0:
         match (movement_component.current_direction):
             "Left Vent":
                mask_mechanic_component.enable = true;

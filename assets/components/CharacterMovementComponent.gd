@@ -81,18 +81,17 @@ func _ready() -> void:
 		if possible_directions != [] && !let_external_component_handle_direction:
 			current_direction = possible_directions.pick_random();
 		else:
-			disabled = true;
+			if !disabled:
+				disabled = true;
 
 func _physics_process(delta: float) -> void:
-	if !pause && !disabled:
-		if main.ai_levels[character_ai_level_id] > 0:
-			if player_component.is_alive:
-				if current_position < max_positions_in_directions[current_direction]:
-					step += delta * main.ai_levels[character_ai_level_id];
-					if step >= movement_timer:
-						step = 0;
-						current_position += 1;
-						_move_character(turn_off_flashlight_when_moving);
+	if main.ai_levels[character_ai_level_id] > 0 && !pause && !disabled && player_component.is_alive:
+		if current_position < max_positions_in_directions[current_direction]:
+			step += delta * main.ai_levels[character_ai_level_id];
+			if step >= movement_timer:
+				step = 0;
+				current_position += 1;
+				_move_character(turn_off_flashlight_when_moving);
 
 func _left_flashlight_on() -> void:
 	if sprite_peek_left_vent != null:

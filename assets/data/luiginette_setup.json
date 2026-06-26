@@ -1,8 +1,8 @@
 {
 	"Night 6": {
-		"TimerMovementMin": 200.0,
-		"TimerMovementMax": 300.0,
-		"AttackTimer": 2.5,
+		"TimerMovementMin": 75.0,
+		"TimerMovementMax": 95.0,
+		"AttackTimer": 2.0,
 		"FlashlightCounterTimer": 0.5,
 		"MaskCounterTimer": 0.3,
 		"LeftVentPositionCount": 1.0,
@@ -28,12 +28,12 @@
 		"TurnOffFlashlightInHallwayWhen": 2.0,
 		"DirMinMovement": 1.0,
 		"DirMaxMovement": 4.0,
-		"DirMinTimerMovement": 60.0,
-		"DirMaxTimerMovement": 80.0
+		"DirMinTimerMovement": 85.0,
+		"DirMaxTimerMovement": 115.0
 	},
 	"Night 7": {
-		"TimerMovementMin": 300.0,
-		"TimerMovementMax": 400.0,
+		"TimerMovementMin": 115.0,
+		"TimerMovementMax": 135.0,
 		"AttackTimer": 3.0,
 		"FlashlightCounterTimer": 0.5,
 		"MaskCounterTimer": 0.5,
@@ -62,7 +62,7 @@
 		"TurnOffFlashlightInHallwayWhen": 4.0,
 		"DirMinMovement": 1.0,
 		"DirMaxMovement": 5.0,
-		"DirMinTimerMovement": 80.0,
-		"DirMaxTimerMovement": 100.0
+		"DirMinTimerMovement": 125.0,
+		"DirMaxTimerMovement": 145.0
 	}
 }

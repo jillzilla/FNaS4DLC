@@ -1179,8 +1179,8 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 script = ExtResource("19_l0km7")
 min_movements = 1
 max_movements = 3
-movement_timer_min = 30.0
-movement_timer_max = 60.0
+movement_timer_min = 35.0
+movement_timer_max = 65.0
 player_component = NodePath("../../../Components/Player_Component")
 movement_component = NodePath("../CharacterMovementComponent")
 walk_left = NodePath("../../../Sounds/Luigi_Walk_Left")
@@ -1193,8 +1193,8 @@ script = ExtResource("123_mliqa")
 disabled = true
 character_ai_level_id = "Nightmare Luiginette"
 player_component = NodePath("../../../Components/Player_Component")
-min_movement_timer = 25.0
-max_movement_timer = 45.0
+min_movement_timer = 45.0
+max_movement_timer = 65.0
 possible_directions = Array[String](["Left Vent", "Right Vent", "Ceiling", "Hallway"])
 sprites_left_vent = [NodePath("../../../Rooms/Left_Vent/NLuigiVent")]
 sprites_right_vent = [NodePath("../../../Rooms/Right_Vent/NLuigiVent")]
@@ -1237,16 +1237,6 @@ game_over_name = "Nightmare Luiginette"
 jumpscare_sound_name = "Luigi_Jumpscare"
 metadata/_custom_type_script = "uid://u3ovbneaky16"
 
-[node name="MaskMechanicComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=1045684659 node_paths=PackedStringArray("player_component", "movement_component", "attack_component", "mask_component")]
-script = ExtResource("7_jrrtj")
-enable = false
-timer_counter = 0.25
-player_component = NodePath("../../../Components/Player_Component")
-movement_component = NodePath("../CharacterMovementComponent")
-attack_component = NodePath("../CharacterAttackComponent")
-mask_component = NodePath("../../../Components/MaskComponent")
-metadata/_custom_type_script = "uid://bbrk1o1epkmgc"
-
 [node name="FlashlightMechanicComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=494656216 node_paths=PackedStringArray("player_component", "movement_component", "attack_component", "flashlight_component", "computer_screech")]
 script = ExtResource("9_o1odc")
 enable = false
@@ -1259,6 +1249,16 @@ play_computer_screech = true
 do_the_character_fade_away_effect_when_reset = true
 computer_screech = NodePath("../../../Sounds/ComputerScreech")
 metadata/_custom_type_script = "uid://ctmems2pxl6cl"
+
+[node name="MaskMechanicComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=1045684659 node_paths=PackedStringArray("player_component", "movement_component", "attack_component", "mask_component")]
+script = ExtResource("7_jrrtj")
+enable = false
+timer_counter = 0.25
+player_component = NodePath("../../../Components/Player_Component")
+movement_component = NodePath("../CharacterMovementComponent")
+attack_component = NodePath("../CharacterAttackComponent")
+mask_component = NodePath("../../../Components/MaskComponent")
+metadata/_custom_type_script = "uid://bbrk1o1epkmgc"
 
 [node name="DeskMechanicComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=368177149 node_paths=PackedStringArray("player_component", "character_attack_component", "character_movement_component", "desk_room_component", "desk_character_animation")]
 script = ExtResource("6_j85f1")
@@ -1302,7 +1302,6 @@ metadata/_custom_type_script = "uid://tbjaqe8d5xtg"
 
 [node name="LuiginetteSetupComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=1124316958 node_paths=PackedStringArray("gameplay_node", "direction_handler", "movement", "attack", "flashlight_mechanic", "mask_mechanic", "fnas3monitor")]
 script = ExtResource("21_8jjp4")
-active = false
 gameplay_node = NodePath("../../..")
 data_json = "res://assets/data/luiginette_setup.json"
 direction_handler = NodePath("../NightmareLuiginetteDirectionHandlerComponent")
