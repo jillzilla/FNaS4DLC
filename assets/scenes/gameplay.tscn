@@ -57,6 +57,7 @@
 [ext_resource type="AudioStream" uid="uid://vws82qu5ple8" path="res://assets/sounds/Walking_2.ogg" id="20_k63c8"]
 [ext_resource type="Texture2D" uid="uid://c2pxe3ehd4qtn" path="res://assets/images/gameplay/rooms/clipmask/vent.png" id="20_t2peh"]
 [ext_resource type="Script" uid="uid://cupidlfbaj51p" path="res://assets/components/EasterEggComponent.gd" id="20_uacgo"]
+[ext_resource type="Script" uid="uid://euwep6lcycwd" path="res://assets/components/LuiginetteSetupComponent.gd" id="21_8jjp4"]
 [ext_resource type="AudioStream" uid="uid://b45lrfsxaou4l" path="res://assets/sounds/Walking_3.ogg" id="21_66s47"]
 [ext_resource type="Script" uid="uid://cu2sd5p1bnw2g" path="res://assets/components/NightmareShadowToyMarioComponent.gd" id="21_dpljo"]
 [ext_resource type="Texture2D" uid="uid://v3lx10cvmtha" path="res://assets/images/gameplay/characters/yoshi/yoshi_1.png" id="21_h887p"]
@@ -1011,6 +1012,7 @@ metadata/_custom_type_script = "uid://xpl5plir63t7"
 
 [node name="FNaS3MonitorComponent" type="Node" parent="Characters/NightmareSalvageSonic" unique_id=2061518906 node_paths=PackedStringArray("movement_component", "timer_static_fade", "change_cam_sound", "static_", "lost_signal_sprite")]
 script = ExtResource("12_v3n8n")
+exceptions = Array[int]([-1, 5])
 movement_component = NodePath("../CharacterMovementComponent")
 timer_static_fade = NodePath("../../../Rooms/Office/Monitor/TimerStaticFade")
 change_cam_sound = NodePath("../../../Sounds/ChangeCam_SFX")
@@ -1252,6 +1254,7 @@ desk_room_component = NodePath("../../../Components/RoomComponent_Desk")
 desk_character_animation = NodePath("../../../Rooms/Desk/LuiginetteDeskAnimation")
 animation_speed = 2.5
 do_the_character_fade_away_effect_when_reset = true
+play_vent_sound_when_reset = false
 metadata/_custom_type_script = "uid://dmrygnokdj0s1"
 
 [node name="LuiginetteMechanicsSelectionComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=230162493 node_paths=PackedStringArray("movement_component", "mask_mechanic_component", "flashlight_mechanic_component", "desk_mechanic_component")]
@@ -1269,6 +1272,26 @@ walking = [NodePath("../../../Sounds/Walking_SFX_1"), NodePath("../../../Sounds/
 laughing = [NodePath("../../../Sounds/LuigiLaugh1"), NodePath("../../../Sounds/LuigiLaugh2"), NodePath("../../../Sounds/LuigiLaugh3")]
 jump = NodePath("../../../Sounds/LuigiJump")
 metadata/_custom_type_script = "uid://b0a7hodnklbkc"
+
+[node name="LuiginetteSetupComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=1124316958 node_paths=PackedStringArray("gameplay_node", "movement", "attack", "flashlight_mechanic", "mask_mechanic")]
+script = ExtResource("21_8jjp4")
+gameplay_node = NodePath("../../..")
+data_json = "res://assets/data/luiginette_setup.json"
+movement = NodePath("../CharacterMovementComponent")
+attack = NodePath("../CharacterAttackComponent")
+flashlight_mechanic = NodePath("../FlashlightMechanicComponent")
+mask_mechanic = NodePath("../MaskMechanicComponent")
+metadata/_custom_type_script = "uid://euwep6lcycwd"
+
+[node name="FNaS3MonitorComponent" type="Node" parent="Characters/NightmareLuiginette" unique_id=1619334065 node_paths=PackedStringArray("movement_component", "timer_static_fade", "change_cam_sound", "static_", "lost_signal_sprite")]
+script = ExtResource("12_v3n8n")
+exceptions = Array[int]([-1])
+movement_component = NodePath("../CharacterMovementComponent")
+timer_static_fade = NodePath("../../../Rooms/Office/Monitor/TimerStaticFade")
+change_cam_sound = NodePath("../../../Sounds/ChangeCam_SFX")
+static_ = NodePath("../../../Rooms/Office/Monitor/Static")
+lost_signal_sprite = NodePath("../../../Rooms/Office/Monitor/NoSignal")
+metadata/_custom_type_script = "uid://tbjaqe8d5xtg"
 
 [node name="Components" type="Node" parent="." unique_id=397741405]
 script = ExtResource("2_qj8ra")
@@ -1651,13 +1674,6 @@ scale = Vector2(0.18554686, 0.18611103)
 texture = ExtResource("46_pou5s")
 metadata/_edit_lock_ = true
 
-[node name="Lnette1" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=578858799]
-visible = false
-position = Vector2(4, -22)
-scale = Vector2(0.135, 0.135)
-texture = ExtResource("61_p5pbk")
-metadata/_edit_lock_ = true
-
 [node name="Salvage_1" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1047107748]
 visible = false
 position = Vector2(0.6875115, -13.9999895)
@@ -1665,11 +1681,11 @@ scale = Vector2(0.1416673, 0.1416673)
 texture = ExtResource("47_8dojq")
 metadata/_edit_lock_ = true
 
-[node name="Lnette2" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1467882663]
+[node name="Lnette1" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=578858799]
 visible = false
-position = Vector2(18, -7)
-scale = Vector2(0.165, 0.165)
-texture = ExtResource("63_ihc8j")
+position = Vector2(4, -22)
+scale = Vector2(0.135, 0.135)
+texture = ExtResource("61_p5pbk")
 metadata/_edit_lock_ = true
 
 [node name="Salvage_2" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=582453989]
@@ -1679,11 +1695,11 @@ scale = Vector2(0.17916684, 0.17916682)
 texture = ExtResource("48_cykhs")
 metadata/_edit_lock_ = true
 
-[node name="Lnette3" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=86762287]
+[node name="Lnette2" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1467882663]
 visible = false
-position = Vector2(-23.800049, 12.099976)
-scale = Vector2(0.19701493, 0.200365)
-texture = ExtResource("65_8jjp4")
+position = Vector2(18, -7.0000305)
+scale = Vector2(0.16500002, 0.16500002)
+texture = ExtResource("63_ihc8j")
 metadata/_edit_lock_ = true
 
 [node name="Salvage_3" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1808550587]
@@ -1693,19 +1709,25 @@ scale = Vector2(0.19856092, 0.20053697)
 texture = ExtResource("49_v3n8n")
 metadata/_edit_lock_ = true
 
+[node name="Lnette3" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=86762287]
+visible = false
+position = Vector2(-23.800049, 12.099976)
+scale = Vector2(0.19701493, 0.200365)
+texture = ExtResource("65_8jjp4")
+metadata/_edit_lock_ = true
+
 [node name="Salvage_4" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1316019092]
 visible = false
-position = Vector2(-35.118507, 15.5)
+position = Vector2(-0.11853027, 15.5)
 scale = Vector2(0.30233794, 0.29178458)
 texture = ExtResource("50_uacgo")
 metadata/_edit_lock_ = true
 
 [node name="Lnette4" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1857944624]
 visible = false
-position = Vector2(10, 1)
+position = Vector2(-19, 1)
 scale = Vector2(0.24595462, 0.25047433)
 texture = ExtResource("68_l0km7")
-metadata/_edit_lock_ = true
 
 [node name="NoSignal" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1367646535]
 visible = false

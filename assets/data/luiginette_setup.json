@@ -1,0 +1,58 @@
+{
+	"Night 6": {
+		"TimerMovementMin": 200.0,
+		"TimerMovementMax": 300.0,
+		"AttackTimer": 2.5,
+		"FlashlightCounterTimer": 0.5,
+		"MaskCounterTimer": 0.3,
+		"LeftVentPositionCount": 1.0,
+		"RightVentPositionCount": 1.0,
+		"CeilingPositionCount": 0.0,
+		"HallwayPositionCount": 2.0,
+		"LeftVentSprites": [
+			"Rooms/Left_Vent/LuiginetteVent1",
+			"Rooms/Left_Vent/NLuigiVent"
+		],
+		"RightVentSprites": [
+			"Rooms/Right_Vent/LuiginetteVent1",
+			"Rooms/Right_Vent/NLuigiVent"
+		],
+		"CeilingSprites": [
+			"Rooms/Ceiling/ClipMask/NLuigiCeiling"
+		],
+		"HallwaySprites": [
+			"Rooms/Office/Monitor/Lnette1",
+			"Rooms/Office/Monitor/Lnette3",
+			"Rooms/Hallway/NLuigiHallway"
+		]
+	},
+	"Night 7": {
+		"TimerMovementMin": 300.0,
+		"TimerMovementMax": 400.0,
+		"AttackTimer": 3.0,
+		"FlashlightCounterTimer": 0.5,
+		"MaskCounterTimer": 0.5,
+		"LeftVentPositionCount": 1.0,
+		"RightVentPositionCount": 1.0,
+		"CeilingPositionCount": 0.0,
+		"HallwayPositionCount": 4.0,
+		"LeftVentSprites": [
+			"Rooms/Left_Vent/LuiginetteVent1",
+			"Rooms/Left_Vent/NLuigiVent"
+		],
+		"RightVentSprites": [
+			"Rooms/Right_Vent/LuiginetteVent1",
+			"Rooms/Right_Vent/NLuigiVent"
+		],
+		"CeilingSprites": [
+			"Rooms/Ceiling/ClipMask/NLuigiCeiling"
+		],
+		"HallwaySprites": [
+			"Rooms/Office/Monitor/Lnette1",
+			"Rooms/Office/Monitor/Lnette2",
+			"Rooms/Office/Monitor/Lnette3",
+			"Rooms/Office/Monitor/Lnette4",
+			"Rooms/Hallway/NLuigiHallway"
+		]
+	}
+}

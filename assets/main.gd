@@ -1,7 +1,7 @@
 extends Node
 
 #variables
-const CANSKIPNIGHTS : bool = false;
+const CANSKIPNIGHTS : bool = true;
 
 const DEFAULT_WINDOW_MODE: int = 0;
 const DEFAULT_RESOLUTION: int = 1;
