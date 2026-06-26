@@ -45,6 +45,7 @@ signal character_moved;
 @export var flashlight_right_vent: FlashlightComponent;
 @export var flashlight_ceiling: FlashlightComponent;
 @export var flashlight_hallway: FlashlightComponent;
+@export var turn_off_flashlight_in_hallway_when : int = 0;
 
 @export_group("Audio")
 @export var left_vent: AudioStreamPlayer2D;
@@ -174,8 +175,9 @@ func _move_character(turn_off_flashlight: bool) -> void:
 			sprites_right_vent[current_position].show();
 		"Hallway":
 			if turn_off_flashlight:
-				if flashlight_hallway.is_flashlight_on:
-					flashlight_hallway._flashlight_off();
+				if current_position >= turn_off_flashlight_in_hallway_when:
+					if flashlight_hallway.is_flashlight_on:
+						flashlight_hallway._flashlight_off();
 			for s in sprites_hallway:
 				s.hide();
 			sprites_hallway[current_position].show();

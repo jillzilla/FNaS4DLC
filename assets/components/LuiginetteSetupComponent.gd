@@ -49,3 +49,5 @@ func _ready() -> void:
 
         for i in range(data["Night " + str(main.nightcounter)]["HallwaySprites"].size()):
             movement.sprites_hallway.append(gameplay_node.get_node(data["Night " + str(main.nightcounter)]["HallwaySprites"][i]));
+
+        movement.turn_off_flashlight_in_hallway_when = data["Night " + str(main.nightcounter)]["TurnOffFlashlightInHallwayWhen"];

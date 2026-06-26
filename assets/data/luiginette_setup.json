@@ -24,7 +24,8 @@
 			"Rooms/Office/Monitor/Lnette1",
 			"Rooms/Office/Monitor/Lnette3",
 			"Rooms/Hallway/NLuigiHallway"
-		]
+		],
+		"TurnOffFlashlightInHallwayWhen": 2.0
 	},
 	"Night 7": {
 		"TimerMovementMin": 300.0,
@@ -53,6 +54,7 @@
 			"Rooms/Office/Monitor/Lnette3",
 			"Rooms/Office/Monitor/Lnette4",
 			"Rooms/Hallway/NLuigiHallway"
-		]
+		],
+		"TurnOffFlashlightInHallwayWhen": 4.0
 	}
 }
