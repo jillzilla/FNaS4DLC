@@ -19,6 +19,7 @@ var step: float = 0.0;
 
 #functions
 func _ready() -> void:
+    movement_component.connect("character_moved", char_moved);
     mask_component.connect("mask_is_on", _mask_is_on);
     mask_component.connect("mask_is_off", _mask_is_off);
 
@@ -42,3 +43,8 @@ func _mask_is_off() -> void:
     if enable:
         if player_component.direction == movement_component.current_direction.to_pascal_case() && attack_component.can_attack && movement_component.shocked:
             attack_component.pause = false;
+
+func char_moved() -> void:
+    if movement_component.current_position == -1:
+        if step != 0:
+            step = 0;

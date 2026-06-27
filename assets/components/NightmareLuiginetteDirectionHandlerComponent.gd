@@ -40,10 +40,10 @@ func _process(delta: float) -> void:
                 if step >= timer_movement:
                     match (direction):
                         directions.LEFT:
-                            direction = directions.MIDDLE;
                             walk_middle.play();
                             walk_right.stop();
                             walk_left.stop();
+                            direction = directions.MIDDLE;
                         directions.MIDDLE:
                             var possible_directions: Array[directions] = [directions.LEFT, directions.RIGHT];
                             direction = possible_directions.pick_random();
@@ -57,10 +57,10 @@ func _process(delta: float) -> void:
                                     walk_right.play();
                                     walk_left.stop();
                         directions.RIGHT:
-                            direction = directions.MIDDLE;
                             walk_middle.play();
                             walk_right.stop();
                             walk_left.stop();
+                            direction = directions.MIDDLE;
                     step = 0;
                     timer_movement = randf_range(movement_timer_min, movement_timer_max);
                     movement += 1;
