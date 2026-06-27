@@ -32,20 +32,21 @@ metadata/_edit_lock_ = true
 [node name="ThingsContainer" type="VBoxContainer" parent="." unique_id=1208848066]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.194
+anchor_left = 0.18100001
 anchor_top = 0.5
-anchor_right = 0.194
+anchor_right = 0.18100001
 anchor_bottom = 0.5
-offset_left = -232.32
+offset_left = -215.68001
 offset_top = -344.0
-offset_right = 231.68
+offset_right = 216.31999
 offset_bottom = 344.0
 theme_override_constants/separation = 48
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Settings" type="Label" parent="ThingsContainer" unique_id=359293982]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 64
 text = "Options"
 horizontal_alignment = 1
@@ -54,11 +55,13 @@ metadata/_edit_lock_ = true
 
 [node name="Separator1" type="HSeparator" parent="ThingsContainer" unique_id=703932832]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_fdwte")
 metadata/_edit_lock_ = true
 
 [node name="Video" type="Button" parent="ThingsContainer" unique_id=517420505]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 48
 action_mode = 0
@@ -71,6 +74,7 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Audio" type="Button" parent="ThingsContainer" unique_id=1742554771]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 48
 action_mode = 0
@@ -83,6 +87,7 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Input" type="Button" parent="ThingsContainer" unique_id=527476175]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 48
 action_mode = 0
@@ -95,6 +100,7 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Misc" type="Button" parent="ThingsContainer" unique_id=1351888968]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 48
 action_mode = 0
@@ -107,11 +113,13 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Separator2" type="HSeparator" parent="ThingsContainer" unique_id=816923789]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_fdwte")
 metadata/_edit_lock_ = true
 
 [node name="Apply" type="Button" parent="ThingsContainer" unique_id=1516391875]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 64
 action_mode = 0

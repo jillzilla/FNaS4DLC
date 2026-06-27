@@ -66,12 +66,13 @@ metadata/_edit_group_ = true
 [node name="Logo" type="TextureRect" parent="MarginContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1831565722]
 layout_mode = 2
 size_flags_horizontal = 6
-size_flags_vertical = 2
+size_flags_vertical = 6
 texture = ExtResource("1_x7m8g")
 metadata/_edit_lock_ = true
 
 [node name="Separator" type="HSeparator" parent="MarginContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1740152643]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 12
 metadata/_edit_lock_ = true
 
