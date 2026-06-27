@@ -968,7 +968,7 @@ max_positions_in_directions = Dictionary[String, int]({
 "Left Vent": 0,
 "Right Vent": 0
 })
-sprites_hallway = [NodePath("../../../Rooms/Office/Monitor/Salvage_1"), NodePath("../../../Rooms/Office/Monitor/Salvage_2"), NodePath("../../../Rooms/Office/Monitor/Salvage_3"), NodePath("../../../Rooms/Office/Monitor/Salvage_4"), NodePath("../../../Rooms/Hallway/Salvage_5"), NodePath("../../../Rooms/Hallway/Salvage_6")]
+sprites_hallway = [NodePath("../../../Rooms/Office/Monitor/Camera/Salvage_1"), NodePath("../../../Rooms/Office/Monitor/Camera/Salvage_2"), NodePath("../../../Rooms/Office/Monitor/Camera/Salvage_3"), NodePath("../../../Rooms/Office/Monitor/Camera/Salvage_4"), NodePath("../../../Rooms/Hallway/Salvage_5"), NodePath("../../../Rooms/Hallway/Salvage_6")]
 turn_off_flashlight_when_moving = false
 flashlight_hallway = NodePath("../../../Components/FlashlightComponent_Hallway")
 metadata/_custom_type_script = "uid://b4q3l8uo6xif4"
@@ -1710,63 +1710,64 @@ position = Vector2(715, 507)
 metadata/_edit_lock_ = true
 
 [node name="Camera" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1285553195]
+clip_children = 2
 scale = Vector2(0.18554686, 0.18611103)
 texture = ExtResource("46_pou5s")
 metadata/_edit_lock_ = true
 
-[node name="Salvage_1" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1047107748]
+[node name="Salvage_1" type="Sprite2D" parent="Rooms/Office/Monitor/Camera" unique_id=1047107748]
 visible = false
-position = Vector2(0.6875115, -13.9999895)
-scale = Vector2(0.1416673, 0.1416673)
+position = Vector2(3.7053223, -75.22388)
+scale = Vector2(0.7635123, 0.76119787)
 texture = ExtResource("47_8dojq")
 metadata/_edit_lock_ = true
 
-[node name="Lnette1" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=578858799]
+[node name="Lnette1" type="Sprite2D" parent="Rooms/Office/Monitor/Camera" unique_id=578858799]
 visible = false
-position = Vector2(4, -22)
-scale = Vector2(0.135, 0.135)
+position = Vector2(21.557861, -118.208984)
+scale = Vector2(0.72757906, 0.7253735)
 texture = ExtResource("61_p5pbk")
 metadata/_edit_lock_ = true
 
-[node name="Salvage_2" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=582453989]
+[node name="Salvage_2" type="Sprite2D" parent="Rooms/Office/Monitor/Camera" unique_id=582453989]
 visible = false
-position = Vector2(-24.50005, 7.6936765)
-scale = Vector2(0.17916684, 0.17916682)
+position = Vector2(-132.04248, 41.33911)
+scale = Vector2(0.9656151, 0.9626879)
 texture = ExtResource("48_cykhs")
 metadata/_edit_lock_ = true
 
-[node name="Lnette2" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1467882663]
+[node name="Lnette2" type="Sprite2D" parent="Rooms/Office/Monitor/Camera" unique_id=1467882663]
 visible = false
-position = Vector2(18, -7.0000305)
-scale = Vector2(0.16500002, 0.16500002)
+position = Vector2(97.0105, -37.61206)
+scale = Vector2(0.8892634, 0.8865677)
 texture = ExtResource("63_ihc8j")
 metadata/_edit_lock_ = true
 
-[node name="Salvage_3" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1808550587]
+[node name="Salvage_3" type="Sprite2D" parent="Rooms/Office/Monitor/Camera" unique_id=1808550587]
 visible = false
-position = Vector2(29.576994, 23.683973)
-scale = Vector2(0.19856092, 0.20053697)
+position = Vector2(159.4043, 127.25708)
+scale = Vector2(1.070139, 1.0775126)
 texture = ExtResource("49_v3n8n")
 metadata/_edit_lock_ = true
 
-[node name="Lnette3" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=86762287]
+[node name="Lnette3" type="Sprite2D" parent="Rooms/Office/Monitor/Camera" unique_id=86762287]
 visible = false
-position = Vector2(-23.800049, 12.099976)
-scale = Vector2(0.19701493, 0.200365)
+position = Vector2(-128.26978, 65.01489)
+scale = Vector2(1.0618069, 1.0765886)
 texture = ExtResource("65_8jjp4")
 metadata/_edit_lock_ = true
 
-[node name="Salvage_4" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1316019092]
+[node name="Salvage_4" type="Sprite2D" parent="Rooms/Office/Monitor/Camera" unique_id=1316019092]
 visible = false
-position = Vector2(-0.11853027, 15.5)
-scale = Vector2(0.30233794, 0.29178458)
+position = Vector2(-0.6386719, 83.28369)
+scale = Vector2(1.6294426, 1.5677985)
 texture = ExtResource("50_uacgo")
 metadata/_edit_lock_ = true
 
-[node name="Lnette4" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1857944624]
+[node name="Lnette4" type="Sprite2D" parent="Rooms/Office/Monitor/Camera" unique_id=1857944624]
 visible = false
-position = Vector2(-19, 1)
-scale = Vector2(0.24595462, 0.25047433)
+position = Vector2(-102.3999, 5.373291)
+scale = Vector2(1.3255662, 1.345833)
 texture = ExtResource("68_l0km7")
 
 [node name="NoSignal" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1367646535]
