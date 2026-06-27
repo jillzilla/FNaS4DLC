@@ -39,3 +39,7 @@ func _process(delta: float) -> void:
 func _character_moved() -> void:
     if character_movement_component.current_position >= character_movement_component.max_positions_in_directions[character_movement_component.current_direction]:
         can_attack = true;
+    if character_movement_component.current_position < character_movement_component.max_positions_in_directions[character_movement_component.current_direction]:
+        if can_attack:
+            step = 0;
+            can_attack = false;

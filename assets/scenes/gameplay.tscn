@@ -83,6 +83,7 @@
 [ext_resource type="Texture2D" uid="uid://lx6pb7qibjaj" path="res://assets/images/gameplay/characters/tmario/tmariopelvis.png" id="27_w0wri"]
 [ext_resource type="Texture2D" uid="uid://7bjybixcf0l3" path="res://assets/images/gameplay/characters/tmario/tmariorightleg.png" id="28_bt1i2"]
 [ext_resource type="Texture2D" uid="uid://dspjkfre872ju" path="res://assets/images/gameplay/characters/tsonic/toysonic21.png" id="31_82o30"]
+[ext_resource type="Script" uid="uid://b2udadtitgg17" path="res://assets/components/Night5Event.gd" id="32_3da72"]
 [ext_resource type="Texture2D" uid="uid://cmdsvegeu0ww0" path="res://assets/images/gameplay/custom_night_rewards/sonicplush.png" id="34_j85f1"]
 [ext_resource type="Texture2D" uid="uid://db00licd5elxu" path="res://assets/images/gameplay/custom_night_rewards/salvageplush.png" id="35_jrrtj"]
 [ext_resource type="Texture2D" uid="uid://cwx3t0pb835r0" path="res://assets/images/gameplay/characters/bt/bt1.png" id="36_8dshm"]
@@ -1501,6 +1502,21 @@ room = NodePath("../RoomComponent_Office")
 random_encounter = 0.001
 metadata/_custom_type_script = "uid://cu2sd5p1bnw2g"
 
+[node name="Night5Event" type="Node" parent="Components" unique_id=1054179857 node_paths=PackedStringArray("timer_spawn_luiginette", "time_component", "movement_component", "luiginette_movement_component", "luiginette_entrance", "character_fade_away", "clock_fall_animation")]
+script = ExtResource("32_3da72")
+timer_spawn_luiginette = NodePath("Timer")
+time_component = NodePath("../TimeComponent")
+movement_component = [NodePath("../../Characters/NightmareToySonic/CharacterMovementComponent"), NodePath("../../Characters/NightmareToyMario/CharacterMovementComponent"), NodePath("../../Characters/NightmareToyYoshi/CharacterMovementComponent"), NodePath("../../Characters/NightmareTaingle/CharacterMovementComponent"), NodePath("../../Characters/NightmareBT/CharacterMovementComponent"), NodePath("../../Characters/NightmareSalvageSonic/CharacterMovementComponent"), NodePath("../../Characters/NightmareCream/CharacterMovementComponent"), NodePath("../../Characters/NightmareKnuckles/CharacterMovementComponent"), NodePath("../../Characters/TailsDoll/CharacterMovementComponent"), NodePath("../../Characters/NightmareLuiginette/CharacterMovementComponent")]
+luiginette_movement_component = NodePath("../../Characters/NightmareLuiginette/CharacterMovementComponent")
+luiginette_entrance = NodePath("../../Sounds/EntranceLuiginette")
+character_fade_away = NodePath("../../Misc/GUI/CharacterAwayFade/AnimationPlayer")
+clock_fall_animation = NodePath("../../Misc/GUI/Clock/AnimationPlayer")
+metadata/_custom_type_script = "uid://b2udadtitgg17"
+
+[node name="Timer" type="Timer" parent="Components/Night5Event" unique_id=251918390]
+wait_time = 8.5
+one_shot = true
+
 [node name="Sounds" type="Node" parent="." unique_id=1674670979]
 
 [node name="Taingle_Radio" type="AudioStreamPlayer" parent="Sounds" unique_id=2037132696]
@@ -1517,28 +1533,28 @@ bus = &"Sounds"
 stream = ExtResource("3_5jwmk")
 bus = &"Sounds"
 
-[node name="Shock_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=168874207]
+[node name="Shock_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=168874207 groups=["GeneralSounds"]]
 stream = ExtResource("4_ugpla")
 bus = &"Sounds"
 
-[node name="Vent_Leave_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=665036641]
+[node name="Vent_Leave_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=665036641 groups=["GeneralSounds"]]
 stream = ExtResource("8_3khrc")
 bus = &"Sounds"
 
-[node name="Toad_Laugh_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=870326276]
+[node name="Toad_Laugh_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=870326276 groups=["GeneralSounds"]]
 stream = ExtResource("12_p0msi")
 pitch_scale = 0.8
 bus = &"Sounds"
 
-[node name="Salvage_Laugh_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=753140065]
+[node name="Salvage_Laugh_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=753140065 groups=["GeneralSounds"]]
 stream = ExtResource("14_q42g3")
 bus = &"Sounds"
 
-[node name="ChangeCam_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=1055441695]
+[node name="ChangeCam_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=1055441695 groups=["GeneralSounds"]]
 stream = ExtResource("15_3xapl")
 bus = &"Sounds"
 
-[node name="Danger_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=192029308]
+[node name="Danger_SFX" type="AudioStreamPlayer" parent="Sounds" unique_id=192029308 groups=["GeneralSounds"]]
 stream = ExtResource("16_riiyp")
 bus = &"Sounds"
 
@@ -1572,12 +1588,12 @@ stream = ExtResource("25_q5ac0")
 volume_db = -10.0
 bus = &"Sounds"
 
-[node name="LuigiJump" type="AudioStreamPlayer" parent="Sounds" unique_id=674372701]
+[node name="LuigiJump" type="AudioStreamPlayer" parent="Sounds" unique_id=674372701 groups=["GeneralSounds"]]
 stream = ExtResource("26_q5ac0")
 volume_db = -5.0
 bus = &"Sounds"
 
-[node name="EntranceLuiginette" type="AudioStreamPlayer" parent="Sounds" unique_id=383807181]
+[node name="EntranceLuiginette" type="AudioStreamPlayer" parent="Sounds" unique_id=383807181 groups=["GeneralSounds"]]
 stream = ExtResource("27_fmlyk")
 bus = &"Sounds"
 
@@ -1589,11 +1605,11 @@ bus = &"Sounds"
 stream = ExtResource("27_rfeao")
 bus = &"Sounds"
 
-[node name="Knux_Steps" type="AudioStreamPlayer" parent="Sounds" unique_id=1456245274]
+[node name="Knux_Steps" type="AudioStreamPlayer" parent="Sounds" unique_id=1456245274 groups=["GeneralSounds"]]
 stream = ExtResource("44_wfj4s")
 bus = &"Sounds"
 
-[node name="ComputerScreech" type="AudioStreamPlayer" parent="Sounds" unique_id=1356865059]
+[node name="ComputerScreech" type="AudioStreamPlayer" parent="Sounds" unique_id=1356865059 groups=["GeneralSounds"]]
 stream = ExtResource("50_71yt4")
 volume_db = -15.0
 bus = &"Sounds"
@@ -1619,7 +1635,7 @@ panning_strength = 3.0
 bus = &"Sounds"
 metadata/_edit_lock_ = true
 
-[node name="BT_Move_1" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1995508303]
+[node name="BT_Move_1" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1995508303 groups=["GeneralSounds"]]
 position = Vector2(0, 360)
 stream = ExtResource("67_8bh6l")
 pitch_scale = 0.9
@@ -1627,7 +1643,7 @@ panning_strength = 3.0
 bus = &"Sounds"
 metadata/_edit_lock_ = true
 
-[node name="BT_Move_2" type="AudioStreamPlayer2D" parent="Sounds" unique_id=926631251]
+[node name="BT_Move_2" type="AudioStreamPlayer2D" parent="Sounds" unique_id=926631251 groups=["GeneralSounds"]]
 position = Vector2(0, 360)
 stream = ExtResource("68_50646")
 pitch_scale = 0.9
@@ -1635,14 +1651,14 @@ panning_strength = 3.0
 bus = &"Sounds"
 metadata/_edit_lock_ = true
 
-[node name="LeftVentSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1811588009]
+[node name="LeftVentSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1811588009 groups=["GeneralSounds"]]
 position = Vector2(0, 360)
 stream = ExtResource("37_4ldp1")
 panning_strength = 3.0
 bus = &"Sounds"
 metadata/_edit_lock_ = true
 
-[node name="RightVentSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=576099952]
+[node name="RightVentSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=576099952 groups=["GeneralSounds"]]
 position = Vector2(2080, 360)
 stream = ExtResource("37_4ldp1")
 panning_strength = 3.0
