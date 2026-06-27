@@ -41,4 +41,4 @@ func trigger_event() -> void:
             timer_spawn_luiginette.start();
 
 func spawn_luiginette() -> void:
-    main.ai_levels["Nightmare Luiginette"] = 25;
+    main.ai_levels["Nightmare Luiginette"] = 20;

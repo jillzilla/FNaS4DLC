@@ -77,8 +77,9 @@ func _ready() -> void:
 	if flashlight_ceiling != null: flashlight_ceiling.connect("flashlight_is_on", _ceiling_flashlight_on);
 	if flashlight_hallway != null: flashlight_hallway.connect("flashlight_is_on", _hallway_flashlight_on);
 
+	movement_timer = _get_randomized_movement_timer();
+
 	if main.ai_levels[character_ai_level_id] > 0:
-		movement_timer = _get_randomized_movement_timer();
 		if possible_directions != [] && !let_external_component_handle_direction:
 			current_direction = possible_directions.pick_random();
 		else:

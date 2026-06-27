@@ -1575,17 +1575,17 @@ bus = &"Sounds"
 
 [node name="LuigiLaugh1" type="AudioStreamPlayer" parent="Sounds" unique_id=1899890115]
 stream = ExtResource("23_uacgo")
-volume_db = -10.0
+volume_db = -5.0
 bus = &"Sounds"
 
 [node name="LuigiLaugh2" type="AudioStreamPlayer" parent="Sounds" unique_id=594292158]
 stream = ExtResource("24_dpljo")
-volume_db = -10.0
+volume_db = -5.0
 bus = &"Sounds"
 
 [node name="LuigiLaugh3" type="AudioStreamPlayer" parent="Sounds" unique_id=1159683751]
 stream = ExtResource("25_q5ac0")
-volume_db = -10.0
+volume_db = -5.0
 bus = &"Sounds"
 
 [node name="LuigiJump" type="AudioStreamPlayer" parent="Sounds" unique_id=674372701 groups=["GeneralSounds"]]
@@ -1595,6 +1595,7 @@ bus = &"Sounds"
 
 [node name="EntranceLuiginette" type="AudioStreamPlayer" parent="Sounds" unique_id=383807181 groups=["GeneralSounds"]]
 stream = ExtResource("27_fmlyk")
+volume_db = -10.0
 bus = &"Sounds"
 
 [node name="Mask_ON" type="AudioStreamPlayer" parent="Sounds" unique_id=638921057]
@@ -1617,6 +1618,7 @@ bus = &"Sounds"
 [node name="Luigi_Walk_Left" type="AudioStreamPlayer2D" parent="Sounds" unique_id=697889683]
 position = Vector2(0, 360)
 stream = ExtResource("134_dpljo")
+volume_db = 5.0
 panning_strength = 3.0
 bus = &"Sounds"
 metadata/_edit_lock_ = true
@@ -1624,6 +1626,7 @@ metadata/_edit_lock_ = true
 [node name="Luigi_Walk_Middle" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1502927627]
 position = Vector2(1040, 360)
 stream = ExtResource("134_dpljo")
+volume_db = 5.0
 panning_strength = 3.0
 bus = &"Sounds"
 metadata/_edit_lock_ = true
@@ -1631,6 +1634,7 @@ metadata/_edit_lock_ = true
 [node name="Luigi_Walk_Right" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1840515319]
 position = Vector2(2080, 360)
 stream = ExtResource("134_dpljo")
+volume_db = 5.0
 panning_strength = 3.0
 bus = &"Sounds"
 metadata/_edit_lock_ = true
