@@ -1091,8 +1091,8 @@ metadata/_custom_type_script = "uid://dxqook2amacs3"
 script = ExtResource("123_mliqa")
 character_ai_level_id = "Nightmare Knuckles"
 player_component = NodePath("../../../Components/Player_Component")
-min_movement_timer = 500.0
-max_movement_timer = 500.0
+min_movement_timer = 300.0
+max_movement_timer = 300.0
 possible_directions = Array[String](["Hallway"])
 max_positions_in_directions = Dictionary[String, int]({
 "Ceiling": 0,
