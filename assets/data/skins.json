@@ -1,0 +1,97 @@
+{
+	"Nightmare Luiginette": {
+		"Beta Luiginette": {
+			"Custom Night Icon Sprite": {
+				"Texture Path": "assets/images/customnight/lnbeta_cnicon.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Game Over Menu Sprite": {
+				"Texture Path": "res://assets/images/gameover/characters/lnbeta_gameover.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Rare Screen Sprite Frame": {
+				"Texture Path": "res://assets/spriteframes/betaluigi_rare_sprite_frames.tres",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Plushie Sprite": {
+				"Texture Path": "assets/images/gameplay/custom_night_rewards/lnbeta_plush.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Ceiling Sprite": {
+				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_ceiling.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 120.0,
+				"Scale Y": -20.0
+			},
+			"Desk Sprite": {
+				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_desk.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Hall 1 Sprite": {
+				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_hall1.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Hall 2 Sprite": {
+				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_hall2.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Hall 3 Sprite": {
+				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_hall3.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Hall 4 Sprite": {
+				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_hall4.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": -110.0,
+				"Scale Y": 50.0
+			},
+			"Hallway Sprite": {
+				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_hallway.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Vent 1 Sprite": {
+				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_vent1.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Vent 2 Sprite": {
+				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_vent2.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			}
+		}
+	}
+}

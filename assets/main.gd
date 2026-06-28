@@ -1,5 +1,8 @@
 extends Node
 
+@warning_ignore("UNUSED_SIGNAL")
+signal update_skin;
+
 #variables
 const CANSKIPNIGHTS: bool = false;
 
@@ -64,6 +67,10 @@ var cn_challenge_9: bool = false;
 var cn_challenge_10: bool = false;
 var cn_challenge_11: bool = false;
 var cn_challenge_12: bool = false;
+
+var skins: Dictionary[String, String] = {
+	"Nightmare Luiginette": "",
+};
 
 #player status
 var killedBy: String = "";

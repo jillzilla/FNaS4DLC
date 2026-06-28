@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dowujxyduj0y8"]
+
+[ext_resource type="Texture2D" uid="uid://dddk5i28vyy0g" path="res://assets/images/rarescreens/goldenfigurenoeyes.png" id="1_7n501"]
+[ext_resource type="Texture2D" uid="uid://dhl0s5ukaden8" path="res://assets/images/rarescreens/goldenfigureeyes.png" id="2_y5xvm"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7n501")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y5xvm")
+}],
+"loop": 0,
+"name": &"open_eyes",
+"speed": 0.0
+}]

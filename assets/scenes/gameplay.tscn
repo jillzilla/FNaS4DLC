@@ -136,6 +136,7 @@
 [ext_resource type="Texture2D" uid="uid://d4f0e3pkepyr2" path="res://assets/images/gameplay/characters/nluigi/nluigihallway.png" id="77_dcs2j"]
 [ext_resource type="Texture2D" uid="uid://crx1ixv0vis36" path="res://assets/images/gameplay/characters/tailsdoll/tailsdollvents.png" id="79_p5adm"]
 [ext_resource type="Texture2D" uid="uid://2oh2g433grda" path="res://assets/images/gameplay/nightmarebig.png" id="81_vca6n"]
+[ext_resource type="Script" uid="uid://djotj0bjjelij" path="res://assets/components/SkinTextureComponent.gd" id="82_0cufr"]
 [ext_resource type="Texture2D" uid="uid://dismjclxn7hf6" path="res://assets/images/gameplay/characters/tailsdoll/tailsdolleyes_vents.png" id="83_j85f1"]
 [ext_resource type="Texture2D" uid="uid://cmlq5u312o1d2" path="res://assets/images/gameplay/SONIC.png" id="86_dcxdq"]
 [ext_resource type="Texture2D" uid="uid://dfik7kmfqua8" path="res://assets/images/gameplay/characters/cream/leftleg.png" id="92_osqdk"]
@@ -1729,6 +1730,14 @@ scale = Vector2(0.72757906, 0.7253735)
 texture = ExtResource("61_p5pbk")
 metadata/_edit_lock_ = true
 
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Office/Monitor/Camera/Lnette1" unique_id=467054097]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Luiginette"
+sprite_name = "Hall 1 Sprite"
+update_offset = true
+metadata/_custom_type_script = "uid://djotj0bjjelij"
+
 [node name="Salvage_2" type="Sprite2D" parent="Rooms/Office/Monitor/Camera" unique_id=582453989]
 visible = false
 position = Vector2(-132.04248, 41.33911)
@@ -1742,6 +1751,13 @@ position = Vector2(97.0105, -37.61206)
 scale = Vector2(0.8892634, 0.8865677)
 texture = ExtResource("63_ihc8j")
 metadata/_edit_lock_ = true
+
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Office/Monitor/Camera/Lnette2" unique_id=1583453763]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Luiginette"
+sprite_name = "Hall 2 Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
 
 [node name="Salvage_3" type="Sprite2D" parent="Rooms/Office/Monitor/Camera" unique_id=1808550587]
 visible = false
@@ -1757,6 +1773,13 @@ scale = Vector2(1.0618069, 1.0765886)
 texture = ExtResource("65_8jjp4")
 metadata/_edit_lock_ = true
 
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Office/Monitor/Camera/Lnette3" unique_id=1692173715]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Luiginette"
+sprite_name = "Hall 3 Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
+
 [node name="Salvage_4" type="Sprite2D" parent="Rooms/Office/Monitor/Camera" unique_id=1316019092]
 visible = false
 position = Vector2(-0.6386719, 83.28369)
@@ -1769,6 +1792,14 @@ visible = false
 position = Vector2(-102.3999, 5.373291)
 scale = Vector2(1.3255662, 1.345833)
 texture = ExtResource("68_l0km7")
+
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Office/Monitor/Camera/Lnette4" unique_id=1084378671]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Luiginette"
+sprite_name = "Hall 4 Sprite"
+update_offset = true
+metadata/_custom_type_script = "uid://djotj0bjjelij"
 
 [node name="NoSignal" type="Sprite2D" parent="Rooms/Office/Monitor" unique_id=1367646535]
 visible = false
@@ -1835,6 +1866,13 @@ position = Vector2(1464, 520)
 texture = ExtResource("41_51y45")
 metadata/_edit_lock_ = true
 
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Office/LuiginettePlush" unique_id=1654153327]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Luiginette"
+sprite_name = "Plushie Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
+
 [node name="NightmareYoshiPlush" type="Sprite2D" parent="Rooms/Office" unique_id=2119704845]
 visible = false
 position = Vector2(1392, 592)
@@ -1898,7 +1936,16 @@ metadata/_edit_lock_ = true
 visible = false
 position = Vector2(-95, -447)
 texture = ExtResource("36_yxvbo")
+offset = Vector2(120, -20)
 metadata/_edit_lock_ = true
+
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Ceiling/ClipMask/NLuigiCeiling" unique_id=625339714]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Luiginette"
+sprite_name = "Ceiling Sprite"
+update_offset = true
+metadata/_custom_type_script = "uid://djotj0bjjelij"
 
 [node name="Light" type="Sprite2D" parent="Rooms/Ceiling" unique_id=1664641956]
 position = Vector2(0, -350)
@@ -2050,6 +2097,13 @@ position = Vector2(0, 180)
 texture = ExtResource("55_k63c8")
 metadata/_edit_lock_ = true
 
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Desk/LuiginetteDeskAnimation/Legs" unique_id=478391124]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Luiginette"
+sprite_name = "Desk Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Desk/LuiginetteDeskAnimation" unique_id=524475278]
 libraries/ = SubResource("AnimationLibrary_mehod")
 autoplay = &"WalkCycle"
@@ -2110,6 +2164,13 @@ scale = Vector2(0.775, 0.775)
 texture = ExtResource("112_ihc8j")
 metadata/_edit_lock_ = true
 
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Left_Vent/LuiginetteVent1" unique_id=357253190]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Luiginette"
+sprite_name = "Vent 1 Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
+
 [node name="ToyYoshi_2" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=667445097]
 visible = false
 position = Vector2(-56, -414)
@@ -2139,6 +2200,13 @@ visible = false
 position = Vector2(-64, -398)
 texture = ExtResource("60_dcs2j")
 metadata/_edit_lock_ = true
+
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Left_Vent/NLuigiVent" unique_id=2089965268]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Luiginette"
+sprite_name = "Vent 2 Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
 
 [node name="Light" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=1261748066]
 position = Vector2(0, -350)
@@ -2216,6 +2284,13 @@ scale = Vector2(0.775, 0.775)
 texture = ExtResource("112_ihc8j")
 metadata/_edit_lock_ = true
 
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Right_Vent/LuiginetteVent1" unique_id=15516478]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Luiginette"
+sprite_name = "Vent 1 Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
+
 [node name="ToyMario_2" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1296227063]
 visible = false
 position = Vector2(32, -406)
@@ -2244,6 +2319,13 @@ visible = false
 position = Vector2(-24, -398)
 texture = ExtResource("60_dcs2j")
 metadata/_edit_lock_ = true
+
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Right_Vent/NLuigiVent" unique_id=1397119819]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Luiginette"
+sprite_name = "Vent 2 Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
 
 [node name="Tails" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=858779070]
 visible = false
@@ -2328,6 +2410,13 @@ position = Vector2(-16, -350)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("77_dcs2j")
 metadata/_edit_lock_ = true
+
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Hallway/NLuigiHallway" unique_id=152110994]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Luiginette"
+sprite_name = "Hallway Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
 
 [node name="SONIC" type="Sprite2D" parent="Rooms/Hallway" unique_id=1109663006]
 visible = false

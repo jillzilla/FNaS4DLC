@@ -21,7 +21,7 @@
 			"Rooms/Ceiling/ClipMask/NLuigiCeiling"
 		],
 		"HallwaySprites": [
-			"Rooms/Office/Monitor/Lnette1",
+			"Rooms/Office/Monitor/Camera/Lnette1",
 			"Rooms/Office/Monitor/Lnette3",
 			"Rooms/Hallway/NLuigiHallway"
 		],
@@ -53,10 +53,10 @@
 			"Rooms/Ceiling/ClipMask/NLuigiCeiling"
 		],
 		"HallwaySprites": [
-			"Rooms/Office/Monitor/Lnette1",
-			"Rooms/Office/Monitor/Lnette2",
-			"Rooms/Office/Monitor/Lnette3",
-			"Rooms/Office/Monitor/Lnette4",
+			"Rooms/Office/Monitor/Camera/Lnette1",
+			"Rooms/Office/Monitor/Camera/Lnette2",
+			"Rooms/Office/Monitor/Camera/Lnette3",
+			"Rooms/Office/Monitor/Camera/Lnette4",
 			"Rooms/Hallway/NLuigiHallway"
 		],
 		"TurnOffFlashlightInHallwayWhen": 4.0,

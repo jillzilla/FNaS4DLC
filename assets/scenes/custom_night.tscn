@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dcyumsiyebl7x" path="res://assets/music/CustomNightTheme.ogg" id="2_syqq0"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_00ogn"]
 [ext_resource type="PackedScene" uid="uid://cxttec8xvsjfx" path="res://assets/scenes/custom_night_character.tscn" id="4_k8lu8"]
+[ext_resource type="Script" uid="uid://djotj0bjjelij" path="res://assets/components/SkinTextureComponent.gd" id="5_bp8cv"]
 [ext_resource type="Texture2D" uid="uid://bap70d4fgowjy" path="res://assets/images/title/Star_Title_0.png" id="5_cyr1o"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="7_syqq0"]
 
@@ -159,6 +160,14 @@ size_flags_vertical = 6
 character_name = "Nightmare Luiginette"
 character_icon_path = "res://assets/images/customnight/luigiicon.png"
 metadata/_edit_lock_ = true
+
+[node name="SkinTextureComponent" type="Node" parent="Control/Characters/Luigi/Icon" parent_id_path=PackedInt32Array(1756538997, 1832565570) index="0" unique_id=561295674]
+script = ExtResource("5_bp8cv")
+data_json = "res://assets/data/skins.json"
+load_at_start = false
+character_name = "Nightmare Luiginette"
+sprite_name = "Custom Night Icon Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
 
 [node name="Challenges" type="HBoxContainer" parent="Control" unique_id=1362725539]
 layout_mode = 1
@@ -341,3 +350,5 @@ visible = false
 [connection signal="pressed" from="Control/AILevelSetupButtons/Max" to="." method="_on_max_pressed"]
 [connection signal="pressed" from="Control/AILevelSetupButtons/Random" to="." method="_on_random_pressed"]
 [connection signal="pressed" from="Control/Ready" to="." method="_on_ready_pressed"]
+
+[editable path="Control/Characters/Luigi"]

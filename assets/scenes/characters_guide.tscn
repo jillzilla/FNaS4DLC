@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c5khrsuiokdwp" path="res://assets/images/customnight/knuxicon.png" id="9_pwbw8"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="10_b6shy"]
 [ext_resource type="Texture2D" uid="uid://ckobrpmtwjc7b" path="res://assets/images/customnight/tdollicon.png" id="10_cp28i"]
+[ext_resource type="Script" uid="uid://djotj0bjjelij" path="res://assets/components/SkinTextureComponent.gd" id="16_o467h"]
 
 [node name="Guide" type="Control" unique_id=269587860]
 layout_mode = 3
@@ -264,6 +265,13 @@ focus_mode = 0
 action_mode = 0
 texture_normal = ExtResource("9_kritx")
 metadata/_edit_lock_ = true
+
+[node name="SkinTextureComponent" type="Node" parent="Buttons/GridContainer/Luiginette" unique_id=875727611]
+script = ExtResource("16_o467h")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Luiginette"
+sprite_name = "Custom Night Icon Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
 
 [node name="Back" type="Button" parent="." unique_id=568936385]
 layout_mode = 1
