@@ -66,6 +66,8 @@ var night5ending: bool = DEFAULT_NIGHT5ENDING;
 var night6ending: bool = DEFAULT_NIGHT6ENDING;
 var night7ending: bool = DEFAULT_NIGHT7ENDING;
 
+var lockerunlocked: bool = false;
+
 var unlocked_skins: Dictionary = {
 	"Nightmare Taingle": {
 		"Nightmare Toy Tails": DEFAULT_TOYTAILS_UNLOCKED,
@@ -108,16 +110,37 @@ func _ready() -> void:
 	_load_game();
 	_apply_settings();
 
+func _save() -> Dictionary:
+	var saveDict: Dictionary = {
+		"INTROCUTSEEN": introscenewatched,
+		"NIGHT2PLAY": night_to_play,
+		"GUIDEUNLOCKED": guideunlocked,
+		"WINDOWMODE": windowmode,
+		"RESOLUTION": resolution,
+		"VSYNC": vsync,
+		"FPSCAP": fpscap,
+		"INPUT": keys,
+		"MASTERVOLUME": master_volume,
+		"MUSICVOLUME": music_volume,
+		"SOUNDSVOLUME": sounds_volume,
+		"JUMPSCAREVOLUME": jumpscares_volume,
+		"FPSCOUNTER": fps_counter,
+		"NIGHT5ENDING": night5ending,
+		"NIGHT6ENDING": night6ending,
+		"NIGHT7ENDING": night7ending,
+		"LOCKERUNLOCKED": lockerunlocked,
+		"UNLOCKEDSKINS": unlocked_skins,
+		"SELECTEDSKINS": selected_skins,
+	};
+	return saveDict;
+
 func _save_game() -> void:
 	var SaveGame := FileAccess.open_encrypted_with_pass(SAVE_DATA_PATH, FileAccess.WRITE, SAVE_DATA_PASSWORD);
 	var jsonString = JSON.stringify(_save());
 	SaveGame.store_line(jsonString);
 
 func _load_game() -> void:
-	if !FileAccess.file_exists(SAVE_DATA_PATH):
-		_save_game();
-		return ;
-	else:
+	if FileAccess.file_exists(SAVE_DATA_PATH):
 		var SaveGame := FileAccess.open_encrypted_with_pass(SAVE_DATA_PATH, FileAccess.READ, SAVE_DATA_PASSWORD);
 		
 		while SaveGame.get_position() < SaveGame.get_length():
@@ -150,33 +173,11 @@ func _load_game() -> void:
 			night6ending = data["NIGHT6ENDING"];
 			night7ending = data["NIGHT7ENDING"];
 
+			lockerunlocked = data["LOCKERUNLOCKED"];
 			unlocked_skins = data["UNLOCKEDSKINS"];
 			selected_skins = data["SELECTEDSKINS"];
 
 			print(data);
-
-func _save() -> Dictionary:
-	var saveDict: Dictionary = {
-		"INTROCUTSEEN": introscenewatched,
-		"NIGHT2PLAY": night_to_play,
-		"GUIDEUNLOCKED": guideunlocked,
-		"WINDOWMODE": windowmode,
-		"RESOLUTION": resolution,
-		"VSYNC": vsync,
-		"FPSCAP": fpscap,
-		"INPUT": keys,
-		"MASTERVOLUME": master_volume,
-		"MUSICVOLUME": music_volume,
-		"SOUNDSVOLUME": sounds_volume,
-		"JUMPSCAREVOLUME": jumpscares_volume,
-		"FPSCOUNTER": fps_counter,
-		"NIGHT5ENDING": night5ending,
-		"NIGHT6ENDING": night6ending,
-		"NIGHT7ENDING": night7ending,
-		"UNLOCKEDSKINS": unlocked_skins,
-		"SELECTEDSKINS": selected_skins,
-	};
-	return saveDict;
 
 func _apply_settings() -> void:
 	match (windowmode):

@@ -28,6 +28,7 @@ func _ready() -> void:
 				RewardUnlockPopup.add_to_queue("Locker");
 				RewardUnlockPopup.add_to_queue("Nightmare Toy Tails Skin", "res://assets/images/customnight/toytails_cnicon.png");
 				RewardUnlockPopup.showcase();
+				main.lockerunlocked = true;
 				main.unlocked_skins["Nightmare Taingle"]["Nightmare Toy Tails"] = true;
 				main.night5ending = true;
 		6:
