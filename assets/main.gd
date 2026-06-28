@@ -57,14 +57,9 @@ var fps_counter: bool = DEFAULT_FPSCOUNTER;
 
 var guideunlocked: bool = false;
 
-var skinsunlocked: Dictionary[String, Array] = {
-	"Nightmare Luiginette": [""],
-	"Nightmare Taingle": [""],
-}
-
 var skins: Dictionary[String, String] = {
-	"Nightmare Luiginette": skinsunlocked["Nightmare Luiginette"][0],
-	"Nightmare Taingle": skinsunlocked["Nightmare Taingle"][0],
+	"Nightmare Luiginette": "",
+	"Nightmare Taingle": "",
 };
 
 #player status
@@ -167,6 +162,9 @@ func _get_ai_level_as_array() -> Array[String]:
 	"Nightmare Cream", "Nightmare Knuckles", "Tails Doll",
 	"Nightmare Luiginette"];
 
+func _get_input_as_array() -> Array[String]:
+	return ["FLASHLIGHT", "MASK", "PAUSE"];
+
 func _reset_ai() -> void:
 	for i in range(_get_ai_level_as_array().size()):
 		ai_levels[_get_ai_level_as_array()[i]] = AIDEFAULTLEVEL;
@@ -188,9 +186,7 @@ func _save() -> Dictionary:
 		"SOUNDSVOLUME": sounds_volume,
 		"JUMPSCAREVOLUME": jumpscares_volume,
 		"FPSCOUNTER": fps_counter,
-		"FLASHKEY": keys["FLASHLIGHT"],
-		"MASKKEY": keys["MASK"],
-		"PAUSEKEY": keys["PAUSE"],
+		"INPUT": keys,
 		"GUIDEUNLOCKED": guideunlocked,
 	};
 	return saveDict;
@@ -226,9 +222,8 @@ func _load_game() -> void:
 			vsync = data["VSYNC"];
 			fpscap = data["FPSCAP"];
 			
-			keys["FLASHLIGHT"] = data["FLASHKEY"];
-			keys["MASK"] = data["MASKKEY"];
-			keys["PAUSE"] = data["PAUSEKEY"];
+			for i in range(_get_input_as_array().size()):
+				keys[_get_input_as_array()[i]] = data["INPUT"][_get_input_as_array()[i]];
 			
 			master_volume = data["MASTERVOLUME"];
 			music_volume = data["MUSICVOLUME"];
@@ -238,5 +233,5 @@ func _load_game() -> void:
 			fps_counter = data["FPSCOUNTER"];
 
 			guideunlocked = data["GUIDEUNLOCKED"];
-			
+
 			print(data);

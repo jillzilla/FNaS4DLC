@@ -10,7 +10,7 @@ var reward_name: Array[String] = [];
 @onready var animation: AnimationPlayer = $Control/AnimationPlayer;
 
 #functions
-func add_to_queue(reward: String, icon : String = "res://assets/images/title/Star_Title_0.png") -> void:
+func add_to_queue(reward: String, icon: String = "res://assets/images/title/Star_Title_0.png") -> void:
     reward_icon.push_back(icon);
     reward_name.push_back(reward);
 
@@ -28,4 +28,4 @@ func showcase() -> void:
             reward_icon.pop_front();
             reward_name.pop_front();
     else:
-        return;
+        return ;
