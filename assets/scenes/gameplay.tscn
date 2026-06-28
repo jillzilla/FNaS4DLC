@@ -1792,6 +1792,7 @@ visible = false
 position = Vector2(-102.3999, 5.373291)
 scale = Vector2(1.3255662, 1.345833)
 texture = ExtResource("68_l0km7")
+metadata/_edit_lock_ = true
 
 [node name="SkinTextureComponent" type="Node" parent="Rooms/Office/Monitor/Camera/Lnette4" unique_id=1084378671]
 script = ExtResource("82_0cufr")
@@ -1860,6 +1861,13 @@ position = Vector2(1144, 616)
 texture = ExtResource("40_rcbs0")
 metadata/_edit_lock_ = true
 
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Office/TainglePlush" unique_id=728969550]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Taingle"
+sprite_name = "Plushie Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
+
 [node name="LuiginettePlush" type="Sprite2D" parent="Rooms/Office" unique_id=1553758985]
 visible = false
 position = Vector2(1464, 520)
@@ -1907,11 +1915,26 @@ position = Vector2(0, -566.5)
 texture = ExtResource("7_ugpla")
 metadata/_edit_lock_ = true
 
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Ceiling/ClipMask/Taingle_1" unique_id=975035928]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Taingle"
+sprite_name = "Ceiling Sprite 1"
+update_offset = true
+metadata/_custom_type_script = "uid://djotj0bjjelij"
+
 [node name="Taingle_2" type="Sprite2D" parent="Rooms/Ceiling/ClipMask" unique_id=1013068849]
 visible = false
 position = Vector2(0, -510)
 texture = ExtResource("8_kgr1o")
 metadata/_edit_lock_ = true
+
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Ceiling/ClipMask/Taingle_2" unique_id=1542382118]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Taingle"
+sprite_name = "Ceiling Sprite 2"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
 
 [node name="Taingle_3" type="Sprite2D" parent="Rooms/Ceiling/ClipMask" unique_id=820026602]
 visible = false
@@ -1919,11 +1942,26 @@ position = Vector2(0, -457)
 texture = ExtResource("9_rybgg")
 metadata/_edit_lock_ = true
 
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Ceiling/ClipMask/Taingle_3" unique_id=1733224426]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Taingle"
+sprite_name = "Ceiling Sprite 3"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
+
 [node name="Taingle_4" type="Sprite2D" parent="Rooms/Ceiling/ClipMask" unique_id=86824682]
 visible = false
 position = Vector2(0, -431.5)
 texture = ExtResource("10_hlo8c")
 metadata/_edit_lock_ = true
+
+[node name="SkinTextureComponent" type="Node" parent="Rooms/Ceiling/ClipMask/Taingle_4" unique_id=2067524331]
+script = ExtResource("82_0cufr")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Taingle"
+sprite_name = "Ceiling Sprite 4"
+update_offset = true
+metadata/_custom_type_script = "uid://djotj0bjjelij"
 
 [node name="TailsDollCeiling" type="Sprite2D" parent="Rooms/Ceiling/ClipMask" unique_id=2067819274]
 visible = false

@@ -219,6 +219,13 @@ action_mode = 0
 texture_normal = ExtResource("5_6jbbm")
 metadata/_edit_lock_ = true
 
+[node name="SkinTextureComponent" type="Node" parent="Buttons/GridContainer/NTaingle" unique_id=1145184163]
+script = ExtResource("16_o467h")
+data_json = "res://assets/data/skins.json"
+character_name = "Nightmare Taingle"
+sprite_name = "Custom Night Icon Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
+
 [node name="BT" type="TextureButton" parent="Buttons/GridContainer" unique_id=889591768]
 layout_mode = 2
 focus_mode = 0

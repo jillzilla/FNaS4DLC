@@ -68,8 +68,16 @@ var cn_challenge_10: bool = false;
 var cn_challenge_11: bool = false;
 var cn_challenge_12: bool = false;
 
+var skinscount: int = 0;
+
+var skinsunlocked: Dictionary[String, Array] = {
+	"Nightmare Luiginette": ["", "Beta Luiginette"],
+	"Nightmare Taingle": ["", "Nightmare Toy Tails"],
+}
+
 var skins: Dictionary[String, String] = {
-	"Nightmare Luiginette": "",
+	"Nightmare Luiginette": skinsunlocked["Nightmare Luiginette"][1],
+	"Nightmare Taingle": skinsunlocked["Nightmare Taingle"][1],
 };
 
 #player status

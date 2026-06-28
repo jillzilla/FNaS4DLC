@@ -113,6 +113,14 @@ character_name = "Nightmare Taingle"
 character_icon_path = "res://assets/images/customnight/ntIcon.png"
 metadata/_edit_lock_ = true
 
+[node name="SkinTextureComponent" type="Node" parent="Control/Characters/Taingle/Icon" parent_id_path=PackedInt32Array(753376245, 1832565570) index="0" unique_id=155942950]
+script = ExtResource("5_bp8cv")
+data_json = "res://assets/data/skins.json"
+load_at_start = false
+character_name = "Nightmare Taingle"
+sprite_name = "Custom Night Icon Sprite"
+metadata/_custom_type_script = "uid://djotj0bjjelij"
+
 [node name="BT" parent="Control/Characters" unique_id=1668436749 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
 size_flags_horizontal = 6
@@ -351,4 +359,5 @@ visible = false
 [connection signal="pressed" from="Control/AILevelSetupButtons/Random" to="." method="_on_random_pressed"]
 [connection signal="pressed" from="Control/Ready" to="." method="_on_ready_pressed"]
 
+[editable path="Control/Characters/Taingle"]
 [editable path="Control/Characters/Luigi"]

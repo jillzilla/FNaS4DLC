@@ -31,10 +31,10 @@
 			},
 			"Ceiling Sprite": {
 				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_ceiling.png",
-				"Offset X": 0.0,
-				"Offset Y": 0.0,
-				"Scale X": 120.0,
-				"Scale Y": -20.0
+				"Offset X": 120.0,
+				"Offset Y": -20.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
 			},
 			"Desk Sprite": {
 				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_desk.png",
@@ -66,10 +66,10 @@
 			},
 			"Hall 4 Sprite": {
 				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_hall4.png",
-				"Offset X": 0.0,
-				"Offset Y": 0.0,
-				"Scale X": -110.0,
-				"Scale Y": 50.0
+				"Offset X": -7.0,
+				"Offset Y": -44.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
 			},
 			"Hallway Sprite": {
 				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_hallway.png",
@@ -89,6 +89,59 @@
 				"Texture Path": "assets/images/gameplay/characters/nluigibeta/lnbeta_vent2.png",
 				"Offset X": 0.0,
 				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			}
+		}
+	},
+	"Nightmare Taingle": {
+		"Nightmare Toy Tails": {
+			"Custom Night Icon Sprite": {
+				"Texture Path": "assets/images/customnight/toytails_cnicon.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Game Over Menu Sprite": {
+				"Texture Path": "assets/images/gameover/characters/toytails_gameover.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Plushie Sprite": {
+				"Texture Path": "assets/images/gameplay/custom_night_rewards/toytailsplush.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Ceiling Sprite 1": {
+				"Texture Path": "assets/images/gameplay/characters/toytails/toytails_ceiling1.png",
+				"Offset X": 0.0,
+				"Offset Y": -7.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Ceiling Sprite 2": {
+				"Texture Path": "assets/images/gameplay/characters/toytails/toytails_ceiling2.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 1.0
+			},
+			"Ceiling Sprite 3": {
+				"Texture Path": "assets/images/gameplay/characters/toytails/toytails_ceiling3.png",
+				"Offset X": 0.0,
+				"Offset Y": 0.0,
+				"Scale X": 1.0,
+				"Scale Y": 10
+			},
+			"Ceiling Sprite 4": {
+				"Texture Path": "assets/images/gameplay/characters/toytails/toytails_ceiling4.png",
+				"Offset X": -100.0,
+				"Offset Y": -30.0,
 				"Scale X": 1.0,
 				"Scale Y": 1.0
 			}
