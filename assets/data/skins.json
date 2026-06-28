@@ -136,7 +136,7 @@
 				"Offset X": 0.0,
 				"Offset Y": 0.0,
 				"Scale X": 1.0,
-				"Scale Y": 10
+				"Scale Y": 1.0
 			},
 			"Ceiling Sprite 4": {
 				"Texture Path": "assets/images/gameplay/characters/toytails/toytails_ceiling4.png",

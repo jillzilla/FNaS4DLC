@@ -36,6 +36,7 @@ func _sync_button_with_options() -> void:
 	windowed_mode_button.selected = main.windowmode;
 	resolution_button.selected = main.resolution;
 	vsync_button.button_pressed = main.vsync;
+	fpscap_button.selected = main.fpscap;
 
 	flashlight_key_button._update_text();
 	mask_key_button._update_text();

@@ -4,6 +4,8 @@ extends Node
 signal update_skin;
 
 #variables
+const CANSKIPNIGHTS: bool = true;
+
 const SAVE_DATA_PATH: String = "user://FNaS4DLC.save";
 const SAVE_DATA_PASSWORD: String = "2<0r2eX1&2:<Cd";
 
@@ -31,14 +33,11 @@ const DEFAULT_NIGHT5ENDING: bool = false;
 const DEFAULT_NIGHT6ENDING: bool = false;
 const DEFAULT_NIGHT7ENDING: bool = false;
 
+const DEFAULT_TOYTAILS_UNLOCKED: bool = false;
+const DEFAULT_LUIGINETTE_BETA_UNLOCKED: bool = false;
+
 const DEFAULT_TAINGLE_SKIN: String = "";
 const DEFAULT_LUIGINETTE_SKIN: String = "";
-
-const CANSKIPNIGHTS: bool = true;
-
-var nightcounter: int = 1;
-var isloadingsom: bool = false;
-var didrarescreenhappened: bool = false;
 
 #data to save/load
 var introscenewatched: bool = DEFAULT_INTROSCENEWATCHED;
@@ -50,7 +49,7 @@ var resolution: int = DEFAULT_RESOLUTION;
 var vsync: bool = DEFAULT_VSYNC;
 var fpscap: int = DEFAULT_FPSCAP;
 
-var keys: Dictionary[String, Key] = {
+var keys: Dictionary = {
 	"FLASHLIGHT": DEFAULT_FLASHLIGHTHOTKEY,
 	"MASK": DEFAULT_MASKHOTKEY,
 	"PAUSE": DEFAULT_PAUSEHOTKEY
@@ -67,15 +66,20 @@ var night5ending: bool = DEFAULT_NIGHT5ENDING;
 var night6ending: bool = DEFAULT_NIGHT6ENDING;
 var night7ending: bool = DEFAULT_NIGHT7ENDING;
 
-var selected_skins: Dictionary[String, String] = {
+var unlocked_skins: Dictionary = {
+	"Nightmare Taingle": {
+		"Nightmare Toy Tails": DEFAULT_TOYTAILS_UNLOCKED,
+	},
+	"Nightmare Luiginette": {
+		"Beta Luiginette": DEFAULT_LUIGINETTE_BETA_UNLOCKED,
+	}
+}
+var selected_skins: Dictionary = {
 	"Nightmare Taingle": DEFAULT_TAINGLE_SKIN,
 	"Nightmare Luiginette": DEFAULT_LUIGINETTE_SKIN,
 };
 
-#player status
-var killedBy: String = "";
-
-#character data
+#character data stuff
 const AIMINVALUE: int = 0;
 const AIMAXVALUE: int = 25;
 const AIDEFAULTLEVEL: int = 5;
@@ -93,7 +97,87 @@ var ai_levels: Dictionary = {
 	"Nightmare Luiginette": AIDEFAULTLEVEL,
 };
 
+#others
+var killedBy: String = "";
+var nightcounter: int = 1;
+var isloadingsom: bool = false;
+var didrarescreenhappened: bool = false;
+
 #functions
+func _ready() -> void:
+	_load_game();
+	_apply_settings();
+
+func _save_game() -> void:
+	var SaveGame := FileAccess.open_encrypted_with_pass(SAVE_DATA_PATH, FileAccess.WRITE, SAVE_DATA_PASSWORD);
+	var jsonString = JSON.stringify(_save());
+	SaveGame.store_line(jsonString);
+
+func _load_game() -> void:
+	if !FileAccess.file_exists(SAVE_DATA_PATH):
+		_save_game();
+		return ;
+	else:
+		var SaveGame := FileAccess.open_encrypted_with_pass(SAVE_DATA_PATH, FileAccess.READ, SAVE_DATA_PASSWORD);
+		
+		while SaveGame.get_position() < SaveGame.get_length():
+			var JSONString := SaveGame.get_line();
+			var json := JSON.new();
+			
+			@warning_ignore("unused_variable")
+			var parseResult := json.parse(JSONString);
+			var data = json.get_data();
+			
+			introscenewatched = data["INTROCUTSEEN"];
+			night_to_play = data["NIGHT2PLAY"];
+			guideunlocked = data["GUIDEUNLOCKED"];
+			
+			windowmode = data["WINDOWMODE"];
+			resolution = data["RESOLUTION"];
+			vsync = data["VSYNC"];
+			fpscap = data["FPSCAP"];
+			
+			keys = data["INPUT"];
+			
+			master_volume = data["MASTERVOLUME"];
+			music_volume = data["MUSICVOLUME"];
+			sounds_volume = data["SOUNDSVOLUME"];
+			jumpscares_volume = data["JUMPSCAREVOLUME"];
+			
+			fps_counter = data["FPSCOUNTER"];
+
+			night5ending = data["NIGHT5ENDING"];
+			night6ending = data["NIGHT6ENDING"];
+			night7ending = data["NIGHT7ENDING"];
+
+			unlocked_skins = data["UNLOCKEDSKINS"];
+			selected_skins = data["SELECTEDSKINS"];
+
+			print(data);
+
+func _save() -> Dictionary:
+	var saveDict: Dictionary = {
+		"INTROCUTSEEN": introscenewatched,
+		"NIGHT2PLAY": night_to_play,
+		"GUIDEUNLOCKED": guideunlocked,
+		"WINDOWMODE": windowmode,
+		"RESOLUTION": resolution,
+		"VSYNC": vsync,
+		"FPSCAP": fpscap,
+		"INPUT": keys,
+		"MASTERVOLUME": master_volume,
+		"MUSICVOLUME": music_volume,
+		"SOUNDSVOLUME": sounds_volume,
+		"JUMPSCAREVOLUME": jumpscares_volume,
+		"FPSCOUNTER": fps_counter,
+		"NIGHT5ENDING": night5ending,
+		"NIGHT6ENDING": night6ending,
+		"NIGHT7ENDING": night7ending,
+		"UNLOCKEDSKINS": unlocked_skins,
+		"SELECTEDSKINS": selected_skins,
+	};
+	return saveDict;
+
 func _apply_settings() -> void:
 	match (windowmode):
 		0:
@@ -162,93 +246,13 @@ func _apply_settings() -> void:
 		true:
 			FpsCounter.get_node("MarginContainer").show();
 
-func _ready() -> void:
-	_load_game();
-	_apply_settings();
+func _reset_ai() -> void:
+	for i in range(_get_ai_level_as_array().size()):
+		ai_levels[_get_ai_level_as_array()[i]] = AIDEFAULTLEVEL;
+	print(ai_levels);
 
 func _get_ai_level_as_array() -> Array[String]:
 	return ["Nightmare Toy Sonic", "Nightmare Toy Mario",
 	"Nightmare Toy Yoshi", "Nightmare Taingle", "Nightmare BT", "Nightmare S. Sonic",
 	"Nightmare Cream", "Nightmare Knuckles", "Tails Doll",
 	"Nightmare Luiginette"];
-
-func _get_input_as_array() -> Array[String]:
-	return ["FLASHLIGHT", "MASK", "PAUSE"];
-
-func _get_selected_skins_as_array() -> Array[String]:
-	return ["Nightmare Taingle", "Nightmare Luiginette"];
-
-func _reset_ai() -> void:
-	for i in range(_get_ai_level_as_array().size()):
-		ai_levels[_get_ai_level_as_array()[i]] = AIDEFAULTLEVEL;
-	print(ai_levels);
-	 
-func _save() -> Dictionary:
-	var saveDict: Dictionary = {
-		"INTROCUTSEEN": introscenewatched,
-		"NIGHT2PLAY": night_to_play,
-		"GUIDEUNLOCKED": guideunlocked,
-		"WINDOWMODE": windowmode,
-		"RESOLUTION": resolution,
-		"VSYNC": vsync,
-		"FPSCAP": fpscap,
-		"INPUT": keys,
-		"MASTERVOLUME": master_volume,
-		"MUSICVOLUME": music_volume,
-		"SOUNDSVOLUME": sounds_volume,
-		"JUMPSCAREVOLUME": jumpscares_volume,
-		"FPSCOUNTER": fps_counter,
-		"NIGHT5ENDING": night5ending,
-		"NIGHT6ENDING": night6ending,
-		"NIGHT7ENDING": night7ending,
-		"SELECTEDSKINS": selected_skins,
-	};
-	return saveDict;
-
-func _save_game() -> void:
-	var SaveGame := FileAccess.open_encrypted_with_pass(SAVE_DATA_PATH, FileAccess.WRITE, SAVE_DATA_PASSWORD);
-	var jsonString = JSON.stringify(_save());
-	SaveGame.store_line(jsonString);
-
-func _load_game() -> void:
-	if !FileAccess.file_exists(SAVE_DATA_PATH):
-		_save_game();
-		return ;
-	else:
-		var SaveGame := FileAccess.open_encrypted_with_pass(SAVE_DATA_PATH, FileAccess.READ, SAVE_DATA_PASSWORD);
-		
-		while SaveGame.get_position() < SaveGame.get_length():
-			var JSONString := SaveGame.get_line();
-			var json := JSON.new();
-			
-			@warning_ignore("unused_variable")
-			var parseResult := json.parse(JSONString);
-			var data = json.get_data();
-			
-			introscenewatched = data["INTROCUTSEEN"];
-			night_to_play = data["NIGHT2PLAY"];
-			guideunlocked = data["GUIDEUNLOCKED"];
-			
-			windowmode = data["WINDOWMODE"];
-			resolution = data["RESOLUTION"];
-			vsync = data["VSYNC"];
-			fpscap = data["FPSCAP"];
-			
-			for i in range(_get_input_as_array().size()):
-				keys[_get_input_as_array()[i]] = data["INPUT"][_get_input_as_array()[i]];
-			
-			master_volume = data["MASTERVOLUME"];
-			music_volume = data["MUSICVOLUME"];
-			sounds_volume = data["SOUNDSVOLUME"];
-			jumpscares_volume = data["JUMPSCAREVOLUME"];
-			
-			fps_counter = data["FPSCOUNTER"];
-
-			night5ending = data["NIGHT5ENDING"];
-			night6ending = data["NIGHT6ENDING"];
-			night7ending = data["NIGHT7ENDING"];
-
-			for i in range(_get_selected_skins_as_array().size()):
-				selected_skins[_get_selected_skins_as_array()[i]] = data["SELECTEDSKINS"][_get_selected_skins_as_array()[i]];
-
-			print(data);
