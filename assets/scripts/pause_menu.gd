@@ -13,10 +13,12 @@ var quit: bool = false;
 
 #functions
 func _ready() -> void:
-	get_tree().paused = false;
 	hide();
-	if main.night_to_play > 1:
-		guidebutton.visible = true;
+	
+	if main.guideunlocked:
+		guidebutton.show();
+
+	get_tree().paused = false;
 	confirm.connect("confirmaction", _confirmed_action);
 
 func _input(event: InputEvent) -> void:

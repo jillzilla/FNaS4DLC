@@ -22,7 +22,7 @@
 		],
 		"HallwaySprites": [
 			"Rooms/Office/Monitor/Camera/Lnette1",
-			"Rooms/Office/Monitor/Lnette3",
+			"Rooms/Office/Monitor/Camera/Lnette3",
 			"Rooms/Hallway/NLuigiHallway"
 		],
 		"TurnOffFlashlightInHallwayWhen": 2.0,

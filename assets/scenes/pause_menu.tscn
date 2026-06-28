@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ce1c76lv6sisp" path="res://assets/scenes/settings.tscn" id="6_vl0uo"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="7_g5jdx"]
 
-[node name="PauseMenu" type="Control" unique_id=203952170 node_paths=PackedStringArray("guidebutton", "confirm", "settings", "guide")]
+[node name="PauseMenu" type="Control" unique_id=203952170]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -19,10 +19,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_uo1om")
 script = ExtResource("2_yaadq")
-guidebutton = NodePath("ThingsContainer/Guide")
-confirm = NodePath("ConfirmPopUp")
-settings = NodePath("Settings")
-guide = NodePath("Guide")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 

@@ -16,12 +16,32 @@ func _ready() -> void:
 		GlobalAudioManager.get_node("Ambience").stop();
 	
 	match (main.nightcounter):
+		1:
+			if !main.guideunlocked:
+				RewardUnlockPopup.add_to_queue("Character Guide");
+				RewardUnlockPopup.showcase();
+				main.guideunlocked = true;
 		5:
-			main.night5ending = true;
+			if !main.night5ending:
+				RewardUnlockPopup.add_to_queue("Red Star #1");
+				RewardUnlockPopup.add_to_queue("Night 6");
+				RewardUnlockPopup.add_to_queue("Locker");
+				RewardUnlockPopup.add_to_queue("Nightmare Toy Tails Skin", "res://assets/images/customnight/toytails_cnicon.png");
+				RewardUnlockPopup.showcase();
+				main.night5ending = true;
 		6:
-			main.night6ending = true;
+			if !main.night6ending:
+				RewardUnlockPopup.add_to_queue("Red Star #2");
+				RewardUnlockPopup.add_to_queue("Extras");
+				RewardUnlockPopup.add_to_queue("Custom Night");
+				RewardUnlockPopup.add_to_queue("Nightmare Knuckles", "res://assets/images/customnight/knuxicon.png");
+				RewardUnlockPopup.add_to_queue("Tails Doll", "res://assets/images/customnight/tdollicon.png");
+				RewardUnlockPopup.add_to_queue("Beta Nightmare Luiginette Skin", "res://assets/images/customnight/lnbeta_cnicon.png");
+				RewardUnlockPopup.showcase();
+				main.night6ending = true;
 		7:
-			main.night7ending = true;
+			if !main.night7ending:
+				main.night7ending = true;
 
 	next_scene_path = _get_next_scene();
 	

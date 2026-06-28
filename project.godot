@@ -30,6 +30,7 @@ main="*uid://bmacdpvvelv3"
 DiscordRPCLoader="*uid://ctkkyf8urrv7n"
 DiscordManager="*uid://dufg3qqflr2d5"
 FpsCounter="*uid://b0m3t3nmosvdg"
+RewardUnlockPopup="*uid://pyb6r228h3eh"
 
 [display]
 

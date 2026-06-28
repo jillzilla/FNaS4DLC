@@ -12,8 +12,8 @@ var data: Dictionary = {};
 
 #functions
 func _ready() -> void:
+    main.connect("update_skin", update_skin);
     if main.skins[character_name] != "":
-        main.connect("update_skin", update_skin);
         if load_at_start:
             _load_skin();
 

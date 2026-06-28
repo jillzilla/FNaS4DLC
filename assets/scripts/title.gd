@@ -34,7 +34,7 @@ func _ready() -> void:
 	
 	main._reset_ai();
 	
-	if main.night_to_play > 1:
+	if main.guideunlocked:
 		guidebutton.show();
 	
 	if main.night7ending:
