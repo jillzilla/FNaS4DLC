@@ -4,7 +4,12 @@ extends Node
 signal update_skin;
 
 #variables
-const CANSKIPNIGHTS: bool = true;
+const SAVE_DATA_PATH: String = "user://FNaS4DLC.save";
+const SAVE_DATA_PASSWORD: String = "2<0r2eX1&2:<Cd";
+
+const DEFAULT_INTROSCENEWATCHED: bool = false;
+const DEFAULT_NIGHT2PLAY: int = 1;
+const DEFAULT_GUIDE_UNLOCKED: bool = false
 
 const DEFAULT_WINDOW_MODE: int = 0;
 const DEFAULT_RESOLUTION: int = 1;
@@ -22,20 +27,23 @@ const DEFAULT_JUMPSCARE_VOLUME: float = 1;
 
 const DEFAULT_FPSCOUNTER: bool = false;
 
-const SAVE_DATA_PATH: String = "user://FNaS4DLC.save";
-const SAVE_DATA_PASSWORD: String = "2<0r2eX1&2:<Cd";
+const DEFAULT_NIGHT5ENDING: bool = false;
+const DEFAULT_NIGHT6ENDING: bool = false;
+const DEFAULT_NIGHT7ENDING: bool = false;
+
+const DEFAULT_TAINGLE_SKIN: String = "";
+const DEFAULT_LUIGINETTE_SKIN: String = "";
+
+const CANSKIPNIGHTS: bool = true;
 
 var nightcounter: int = 1;
 var isloadingsom: bool = false;
 var didrarescreenhappened: bool = false;
-var monitor_refresh_rate: float = DisplayServer.screen_get_refresh_rate();
 
 #data to save/load
-var introscenewatched: bool = false;
-var night_to_play: int = 1; # campaign only
-var night5ending: bool = false;
-var night6ending: bool = false;
-var night7ending: bool = false;
+var introscenewatched: bool = DEFAULT_INTROSCENEWATCHED;
+var night_to_play: int = DEFAULT_NIGHT2PLAY; # campaign only
+var guideunlocked: bool = DEFAULT_GUIDE_UNLOCKED;
 
 var windowmode: int = DEFAULT_WINDOW_MODE;
 var resolution: int = DEFAULT_RESOLUTION;
@@ -55,11 +63,13 @@ var jumpscares_volume: float = DEFAULT_JUMPSCARE_VOLUME;
 
 var fps_counter: bool = DEFAULT_FPSCOUNTER;
 
-var guideunlocked: bool = false;
+var night5ending: bool = DEFAULT_NIGHT5ENDING;
+var night6ending: bool = DEFAULT_NIGHT6ENDING;
+var night7ending: bool = DEFAULT_NIGHT7ENDING;
 
-var skins: Dictionary[String, String] = {
-	"Nightmare Luiginette": "",
-	"Nightmare Taingle": "",
+var selected_skins: Dictionary[String, String] = {
+	"Nightmare Taingle": DEFAULT_TAINGLE_SKIN,
+	"Nightmare Luiginette": DEFAULT_LUIGINETTE_SKIN,
 };
 
 #player status
@@ -120,7 +130,7 @@ func _apply_settings() -> void:
 		1:
 			Engine.max_fps = 60;
 		2:
-			Engine.max_fps = ceil(monitor_refresh_rate);
+			Engine.max_fps = 120;
 		3:
 			Engine.max_fps = 0;
 
@@ -165,6 +175,9 @@ func _get_ai_level_as_array() -> Array[String]:
 func _get_input_as_array() -> Array[String]:
 	return ["FLASHLIGHT", "MASK", "PAUSE"];
 
+func _get_selected_skins_as_array() -> Array[String]:
+	return ["Nightmare Taingle", "Nightmare Luiginette"];
+
 func _reset_ai() -> void:
 	for i in range(_get_ai_level_as_array().size()):
 		ai_levels[_get_ai_level_as_array()[i]] = AIDEFAULTLEVEL;
@@ -172,22 +185,23 @@ func _reset_ai() -> void:
 	 
 func _save() -> Dictionary:
 	var saveDict: Dictionary = {
-		"NIGHT5ENDING": night5ending,
-		"NIGHT6ENDING": night6ending,
-		"NIGHT7ENDING": night7ending,
 		"INTROCUTSEEN": introscenewatched,
 		"NIGHT2PLAY": night_to_play,
+		"GUIDEUNLOCKED": guideunlocked,
 		"WINDOWMODE": windowmode,
 		"RESOLUTION": resolution,
 		"VSYNC": vsync,
 		"FPSCAP": fpscap,
+		"INPUT": keys,
 		"MASTERVOLUME": master_volume,
 		"MUSICVOLUME": music_volume,
 		"SOUNDSVOLUME": sounds_volume,
 		"JUMPSCAREVOLUME": jumpscares_volume,
 		"FPSCOUNTER": fps_counter,
-		"INPUT": keys,
-		"GUIDEUNLOCKED": guideunlocked,
+		"NIGHT5ENDING": night5ending,
+		"NIGHT6ENDING": night6ending,
+		"NIGHT7ENDING": night7ending,
+		"SELECTEDSKINS": selected_skins,
 	};
 	return saveDict;
 
@@ -211,11 +225,9 @@ func _load_game() -> void:
 			var parseResult := json.parse(JSONString);
 			var data = json.get_data();
 			
-			night5ending = data["NIGHT5ENDING"];
-			night6ending = data["NIGHT6ENDING"];
-			night7ending = data["NIGHT7ENDING"];
 			introscenewatched = data["INTROCUTSEEN"];
 			night_to_play = data["NIGHT2PLAY"];
+			guideunlocked = data["GUIDEUNLOCKED"];
 			
 			windowmode = data["WINDOWMODE"];
 			resolution = data["RESOLUTION"];
@@ -232,6 +244,11 @@ func _load_game() -> void:
 			
 			fps_counter = data["FPSCOUNTER"];
 
-			guideunlocked = data["GUIDEUNLOCKED"];
+			night5ending = data["NIGHT5ENDING"];
+			night6ending = data["NIGHT6ENDING"];
+			night7ending = data["NIGHT7ENDING"];
+
+			for i in range(_get_selected_skins_as_array().size()):
+				selected_skins[_get_selected_skins_as_array()[i]] = data["SELECTEDSKINS"][_get_selected_skins_as_array()[i]];
 
 			print(data);
