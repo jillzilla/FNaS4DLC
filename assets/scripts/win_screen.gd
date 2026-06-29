@@ -25,11 +25,7 @@ func _ready() -> void:
 			if !main.night5ending:
 				RewardUnlockPopup.add_to_queue("Red Star #1");
 				RewardUnlockPopup.add_to_queue("Night 6");
-				RewardUnlockPopup.add_to_queue("Locker");
-				RewardUnlockPopup.add_to_queue("Nightmare Toy Tails Skin", "res://assets/images/customnight/toytails_cnicon.png");
 				RewardUnlockPopup.showcase();
-				main.lockerunlocked = true;
-				main.unlocked_skins["Nightmare Taingle"]["Nightmare Toy Tails"] = true;
 				main.night5ending = true;
 		6:
 			if !main.night6ending:
@@ -38,9 +34,7 @@ func _ready() -> void:
 				RewardUnlockPopup.add_to_queue("Custom Night");
 				RewardUnlockPopup.add_to_queue("Nightmare Knuckles", "res://assets/images/customnight/knuxicon.png");
 				RewardUnlockPopup.add_to_queue("Tails Doll", "res://assets/images/customnight/tdollicon.png");
-				RewardUnlockPopup.add_to_queue("Beta Nightmare Luiginette Skin", "res://assets/images/customnight/lnbeta_cnicon.png");
 				RewardUnlockPopup.showcase();
-				main.unlocked_skins["Nightmare Luiginette"]["Beta Luiginette"] = true;
 				main.night6ending = true;
 		7:
 			if !main.night7ending:

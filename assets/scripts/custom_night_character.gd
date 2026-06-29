@@ -30,8 +30,6 @@ func _ready() -> void:
 		icon.texture = null;
 	else:
 		icon.texture = load(character_icon_path);
-
-	main.update_skin.emit();
 		
 	_update_ai_counter();
 

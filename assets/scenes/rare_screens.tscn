@@ -5,7 +5,6 @@
 [ext_resource type="SpriteFrames" uid="uid://dowujxyduj0y8" path="res://assets/spriteframes/golden_rare_sprite_frames.tres" id="3_cmf04"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="3_pnqea"]
 [ext_resource type="SpriteFrames" uid="uid://col6bdwraafoj" path="res://assets/spriteframes/luigi_rare_sprite_frames.tres" id="4_sihj3"]
-[ext_resource type="Script" uid="uid://djotj0bjjelij" path="res://assets/components/SkinTextureComponent.gd" id="5_sihj3"]
 
 [node name="RareScreens" type="Node" unique_id=2126247562]
 script = ExtResource("1_bdjtf")
@@ -29,13 +28,6 @@ sprite_frames = ExtResource("4_sihj3")
 autoplay = "default"
 centered = false
 metadata/_edit_lock_ = true
-
-[node name="SkinTextureComponent" type="Node" parent="Luigi" unique_id=1711871272]
-script = ExtResource("5_sihj3")
-data_json = "res://assets/data/skins.json"
-character_name = "Nightmare Luiginette"
-sprite_name = "Rare Screen Sprite Frame"
-metadata/_custom_type_script = "uid://djotj0bjjelij"
 
 [node name="Timer" type="Timer" parent="." unique_id=1794811248]
 wait_time = 5.0

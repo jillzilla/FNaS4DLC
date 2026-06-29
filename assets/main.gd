@@ -1,8 +1,5 @@
 extends Node
 
-@warning_ignore("UNUSED_SIGNAL")
-signal update_skin;
-
 #variables
 const CANSKIPNIGHTS: bool = true;
 
@@ -33,12 +30,6 @@ const DEFAULT_NIGHT5ENDING: bool = false;
 const DEFAULT_NIGHT6ENDING: bool = false;
 const DEFAULT_NIGHT7ENDING: bool = false;
 
-const DEFAULT_TOYTAILS_UNLOCKED: bool = false;
-const DEFAULT_LUIGINETTE_BETA_UNLOCKED: bool = false;
-
-const DEFAULT_TAINGLE_SKIN: String = "";
-const DEFAULT_LUIGINETTE_SKIN: String = "";
-
 #data to save/load
 var introscenewatched: bool = DEFAULT_INTROSCENEWATCHED;
 var night_to_play: int = DEFAULT_NIGHT2PLAY; # campaign only
@@ -65,21 +56,6 @@ var fps_counter: bool = DEFAULT_FPSCOUNTER;
 var night5ending: bool = DEFAULT_NIGHT5ENDING;
 var night6ending: bool = DEFAULT_NIGHT6ENDING;
 var night7ending: bool = DEFAULT_NIGHT7ENDING;
-
-var lockerunlocked: bool = false;
-
-var unlocked_skins: Dictionary = {
-	"Nightmare Taingle": {
-		"Nightmare Toy Tails": DEFAULT_TOYTAILS_UNLOCKED,
-	},
-	"Nightmare Luiginette": {
-		"Beta Luiginette": DEFAULT_LUIGINETTE_BETA_UNLOCKED,
-	}
-}
-var selected_skins: Dictionary = {
-	"Nightmare Taingle": DEFAULT_TAINGLE_SKIN,
-	"Nightmare Luiginette": DEFAULT_LUIGINETTE_SKIN,
-};
 
 #character data stuff
 const AIMINVALUE: int = 0;
@@ -128,9 +104,6 @@ func _save() -> Dictionary:
 		"NIGHT5ENDING": night5ending,
 		"NIGHT6ENDING": night6ending,
 		"NIGHT7ENDING": night7ending,
-		"LOCKERUNLOCKED": lockerunlocked,
-		"UNLOCKEDSKINS": unlocked_skins,
-		"SELECTEDSKINS": selected_skins,
 	};
 	return saveDict;
 
@@ -172,10 +145,6 @@ func _load_game() -> void:
 			night5ending = data["NIGHT5ENDING"];
 			night6ending = data["NIGHT6ENDING"];
 			night7ending = data["NIGHT7ENDING"];
-
-			lockerunlocked = data["LOCKERUNLOCKED"];
-			unlocked_skins = data["UNLOCKEDSKINS"];
-			selected_skins = data["SELECTEDSKINS"];
 
 			print(data);
 
