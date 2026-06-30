@@ -41,8 +41,9 @@ func _ready() -> void:
 				RewardUnlockPopup.showcase();
 				main.save_data_file.night6ending = true;
 		7:
-			if !main.save_data_file.night7ending:
-				main.save_data_file.night7ending = true;
+			if main.cnchallenge == "Hammer Heartbreak II":
+				if !main.save_data_file.night7ending:
+					main.save_data_file.night7ending = true;
 
 	next_scene_path = _get_next_scene();
 	
@@ -57,11 +58,13 @@ func _on_timer_timeout() -> void:
 	clockanimation.play("lowtaperfade");
 
 func _get_next_scene() -> String:
-	if main.nightcounter < 5 && main.save_data_file.night5ending || main.nightcounter == 7:
+	if main.nightcounter < 5 && main.save_data_file.night5ending || main.nightcounter == 7 && main.cnchallenge != "Hammer Heartbreak II":
 		return "res://assets/scenes/title.tscn";
 	elif main.nightcounter == 5:
 		return "res://assets/scenes/night_5_ending.tscn";
 	elif main.nightcounter == 6:
+		return "res://assets/scenes/night_6_ending.tscn";
+	elif main.nightcounter == 7 && main.cnchallenge == "Hammer Heartbreak II":
 		return "res://assets/scenes/night_6_ending.tscn";
 	else:
 		return "res://assets/scenes/night_screen.tscn";
