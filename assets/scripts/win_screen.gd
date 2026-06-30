@@ -23,13 +23,11 @@ func _ready() -> void:
 		1:
 			if !main.save_data_file.guideunlocked:
 				RewardUnlockPopup.add_to_queue("Character Guide");
-				RewardUnlockPopup.showcase();
 				main.save_data_file.guideunlocked = true;
 		5:
 			if !main.save_data_file.night5ending:
 				RewardUnlockPopup.add_to_queue("Red Star #1");
 				RewardUnlockPopup.add_to_queue("Night 6");
-				RewardUnlockPopup.showcase();
 				main.save_data_file.night5ending = true;
 		6:
 			if !main.save_data_file.night6ending:
@@ -38,13 +36,15 @@ func _ready() -> void:
 				RewardUnlockPopup.add_to_queue("Custom Night");
 				RewardUnlockPopup.add_to_queue("Nightmare Knuckles", "res://assets/images/customnight/knuxicon.png");
 				RewardUnlockPopup.add_to_queue("Tails Doll", "res://assets/images/customnight/tdollicon.png");
-				RewardUnlockPopup.showcase();
+				
 				main.save_data_file.night6ending = true;
 		7:
 			if main.cnchallenge == "Hammer Heartbreak II":
 				if !main.save_data_file.night7ending:
+					RewardUnlockPopup.add_to_queue("Red Star #3");
 					main.save_data_file.night7ending = true;
 
+	RewardUnlockPopup.showcase();
 	next_scene_path = _get_next_scene();
 	
 	if !main.save_data_file.night5ending:

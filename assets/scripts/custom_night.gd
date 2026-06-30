@@ -100,19 +100,21 @@ func _update_stuff(update_ai: bool = true) -> void:
 		red_star2.hide();
 
 func _ai_value_changed() -> void:
-	var challenge_to_load: int = 0;
+	var current_ai_level: Array[int] = [];
+	var challenge_ai_level: Array[int] = [];
+
+	for i in range(main._get_ai_level_as_array().size()):
+		current_ai_level.append(main.ai_levels[main._get_ai_level_as_array()[i]]);
 
 	for i in range(main._get_challenges_as_array().size()):
 		if main._get_challenges_as_array()[i] != "Custom Night":
+			if challenge_ai_level != []:
+				challenge_ai_level.clear();
 			for j in range(main._get_ai_level_as_array().size()):
-				if main.ai_levels[main._get_ai_level_as_array()[j]] == main.ai_custom_night_challenges[main._get_challenges_as_array()[i]][main._get_ai_level_as_array()[j]]:
-					if challenge_to_load != i:
-						challenge_to_load = i;
-				else:
-					continue ;
-		else:
-			continue ;
-	
-	if challenge_to_load > 0:
-		challenge_id = challenge_to_load;
-		_update_stuff(false);
+				challenge_ai_level.append(main.ai_custom_night_challenges[main._get_challenges_as_array()[i]][main._get_ai_level_as_array()[j]]);
+			if current_ai_level == challenge_ai_level:
+				challenge_id = i;
+				_update_stuff(false);
+				break ;
+			else:
+				continue ;

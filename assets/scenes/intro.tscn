@@ -16,7 +16,6 @@ fill_to = Vector2(0.5, 0)
 
 [node name="Intro" type="Node" unique_id=454415649]
 script = ExtResource("1_vxlar")
-metadata/_edit_horizontal_guides_ = [-94.0]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1676978548]
 texture = SubResource("GradientTexture2D_y745p")
