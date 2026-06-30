@@ -84,11 +84,15 @@ func _update_stuff(update_ai: bool = true) -> void:
 			c.left_button.hide();
 			c.right_button.hide();
 	else:
+		if update_ai:
+			main._reset_ai();
+
 		all_min.show();
 		all_max.show();
 		random.show();
 
 		for c in characters:
+			c._update_ai_counter();
 			c.left_button.show();
 			c.right_button.show();
 	
