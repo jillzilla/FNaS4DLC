@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "animation":
-		if !main.introscenewatched:
-			main.introscenewatched = true;
-			main._save_game();
+		if !main.save_data_file.introscenewatched:
+			main.save_data_file.introscenewatched = true;
+			main._save();
 		loading._load_scene("res://assets/scenes/title.tscn");

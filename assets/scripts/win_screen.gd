@@ -15,49 +15,49 @@ func _ready() -> void:
 	if GlobalAudioManager.get_node("Ambience").is_playing():
 		GlobalAudioManager.get_node("Ambience").stop();
 	
-	if main.cnchallenge != "Custom Night" || main.cnchallenge != "":
-		if !main.custom_night_challenges[main.cnchallenge]:
-			main.custom_night_challenges[main.cnchallenge] = true;
+	if main.cnchallenge != "Custom Night" && main.cnchallenge != "":
+		if !main.save_data_file.custom_night_challenges[main.cnchallenge]:
+			main.save_data_file.custom_night_challenges[main.cnchallenge] = true;
 
 	match (main.nightcounter):
 		1:
-			if !main.guideunlocked:
+			if !main.save_data_file.guideunlocked:
 				RewardUnlockPopup.add_to_queue("Character Guide");
 				RewardUnlockPopup.showcase();
-				main.guideunlocked = true;
+				main.save_data_file.guideunlocked = true;
 		5:
-			if !main.night5ending:
+			if !main.save_data_file.night5ending:
 				RewardUnlockPopup.add_to_queue("Red Star #1");
 				RewardUnlockPopup.add_to_queue("Night 6");
 				RewardUnlockPopup.showcase();
-				main.night5ending = true;
+				main.save_data_file.night5ending = true;
 		6:
-			if !main.night6ending:
+			if !main.save_data_file.night6ending:
 				RewardUnlockPopup.add_to_queue("Red Star #2");
 				RewardUnlockPopup.add_to_queue("Extras");
 				RewardUnlockPopup.add_to_queue("Custom Night");
 				RewardUnlockPopup.add_to_queue("Nightmare Knuckles", "res://assets/images/customnight/knuxicon.png");
 				RewardUnlockPopup.add_to_queue("Tails Doll", "res://assets/images/customnight/tdollicon.png");
 				RewardUnlockPopup.showcase();
-				main.night6ending = true;
+				main.save_data_file.night6ending = true;
 		7:
-			if !main.night7ending:
-				main.night7ending = true;
+			if !main.save_data_file.night7ending:
+				main.save_data_file.night7ending = true;
 
 	next_scene_path = _get_next_scene();
 	
-	if !main.night5ending:
-		main.night_to_play += 1;
-		if main.nightcounter != main.night_to_play:
-			main.nightcounter = main.night_to_play;
-			
-	main._save_game();
+	if !main.save_data_file.night5ending:
+		main.save_data_file.night_to_play += 1;
+		if main.nightcounter != main.save_data_file.night_to_play:
+			main.nightcounter = main.save_data_file.night_to_play;
+
+	main._save();
 
 func _on_timer_timeout() -> void:
 	clockanimation.play("lowtaperfade");
 
 func _get_next_scene() -> String:
-	if main.nightcounter < 5 && main.night5ending || main.nightcounter == 7:
+	if main.nightcounter < 5 && main.save_data_file.night5ending || main.nightcounter == 7:
 		return "res://assets/scenes/title.tscn";
 	elif main.nightcounter == 5:
 		return "res://assets/scenes/night_5_ending.tscn";

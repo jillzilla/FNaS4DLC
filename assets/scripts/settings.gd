@@ -33,32 +33,32 @@ func _ready() -> void:
 	_sync_button_with_options();
 
 func _sync_button_with_options() -> void:
-	windowed_mode_button.selected = main.windowmode;
-	resolution_button.selected = main.resolution;
-	vsync_button.button_pressed = main.vsync;
-	fpscap_button.selected = main.fpscap;
+	windowed_mode_button.selected = main.save_data_file.windowmode;
+	resolution_button.selected = main.save_data_file.resolution;
+	vsync_button.button_pressed = main.save_data_file.vsync;
+	fpscap_button.selected = main.save_data_file.fpscap;
 
 	flashlight_key_button._update_text();
 	mask_key_button._update_text();
 	pause_key_button._update_text();
 	
-	mastervolume_slider.value = main.master_volume;
-	musicvolume_slider.value = main.music_volume;
-	soundsvolume_slider.value = main.sounds_volume;
-	jumpscarevolume_slider.value = main.jumpscares_volume;
+	mastervolume_slider.value = main.save_data_file.master_volume;
+	musicvolume_slider.value = main.save_data_file.music_volume;
+	soundsvolume_slider.value = main.save_data_file.sounds_volume;
+	jumpscarevolume_slider.value = main.save_data_file.jumpscares_volume;
 	
-	fps_counter.button_pressed = main.fps_counter;
+	fps_counter.button_pressed = main.save_data_file.fps_counter;
 
 func _on_apply_pressed() -> void:
 	self.hide();
 
-	video_settings.show();
+	video_settings.hide();
 	input_settings.hide();
 	audio_settings.hide();
 	misc_settings.hide();
 
+	main._save();
 	main._apply_settings();
-	main._save_game();
 
 func _on_video_pressed() -> void:
 	video_settings.show();
@@ -85,31 +85,31 @@ func _on_misc_pressed() -> void:
 	misc_settings.show();
 
 func _on_windowmode_item_selected(index: int) -> void:
-	main.windowmode = index;
+	main.save_data_file.windowmode = index;
 
 func _on_resolution_item_selected(index: int) -> void:
-	main.resolution = index;
+	main.save_data_file.resolution = index;
 
 func _on_vsync_check_box_toggled(toggled_on: bool) -> void:
-	main.vsync = toggled_on;
+	main.save_data_file.vsync = toggled_on;
 
 func _on_fpscap_item_selected(index: int) -> void:
-	main.fpscap = index;
+	main.save_data_file.fpscap = index;
 
 func _on_mastah_value_changed(value: float) -> void:
-	main.master_volume = value;
+	main.save_data_file.master_volume = value;
 
 func _on_moosic_value_changed(value: float) -> void:
-	main.music_volume = value;
+	main.save_data_file.music_volume = value;
 
 func _on_sounds_value_changed(value: float) -> void:
-	main.sounds_volume = value;
+	main.save_data_file.sounds_volume = value;
 
 func _on_jumpscares_value_changed(value: float) -> void:
-	main.jumpscares_volume = value;
+	main.save_data_file.jumpscares_volume = value;
 
 func _on_fps_counter_toggled(toggled_on: bool) -> void:
-	main.fps_counter = toggled_on;
+	main.save_data_file.fps_counter = toggled_on;
 
 func _on_resetsettings_pressed() -> void:
 	resetdata = true;
@@ -122,21 +122,21 @@ func _on_deletedata_pressed() -> void:
 	confirm_popup.show();
 
 func _reset_settings() -> void:
-	main.windowmode = main.DEFAULT_WINDOW_MODE;
-	main.resolution = main.DEFAULT_RESOLUTION;
-	main.vsync = main.DEFAULT_VSYNC;
-	main.fpscap = main.DEFAULT_FPSCAP;
+	main.save_data_file.windowmode = 0;
+	main.save_data_file.resolution = 1;
+	main.save_data_file.vsync = true;
+	main.save_data_file.fpscap = 1;
 
-	main.keys["FLASHLIGHT"] = main.DEFAULT_FLASHLIGHTHOTKEY;
-	main.keys["MASK"] = main.DEFAULT_MASKHOTKEY;
-	main.keys["PAUSE"] = main.DEFAULT_PAUSEHOTKEY;
+	main.save_data_file.keys["FLASHLIGHT"] = KEY_CTRL;
+	main.save_data_file.keys["MASK"] = KEY_SHIFT;
+	main.save_data_file.keys["PAUSE"] = KEY_ESCAPE;
 	
-	main.master_volume = main.DEFAULT_MASTER_VOLUME;
-	main.music_volume = main.DEFAULT_MUSIC_VOLUME;
-	main.sounds_volume = main.DEFAULT_SOUNDS_VOLUME;
-	main.jumpscares_volume = main.DEFAULT_JUMPSCARE_VOLUME;
+	main.save_data_file.master_volume = 1;
+	main.save_data_file.music_volume = 1;
+	main.save_data_file.sounds_volume = 1;
+	main.save_data_file.jumpscares_volume = 1;
 	
-	main.fps_counter = main.DEFAULT_FPSCOUNTER;
+	main.save_data_file.fps_counter = false;
 
 func _confirmed_action() -> void:
 	if resetdata:

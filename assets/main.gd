@@ -1,84 +1,34 @@
 extends Node
 
 #variables
-const CANSKIPNIGHTS: bool = true;
+@onready var save_data_file: SaveDataResource = SaveDataResource.new();
 
-const SAVE_DATA_PATH: String = "user://FNaS4DLC.save";
+const SAVE_DATA_PATH: String = "user://FNaS4DLC.json";
 const SAVE_DATA_PASSWORD: String = "2<0r2eX1&2:<Cd";
 
-const DEFAULT_INTROSCENEWATCHED: bool = false;
-const DEFAULT_NIGHT2PLAY: int = 1;
-const DEFAULT_GUIDE_UNLOCKED: bool = false
+const AIMINVALUE: int = 0;
+const AIDEFAULTLEVEL: int = 5;
+const AIMAXVALUE: int = 25;
 
-const DEFAULT_WINDOW_MODE: int = 0;
-const DEFAULT_RESOLUTION: int = 1;
-const DEFAULT_VSYNC: bool = true;
-const DEFAULT_FPSCAP: int = 1;
+const CANSKIPNIGHTS: bool = true;
 
-const DEFAULT_FLASHLIGHTHOTKEY: Key = KEY_CTRL;
-const DEFAULT_MASKHOTKEY: Key = KEY_SHIFT;
-const DEFAULT_PAUSEHOTKEY: Key = KEY_ESCAPE;
+var nightcounter: int = 1;
 
-const DEFAULT_MASTER_VOLUME: float = 1;
-const DEFAULT_MUSIC_VOLUME: float = 1;
-const DEFAULT_SOUNDS_VOLUME: float = 1;
-const DEFAULT_JUMPSCARE_VOLUME: float = 1;
+var killedBy: String = "";
+var cnchallenge: String = "";
 
-const DEFAULT_FPSCOUNTER: bool = false;
+var isloadingsom: bool = false;
+var didrarescreenhappened: bool = false;
 
-const DEFAULT_NIGHT5ENDING: bool = false;
-const DEFAULT_NIGHT6ENDING: bool = false;
-const DEFAULT_NIGHT7ENDING: bool = false;
-
-#data to save/load
-var introscenewatched: bool = DEFAULT_INTROSCENEWATCHED;
-var night_to_play: int = DEFAULT_NIGHT2PLAY; # campaign only
-var guideunlocked: bool = DEFAULT_GUIDE_UNLOCKED;
-
-var windowmode: int = DEFAULT_WINDOW_MODE;
-var resolution: int = DEFAULT_RESOLUTION;
-var vsync: bool = DEFAULT_VSYNC;
-var fpscap: int = DEFAULT_FPSCAP;
-
-var keys: Dictionary = {
-	"FLASHLIGHT": DEFAULT_FLASHLIGHTHOTKEY,
-	"MASK": DEFAULT_MASKHOTKEY,
-	"PAUSE": DEFAULT_PAUSEHOTKEY
+var tutorials_text: Dictionary[int, String] = {
+	1: "o navigate around your office, you’ll need to click on one of the\nentrances. You’ll be able to go to the vents, the hallway, the\nceiling, and finally under the desk.\n\nIf you hear a radio, go to the ceiling and shine the\nflashlight on it until the danger goes away.\n\nIf you hear someone coming from the vents and they’re\ngreen, use the mask; if they’re red, look at their eyes; if\nthey can see you, use the mask; if they can’t see you,\nhide under the desk.",
+	2: "The blue guys aren't fooled by the mask. If one\nof them dares to attack you from the vents,\nhide under the desk.\n\nA mushroom has also just sprouted tonight; if you\nhear its laughter coming from the left vent, turn\nyour flashlight on and off repeatedly until it\nleaves you alone.\n\nOtherwise, everything else is the same.\n\nGood luck.",
+	3: "That other blue guy will try to slowly approach\nyour position from the hallway. You can keep an\neye on him via the monitor above your desk; if\nyou hear him laughing, shine your flashlight\non him until he goes away.\n\nYou're close to the truth, Amy.",
+	4: "An old acquaintance of yours will be joining us tonight.\nShe won't be very dangerous, but if she tries to attack\nyou, hide under the desk. Nothing too complicated.",
+	5: "Everyone you've met so far will be more aggressive\ntonight, but not for long... Things are going to\nchange, and when they do, keep this in mind:\n\nfrom the vents to the mask,\nfrom the hallway to the desk,\nfrom the ceiling to the flashlight.\n\nIt's time to shine.",
 };
 
-var master_volume: float = DEFAULT_MASTER_VOLUME;
-var music_volume: float = DEFAULT_MUSIC_VOLUME;
-var sounds_volume: float = DEFAULT_SOUNDS_VOLUME;
-var jumpscares_volume: float = DEFAULT_JUMPSCARE_VOLUME;
-
-var fps_counter: bool = DEFAULT_FPSCOUNTER;
-
-var night5ending: bool = DEFAULT_NIGHT5ENDING;
-var night6ending: bool = DEFAULT_NIGHT6ENDING;
-
-var custom_night_challenges: Dictionary = {
-	"4/20": false,
-	"Nintendon't": false,
-	"Nintendo Power": false,
-	"Sonic VS. Mario": false,
-	"Friendly Fire": false,
-	"Sidekick Hangout": false,
-	"Night Shift in Company": false,
-	"Panda Mode": false,
-	"Advance 3": false,
-	"Your Biggest Nightmare": false,
-	"Grand Re-Opening": false,
-	"Hammer Heartbreak II": false,
-}
-
-var night7ending: bool = DEFAULT_NIGHT7ENDING;
-
-#character data stuff
-const AIMINVALUE: int = 0;
-const AIMAXVALUE: int = 25;
-const AIDEFAULTLEVEL: int = 5;
-
-var ai_levels: Dictionary = {
+var ai_levels: Dictionary[String, int] = {
 	"Nightmare Toy Sonic": AIDEFAULTLEVEL,
 	"Nightmare Toy Mario": AIDEFAULTLEVEL,
 	"Nightmare Toy Yoshi": AIDEFAULTLEVEL,
@@ -91,86 +41,439 @@ var ai_levels: Dictionary = {
 	"Nightmare Luiginette": AIDEFAULTLEVEL,
 };
 
-#others
-var killedBy: String = "";
-var nightcounter: int = 1;
-var cnchallenge: String = "";
-var isloadingsom: bool = false;
-var didrarescreenhappened: bool = false;
+var guide_text: Dictionary[String, String] = {
+	"Nightmare Toy Sonic": "He can come from either side, so when he's about to attack, hide under the desk.",
+	"Nightmare Toy Mario": "He'll come from the right vent. Just as he's about to attack, make sure to watch his eyes—if they're off, hide under the desk; if they're on, put on your mask.",
+	"Nightmare Toy Yoshi": "She'll be coming from the left side; put on your mask just as she's about to attack.",
+	"Nightmare Taingle": "When you hear the sound of her radio, look up at the ceiling and shine your flashlight on her until she disappears.",
+	"Nightmare Balloon Toad": "He'll come from the left side; when you hear him laugh, go over there and keep turning the flashlight on and off until he leaves.",
+	"Nightmare Salvage Sonic": "He'll come down the hallway; you'll be able to see where he is on the monitor on the desk. As soon as you hear him laugh, go to the hallway and shine the flashlight at him until he leaves.",
+	"Nightmare Cream": "She'll come in from the right side; just as she's about to attack, hide under the desk.",
+	"Nightmare Knuckles": "At the beginning of the night, he won't cause any trouble, but if you hear loud footsteps, you'll need to check the hallway every now and then to make sure he doesn't move from his spot. It's impossible to send him away, and letting him get too close will definitely get you killed.",
+	"Tails Doll": "When he appears, he will slowly obscure your vision; guess where he is, and he will go away.",
+	"Nightmare Luiginette": "He always starts from the center. Before he attacks, you’ll hear him running to the right, left, or center—if he isn’t already there. When he stops, it means he’s found the spot from which to attack. When you hear him laugh, it means he’s about to kill you, so you need to listen carefully for the sound he makes beyond his laughter. If you hear the sound of vents, it means he’s in one of them, and you’ll need to use the mask; if you hear a jumping sound, it means he’s on the ceiling, so you’ll need to use the flashlight; and if you hear footsteps, it means he’s in the center, and you’ll need to hide under the desk.",
+};
+
+var ai_nights: Dictionary[int, Dictionary] = {
+	1: {
+		"Nightmare Toy Sonic": 0,
+		"Nightmare Toy Mario": 8,
+		"Nightmare Toy Yoshi": 8,
+		"Nightmare Taingle": 8,
+		"Nightmare BT": 0,
+		"Nightmare S. Sonic": 0,
+		"Nightmare Cream": 0,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+
+	2: {
+		"Nightmare Toy Sonic": 8,
+		"Nightmare Toy Mario": 10,
+		"Nightmare Toy Yoshi": 10,
+		"Nightmare Taingle": 10,
+		"Nightmare BT": 8,
+		"Nightmare S. Sonic": 0,
+		"Nightmare Cream": 0,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+
+	3: {
+		"Nightmare Toy Sonic": 10,
+		"Nightmare Toy Mario": 12,
+		"Nightmare Toy Yoshi": 12,
+		"Nightmare Taingle": 12,
+		"Nightmare BT": 10,
+		"Nightmare S. Sonic": 8,
+		"Nightmare Cream": 0,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+
+	4: {
+		"Nightmare Toy Sonic": 12,
+		"Nightmare Toy Mario": 14,
+		"Nightmare Toy Yoshi": 14,
+		"Nightmare Taingle": 14,
+		"Nightmare BT": 12,
+		"Nightmare S. Sonic": 10,
+		"Nightmare Cream": 8,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+
+	5: {
+		"Nightmare Toy Sonic": 14,
+		"Nightmare Toy Mario": 15,
+		"Nightmare Toy Yoshi": 15,
+		"Nightmare Taingle": 15,
+		"Nightmare BT": 14,
+		"Nightmare S. Sonic": 12,
+		"Nightmare Cream": 10,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+
+	6: {
+		"Nightmare Toy Sonic": 14,
+		"Nightmare Toy Mario": 15,
+		"Nightmare Toy Yoshi": 15,
+		"Nightmare Taingle": 15,
+		"Nightmare BT": 14,
+		"Nightmare S. Sonic": 0,
+		"Nightmare Cream": 0,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 17,
+	},
+};
+
+func _get_ai_level_as_array() -> Array[String]:
+	return ["Nightmare Toy Sonic", "Nightmare Toy Mario",
+	"Nightmare Toy Yoshi", "Nightmare Taingle", "Nightmare BT", "Nightmare S. Sonic",
+	"Nightmare Cream", "Nightmare Knuckles", "Tails Doll",
+	"Nightmare Luiginette"];
+
+var ai_custom_night_challenges: Dictionary[String, Dictionary] = {
+	"4/20": {
+		"Nightmare Toy Sonic": 20,
+		"Nightmare Toy Mario": 20,
+		"Nightmare Toy Yoshi": 20,
+		"Nightmare Taingle": 20,
+		"Nightmare BT": 0,
+		"Nightmare S. Sonic": 0,
+		"Nightmare Cream": 0,
+		"Nightmare Knuckles": 10,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+	"Nintendon't": {
+		"Nightmare Toy Sonic": 0,
+		"Nightmare Toy Mario": 0,
+		"Nightmare Toy Yoshi": 0,
+		"Nightmare Taingle": 0,
+		"Nightmare BT": 0,
+		"Nightmare S. Sonic": 0,
+		"Nightmare Cream": 0,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+	"Nintendo Power": {
+		"Nightmare Toy Sonic": 0,
+		"Nightmare Toy Mario": 0,
+		"Nightmare Toy Yoshi": 0,
+		"Nightmare Taingle": 0,
+		"Nightmare BT": 0,
+		"Nightmare S. Sonic": 0,
+		"Nightmare Cream": 0,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+	"Sonic VS. Mario": {
+		"Nightmare Toy Sonic": 0,
+		"Nightmare Toy Mario": 0,
+		"Nightmare Toy Yoshi": 0,
+		"Nightmare Taingle": 0,
+		"Nightmare BT": 0,
+		"Nightmare S. Sonic": 0,
+		"Nightmare Cream": 0,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+	"Friendly Fire": {
+		"Nightmare Toy Sonic": 0,
+		"Nightmare Toy Mario": 0,
+		"Nightmare Toy Yoshi": 0,
+		"Nightmare Taingle": 0,
+		"Nightmare BT": 0,
+		"Nightmare S. Sonic": 0,
+		"Nightmare Cream": 0,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+	"Sidekick Hangout": {
+		"Nightmare Toy Sonic": 0,
+		"Nightmare Toy Mario": 0,
+		"Nightmare Toy Yoshi": 0,
+		"Nightmare Taingle": 0,
+		"Nightmare BT": 0,
+		"Nightmare S. Sonic": 0,
+		"Nightmare Cream": 0,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+	"Night Shift in Company": {
+		"Nightmare Toy Sonic": 0,
+		"Nightmare Toy Mario": 0,
+		"Nightmare Toy Yoshi": 0,
+		"Nightmare Taingle": 0,
+		"Nightmare BT": 0,
+		"Nightmare S. Sonic": 0,
+		"Nightmare Cream": 0,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+	"Panda Mode": {
+		"Nightmare Toy Sonic": 0,
+		"Nightmare Toy Mario": 0,
+		"Nightmare Toy Yoshi": 0,
+		"Nightmare Taingle": 0,
+		"Nightmare BT": 0,
+		"Nightmare S. Sonic": 0,
+		"Nightmare Cream": 0,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+	"Advance 3": {
+		"Nightmare Toy Sonic": 0,
+		"Nightmare Toy Mario": 0,
+		"Nightmare Toy Yoshi": 0,
+		"Nightmare Taingle": 0,
+		"Nightmare BT": 0,
+		"Nightmare S. Sonic": 0,
+		"Nightmare Cream": 0,
+		"Nightmare Knuckles": 0,
+		"Tails Doll": 0,
+		"Nightmare Luiginette": 0,
+	},
+	"Your Biggest Nightmare": {
+		"Nightmare Toy Sonic": 8,
+		"Nightmare Toy Mario": 8,
+		"Nightmare Toy Yoshi": 8,
+		"Nightmare Taingle": 8,
+		"Nightmare BT": 8,
+		"Nightmare S. Sonic": 8,
+		"Nightmare Cream": 8,
+		"Nightmare Knuckles": 8,
+		"Tails Doll": 8,
+		"Nightmare Luiginette": 8,
+	},
+	"Grand Re-Opening": {
+		"Nightmare Toy Sonic": 20,
+		"Nightmare Toy Mario": 20,
+		"Nightmare Toy Yoshi": 20,
+		"Nightmare Taingle": 20,
+		"Nightmare BT": 20,
+		"Nightmare S. Sonic": 20,
+		"Nightmare Cream": 20,
+		"Nightmare Knuckles": 20,
+		"Tails Doll": 20,
+		"Nightmare Luiginette": 20,
+	},
+	"Hammer Heartbreak II": {
+		"Nightmare Toy Sonic": 25,
+		"Nightmare Toy Mario": 25,
+		"Nightmare Toy Yoshi": 25,
+		"Nightmare Taingle": 25,
+		"Nightmare BT": 25,
+		"Nightmare S. Sonic": 25,
+		"Nightmare Cream": 25,
+		"Nightmare Knuckles": 25,
+		"Tails Doll": 25,
+		"Nightmare Luiginette": 25,
+	},
+};
+
+func _get_challenges_as_array() -> Array[String]:
+	return ["Custom Night", "4/20", "Nintendon't", "Nintendo Power", "Sonic VS. Mario",
+	"Friendly Fire", "Sidekick Hangout", "Night Shift in Company", "Panda Mode",
+	"Advance 3", "Your Biggest Nightmare", "Grand Re-Opening",
+	"Hammer Heartbreak II"];
+
+var game_over_graphics: Dictionary[String, Dictionary] = {
+	"Nightmare Toy Sonic": {
+		"Character Path": "Characters/ToySonic",
+		"Overlay": "Overlays/Mask"
+	},
+	"Nightmare Toy Mario": {
+		"Character Path": "Characters/ToyMario",
+		"Overlay": "Overlays/Mask"
+	},
+	"Nightmare Toy Yoshi": {
+		"Character Path": "Characters/ToyYoshi",
+		"Overlay": "Overlays/Mask"
+	},
+	"Nightmare Taingle": {
+		"Character Path": "Characters/Taingle",
+		"Overlay": "Overlays/Mask"
+	},
+	"Nightmare Salvage Sonic": {
+		"Character Path": "Characters/Salvage",
+		"Overlay": "AmyDeath"
+	},
+	"Nightmare Cream": {
+		"Character Path": "Characters/Cream",
+		"Overlay": "AmyDeath"
+	},
+	"Nightmare Knuckles": {
+		"Character Path": "Characters/Knuckles",
+		"Overlay": "AmyDeath"
+	},
+	"Nightmare Luiginette": {
+		"Character Path": "Characters/Luigi",
+		"Overlay": "Overlays/POV"
+	}
+};
+
+var luiginette_setup: Dictionary[int, Dictionary] = {
+	6: {
+		"TimerMovementMin": 180.0,
+		"TimerMovementMax": 240.0,
+		"AttackTimer": 2.0,
+		"FlashlightCounterTimer": 0.5,
+		"MaskCounterTimer": 0.3,
+		"LeftVentPositionCount": 1,
+		"RightVentPositionCount": 1,
+		"CeilingPositionCount": 0,
+		"HallwayPositionCount": 2,
+		"LeftVentSprites": [
+			"Rooms/Left_Vent/LuiginetteVent1",
+			"Rooms/Left_Vent/NLuigiVent"
+		],
+		"RightVentSprites": [
+			"Rooms/Right_Vent/LuiginetteVent1",
+			"Rooms/Right_Vent/NLuigiVent"
+		],
+		"CeilingSprites": [
+			"Rooms/Ceiling/ClipMask/NLuigiCeiling"
+		],
+		"HallwaySprites": [
+			"Rooms/Office/Monitor/Camera/Lnette1",
+			"Rooms/Office/Monitor/Camera/Lnette3",
+			"Rooms/Hallway/NLuigiHallway"
+		],
+		"TurnOffFlashlightInHallwayWhen": 2,
+		"DirMinMovement": 1,
+		"DirMaxMovement": 4,
+		"DirMinTimerMovement": 60.0,
+		"DirMaxTimerMovement": 90.0
+	},
+	7: {
+		"TimerMovementMin": 250.0,
+		"TimerMovementMax": 320.0,
+		"AttackTimer": 3.0,
+		"FlashlightCounterTimer": 0.5,
+		"MaskCounterTimer": 0.5,
+		"LeftVentPositionCount": 1,
+		"RightVentPositionCount": 1,
+		"CeilingPositionCount": 0,
+		"HallwayPositionCount": 4,
+		"LeftVentSprites": [
+			"Rooms/Left_Vent/LuiginetteVent1",
+			"Rooms/Left_Vent/NLuigiVent"
+		],
+		"RightVentSprites": [
+			"Rooms/Right_Vent/LuiginetteVent1",
+			"Rooms/Right_Vent/NLuigiVent"
+		],
+		"CeilingSprites": [
+			"Rooms/Ceiling/ClipMask/NLuigiCeiling"
+		],
+		"HallwaySprites": [
+			"Rooms/Office/Monitor/Camera/Lnette1",
+			"Rooms/Office/Monitor/Camera/Lnette2",
+			"Rooms/Office/Monitor/Camera/Lnette3",
+			"Rooms/Office/Monitor/Camera/Lnette4",
+			"Rooms/Hallway/NLuigiHallway"
+		],
+		"TurnOffFlashlightInHallwayWhen": 4,
+		"DirMinMovement": 1,
+		"DirMaxMovement": 5,
+		"DirMinTimerMovement": 120.0,
+		"DirMaxTimerMovement": 180.0
+	},
+}
+
+func _get_input_as_array() -> Array[String]:
+	return ["FLASHLIGHT", "MASK", "PAUSE"];
 
 #functions
 func _ready() -> void:
-	_load_game();
+	_load();
 	_apply_settings();
 
-func _save() -> Dictionary:
-	var saveDict: Dictionary = {
-		"INTROCUTSEEN": introscenewatched,
-		"NIGHT2PLAY": night_to_play,
-		"GUIDEUNLOCKED": guideunlocked,
-		"WINDOWMODE": windowmode,
-		"RESOLUTION": resolution,
-		"VSYNC": vsync,
-		"FPSCAP": fpscap,
-		"INPUT": keys,
-		"MASTERVOLUME": master_volume,
-		"MUSICVOLUME": music_volume,
-		"SOUNDSVOLUME": sounds_volume,
-		"JUMPSCAREVOLUME": jumpscares_volume,
-		"FPSCOUNTER": fps_counter,
-		"NIGHT5ENDING": night5ending,
-		"NIGHT6ENDING": night6ending,
-		"CN": custom_night_challenges,
-		"NIGHT7ENDING": night7ending,
-	};
-	return saveDict;
+func _save() -> void:
+	var file: FileAccess = FileAccess.open_encrypted_with_pass(SAVE_DATA_PATH, FileAccess.WRITE, SAVE_DATA_PASSWORD);
+	
+	var data_to_save: Dictionary[String, Variant] = {
+		"intro_cutscene_seen": save_data_file.introscenewatched,
+		"night_2_play": save_data_file.night_to_play,
+		"guide_unlocked": save_data_file.guideunlocked,
+		"window_mode": save_data_file.windowmode,
+		"resolution": save_data_file.resolution,
+		"v_sync": save_data_file.vsync,
+		"fps_cap": save_data_file.fpscap,
+		"input": save_data_file.keys,
+		"master_volume": save_data_file.master_volume,
+		"music_volume": save_data_file.music_volume,
+		"sounds_volume": save_data_file.sounds_volume,
+		"jumpscare_volume": save_data_file.jumpscares_volume,
+		"fps_counter": save_data_file.fps_counter,
+		"night_5_ending": save_data_file.night5ending,
+		"night_6_ending": save_data_file.night6ending,
+		"custom_night_challenges": save_data_file.custom_night_challenges,
+		"night_7_ending": save_data_file.night7ending,
+	}
+	
+	var data_to_json: String = JSON.stringify(data_to_save);
 
-func _save_game() -> void:
-	var SaveGame := FileAccess.open_encrypted_with_pass(SAVE_DATA_PATH, FileAccess.WRITE, SAVE_DATA_PASSWORD);
-	var jsonString = JSON.stringify(_save());
-	SaveGame.store_line(jsonString);
+	file.store_string(data_to_json);
+	file.close();
 
-func _load_game() -> void:
+func _load() -> void:
 	if FileAccess.file_exists(SAVE_DATA_PATH):
-		var SaveGame := FileAccess.open_encrypted_with_pass(SAVE_DATA_PATH, FileAccess.READ, SAVE_DATA_PASSWORD);
+		var file: FileAccess = FileAccess.open_encrypted_with_pass(SAVE_DATA_PATH, FileAccess.READ, SAVE_DATA_PASSWORD);
+		var data: Variant = JSON.parse_string(file.get_as_text());
 		
-		while SaveGame.get_position() < SaveGame.get_length():
-			var JSONString := SaveGame.get_line();
-			var json := JSON.new();
-			
-			@warning_ignore("unused_variable")
-			var parseResult := json.parse(JSONString);
-			var data = json.get_data();
-			
-			introscenewatched = data["INTROCUTSEEN"];
-			night_to_play = data["NIGHT2PLAY"];
-			guideunlocked = data["GUIDEUNLOCKED"];
-			
-			windowmode = data["WINDOWMODE"];
-			resolution = data["RESOLUTION"];
-			vsync = data["VSYNC"];
-			fpscap = data["FPSCAP"];
-			
-			keys = data["INPUT"];
-			
-			master_volume = data["MASTERVOLUME"];
-			music_volume = data["MUSICVOLUME"];
-			sounds_volume = data["SOUNDSVOLUME"];
-			jumpscares_volume = data["JUMPSCAREVOLUME"];
-			
-			fps_counter = data["FPSCOUNTER"];
+		file.close();
 
-			night5ending = data["NIGHT5ENDING"];
-			night6ending = data["NIGHT6ENDING"];
+		save_data_file = SaveDataResource.new();
 
-			custom_night_challenges = data["CN"];
+		save_data_file.introscenewatched = data.intro_cutscene_seen;
+		save_data_file.night_to_play = data.night_2_play;
+		save_data_file.guideunlocked = data.guide_unlocked;
 
-			night7ending = data["NIGHT7ENDING"];
+		save_data_file.windowmode = data.window_mode;
+		save_data_file.resolution = data.resolution;
+		save_data_file.vsync = data.v_sync;
+		save_data_file.fpscap = data.fps_cap;
+		
+		for i in range(_get_input_as_array().size()):
+			save_data_file.keys[_get_input_as_array()[i]] = data.input[_get_input_as_array()[i]];
 
-			print(data);
+		save_data_file.master_volume = data.master_volume;
+		save_data_file.music_volume = data.music_volume;
+		save_data_file.sounds_volume = data.sounds_volume;
+		save_data_file.jumpscares_volume = data.jumpscare_volume;
 
+		save_data_file.fps_counter = data.fps_counter;
+
+		save_data_file.night5ending = data.night_5_ending;
+		save_data_file.night6ending = data.night_6_ending;
+
+		for i in range(_get_challenges_as_array().size()):
+			if _get_challenges_as_array()[i] != "Custom Night":
+				save_data_file.custom_night_challenges[_get_challenges_as_array()[i]] = data.custom_night_challenges[_get_challenges_as_array()[i]];
+
+		save_data_file.night7ending = data.night_7_ending;
+
+		print(data);
+		
 func _apply_settings() -> void:
-	match (windowmode):
+	match (save_data_file.windowmode):
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED);
 		1:
@@ -178,7 +481,7 @@ func _apply_settings() -> void:
 		2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN);
 		
-	match (resolution):
+	match (save_data_file.resolution):
 		0:
 			DisplayServer.window_set_size(Vector2(640, 360), 0);
 		1:
@@ -193,13 +496,13 @@ func _apply_settings() -> void:
 	var new_window_position: Vector2i = center_screen - window_size / 2;
 	get_window().set_position(new_window_position);
 	
-	match (vsync):
+	match (save_data_file.vsync):
 		false:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED);
 		true:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED);
 			
-	match (fpscap):
+	match (save_data_file.fpscap):
 		0:
 			Engine.max_fps = 30;
 		1:
@@ -213,9 +516,9 @@ func _apply_settings() -> void:
 	var flash_input_key: InputEvent = InputEventKey.new();
 	var pause_input_key: InputEvent = InputEventKey.new();
 
-	flash_input_key.keycode = keys["FLASHLIGHT"];
-	mask_input_key.keycode = keys["MASK"];
-	pause_input_key.keycode = keys["PAUSE"];
+	flash_input_key.keycode = save_data_file.keys["FLASHLIGHT"];
+	mask_input_key.keycode = save_data_file.keys["MASK"];
+	pause_input_key.keycode = save_data_file.keys["PAUSE"];
 
 	InputMap.action_erase_events("FLASHLIGHT");
 	InputMap.action_add_event("FLASHLIGHT", flash_input_key);
@@ -226,12 +529,12 @@ func _apply_settings() -> void:
 	InputMap.action_erase_events("PAUSE");
 	InputMap.action_add_event("PAUSE", pause_input_key);
 	
-	AudioServer.set_bus_volume_linear(0, master_volume);
-	AudioServer.set_bus_volume_linear(1, music_volume);
-	AudioServer.set_bus_volume_linear(2, sounds_volume);
-	AudioServer.set_bus_volume_linear(3, jumpscares_volume);
+	AudioServer.set_bus_volume_linear(0, save_data_file.master_volume);
+	AudioServer.set_bus_volume_linear(1, save_data_file.music_volume);
+	AudioServer.set_bus_volume_linear(2, save_data_file.sounds_volume);
+	AudioServer.set_bus_volume_linear(3, save_data_file.jumpscares_volume);
 	
-	match (fps_counter):
+	match (save_data_file.fps_counter):
 		false:
 			FpsCounter.get_node("MarginContainer").hide();
 		true:
@@ -241,15 +544,3 @@ func _reset_ai() -> void:
 	for i in range(_get_ai_level_as_array().size()):
 		ai_levels[_get_ai_level_as_array()[i]] = AIDEFAULTLEVEL;
 	print(ai_levels);
-
-func _get_ai_level_as_array() -> Array[String]:
-	return ["Nightmare Toy Sonic", "Nightmare Toy Mario",
-	"Nightmare Toy Yoshi", "Nightmare Taingle", "Nightmare BT", "Nightmare S. Sonic",
-	"Nightmare Cream", "Nightmare Knuckles", "Tails Doll",
-	"Nightmare Luiginette"];
-
-func _get_challenges_as_array() -> Array[String]:
-	return ["Custom Night", "4/20", "Nintendon't", "Nintendo Power", "Sonic VS. Mario",
-	"Friendly Fire", "Sidekick Hangout", "Night Shift in Company", "Panda Mode",
-	"Advance 3", "Your Biggest Nightmare", "Grand Re-Opening",
-	"Hammer Heartbreak II"];

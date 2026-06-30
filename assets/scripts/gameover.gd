@@ -1,8 +1,6 @@
 extends Node
 
 #variables
-@export_file_path("*.json") var data_json: String = "";
-
 @onready var loading: Control = $Loading;
 @onready var ui: Control = $Control;
 
@@ -13,8 +11,6 @@ extends Node
 
 @onready var static_: AnimatedSprite2D = $Static;
 
-var data: Dictionary = {};
-
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("Game Over...");
@@ -23,14 +19,9 @@ func _ready() -> void:
 	if GlobalAudioManager.get_node("Ambience").is_playing():
 		GlobalAudioManager.get_node("Ambience").stop();
 	
-	var file: FileAccess = FileAccess.open(data_json, FileAccess.READ);
-	var json_text: String = file.get_as_text();
-	file.close();
-	data = JSON.parse_string(json_text);
-	
 	if main.killedBy != "":
-		get_node(data[main.killedBy]["Character Path"]).show();
-		get_node(data[main.killedBy]["Overlay"]).show();
+		get_node(main.game_over_graphics[main.killedBy]["Character Path"]).show();
+		get_node(main.game_over_graphics[main.killedBy]["Overlay"]).show();
 	
 	main.killedBy = "";
 

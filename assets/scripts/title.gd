@@ -35,33 +35,33 @@ func _ready() -> void:
 	main._reset_ai();
 	main.cnchallenge = "";
 	
-	if main.guideunlocked:
+	if main.save_data_file.guideunlocked:
 		guidebutton.show();
 	
-	if main.night7ending:
-		if !main.night6ending:
-			main._save_game();
-			main.night6ending = true;
+	if main.save_data_file.night7ending:
+		if !main.save_data_file.night6ending:
+			main.save_data_file.night6ending = true;
+			main._save();
 		star3.show();
 	
-	if main.night6ending:
-		if !main.night5ending:
-			main.night_to_play = 5;
+	if main.save_data_file.night6ending:
+		if !main.save_data_file.night5ending:
+			main.save_data_file.night_to_play = 5;
+			main.save_data_file.night5ending = true;
 			guide._update_icon_visibility();
-			main._save_game();
-			main.night5ending = true;
+			main._save();
 		star2.show();
 		customnightbutton.show();
 		extrasbutton.show();
 	
-	if main.night5ending:
+	if main.save_data_file.night5ending:
 		night6button.show();
 		star1.show();
 	
-	nightcounter.text = "Night " + str(main.night_to_play);
+	nightcounter.text = "Night " + str(main.save_data_file.night_to_play);
 
 func _on_button_pressed() -> void: # play, forgot to name the signal properly oops
-	main.nightcounter = main.night_to_play;
+	main.nightcounter = main.save_data_file.night_to_play;
 	buttonscontainer.hide();
 	animations.play("ChangeScene");
 	await animations.animation_finished;

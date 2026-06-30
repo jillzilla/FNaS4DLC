@@ -15,7 +15,7 @@ var quit: bool = false;
 func _ready() -> void:
 	hide();
 	
-	if main.guideunlocked:
+	if main.save_data_file.guideunlocked:
 		guidebutton.show();
 
 	get_tree().paused = false;

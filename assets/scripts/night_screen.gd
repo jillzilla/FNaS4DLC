@@ -1,15 +1,9 @@
 extends Node
 
 #variables
-@export_file_path("*.json") var data_json: String = "";
-
 @onready var loading: Control = $Loading;
-
 @onready var nightcounter: Label = $NightCounter;
-
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new();
-
-var data: Dictionary = {};
 
 #functions
 func _ready() -> void:
@@ -20,15 +14,10 @@ func _ready() -> void:
 		GlobalAudioManager.get_node("Ambience").stop();
 	
 	nightcounter.text = "Night " + str(main.nightcounter) + "\n" + "12:00 AM";
-
-	var file: FileAccess = FileAccess.open(data_json, FileAccess.READ);
-	var json_text: String = file.get_as_text();
-	file.close();
-	data = JSON.parse_string(json_text);
 	
 	if main.nightcounter > 0 && main.nightcounter < 7:
 		for i in range(main._get_ai_level_as_array().size()):
-			main.ai_levels[main._get_ai_level_as_array()[i]] = data["Night " + str(main.nightcounter)][main._get_ai_level_as_array()[i]];
+			main.ai_levels[main._get_ai_level_as_array()[i]] = main.ai_nights[main.nightcounter][main._get_ai_level_as_array()[i]];
 	
 	print(main.ai_levels);
 

@@ -15,9 +15,9 @@ func _on_back_pressed() -> void:
 	hide();
 
 func _update_icon_visibility() -> void:
-	if main.night_to_play >= 3: salvage.show();
-	if main.night_to_play >= 4: cream.show();
-	if main.night_to_play >= 5: luiginette.show();
-	if main.night6ending:
+	if main.save_data_file.night_to_play >= 3: salvage.show();
+	if main.save_data_file.night_to_play >= 4: cream.show();
+	if main.save_data_file.night_to_play >= 5: luiginette.show();
+	if main.save_data_file.night6ending:
 		tailsdoll.show();
 		knuckles.show();

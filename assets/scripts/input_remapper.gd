@@ -25,7 +25,7 @@ func _process(_delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
     if event.pressed:
-        main.keys[action] = event.keycode;
+        main.save_data_file.keys[action] = event.keycode;
         button_pressed = false;
         is_remapping = false;
         release_focus();
@@ -33,5 +33,5 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _update_text() -> void:
     var input_key: InputEvent = InputEventKey.new();
-    input_key.keycode = main.keys[action];
+    input_key.keycode = main.save_data_file.keys[action];
     text = input_key.as_text();
