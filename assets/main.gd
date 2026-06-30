@@ -55,6 +55,22 @@ var fps_counter: bool = DEFAULT_FPSCOUNTER;
 
 var night5ending: bool = DEFAULT_NIGHT5ENDING;
 var night6ending: bool = DEFAULT_NIGHT6ENDING;
+
+var custom_night_challenges: Dictionary = {
+	"4/20": false,
+	"Nintendon't": false,
+	"Nintendo Power": false,
+	"Sonic VS. Mario": false,
+	"Friendly Fire": false,
+	"Sidekick Hangout": false,
+	"Night Shift in Company": false,
+	"Panda Mode": false,
+	"Advance 3": false,
+	"Your Biggest Nightmare": false,
+	"Grand Re-Opening": false,
+	"Hammer Heartbreak II": false,
+}
+
 var night7ending: bool = DEFAULT_NIGHT7ENDING;
 
 #character data stuff
@@ -78,6 +94,7 @@ var ai_levels: Dictionary = {
 #others
 var killedBy: String = "";
 var nightcounter: int = 1;
+var cnchallenge: String = "";
 var isloadingsom: bool = false;
 var didrarescreenhappened: bool = false;
 
@@ -103,6 +120,7 @@ func _save() -> Dictionary:
 		"FPSCOUNTER": fps_counter,
 		"NIGHT5ENDING": night5ending,
 		"NIGHT6ENDING": night6ending,
+		"CN": custom_night_challenges,
 		"NIGHT7ENDING": night7ending,
 	};
 	return saveDict;
@@ -144,6 +162,9 @@ func _load_game() -> void:
 
 			night5ending = data["NIGHT5ENDING"];
 			night6ending = data["NIGHT6ENDING"];
+
+			custom_night_challenges = data["CN"];
+
 			night7ending = data["NIGHT7ENDING"];
 
 			print(data);
@@ -226,3 +247,9 @@ func _get_ai_level_as_array() -> Array[String]:
 	"Nightmare Toy Yoshi", "Nightmare Taingle", "Nightmare BT", "Nightmare S. Sonic",
 	"Nightmare Cream", "Nightmare Knuckles", "Tails Doll",
 	"Nightmare Luiginette"];
+
+func _get_challenges_as_array() -> Array[String]:
+	return ["Custom Night", "4/20", "Nintendon't", "Nintendo Power", "Sonic VS. Mario",
+	"Friendly Fire", "Sidekick Hangout", "Night Shift in Company", "Panda Mode",
+	"Advance 3", "Your Biggest Nightmare", "Grand Re-Opening",
+	"Hammer Heartbreak II"];

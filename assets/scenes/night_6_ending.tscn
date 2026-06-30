@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://4kbv5i4x13sw" path="res://assets/images/endings/amylooking.png" id="2_d876i"]
 [ext_resource type="Texture2D" uid="uid://ci0aishlgjobj" path="res://assets/images/shadows.png" id="3_uiq8j"]
 [ext_resource type="AudioStream" uid="uid://dffaxcqnkfvpq" path="res://assets/sounds/night6heartbeatreal.ogg" id="5_qkqjb"]
+[ext_resource type="Theme" uid="uid://dv17usjw8ic3f" path="res://assets/themes/fancy.tres" id="6_l3hkr"]
 [ext_resource type="AudioStream" uid="uid://drjovkp0l2x74" path="res://assets/sounds/jingle2.ogg" id="6_l40iu"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="6_uiq8j"]
 [ext_resource type="Texture2D" uid="uid://bfuytoeejki6v" path="res://assets/images/endings/blindamy.png" id="7_l8e0o"]
@@ -362,12 +363,11 @@ offset_right = 313.0
 offset_bottom = 64.07999
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("6_uiq8j")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
+theme = ExtResource("6_l3hkr")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 64
-text = "Click to erase him."
+text = "Click to defeat him"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true

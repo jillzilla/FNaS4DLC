@@ -196,6 +196,9 @@ func _move_character(turn_off_flashlight: bool) -> void:
 
 func _reset_character_status(enable_character_fadeaway: bool = true, play_leave_vent_sound: bool = true) -> void:
 	if current_position > -1:
+		if step != 0:
+			step = 0;
+			
 		shocked = false;
 		peeking = false;
 

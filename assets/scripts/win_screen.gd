@@ -15,6 +15,10 @@ func _ready() -> void:
 	if GlobalAudioManager.get_node("Ambience").is_playing():
 		GlobalAudioManager.get_node("Ambience").stop();
 	
+	if main.cnchallenge != "Custom Night" || main.cnchallenge != "":
+		if !main.custom_night_challenges[main.cnchallenge]:
+			main.custom_night_challenges[main.cnchallenge] = true;
+
 	match (main.nightcounter):
 		1:
 			if !main.guideunlocked:

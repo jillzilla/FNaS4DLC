@@ -10,6 +10,7 @@
 
 [node name="CustomNight" type="Node" unique_id=1823592247 node_paths=PackedStringArray("characters")]
 script = ExtResource("1_8gqf7")
+data_json = "res://assets/data/custom_night_data.json"
 characters = [NodePath("Control/Characters/Sonic"), NodePath("Control/Characters/Mario"), NodePath("Control/Characters/Yoshi"), NodePath("Control/Characters/Taingle"), NodePath("Control/Characters/BT"), NodePath("Control/Characters/Salvage"), NodePath("Control/Characters/Cream"), NodePath("Control/Characters/Knuckles"), NodePath("Control/Characters/TailsDoll"), NodePath("Control/Characters/Luigi")]
 metadata/_edit_horizontal_guides_ = [3566.0]
 
@@ -62,13 +63,13 @@ metadata/_edit_lock_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.39400002
+anchor_top = 0.4
 anchor_right = 0.5
-anchor_bottom = 0.39400002
+anchor_bottom = 0.4
 offset_left = -452.0
-offset_top = -279.73212
+offset_top = -280.0
 offset_right = 452.0
-offset_bottom = 280.26785
+offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
@@ -168,15 +169,15 @@ anchor_top = 0.8
 anchor_right = 0.5
 anchor_bottom = 0.8
 offset_left = -384.0
-offset_top = -64.0
+offset_top = -48.0
 offset_right = 384.0
-offset_bottom = 64.0
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 24
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Star1" type="TextureRect" parent="Control/Challenges" unique_id=901176579]
 visible = false
@@ -336,11 +337,10 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 [node name="Loading" parent="." unique_id=220536216 instance=ExtResource("7_syqq0")]
 visible = false
 
+[connection signal="pressed" from="Control/Challenges/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Control/Challenges/Right" to="." method="_on_right_pressed"]
 [connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Control/AILevelSetupButtons/Min" to="." method="_on_min_pressed"]
 [connection signal="pressed" from="Control/AILevelSetupButtons/Max" to="." method="_on_max_pressed"]
 [connection signal="pressed" from="Control/AILevelSetupButtons/Random" to="." method="_on_random_pressed"]
 [connection signal="pressed" from="Control/Ready" to="." method="_on_ready_pressed"]
-
-[editable path="Control/Characters/Taingle"]
-[editable path="Control/Characters/Luigi"]

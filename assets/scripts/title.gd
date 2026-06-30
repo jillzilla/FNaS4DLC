@@ -33,6 +33,7 @@ func _ready() -> void:
 	version_counter.text = "Ver. " + ProjectSettings.get_setting("application/config/version");
 	
 	main._reset_ai();
+	main.cnchallenge = "";
 	
 	if main.guideunlocked:
 		guidebutton.show();

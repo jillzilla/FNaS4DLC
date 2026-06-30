@@ -28,7 +28,7 @@ func bt_attack() -> void:
     desk_room_component.disable = true;
 
 func bt_moved() -> void:
-    if movement_component.current_position != -1 && sprite.visible:
+    if movement_component.current_position == -1 && sprite.visible:
         sprite.hide();
         for f in flashlight_list:
             f.disable = false;

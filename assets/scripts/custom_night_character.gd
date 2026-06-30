@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+signal ai_value_changed;
+
 #variables
 const REQUIREDHOLDTIME: float = 0.15;
 
@@ -18,18 +20,16 @@ var HoverRight: bool = false;
 @onready var ai_counter: Label = $AiLevel/Counter;
 @onready var icon: TextureRect = $Icon;
 @onready var ai_change_timer: Timer = $Timer_Change_AI_Level;
+@onready var left_button : Button = $AiLevel/Left;
+@onready var right_button : Button = $AiLevel/Right;
 
 #functions
 func _ready() -> void:
-	if !character_name:
-		name_.text = "";
-	else:
-		name_.text = character_name;
+	if !character_name: name_.text = "";
+	else: name_.text = character_name;
 		
-	if !character_icon_path:
-		icon.texture = null;
-	else:
-		icon.texture = load(character_icon_path);
+	if !character_icon_path: icon.texture = null;
+	else: icon.texture = load(character_icon_path);
 		
 	_update_ai_counter();
 
@@ -49,12 +49,14 @@ func _add() -> void:
 	if main.ai_levels[character_name] > maxlevel:
 		main.ai_levels[character_name] = minlevel;
 	_update_ai_counter();
+	ai_value_changed.emit();
 		
 func _sub() -> void:
 	main.ai_levels[character_name] -= 1;
 	if main.ai_levels[character_name] < minlevel:
 		main.ai_levels[character_name] = maxlevel;
 	_update_ai_counter();
+	ai_value_changed.emit();
 	
 func _set_min() -> void:
 	main.ai_levels[character_name] = minlevel;

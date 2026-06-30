@@ -12,6 +12,7 @@ var flash: int = 0;
 
 #functions
 func _ready() -> void:
+    movement_component.connect("character_moved", bt_moved);
     flashlight_component.connect("flashlight_is_on", flashlight_is_on);
 
 func flashlight_is_on() -> void:
@@ -23,3 +24,7 @@ func flashlight_is_on() -> void:
             attack_component.pause = false;
             movement_component._reset_character_status(true, true);
             flash = 0;
+
+func bt_moved() -> void:
+    if movement_component.current_position == -1:
+        flash = 0;
