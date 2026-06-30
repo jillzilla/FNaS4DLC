@@ -10,7 +10,6 @@
 
 [node name="CustomNight" type="Node" unique_id=1823592247 node_paths=PackedStringArray("characters")]
 script = ExtResource("1_8gqf7")
-data_json = "res://assets/data/custom_night_data.json"
 characters = [NodePath("Control/Characters/Sonic"), NodePath("Control/Characters/Mario"), NodePath("Control/Characters/Yoshi"), NodePath("Control/Characters/Taingle"), NodePath("Control/Characters/BT"), NodePath("Control/Characters/Salvage"), NodePath("Control/Characters/Cream"), NodePath("Control/Characters/Knuckles"), NodePath("Control/Characters/TailsDoll"), NodePath("Control/Characters/Luigi")]
 metadata/_edit_horizontal_guides_ = [3566.0]
 
@@ -169,65 +168,75 @@ anchor_top = 0.8
 anchor_right = 0.5
 anchor_bottom = 0.8
 offset_left = -384.0
-offset_top = -48.0
+offset_top = -64.0
 offset_right = 384.0
-offset_bottom = 48.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/separation = 24
+theme_override_constants/separation = 32
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Star1" type="TextureRect" parent="Control/Challenges" unique_id=901176579]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 6
+size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("5_cyr1o")
 stretch_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="Left" type="Button" parent="Control/Challenges" unique_id=507811364]
+[node name="Output" type="HBoxContainer" parent="Control/Challenges" unique_id=40253839]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 3
+theme_override_constants/separation = 64
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Left" type="Button" parent="Control/Challenges/Output" unique_id=507811364]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 focus_mode = 0
 theme_override_font_sizes/font_size = 64
 action_mode = 0
 text = "<<"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/Challenges/Left" unique_id=2057332149]
+[node name="ButtonComponent" type="Node" parent="Control/Challenges/Output/Left" unique_id=2057332149]
 script = ExtResource("3_00ogn")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
-[node name="Challenge_Name" type="Label" parent="Control/Challenges" unique_id=657289225]
+[node name="Challenge_Name" type="Label" parent="Control/Challenges/Output" unique_id=657289225]
 layout_mode = 2
 size_flags_horizontal = 6
-size_flags_vertical = 1
 theme_override_font_sizes/font_size = 48
 text = "Custom Night"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Right" type="Button" parent="Control/Challenges" unique_id=933023197]
+[node name="Right" type="Button" parent="Control/Challenges/Output" unique_id=933023197]
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 focus_mode = 0
 theme_override_font_sizes/font_size = 64
 action_mode = 0
 text = ">>"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent" type="Node" parent="Control/Challenges/Right" unique_id=744153323]
+[node name="ButtonComponent" type="Node" parent="Control/Challenges/Output/Right" unique_id=744153323]
 script = ExtResource("3_00ogn")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Star2" type="TextureRect" parent="Control/Challenges" unique_id=866868504]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("5_cyr1o")
 stretch_mode = 3
@@ -337,8 +346,8 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 [node name="Loading" parent="." unique_id=220536216 instance=ExtResource("7_syqq0")]
 visible = false
 
-[connection signal="pressed" from="Control/Challenges/Left" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="Control/Challenges/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="Control/Challenges/Output/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Control/Challenges/Output/Right" to="." method="_on_right_pressed"]
 [connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Control/AILevelSetupButtons/Min" to="." method="_on_min_pressed"]
 [connection signal="pressed" from="Control/AILevelSetupButtons/Max" to="." method="_on_max_pressed"]

@@ -7,7 +7,7 @@ signal ai_value_changed;
 
 @onready var loading: Control = $Loading;
 
-@onready var challenge_name: Label = $Control/Challenges/Challenge_Name;
+@onready var challenge_name: Label = $Control/Challenges/Output/Challenge_Name;
 
 @onready var red_star1: TextureRect = $Control/Challenges/Star1;
 @onready var red_star2: TextureRect = $Control/Challenges/Star2;
