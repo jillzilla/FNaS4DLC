@@ -65,7 +65,7 @@ func _get_next_scene() -> String:
 	elif main.nightcounter == 6:
 		return "res://assets/scenes/night_6_ending.tscn";
 	elif main.nightcounter == 7 && main.cnchallenge == "Hammer Heartbreak II":
-		return "res://assets/scenes/night_6_ending.tscn";
+		return "res://assets/scenes/night_7_ending.tscn";
 	else:
 		return "res://assets/scenes/night_screen.tscn";
 
