@@ -7,13 +7,20 @@ extends Node
 
 #functions
 func _ready() -> void:
-	DiscordManager._update_details("Entering Night " + str(main.nightcounter));
+	if main.nightcounter != 7:
+		DiscordManager._update_details("Entering Night " + str(main.nightcounter));
+	else:
+		DiscordManager._update_details("Entering Custom Night");
+
 	DiscordManager._update_state("");
 
 	if GlobalAudioManager.get_node("Ambience").is_playing():
 		GlobalAudioManager.get_node("Ambience").stop();
 	
-	nightcounter.text = "Night " + str(main.nightcounter) + "\n" + "12:00 AM";
+	if main.nightcounter != 7:
+		nightcounter.text = "Night " + str(main.nightcounter) + "\n" + "12:00 AM";
+	else:
+		nightcounter.text = "Custom Night" + "\n" + "12:00 AM";
 	
 	if main.nightcounter > 0 && main.nightcounter < 7:
 		for i in range(main._get_ai_level_as_array().size()):

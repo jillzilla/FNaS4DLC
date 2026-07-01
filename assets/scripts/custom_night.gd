@@ -9,8 +9,8 @@ signal ai_value_changed;
 
 @onready var challenge_name: Label = $Control/Challenges/Output/Challenge_Name;
 
-@onready var red_star1: TextureRect = $Control/Challenges/Star1;
-@onready var red_star2: TextureRect = $Control/Challenges/Star2;
+@onready var red_star1: TextureRect = $Control/Challenges/Output/Star1;
+@onready var red_star2: TextureRect = $Control/Challenges/Output/Star2;
 
 @onready var all_min: Button = $Control/AILevelSetupButtons/Min;
 @onready var all_max: Button = $Control/AILevelSetupButtons/Max;

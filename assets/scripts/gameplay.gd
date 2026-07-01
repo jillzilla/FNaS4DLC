@@ -1,12 +1,15 @@
 extends Node
 
 #variables
-@export var custom_night_rewards : Array[Sprite2D];
+@export var custom_night_rewards: Array[Sprite2D];
 @onready var monitor: Node2D = $Rooms/Office/Monitor;
 
 #functions
 func _ready() -> void:
-	DiscordManager._update_details("Surviving Night " + str(main.nightcounter));
+	if main.nightcounter != 7:
+		DiscordManager._update_details("Surviving Night " + str(main.nightcounter));
+	else:
+		DiscordManager._update_details("Surviving Custom Night");
 
 	if main.save_data_file.night_to_play >= 3:
 		monitor.show();
