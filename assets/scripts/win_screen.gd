@@ -10,14 +10,14 @@ var next_scene_path: String = "";
 #functions
 func _ready() -> void:
 	DiscordManager._update_details("8 AM!");
-	DiscordManager._update_state("Night " + str(main.nightcounter));
+
+	if main.nightcounter != 7:
+		DiscordManager._update_state("Night " + str(main.nightcounter));
+	else:
+		DiscordManager._update_state("Custom Night");
 
 	if GlobalAudioManager.get_node("Ambience").is_playing():
 		GlobalAudioManager.get_node("Ambience").stop();
-	
-	if main.cnchallenge != "Custom Night" && main.cnchallenge != "":
-		if !main.save_data_file.custom_night_challenges[main.cnchallenge]:
-			main.save_data_file.custom_night_challenges[main.cnchallenge] = true;
 
 	match (main.nightcounter):
 		1:
@@ -36,13 +36,16 @@ func _ready() -> void:
 				RewardUnlockPopup.add_to_queue("Custom Night");
 				RewardUnlockPopup.add_to_queue("Nightmare Knuckles", "res://assets/images/customnight/knuxicon.png");
 				RewardUnlockPopup.add_to_queue("Tails Doll", "res://assets/images/customnight/tdollicon.png");
-				
 				main.save_data_file.night6ending = true;
 		7:
 			if main.cnchallenge == "Hammer Heartbreak II":
 				if !main.save_data_file.night7ending:
 					RewardUnlockPopup.add_to_queue("Red Star #3");
 					main.save_data_file.night7ending = true;
+			if main.cnchallenge != "Custom Night" && main.cnchallenge != "":
+				if !main.save_data_file.custom_night_challenges[main.cnchallenge]:
+					RewardUnlockPopup.add_to_queue(main._custom_night_rewards[main.cnchallenge]["Text"], main._custom_night_rewards[main.cnchallenge]["Icon"]);
+					main.save_data_file.custom_night_challenges[main.cnchallenge] = true;
 
 	RewardUnlockPopup.showcase();
 	next_scene_path = _get_next_scene();

@@ -134,12 +134,6 @@ var ai_nights: Dictionary[int, Dictionary] = {
 	},
 };
 
-func _get_ai_level_as_array() -> Array[String]:
-	return ["Nightmare Toy Sonic", "Nightmare Toy Mario",
-	"Nightmare Toy Yoshi", "Nightmare Taingle", "Nightmare BT", "Nightmare S. Sonic",
-	"Nightmare Cream", "Nightmare Knuckles", "Tails Doll",
-	"Nightmare Luiginette"];
-
 var ai_custom_night_challenges: Dictionary[String, Dictionary] = {
 	"4/20": {
 		"Nightmare Toy Sonic": 20,
@@ -287,11 +281,57 @@ var ai_custom_night_challenges: Dictionary[String, Dictionary] = {
 	},
 };
 
-func _get_challenges_as_array() -> Array[String]:
-	return ["Custom Night", "4/20", "Nintendon't", "Nintendo Power", "Sonic VS. Mario",
-	"Friendly Fire", "Sidekick Hangout", "Night Shift in Company", "Panda Mode",
-	"Advance 3", "Your Biggest Nightmare", "Grand Re-Opening",
-	"Hammer Heartbreak II"];
+@warning_ignore("UNUSED_PRIVATE_CLASS_VARIABLE")
+var _custom_night_rewards: Dictionary[String, Dictionary] = {
+	"4/20": {
+		"Icon": "res://assets/images/gameplay/custom_night_rewards/sonicplush.png",
+		"Text": "Nightmare Toy Sonic Plush",
+	},
+	"Nintendon't": {
+		"Icon": "res://assets/images/gameplay/custom_night_rewards/marioplush.png",
+		"Text": "Nightmare Toy Mario Plush",
+	},
+	"Nintendo Power": {
+		"Icon": "res://assets/images/gameplay/custom_night_rewards/yoshiplush.png",
+		"Text": "Nightmare Toy Yoshi Plush",
+	},
+	"Sonic VS. Mario": {
+		"Icon": "res://assets/images/gameplay/custom_night_rewards/taingleplush.png",
+		"Text": "Nightmare Taingle Plush",
+	},
+	"Friendly Fire": {
+		"Icon": "res://assets/images/gameplay/custom_night_rewards/toadplush.png",
+		"Text": "Nightmare Balloon Toad Plush",
+	},
+	"Sidekick Hangout": {
+		"Icon": "res://assets/images/gameplay/custom_night_rewards/salvageplush.png",
+		"Text": "Nightmare S. Sonic Plush",
+	},
+	"Night Shift in Company": {
+		"Icon": "res://assets/images/gameplay/custom_night_rewards/creamplushie.png",
+		"Text": "Nightmare Cream Plush",
+	},
+	"Panda Mode": {
+		"Icon": "res://assets/images/gameplay/custom_night_rewards/knucklesplush.png",
+		"Text": "Nightmare Knuckles Plush",
+	},
+	"Advance 3": {
+		"Icon": "res://assets/images/gameplay/custom_night_rewards/tailsdolldoll.png",
+		"Text": "Tails Doll Plush",
+	},
+	"Your Biggest Nightmare": {
+		"Icon": "res://assets/images/gameplay/custom_night_rewards/paperpalsonic.png",
+		"Text": "Paper Pal Sonic",
+	},
+	"Grand Re-Opening": {
+		"Icon": "res://assets/images/gameplay/custom_night_rewards/paperpalsmario.png",
+		"Text": "Paper Pal Mario",
+	},
+	"Hammer Heartbreak II": {
+		"Icon": "res://assets/images/gameplay/custom_night_rewards/luiginetteplush.png",
+		"Text": "Nightmare Luiginette Plush",
+	},
+};
 
 var game_over_graphics: Dictionary[String, Dictionary] = {
 	"Nightmare Toy Sonic": {
@@ -397,13 +437,25 @@ var luiginette_setup: Dictionary[int, Dictionary] = {
 	},
 }
 
-func _get_input_as_array() -> Array[String]:
-	return ["FLASHLIGHT", "MASK", "PAUSE"];
-
 #functions
 func _ready() -> void:
 	_load();
 	_apply_settings();
+
+func _get_input_as_array() -> Array[String]:
+	return ["FLASHLIGHT", "MASK", "PAUSE"];
+
+func _get_ai_level_as_array() -> Array[String]:
+	return ["Nightmare Toy Sonic", "Nightmare Toy Mario",
+	"Nightmare Toy Yoshi", "Nightmare Taingle", "Nightmare BT", "Nightmare S. Sonic",
+	"Nightmare Cream", "Nightmare Knuckles", "Tails Doll",
+	"Nightmare Luiginette"];
+
+func _get_challenges_as_array() -> Array[String]:
+	return ["Custom Night", "4/20", "Nintendon't", "Nintendo Power", "Sonic VS. Mario",
+	"Friendly Fire", "Sidekick Hangout", "Night Shift in Company", "Panda Mode",
+	"Advance 3", "Your Biggest Nightmare", "Grand Re-Opening",
+	"Hammer Heartbreak II"];
 
 func _save() -> void:
 	var file: FileAccess = FileAccess.open_encrypted_with_pass(SAVE_DATA_PATH, FileAccess.WRITE, SAVE_DATA_PASSWORD);

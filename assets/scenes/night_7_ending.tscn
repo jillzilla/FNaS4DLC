@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccjprda8sdgno" path="res://assets/scripts/night_7_ending.gd" id="1_hrlar"]
 [ext_resource type="Texture2D" uid="uid://bwk7ffpb4ne55" path="res://assets/images/night7ending/AmySleep.png" id="1_opjq0"]
+[ext_resource type="AudioStream" uid="uid://ceg1cfl0073yf" path="res://assets/music/EndingCutscene.ogg" id="2_m1b5p"]
 [ext_resource type="Texture2D" uid="uid://de3r1biyc4jy3" path="res://assets/images/night7ending/AmyWokeUp.png" id="2_y2l5b"]
 [ext_resource type="Texture2D" uid="uid://i0du06ghwpfh" path="res://assets/images/night7ending/AmySunRise.png" id="3_hrlar"]
 [ext_resource type="Texture2D" uid="uid://buahu5vas6j0n" path="res://assets/images/night7ending/DeadAmyBackground.png" id="4_m1b5p"]
@@ -11,6 +12,7 @@
 [ext_resource type="Theme" uid="uid://dv17usjw8ic3f" path="res://assets/themes/fancy.tres" id="8_shx4x"]
 [ext_resource type="AudioStream" uid="uid://bkxb6ah43q0d" path="res://assets/sounds/sfx_night_start_f2.ogg" id="9_6y3a5"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="9_y2l5b"]
+[ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="13_gu1gv"]
 
 [sub_resource type="Animation" id="Animation_hrlar"]
 resource_name = "Animation P1"
@@ -115,7 +117,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_m1b5p"]
 resource_name = "Animation P2"
-length = 170.0
+length = 190.0
 step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -261,7 +263,7 @@ tracks/11/path = NodePath("../..")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(5, 170),
+"times": PackedFloat32Array(5, 190),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -295,6 +297,45 @@ tracks/13/keys = {
 "update": 0,
 "values": [Vector2(240, 317.5), Vector2(240, 317.5), Vector2(240, 600)]
 }
+tracks/14/type = "audio"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../../Moosic")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_m1b5p")
+}],
+"times": PackedFloat32Array(15)
+}
+tracks/14/use_blend = true
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../../Moosic:volume_db")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 167, 170),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -80.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../End:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 170, 175, 177, 185),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1b5p"]
 _data = {
@@ -309,6 +350,9 @@ script = ExtResource("1_hrlar")
 root_node = NodePath("../HUD/FadeTransition")
 libraries/ = SubResource("AnimationLibrary_m1b5p")
 autoplay = &"Animation P1"
+
+[node name="Moosic" type="AudioStreamPlayer" parent="." unique_id=240936510]
+bus = &"Music"
 
 [node name="NightStart" type="AudioStreamPlayer" parent="." unique_id=923133622]
 bus = &"Sounds"
@@ -459,8 +503,33 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
+[node name="End" type="Label" parent="HUD" unique_id=618948633]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -41.0
+offset_right = 112.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_shx4x")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 64
+text = "The End"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Loading" parent="HUD" unique_id=220536216 instance=ExtResource("13_gu1gv")]
+visible = false
+
 [node name="Camera" type="Camera2D" parent="." unique_id=298623263]
 position = Vector2(640, 360)
 metadata/_edit_lock_ = true
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="HUD/FakeEnding/Button" to="." method="_on_button_pressed"]
