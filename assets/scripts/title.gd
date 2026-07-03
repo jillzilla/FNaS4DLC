@@ -4,6 +4,7 @@ extends Node
 @onready var animations: AnimationPlayer = $AnimationPlayer;
 
 @onready var nightcounter: Label = $UI/Control/ButtonsContainer/MainButtons/Play/NightCounter;
+@onready var version_counter: Label = $UI/Control/Version;
 
 @onready var star1: Sprite2D = $UI/Control/Star_1;
 @onready var star2: Sprite2D = $UI/Control/Star_2;
@@ -19,8 +20,6 @@ extends Node
 @onready var settings: Control = $UI/Settings;
 @onready var guide: Control = $UI/Guide;
 @onready var loading: Control = $UI/Loading;
-
-@onready var version_counter: Label = $UI/Control/Version;
 
 #functions
 func _ready() -> void:
