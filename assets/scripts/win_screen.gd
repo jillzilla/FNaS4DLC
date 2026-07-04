@@ -34,8 +34,8 @@ func _ready() -> void:
 				RewardUnlockPopup.add_to_queue("Red Star #2");
 				RewardUnlockPopup.add_to_queue("Extras");
 				RewardUnlockPopup.add_to_queue("Custom Night");
-				RewardUnlockPopup.add_to_queue("Nightmare Knuckles", "res://assets/images/customnight/knuxicon.png");
-				RewardUnlockPopup.add_to_queue("Tails Doll", "res://assets/images/customnight/tdollicon.png");
+				RewardUnlockPopup.add_to_queue("Nightmare Knuckles", "uid://c5khrsuiokdwp");
+				RewardUnlockPopup.add_to_queue("Tails Doll", "uid://ckobrpmtwjc7b");
 				main.save_data_file.night6ending = true;
 		7:
 			if main.cnchallenge == "Hammer Heartbreak II":
@@ -62,15 +62,15 @@ func _on_timer_timeout() -> void:
 
 func _get_next_scene() -> String:
 	if main.nightcounter < 5 && main.save_data_file.night5ending || main.nightcounter == 7 && main.cnchallenge != "Hammer Heartbreak II":
-		return "res://assets/scenes/title.tscn";
+		return "uid://cl7jf3xdjegaf";
 	elif main.nightcounter == 5:
-		return "res://assets/scenes/night_5_ending.tscn";
+		return "uid://cm7mi8q4xlx5k";
 	elif main.nightcounter == 6:
-		return "res://assets/scenes/night_6_ending.tscn";
+		return "uid://bdxfeqwt3r0b2";
 	elif main.nightcounter == 7 && main.cnchallenge == "Hammer Heartbreak II":
-		return "res://assets/scenes/night_7_ending.tscn";
+		return "uid://bqrgh7e42cck1";
 	else:
-		return "res://assets/scenes/night_screen.tscn";
+		return "uid://bocmtkamvkla5";
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "win":

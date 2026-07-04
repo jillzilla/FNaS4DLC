@@ -45,9 +45,9 @@ func _on_quit_pressed() -> void:
 
 func _confirmed_action() -> void:
 	if reload:
-		loading._load_scene("res://assets/scenes/night_screen.tscn");
+		loading._load_scene("uid://bocmtkamvkla5");
 	elif quit:
-		loading._load_scene("res://assets/scenes/title.tscn");
+		loading._load_scene("uid://cl7jf3xdjegaf");
 
 func _on_guide_pressed() -> void:
 	guide.show();

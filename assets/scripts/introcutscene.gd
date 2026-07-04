@@ -13,4 +13,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		if !main.save_data_file.introscenewatched:
 			main.save_data_file.introscenewatched = true;
 			main._save();
-		loading._load_scene("res://assets/scenes/title.tscn");
+		loading._load_scene("uid://cl7jf3xdjegaf");

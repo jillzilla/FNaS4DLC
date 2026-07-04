@@ -10,6 +10,6 @@ func _ready() -> void:
 
 func _on_button_pressed() -> void:
 	if main.save_data_file.introscenewatched:
-		loading._load_scene("res://assets/scenes/title.tscn");
+		loading._load_scene("uid://cl7jf3xdjegaf");
 	else:
-		loading._load_scene("res://assets/scenes/introcutscene.tscn");
+		loading._load_scene("uid://cgv1gtnt7p1a0");

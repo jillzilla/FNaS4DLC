@@ -284,51 +284,51 @@ var ai_custom_night_challenges: Dictionary[String, Dictionary] = {
 @warning_ignore("UNUSED_PRIVATE_CLASS_VARIABLE")
 var _custom_night_rewards: Dictionary[String, Dictionary] = {
 	"4/20": {
-		"Icon": "res://assets/images/gameplay/custom_night_rewards/sonicplush.png",
+		"Icon": "uid://cmdsvegeu0ww0",
 		"Text": "Nightmare Toy Sonic Plush",
 	},
 	"Nintendon't": {
-		"Icon": "res://assets/images/gameplay/custom_night_rewards/marioplush.png",
+		"Icon": "uid://bihmfm0eqlyum",
 		"Text": "Nightmare Toy Mario Plush",
 	},
 	"Nintendo Power": {
-		"Icon": "res://assets/images/gameplay/custom_night_rewards/yoshiplush.png",
+		"Icon": "uid://dmm7rlfhepaso",
 		"Text": "Nightmare Toy Yoshi Plush",
 	},
 	"Sonic VS. Mario": {
-		"Icon": "res://assets/images/gameplay/custom_night_rewards/taingleplush.png",
+		"Icon": "uid://doqeg5cshxm0l",
 		"Text": "Nightmare Taingle Plush",
 	},
 	"Friendly Fire": {
-		"Icon": "res://assets/images/gameplay/custom_night_rewards/toadplush.png",
+		"Icon": "uid://16s2imsk0e6m",
 		"Text": "Nightmare Balloon Toad Plush",
 	},
 	"Sidekick Hangout": {
-		"Icon": "res://assets/images/gameplay/custom_night_rewards/salvageplush.png",
+		"Icon": "uid://db00licd5elxu",
 		"Text": "Nightmare S. Sonic Plush",
 	},
 	"Night Shift in Company": {
-		"Icon": "res://assets/images/gameplay/custom_night_rewards/creamplushie.png",
+		"Icon": "uid://cyqph27ish18i",
 		"Text": "Nightmare Cream Plush",
 	},
 	"Panda Mode": {
-		"Icon": "res://assets/images/gameplay/custom_night_rewards/knucklesplush.png",
+		"Icon": "uid://dombv50yugfx1",
 		"Text": "Nightmare Knuckles Plush",
 	},
 	"Advance 3": {
-		"Icon": "res://assets/images/gameplay/custom_night_rewards/tailsdolldoll.png",
+		"Icon": "uid://casd7ww3lie6c",
 		"Text": "Tails Doll Plush",
 	},
 	"Your Biggest Nightmare": {
-		"Icon": "res://assets/images/gameplay/custom_night_rewards/paperpalsonic.png",
+		"Icon": "uid://bxsxgs6u0n1e4",
 		"Text": "Paper Pal Sonic",
 	},
 	"Grand Re-Opening": {
-		"Icon": "res://assets/images/gameplay/custom_night_rewards/paperpalsmario.png",
+		"Icon": "uid://dl4tm1qej5cbv",
 		"Text": "Paper Pal Mario",
 	},
 	"Hammer Heartbreak II": {
-		"Icon": "res://assets/images/gameplay/custom_night_rewards/luiginetteplush.png",
+		"Icon": "uid://jwvk3g07os8m",
 		"Text": "Nightmare Luiginette Plush",
 	},
 };

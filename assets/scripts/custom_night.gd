@@ -29,12 +29,12 @@ func _ready() -> void:
 		c.connect("ai_value_changed", _ai_value_changed);
 
 func _on_back_pressed() -> void:
-	loading._load_scene("res://assets/scenes/title.tscn");
+	loading._load_scene("uid://cl7jf3xdjegaf");
 
 func _on_ready_pressed() -> void:
 	main.nightcounter = 7;
 	main.cnchallenge = challenge_name.text;
-	loading._load_scene("res://assets/scenes/night_screen.tscn");
+	loading._load_scene("uid://bocmtkamvkla5");
 
 func _on_min_pressed() -> void:
 	for c in characters:

@@ -23,7 +23,7 @@ func _ready() -> void:
 	main.didrarescreenhappened = true;
 
 func _on_sound_finished() -> void:
-	loading._load_scene("res://assets/scenes/night_screen.tscn");
+	loading._load_scene("uid://bocmtkamvkla5");
 
 func _on_timer_timeout() -> void:
 	selected_character.play("open_eyes");

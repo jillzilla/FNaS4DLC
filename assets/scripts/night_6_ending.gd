@@ -30,4 +30,4 @@ func _on_erase_pressed() -> void:
 	click.play();
 
 func _on_button_pressed() -> void:
-	loading._load_scene("res://assets/scenes/title.tscn");
+	loading._load_scene("uid://cl7jf3xdjegaf");

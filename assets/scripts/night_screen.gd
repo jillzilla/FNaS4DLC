@@ -35,10 +35,10 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "flash":
 		rng.randomize();
 		if rng.randf() <= 0.1 && !main.didrarescreenhappened:
-			loading._load_scene("res://assets/scenes/rare_screens.tscn");
+			loading._load_scene("uid://ctb27mcbrbxlr");
 		else:
 			main.didrarescreenhappened = false;
 			if main.nightcounter > 0 && main.nightcounter < 6:
-				loading._load_scene("res://assets/scenes/tutorials.tscn");
+				loading._load_scene("uid://buctj8g01lbef");
 			else:
-				loading._load_scene("res://assets/scenes/gameplay.tscn");
+				loading._load_scene("uid://dj4ueyd0v0uvy");

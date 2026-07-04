@@ -64,20 +64,20 @@ func _on_button_pressed() -> void: # play, forgot to name the signal properly oo
 	buttonscontainer.hide();
 	animations.play("ChangeScene");
 	await animations.animation_finished;
-	loading._load_scene("res://assets/scenes/night_screen.tscn");
+	loading._load_scene("uid://bocmtkamvkla5");
 
 func _on_night_6_pressed() -> void:
 	main.nightcounter = 6;
 	buttonscontainer.hide();
 	animations.play("ChangeScene");
 	await animations.animation_finished;
-	loading._load_scene("res://assets/scenes/night_screen.tscn");
+	loading._load_scene("uid://bocmtkamvkla5");
 
 func _on_extras_pressed() -> void:
-	loading._load_scene("res://assets/scenes/extras.tscn");
+	loading._load_scene("uid://bk0janpvstfkp");
 
 func _on_custom_night_pressed() -> void:
-	loading._load_scene("res://assets/scenes/custom_night.tscn");
+	loading._load_scene("uid://bekew5j02li0q");
 
 func _on_settings_pressed() -> void:
 	settings.show();

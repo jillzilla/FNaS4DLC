@@ -30,14 +30,14 @@ func _on_try_again_button_pressed() -> void:
 	menubutton.hide();
 	fadeanimation.play("fade");
 	await fadeanimation.animation_finished;
-	loading._load_scene("res://assets/scenes/night_screen.tscn");
+	loading._load_scene("uid://bocmtkamvkla5");
 
 func _on_menu_button_pressed() -> void:
 	tryagain.hide();
 	menubutton.hide();
 	fadeanimation.play("fade");
 	await fadeanimation.animation_finished;
-	loading._load_scene("res://assets/scenes/title.tscn");
+	loading._load_scene("uid://cl7jf3xdjegaf");
 	
 func _on_timer_timeout() -> void:
 	ui.show();

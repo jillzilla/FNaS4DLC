@@ -14,4 +14,4 @@ func _ready() -> void:
 		desc.text = main.tutorials_text[main.nightcounter];
 
 func _on_button_pressed() -> void:
-	loading._load_scene("res://assets/scenes/gameplay.tscn");
+	loading._load_scene("uid://dj4ueyd0v0uvy");
