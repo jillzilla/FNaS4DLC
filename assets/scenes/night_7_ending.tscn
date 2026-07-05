@@ -126,6 +126,21 @@ tracks/8/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/9/type = "audio"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../../Jingle")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}],
+"times": PackedFloat32Array(17)
+}
+tracks/9/use_blend = true
 
 [sub_resource type="Animation" id="Animation_m1b5p"]
 resource_name = "Animation P2"
@@ -348,54 +363,43 @@ tracks/16/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_gu1gv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../FakeEnding/End:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
+tracks/17/type = "method"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../../Jingle")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [{
+"args": [],
+"method": &"stop"
+}]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../FakeEnding/Continue:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+tracks/18/type = "method"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../../Ambience")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"values": [{
+"args": [],
+"method": &"stop"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1b5p"]
 _data = {
 &"Animation P1": SubResource("Animation_hrlar"),
-&"Animation P2": SubResource("Animation_m1b5p"),
-&"RESET": SubResource("Animation_gu1gv")
+&"Animation P2": SubResource("Animation_m1b5p")
 }
 
 [node name="Night7Ending" type="Node" unique_id=519004577]
 script = ExtResource("1_hrlar")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1355856076]
-root_node = NodePath("../HUD/FadeTransition")
-libraries/ = SubResource("AnimationLibrary_m1b5p")
-autoplay = &"Animation P1"
-
-[node name="Moosic" type="AudioStreamPlayer" parent="." unique_id=240936510]
-bus = &"Music"
-
-[node name="NightStart" type="AudioStreamPlayer" parent="." unique_id=923133622]
-bus = &"Sounds"
 
 [node name="AmySunRise" type="Sprite2D" parent="." unique_id=146216848]
 texture = ExtResource("3_hrlar")
@@ -438,6 +442,7 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="FakeEnding" type="Control" parent="HUD" unique_id=2000020377]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -572,5 +577,23 @@ visible = false
 position = Vector2(640, 360)
 metadata/_edit_lock_ = true
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=432148496]
+autoplay = true
+bus = &"Sounds"
+
+[node name="Jingle" type="AudioStreamPlayer" parent="." unique_id=1363291274]
+bus = &"Sounds"
+
+[node name="Moosic" type="AudioStreamPlayer" parent="." unique_id=240936510]
+bus = &"Music"
+
+[node name="NightStart" type="AudioStreamPlayer" parent="." unique_id=923133622]
+bus = &"Sounds"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1355856076]
+root_node = NodePath("../HUD/FadeTransition")
+libraries/ = SubResource("AnimationLibrary_m1b5p")
+autoplay = &"Animation P1"
+
 [connection signal="pressed" from="HUD/FakeEnding/Button" to="." method="_on_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
