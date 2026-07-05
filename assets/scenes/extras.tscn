@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://8tqxc6gh0526" path="res://assets/scripts/extras.gd" id="1_0rbc8"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_aixqm"]
 [ext_resource type="AudioStream" uid="uid://bwq8im3k14adk" path="res://assets/music/ExtrasTheme.ogg" id="2_fj8mu"]
+[ext_resource type="Texture2D" uid="uid://coas2umxw0xq1" path="res://assets/images/extras/bg2.png" id="2_vgqb2"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="4_ufd8u"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="5_fj8mu"]
 
@@ -10,10 +11,22 @@
 script = ExtResource("1_0rbc8")
 metadata/_edit_vertical_guides_ = [16.0, 320.0]
 
-[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1892507387]
-stream = ExtResource("2_fj8mu")
-autoplay = true
-bus = &"Music"
+[node name="Background" type="Node2D" parent="." unique_id=1603007850]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Checkboard" type="Parallax2D" parent="Background" unique_id=1188178313]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(1280, 768)
+autoscroll = Vector2(120, 120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Checkboard" unique_id=774758055]
+texture_filter = 1
+texture = ExtResource("2_vgqb2")
+centered = false
+metadata/_edit_lock_ = true
 
 [node name="Control" type="Control" parent="." unique_id=1706568724]
 layout_mode = 3
@@ -26,18 +39,7 @@ mouse_filter = 2
 theme = ExtResource("1_aixqm")
 metadata/_edit_lock_ = true
 
-[node name="Background" type="ColorRect" parent="Control" unique_id=405111892]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="Control" unique_id=1881017544]
+[node name="Title" type="Label" parent="Control" unique_id=644116217]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.13100001
@@ -49,7 +51,7 @@ offset_top = -76.16
 offset_right = 152.31998
 offset_bottom = 75.84
 theme_override_font_sizes/font_size = 64
-text = "Extras
+text = "Extra
 Content"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -66,7 +68,7 @@ offset_left = -151.68002
 offset_top = -260.24002
 offset_right = 152.31998
 offset_bottom = 259.75998
-theme_override_constants/separation = 24
+theme_override_constants/separation = 48
 metadata/_edit_lock_ = true
 
 [node name="Chars" type="Button" parent="Control/Buttons" unique_id=958494563]
@@ -87,7 +89,7 @@ action_mode = 0
 text = "Jumpscares"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent2" type="Node" parent="Control/Buttons/Jumpscares" unique_id=768766036]
+[node name="ButtonComponent" type="Node" parent="Control/Buttons/Jumpscares" unique_id=768766036]
 script = ExtResource("4_ufd8u")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
@@ -98,7 +100,18 @@ action_mode = 0
 text = "Gallery"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent3" type="Node" parent="Control/Buttons/Gallery" unique_id=117744520]
+[node name="ButtonComponent" type="Node" parent="Control/Buttons/Gallery" unique_id=117744520]
+script = ExtResource("4_ufd8u")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Challenges" type="Button" parent="Control/Buttons" unique_id=2136289747]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+text = "Modifiers"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/Buttons/Challenges" unique_id=2140326879]
 script = ExtResource("4_ufd8u")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
@@ -109,7 +122,7 @@ action_mode = 0
 text = "Night 1-4"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent4" type="Node" parent="Control/Buttons/OldNights" unique_id=1480716104]
+[node name="ButtonComponent" type="Node" parent="Control/Buttons/OldNights" unique_id=1480716104]
 script = ExtResource("4_ufd8u")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
@@ -120,23 +133,23 @@ action_mode = 0
 text = "Endless Mode"
 metadata/_edit_lock_ = true
 
-[node name="ButtonComponent5" type="Node" parent="Control/Buttons/Survival" unique_id=727855595]
+[node name="ButtonComponent" type="Node" parent="Control/Buttons/Survival" unique_id=727855595]
 script = ExtResource("4_ufd8u")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Back" type="Button" parent="Control" unique_id=604882572]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.93100005
-anchor_top = 0.933
-anchor_right = 0.93100005
-anchor_bottom = 0.933
-offset_left = -71.68005
-offset_top = -31.76001
-offset_right = 72.31995
-offset_bottom = 32.23999
+anchor_left = 0.89400005
+anchor_top = 0.89400005
+anchor_right = 0.89400005
+anchor_bottom = 0.89400005
+offset_left = -120.32007
+offset_top = -67.68005
+offset_right = 119.67993
+offset_bottom = 68.31995
 focus_mode = 0
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 64
 action_mode = 0
 text = "Back"
 metadata/_edit_lock_ = true
@@ -147,5 +160,10 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Loading" parent="." unique_id=220536216 instance=ExtResource("5_fj8mu")]
 visible = false
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1892507387]
+stream = ExtResource("2_fj8mu")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]

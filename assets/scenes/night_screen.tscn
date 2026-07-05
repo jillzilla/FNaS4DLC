@@ -71,7 +71,6 @@ _data = {
 
 [node name="NightScreen" type="Node" unique_id=153087263]
 script = ExtResource("1_x5pu0")
-data_json = "res://assets/data/nights_ai_levels.json"
 
 [node name="Sky" type="Sprite2D" parent="." unique_id=2061776575]
 scale = Vector2(1.272, 1.272)
@@ -98,11 +97,11 @@ metadata/_edit_lock_ = true
 
 [node name="NightCounter" type="Label" parent="." unique_id=1865394812]
 visible = false
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 0.45000002
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.45000002
+anchor_bottom = 0.5
 offset_left = -160.0
 offset_top = -68.0
 offset_right = 160.0

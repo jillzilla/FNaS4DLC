@@ -238,34 +238,22 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Control:visible")
+tracks/3/path = NodePath("../Button:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true]
+"values": [true, false]
 }
-tracks/4/type = "value"
+tracks/4/type = "audio"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Button:disabled")
+tracks/4/path = NodePath("../Jigle")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "audio"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../Jigle")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -273,7 +261,43 @@ tracks/5/keys = {
 }],
 "times": PackedFloat32Array(10)
 }
-tracks/5/use_blend = true
+tracks/4/use_blend = true
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Control/Label:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 10, 10.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Control/Label2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 10, 10.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Control/Label3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dbl5i"]
 _data = {
@@ -315,18 +339,8 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_uiq8j")
 metadata/_edit_lock_ = true
 
-[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1529232687]
-stream = ExtResource("5_qkqjb")
-volume_db = 10.0
-autoplay = true
-bus = &"Sounds"
-
-[node name="Jigle" type="AudioStreamPlayer" parent="." unique_id=894357236]
-volume_db = 10.0
-bus = &"Sounds"
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1409248935]
-position = Vector2(1048, 528)
+position = Vector2(640, 360)
 zoom = Vector2(2, 2)
 metadata/_edit_lock_ = true
 
@@ -409,7 +423,6 @@ metadata/_edit_lock_ = true
 libraries/ = SubResource("AnimationLibrary_dbl5i")
 
 [node name="Control" type="Control" parent="." unique_id=1226529008]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -421,50 +434,57 @@ theme = ExtResource("6_uiq8j")
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Control" unique_id=1554613073]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.13700001
-anchor_top = 0.068
+anchor_top = 0.1
 anchor_right = 0.13700001
-anchor_bottom = 0.068
+anchor_bottom = 0.1
 offset_left = -159.36002
-offset_top = -32.960003
+offset_top = -56.0
 offset_right = 159.63998
-offset_bottom = 33.039997
+offset_bottom = 56.0
 theme_override_font_sizes/font_size = 64
 text = "Good Job!"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Label2" type="Label" parent="Control" unique_id=582452249]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.119
-anchor_top = 0.128
-anchor_right = 0.119
-anchor_bottom = 0.128
-offset_left = -136.32
-offset_top = -12.160004
-offset_right = 136.68
-offset_bottom = 12.839996
+anchor_left = 0.13700001
+anchor_top = 0.18300001
+anchor_right = 0.13700001
+anchor_bottom = 0.18300001
+offset_left = -159.36002
+offset_top = -19.76001
+offset_right = 160.63998
+offset_bottom = 20.23999
 theme_override_font_sizes/font_size = 24
 text = "But is it really over?"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Label3" type="Label" parent="Control" unique_id=1654044198]
+visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.897
-anchor_top = 0.96700007
-anchor_right = 0.897
-anchor_bottom = 0.96700007
-offset_left = -124.160034
-offset_top = -16.240051
-offset_right = 123.839966
-offset_bottom = 15.759949
-theme_override_font_sizes/font_size = 24
+anchor_left = 0.84400004
+anchor_top = 0.933
+anchor_right = 0.84400004
+anchor_bottom = 0.933
+offset_left = -184.32007
+offset_top = -31.76001
+offset_right = 183.67993
+offset_bottom = 32.23999
+theme_override_font_sizes/font_size = 32
 text = "(Click to continue)"
-horizontal_alignment = 2
-vertical_alignment = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Loading" parent="." unique_id=220536216 instance=ExtResource("8_vvyrx")]
@@ -474,6 +494,16 @@ visible = false
 stream = ExtResource("9_qkqjb")
 volume_db = 20.0
 pitch_scale = 0.7
+bus = &"Sounds"
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1529232687]
+stream = ExtResource("5_qkqjb")
+volume_db = 10.0
+autoplay = true
+bus = &"Sounds"
+
+[node name="Jigle" type="AudioStreamPlayer" parent="." unique_id=894357236]
+volume_db = 10.0
 bus = &"Sounds"
 
 [connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

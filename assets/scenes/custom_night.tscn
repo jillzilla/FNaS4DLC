@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://u38qaihcbnrj" path="res://assets/scripts/custom_night.gd" id="1_8gqf7"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_o8hl8"]
 [ext_resource type="AudioStream" uid="uid://dcyumsiyebl7x" path="res://assets/music/CustomNightTheme.ogg" id="2_syqq0"]
+[ext_resource type="Texture2D" uid="uid://cpeuik0yp655n" path="res://assets/images/customnight/bg.png" id="2_waklc"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="3_00ogn"]
+[ext_resource type="Texture2D" uid="uid://nqcn7047jvv7" path="res://assets/images/customnight/overlaybg.png" id="3_waklc"]
 [ext_resource type="PackedScene" uid="uid://cxttec8xvsjfx" path="res://assets/scenes/custom_night_character.tscn" id="4_k8lu8"]
 [ext_resource type="Texture2D" uid="uid://bap70d4fgowjy" path="res://assets/images/title/Star_Title_0.png" id="5_cyr1o"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="7_syqq0"]
@@ -11,12 +13,281 @@
 [node name="CustomNight" type="Node" unique_id=1823592247 node_paths=PackedStringArray("characters")]
 script = ExtResource("1_8gqf7")
 characters = [NodePath("Control/Characters/Sonic"), NodePath("Control/Characters/Mario"), NodePath("Control/Characters/Yoshi"), NodePath("Control/Characters/Taingle"), NodePath("Control/Characters/BT"), NodePath("Control/Characters/Salvage"), NodePath("Control/Characters/Cream"), NodePath("Control/Characters/Knuckles"), NodePath("Control/Characters/TailsDoll"), NodePath("Control/Characters/Luigi")]
-metadata/_edit_horizontal_guides_ = [3566.0]
+metadata/_edit_horizontal_guides_ = [3566.0, 672.0]
 
-[node name="Music" type="AudioStreamPlayer" parent="." unique_id=60568684]
-stream = ExtResource("2_syqq0")
-autoplay = true
-bus = &"Music"
+[node name="Background" type="Node2D" parent="." unique_id=1569987942]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Stripe1" type="Parallax2D" parent="Background" unique_id=1236001029]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, 120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe1" unique_id=273793154]
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe2" type="Parallax2D" parent="Background" unique_id=1615344785]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, -120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe2" unique_id=1475111716]
+position = Vector2(64, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe3" type="Parallax2D" parent="Background" unique_id=2037182184]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, 120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe3" unique_id=1081846978]
+position = Vector2(128, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe4" type="Parallax2D" parent="Background" unique_id=1174057273]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, -120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe4" unique_id=991106587]
+position = Vector2(192, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe5" type="Parallax2D" parent="Background" unique_id=1580568742]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, 120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe5" unique_id=121498297]
+position = Vector2(256, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe6" type="Parallax2D" parent="Background" unique_id=364215518]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, -120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe6" unique_id=1472314824]
+position = Vector2(320, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe7" type="Parallax2D" parent="Background" unique_id=2024162646]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, 120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe7" unique_id=1793695281]
+position = Vector2(384, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe8" type="Parallax2D" parent="Background" unique_id=643166028]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, -120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe8" unique_id=1690163907]
+position = Vector2(448, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe9" type="Parallax2D" parent="Background" unique_id=225445657]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, 120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe9" unique_id=821750109]
+position = Vector2(512, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe10" type="Parallax2D" parent="Background" unique_id=1849731164]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, -120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe10" unique_id=521369484]
+position = Vector2(576, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe11" type="Parallax2D" parent="Background" unique_id=1524542167]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, 120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe11" unique_id=13940012]
+position = Vector2(640, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe12" type="Parallax2D" parent="Background" unique_id=1951527039]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, -120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe12" unique_id=164024126]
+position = Vector2(704, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe13" type="Parallax2D" parent="Background" unique_id=1718819898]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, 120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe13" unique_id=1266608180]
+position = Vector2(768, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe14" type="Parallax2D" parent="Background" unique_id=1235987390]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, -120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe14" unique_id=354145218]
+position = Vector2(832, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe15" type="Parallax2D" parent="Background" unique_id=402912462]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, 120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe15" unique_id=1313254593]
+position = Vector2(896, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe16" type="Parallax2D" parent="Background" unique_id=1913004382]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, -120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe16" unique_id=682941595]
+position = Vector2(960, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe17" type="Parallax2D" parent="Background" unique_id=1187630061]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, 120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe17" unique_id=1450859476]
+position = Vector2(1024, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe18" type="Parallax2D" parent="Background" unique_id=478550894]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, -120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe18" unique_id=834136842]
+position = Vector2(1088, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe19" type="Parallax2D" parent="Background" unique_id=870189167]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, 120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe19" unique_id=1481953101]
+position = Vector2(1152, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Stripe20" type="Parallax2D" parent="Background" unique_id=607028701]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 768)
+autoscroll = Vector2(0, -120)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Stripe20" unique_id=767544691]
+position = Vector2(1216, 0)
+texture = ExtResource("2_waklc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Gradient" type="Parallax2D" parent="Background" unique_id=763345220]
+scroll_scale = Vector2(0, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background/Gradient" unique_id=1449939961]
+modulate = Color(1, 1, 1, 0.5)
+texture = ExtResource("3_waklc")
+centered = false
+metadata/_edit_lock_ = true
 
 [node name="Control" type="Control" parent="." unique_id=1164448981]
 layout_mode = 3
@@ -29,46 +300,17 @@ mouse_filter = 2
 theme = ExtResource("1_o8hl8")
 metadata/_edit_lock_ = true
 
-[node name="Background" type="ColorRect" parent="Control" unique_id=153330391]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
-
-[node name="Title" type="Label" parent="Control" unique_id=1178783075]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.106000006
-anchor_top = 0.117000006
-anchor_right = 0.106000006
-anchor_bottom = 0.117000006
-offset_left = -119.68001
-offset_top = -68.240005
-offset_right = 120.31999
-offset_bottom = 67.759995
-theme_override_font_sizes/font_size = 64
-text = "Custom
-Night"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
 [node name="Characters" type="GridContainer" parent="Control" unique_id=1611893534]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.4
-anchor_right = 0.5
-anchor_bottom = 0.4
-offset_left = -452.0
-offset_top = -280.0
-offset_right = 452.0
-offset_bottom = 280.0
+anchor_left = 0.337
+anchor_top = 0.356
+anchor_right = 0.337
+anchor_bottom = 0.356
+offset_left = -499.36
+offset_top = -280.31998
+offset_right = 500.63986
+offset_bottom = 279.68
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
@@ -82,95 +324,113 @@ metadata/_edit_lock_ = true
 
 [node name="Sonic" parent="Control/Characters" unique_id=1868036126 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 character_name = "Nightmare Toy Sonic"
 character_icon_path = "res://assets/images/customnight/ntsIcon.png"
 metadata/_edit_lock_ = true
 
 [node name="Mario" parent="Control/Characters" unique_id=447377998 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 character_name = "Nightmare Toy Mario"
 character_icon_path = "res://assets/images/customnight/ntmIcon.png"
 metadata/_edit_lock_ = true
 
 [node name="Yoshi" parent="Control/Characters" unique_id=1931477606 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 character_name = "Nightmare Toy Yoshi"
 character_icon_path = "res://assets/images/customnight/ntyIcon.png"
 metadata/_edit_lock_ = true
 
 [node name="Taingle" parent="Control/Characters" unique_id=753376245 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 character_name = "Nightmare Taingle"
 character_icon_path = "res://assets/images/customnight/ntIcon.png"
 metadata/_edit_lock_ = true
 
 [node name="BT" parent="Control/Characters" unique_id=1668436749 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 character_name = "Nightmare BT"
 character_icon_path = "res://assets/images/customnight/btIcon.png"
 metadata/_edit_lock_ = true
 
 [node name="Salvage" parent="Control/Characters" unique_id=1148718633 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 character_name = "Nightmare S. Sonic"
 character_icon_path = "res://assets/images/customnight/salvageicon.png"
 metadata/_edit_lock_ = true
 
 [node name="Cream" parent="Control/Characters" unique_id=1540536152 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 character_name = "Nightmare Cream"
 character_icon_path = "res://assets/images/customnight/creamicon.png"
 metadata/_edit_lock_ = true
 
 [node name="Knuckles" parent="Control/Characters" unique_id=235656350 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 character_name = "Nightmare Knuckles"
 character_icon_path = "res://assets/images/customnight/knuxicon.png"
 metadata/_edit_lock_ = true
 
 [node name="TailsDoll" parent="Control/Characters" unique_id=566825593 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 character_name = "Tails Doll"
 character_icon_path = "res://assets/images/customnight/tdollicon.png"
 metadata/_edit_lock_ = true
 
 [node name="Luigi" parent="Control/Characters" unique_id=1756538997 instance=ExtResource("4_k8lu8")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 character_name = "Nightmare Luiginette"
 character_icon_path = "res://assets/images/customnight/luigiicon.png"
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="Control" unique_id=1178783075]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.869
+anchor_top = 0.14400001
+anchor_right = 0.869
+anchor_bottom = 0.14400001
+offset_left = -152.32007
+offset_top = -87.68001
+offset_right = 151.67993
+offset_bottom = 88.31999
+theme_override_font_sizes/font_size = 64
+text = "Custom
+Night"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Challenges" type="HBoxContainer" parent="Control" unique_id=1362725539]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.8
+anchor_top = 0.78300005
 anchor_right = 0.5
-anchor_bottom = 0.8
+anchor_bottom = 0.78300005
 offset_left = -384.0
-offset_top = -64.0
+offset_top = -51.76001
 offset_right = 384.0
-offset_bottom = 64.0
+offset_bottom = 52.23999
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -180,8 +440,7 @@ metadata/_edit_lock_ = true
 
 [node name="Left" type="Button" parent="Control/Challenges" unique_id=507811364]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 64
 action_mode = 0
@@ -202,8 +461,7 @@ metadata/_edit_group_ = true
 [node name="Star1" type="TextureRect" parent="Control/Challenges/Output" unique_id=901176579]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
 mouse_filter = 2
 texture = ExtResource("5_cyr1o")
 stretch_mode = 3
@@ -211,7 +469,8 @@ metadata/_edit_lock_ = true
 
 [node name="Challenge_Name" type="Label" parent="Control/Challenges/Output" unique_id=657289225]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 48
 text = "Custom Night"
 horizontal_alignment = 1
@@ -221,8 +480,7 @@ metadata/_edit_lock_ = true
 [node name="Star2" type="TextureRect" parent="Control/Challenges/Output" unique_id=866868504]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
 mouse_filter = 2
 texture = ExtResource("5_cyr1o")
 stretch_mode = 3
@@ -230,8 +488,7 @@ metadata/_edit_lock_ = true
 
 [node name="Right" type="Button" parent="Control/Challenges" unique_id=933023197]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 64
 action_mode = 0
@@ -245,17 +502,17 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 [node name="Back" type="Button" parent="Control" unique_id=1559279935]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.060000002
-anchor_top = 0.93200004
-anchor_right = 0.060000002
-anchor_bottom = 0.93200004
-offset_left = -60.800003
-offset_top = -25.04004
-offset_right = 60.199997
-offset_bottom = 24.95996
+anchor_left = 0.106000006
+anchor_top = 0.9110001
+anchor_right = 0.106000006
+anchor_bottom = 0.9110001
+offset_left = -119.68001
+offset_top = -55.920044
+offset_right = 120.31999
+offset_bottom = 56.079956
 pivot_offset_ratio = Vector2(0.5, 0.5)
 focus_mode = 0
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 64
 action_mode = 0
 text = "Back"
 metadata/_edit_lock_ = true
@@ -268,22 +525,21 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.94100004
+anchor_top = 0.933
 anchor_right = 0.5
-anchor_bottom = 0.94100004
-offset_left = -383.99997
-offset_top = -37.52002
+anchor_bottom = 0.933
+offset_left = -384.0
+offset_top = -39.76001
 offset_right = 384.0
-offset_bottom = 37.47998
+offset_bottom = 40.23999
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="Min" type="Button" parent="Control/AILevelSetupButtons" unique_id=494910810]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 32
 action_mode = 0
@@ -296,8 +552,7 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Max" type="Button" parent="Control/AILevelSetupButtons" unique_id=1186119771]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 32
 action_mode = 0
@@ -310,8 +565,7 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Random" type="Button" parent="Control/AILevelSetupButtons" unique_id=1427159122]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 32
 action_mode = 0
@@ -325,14 +579,14 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 [node name="Ready" type="Button" parent="Control" unique_id=1197133074]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.90900004
-anchor_top = 0.924
-anchor_right = 0.90900004
-anchor_bottom = 0.924
-offset_left = -99.52002
-offset_top = -33.28003
-offset_right = 99.47998
-offset_bottom = 32.71997
+anchor_left = 0.89400005
+anchor_top = 0.9110001
+anchor_right = 0.89400005
+anchor_bottom = 0.9110001
+offset_left = -120.32007
+offset_top = -55.920044
+offset_right = 119.67993
+offset_bottom = 56.079956
 focus_mode = 0
 theme_override_font_sizes/font_size = 64
 action_mode = 0
@@ -345,6 +599,11 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Loading" parent="." unique_id=220536216 instance=ExtResource("7_syqq0")]
 visible = false
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=60568684]
+stream = ExtResource("2_syqq0")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="Control/Challenges/Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="Control/Challenges/Right" to="." method="_on_right_pressed"]

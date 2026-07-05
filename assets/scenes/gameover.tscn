@@ -75,7 +75,6 @@ _data = {
 
 [node name="GameOver" type="Node" unique_id=261174521]
 script = ExtResource("1_y35k0")
-data_json = "res://assets/data/gameover.json"
 
 [node name="Background" type="ColorRect" parent="." unique_id=581338467]
 anchors_preset = 15

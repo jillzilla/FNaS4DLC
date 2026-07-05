@@ -10,9 +10,12 @@
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="6_fv6c7"]
 [ext_resource type="Texture2D" uid="uid://bap70d4fgowjy" path="res://assets/images/title/Star_Title_0.png" id="7_s21ad"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="7_t2yek"]
+[ext_resource type="Texture2D" uid="uid://4q8qnis67n2l" path="res://assets/images/title/Blue_Star_Title_0.png" id="9_3uw26"]
 [ext_resource type="PackedScene" uid="uid://dwwq031lbo8e1" path="res://assets/scenes/credits.tscn" id="10_4l0ss"]
+[ext_resource type="Texture2D" uid="uid://c56g28iss4uvm" path="res://assets/images/title/Super_Star_Title_0.png" id="10_wko3e"]
 [ext_resource type="PackedScene" uid="uid://db82feqkd35s8" path="res://assets/scenes/characters_guide.tscn" id="11_8er8c"]
 [ext_resource type="PackedScene" uid="uid://ce1c76lv6sisp" path="res://assets/scenes/settings.tscn" id="11_mb7to"]
+[ext_resource type="Texture2D" uid="uid://dxmgwfp2qqcae" path="res://assets/images/title/Platinum_Star_Title_0.png" id="11_wko3e"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="12_p4c3g"]
 
 [sub_resource type="Animation" id="Animation_s21ad"]
@@ -269,20 +272,111 @@ metadata/_edit_lock_ = true
 
 [node name="Star_1" type="Sprite2D" parent="UI/Control" unique_id=963718126]
 visible = false
-position = Vector2(856, 208)
+position = Vector2(896, 192)
 texture = ExtResource("7_s21ad")
 metadata/_edit_lock_ = true
 
 [node name="Star_2" type="Sprite2D" parent="UI/Control" unique_id=1041001722]
 visible = false
-position = Vector2(968, 208)
+position = Vector2(1024, 192)
 texture = ExtResource("7_s21ad")
 metadata/_edit_lock_ = true
 
 [node name="Star_3" type="Sprite2D" parent="UI/Control" unique_id=1843193522]
 visible = false
-position = Vector2(912, 288)
+position = Vector2(960, 256)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10_wko3e")
+metadata/_edit_lock_ = true
+
+[node name="Star_4" type="Sprite2D" parent="UI/Control" unique_id=1923460868]
+visible = false
+position = Vector2(1088, 256)
 texture = ExtResource("7_s21ad")
+metadata/_edit_lock_ = true
+
+[node name="Star_5" type="Sprite2D" parent="UI/Control" unique_id=2100201969]
+visible = false
+position = Vector2(896, 320)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_3uw26")
+metadata/_edit_lock_ = true
+
+[node name="Star_6" type="Sprite2D" parent="UI/Control" unique_id=1703303129]
+visible = false
+position = Vector2(936, 320)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_3uw26")
+metadata/_edit_lock_ = true
+
+[node name="Star_7" type="Sprite2D" parent="UI/Control" unique_id=118108192]
+visible = false
+position = Vector2(976, 320)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_3uw26")
+metadata/_edit_lock_ = true
+
+[node name="Star_8" type="Sprite2D" parent="UI/Control" unique_id=927055533]
+visible = false
+position = Vector2(1016, 320)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_3uw26")
+metadata/_edit_lock_ = true
+
+[node name="Star_9" type="Sprite2D" parent="UI/Control" unique_id=1362349483]
+visible = false
+position = Vector2(1056, 320)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_3uw26")
+metadata/_edit_lock_ = true
+
+[node name="Star_10" type="Sprite2D" parent="UI/Control" unique_id=2120603121]
+visible = false
+position = Vector2(896, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_3uw26")
+metadata/_edit_lock_ = true
+
+[node name="Star_11" type="Sprite2D" parent="UI/Control" unique_id=2069168777]
+visible = false
+position = Vector2(936, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_3uw26")
+metadata/_edit_lock_ = true
+
+[node name="Star_12" type="Sprite2D" parent="UI/Control" unique_id=873274735]
+visible = false
+position = Vector2(976, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_3uw26")
+metadata/_edit_lock_ = true
+
+[node name="Star_13" type="Sprite2D" parent="UI/Control" unique_id=1943244712]
+visible = false
+position = Vector2(1016, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_3uw26")
+metadata/_edit_lock_ = true
+
+[node name="Star_14" type="Sprite2D" parent="UI/Control" unique_id=1772907627]
+visible = false
+position = Vector2(1056, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_3uw26")
+metadata/_edit_lock_ = true
+
+[node name="Star_15" type="Sprite2D" parent="UI/Control" unique_id=1581074136]
+visible = false
+position = Vector2(1112, 344)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_3uw26")
+metadata/_edit_lock_ = true
+
+[node name="Star_16" type="Sprite2D" parent="UI/Control" unique_id=1526326054]
+visible = false
+position = Vector2(1176, 200)
+scale = Vector2(2, 2)
+texture = ExtResource("11_wko3e")
 metadata/_edit_lock_ = true
 
 [node name="ButtonsContainer" type="Control" parent="UI/Control" unique_id=321352923]
@@ -418,14 +512,14 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 [node name="Credits" type="Button" parent="UI/Control/ButtonsContainer" unique_id=1685344281]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.897
-anchor_top = 0.95000005
-anchor_right = 0.897
-anchor_bottom = 0.95000005
-offset_left = -124.160034
-offset_top = -28.000061
-offset_right = 123.839966
-offset_bottom = 27.999939
+anchor_left = 0.89400005
+anchor_top = 0.933
+anchor_right = 0.89400005
+anchor_bottom = 0.933
+offset_left = -120.32007
+offset_top = -31.76001
+offset_right = 119.67993
+offset_bottom = 32.23999
 focus_mode = 0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
@@ -442,14 +536,14 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.11800001
-anchor_top = 0.05
-anchor_right = 0.11800001
-anchor_bottom = 0.05
-offset_left = -135.04001
-offset_top = -20.0
-offset_right = 134.95999
-offset_bottom = 20.0
+anchor_left = 0.13100001
+anchor_top = 0.056
+anchor_right = 0.13100001
+anchor_bottom = 0.056
+offset_left = -151.68002
+offset_top = -24.32
+offset_right = 152.31998
+offset_bottom = 23.68
 mouse_filter = 2
 text = "Character Guide"
 metadata/_edit_lock_ = true
@@ -461,14 +555,14 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 [node name="Version" type="Label" parent="UI/Control" unique_id=1090667348]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.060000002
-anchor_top = 0.96900004
-anchor_right = 0.060000002
-anchor_bottom = 0.96900004
-offset_left = -68.8
-offset_top = -16.680054
-offset_right = 68.2
-offset_bottom = 16.319946
+anchor_left = 0.10300001
+anchor_top = 0.961
+anchor_right = 0.10300001
+anchor_bottom = 0.961
+offset_left = -123.84001
+offset_top = -19.920044
+offset_right = 124.15999
+offset_bottom = 20.079956
 theme_override_font_sizes/font_size = 32
 text = "Ver 1.0.0"
 vertical_alignment = 2

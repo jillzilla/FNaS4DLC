@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bhfy40xqm3byj"]
+
+[ext_resource type="Script" uid="uid://cgdnhy467klt6" path="res://assets/scripts/error.gd" id="1_5cwwo"]
+[ext_resource type="Texture2D" uid="uid://cvs2k2luawy3t" path="res://assets/images/customnight/error1.png" id="1_xaj78"]
+[ext_resource type="Texture2D" uid="uid://dpsfbi7aldtjo" path="res://assets/images/customnight/error2.png" id="2_5cwwo"]
+
+[node name="Error" type="Node" unique_id=853402531]
+script = ExtResource("1_5cwwo")
+
+[node name="Error1" type="Sprite2D" parent="." unique_id=1613472433]
+texture = ExtResource("1_xaj78")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Error2" type="Sprite2D" parent="." unique_id=58639496]
+visible = false
+texture = ExtResource("2_5cwwo")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=409842600]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=1961388826]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

@@ -35,49 +35,13 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/2/type = "value"
+tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GUI/End:modulate")
+tracks/2/path = NodePath("Jingle")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 7, 7.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("GUI/Continue:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("GUI/Button:mouse_filter")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [2, 0]
-}
-tracks/5/type = "audio"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Jingle")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -85,7 +49,43 @@ tracks/5/keys = {
 }],
 "times": PackedFloat32Array(7)
 }
-tracks/5/use_blend = true
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GUI/Control/End:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 7, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GUI/Control/Continue:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GUI/Button:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nr7in"]
 _data = {
@@ -120,43 +120,54 @@ autoplay = &"motion"
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=218001533]
 
-[node name="End" type="Label" parent="GUI" unique_id=492775388]
-modulate = Color(1, 1, 1, 0)
-anchors_preset = -1
-anchor_left = 0.147
-anchor_top = 0.068
-anchor_right = 0.147
-anchor_bottom = 0.068
-offset_left = -172.16
-offset_top = -32.960003
-offset_right = 126.84
-offset_bottom = 33.039997
+[node name="Control" type="Control" parent="GUI" unique_id=853915248]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("2_3oxpp")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="End" type="Label" parent="GUI/Control" unique_id=928105608]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13100001
+anchor_top = 0.1
+anchor_right = 0.13100001
+anchor_bottom = 0.1
+offset_left = -151.68002
+offset_top = -56.0
+offset_right = 161.31998
+offset_bottom = 56.0
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 64
-text = "THE END?"
+text = "The End?"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Continue" type="Label" parent="GUI" unique_id=3603180]
+[node name="Continue" type="Label" parent="GUI/Control" unique_id=1572008843]
 visible = false
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.87200004
-anchor_top = 0.96700007
-anchor_right = 0.87200004
-anchor_bottom = 0.96700007
-offset_left = -157.16003
-offset_top = -16.240051
-offset_right = 157.83997
-offset_bottom = 16.759949
-theme = ExtResource("2_3oxpp")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
+anchor_left = 0.84400004
+anchor_top = 0.933
+anchor_right = 0.84400004
+anchor_bottom = 0.933
+offset_left = -184.32007
+offset_top = -31.76001
+offset_right = 183.67993
+offset_bottom = 32.23999
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
 text = "(Click to continue)"
-horizontal_alignment = 2
-vertical_alignment = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Button" type="Button" parent="GUI" unique_id=1751141834]
@@ -166,7 +177,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-mouse_filter = 2
+disabled = true
 action_mode = 0
 flat = true
 metadata/_edit_lock_ = true

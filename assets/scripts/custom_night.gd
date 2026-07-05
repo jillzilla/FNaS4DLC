@@ -9,8 +9,8 @@ signal ai_value_changed;
 
 @onready var challenge_name: Label = $Control/Challenges/Output/Challenge_Name;
 
-@onready var red_star1: TextureRect = $Control/Challenges/Output/Star1;
-@onready var red_star2: TextureRect = $Control/Challenges/Output/Star2;
+@onready var red_star_1: TextureRect = $Control/Challenges/Output/Star1;
+@onready var red_star_2: TextureRect = $Control/Challenges/Output/Star2;
 
 @onready var all_min: Button = $Control/AILevelSetupButtons/Min;
 @onready var all_max: Button = $Control/AILevelSetupButtons/Max;
@@ -32,9 +32,14 @@ func _on_back_pressed() -> void:
 	loading._load_scene("uid://cl7jf3xdjegaf");
 
 func _on_ready_pressed() -> void:
-	main.nightcounter = 7;
-	main.cnchallenge = challenge_name.text;
-	loading._load_scene("uid://bocmtkamvkla5");
+	var current_ai_level: Array[int] = get_ai_levels_as_array();
+
+	if current_ai_level != [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]:
+		main.nightcounter = 7;
+		main.cnchallenge = challenge_name.text;
+		loading._load_scene("uid://bocmtkamvkla5");
+	else:
+		loading._load_scene("uid://bhfy40xqm3byj");
 
 func _on_min_pressed() -> void:
 	for c in characters:
@@ -97,18 +102,15 @@ func _update_stuff(update_ai: bool = true) -> void:
 			c.right_button.show();
 	
 	if challenge_name.text != "Custom Night" && main.save_data_file.custom_night_challenges[challenge_name.text] == true:
-		red_star1.show();
-		red_star2.show();
+		red_star_1.show();
+		red_star_2.show();
 	elif challenge_name.text == "Custom Night" || challenge_name.text != "Custom Night" && main.save_data_file.custom_night_challenges[challenge_name.text] == false:
-		red_star1.hide();
-		red_star2.hide();
+		red_star_1.hide();
+		red_star_2.hide();
 
 func _ai_value_changed() -> void:
-	var current_ai_level: Array[int] = [];
+	var current_ai_level: Array[int] = get_ai_levels_as_array();
 	var challenge_ai_level: Array[int] = [];
-
-	for i in range(main._get_ai_level_as_array().size()):
-		current_ai_level.append(main.ai_levels[main._get_ai_level_as_array()[i]]);
 
 	for i in range(main._get_challenges_as_array().size()):
 		if main._get_challenges_as_array()[i] != "Custom Night":
@@ -122,3 +124,9 @@ func _ai_value_changed() -> void:
 				break ;
 			else:
 				continue ;
+
+func get_ai_levels_as_array() -> Array[int]:
+	var current_ai_level: Array[int] = [];
+	for i in range(main._get_ai_level_as_array().size()):
+		current_ai_level.append(main.ai_levels[main._get_ai_level_as_array()[i]]);
+	return current_ai_level;
