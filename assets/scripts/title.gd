@@ -56,6 +56,18 @@ func _ready() -> void:
 	if main.save_data_file.night5ending:
 		night6button.show();
 		star1.show();
+
+	var blue_stars: Array[Sprite2D] = [$UI/Control/Star_5, $UI/Control/Star_6, $UI/Control/Star_7,
+	$UI/Control/Star_8, $UI/Control/Star_9, $UI/Control/Star_10, $UI/Control/Star_11, $UI/Control/Star_12,
+	$UI/Control/Star_13, $UI/Control/Star_14, $UI/Control/Star_15];
+	
+	var challenges: Array[String] = ["4/20", "Nintendon't", "Nintendo Power", "Sonic VS. Mario",
+	"Friendly Fire", "Sidekick Hangout", "Night Shift in Company", "Panda Mode",
+	"Advance 3", "Your Biggest Nightmare", "Grand Re-Opening"];
+
+	for i in range(challenges.size()):
+		if main.save_data_file.custom_night_challenges[challenges[i]]:
+			blue_stars[i].show();
 	
 	nightcounter.text = "Night " + str(main.save_data_file.night_to_play);
 

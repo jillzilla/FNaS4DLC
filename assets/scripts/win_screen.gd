@@ -26,12 +26,12 @@ func _ready() -> void:
 				main.save_data_file.guideunlocked = true;
 		5:
 			if !main.save_data_file.night5ending:
-				RewardUnlockPopup.add_to_queue("Red Star #1");
+				RewardUnlockPopup.add_to_queue("Red Star");
 				RewardUnlockPopup.add_to_queue("Night 6");
 				main.save_data_file.night5ending = true;
 		6:
 			if !main.save_data_file.night6ending:
-				RewardUnlockPopup.add_to_queue("Red Star #2");
+				RewardUnlockPopup.add_to_queue("Red Star");
 				RewardUnlockPopup.add_to_queue("Extras");
 				RewardUnlockPopup.add_to_queue("Custom Night");
 				RewardUnlockPopup.add_to_queue("Nightmare Knuckles", "uid://c5khrsuiokdwp");
@@ -40,10 +40,12 @@ func _ready() -> void:
 		7:
 			if main.cnchallenge == "Hammer Heartbreak II":
 				if !main.save_data_file.night7ending:
-					RewardUnlockPopup.add_to_queue("Red Star #3");
+					RewardUnlockPopup.add_to_queue("Gold Star", "uid://c56g28iss4uvm");
 					main.save_data_file.night7ending = true;
 			if main.cnchallenge != "Custom Night" && main.cnchallenge != "":
 				if !main.save_data_file.custom_night_challenges[main.cnchallenge]:
+					if main.cnchallenge != "Hammer Heartbreak II":
+						RewardUnlockPopup.add_to_queue("Blue Star", "uid://4q8qnis67n2l");
 					RewardUnlockPopup.add_to_queue(main._custom_night_rewards[main.cnchallenge]["Text"], main._custom_night_rewards[main.cnchallenge]["Icon"]);
 					main.save_data_file.custom_night_challenges[main.cnchallenge] = true;
 
