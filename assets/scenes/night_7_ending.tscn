@@ -12,7 +12,9 @@
 [ext_resource type="Theme" uid="uid://dv17usjw8ic3f" path="res://assets/themes/fancy.tres" id="8_shx4x"]
 [ext_resource type="AudioStream" uid="uid://bkxb6ah43q0d" path="res://assets/sounds/sfx_night_start_f2.ogg" id="9_6y3a5"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="9_y2l5b"]
+[ext_resource type="AudioStream" uid="uid://b7y2p0n8pt8re" path="res://assets/sounds/night_7_ambience.ogg" id="12_k43ry"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="13_gu1gv"]
+[ext_resource type="AudioStream" uid="uid://6ug1ppmjalri" path="res://assets/sounds/jingle_night7.ogg" id="13_shx4x"]
 
 [sub_resource type="Animation" id="Animation_hrlar"]
 resource_name = "Animation P1"
@@ -136,7 +138,7 @@ tracks/9/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": null
+"stream": ExtResource("13_shx4x")
 }],
 "times": PackedFloat32Array(17)
 }
@@ -589,10 +591,12 @@ position = Vector2(640, 360)
 metadata/_edit_lock_ = true
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=432148496]
+stream = ExtResource("12_k43ry")
 autoplay = true
 bus = &"Sounds"
 
 [node name="Jingle" type="AudioStreamPlayer" parent="." unique_id=1363291274]
+volume_db = 10.0
 bus = &"Sounds"
 
 [node name="Moosic" type="AudioStreamPlayer" parent="." unique_id=240936510]

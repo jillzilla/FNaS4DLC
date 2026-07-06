@@ -4,8 +4,18 @@
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="1_aixqm"]
 [ext_resource type="AudioStream" uid="uid://bwq8im3k14adk" path="res://assets/music/ExtrasTheme.ogg" id="2_fj8mu"]
 [ext_resource type="Texture2D" uid="uid://coas2umxw0xq1" path="res://assets/images/extras/bg2.png" id="2_vgqb2"]
+[ext_resource type="Texture2D" uid="uid://dn5qhypw5pll1" path="res://assets/images/extras/characters/nts.png" id="4_7lue8"]
 [ext_resource type="Script" uid="uid://djncuditdkxsm" path="res://assets/components/ButtonComponent.gd" id="4_ufd8u"]
 [ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="5_fj8mu"]
+[ext_resource type="Texture2D" uid="uid://mmmkgw0lxmmt" path="res://assets/images/extras/characters/ntm.png" id="5_vqcuw"]
+[ext_resource type="Texture2D" uid="uid://c5jmgytb0qmrh" path="res://assets/images/extras/characters/nty.png" id="6_i6uxt"]
+[ext_resource type="Texture2D" uid="uid://cojygjvupy75s" path="res://assets/images/extras/characters/nt.png" id="7_sykmn"]
+[ext_resource type="Texture2D" uid="uid://b35aawwqqnt8p" path="res://assets/images/extras/characters/nbt.png" id="8_iaugt"]
+[ext_resource type="Texture2D" uid="uid://dtuy7u1ito3fo" path="res://assets/images/extras/characters/nss.png" id="9_flh7o"]
+[ext_resource type="Texture2D" uid="uid://cxeuwhynmk7ho" path="res://assets/images/extras/characters/nc.png" id="10_dicrh"]
+[ext_resource type="Texture2D" uid="uid://c7kk4pwmiwe1q" path="res://assets/images/extras/characters/nk.png" id="11_ue6ic"]
+[ext_resource type="Texture2D" uid="uid://r08nxrusdk18" path="res://assets/images/extras/characters/td.png" id="12_7nvy2"]
+[ext_resource type="Texture2D" uid="uid://dnbowh7gdnokl" path="res://assets/images/extras/characters/nln.png" id="13_oni57"]
 
 [node name="Extras" type="Node" unique_id=2092156553]
 script = ExtResource("1_0rbc8")
@@ -38,6 +48,136 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_aixqm")
 metadata/_edit_lock_ = true
+
+[node name="Characters" type="Control" parent="Control" unique_id=122716767]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CharactersTextures" type="Node2D" parent="Control/Characters" unique_id=2026749783]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="ToySonic" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=6166214]
+position = Vector2(792, 400)
+texture = ExtResource("4_7lue8")
+metadata/_edit_lock_ = true
+
+[node name="ToyMario" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1321877178]
+visible = false
+position = Vector2(768, 407)
+texture = ExtResource("5_vqcuw")
+metadata/_edit_lock_ = true
+
+[node name="ToyYoshi" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=153773769]
+visible = false
+position = Vector2(720, 477)
+texture = ExtResource("6_i6uxt")
+metadata/_edit_lock_ = true
+
+[node name="Taingle" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1847452480]
+visible = false
+position = Vector2(776, 432)
+texture = ExtResource("7_sykmn")
+metadata/_edit_lock_ = true
+
+[node name="BalloonToad" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1167600699]
+visible = false
+position = Vector2(760, 519)
+texture = ExtResource("8_iaugt")
+metadata/_edit_lock_ = true
+
+[node name="SalvageSonic" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1628378170]
+visible = false
+position = Vector2(768, 427)
+texture = ExtResource("9_flh7o")
+metadata/_edit_lock_ = true
+
+[node name="Cream" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=896994484]
+visible = false
+position = Vector2(800, 405)
+texture = ExtResource("10_dicrh")
+metadata/_edit_lock_ = true
+
+[node name="Knuckles" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1836344763]
+visible = false
+position = Vector2(824, 412)
+texture = ExtResource("11_ue6ic")
+metadata/_edit_lock_ = true
+
+[node name="TailsDoll" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=2122267906]
+visible = false
+position = Vector2(776, 361)
+texture = ExtResource("12_7nvy2")
+metadata/_edit_lock_ = true
+
+[node name="Luiginette" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1499776000]
+visible = false
+position = Vector2(768, 364)
+texture = ExtResource("13_oni57")
+metadata/_edit_lock_ = true
+
+[node name="CharacterName" type="Label" parent="Control/Characters" unique_id=598782624]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.089
+anchor_right = 0.6
+anchor_bottom = 0.089
+offset_left = -320.0
+offset_top = -64.08
+offset_right = 320.0
+offset_bottom = 63.92
+text = "Nightmare Toy Sonic"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Left" type="Button" parent="Control/Characters" unique_id=1639536442]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.578
+anchor_right = 0.4
+anchor_bottom = 0.578
+offset_left = -64.0
+offset_top = -96.16
+offset_right = 64.0
+offset_bottom = 95.84
+focus_mode = 0
+action_mode = 0
+text = "<<"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/Characters/Left" unique_id=1781182539]
+script = ExtResource("4_ufd8u")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Right" type="Button" parent="Control/Characters" unique_id=1205407427]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.578
+anchor_right = 0.8
+anchor_bottom = 0.578
+offset_left = -64.0
+offset_top = -96.16
+offset_right = 64.0
+offset_bottom = 95.84
+focus_mode = 0
+action_mode = 0
+text = ">>"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/Characters/Right" unique_id=188178972]
+script = ExtResource("4_ufd8u")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Title" type="Label" parent="Control" unique_id=644116217]
 layout_mode = 1
