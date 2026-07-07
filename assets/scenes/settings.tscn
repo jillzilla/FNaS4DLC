@@ -40,7 +40,7 @@ offset_left = -215.68001
 offset_top = -344.0
 offset_right = 216.31999
 offset_bottom = 344.0
-theme_override_constants/separation = 48
+theme_override_constants/separation = -64
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 

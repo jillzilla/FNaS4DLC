@@ -25,9 +25,8 @@ _data = {
 &"jumpscare": SubResource("Animation_mehod")
 }
 
-[node name="Luiginette_Jumpscare" type="Node2D" unique_id=1579632227 node_paths=PackedStringArray("animation")]
+[node name="Luiginette_Jumpscare" type="Node2D" unique_id=1579632227]
 script = ExtResource("1_5n3yc")
-animation = NodePath("AnimationPlayer")
 metadata/_edit_lock_ = true
 
 [node name="Boi" type="Sprite2D" parent="." unique_id=1419822191]

@@ -47,8 +47,7 @@ metadata/_edit_group_ = true
 
 [node name="Left" type="Button" parent="AiLevel" unique_id=1833797603]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
 focus_mode = 0
 action_mode = 0
 text = "<<"
@@ -60,7 +59,8 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Counter" type="Label" parent="AiLevel" unique_id=1512247604]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 3
+size_flags_vertical = 1
 text = "X"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -68,8 +68,7 @@ metadata/_edit_lock_ = true
 
 [node name="Right" type="Button" parent="AiLevel" unique_id=137405889]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
 focus_mode = 0
 action_mode = 0
 text = ">>"

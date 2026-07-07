@@ -17,6 +17,16 @@ theme = ExtResource("1_32ixl")
 script = ExtResource("1_c4ovu")
 metadata/_edit_lock_ = true
 
+[node name="Background" type="ColorRect" parent="." unique_id=998594479]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+metadata/_edit_lock_ = true
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2032023526]
 layout_mode = 1
 anchors_preset = 8
@@ -140,16 +150,17 @@ metadata/_edit_lock_ = true
 [node name="BackButton" type="Button" parent="." unique_id=1597588224]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.675
-anchor_top = 0.87200004
-anchor_right = 0.675
-anchor_bottom = 0.87200004
-offset_left = -96.0
-offset_top = -19.840027
-offset_right = 96.0
-offset_bottom = 20.159973
+anchor_left = 0.89400005
+anchor_top = 0.9110001
+anchor_right = 0.89400005
+anchor_bottom = 0.9110001
+offset_left = -120.32007
+offset_top = -55.920044
+offset_right = 119.67993
+offset_bottom = 56.079956
 focus_mode = 0
 theme = ExtResource("2_tpyj6")
+theme_override_font_sizes/font_size = 64
 action_mode = 0
 text = "Back"
 metadata/_edit_lock_ = true

@@ -109,9 +109,8 @@ _data = {
 &"jumpscare": SubResource("Animation_g7uen")
 }
 
-[node name="ToySonic_Jumpscare" type="Node2D" unique_id=2057591390 node_paths=PackedStringArray("animation")]
+[node name="ToySonic_Jumpscare" type="Node2D" unique_id=2057591390]
 script = ExtResource("1_36e07")
-animation = NodePath("AnimationPlayer")
 metadata/_edit_lock_ = true
 
 [node name="Body" type="Sprite2D" parent="." unique_id=697389432]

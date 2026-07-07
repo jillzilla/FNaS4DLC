@@ -1,13 +1,13 @@
 class_name DeskMechanicComponent extends Component
 
 #variables
-const STARTPOSLEFT: float = -1150;
-const STARTPOSRIGHT: float = 1150;
+const STARTPOSLEFT: float = -1150.0;
+const STARTPOSRIGHT: float = 1150.0;
 
-const ENDPOSLEFT: float = 1150;
-const ENDPOSRIGHT: float = -1150;
+const ENDPOSLEFT: float = 1150.0;
+const ENDPOSRIGHT: float = -1150.0;
 
-const BODYPARTMINSCALE: float = 1;
+const BODYPARTMINSCALE: float = 1.0;
 const BODYPARTMAXSCALE: float = 1.2;
 
 @onready var tween_movement: Tween = null;
@@ -25,7 +25,7 @@ const BODYPARTMAXSCALE: float = 1.2;
 @export var timer_step: Timer;
 @export var right_foot: Sprite2D;
 @export var left_foot: Sprite2D;
-@export var step_sfx : AudioStreamPlayer2D;
+@export var step_sfx: AudioStreamPlayer2D;
 
 @export_group("Custom Flags")
 @export var animation_speed: float = 0.0;

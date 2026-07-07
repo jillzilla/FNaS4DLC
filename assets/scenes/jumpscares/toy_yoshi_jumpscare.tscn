@@ -109,9 +109,8 @@ _data = {
 &"jumpscare": SubResource("Animation_3khrc")
 }
 
-[node name="ToyYoshi_Jumpscare" type="Node2D" unique_id=331362373 node_paths=PackedStringArray("animation")]
+[node name="ToyYoshi_Jumpscare" type="Node2D" unique_id=331362373]
 script = ExtResource("1_rdqt8")
-animation = NodePath("AnimationPlayer")
 metadata/_edit_lock_ = true
 
 [node name="ToyYoshi" type="Sprite2D" parent="." unique_id=1016951753]

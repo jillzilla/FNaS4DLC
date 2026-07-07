@@ -16,6 +16,25 @@
 [ext_resource type="Texture2D" uid="uid://c7kk4pwmiwe1q" path="res://assets/images/extras/characters/nk.png" id="11_ue6ic"]
 [ext_resource type="Texture2D" uid="uid://r08nxrusdk18" path="res://assets/images/extras/characters/td.png" id="12_7nvy2"]
 [ext_resource type="Texture2D" uid="uid://dnbowh7gdnokl" path="res://assets/images/extras/characters/nln.png" id="13_oni57"]
+[ext_resource type="Texture2D" uid="uid://cyq7cdc4b11kp" path="res://assets/images/customnight/ntsIcon.png" id="15_bnuqy"]
+[ext_resource type="Texture2D" uid="uid://jgggjl2u0cme" path="res://assets/images/customnight/ntmIcon.png" id="16_0ptlu"]
+[ext_resource type="Script" uid="uid://bgo0kyoaspwb3" path="res://assets/scripts/extras_jumpscare_button.gd" id="16_f47u7"]
+[ext_resource type="Texture2D" uid="uid://dr5qd50iwn27o" path="res://assets/images/customnight/ntyIcon.png" id="17_f47u7"]
+[ext_resource type="Texture2D" uid="uid://bu5njtw0hox3e" path="res://assets/images/customnight/ntIcon.png" id="18_ypsf1"]
+[ext_resource type="Texture2D" uid="uid://b87hkg5il4a7g" path="res://assets/images/customnight/btIcon.png" id="19_8chp6"]
+[ext_resource type="Texture2D" uid="uid://brm3rxpdf2tmx" path="res://assets/images/customnight/salvageicon.png" id="20_v5gkh"]
+[ext_resource type="Texture2D" uid="uid://dldnoqy2fwxv6" path="res://assets/images/customnight/creamicon.png" id="21_fkx22"]
+[ext_resource type="Texture2D" uid="uid://c5khrsuiokdwp" path="res://assets/images/customnight/knuxicon.png" id="22_x631b"]
+[ext_resource type="Texture2D" uid="uid://ckobrpmtwjc7b" path="res://assets/images/customnight/tdollicon.png" id="23_7p8s4"]
+[ext_resource type="Texture2D" uid="uid://cyqt7817lkc81" path="res://assets/images/customnight/luigiicon.png" id="24_7mn4y"]
+[ext_resource type="PackedScene" uid="uid://tuun86de3ic7" path="res://assets/scenes/jumpscares/toy_sonic_jumpscare.tscn" id="25_avhca"]
+[ext_resource type="PackedScene" uid="uid://c40m2qp57fkfq" path="res://assets/scenes/jumpscares/toy_mario_jumpscare.tscn" id="26_23c6t"]
+[ext_resource type="PackedScene" uid="uid://dr3viuc0mfqks" path="res://assets/scenes/jumpscares/toy_yoshi_jumpscare.tscn" id="27_d0kvs"]
+[ext_resource type="PackedScene" uid="uid://c76hjgljtjud3" path="res://assets/scenes/jumpscares/taingle_jumpscare.tscn" id="28_nnut1"]
+[ext_resource type="PackedScene" uid="uid://dk7im18ffh3im" path="res://assets/scenes/jumpscares/salvage_jumpscare.tscn" id="29_w7yyf"]
+[ext_resource type="PackedScene" uid="uid://b6thg0dlx12x4" path="res://assets/scenes/jumpscares/cream_jumpscare.tscn" id="30_66t5s"]
+[ext_resource type="PackedScene" uid="uid://cddsbqwxivvqq" path="res://assets/scenes/jumpscares/knuckles_jumpscare.tscn" id="31_87hia"]
+[ext_resource type="PackedScene" uid="uid://0qgewt0ek6yk" path="res://assets/scenes/jumpscares/luiginette_jumpscare.tscn" id="32_md255"]
 
 [node name="Extras" type="Node" unique_id=2092156553]
 script = ExtResource("1_0rbc8")
@@ -65,75 +84,78 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="ToySonic" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=6166214]
-position = Vector2(792, 400)
+position = Vector2(800, 400)
 texture = ExtResource("4_7lue8")
 metadata/_edit_lock_ = true
 
 [node name="ToyMario" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1321877178]
 visible = false
-position = Vector2(768, 407)
+position = Vector2(800, 400)
 texture = ExtResource("5_vqcuw")
 metadata/_edit_lock_ = true
 
 [node name="ToyYoshi" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=153773769]
 visible = false
-position = Vector2(720, 477)
+position = Vector2(770, 463)
 texture = ExtResource("6_i6uxt")
 metadata/_edit_lock_ = true
 
 [node name="Taingle" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1847452480]
 visible = false
-position = Vector2(776, 432)
+position = Vector2(755, 387)
 texture = ExtResource("7_sykmn")
 metadata/_edit_lock_ = true
 
 [node name="BalloonToad" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1167600699]
 visible = false
-position = Vector2(760, 519)
+position = Vector2(775, 530)
 texture = ExtResource("8_iaugt")
 metadata/_edit_lock_ = true
 
 [node name="SalvageSonic" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1628378170]
 visible = false
-position = Vector2(768, 427)
+position = Vector2(770, 436)
 texture = ExtResource("9_flh7o")
 metadata/_edit_lock_ = true
 
 [node name="Cream" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=896994484]
 visible = false
-position = Vector2(800, 405)
+position = Vector2(770, 398)
 texture = ExtResource("10_dicrh")
 metadata/_edit_lock_ = true
 
 [node name="Knuckles" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1836344763]
 visible = false
-position = Vector2(824, 412)
+position = Vector2(785, 421)
 texture = ExtResource("11_ue6ic")
 metadata/_edit_lock_ = true
 
 [node name="TailsDoll" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=2122267906]
 visible = false
-position = Vector2(776, 361)
+position = Vector2(750, 380)
 texture = ExtResource("12_7nvy2")
 metadata/_edit_lock_ = true
 
 [node name="Luiginette" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1499776000]
 visible = false
-position = Vector2(768, 364)
+position = Vector2(775, 373)
 texture = ExtResource("13_oni57")
 metadata/_edit_lock_ = true
 
 [node name="CharacterName" type="Label" parent="Control/Characters" unique_id=598782624]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.6
+anchor_left = 0.60300004
 anchor_top = 0.089
-anchor_right = 0.6
+anchor_right = 0.60300004
 anchor_bottom = 0.089
-offset_left = -320.0
+offset_left = -323.8401
 offset_top = -64.08
-offset_right = 320.0
+offset_right = 324.1599
 offset_bottom = 63.92
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 text = "Nightmare Toy Sonic"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -176,6 +198,250 @@ text = ">>"
 metadata/_edit_lock_ = true
 
 [node name="ButtonComponent" type="Node" parent="Control/Characters/Right" unique_id=188178972]
+script = ExtResource("4_ufd8u")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Jumpscares" type="Control" parent="Control" unique_id=648075350]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Buttons" type="GridContainer" parent="Control/Jumpscares" unique_id=27537004]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.4
+anchor_right = 0.625
+anchor_bottom = 0.4
+offset_left = -416.0
+offset_top = -224.0
+offset_right = 416.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+columns = 5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sonic" type="TextureButton" parent="Control/Jumpscares/Buttons" unique_id=1300823926 node_paths=PackedStringArray("jumpscare_animation", "input_locker")]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("15_bnuqy")
+script = ExtResource("16_f47u7")
+jumpscare_sound_name = "Sonic_Jumpscare"
+jumpscare_animation = NodePath("../../Jumpscares/ToySonic_Jumpscare")
+input_locker = NodePath("../../../../InputLocker")
+metadata/_edit_lock_ = true
+
+[node name="Mario" type="TextureButton" parent="Control/Jumpscares/Buttons" unique_id=241844105 node_paths=PackedStringArray("jumpscare_animation", "input_locker")]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("16_0ptlu")
+script = ExtResource("16_f47u7")
+jumpscare_sound_name = "Mario_Jumpscare"
+jumpscare_animation = NodePath("../../Jumpscares/ToyMario_Jumpscare")
+input_locker = NodePath("../../../../InputLocker")
+metadata/_edit_lock_ = true
+
+[node name="Yoshi" type="TextureButton" parent="Control/Jumpscares/Buttons" unique_id=712146664 node_paths=PackedStringArray("jumpscare_animation", "input_locker")]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("17_f47u7")
+script = ExtResource("16_f47u7")
+jumpscare_sound_name = "Yoshi_Jumpscare"
+jumpscare_animation = NodePath("../../Jumpscares/ToyYoshi_Jumpscare")
+input_locker = NodePath("../../../../InputLocker")
+metadata/_edit_lock_ = true
+
+[node name="Tails" type="TextureButton" parent="Control/Jumpscares/Buttons" unique_id=913745133 node_paths=PackedStringArray("jumpscare_animation", "input_locker")]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("18_ypsf1")
+script = ExtResource("16_f47u7")
+jumpscare_sound_name = "Taingle_Jumpscare"
+jumpscare_animation = NodePath("../../Jumpscares/Taingle_Jumpscare")
+input_locker = NodePath("../../../../InputLocker")
+metadata/_edit_lock_ = true
+
+[node name="BT" type="TextureButton" parent="Control/Jumpscares/Buttons" unique_id=1511337273]
+modulate = Color(1, 1, 1, 0.1)
+layout_mode = 2
+focus_mode = 0
+disabled = true
+action_mode = 0
+texture_normal = ExtResource("19_8chp6")
+metadata/_edit_lock_ = true
+
+[node name="Salvage" type="TextureButton" parent="Control/Jumpscares/Buttons" unique_id=1039935391 node_paths=PackedStringArray("jumpscare_animation", "input_locker")]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("20_v5gkh")
+script = ExtResource("16_f47u7")
+jumpscare_sound_name = "Salvage_Jumpscare"
+jumpscare_animation = NodePath("../../Jumpscares/Salvage_Jumpscare")
+input_locker = NodePath("../../../../InputLocker")
+metadata/_edit_lock_ = true
+
+[node name="Cream" type="TextureButton" parent="Control/Jumpscares/Buttons" unique_id=582513201 node_paths=PackedStringArray("jumpscare_animation", "input_locker")]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("21_fkx22")
+script = ExtResource("16_f47u7")
+jumpscare_sound_name = "Cream_Jumpscare"
+jumpscare_animation = NodePath("../../Jumpscares/Cream_Jumpscare")
+input_locker = NodePath("../../../../InputLocker")
+metadata/_edit_lock_ = true
+
+[node name="Knuckles" type="TextureButton" parent="Control/Jumpscares/Buttons" unique_id=716928804 node_paths=PackedStringArray("jumpscare_animation", "input_locker")]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("22_x631b")
+script = ExtResource("16_f47u7")
+jumpscare_sound_name = "Knuckles_Jumpscare"
+jumpscare_animation = NodePath("../../Jumpscares/Knuckles_Jumpscare")
+input_locker = NodePath("../../../../InputLocker")
+metadata/_edit_lock_ = true
+
+[node name="TailsDoll" type="TextureButton" parent="Control/Jumpscares/Buttons" unique_id=732728290]
+modulate = Color(1, 1, 1, 0.1)
+layout_mode = 2
+focus_mode = 0
+disabled = true
+action_mode = 0
+texture_normal = ExtResource("23_7p8s4")
+metadata/_edit_lock_ = true
+
+[node name="Luiginette" type="TextureButton" parent="Control/Jumpscares/Buttons" unique_id=1491392679 node_paths=PackedStringArray("jumpscare_animation", "input_locker")]
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("24_7mn4y")
+script = ExtResource("16_f47u7")
+jumpscare_sound_name = "Luigi_Jumpscare"
+jumpscare_animation = NodePath("../../Jumpscares/Luiginette_Jumpscare")
+input_locker = NodePath("../../../../InputLocker")
+metadata/_edit_lock_ = true
+
+[node name="Jumpscares" type="Node2D" parent="Control/Jumpscares" unique_id=1430025720]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="ToySonic_Jumpscare" parent="Control/Jumpscares/Jumpscares" unique_id=2057591390 instance=ExtResource("25_avhca")]
+go_to_gameover = false
+
+[node name="ToyMario_Jumpscare" parent="Control/Jumpscares/Jumpscares" unique_id=1689145985 instance=ExtResource("26_23c6t")]
+go_to_gameover = false
+
+[node name="ToyYoshi_Jumpscare" parent="Control/Jumpscares/Jumpscares" unique_id=331362373 instance=ExtResource("27_d0kvs")]
+go_to_gameover = false
+
+[node name="Taingle_Jumpscare" parent="Control/Jumpscares/Jumpscares" unique_id=910589855 instance=ExtResource("28_nnut1")]
+go_to_gameover = false
+
+[node name="Salvage_Jumpscare" parent="Control/Jumpscares/Jumpscares" unique_id=1204181608 instance=ExtResource("29_w7yyf")]
+go_to_gameover = false
+
+[node name="Cream_Jumpscare" parent="Control/Jumpscares/Jumpscares" unique_id=1063492713 instance=ExtResource("30_66t5s")]
+go_to_gameover = false
+
+[node name="Knuckles_Jumpscare" parent="Control/Jumpscares/Jumpscares" unique_id=1409463115 instance=ExtResource("31_87hia")]
+go_to_gameover = false
+
+[node name="Luiginette_Jumpscare" parent="Control/Jumpscares/Jumpscares" unique_id=1579632227 instance=ExtResource("32_md255")]
+go_to_gameover = false
+
+[node name="OldNights" type="Control" parent="Control" unique_id=553501683]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Stuff" type="MarginContainer" parent="Control/OldNights" unique_id=1716325633]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.5
+anchor_right = 0.6
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -328.0
+offset_right = 192.0
+offset_bottom = 328.0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Buttons" type="VBoxContainer" parent="Control/OldNights/Stuff" unique_id=728867799]
+layout_mode = 2
+theme_override_constants/separation = 130
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Night1" type="Button" parent="Control/OldNights/Stuff/Buttons" unique_id=1289796490]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 64
+action_mode = 0
+text = "Night 1"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/OldNights/Stuff/Buttons/Night1" unique_id=1098914375]
+script = ExtResource("4_ufd8u")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Night2" type="Button" parent="Control/OldNights/Stuff/Buttons" unique_id=42421072]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 64
+action_mode = 0
+text = "Night 2"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/OldNights/Stuff/Buttons/Night2" unique_id=1190511194]
+script = ExtResource("4_ufd8u")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Night3" type="Button" parent="Control/OldNights/Stuff/Buttons" unique_id=165979532]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 64
+action_mode = 0
+text = "Night 3"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/OldNights/Stuff/Buttons/Night3" unique_id=225456363]
+script = ExtResource("4_ufd8u")
+metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Night4" type="Button" parent="Control/OldNights/Stuff/Buttons" unique_id=1330413021]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 64
+action_mode = 0
+text = "Night 4"
+metadata/_edit_lock_ = true
+
+[node name="ButtonComponent" type="Node" parent="Control/OldNights/Stuff/Buttons/Night4" unique_id=322997381]
 script = ExtResource("4_ufd8u")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
 
@@ -306,4 +572,23 @@ stream = ExtResource("2_fj8mu")
 autoplay = true
 bus = &"Music"
 
+[node name="InputLocker" type="Control" parent="." unique_id=1406982437]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Control/Characters/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Control/Characters/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="Control/OldNights/Stuff/Buttons/Night1" to="." method="_on_night_1_pressed"]
+[connection signal="pressed" from="Control/OldNights/Stuff/Buttons/Night2" to="." method="_on_night_2_pressed"]
+[connection signal="pressed" from="Control/OldNights/Stuff/Buttons/Night3" to="." method="_on_night_3_pressed"]
+[connection signal="pressed" from="Control/OldNights/Stuff/Buttons/Night4" to="." method="_on_night_4_pressed"]
+[connection signal="pressed" from="Control/Buttons/Chars" to="." method="_on_chars_pressed"]
+[connection signal="pressed" from="Control/Buttons/Jumpscares" to="." method="_on_jumpscares_pressed"]
+[connection signal="pressed" from="Control/Buttons/OldNights" to="." method="_on_old_nights_pressed"]
 [connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
