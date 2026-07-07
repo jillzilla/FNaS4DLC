@@ -61,7 +61,7 @@ metadata/_edit_lock_ = true
 
 [node name="Video" type="Button" parent="ThingsContainer" unique_id=517420505]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 focus_mode = 0
 theme_override_font_sizes/font_size = 48
 action_mode = 0
@@ -74,7 +74,7 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Audio" type="Button" parent="ThingsContainer" unique_id=1742554771]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 focus_mode = 0
 theme_override_font_sizes/font_size = 48
 action_mode = 0
@@ -87,7 +87,7 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Input" type="Button" parent="ThingsContainer" unique_id=527476175]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 focus_mode = 0
 theme_override_font_sizes/font_size = 48
 action_mode = 0
@@ -100,7 +100,7 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Misc" type="Button" parent="ThingsContainer" unique_id=1351888968]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 focus_mode = 0
 theme_override_font_sizes/font_size = 48
 action_mode = 0
