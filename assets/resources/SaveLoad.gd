@@ -42,3 +42,8 @@ class_name SaveDataResource extends Resource
 }
 
 @export var night7ending: bool = false;
+
+@export var aggressive_mode: bool = false;
+@export var limited_vision: bool = false;
+@export var limited_flashlight: bool = false;
+@export var slower_nights: bool = false;

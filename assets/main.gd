@@ -437,6 +437,13 @@ var luiginette_setup: Dictionary[int, Dictionary] = {
 	},
 }
 
+var modifiers_descriptions : Dictionary[String, String] = {
+	"AGGRESSIVE" : "",
+	"VISION" : "",
+	"FLASHLIGHT" : "",
+	"SLOWNIGHTS" : "",
+}
+
 #functions
 func _ready() -> void:
 	_load();
@@ -478,6 +485,10 @@ func _save() -> void:
 		"night_6_ending": save_data_file.night6ending,
 		"custom_night_challenges": save_data_file.custom_night_challenges,
 		"night_7_ending": save_data_file.night7ending,
+		"aggressive_mode": save_data_file.aggressive_mode,
+		"limited_vision": save_data_file.limited_vision,
+		"limited_flashlight": save_data_file.limited_flashlight,
+		"slower_nights": save_data_file.slower_nights,
 	}
 	
 	var data_to_json: String = JSON.stringify(data_to_save);
@@ -521,6 +532,11 @@ func _load() -> void:
 				save_data_file.custom_night_challenges[_get_challenges_as_array()[i]] = data.custom_night_challenges[_get_challenges_as_array()[i]];
 
 		save_data_file.night7ending = data.night_7_ending;
+
+		save_data_file.aggressive_mode = data.aggressive_mode;
+		save_data_file.limited_vision = data.limited_vision;
+		save_data_file.limited_flashlight = data.limited_flashlight;
+		save_data_file.slower_nights = data.slower_nights;
 
 		print(data);
 		

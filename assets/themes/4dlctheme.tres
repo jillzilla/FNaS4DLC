@@ -1,8 +1,15 @@
 [gd_resource type="Theme" format=3 uid="uid://bimtu1eae6ilp"]
 
 [ext_resource type="FontFile" uid="uid://d2a6fttewcype" path="res://assets/fonts/SUBWT___.ttf" id="1_m6h28"]
+[ext_resource type="Texture2D" uid="uid://kewrxuhukurd" path="res://assets/images/misc/check_box_2.png" id="1_xhluh"]
+[ext_resource type="Texture2D" uid="uid://bl3n8daflj88" path="res://assets/images/misc/check_box_1.png" id="2_x517q"]
+[ext_resource type="Texture2D" uid="uid://ourl2sqmkkbe" path="res://assets/images/misc/slider_pointer.png" id="3_x517q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6h28"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_f47u7"]
+color = Color(0.3019608, 0.42745098, 0.9529412, 1)
+thickness = 4
 
 [resource]
 default_font = ExtResource("1_m6h28")
@@ -17,4 +24,11 @@ Button/styles/focus = SubResource("StyleBoxEmpty_m6h28")
 Button/styles/hover = SubResource("StyleBoxEmpty_m6h28")
 Button/styles/normal = SubResource("StyleBoxEmpty_m6h28")
 Button/styles/pressed = SubResource("StyleBoxEmpty_m6h28")
+CheckBox/icons/checked = ExtResource("1_xhluh")
+CheckBox/icons/unchecked = ExtResource("2_x517q")
+HSlider/icons/grabber = ExtResource("3_x517q")
+HSlider/icons/grabber_highlight = ExtResource("3_x517q")
+HSlider/styles/grabber_area = SubResource("StyleBoxLine_f47u7")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_f47u7")
+HSlider/styles/slider = SubResource("StyleBoxLine_f47u7")
 Label/colors/font_color = Color(0.827451, 0.45882353, 1, 1)

@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://b6thg0dlx12x4" path="res://assets/scenes/jumpscares/cream_jumpscare.tscn" id="30_66t5s"]
 [ext_resource type="PackedScene" uid="uid://cddsbqwxivvqq" path="res://assets/scenes/jumpscares/knuckles_jumpscare.tscn" id="31_87hia"]
 [ext_resource type="PackedScene" uid="uid://0qgewt0ek6yk" path="res://assets/scenes/jumpscares/luiginette_jumpscare.tscn" id="32_md255"]
+[ext_resource type="Theme" uid="uid://dv17usjw8ic3f" path="res://assets/themes/fancy.tres" id="34_f47u7"]
 
 [node name="Extras" type="Node" unique_id=2092156553]
 script = ExtResource("1_0rbc8")
@@ -380,25 +381,26 @@ metadata/_edit_group_ = true
 [node name="Stuff" type="MarginContainer" parent="Control/OldNights" unique_id=1716325633]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.6
-anchor_top = 0.5
-anchor_right = 0.6
-anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -328.0
-offset_right = 192.0
-offset_bottom = 328.0
+anchor_left = 0.65000004
+anchor_top = 0.44400004
+anchor_right = 0.65000004
+anchor_bottom = 0.44400004
+offset_left = -192.00006
+offset_top = -255.68002
+offset_right = 191.99994
+offset_bottom = 256.31998
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Buttons" type="VBoxContainer" parent="Control/OldNights/Stuff" unique_id=728867799]
 layout_mode = 2
-theme_override_constants/separation = 130
+theme_override_constants/separation = 64
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Night1" type="Button" parent="Control/OldNights/Stuff/Buttons" unique_id=1289796490]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 64
 action_mode = 0
@@ -411,6 +413,7 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Night2" type="Button" parent="Control/OldNights/Stuff/Buttons" unique_id=42421072]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 64
 action_mode = 0
@@ -423,6 +426,7 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Night3" type="Button" parent="Control/OldNights/Stuff/Buttons" unique_id=165979532]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 64
 action_mode = 0
@@ -435,6 +439,7 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Night4" type="Button" parent="Control/OldNights/Stuff/Buttons" unique_id=1330413021]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 64
 action_mode = 0
@@ -444,6 +449,142 @@ metadata/_edit_lock_ = true
 [node name="ButtonComponent" type="Node" parent="Control/OldNights/Stuff/Buttons/Night4" unique_id=322997381]
 script = ExtResource("4_ufd8u")
 metadata/_custom_type_script = "uid://djncuditdkxsm"
+
+[node name="Modifiers" type="Control" parent="Control" unique_id=2121000518]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="StuffContainer" type="MarginContainer" parent="Control/Modifiers" unique_id=857287084]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.675
+anchor_top = 0.26700002
+anchor_right = 0.675
+anchor_bottom = 0.26700002
+offset_left = -224.0
+offset_top = -128.24002
+offset_right = 224.0
+offset_bottom = 127.75998
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Buttons" type="VBoxContainer" parent="Control/Modifiers/StuffContainer" unique_id=1816666835]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Aggressive" type="HBoxContainer" parent="Control/Modifiers/StuffContainer/Buttons" unique_id=995063564]
+layout_mode = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/Modifiers/StuffContainer/Buttons/Aggressive" unique_id=1458127115]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Super Sonic Speed: "
+metadata/_edit_lock_ = true
+
+[node name="CheckBox" type="CheckBox" parent="Control/Modifiers/StuffContainer/Buttons/Aggressive" unique_id=1730359130]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+action_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="LimitedVision" type="HBoxContainer" parent="Control/Modifiers/StuffContainer/Buttons" unique_id=598444590]
+layout_mode = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/Modifiers/StuffContainer/Buttons/LimitedVision" unique_id=706472849]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Limited Vision: "
+metadata/_edit_lock_ = true
+
+[node name="CheckBox" type="CheckBox" parent="Control/Modifiers/StuffContainer/Buttons/LimitedVision" unique_id=323102094]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+action_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="LimitedFlashlight" type="HBoxContainer" parent="Control/Modifiers/StuffContainer/Buttons" unique_id=1390833758]
+layout_mode = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/Modifiers/StuffContainer/Buttons/LimitedFlashlight" unique_id=839429232]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Powered Flashlight: "
+metadata/_edit_lock_ = true
+
+[node name="CheckBox" type="CheckBox" parent="Control/Modifiers/StuffContainer/Buttons/LimitedFlashlight" unique_id=718726437]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+action_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="SlowNights" type="HBoxContainer" parent="Control/Modifiers/StuffContainer/Buttons" unique_id=1202528797]
+layout_mode = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/Modifiers/StuffContainer/Buttons/SlowNights" unique_id=721926764]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Slow Nights: "
+metadata/_edit_lock_ = true
+
+[node name="CheckBox" type="CheckBox" parent="Control/Modifiers/StuffContainer/Buttons/SlowNights" unique_id=1892820085]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+action_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="Descriptions" type="Label" parent="Control/Modifiers" unique_id=1031178452]
+custom_minimum_size = Vector2(584, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.675
+anchor_top = 0.66700006
+anchor_right = 0.675
+anchor_bottom = 0.66700006
+offset_left = -352.0
+offset_top = -96.24005
+offset_right = 352.0
+offset_bottom = 95.75995
+theme = ExtResource("34_f47u7")
+theme_override_font_sizes/font_size = 24
+text = "Hover over a modifier to see its description."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
 
 [node name="Title" type="Label" parent="Control" unique_id=644116217]
 layout_mode = 1
@@ -567,11 +708,6 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 [node name="Loading" parent="." unique_id=220536216 instance=ExtResource("5_fj8mu")]
 visible = false
 
-[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1892507387]
-stream = ExtResource("2_fj8mu")
-autoplay = true
-bus = &"Music"
-
 [node name="InputLocker" type="Control" parent="." unique_id=1406982437]
 visible = false
 layout_mode = 3
@@ -582,13 +718,27 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1892507387]
+stream = ExtResource("2_fj8mu")
+autoplay = true
+bus = &"Music"
+
 [connection signal="pressed" from="Control/Characters/Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="Control/Characters/Right" to="." method="_on_right_pressed"]
 [connection signal="pressed" from="Control/OldNights/Stuff/Buttons/Night1" to="." method="_on_night_1_pressed"]
 [connection signal="pressed" from="Control/OldNights/Stuff/Buttons/Night2" to="." method="_on_night_2_pressed"]
 [connection signal="pressed" from="Control/OldNights/Stuff/Buttons/Night3" to="." method="_on_night_3_pressed"]
 [connection signal="pressed" from="Control/OldNights/Stuff/Buttons/Night4" to="." method="_on_night_4_pressed"]
+[connection signal="mouse_entered" from="Control/Modifiers/StuffContainer/Buttons/Aggressive/CheckBox" to="." method="_on_aggressive_check_box_mouse_entered"]
+[connection signal="toggled" from="Control/Modifiers/StuffContainer/Buttons/Aggressive/CheckBox" to="." method="_on_aggressive_check_box_toggled"]
+[connection signal="mouse_entered" from="Control/Modifiers/StuffContainer/Buttons/LimitedVision/CheckBox" to="." method="_on_vision_check_box_mouse_entered"]
+[connection signal="toggled" from="Control/Modifiers/StuffContainer/Buttons/LimitedVision/CheckBox" to="." method="_on_vision_check_box_toggled"]
+[connection signal="mouse_entered" from="Control/Modifiers/StuffContainer/Buttons/LimitedFlashlight/CheckBox" to="." method="_on_flashlight_check_box_mouse_entered"]
+[connection signal="toggled" from="Control/Modifiers/StuffContainer/Buttons/LimitedFlashlight/CheckBox" to="." method="_on_flashlight_check_box_toggled"]
+[connection signal="mouse_entered" from="Control/Modifiers/StuffContainer/Buttons/SlowNights/CheckBox" to="." method="_on_slow_nights_check_box_mouse_entered"]
+[connection signal="toggled" from="Control/Modifiers/StuffContainer/Buttons/SlowNights/CheckBox" to="." method="_on_slownight_check_box_toggled"]
 [connection signal="pressed" from="Control/Buttons/Chars" to="." method="_on_chars_pressed"]
 [connection signal="pressed" from="Control/Buttons/Jumpscares" to="." method="_on_jumpscares_pressed"]
+[connection signal="pressed" from="Control/Buttons/Challenges" to="." method="_on_challenges_pressed"]
 [connection signal="pressed" from="Control/Buttons/OldNights" to="." method="_on_old_nights_pressed"]
 [connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
