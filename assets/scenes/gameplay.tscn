@@ -158,6 +158,7 @@
 [ext_resource type="PackedScene" uid="uid://0qgewt0ek6yk" path="res://assets/scenes/jumpscares/luiginette_jumpscare.tscn" id="125_ur2gg"]
 [ext_resource type="PackedScene" uid="uid://cddsbqwxivvqq" path="res://assets/scenes/jumpscares/knuckles_jumpscare.tscn" id="126_rcbs0"]
 [ext_resource type="AudioStream" uid="uid://bd7c4pnibh3u8" path="res://assets/sounds/LuigiWalking.ogg" id="134_dpljo"]
+[ext_resource type="Texture2D" uid="uid://c6470raemkssq" path="res://assets/images/misc/small_flashlight.png" id="145_0cufr"]
 
 [sub_resource type="Animation" id="Animation_wrac7"]
 resource_name = "WalkCycle"
@@ -2345,6 +2346,15 @@ metadata/_edit_lock_ = true
 [node name="Dark" type="Sprite2D" parent="Rooms/Hallway" unique_id=1837365997]
 position = Vector2(0, -350)
 texture = ExtResource("13_qautv")
+metadata/_edit_lock_ = true
+
+[node name="Darkness" type="CanvasModulate" parent="Rooms" unique_id=1487236632]
+metadata/_edit_lock_ = true
+
+[node name="SecondaryFlashlight" type="PointLight2D" parent="Rooms" unique_id=698619052]
+visible = false
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("145_0cufr")
 metadata/_edit_lock_ = true
 
 [node name="Buttons" type="Node" parent="." unique_id=1709933186]

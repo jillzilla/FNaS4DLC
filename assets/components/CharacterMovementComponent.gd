@@ -45,7 +45,7 @@ signal character_moved;
 @export var flashlight_right_vent: FlashlightComponent;
 @export var flashlight_ceiling: FlashlightComponent;
 @export var flashlight_hallway: FlashlightComponent;
-@export var turn_off_flashlight_in_hallway_when : int = 0;
+@export var turn_off_flashlight_in_hallway_when: int = 0;
 
 @export_group("Audio")
 @export var left_vent: AudioStreamPlayer2D;
@@ -54,9 +54,9 @@ signal character_moved;
 @export var leave_vent_sound: AudioStreamPlayer;
 
 @export_group("Other")
-@export var can_move_when_hiding : bool = false;
+@export var can_move_when_hiding: bool = false;
 @export var character_fadeaway_transition: AnimationPlayer;
-@export var let_external_component_handle_direction : bool = false;
+@export var let_external_component_handle_direction: bool = false;
 
 var current_direction: String = "";
 
@@ -90,7 +90,10 @@ func _physics_process(delta: float) -> void:
 	if main.ai_levels[character_ai_level_id] > 0 && !pause && !disabled && player_component.is_alive:
 		if can_move_when_hiding && player_component.characters_walking_on_desk == [] || !can_move_when_hiding:
 			if current_position < max_positions_in_directions[current_direction]:
-				step += delta * main.ai_levels[character_ai_level_id];
+				if !main.save_data_file.aggressive_mode:
+					step += delta * main.ai_levels[character_ai_level_id];
+				else:
+					step += delta * main.ai_levels[character_ai_level_id] * 1.05;
 				if step >= movement_timer:
 					step = 0;
 					current_position += 1;

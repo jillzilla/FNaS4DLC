@@ -13,6 +13,9 @@ var clock_iteration: int = 0;
 
 #functions
 func _ready() -> void:
+	if main.save_data_file.slower_nights:
+		clock_timer.wait_time = 60;
+		clock_timer.start();
 	DiscordManager._update_state(clock_outputs[clock_iteration]);
 	clock_timer.connect("timeout", _clock_timer_timeout);
 
