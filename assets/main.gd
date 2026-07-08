@@ -485,6 +485,7 @@ func _save() -> void:
 		"night_6_ending": save_data_file.night6ending,
 		"custom_night_challenges": save_data_file.custom_night_challenges,
 		"night_7_ending": save_data_file.night7ending,
+		"max_mode_with_modifiers" : save_data_file.max_mode_with_modifiers,
 		"aggressive_mode": save_data_file.aggressive_mode,
 		"limited_vision": save_data_file.limited_vision,
 		"limited_flashlight": save_data_file.limited_flashlight,
@@ -532,6 +533,7 @@ func _load() -> void:
 				save_data_file.custom_night_challenges[_get_challenges_as_array()[i]] = data.custom_night_challenges[_get_challenges_as_array()[i]];
 
 		save_data_file.night7ending = data.night_7_ending;
+		save_data_file.max_mode_with_modifiers = data.max_mode_with_modifiers;
 
 		save_data_file.aggressive_mode = data.aggressive_mode;
 		save_data_file.limited_vision = data.limited_vision;

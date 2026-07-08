@@ -9,6 +9,7 @@ extends Node
 @onready var star1: Sprite2D = $UI/Control/Star_1;
 @onready var star2: Sprite2D = $UI/Control/Star_2;
 @onready var star3: Sprite2D = $UI/Control/Star_3;
+@onready var platinum_star: Sprite2D = $UI/Control/Star_16;
 
 @onready var night6button: Button = $UI/Control/ButtonsContainer/MainButtons/Night6;
 @onready var customnightbutton: Button = $UI/Control/ButtonsContainer/MainButtons/CustomNight;
@@ -36,6 +37,9 @@ func _ready() -> void:
 	
 	if main.save_data_file.guideunlocked:
 		guidebutton.show();
+
+	if main.save_data_file.max_mode_with_modifiers:
+		platinum_star.show();
 	
 	if main.save_data_file.night7ending:
 		if !main.save_data_file.night6ending:

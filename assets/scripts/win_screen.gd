@@ -42,6 +42,9 @@ func _ready() -> void:
 				if !main.save_data_file.night7ending:
 					RewardUnlockPopup.add_to_queue("Gold Star", "uid://c56g28iss4uvm");
 					main.save_data_file.night7ending = true;
+				if !main.save_data_file.max_mode_with_modifiers && main.save_data_file.aggressive_mode && main.save_data_file.limited_vision && main.save_data_file.limited_flashlight && main.save_data_file.slower_nights:
+					RewardUnlockPopup.add_to_queue("Platinum Star", "uid://dxmgwfp2qqcae");
+					main.save_data_file.max_mode_with_modifiers = true;
 			if main.cnchallenge != "Custom Night" && main.cnchallenge != "":
 				if !main.save_data_file.custom_night_challenges[main.cnchallenge]:
 					if main.cnchallenge != "Hammer Heartbreak II":
