@@ -37,4 +37,7 @@ func _change_game_to_f4dlc() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
     if anim_name == "Animation P2":
+        if !main.save_data_file.seen_ending:
+            main.save_data_file.seen_ending = true;
+            main._save();
         loading._load_scene("uid://cl7jf3xdjegaf");

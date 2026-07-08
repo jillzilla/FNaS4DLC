@@ -58,6 +58,9 @@ func _ready() -> void:
 		extrasbutton.show();
 	
 	if main.save_data_file.night5ending:
+		if !main.save_data_file.guideunlocked:
+			main.save_data_file.guideunlocked = true;
+			main._save();
 		night6button.show();
 		star1.show();
 

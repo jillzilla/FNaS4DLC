@@ -66,7 +66,7 @@ func _on_timer_timeout() -> void:
 	clockanimation.play("lowtaperfade");
 
 func _get_next_scene() -> String:
-	if main.nightcounter < 5 && main.save_data_file.night5ending || main.nightcounter == 7 && main.cnchallenge != "Hammer Heartbreak II":
+	if main.nightcounter < 5 && main.save_data_file.night5ending || main.nightcounter == 7 && main.cnchallenge != "Hammer Heartbreak II" || main.nightcounter == 7 && main.cnchallenge == "Hammer Heartbreak II" && main.save_data_file.aggressive_mode && main.save_data_file.limited_vision && main.save_data_file.limited_flashlight && main.save_data_file.slower_nights && main.save_data_file.seen_ending:
 		return "uid://cl7jf3xdjegaf";
 	elif main.nightcounter == 5:
 		return "uid://cm7mi8q4xlx5k";
