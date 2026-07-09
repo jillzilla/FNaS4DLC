@@ -6,6 +6,7 @@ extends Node
 
 @onready var secondary_flashlight: PointLight2D = $Rooms/SecondaryFlashlight;
 @onready var darkness: CanvasModulate = $Rooms/Darkness;
+@onready var max_mode_music: AudioStreamPlayer = $Sounds/MaxModeMusic;
 
 #functions
 func _ready() -> void:
@@ -20,6 +21,9 @@ func _ready() -> void:
 	if main.save_data_file.limited_vision:
 		darkness.color = Color(0, 0, 0, 1);
 		secondary_flashlight.show();
+
+	if main.nightcounter == 7 && main.cnchallenge == "Hammer Heartbreak II" && main.save_data_file.aggressive_mode && main.save_data_file.limited_flashlight && main.save_data_file.limited_vision && main.save_data_file.slower_nights:
+		max_mode_music.play();
 	
 	for i in range(main._get_challenges_as_array().size()):
 		if main._get_challenges_as_array()[i] != "Custom Night":

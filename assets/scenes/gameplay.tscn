@@ -119,6 +119,7 @@
 [ext_resource type="Texture2D" uid="uid://bh8ts3kech7s" path="res://assets/images/gameplay/characters/nluigi/nluigidesk.png" id="55_k63c8"]
 [ext_resource type="Texture2D" uid="uid://c8kpf3v0f65rf" path="res://assets/images/gameplay/characters/tailsdoll/tailsdoll_eyes_ceiling.png" id="57_pou5s"]
 [ext_resource type="Texture2D" uid="uid://wokd4u00mmgi" path="res://assets/images/gameplay/characters/cream/cream1.png" id="58_y222l"]
+[ext_resource type="AudioStream" uid="uid://dl4opi5k306mf" path="res://assets/music/GalleryTheme.ogg" id="59_cmby1"]
 [ext_resource type="Texture2D" uid="uid://cgk4cko2kcsvn" path="res://assets/images/gameplay/characters/nluigi/nluigivents.png" id="60_dcs2j"]
 [ext_resource type="Texture2D" uid="uid://cqi2aeoi226vk" path="res://assets/images/gameplay/characters/nluigi/llhall1.png" id="61_p5pbk"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="62_bt1i2"]
@@ -1676,6 +1677,10 @@ panning_strength = 3.0
 bus = &"Sounds"
 metadata/_edit_lock_ = true
 
+[node name="MaxModeMusic" type="AudioStreamPlayer" parent="Sounds" unique_id=881432256]
+stream = ExtResource("59_cmby1")
+bus = &"Music"
+
 [node name="Rooms" type="Node" parent="." unique_id=1063837608]
 
 [node name="Office" type="Sprite2D" parent="Rooms" unique_id=1170553675]
@@ -2353,7 +2358,7 @@ metadata/_edit_lock_ = true
 
 [node name="SecondaryFlashlight" type="PointLight2D" parent="Rooms" unique_id=698619052]
 visible = false
-scale = Vector2(2.5, 2.5)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("145_0cufr")
 metadata/_edit_lock_ = true
 
