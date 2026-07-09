@@ -119,7 +119,7 @@
 [ext_resource type="Texture2D" uid="uid://bh8ts3kech7s" path="res://assets/images/gameplay/characters/nluigi/nluigidesk.png" id="55_k63c8"]
 [ext_resource type="Texture2D" uid="uid://c8kpf3v0f65rf" path="res://assets/images/gameplay/characters/tailsdoll/tailsdoll_eyes_ceiling.png" id="57_pou5s"]
 [ext_resource type="Texture2D" uid="uid://wokd4u00mmgi" path="res://assets/images/gameplay/characters/cream/cream1.png" id="58_y222l"]
-[ext_resource type="AudioStream" uid="uid://dl4opi5k306mf" path="res://assets/music/GalleryTheme.ogg" id="59_cmby1"]
+[ext_resource type="AudioStream" uid="uid://balmgi5oqtqmy" path="res://assets/music/FinalNightTheme.ogg" id="59_cmby1"]
 [ext_resource type="Texture2D" uid="uid://cgk4cko2kcsvn" path="res://assets/images/gameplay/characters/nluigi/nluigivents.png" id="60_dcs2j"]
 [ext_resource type="Texture2D" uid="uid://cqi2aeoi226vk" path="res://assets/images/gameplay/characters/nluigi/llhall1.png" id="61_p5pbk"]
 [ext_resource type="Theme" uid="uid://bimtu1eae6ilp" path="res://assets/themes/4dlctheme.tres" id="62_bt1i2"]
@@ -1319,9 +1319,13 @@ metadata/_custom_type_script = "uid://euwep6lcycwd"
 script = ExtResource("2_qj8ra")
 metadata/_custom_type_script = "uid://dxqook2amacs3"
 
-[node name="Player_Component" type="Node" parent="Components" unique_id=317123204]
+[node name="Player_Component" type="Node" parent="Components" unique_id=317123204 node_paths=PackedStringArray("flashlight_battery_drain_timer", "flashlight_battery_counter")]
 script = ExtResource("7_mliqa")
+flashlight_battery_drain_timer = NodePath("TimerFlashlightBatteryDrain")
+flashlight_battery_counter = NodePath("../../Misc/GUI/FlashlightBatteryCounter")
 metadata/_custom_type_script = "uid://dvtix3a1a3meg"
+
+[node name="TimerFlashlightBatteryDrain" type="Timer" parent="Components/Player_Component" unique_id=1200500019]
 
 [node name="HonkComponent" type="Node" parent="Components" unique_id=1194363726 node_paths=PackedStringArray("player_component", "button", "sound")]
 script = ExtResource("4_lmniu")
@@ -1616,6 +1620,10 @@ stream = ExtResource("50_71yt4")
 volume_db = -15.0
 bus = &"Sounds"
 
+[node name="MaxModeMusic" type="AudioStreamPlayer" parent="Sounds" unique_id=881432256]
+stream = ExtResource("59_cmby1")
+bus = &"Music"
+
 [node name="Luigi_Walk_Left" type="AudioStreamPlayer2D" parent="Sounds" unique_id=697889683]
 position = Vector2(0, 360)
 stream = ExtResource("134_dpljo")
@@ -1676,10 +1684,6 @@ stream = ExtResource("12_u4td0")
 panning_strength = 3.0
 bus = &"Sounds"
 metadata/_edit_lock_ = true
-
-[node name="MaxModeMusic" type="AudioStreamPlayer" parent="Sounds" unique_id=881432256]
-stream = ExtResource("59_cmby1")
-bus = &"Music"
 
 [node name="Rooms" type="Node" parent="." unique_id=1063837608]
 
@@ -2501,6 +2505,23 @@ speed_scale = 2.0
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("124_pou5s")
 centered = false
+metadata/_edit_lock_ = true
+
+[node name="FlashlightBatteryCounter" type="Label" parent="Misc/GUI" unique_id=2069192803]
+visible = false
+anchors_preset = -1
+anchor_left = 0.156
+anchor_top = 0.94400007
+anchor_right = 0.156
+anchor_bottom = 0.94400007
+offset_left = -183.68001
+offset_top = -23.680054
+offset_right = 184.31999
+offset_bottom = 24.319946
+theme = ExtResource("62_bt1i2")
+theme_override_font_sizes/font_size = 32
+text = "Power Left: 100%"
+vertical_alignment = 2
 metadata/_edit_lock_ = true
 
 [node name="Clock" type="Label" parent="Misc/GUI" unique_id=226524177]
