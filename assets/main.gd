@@ -485,7 +485,7 @@ func _save() -> void:
 		"night_6_ending": save_data_file.night6ending,
 		"custom_night_challenges": save_data_file.custom_night_challenges,
 		"night_7_ending": save_data_file.night7ending,
-		"seen_ending" : save_data_file.seen_ending,
+		"seen_ending": save_data_file.seen_ending,
 		"max_mode_with_modifiers": save_data_file.max_mode_with_modifiers,
 		"aggressive_mode": save_data_file.aggressive_mode,
 		"limited_vision": save_data_file.limited_vision,

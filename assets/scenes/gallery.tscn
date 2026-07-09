@@ -1,0 +1,1012 @@
+[gd_scene format=3 uid="uid://c2i34gr8bimsa"]
+
+[ext_resource type="AudioStream" uid="uid://dl4opi5k306mf" path="res://assets/music/GalleryTheme.ogg" id="1_51uyy"]
+[ext_resource type="Texture2D" uid="uid://do5mme4fq71mr" path="res://assets/images/gameplay/rooms/office.png" id="1_fngrn"]
+[ext_resource type="Script" uid="uid://cvrip3xhnug3e" path="res://assets/scripts/gallery.gd" id="1_rwaog"]
+[ext_resource type="Texture2D" uid="uid://ck6vwfytw3ase" path="res://assets/images/gameplay/rooms/camera_empty.png" id="2_spe00"]
+[ext_resource type="Texture2D" uid="uid://h2ybsto1u18a" path="res://assets/images/static/Layer 1.png" id="3_51uyy"]
+[ext_resource type="Texture2D" uid="uid://c6kb2g6kljsaa" path="res://assets/images/gameplay/rooms/left_vent.png" id="4_4c53b"]
+[ext_resource type="Texture2D" uid="uid://cvie5h5snq23a" path="res://assets/images/gameplay/characters/bt/bt2.png" id="4_i68km"]
+[ext_resource type="Texture2D" uid="uid://3u6a6jjm704p" path="res://assets/images/gameplay/characters/salvage/ss1.png" id="5_l7mao"]
+[ext_resource type="Texture2D" uid="uid://2a1g4hdo3rql" path="res://assets/images/gameplay/rooms/right_vent.png" id="5_xkols"]
+[ext_resource type="Texture2D" uid="uid://1jfqrmyfgxtv" path="res://assets/images/gameplay/rooms/ceiling.png" id="6_d3ujw"]
+[ext_resource type="Texture2D" uid="uid://cqi2aeoi226vk" path="res://assets/images/gameplay/characters/nluigi/llhall1.png" id="6_i68km"]
+[ext_resource type="Texture2D" uid="uid://dd56tc7irhp2r" path="res://assets/images/gameplay/rooms/flashlight/vent_on.png" id="7_nqymp"]
+[ext_resource type="Texture2D" uid="uid://d23jw7vmq03lb" path="res://assets/images/gameplay/rooms/hallway.png" id="7_of3a2"]
+[ext_resource type="Texture2D" uid="uid://cic2otcgaxvtk" path="res://assets/images/gameplay/characters/salvage/ss2.png" id="7_u8iic"]
+[ext_resource type="Texture2D" uid="uid://uim4fau6yu2k" path="res://assets/images/gameplay/characters/nluigi/llhall2.png" id="8_lqx2y"]
+[ext_resource type="Texture2D" uid="uid://25ibt2ltkgin" path="res://assets/images/misc/vignette.tres" id="8_spe00"]
+[ext_resource type="Texture2D" uid="uid://d1weco57ks3nc" path="res://assets/images/gameplay/characters/salvage/ss3.png" id="9_es6ui"]
+[ext_resource type="Texture2D" uid="uid://de82r5st7u7c2" path="res://assets/images/gameplay/characters/nluigi/llhall3.png" id="10_1xqbg"]
+[ext_resource type="Theme" uid="uid://dv17usjw8ic3f" path="res://assets/themes/fancy.tres" id="10_4c53b"]
+[ext_resource type="Texture2D" uid="uid://c6rjhmv2s0mpc" path="res://assets/images/gameplay/rooms/flashlight/ceiling_on.png" id="10_r5520"]
+[ext_resource type="Texture2D" uid="uid://dpqu8d0aejsjm" path="res://assets/images/gameplay/characters/salvage/ss4.png" id="11_qtkm2"]
+[ext_resource type="Texture2D" uid="uid://cyq7cdc4b11kp" path="res://assets/images/customnight/ntsIcon.png" id="11_xkols"]
+[ext_resource type="Texture2D" uid="uid://d36ooomp6rna1" path="res://assets/images/gameplay/characters/nluigi/llhall4.png" id="12_dvgqd"]
+[ext_resource type="Texture2D" uid="uid://c8rfx7wqcgir4" path="res://assets/images/gameplay/rooms/flashlight/hallway_on.png" id="12_pjakw"]
+[ext_resource type="Texture2D" uid="uid://jgggjl2u0cme" path="res://assets/images/customnight/ntmIcon.png" id="12_u3qod"]
+[ext_resource type="Texture2D" uid="uid://dr5qd50iwn27o" path="res://assets/images/customnight/ntyIcon.png" id="13_cjelq"]
+[ext_resource type="Texture2D" uid="uid://bu5njtw0hox3e" path="res://assets/images/customnight/ntIcon.png" id="14_rwaog"]
+[ext_resource type="Texture2D" uid="uid://b87hkg5il4a7g" path="res://assets/images/customnight/btIcon.png" id="15_cw2jf"]
+[ext_resource type="Texture2D" uid="uid://brm3rxpdf2tmx" path="res://assets/images/customnight/salvageicon.png" id="16_of04w"]
+[ext_resource type="Texture2D" uid="uid://c2pxe3ehd4qtn" path="res://assets/images/gameplay/rooms/clipmask/vent.png" id="16_pf42s"]
+[ext_resource type="Texture2D" uid="uid://dldnoqy2fwxv6" path="res://assets/images/customnight/creamicon.png" id="17_nqymp"]
+[ext_resource type="Texture2D" uid="uid://cwnw6finkb365" path="res://assets/images/gameplay/characters/tsonic/toysonic1.png" id="17_u483i"]
+[ext_resource type="Texture2D" uid="uid://v3lx10cvmtha" path="res://assets/images/gameplay/characters/yoshi/yoshi_1.png" id="18_3e48h"]
+[ext_resource type="Texture2D" uid="uid://c5khrsuiokdwp" path="res://assets/images/customnight/knuxicon.png" id="18_r5520"]
+[ext_resource type="Texture2D" uid="uid://c502v777dd53r" path="res://assets/images/gameplay/rooms/clipmask/ceiling.png" id="19_0vl56"]
+[ext_resource type="Texture2D" uid="uid://cwx3t0pb835r0" path="res://assets/images/gameplay/characters/bt/bt1.png" id="19_hsy74"]
+[ext_resource type="Texture2D" uid="uid://ckobrpmtwjc7b" path="res://assets/images/customnight/tdollicon.png" id="19_pjakw"]
+[ext_resource type="Texture2D" uid="uid://ci88c0f206wu3" path="res://assets/images/gameplay/characters/taingle/taingle_1.png" id="20_8bqyd"]
+[ext_resource type="Texture2D" uid="uid://cyqt7817lkc81" path="res://assets/images/customnight/luigiicon.png" id="20_n2vr8"]
+[ext_resource type="Texture2D" uid="uid://ciu21v1gkdpgp" path="res://assets/images/gameplay/characters/nluigi/luiginette_vent1.png" id="20_s6fxp"]
+[ext_resource type="Texture2D" uid="uid://c8mjrs7bc20p1" path="res://assets/images/gameplay/characters/yoshi/yoshi_2.png" id="21_643s1"]
+[ext_resource type="PackedScene" uid="uid://dafbcturt3qon" path="res://assets/scenes/loading.tscn" id="21_cjelq"]
+[ext_resource type="Texture2D" uid="uid://bdlmu7wbqans7" path="res://assets/images/gameplay/characters/taingle/taingle_2.png" id="21_cyflm"]
+[ext_resource type="Texture2D" uid="uid://de4ltkfn1p68m" path="res://assets/images/gameplay/characters/nknux/knux_peek.png" id="21_qtkm2"]
+[ext_resource type="Texture2D" uid="uid://cx1vyvqdy6l10" path="res://assets/images/gameplay/characters/taingle/taingle_3.png" id="22_8no1x"]
+[ext_resource type="Texture2D" uid="uid://ccgvydypkx0l2" path="res://assets/images/gameplay/characters/salvage/ss5.png" id="22_dvgqd"]
+[ext_resource type="Texture2D" uid="uid://dd4oklmi170cu" path="res://assets/images/gameplay/characters/yoshi/yoshi_3.png" id="22_vj1tn"]
+[ext_resource type="Texture2D" uid="uid://u170nc4742i1" path="res://assets/images/gameplay/characters/tsonic/toysonic2.png" id="23_0vp31"]
+[ext_resource type="Texture2D" uid="uid://ctxri6aagc8ae" path="res://assets/images/gameplay/characters/salvage/ss6.png" id="23_6g4oi"]
+[ext_resource type="Texture2D" uid="uid://nb6tg6pvsdjj" path="res://assets/images/gameplay/characters/taingle/taingle_4.png" id="23_ghng3"]
+[ext_resource type="Texture2D" uid="uid://clttnsecl72dv" path="res://assets/images/gameplay/characters/nknux/knux_danger.png" id="24_4mccm"]
+[ext_resource type="Texture2D" uid="uid://crx1ixv0vis36" path="res://assets/images/gameplay/characters/tailsdoll/tailsdollvents.png" id="24_mfmcn"]
+[ext_resource type="Texture2D" uid="uid://bllvgjlfwlk8r" path="res://assets/images/gameplay/characters/tailsdoll/tails_doll_ceiling.png" id="24_xh8ix"]
+[ext_resource type="Texture2D" uid="uid://cgk4cko2kcsvn" path="res://assets/images/gameplay/characters/nluigi/nluigivents.png" id="25_2spns"]
+[ext_resource type="Texture2D" uid="uid://3a3ol8b5piea" path="res://assets/images/gameplay/characters/nluigi/nluigiceiling.png" id="25_a2m3m"]
+[ext_resource type="Texture2D" uid="uid://d4f0e3pkepyr2" path="res://assets/images/gameplay/characters/nluigi/nluigihallway.png" id="25_ywa2s"]
+[ext_resource type="Texture2D" uid="uid://dismjclxn7hf6" path="res://assets/images/gameplay/characters/tailsdoll/tailsdolleyes_vents.png" id="27_gvp5t"]
+[ext_resource type="Texture2D" uid="uid://dspjkfre872ju" path="res://assets/images/gameplay/characters/tsonic/toysonic21.png" id="29_oa214"]
+[ext_resource type="Texture2D" uid="uid://bjwteioe57fn7" path="res://assets/images/gameplay/characters/tmario/tmario_1.png" id="30_f8sjr"]
+[ext_resource type="Texture2D" uid="uid://b5atjuh2w1p6q" path="res://assets/images/gameplay/characters/tmario/tmario_12.png" id="31_r0q2t"]
+[ext_resource type="Texture2D" uid="uid://wokd4u00mmgi" path="res://assets/images/gameplay/characters/cream/cream1.png" id="32_atsae"]
+[ext_resource type="Texture2D" uid="uid://cmp3o3ninwqks" path="res://assets/images/gameplay/characters/tmario/tmario_2.png" id="33_aw4gr"]
+[ext_resource type="Texture2D" uid="uid://jvy5ivkon0by" path="res://assets/images/gameplay/characters/tmario/tmario_22.png" id="34_2clv3"]
+[ext_resource type="Texture2D" uid="uid://dyjxx8pf7g14v" path="res://assets/images/gameplay/characters/cream/cream2.png" id="35_vgkvr"]
+[ext_resource type="Texture2D" uid="uid://d0w4wxd8m4cb1" path="res://assets/images/gameplay/characters/cream/cream3.png" id="36_qkmvj"]
+[ext_resource type="Texture2D" uid="uid://d2wgu40veso38" path="res://assets/images/gameplay/characters/tmario/tmario_3.png" id="37_yxltg"]
+[ext_resource type="Texture2D" uid="uid://blok7hwuqbhwg" path="res://assets/images/gameplay/characters/tmario/tmario_32.png" id="38_ekfea"]
+[ext_resource type="Texture2D" uid="uid://c8kpf3v0f65rf" path="res://assets/images/gameplay/characters/tailsdoll/tailsdoll_eyes_ceiling.png" id="48_hvscq"]
+
+[node name="Gallery" type="Node" unique_id=1255637052 node_paths=PackedStringArray("rooms_list", "characters_buttons")]
+script = ExtResource("1_rwaog")
+rooms_list = [NodePath("OfficeCameraLeft"), NodePath("OfficeCameraCenter"), NodePath("OfficeCameraRight"), NodePath("CameraLeftVent"), NodePath("CameraRightVent"), NodePath("CameraCeiling"), NodePath("CameraHallway")]
+characters_buttons = {
+"Nightmare BT": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/BT"),
+"Nightmare Cream": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Cream"),
+"Nightmare Knuckles": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Knuckles"),
+"Nightmare Luiginette": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Luiginette"),
+"Nightmare S. Sonic": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Salvage"),
+"Nightmare Taingle": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Tails"),
+"Nightmare Toy Mario": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Mario"),
+"Nightmare Toy Sonic": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Sonic"),
+"Nightmare Toy Yoshi": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Yoshi"),
+"Tails Doll": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/TailsDoll")
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1777004263]
+stream = ExtResource("1_51uyy")
+autoplay = true
+bus = &"Music"
+
+[node name="Office" type="Sprite2D" parent="." unique_id=1672083138]
+position = Vector2(1040, 360)
+texture = ExtResource("1_fngrn")
+metadata/_edit_lock_ = true
+
+[node name="BT_2" type="Sprite2D" parent="Office" unique_id=467093235]
+visible = false
+position = Vector2(1040, 658)
+texture = ExtResource("4_i68km")
+metadata/_edit_lock_ = true
+
+[node name="CameraEmpty" type="Sprite2D" parent="." unique_id=778094557]
+position = Vector2(715, 507)
+scale = Vector2(0.18554686, 0.18611112)
+texture = ExtResource("2_spe00")
+metadata/_edit_lock_ = true
+
+[node name="Salvage_1" type="Sprite2D" parent="CameraEmpty" unique_id=2090306601]
+visible = false
+position = Vector2(3.7053223, -75.22388)
+scale = Vector2(0.76351225, 0.7611979)
+texture = ExtResource("5_l7mao")
+metadata/_edit_lock_ = true
+
+[node name="Lnette1" type="Sprite2D" parent="CameraEmpty" unique_id=1511882490]
+visible = false
+position = Vector2(21.557861, -118.208984)
+scale = Vector2(0.727579, 0.72537357)
+texture = ExtResource("6_i68km")
+metadata/_edit_lock_ = true
+
+[node name="Salvage_2" type="Sprite2D" parent="CameraEmpty" unique_id=1558449458]
+visible = false
+position = Vector2(-132.04248, 41.33911)
+scale = Vector2(0.9656151, 0.9626879)
+texture = ExtResource("7_u8iic")
+metadata/_edit_lock_ = true
+
+[node name="Lnette2" type="Sprite2D" parent="CameraEmpty" unique_id=763467575]
+visible = false
+position = Vector2(97.0105, -37.61206)
+scale = Vector2(0.8892634, 0.8865677)
+texture = ExtResource("8_lqx2y")
+metadata/_edit_lock_ = true
+
+[node name="Salvage_3" type="Sprite2D" parent="CameraEmpty" unique_id=1686187282]
+visible = false
+position = Vector2(159.4043, 127.25708)
+scale = Vector2(1.070139, 1.0775126)
+texture = ExtResource("9_es6ui")
+metadata/_edit_lock_ = true
+
+[node name="Lnette3" type="Sprite2D" parent="CameraEmpty" unique_id=956483124]
+visible = false
+position = Vector2(-128.26978, 65.01489)
+scale = Vector2(1.0618069, 1.0765886)
+texture = ExtResource("10_1xqbg")
+metadata/_edit_lock_ = true
+
+[node name="Salvage_4" type="Sprite2D" parent="CameraEmpty" unique_id=1316253824]
+visible = false
+position = Vector2(-0.638916, 83.28369)
+scale = Vector2(1.6294425, 1.5677985)
+texture = ExtResource("11_qtkm2")
+metadata/_edit_lock_ = true
+
+[node name="Lnette4" type="Sprite2D" parent="CameraEmpty" unique_id=976527032]
+visible = false
+position = Vector2(-102.40015, 5.373291)
+scale = Vector2(1.3255662, 1.345833)
+texture = ExtResource("12_dvgqd")
+metadata/_edit_lock_ = true
+
+[node name="Static" type="Sprite2D" parent="CameraEmpty" unique_id=665154765]
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(7.6293945e-05, -2.2888184e-05)
+scale = Vector2(0.5333334, 0.66666657)
+texture = ExtResource("3_51uyy")
+metadata/_edit_lock_ = true
+
+[node name="LeftVent" type="Sprite2D" parent="." unique_id=795507131]
+position = Vector2(2752, 710)
+texture = ExtResource("4_4c53b")
+metadata/_edit_lock_ = true
+
+[node name="ClipMask" type="Sprite2D" parent="LeftVent" unique_id=1226801016]
+clip_children = 1
+texture = ExtResource("16_pf42s")
+metadata/_edit_lock_ = true
+
+[node name="ToySonic_1" type="Sprite2D" parent="LeftVent/ClipMask" unique_id=350739860]
+visible = false
+position = Vector2(88, -446)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("17_u483i")
+metadata/_edit_lock_ = true
+
+[node name="ToyYoshi_1" type="Sprite2D" parent="LeftVent/ClipMask" unique_id=506340264]
+visible = false
+position = Vector2(78, -462)
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("18_3e48h")
+metadata/_edit_lock_ = true
+
+[node name="BT_1" type="Sprite2D" parent="LeftVent" unique_id=1930238714]
+visible = false
+position = Vector2(120, -438)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_hsy74")
+metadata/_edit_lock_ = true
+
+[node name="LuiginetteVent1" type="Sprite2D" parent="LeftVent" unique_id=1604483370]
+visible = false
+position = Vector2(-19, -453.99997)
+scale = Vector2(0.775, 0.775)
+texture = ExtResource("20_s6fxp")
+metadata/_edit_lock_ = true
+
+[node name="ToyYoshi_2" type="Sprite2D" parent="LeftVent" unique_id=1510281213]
+visible = false
+position = Vector2(-56, -414)
+texture = ExtResource("21_643s1")
+metadata/_edit_lock_ = true
+
+[node name="ToyYoshi_3" type="Sprite2D" parent="LeftVent" unique_id=1878126642]
+visible = false
+position = Vector2(-16, -390)
+texture = ExtResource("22_vj1tn")
+metadata/_edit_lock_ = true
+
+[node name="ToySonic_2" type="Sprite2D" parent="LeftVent" unique_id=779359043]
+visible = false
+position = Vector2(-16, -398)
+texture = ExtResource("23_0vp31")
+metadata/_edit_lock_ = true
+
+[node name="Tails" type="Sprite2D" parent="LeftVent" unique_id=2037377931]
+visible = false
+position = Vector2(216, -374)
+texture = ExtResource("24_mfmcn")
+metadata/_edit_lock_ = true
+
+[node name="NLuigiVent" type="Sprite2D" parent="LeftVent" unique_id=397200017]
+visible = false
+position = Vector2(-64, -398)
+texture = ExtResource("25_2spns")
+metadata/_edit_lock_ = true
+
+[node name="Flashlight" type="Sprite2D" parent="LeftVent" unique_id=876542878]
+position = Vector2(0, -350)
+texture = ExtResource("7_nqymp")
+metadata/_edit_lock_ = true
+
+[node name="TailsDollEyes" type="Sprite2D" parent="LeftVent" unique_id=1837490705]
+visible = false
+position = Vector2(312, -350)
+texture = ExtResource("27_gvp5t")
+metadata/_edit_lock_ = true
+
+[node name="RightVent" type="Sprite2D" parent="." unique_id=1837838507]
+position = Vector2(4064, 710)
+texture = ExtResource("5_xkols")
+metadata/_edit_lock_ = true
+
+[node name="ClipMask" type="Sprite2D" parent="RightVent" unique_id=522427362]
+clip_children = 1
+texture = ExtResource("16_pf42s")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="ToySonic_21" type="Sprite2D" parent="RightVent/ClipMask" unique_id=653044800]
+visible = false
+position = Vector2(-87.999985, -454)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("29_oa214")
+metadata/_edit_lock_ = true
+
+[node name="ToyMario_1" type="Sprite2D" parent="RightVent/ClipMask" unique_id=1018136086]
+visible = false
+position = Vector2(-91, -467)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("30_f8sjr")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Pupils" type="Sprite2D" parent="RightVent/ClipMask/ToyMario_1" unique_id=609976825]
+texture = ExtResource("31_r0q2t")
+metadata/_edit_lock_ = true
+
+[node name="Cream_1" type="Sprite2D" parent="RightVent/ClipMask" unique_id=1150989646]
+visible = false
+position = Vector2(-98.999985, -451)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("32_atsae")
+metadata/_edit_lock_ = true
+
+[node name="LuiginetteVent1" type="Sprite2D" parent="RightVent" unique_id=563729660]
+visible = false
+position = Vector2(-19, -453.99997)
+scale = Vector2(0.775, 0.775)
+texture = ExtResource("20_s6fxp")
+metadata/_edit_lock_ = true
+
+[node name="ToyMario_2" type="Sprite2D" parent="RightVent" unique_id=279158988]
+visible = false
+position = Vector2(32, -406)
+texture = ExtResource("33_aw4gr")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Pupils" type="Sprite2D" parent="RightVent/ToyMario_2" unique_id=870671698]
+texture = ExtResource("34_2clv3")
+metadata/_edit_lock_ = true
+
+[node name="Cream_2" type="Sprite2D" parent="RightVent" unique_id=287180806]
+visible = false
+position = Vector2(-30, -372)
+texture = ExtResource("35_vgkvr")
+metadata/_edit_lock_ = true
+
+[node name="Cream_3" type="Sprite2D" parent="RightVent" unique_id=640475206]
+visible = false
+position = Vector2(-3, -392)
+texture = ExtResource("36_qkmvj")
+metadata/_edit_lock_ = true
+
+[node name="NLuigiVent" type="Sprite2D" parent="RightVent" unique_id=1937948991]
+visible = false
+position = Vector2(-24, -398)
+texture = ExtResource("25_2spns")
+metadata/_edit_lock_ = true
+
+[node name="Tails" type="Sprite2D" parent="RightVent" unique_id=76807351]
+visible = false
+position = Vector2(-224, -374)
+texture = ExtResource("24_mfmcn")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="ToyMario_3" type="Sprite2D" parent="RightVent" unique_id=46280781]
+visible = false
+position = Vector2(32, -398)
+texture = ExtResource("37_yxltg")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Pupils" type="Sprite2D" parent="RightVent/ToyMario_3" unique_id=1374923854]
+texture = ExtResource("38_ekfea")
+metadata/_edit_lock_ = true
+
+[node name="ToySonic_22" type="Sprite2D" parent="RightVent" unique_id=189470160]
+visible = false
+position = Vector2(0, -398)
+texture = ExtResource("23_0vp31")
+metadata/_edit_lock_ = true
+
+[node name="Flashlight" type="Sprite2D" parent="RightVent" unique_id=777724997]
+position = Vector2(0, -350)
+texture = ExtResource("7_nqymp")
+metadata/_edit_lock_ = true
+
+[node name="TailsDollEyes" type="Sprite2D" parent="RightVent" unique_id=2128362029]
+visible = false
+position = Vector2(-320, -350)
+texture = ExtResource("27_gvp5t")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="Ceiling" type="Sprite2D" parent="." unique_id=758267061]
+position = Vector2(5376, 710)
+texture = ExtResource("6_d3ujw")
+metadata/_edit_lock_ = true
+
+[node name="ClipMask" type="Sprite2D" parent="Ceiling" unique_id=1160900373]
+clip_children = 1
+texture = ExtResource("19_0vl56")
+metadata/_edit_lock_ = true
+
+[node name="Taingle_1" type="Sprite2D" parent="Ceiling/ClipMask" unique_id=707731125]
+visible = false
+position = Vector2(0, -566.5)
+texture = ExtResource("20_8bqyd")
+metadata/_edit_lock_ = true
+
+[node name="Taingle_2" type="Sprite2D" parent="Ceiling/ClipMask" unique_id=1948147928]
+visible = false
+position = Vector2(0, -510)
+texture = ExtResource("21_cyflm")
+metadata/_edit_lock_ = true
+
+[node name="Taingle_3" type="Sprite2D" parent="Ceiling/ClipMask" unique_id=899139840]
+visible = false
+position = Vector2(0, -457)
+texture = ExtResource("22_8no1x")
+metadata/_edit_lock_ = true
+
+[node name="Taingle_4" type="Sprite2D" parent="Ceiling/ClipMask" unique_id=495550]
+visible = false
+position = Vector2(0, -431.5)
+texture = ExtResource("23_ghng3")
+metadata/_edit_lock_ = true
+
+[node name="TailsDollCeiling" type="Sprite2D" parent="Ceiling/ClipMask" unique_id=1249441641]
+visible = false
+position = Vector2(214.5, -482.5)
+texture = ExtResource("24_xh8ix")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="NLuigiCeiling" type="Sprite2D" parent="Ceiling/ClipMask" unique_id=1790698001]
+visible = false
+position = Vector2(-95, -447)
+texture = ExtResource("25_a2m3m")
+metadata/_edit_lock_ = true
+
+[node name="Flashlight" type="Sprite2D" parent="Ceiling" unique_id=734920676]
+position = Vector2(0, -350)
+texture = ExtResource("10_r5520")
+metadata/_edit_lock_ = true
+
+[node name="TailsDollEyes" type="Sprite2D" parent="Ceiling" unique_id=1091912204]
+visible = false
+position = Vector2(238.5, -506.5)
+texture = ExtResource("48_hvscq")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="Hallway" type="Sprite2D" parent="." unique_id=255469349]
+position = Vector2(6688, 710)
+texture = ExtResource("7_of3a2")
+metadata/_edit_lock_ = true
+
+[node name="Knuckles1" type="Sprite2D" parent="Hallway" unique_id=479226349]
+visible = false
+position = Vector2(67, -382)
+texture = ExtResource("21_qtkm2")
+metadata/_edit_lock_ = true
+
+[node name="Salvage_5" type="Sprite2D" parent="Hallway" unique_id=1496618833]
+visible = false
+position = Vector2(-103, -403)
+texture = ExtResource("22_dvgqd")
+metadata/_edit_lock_ = true
+
+[node name="Salvage_6" type="Sprite2D" parent="Hallway" unique_id=1798862062]
+visible = false
+position = Vector2(-3, -296)
+texture = ExtResource("23_6g4oi")
+metadata/_edit_lock_ = true
+
+[node name="Knuckles2" type="Sprite2D" parent="Hallway" unique_id=1756714072]
+visible = false
+position = Vector2(200, -318)
+texture = ExtResource("24_4mccm")
+metadata/_edit_lock_ = true
+
+[node name="NLuigiHallway" type="Sprite2D" parent="Hallway" unique_id=1063416584]
+visible = false
+position = Vector2(-16, -350)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("25_ywa2s")
+metadata/_edit_lock_ = true
+
+[node name="Flashlight" type="Sprite2D" parent="Hallway" unique_id=616250162]
+position = Vector2(0, -350)
+texture = ExtResource("12_pjakw")
+metadata/_edit_lock_ = true
+
+[node name="OfficeCameraLeft" type="Camera2D" parent="." unique_id=228598346]
+position = Vector2(640, 360)
+metadata/_edit_lock_ = true
+
+[node name="OfficeCameraCenter" type="Camera2D" parent="." unique_id=1452575769]
+position = Vector2(1040, 360)
+enabled = false
+metadata/_edit_lock_ = true
+
+[node name="OfficeCameraRight" type="Camera2D" parent="." unique_id=1671503950]
+position = Vector2(1440, 360)
+enabled = false
+metadata/_edit_lock_ = true
+
+[node name="CameraLeftVent" type="Camera2D" parent="." unique_id=897229152]
+position = Vector2(2752, 360)
+enabled = false
+metadata/_edit_lock_ = true
+
+[node name="CameraRightVent" type="Camera2D" parent="." unique_id=810983972]
+position = Vector2(4064, 360)
+enabled = false
+metadata/_edit_lock_ = true
+
+[node name="CameraCeiling" type="Camera2D" parent="." unique_id=685395311]
+position = Vector2(5376, 360)
+enabled = false
+metadata/_edit_lock_ = true
+
+[node name="CameraHallway" type="Camera2D" parent="." unique_id=704129344]
+position = Vector2(6688, 360)
+enabled = false
+metadata/_edit_lock_ = true
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=682129675]
+
+[node name="Vignette" type="Sprite2D" parent="HUD" unique_id=857751650]
+texture = ExtResource("8_spe00")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="HUD" unique_id=1550361240]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("10_4c53b")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Left" type="Button" parent="HUD/Control" unique_id=480005586]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.044000003
+anchor_top = 0.5
+anchor_right = 0.044000003
+anchor_bottom = 0.5
+offset_left = -40.320004
+offset_top = -128.0
+offset_right = 39.679996
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+action_mode = 0
+text = "<<"
+metadata/_edit_lock_ = true
+
+[node name="RoomNamePanel" type="Panel" parent="HUD/Control" unique_id=2131132160]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+offset_left = -624.0
+offset_top = -56.0
+offset_right = 624.0
+offset_bottom = 56.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="RoomNameText" type="Label" parent="HUD/Control/RoomNamePanel" unique_id=1241468697]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Office (Left)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Right" type="Button" parent="HUD/Control" unique_id=321308713]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95300007
+anchor_top = 0.5
+anchor_right = 0.95300007
+anchor_bottom = 0.5
+offset_left = -39.840088
+offset_top = -128.0
+offset_right = 40.159912
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+action_mode = 0
+text = ">>"
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="HUD/Control" unique_id=1061546725]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.209
+anchor_top = 0.83300006
+anchor_right = 0.209
+anchor_bottom = 0.83300006
+offset_left = -243.52002
+offset_top = -23.76007
+offset_right = 244.47998
+offset_bottom = 24.23993
+text = "Press [SPACE] to hide/show HUD"
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="BackButton" type="Button" parent="HUD/Control" unique_id=1951610711]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.112
+anchor_top = 0.933
+anchor_right = 0.112
+anchor_bottom = 0.933
+offset_left = -119.36
+offset_top = -31.76001
+offset_right = 120.64
+offset_bottom = 32.23999
+focus_mode = 0
+action_mode = 0
+text = "Back"
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="HUD/Control" unique_id=429717013]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.70000005
+anchor_top = 0.75000006
+anchor_right = 0.70000005
+anchor_bottom = 0.75000006
+offset_left = -320.00006
+offset_top = -28.000061
+offset_right = 319.99994
+offset_bottom = 27.999939
+text = "Characters:"
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Characters" type="Panel" parent="HUD/Control" unique_id=127633394]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.70000005
+anchor_top = 0.88900006
+anchor_right = 0.70000005
+anchor_bottom = 0.88900006
+offset_left = -320.00006
+offset_top = -64.08002
+offset_right = 319.99994
+offset_bottom = 63.919983
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/Characters" unique_id=1318359938]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -56.0
+offset_right = 936.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HUD/Control/Characters/MarginContainer" unique_id=1241305240]
+layout_mode = 2
+mouse_filter = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Buttons" type="HBoxContainer" parent="HUD/Control/Characters/MarginContainer/ScrollContainer" unique_id=390081402]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+offset_transform_enabled = true
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sonic" type="TextureButton" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons" unique_id=45205923]
+modulate = Color(1, 1, 1, 0.1)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+disabled = true
+action_mode = 0
+texture_normal = ExtResource("11_xkols")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Sonic" unique_id=1221381472]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CharacterState" type="Label" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Sonic/MarginContainer" unique_id=1369722231]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Mario" type="TextureButton" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons" unique_id=1489016985]
+modulate = Color(1, 1, 1, 0.1)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+disabled = true
+action_mode = 0
+texture_normal = ExtResource("12_u3qod")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Mario" unique_id=2025827211]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CharacterState" type="Label" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Mario/MarginContainer" unique_id=1237728690]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Yoshi" type="TextureButton" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons" unique_id=64919706]
+modulate = Color(1, 1, 1, 0.1)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+disabled = true
+action_mode = 0
+texture_normal = ExtResource("13_cjelq")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Yoshi" unique_id=1131139334]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CharacterState" type="Label" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Yoshi/MarginContainer" unique_id=1742551092]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Tails" type="TextureButton" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons" unique_id=1275588657]
+modulate = Color(1, 1, 1, 0.1)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+disabled = true
+action_mode = 0
+texture_normal = ExtResource("14_rwaog")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Tails" unique_id=497973762]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CharacterState" type="Label" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Tails/MarginContainer" unique_id=152266653]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="BT" type="TextureButton" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons" unique_id=578021142]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("15_cw2jf")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/BT" unique_id=1358228185]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CharacterState" type="Label" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/BT/MarginContainer" unique_id=349501667]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Salvage" type="TextureButton" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons" unique_id=604922806]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("16_of04w")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Salvage" unique_id=1381462486]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CharacterState" type="Label" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Salvage/MarginContainer" unique_id=506665469]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Cream" type="TextureButton" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons" unique_id=727350217]
+modulate = Color(1, 1, 1, 0.1)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+disabled = true
+action_mode = 0
+texture_normal = ExtResource("17_nqymp")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Cream" unique_id=2032723771]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CharacterState" type="Label" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Cream/MarginContainer" unique_id=44928629]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Knuckles" type="TextureButton" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons" unique_id=1652030721]
+modulate = Color(1, 1, 1, 0.1)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+disabled = true
+action_mode = 0
+texture_normal = ExtResource("18_r5520")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Knuckles" unique_id=659927365]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CharacterState" type="Label" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Knuckles/MarginContainer" unique_id=1369402003]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="TailsDoll" type="TextureButton" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons" unique_id=1938129968]
+modulate = Color(1, 1, 1, 0.1)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+disabled = true
+action_mode = 0
+texture_normal = ExtResource("19_pjakw")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/TailsDoll" unique_id=93835805]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CharacterState" type="Label" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/TailsDoll/MarginContainer" unique_id=1395460549]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Luiginette" type="TextureButton" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons" unique_id=1970243981]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("20_n2vr8")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Luiginette" unique_id=755654949]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CharacterState" type="Label" parent="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Luiginette/MarginContainer" unique_id=1520540050]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Loading" parent="HUD" unique_id=220536216 instance=ExtResource("21_cjelq")]
+visible = false
+
+[connection signal="pressed" from="HUD/Control/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="HUD/Control/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="HUD/Control/BackButton" to="." method="_on_back_button_pressed"]

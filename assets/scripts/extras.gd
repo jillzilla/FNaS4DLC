@@ -26,7 +26,7 @@ var characters_names: Array[String] = ["Nightmare Toy Sonic", "Nightmare Toy Mar
 
 #functions
 func _ready() -> void:
-	DiscordManager._update_details("Extras Content Menu");
+	DiscordManager._update_details("Extra Content Menu");
 	DiscordManager._update_state("");
 
 	aggressive_mode_button.button_pressed = main.save_data_file.aggressive_mode;
@@ -69,6 +69,9 @@ func _on_jumpscares_pressed() -> void:
 	jumpscares_section.show();
 	old_nights.hide();
 	modifiers_section.hide();
+
+func _on_gallery_pressed() -> void:
+	loading._load_scene("uid://c2i34gr8bimsa");
 
 func _on_old_nights_pressed() -> void:
 	characters_section.hide();
