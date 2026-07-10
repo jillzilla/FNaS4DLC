@@ -45,6 +45,14 @@ border_width_right = 4
 border_width_bottom = 4
 border_color = Color(1, 0.50980395, 0.654902, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0syr8"]
+bg_color = Color(1, 0.50980395, 0.654902, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1woqf"]
+color = Color(0.3019608, 0.42745098, 0.9529412, 1)
+thickness = 8
+vertical = true
+
 [resource]
 default_font = ExtResource("1_0cl1w")
 default_font_size = 32
@@ -66,3 +74,7 @@ HSeparator/styles/separator = SubResource("StyleBoxLine_0cl1w")
 Label/colors/font_color = Color(1, 0.50980395, 0.654902, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_mrsh3")
 RichTextLabel/colors/default_color = Color(1, 0.50980395, 0.654902, 1)
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_0syr8")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_0syr8")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_0syr8")
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_1woqf")
