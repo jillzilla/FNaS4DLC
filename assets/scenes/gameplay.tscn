@@ -2120,6 +2120,12 @@ scale = Vector2(0.775, 0.775)
 texture = ExtResource("112_ihc8j")
 metadata/_edit_lock_ = true
 
+[node name="Tails" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=1358274616]
+visible = false
+position = Vector2(216, -374)
+texture = ExtResource("79_p5adm")
+metadata/_edit_lock_ = true
+
 [node name="ToyYoshi_2" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=667445097]
 visible = false
 position = Vector2(-56, -414)
@@ -2136,12 +2142,6 @@ metadata/_edit_lock_ = true
 visible = false
 position = Vector2(-16, -398)
 texture = ExtResource("27_mmgny")
-metadata/_edit_lock_ = true
-
-[node name="Tails" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=1358274616]
-visible = false
-position = Vector2(216, -374)
-texture = ExtResource("79_p5adm")
 metadata/_edit_lock_ = true
 
 [node name="NLuigiVent" type="Sprite2D" parent="Rooms/Left_Vent" unique_id=161753759]
@@ -2226,17 +2226,6 @@ scale = Vector2(0.775, 0.775)
 texture = ExtResource("112_ihc8j")
 metadata/_edit_lock_ = true
 
-[node name="ToyMario_2" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1296227063]
-visible = false
-position = Vector2(32, -406)
-texture = ExtResource("40_ulcru")
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
-
-[node name="Pupils" type="Sprite2D" parent="Rooms/Right_Vent/ToyMario_2" unique_id=1650178831]
-texture = ExtResource("41_uerps")
-metadata/_edit_lock_ = true
-
 [node name="Cream_2" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1689361755]
 visible = false
 position = Vector2(-30, -372)
@@ -2249,17 +2238,22 @@ position = Vector2(-3, -392)
 texture = ExtResource("65_etbyd")
 metadata/_edit_lock_ = true
 
-[node name="NLuigiVent" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1610885542]
-visible = false
-position = Vector2(-24, -398)
-texture = ExtResource("60_dcs2j")
-metadata/_edit_lock_ = true
-
 [node name="Tails" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=858779070]
 visible = false
 position = Vector2(-224, -374)
 texture = ExtResource("79_p5adm")
 flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="ToyMario_2" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1296227063]
+visible = false
+position = Vector2(32, -406)
+texture = ExtResource("40_ulcru")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Pupils" type="Sprite2D" parent="Rooms/Right_Vent/ToyMario_2" unique_id=1650178831]
+texture = ExtResource("41_uerps")
 metadata/_edit_lock_ = true
 
 [node name="ToyMario_3" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=341175458]
@@ -2277,6 +2271,12 @@ metadata/_edit_lock_ = true
 visible = false
 position = Vector2(0, -398)
 texture = ExtResource("27_mmgny")
+metadata/_edit_lock_ = true
+
+[node name="NLuigiVent" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1610885542]
+visible = false
+position = Vector2(-24, -398)
+texture = ExtResource("60_dcs2j")
 metadata/_edit_lock_ = true
 
 [node name="Light" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1343539431]

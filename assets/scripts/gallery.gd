@@ -181,6 +181,77 @@ var characters_states: Dictionary[String, int] = {
             3: [$CameraEmpty/Lnette4],
         },
     },
+    "Left Vent": {
+        "Nightmare Toy Sonic": {
+            0: [$LeftVent/ClipMask/ToySonic_1],
+            1: [$LeftVent/ToySonic_2],
+        },
+        "Nightmare Toy Yoshi": {
+            0: [$LeftVent/ClipMask/ToyYoshi_1],
+            1: [$LeftVent/ToyYoshi_2],
+            2: [$LeftVent/ToyYoshi_3],
+        },
+        "Nightmare BT": {
+            0: [$LeftVent/BT_1],
+        },
+        "Tails Doll": {
+            0: [$LeftVent/Tails, $LeftVent/TailsDollEyes],
+        },
+        "Nightmare Luiginette": {
+            0: [$LeftVent/LuiginetteVent1],
+            1: [$LeftVent/NLuigiVent],
+        },
+    },
+    "Right Vent": {
+        "Nightmare Toy Sonic": {
+            0: [$RightVent/ClipMask/ToySonic_21],
+            1: [$RightVent/ToySonic_22],
+        },
+        "Nightmare Toy Mario": {
+            0: [$RightVent/ClipMask/ToyMario_1],
+            1: [$RightVent/ToyMario_2],
+            2: [$RightVent/ToyMario_3],
+        },
+        "Nightmare Cream": {
+            0: [$RightVent/ClipMask/Cream_1],
+            1: [$RightVent/Cream_2],
+            2: [$RightVent/Cream_3],
+        },
+        "Tails Doll": {
+            0: [$RightVent/Tails, $RightVent/TailsDollEyes],
+        },
+        "Nightmare Luiginette": {
+            0: [$RightVent/LuiginetteVent1],
+            1: [$RightVent/NLuigiVent],
+        },
+    },
+    "Ceiling": {
+        "Nightmare Taingle": {
+            0: [$Ceiling/ClipMask/Taingle_1],
+            1: [$Ceiling/ClipMask/Taingle_2],
+            2: [$Ceiling/ClipMask/Taingle_3],
+            3: [$Ceiling/ClipMask/Taingle_4],
+        },
+        "Tails Doll": {
+            0: [$Ceiling/ClipMask/TailsDollCeiling, $Ceiling/TailsDollEyes],
+        },
+        "Nightmare Luiginette": {
+            0: [$Ceiling/ClipMask/NLuigiCeiling],
+        },
+    },
+    "Hallway": {
+        "Nightmare S. Sonic": {
+            0: [$Hallway/Salvage_5],
+            1: [$Hallway/Salvage_6],
+        },
+        "Nightmare Knuckles": {
+            0: [$Hallway/Knuckles1],
+            1: [$Hallway/Knuckles2],
+        },
+        "Nightmare Luiginette": {
+            0: [$Hallway/NLuigiHallway],
+        },
+    },
 };
 
 var characters_state_in_rooms: Dictionary[String, Dictionary] = {
@@ -199,6 +270,30 @@ var characters_state_in_rooms: Dictionary[String, Dictionary] = {
         "Nightmare S. Sonic": 3,
         "Nightmare Luiginette": 3,
     },
+    "Left Vent": {
+        "Nightmare Toy Sonic": 1,
+        "Nightmare Toy Yoshi": 2,
+        "Nightmare BT": 0,
+        "Tails Doll": 0,
+        "Nightmare Luiginette": 1,
+    },
+    "Right Vent": {
+        "Nightmare Toy Sonic": 1,
+        "Nightmare Toy Mario": 2,
+        "Nightmare Cream": 2,
+        "Tails Doll": 0,
+        "Nightmare Luiginette": 1,
+    },
+    "Ceiling": {
+        "Nightmare Taingle": 3,
+        "Tails Doll": 0,
+        "Nightmare Luiginette": 0,
+    },
+    "Hallway": {
+        "Nightmare S. Sonic": 1,
+        "Nightmare Knuckles": 1,
+        "Nightmare Luiginette": 0,
+    },
 };
 
 #functions
@@ -209,23 +304,29 @@ func _on_back_button_pressed() -> void:
     loading._load_scene("uid://bk0janpvstfkp");
 
 func _on_left_pressed() -> void:
+    var force_reset: bool = false;
+    if room_current == 6:
+        force_reset = true;
     room_current -= 1;
     if room_current < 0:
         room_current = rooms_list.size() - 1;
-    _switch_room();
+    _switch_room(force_reset);
 
 func _on_right_pressed() -> void:
+    var force_reset: bool = false;
+    if room_current == 6:
+        force_reset = true;
     room_current += 1;
     if room_current > rooms_list.size() - 1:
         room_current = 0;
-    _switch_room();
+    _switch_room(force_reset);
 
-func _switch_room() -> void:
+func _switch_room(reset: bool) -> void:
     for r in rooms_list:
         r.enabled = false;
     rooms_list[room_current].enabled = true;
     room_name_text.text = rooms_name[room_current];
-    if room_current > 2:
+    if room_current > 2 || reset:
         for i in range(main._get_ai_level_as_array().size()):
             characters_states[main._get_ai_level_as_array()[i]] = -1;
             update_character_counters(main._get_ai_level_as_array()[i], characters_buttons[main._get_ai_level_as_array()[i]])
