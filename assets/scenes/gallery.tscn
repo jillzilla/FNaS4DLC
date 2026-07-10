@@ -69,21 +69,9 @@
 [ext_resource type="Texture2D" uid="uid://blok7hwuqbhwg" path="res://assets/images/gameplay/characters/tmario/tmario_32.png" id="38_ekfea"]
 [ext_resource type="Texture2D" uid="uid://c8kpf3v0f65rf" path="res://assets/images/gameplay/characters/tailsdoll/tailsdoll_eyes_ceiling.png" id="48_hvscq"]
 
-[node name="Gallery" type="Node" unique_id=1255637052 node_paths=PackedStringArray("rooms_list", "characters_buttons")]
+[node name="Gallery" type="Node" unique_id=1284843184]
 script = ExtResource("1_rwaog")
-rooms_list = [NodePath("OfficeCameraLeft"), NodePath("OfficeCameraCenter"), NodePath("OfficeCameraRight"), NodePath("CameraLeftVent"), NodePath("CameraRightVent"), NodePath("CameraCeiling"), NodePath("CameraHallway")]
-characters_buttons = {
-"Nightmare BT": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/BT"),
-"Nightmare Cream": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Cream"),
-"Nightmare Knuckles": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Knuckles"),
-"Nightmare Luiginette": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Luiginette"),
-"Nightmare S. Sonic": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Salvage"),
-"Nightmare Taingle": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Tails"),
-"Nightmare Toy Mario": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Mario"),
-"Nightmare Toy Sonic": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Sonic"),
-"Nightmare Toy Yoshi": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Yoshi"),
-"Tails Doll": NodePath("HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/TailsDoll")
-}
+metadata/_edit_lock_ = true
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1777004263]
 stream = ExtResource("1_51uyy")
@@ -97,7 +85,7 @@ metadata/_edit_lock_ = true
 
 [node name="BT_2" type="Sprite2D" parent="Office" unique_id=467093235]
 visible = false
-position = Vector2(1040, 658)
+position = Vector2(0, 298)
 texture = ExtResource("4_i68km")
 metadata/_edit_lock_ = true
 
@@ -514,20 +502,19 @@ metadata/_edit_group_ = true
 [node name="Left" type="Button" parent="HUD/Control" unique_id=480005586]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.044000003
+anchor_left = 0.05
 anchor_top = 0.5
-anchor_right = 0.044000003
+anchor_right = 0.05
 anchor_bottom = 0.5
-offset_left = -40.320004
+offset_left = -40.0
 offset_top = -128.0
-offset_right = 39.679996
+offset_right = 40.0
 offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 action_mode = 0
 text = "<<"
-metadata/_edit_lock_ = true
 
 [node name="RoomNamePanel" type="Panel" parent="HUD/Control" unique_id=2131132160]
 layout_mode = 1
@@ -536,13 +523,13 @@ anchor_left = 0.5
 anchor_top = 0.1
 anchor_right = 0.5
 anchor_bottom = 0.1
-offset_left = -624.0
+offset_left = -616.0
 offset_top = -56.0
-offset_right = 624.0
+offset_right = 616.0
 offset_bottom = 56.0
 mouse_filter = 2
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="RoomNameText" type="Label" parent="HUD/Control/RoomNamePanel" unique_id=1241468697]
 layout_mode = 1
@@ -559,13 +546,13 @@ metadata/_edit_lock_ = true
 [node name="Right" type="Button" parent="HUD/Control" unique_id=321308713]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.95300007
+anchor_left = 0.95000005
 anchor_top = 0.5
-anchor_right = 0.95300007
+anchor_right = 0.95000005
 anchor_bottom = 0.5
-offset_left = -39.840088
+offset_left = -40.0
 offset_top = -128.0
-offset_right = 40.159912
+offset_right = 40.0
 offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -1010,3 +997,13 @@ visible = false
 [connection signal="pressed" from="HUD/Control/Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="HUD/Control/Right" to="." method="_on_right_pressed"]
 [connection signal="pressed" from="HUD/Control/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Sonic" to="." method="_on_sonic_pressed"]
+[connection signal="pressed" from="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Mario" to="." method="_on_mario_pressed"]
+[connection signal="pressed" from="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Yoshi" to="." method="_on_yoshi_pressed"]
+[connection signal="pressed" from="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Tails" to="." method="_on_tails_pressed"]
+[connection signal="pressed" from="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/BT" to="." method="_on_bt_pressed"]
+[connection signal="pressed" from="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Salvage" to="." method="_on_salvage_pressed"]
+[connection signal="pressed" from="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Cream" to="." method="_on_cream_pressed"]
+[connection signal="pressed" from="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Knuckles" to="." method="_on_knuckles_pressed"]
+[connection signal="pressed" from="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/TailsDoll" to="." method="_on_tails_doll_pressed"]
+[connection signal="pressed" from="HUD/Control/Characters/MarginContainer/ScrollContainer/Buttons/Luiginette" to="." method="_on_luiginette_pressed"]
