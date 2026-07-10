@@ -26,6 +26,13 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hueav"]
+bg_color = Color(1, 0.50980395, 0.654902, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_51rul"]
+color = Color(0.3019608, 0.42745098, 0.9529412, 1)
+thickness = 8
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_0cl1w"]
 color = Color(1, 0.50980395, 0.654902, 1)
 thickness = 4
@@ -51,6 +58,10 @@ Button/styles/focus = SubResource("StyleBoxFlat_usrqw")
 Button/styles/hover = SubResource("StyleBoxFlat_usrqw")
 Button/styles/normal = SubResource("StyleBoxFlat_0cl1w")
 Button/styles/pressed = SubResource("StyleBoxFlat_usrqw")
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_hueav")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_hueav")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_hueav")
+HScrollBar/styles/scroll = SubResource("StyleBoxLine_51rul")
 HSeparator/styles/separator = SubResource("StyleBoxLine_0cl1w")
 Label/colors/font_color = Color(1, 0.50980395, 0.654902, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_mrsh3")

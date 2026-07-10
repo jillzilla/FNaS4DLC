@@ -4,12 +4,38 @@
 [ext_resource type="Texture2D" uid="uid://kewrxuhukurd" path="res://assets/images/misc/check_box_2.png" id="1_xhluh"]
 [ext_resource type="Texture2D" uid="uid://bl3n8daflj88" path="res://assets/images/misc/check_box_1.png" id="2_x517q"]
 [ext_resource type="Texture2D" uid="uid://ourl2sqmkkbe" path="res://assets/images/misc/slider_pointer.png" id="3_x517q"]
+[ext_resource type="Texture2D" uid="uid://di7b53floi2rb" path="res://assets/images/misc/arrow_thing.png" id="4_pycah"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6h28"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pycah"]
+bg_color = Color(1, 0.50980395, 0.654902, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0syr8"]
+color = Color(0.3019608, 0.42745098, 0.9529412, 1)
+thickness = 8
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_f47u7"]
 color = Color(0.3019608, 0.42745098, 0.9529412, 1)
 thickness = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mao4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1woqf"]
+bg_color = Color(0.07450981, 0.16470589, 0.3137255, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.50980395, 0.654902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0syr8"]
+bg_color = Color(1, 0.50980395, 0.654902, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1woqf"]
+color = Color(0.3019608, 0.42745098, 0.9529412, 1)
+thickness = 8
+vertical = true
 
 [resource]
 default_font = ExtResource("1_m6h28")
@@ -26,9 +52,24 @@ Button/styles/normal = SubResource("StyleBoxEmpty_m6h28")
 Button/styles/pressed = SubResource("StyleBoxEmpty_m6h28")
 CheckBox/icons/checked = ExtResource("1_xhluh")
 CheckBox/icons/unchecked = ExtResource("2_x517q")
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_pycah")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_pycah")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_pycah")
+HScrollBar/styles/scroll = SubResource("StyleBoxLine_0syr8")
 HSlider/icons/grabber = ExtResource("3_x517q")
 HSlider/icons/grabber_highlight = ExtResource("3_x517q")
 HSlider/styles/grabber_area = SubResource("StyleBoxLine_f47u7")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_f47u7")
 HSlider/styles/slider = SubResource("StyleBoxLine_f47u7")
 Label/colors/font_color = Color(0.827451, 0.45882353, 1, 1)
+OptionButton/icons/arrow = ExtResource("4_pycah")
+PopupMenu/colors/font_color = Color(0.827451, 0.45882353, 1, 1)
+PopupMenu/colors/font_hover_color = Color(0.3019608, 0.42745098, 0.9529412, 1)
+PopupMenu/icons/radio_checked = ExtResource("1_xhluh")
+PopupMenu/icons/radio_unchecked = ExtResource("2_x517q")
+PopupMenu/styles/hover = SubResource("StyleBoxEmpty_8mao4")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_1woqf")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_0syr8")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_0syr8")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_0syr8")
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_1woqf")
