@@ -1,16 +1,16 @@
 class_name BTOfficeComponent extends Component
 
 #variables
-@export var player_component: Player_Component;
-@export var movement_component: CharacterMovementComponent;
-@export var office_room_component: RoomComponent;
-@export var desk_room_component: RoomComponent;
-@export var attack_component: CharacterAttackComponent;
+@export var player_component: Player_Component = null;
+@export var movement_component: CharacterMovementComponent = null;
+@export var office_room_component: RoomComponent = null;
+@export var desk_room_component: RoomComponent = null;
+@export var attack_component: CharacterAttackComponent = null;
 
-@export var sprite: Sprite2D;
-@export var flashlight_list: Array[FlashlightComponent];
+@export var sprite: Sprite2D = null;
+@export var flashlight_list: Array[FlashlightComponent] = [];
 
-@export var character_fade_away_effect: AnimationPlayer;
+@export var character_fade_away_effect: AnimationPlayer = null;
 
 #functions
 func _ready() -> void:

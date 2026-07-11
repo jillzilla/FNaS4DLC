@@ -1,9 +1,9 @@
 class_name HonkComponent extends Component
 
 #variables
-@export var player_component: Player_Component;
-@export var button: Area2D;
-@export var sound: AudioStreamPlayer2D;
+@export var player_component: Player_Component = null;
+@export var button: Area2D = null;
+@export var sound: AudioStreamPlayer2D = null;
 
 #functions
 func _ready() -> void:

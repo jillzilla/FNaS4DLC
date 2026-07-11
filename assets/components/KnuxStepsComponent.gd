@@ -1,8 +1,8 @@
 class_name KnuxStepsComponent extends Component
 
 #variables
-@export var movement_component: CharacterMovementComponent;
-@export var steps: AudioStreamPlayer;
+@export var movement_component: CharacterMovementComponent = null;
+@export var steps: AudioStreamPlayer = null;
 
 var steps_played: bool = false;
 

@@ -2,15 +2,15 @@ class_name JumpscareComponent extends Component
 
 #variables
 @export_group("Components")
-@export var mask_component: MaskComponent;
-@export var office_room_component: RoomComponent;
-@export var player_component: Player_Component;
-@export var clock_timer: Timer;
-@export var character_attack_component: CharacterAttackComponent;
-@export var tails_doll_mechanic_component: TailsDollMechanicComponent;
+@export var mask_component: MaskComponent = null;
+@export var office_room_component: RoomComponent = null;
+@export var player_component: Player_Component = null;
+@export var clock_timer: Timer = null;
+@export var character_attack_component: CharacterAttackComponent = null;
+@export var tails_doll_mechanic_component: TailsDollMechanicComponent = null;
 
 @export_group("Resources")
-@export var jumpscare_animation: Node2D;
+@export var jumpscare_animation: Node2D = null;
 
 @export_group("Data IDs")
 @export var game_over_name: String = "";

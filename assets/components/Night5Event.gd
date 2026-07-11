@@ -1,17 +1,17 @@
 class_name Night5Event extends Component
 
 #variables
-@export var timer_spawn_luiginette: Timer;
+@export var timer_spawn_luiginette: Timer = null;
 
-@export var time_component: TimeComponent;
+@export var time_component: TimeComponent = null;
 
-@export var movement_component: Array[CharacterMovementComponent];
-@export var luiginette_movement_component: CharacterMovementComponent;
+@export var movement_component: Array[CharacterMovementComponent] = [];
+@export var luiginette_movement_component: CharacterMovementComponent = null;
 
-@export var luiginette_entrance: AudioStreamPlayer;
+@export var luiginette_entrance: AudioStreamPlayer = null;
 
-@export var character_fade_away: AnimationPlayer;
-@export var clock_fall_animation: AnimationPlayer;
+@export var character_fade_away: AnimationPlayer = null;
+@export var clock_fall_animation: AnimationPlayer = null;
 
 #functions
 func _ready() -> void:

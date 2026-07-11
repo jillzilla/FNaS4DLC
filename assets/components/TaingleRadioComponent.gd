@@ -1,8 +1,8 @@
 class_name TaingleRadioComponent extends Component
 
 #variables
-@export var radio: AudioStreamPlayer;
-@export var taingle_movement_component: CharacterMovementComponent;
+@export var radio: AudioStreamPlayer = null;
+@export var taingle_movement_component: CharacterMovementComponent = null;
 
 #functions
 func _ready() -> void:

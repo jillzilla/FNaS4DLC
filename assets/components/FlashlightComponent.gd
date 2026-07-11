@@ -4,9 +4,9 @@ signal flashlight_is_on;
 signal flashlight_is_off;
 
 #variables
-@export var player_component: Player_Component;
-@export var sound: AudioStreamPlayer;
-@export var darkness_sprite: Sprite2D;
+@export var player_component: Player_Component = null;
+@export var sound: AudioStreamPlayer = null;
+@export var darkness_sprite: Sprite2D = null;
 
 var is_flashlight_on: bool = false;
 var disable: bool = false;

@@ -2,13 +2,13 @@ class_name LuiginetteSetupComponent extends Component
 
 #variables
 @export var active: bool = true;
-@export var gameplay_node: Node;
-@export var direction_handler: NightmareLuiginetteDirectionHandlerComponent;
-@export var movement: CharacterMovementComponent;
-@export var attack: CharacterAttackComponent;
-@export var flashlight_mechanic: FlashlightMechanicComponent;
-@export var mask_mechanic: MaskMechanicComponent;
-@export var fnas3monitor: FNaS3MonitorComponent;
+@export var gameplay_node: Node = null;
+@export var direction_handler: NightmareLuiginetteDirectionHandlerComponent = null;
+@export var movement: CharacterMovementComponent = null;
+@export var attack: CharacterAttackComponent = null;
+@export var flashlight_mechanic: FlashlightMechanicComponent = null;
+@export var mask_mechanic: MaskMechanicComponent = null;
+@export var fnas3monitor: FNaS3MonitorComponent = null;
 
 #functions
 func _ready() -> void:

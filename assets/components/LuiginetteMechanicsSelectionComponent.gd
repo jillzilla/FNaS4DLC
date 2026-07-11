@@ -1,10 +1,10 @@
 class_name LuiginetteMechanicsSelectionComponent extends Component
 
 #variables
-@export var movement_component: CharacterMovementComponent;
-@export var mask_mechanic_component: MaskMechanicComponent;
-@export var flashlight_mechanic_component: FlashlightMechanicComponent;
-@export var desk_mechanic_component: DeskMechanicComponent;
+@export var movement_component: CharacterMovementComponent = null;
+@export var mask_mechanic_component: MaskMechanicComponent = null;
+@export var flashlight_mechanic_component: FlashlightMechanicComponent = null;
+@export var desk_mechanic_component: DeskMechanicComponent = null;
 
 #functions
 func _ready() -> void:

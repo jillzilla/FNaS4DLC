@@ -1,9 +1,9 @@
 class_name SalvageSoundsComponent extends Component
 
 #variables
-@export var movement_component: CharacterMovementComponent;
-@export var laugh: AudioStreamPlayer;
-@export var danger_sound: AudioStreamPlayer;
+@export var movement_component: CharacterMovementComponent = null;
+@export var laugh: AudioStreamPlayer = null;
+@export var danger_sound: AudioStreamPlayer = null;
 
 #functions
 func _ready() -> void:

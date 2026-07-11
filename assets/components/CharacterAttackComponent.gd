@@ -5,9 +5,9 @@ signal attack;
 #variables
 @export var timer_attack: float = 0.0;
 @export_group("Configurations")
-@export var player_component: Player_Component;
-@export var mask_component: MaskComponent;
-@export var character_movement_component: CharacterMovementComponent;
+@export var player_component: Player_Component = null;
+@export var mask_component: MaskComponent = null;
+@export var character_movement_component: CharacterMovementComponent = null;
 
 var can_attack: bool = false;
 var is_attacking: bool = false;

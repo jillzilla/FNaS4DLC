@@ -6,18 +6,18 @@ const TAILSDOLLEFFECTMAX: float = 1.0;
 const FADESPEEDMAX: float = 30;
 const FADESPEEDMIN: float = 0.5;
 
-@export var player_component: Player_Component;
-@export var movement_component: CharacterMovementComponent;
+@export var player_component: Player_Component = null;
+@export var movement_component: CharacterMovementComponent = null;
 
-@export var eye_sprites_l_vent: Sprite2D;
-@export var eye_sprites_r_vent: Sprite2D;
-@export var eye_sprites_ceiling: Sprite2D;
+@export var eye_sprites_l_vent: Sprite2D = null;
+@export var eye_sprites_r_vent: Sprite2D = null;
+@export var eye_sprites_ceiling: Sprite2D = null;
 
-@export var flashlight_left: FlashlightComponent;
-@export var flashlight_right: FlashlightComponent;
-@export var flashlight_ceiling: FlashlightComponent;
+@export var flashlight_left: FlashlightComponent = null;
+@export var flashlight_right: FlashlightComponent = null;
+@export var flashlight_ceiling: FlashlightComponent = null;
 
-@export var tails_doll_effect: Sprite2D;
+@export var tails_doll_effect: Sprite2D = null;
 
 @onready var tween_face_fade: Tween = null;
 @onready var tween_sprite_fade: Tween = null;

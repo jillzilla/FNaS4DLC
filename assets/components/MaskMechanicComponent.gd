@@ -8,10 +8,10 @@ class_name MaskMechanicComponent extends Component
 var step: float = 0.0;
 
 @export_group("Configurations")
-@export var player_component: Player_Component;
-@export var movement_component: CharacterMovementComponent;
-@export var attack_component: CharacterAttackComponent;
-@export var mask_component: MaskComponent;
+@export var player_component: Player_Component = null;
+@export var movement_component: CharacterMovementComponent = null;
+@export var attack_component: CharacterAttackComponent = null;
+@export var mask_component: MaskComponent = null;
 
 @export_group("Custom Flags")
 @export var do_the_character_fade_away_effect_when_reset: bool = true;

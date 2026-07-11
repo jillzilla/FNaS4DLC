@@ -13,18 +13,18 @@ const AIMAXVALUE: int = 25;
 const CUSTOMNIGHTID: int = 7;
 const ENDLESSID: int = 8;
 
-const CANSKIPNIGHTS: bool = true;
+const CANSKIPNIGHTS: bool = false;
 
 var nightcounter: int = 1;
 
 var killedBy: String = "";
 var cnchallenge: String = "";
 
-var global_endless_score : int = 0;
-var global_endless_hours : int = 0;
+var global_endless_score: int = 0;
+var global_endless_hours: int = 0;
 
-var global_highscore_endless_score : int = 0;
-var global_highscore_endless_hours : int = 0;
+var global_highscore_endless_score: int = 0;
+var global_highscore_endless_hours: int = 0;
 
 var isloadingsom: bool = false;
 var didrarescreenhappened: bool = false;

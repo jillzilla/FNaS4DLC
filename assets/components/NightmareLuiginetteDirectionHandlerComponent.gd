@@ -12,13 +12,13 @@ var direction: Variant = directions.MIDDLE;
 @export var movement_timer_max: float = 0.0;
 
 @export_group("Resources")
-@export var player_component: Player_Component;
-@export var movement_component: CharacterMovementComponent;
+@export var player_component: Player_Component = null;
+@export var movement_component: CharacterMovementComponent = null;
 
 @export_group("Audio")
-@export var walk_left: AudioStreamPlayer2D;
-@export var walk_right: AudioStreamPlayer2D;
-@export var walk_middle: AudioStreamPlayer2D;
+@export var walk_left: AudioStreamPlayer2D = null;
+@export var walk_right: AudioStreamPlayer2D = null;
+@export var walk_middle: AudioStreamPlayer2D = null;
 
 var step: float = 0.0;
 var movement: int = 0;

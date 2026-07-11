@@ -1,10 +1,10 @@
 class_name BTCounterMechanicComponent extends Component
 
 #variables
-@export var player_component: Player_Component;
-@export var movement_component: CharacterMovementComponent;
-@export var attack_component: CharacterAttackComponent;
-@export var flashlight_component: FlashlightComponent;
+@export var player_component: Player_Component = null;
+@export var movement_component: CharacterMovementComponent = null;
+@export var attack_component: CharacterAttackComponent = null;
+@export var flashlight_component: FlashlightComponent = null;
 
 @export var flash_count: int = 5;
 

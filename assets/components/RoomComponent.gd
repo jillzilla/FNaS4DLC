@@ -21,13 +21,13 @@ enum inputs {
 
 @export_group("Nodes")
 @export var button: Area2D = null;
-@export var walk_sound: AudioStreamPlayer;
-@export var room_go_to: Sprite2D;
-@export var buttons_to_activate: Array[Area2D];
-@export var transition: AnimationPlayer;
-@export var player_component: Player_Component;
-@export var scrolling_component: ScrollingComponent;
-@export var flashlight_component: FlashlightComponent;
+@export var walk_sound: AudioStreamPlayer = null;
+@export var room_go_to: Sprite2D = null;
+@export var buttons_to_activate: Array[Area2D] = [];
+@export var transition: AnimationPlayer = null;
+@export var player_component: Player_Component = null;
+@export var scrolling_component: ScrollingComponent = null;
+@export var flashlight_component: FlashlightComponent = null;
 
 @export_group("Flags")
 @export var input: Variant = inputs.NONE;

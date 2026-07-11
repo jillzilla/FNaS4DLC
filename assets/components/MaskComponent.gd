@@ -14,12 +14,12 @@ const MASKDESPAWNPOSITIONY: float = -360.0;
 @export_file_path("*.png") var mask_moving_texture_path: String = "";
 @export_file_path("*.png") var mask_breath_texture_path: String = "";
 
-@export var player_component: Player_Component;
-@export var mask_sprite: Sprite2D;
-@export var mask_on_SFX: AudioStreamPlayer;
-@export var mask_off_SFX: AudioStreamPlayer;
+@export var player_component: Player_Component = null;
+@export var mask_sprite: Sprite2D = null;
+@export var mask_on_SFX: AudioStreamPlayer = null;
+@export var mask_off_SFX: AudioStreamPlayer = null;
 
-var breath_time: float;
+var breath_time: float = 0.0;
 
 var can_breath: bool = false;
 var is_using_mask: bool = false;

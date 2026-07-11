@@ -1,14 +1,14 @@
 class_name ScrollingComponent extends Component
 
 #variables
-@export var camera: Camera2D;
+@export var camera: Camera2D = null;
 
-@export var player_component: Player_Component;
+@export var player_component: Player_Component = null;
 
-@export var scrollSpeed: float;
-@export var scrollDistance: float;
+@export var scrollSpeed: float = 0.0;
+@export var scrollDistance: float = 0.0;
 
-@export var xResolution: int;
+@export var xResolution: int = 0;
 
 @onready var leftPoint: Node2D = Node2D.new();
 @onready var rightPoint: Node2D = Node2D.new();

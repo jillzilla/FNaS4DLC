@@ -3,10 +3,10 @@ class_name KnucklesStallingMechanicComponent extends Component
 #variables
 const POSITIONTOSTALLCHARACTER: int = 0;
 
-@export var player_component: Player_Component;
-@export var movement_component: CharacterMovementComponent;
-@export var hallway_room_component: RoomComponent;
-@export var office_room_component: RoomComponent;
+@export var player_component: Player_Component = null;
+@export var movement_component: CharacterMovementComponent = null;
+@export var hallway_room_component: RoomComponent = null;
+@export var office_room_component: RoomComponent = null;
 
 #functions
 func _ready() -> void:

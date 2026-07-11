@@ -1,10 +1,10 @@
 class_name LuiginetteSoundsComponent extends Component
 
 #variables
-@export var movement_component: CharacterMovementComponent;
-@export var walking: Array[AudioStreamPlayer];
-@export var laughing: Array[AudioStreamPlayer];
-@export var jump: AudioStreamPlayer;
+@export var movement_component: CharacterMovementComponent = null;
+@export var walking: Array[AudioStreamPlayer] = [];
+@export var laughing: Array[AudioStreamPlayer] = [];
+@export var jump: AudioStreamPlayer = null;
 
 #functions
 func _ready() -> void:

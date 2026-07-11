@@ -11,10 +11,10 @@ class_name FlashlightMechanicComponent extends Component
 var step: float = 0.0;
 
 @export_group("Configurations")
-@export var player_component: Player_Component;
-@export var movement_component: CharacterMovementComponent;
-@export var attack_component: CharacterAttackComponent;
-@export var flashlight_component: FlashlightComponent;
+@export var player_component: Player_Component = null;
+@export var movement_component: CharacterMovementComponent = null;
+@export var attack_component: CharacterAttackComponent = null;
+@export var flashlight_component: FlashlightComponent = null;
 
 @export_group("Custom Flags")
 @export var play_computer_screech: bool = false;
@@ -22,7 +22,7 @@ var step: float = 0.0;
 @export var play_vent_sound_when_reset: bool = false;
 
 @export_group("Audio")
-@export var computer_screech: AudioStreamPlayer;
+@export var computer_screech: AudioStreamPlayer = null;
 
 #functions
 func _ready() -> void:

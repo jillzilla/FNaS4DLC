@@ -5,10 +5,10 @@ const FADESPEED: float = 0.5;
 const MINALPHA: float = 0.0;
 const MAXALPHA: float = 1;
 
-@export var sprite: Sprite2D;
-@export var room: RoomComponent;
+@export var sprite: Sprite2D = null;
+@export var room: RoomComponent = null;
 
-@export_range(0, 1) var random_encounter: float;
+@export_range(0, 1) var random_encounter: float = 0.0;
 
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new();
 @onready var tween_disappear: Tween = null;

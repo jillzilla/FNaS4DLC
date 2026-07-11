@@ -5,13 +5,13 @@ const STATICMINALPHA: float = 0.5;
 const STATICMAXALPHA: float = 1.0;
 const FADEANIMSPEED: float = 1.0;
 
-@export var active : bool = true;
-@export var exceptions : Array[int] = [];
-@export var movement_component: CharacterMovementComponent;
-@export var timer_static_fade: Timer;
-@export var change_cam_sound: AudioStreamPlayer;
-@export var static_: AnimatedSprite2D;
-@export var lost_signal_sprite: Sprite2D;
+@export var active: bool = true;
+@export var exceptions: Array[int] = [];
+@export var movement_component: CharacterMovementComponent = null;
+@export var timer_static_fade: Timer = null;
+@export var change_cam_sound: AudioStreamPlayer = null;
+@export var static_: AnimatedSprite2D = null;
+@export var lost_signal_sprite: Sprite2D = null;
 
 @onready var tween_static_fade: Tween = null;
 

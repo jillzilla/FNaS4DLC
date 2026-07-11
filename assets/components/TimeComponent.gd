@@ -3,15 +3,15 @@ class_name TimeComponent extends Component
 signal trigger_event;
 
 #variables
-@export var loading: Control;
-@export var clock_timer: Timer;
-@export var clock_counter: Label;
-@export var clock_outputs: Array[String];
+@export var loading: Control = null;
+@export var clock_timer: Timer = null;
+@export var clock_counter: Label = null;
+@export var clock_outputs: Array[String] = [];
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new();
 
 var clock_iteration: int = 0;
 
-@export var player_component: Player_Component;
+@export var player_component: Player_Component = null;
 
 #functions
 func _ready() -> void:

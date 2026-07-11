@@ -1,9 +1,9 @@
 class_name CharacterGuideButtonComponent extends Component
 
 #variables
-@export var character_name: String;
-@export var button: TextureButton;
-@export var description: RichTextLabel;
+@export var character_name: String = "";
+@export var button: TextureButton = null;
+@export var description: RichTextLabel = null;
 
 #functions
 func _ready() -> void:

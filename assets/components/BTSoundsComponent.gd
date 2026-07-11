@@ -1,10 +1,10 @@
 class_name BTSoundsComponent extends Component
 
 #variables
-@export var laugh_sound: AudioStreamPlayer;
-@export var movement_sounds: Array[AudioStreamPlayer2D];
-@export var movement_component: CharacterMovementComponent;
-@export var attack_component: CharacterAttackComponent;
+@export var laugh_sound: AudioStreamPlayer = null;
+@export var movement_sounds: Array[AudioStreamPlayer2D] = [];
+@export var movement_component: CharacterMovementComponent = null;
+@export var attack_component: CharacterAttackComponent = null;
 
 #functions
 func _ready() -> void:

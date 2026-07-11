@@ -15,17 +15,17 @@ const BODYPARTMAXSCALE: float = 1.2;
 @export var enable: bool = true;
 
 @export_group("Components")
-@export var player_component: Player_Component;
-@export var character_attack_component: CharacterAttackComponent;
-@export var character_movement_component: CharacterMovementComponent;
-@export var desk_room_component: RoomComponent;
+@export var player_component: Player_Component = null;
+@export var character_attack_component: CharacterAttackComponent = null;
+@export var character_movement_component: CharacterMovementComponent = null;
+@export var desk_room_component: RoomComponent = null;
 
 @export_group("Resources")
-@export var desk_character_animation: Node2D;
-@export var timer_step: Timer;
-@export var right_foot: Sprite2D;
-@export var left_foot: Sprite2D;
-@export var step_sfx: AudioStreamPlayer2D;
+@export var desk_character_animation: Node2D = null;
+@export var timer_step: Timer = null;
+@export var right_foot: Sprite2D = null;
+@export var left_foot: Sprite2D = null;
+@export var step_sfx: AudioStreamPlayer2D = null;
 
 @export_group("Custom Flags")
 @export var animation_speed: float = 0.0;

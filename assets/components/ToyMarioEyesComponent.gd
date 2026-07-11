@@ -1,10 +1,10 @@
 class_name ToyMarioEyesComponent extends Component
 
 #variables
-@export var pupils: Array[Sprite2D];
-@export var mario_movement_component: CharacterMovementComponent;
-@export var mask_mechanic: MaskMechanicComponent;
-@export var desk_mechanic: DeskMechanicComponent;
+@export var pupils: Array[Sprite2D] = [];
+@export var mario_movement_component: CharacterMovementComponent = null;
+@export var mask_mechanic: MaskMechanicComponent = null;
+@export var desk_mechanic: DeskMechanicComponent = null;
 
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new();
 

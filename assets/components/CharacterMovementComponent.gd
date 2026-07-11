@@ -22,40 +22,40 @@ signal character_moved;
 };
 
 @export_group("Sprites")
-@export var sprites_left_vent: Array[Sprite2D];
-@export var sprites_right_vent: Array[Sprite2D];
-@export var sprites_ceiling: Array[Sprite2D];
-@export var sprites_hallway: Array[Sprite2D];
+@export var sprites_left_vent: Array[Sprite2D] = [];
+@export var sprites_right_vent: Array[Sprite2D] = [];
+@export var sprites_ceiling: Array[Sprite2D] = [];
+@export var sprites_hallway: Array[Sprite2D] = [];
 
 @export_group("Sprites Peek")
-@export var sprite_peek_left_vent: Sprite2D;
-@export var sprite_peek_right_vent: Sprite2D;
-@export var sprite_peek_ceiling: Sprite2D;
-@export var sprite_peek_hallway: Sprite2D;
+@export var sprite_peek_left_vent: Sprite2D = null;
+@export var sprite_peek_right_vent: Sprite2D = null;
+@export var sprite_peek_ceiling: Sprite2D = null;
+@export var sprite_peek_hallway: Sprite2D = null;
 
 @export_group("Sprites Shock")
-@export var sprite_shock_left_vent: Sprite2D;
-@export var sprite_shock_right_vent: Sprite2D;
-@export var sprite_shock_ceiling: Sprite2D;
-@export var sprite_shock_hallway: Sprite2D;
+@export var sprite_shock_left_vent: Sprite2D = null;
+@export var sprite_shock_right_vent: Sprite2D = null;
+@export var sprite_shock_ceiling: Sprite2D = null;
+@export var sprite_shock_hallway: Sprite2D = null;
 
 @export_group("Flashlight")
 @export var turn_off_flashlight_when_moving: bool = true;
-@export var flashlight_left_vent: FlashlightComponent;
-@export var flashlight_right_vent: FlashlightComponent;
-@export var flashlight_ceiling: FlashlightComponent;
-@export var flashlight_hallway: FlashlightComponent;
+@export var flashlight_left_vent: FlashlightComponent = null;
+@export var flashlight_right_vent: FlashlightComponent = null;
+@export var flashlight_ceiling: FlashlightComponent = null;
+@export var flashlight_hallway: FlashlightComponent = null;
 @export var turn_off_flashlight_in_hallway_when: int = 0;
 
 @export_group("Audio")
-@export var left_vent: AudioStreamPlayer2D;
-@export var right_vent: AudioStreamPlayer2D;
-@export var shock_sound: AudioStreamPlayer;
-@export var leave_vent_sound: AudioStreamPlayer;
+@export var left_vent: AudioStreamPlayer2D = null;
+@export var right_vent: AudioStreamPlayer2D = null;
+@export var shock_sound: AudioStreamPlayer = null;
+@export var leave_vent_sound: AudioStreamPlayer = null;
 
 @export_group("Other")
 @export var can_move_when_hiding: bool = false;
-@export var character_fadeaway_transition: AnimationPlayer;
+@export var character_fadeaway_transition: AnimationPlayer = null;
 @export var let_external_component_handle_direction: bool = false;
 
 var current_direction: String = "";
