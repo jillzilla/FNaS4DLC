@@ -73,7 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 12
 text = "You'll have to survive as many hours as possible during
-an endless night and rack up points by performing certain
+an endless night and rack up score by performing certain
 actions! The characters will start with a low aggression
 level, but it will keep increasing as the night goes on.
 You'll unlock the third red star if you survive 24
@@ -82,7 +82,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="HighScore" type="Label" parent="Control" unique_id=1267536363]
+[node name="HighScore" type="RichTextLabel" parent="Control" unique_id=937770417]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -95,11 +95,14 @@ offset_right = 256.0
 offset_bottom = 95.75995
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(0.827451, 0.45882353, 1, 1)
 theme_override_constants/outline_size = 12
-theme_override_font_sizes/font_size = 48
-text = "HIGHSCORE
-Hours: 000000
-Points: 000000"
+theme_override_font_sizes/normal_font_size = 48
+text = "High-Score:
+Score: 000000
+Hours: 000"
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true

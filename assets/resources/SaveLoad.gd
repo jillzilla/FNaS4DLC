@@ -42,10 +42,15 @@ class_name SaveDataResource extends Resource
 }
 
 @export var night7ending: bool = false;
-@export var seen_ending : bool = false;
-@export var max_mode_with_modifiers : bool = false;
+@export var seen_ending: bool = false;
+@export var max_mode_with_modifiers: bool = false;
 
 @export var aggressive_mode: bool = false;
 @export var limited_vision: bool = false;
 @export var limited_flashlight: bool = false;
 @export var slower_nights: bool = false;
+
+@export var endless_mode_highscore_score: int = 0;
+@export var endless_mode_highscore_hours: int = 0;
+
+@export var endless_mode_completed : bool = false;

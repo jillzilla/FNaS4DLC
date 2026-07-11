@@ -11,11 +11,13 @@ signal trigger_event;
 
 var clock_iteration: int = 0;
 
+@export var player_component: Player_Component;
+
 #functions
 func _ready() -> void:
 	if main.nightcounter == main.ENDLESSID:
 		clock_counter.hide();
-		DiscordManager._update_state("Hours: 000000 || Points: 000000");
+		player_component._update_endless_mode_output();
 	else:
 		DiscordManager._update_state(clock_outputs[clock_iteration]);
 	if main.save_data_file.slower_nights:
@@ -40,8 +42,9 @@ func _clock_timer_timeout() -> void:
 		elif clock_iteration >= clock_outputs.size() - 1:
 			_win();
 	else:
+		player_component._add_hours_endless_mode(1);
+		player_component._add_points_endless_mode(1000);
 		_increase_ai_aggressiveness();
-		DiscordManager._update_state("Hours: 000000 || Points: 000000");
 		clock_timer.start();
 		trigger_event.emit();
 

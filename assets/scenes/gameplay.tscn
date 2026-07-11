@@ -1319,10 +1319,12 @@ metadata/_custom_type_script = "uid://euwep6lcycwd"
 script = ExtResource("2_qj8ra")
 metadata/_custom_type_script = "uid://dxqook2amacs3"
 
-[node name="Player_Component" type="Node" parent="Components" unique_id=317123204 node_paths=PackedStringArray("flashlight_battery_drain_timer", "flashlight_battery_counter")]
+[node name="Player_Component" type="Node" parent="Components" unique_id=317123204 node_paths=PackedStringArray("flashlight_battery_drain_timer", "flashlight_battery_counter", "endless_mode_points_counter", "endless_mode_hours_counter")]
 script = ExtResource("7_mliqa")
 flashlight_battery_drain_timer = NodePath("TimerFlashlightBatteryDrain")
 flashlight_battery_counter = NodePath("../../Misc/GUI/FlashlightBatteryCounter")
+endless_mode_points_counter = NodePath("../../Misc/GUI/EndlessModePoints")
+endless_mode_hours_counter = NodePath("../../Misc/GUI/EndlessModeHours")
 metadata/_custom_type_script = "uid://dvtix3a1a3meg"
 
 [node name="TimerFlashlightBatteryDrain" type="Timer" parent="Components/Player_Component" unique_id=1200500019]
@@ -1454,12 +1456,13 @@ sound = NodePath("../../Sounds/Flashlight_SFX")
 darkness_sprite = NodePath("../../Rooms/Ceiling/Dark")
 metadata/_custom_type_script = "uid://c4rlke2hboc5f"
 
-[node name="TimeComponent" type="Node" parent="Components" unique_id=668747829 node_paths=PackedStringArray("loading", "clock_timer", "clock_counter")]
+[node name="TimeComponent" type="Node" parent="Components" unique_id=668747829 node_paths=PackedStringArray("loading", "clock_timer", "clock_counter", "player_component")]
 script = ExtResource("5_rfeao")
 loading = NodePath("../../Misc/GUI/Loading")
 clock_timer = NodePath("../../Misc/Clock_Timer")
 clock_counter = NodePath("../../Misc/GUI/Clock")
 clock_outputs = Array[String](["12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM"])
+player_component = NodePath("../Player_Component")
 metadata/_custom_type_script = "uid://crylvvo6p0k44"
 
 [node name="MaskComponent" type="Node" parent="Components" unique_id=1115275991 node_paths=PackedStringArray("player_component", "mask_sprite", "mask_on_SFX", "mask_off_SFX")]
@@ -1622,6 +1625,7 @@ bus = &"Sounds"
 
 [node name="MaxModeMusic" type="AudioStreamPlayer" parent="Sounds" unique_id=881432256]
 stream = ExtResource("59_cmby1")
+volume_db = -15.0
 bus = &"Music"
 
 [node name="Luigi_Walk_Left" type="AudioStreamPlayer2D" parent="Sounds" unique_id=697889683]
@@ -2232,12 +2236,6 @@ position = Vector2(-30, -372)
 texture = ExtResource("64_olnhb")
 metadata/_edit_lock_ = true
 
-[node name="Cream_3" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=307706582]
-visible = false
-position = Vector2(-3, -392)
-texture = ExtResource("65_etbyd")
-metadata/_edit_lock_ = true
-
 [node name="ToyMario_2" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=1296227063]
 visible = false
 position = Vector2(32, -406)
@@ -2247,6 +2245,12 @@ metadata/_edit_group_ = true
 
 [node name="Pupils" type="Sprite2D" parent="Rooms/Right_Vent/ToyMario_2" unique_id=1650178831]
 texture = ExtResource("41_uerps")
+metadata/_edit_lock_ = true
+
+[node name="Cream_3" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=307706582]
+visible = false
+position = Vector2(-3, -392)
+texture = ExtResource("65_etbyd")
 metadata/_edit_lock_ = true
 
 [node name="Tails" type="Sprite2D" parent="Rooms/Right_Vent" unique_id=858779070]
@@ -2544,6 +2548,38 @@ metadata/_edit_group_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/GUI/Clock" unique_id=427652308]
 libraries/ = SubResource("AnimationLibrary_q2jy1")
 speed_scale = 0.1
+
+[node name="EndlessModePoints" type="Label" parent="Misc/GUI" unique_id=1703321940]
+visible = false
+anchors_preset = -1
+anchor_left = 0.84700006
+anchor_top = 0.034
+anchor_right = 0.84700006
+anchor_bottom = 0.034
+offset_left = -188.16003
+offset_top = -16.480001
+offset_right = 187.83997
+offset_bottom = 16.519999
+theme = ExtResource("62_bt1i2")
+text = "Score: 000000"
+horizontal_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="EndlessModeHours" type="Label" parent="Misc/GUI" unique_id=906416237]
+visible = false
+anchors_preset = -1
+anchor_left = 0.84700006
+anchor_top = 0.078
+anchor_right = 0.84700006
+anchor_bottom = 0.078
+offset_left = -188.16003
+offset_top = -16.16
+offset_right = 187.83997
+offset_bottom = 16.84
+theme = ExtResource("62_bt1i2")
+text = "Hours: 000"
+horizontal_alignment = 2
+metadata/_edit_lock_ = true
 
 [node name="PauseMenu" parent="Misc/GUI" unique_id=203952170 instance=ExtResource("109_xnjdx")]
 visible = false

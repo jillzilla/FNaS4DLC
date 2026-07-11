@@ -103,6 +103,7 @@ func _left_flashlight_on() -> void:
 	if sprite_peek_left_vent != null:
 		if sprite_peek_left_vent.visible:
 			if !peeking:
+				player_component._add_points_endless_mode(50);
 				if sprite_peek_left_vent.get_node("AnimationPlayer").is_playing():
 					sprite_peek_left_vent.get_node("AnimationPlayer").stop();
 				sprite_peek_left_vent.get_node("AnimationPlayer").play("Peeking");
@@ -116,6 +117,7 @@ func _right_flashlight_on() -> void:
 	if sprite_peek_right_vent != null:
 		if sprite_peek_right_vent.visible:
 			if !peeking:
+				player_component._add_points_endless_mode(50);
 				if sprite_peek_right_vent.get_node("AnimationPlayer").is_playing():
 					sprite_peek_right_vent.get_node("AnimationPlayer").stop();
 				sprite_peek_right_vent.get_node("AnimationPlayer").play("Peeking");
@@ -129,6 +131,7 @@ func _ceiling_flashlight_on() -> void:
 	if sprite_peek_ceiling != null:
 		if sprite_peek_ceiling.visible:
 			if !peeking:
+				player_component._add_points_endless_mode(50);
 				if sprite_peek_ceiling.get_node("AnimationPlayer").is_playing():
 					sprite_peek_ceiling.get_node("AnimationPlayer").stop();
 				sprite_peek_ceiling.get_node("AnimationPlayer").play("Peeking");
@@ -142,6 +145,7 @@ func _hallway_flashlight_on() -> void:
 	if sprite_peek_hallway != null:
 		if sprite_peek_hallway.visible:
 			if !peeking:
+				player_component._add_points_endless_mode(50);
 				if sprite_peek_hallway.get_node("AnimationPlayer").is_playing():
 					sprite_peek_hallway.get_node("AnimationPlayer").stop();
 				sprite_peek_hallway.get_node("AnimationPlayer").play("Peeking");
@@ -153,6 +157,7 @@ func _hallway_flashlight_on() -> void:
 
 func _shock_handler() -> void:
 	if !shocked:
+		player_component._add_points_endless_mode(100);
 		shock_sound.play();
 		shocked = true;
 
@@ -199,6 +204,8 @@ func _move_character(turn_off_flashlight: bool) -> void:
 
 func _reset_character_status(enable_character_fadeaway: bool = true, play_leave_vent_sound: bool = true) -> void:
 	if current_position > -1:
+		player_component._add_points_endless_mode(200);
+
 		if step != 0:
 			step = 0;
 			

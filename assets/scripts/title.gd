@@ -9,6 +9,7 @@ extends Node
 @onready var star1: Sprite2D = $UI/Control/Star_1;
 @onready var star2: Sprite2D = $UI/Control/Star_2;
 @onready var star3: Sprite2D = $UI/Control/Star_3;
+@onready var star4: Sprite2D = $UI/Control/Star_4;
 @onready var platinum_star: Sprite2D = $UI/Control/Star_16;
 
 @onready var night6button: Button = $UI/Control/ButtonsContainer/MainButtons/Night6;
@@ -34,6 +35,9 @@ func _ready() -> void:
 	
 	main._reset_ai();
 	main.cnchallenge = "";
+
+	if main.save_data_file.endless_mode_completed:
+		star4.show();
 	
 	if main.save_data_file.guideunlocked:
 		guidebutton.show();

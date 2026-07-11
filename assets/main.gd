@@ -528,6 +528,9 @@ func _save() -> void:
 		"limited_vision": save_data_file.limited_vision,
 		"limited_flashlight": save_data_file.limited_flashlight,
 		"slower_nights": save_data_file.slower_nights,
+		"endless_mode_highscore_score": save_data_file.endless_mode_highscore_score,
+		"endless_mode_highscore_hours": save_data_file.endless_mode_highscore_hours,
+		"endless_mode_completed": save_data_file.endless_mode_completed,
 	}
 	
 	var data_to_json: String = JSON.stringify(data_to_save);
@@ -578,6 +581,11 @@ func _load() -> void:
 		save_data_file.limited_vision = data.limited_vision;
 		save_data_file.limited_flashlight = data.limited_flashlight;
 		save_data_file.slower_nights = data.slower_nights;
+
+		save_data_file.endless_mode_highscore_score = data.endless_mode_highscore_score;
+		save_data_file.endless_mode_highscore_hours = data.endless_mode_highscore_hours;
+
+		save_data_file.endless_mode_completed = data.endless_mode_completed;
 
 		print(data);
 		

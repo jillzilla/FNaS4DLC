@@ -35,7 +35,6 @@ func _ready() -> void:
 	slower_nights_button.button_pressed = main.save_data_file.slower_nights;
 
 func _on_back_pressed() -> void:
-	main._save();
 	loading._load_scene("uid://cl7jf3xdjegaf");
 
 func _on_right_pressed() -> void:
@@ -90,35 +89,35 @@ func _on_survival_pressed() -> void:
 
 func _on_night_1_pressed() -> void:
 	main.nightcounter = 1;
-	main._save();
 	loading._load_scene("uid://bocmtkamvkla5");
 
 func _on_night_2_pressed() -> void:
 	main.nightcounter = 2;
-	main._save();
 	loading._load_scene("uid://bocmtkamvkla5");
 
 func _on_night_3_pressed() -> void:
 	main.nightcounter = 3;
-	main._save();
 	loading._load_scene("uid://bocmtkamvkla5");
 
 func _on_night_4_pressed() -> void:
 	main.nightcounter = 4;
-	main._save();
 	loading._load_scene("uid://bocmtkamvkla5");
 
 func _on_aggressive_check_box_mouse_entered() -> void:
 	modifier_description.text = main.modifiers_descriptions["AGGRESSIVE"];
+	main._save();
 
 func _on_vision_check_box_mouse_entered() -> void:
 	modifier_description.text = main.modifiers_descriptions["VISION"];
+	main._save();
 
 func _on_flashlight_check_box_mouse_entered() -> void:
 	modifier_description.text = main.modifiers_descriptions["FLASHLIGHT"];
+	main._save();
 
 func _on_slow_nights_check_box_mouse_entered() -> void:
 	modifier_description.text = main.modifiers_descriptions["SLOWNIGHTS"];
+	main._save();
 
 func _on_aggressive_check_box_toggled(toggled_on: bool) -> void:
 	main.save_data_file.aggressive_mode = toggled_on;
