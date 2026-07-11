@@ -667,3 +667,7 @@ func _reset_ai() -> void:
 	for i in range(_get_ai_level_as_array().size()):
 		ai_levels[_get_ai_level_as_array()[i]] = AIDEFAULTLEVEL;
 	print(ai_levels);
+
+func _set_min_ai() -> void:
+	for i in range(_get_ai_level_as_array().size()):
+		ai_levels[_get_ai_level_as_array()[i]] = AIMINVALUE;

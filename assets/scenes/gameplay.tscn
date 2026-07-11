@@ -84,6 +84,7 @@
 [ext_resource type="Texture2D" uid="uid://7bjybixcf0l3" path="res://assets/images/gameplay/characters/tmario/tmariorightleg.png" id="28_bt1i2"]
 [ext_resource type="Texture2D" uid="uid://dspjkfre872ju" path="res://assets/images/gameplay/characters/tsonic/toysonic21.png" id="31_82o30"]
 [ext_resource type="Script" uid="uid://b2udadtitgg17" path="res://assets/components/Night5Event.gd" id="32_3da72"]
+[ext_resource type="Script" uid="uid://c5bk0kixulrr" path="res://assets/components/EndlessModeWavesComponent.gd" id="33_wqa6j"]
 [ext_resource type="Texture2D" uid="uid://cmdsvegeu0ww0" path="res://assets/images/gameplay/custom_night_rewards/sonicplush.png" id="34_j85f1"]
 [ext_resource type="Texture2D" uid="uid://db00licd5elxu" path="res://assets/images/gameplay/custom_night_rewards/salvageplush.png" id="35_jrrtj"]
 [ext_resource type="Texture2D" uid="uid://cwx3t0pb835r0" path="res://assets/images/gameplay/characters/bt/bt1.png" id="36_8dshm"]
@@ -1524,6 +1525,12 @@ metadata/_custom_type_script = "uid://b2udadtitgg17"
 [node name="Timer" type="Timer" parent="Components/Night5Event" unique_id=251918390]
 wait_time = 8.5
 one_shot = true
+
+[node name="EndlessModeWavesComponent" type="Node" parent="Components" unique_id=1046358358 node_paths=PackedStringArray("player_component", "time_component")]
+script = ExtResource("33_wqa6j")
+player_component = NodePath("../Player_Component")
+time_component = NodePath("../TimeComponent")
+metadata/_custom_type_script = "uid://c5bk0kixulrr"
 
 [node name="Sounds" type="Node" parent="." unique_id=1674670979]
 

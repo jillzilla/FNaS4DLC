@@ -14,6 +14,7 @@ func _ready() -> void:
 		main.ENDLESSID:
 			DiscordManager._update_details("Entering Endless Mode");
 			nightcounter.text = "Endless Mode";
+			main._set_min_ai();
 		_:
 			DiscordManager._update_details("Entering Night " + str(main.nightcounter));
 			nightcounter.text = "Night " + str(main.nightcounter) + "\n" + "12:00 AM";
