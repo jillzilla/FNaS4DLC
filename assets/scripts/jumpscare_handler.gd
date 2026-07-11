@@ -1,7 +1,7 @@
 extends Node2D
 
 #variables
-@export var loading: Control;
+@export var loading: Control = null;
 @export var go_to_gameover: bool = true;
 
 @onready var animation: AnimationPlayer = $AnimationPlayer;

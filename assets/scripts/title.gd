@@ -36,20 +36,17 @@ func _ready() -> void:
 	main._reset_ai();
 	main.cnchallenge = "";
 
-	if main.save_data_file.endless_mode_completed:
-		star4.show();
-	
-	if main.save_data_file.guideunlocked:
-		guidebutton.show();
-
-	if main.save_data_file.max_mode_with_modifiers:
-		platinum_star.show();
-	
 	if main.save_data_file.night7ending:
 		if !main.save_data_file.night6ending:
 			main.save_data_file.night6ending = true;
 			main._save();
 		star3.show();
+
+	if main.save_data_file.endless_mode_completed:
+		star4.show();
+
+	if main.save_data_file.max_mode_with_modifiers:
+		platinum_star.show();
 	
 	if main.save_data_file.night6ending:
 		if !main.save_data_file.night5ending:
@@ -67,6 +64,9 @@ func _ready() -> void:
 			main._save();
 		night6button.show();
 		star1.show();
+
+	if main.save_data_file.guideunlocked:
+		guidebutton.show();
 
 	var blue_stars: Array[Sprite2D] = [$UI/Control/Star_5, $UI/Control/Star_6, $UI/Control/Star_7,
 	$UI/Control/Star_8, $UI/Control/Star_9, $UI/Control/Star_10, $UI/Control/Star_11, $UI/Control/Star_12,
