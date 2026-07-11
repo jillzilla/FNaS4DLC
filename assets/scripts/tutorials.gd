@@ -10,7 +10,7 @@ func _ready() -> void:
 	DiscordManager._update_state("Reading The Tutorial...");
 	counter.text = "TUTORIAL " + "(Night " + str(main.nightcounter) + ")";
 	
-	if main.nightcounter > 0 && main.nightcounter < 6:
+	if main.nightcounter >= 1 && main.nightcounter <= 5:
 		desc.text = main.tutorials_text[main.nightcounter];
 
 func _on_button_pressed() -> void:

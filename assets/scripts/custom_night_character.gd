@@ -20,8 +20,8 @@ var HoverRight: bool = false;
 @onready var ai_counter: Label = $AiLevel/Counter;
 @onready var icon: TextureRect = $Icon;
 @onready var ai_change_timer: Timer = $Timer_Change_AI_Level;
-@onready var left_button : Button = $AiLevel/Left;
-@onready var right_button : Button = $AiLevel/Right;
+@onready var left_button: Button = $AiLevel/Left;
+@onready var right_button: Button = $AiLevel/Right;
 
 #functions
 func _ready() -> void:

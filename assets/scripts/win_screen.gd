@@ -11,7 +11,7 @@ var next_scene_path: String = "";
 func _ready() -> void:
 	DiscordManager._update_details("8 AM!");
 
-	if main.nightcounter != 7:
+	if main.nightcounter != main.CUSTOMNIGHTID:
 		DiscordManager._update_state("Night " + str(main.nightcounter));
 	else:
 		DiscordManager._update_state("Custom Night");
@@ -37,7 +37,7 @@ func _ready() -> void:
 				RewardUnlockPopup.add_to_queue("Nightmare Knuckles", "uid://c5khrsuiokdwp");
 				RewardUnlockPopup.add_to_queue("Tails Doll", "uid://ckobrpmtwjc7b");
 				main.save_data_file.night6ending = true;
-		7:
+		main.CUSTOMNIGHTID:
 			if main.cnchallenge == "Hammer Heartbreak II":
 				if !main.save_data_file.night7ending:
 					RewardUnlockPopup.add_to_queue("Gold Star", "uid://c56g28iss4uvm");
@@ -66,13 +66,13 @@ func _on_timer_timeout() -> void:
 	clockanimation.play("lowtaperfade");
 
 func _get_next_scene() -> String:
-	if main.nightcounter < 5 && main.save_data_file.night5ending || main.nightcounter == 7 && main.cnchallenge != "Hammer Heartbreak II" || main.nightcounter == 7 && main.cnchallenge == "Hammer Heartbreak II" && main.save_data_file.aggressive_mode && main.save_data_file.limited_vision && main.save_data_file.limited_flashlight && main.save_data_file.slower_nights && main.save_data_file.seen_ending:
+	if main.nightcounter < 5 && main.save_data_file.night5ending || main.nightcounter == main.CUSTOMNIGHTID && main.cnchallenge != "Hammer Heartbreak II" || main.nightcounter == main.CUSTOMNIGHTID && main.cnchallenge == "Hammer Heartbreak II" && main.save_data_file.aggressive_mode && main.save_data_file.limited_vision && main.save_data_file.limited_flashlight && main.save_data_file.slower_nights && main.save_data_file.seen_ending:
 		return "uid://cl7jf3xdjegaf";
 	elif main.nightcounter == 5:
 		return "uid://cm7mi8q4xlx5k";
 	elif main.nightcounter == 6:
 		return "uid://bdxfeqwt3r0b2";
-	elif main.nightcounter == 7 && main.cnchallenge == "Hammer Heartbreak II":
+	elif main.nightcounter == main.CUSTOMNIGHTID && main.cnchallenge == "Hammer Heartbreak II":
 		return "uid://bqrgh7e42cck1";
 	else:
 		return "uid://bocmtkamvkla5";

@@ -10,7 +10,7 @@ extends Node
 
 #functions
 func _ready() -> void:
-	if main.nightcounter != 7:
+	if main.nightcounter != main.CUSTOMNIGHTID:
 		DiscordManager._update_details("Surviving Night " + str(main.nightcounter));
 	else:
 		DiscordManager._update_details("Surviving Custom Night");
@@ -22,7 +22,7 @@ func _ready() -> void:
 		darkness.color = Color(0, 0, 0, 1);
 		secondary_flashlight.show();
 
-	if main.nightcounter == 7 && main.cnchallenge == "Hammer Heartbreak II" && main.save_data_file.aggressive_mode && main.save_data_file.limited_flashlight && main.save_data_file.limited_vision && main.save_data_file.slower_nights:
+	if main.nightcounter == main.CUSTOMNIGHTID && main.cnchallenge == "Hammer Heartbreak II" && main.save_data_file.aggressive_mode && main.save_data_file.limited_flashlight && main.save_data_file.limited_vision && main.save_data_file.slower_nights:
 		max_mode_music.play();
 	
 	for i in range(main._get_challenges_as_array().size()):

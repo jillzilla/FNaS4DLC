@@ -13,7 +13,7 @@ class_name LuiginetteSetupComponent extends Component
 #functions
 func _ready() -> void:
     if active:
-        if main.nightcounter == 6 || main.nightcounter == 7:
+        if main.nightcounter == 6 || main.nightcounter == main.CUSTOMNIGHTID || main.nightcounter == main.ENDLESSID:
             direction_handler.min_movements = main.luiginette_setup[main.nightcounter]["DirMinMovement"];
             direction_handler.max_movements = main.luiginette_setup[main.nightcounter]["DirMaxMovement"];
 

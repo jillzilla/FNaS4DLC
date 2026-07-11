@@ -10,6 +10,9 @@ const AIMINVALUE: int = 0;
 const AIDEFAULTLEVEL: int = 5;
 const AIMAXVALUE: int = 25;
 
+const CUSTOMNIGHTID: int = 7;
+const ENDLESSID: int = 8;
+
 const CANSKIPNIGHTS: bool = true;
 
 var nightcounter: int = 1;
@@ -401,7 +404,41 @@ var luiginette_setup: Dictionary[int, Dictionary] = {
 		"DirMinTimerMovement": 60.0,
 		"DirMaxTimerMovement": 90.0
 	},
-	7: {
+	main.CUSTOMNIGHTID: {
+		"TimerMovementMin": 250.0,
+		"TimerMovementMax": 320.0,
+		"AttackTimer": 3.0,
+		"FlashlightCounterTimer": 0.5,
+		"MaskCounterTimer": 0.5,
+		"LeftVentPositionCount": 1,
+		"RightVentPositionCount": 1,
+		"CeilingPositionCount": 0,
+		"HallwayPositionCount": 4,
+		"LeftVentSprites": [
+			"Rooms/Left_Vent/LuiginetteVent1",
+			"Rooms/Left_Vent/NLuigiVent"
+		],
+		"RightVentSprites": [
+			"Rooms/Right_Vent/LuiginetteVent1",
+			"Rooms/Right_Vent/NLuigiVent"
+		],
+		"CeilingSprites": [
+			"Rooms/Ceiling/ClipMask/NLuigiCeiling"
+		],
+		"HallwaySprites": [
+			"Rooms/Office/Monitor/Camera/Lnette1",
+			"Rooms/Office/Monitor/Camera/Lnette2",
+			"Rooms/Office/Monitor/Camera/Lnette3",
+			"Rooms/Office/Monitor/Camera/Lnette4",
+			"Rooms/Hallway/NLuigiHallway"
+		],
+		"TurnOffFlashlightInHallwayWhen": 4,
+		"DirMinMovement": 1,
+		"DirMaxMovement": 5,
+		"DirMinTimerMovement": 120.0,
+		"DirMaxTimerMovement": 180.0
+	},
+	main.ENDLESSID: {
 		"TimerMovementMin": 250.0,
 		"TimerMovementMax": 320.0,
 		"AttackTimer": 3.0,

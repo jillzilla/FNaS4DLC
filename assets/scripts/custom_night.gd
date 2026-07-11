@@ -35,7 +35,7 @@ func _on_ready_pressed() -> void:
 	var current_ai_level: Array[int] = get_ai_levels_as_array();
 
 	if current_ai_level != [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]:
-		main.nightcounter = 7;
+		main.nightcounter = main.CUSTOMNIGHTID;
 		main.cnchallenge = challenge_name.text;
 		loading._load_scene("uid://bocmtkamvkla5");
 	else:
