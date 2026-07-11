@@ -85,6 +85,9 @@ func _on_challenges_pressed() -> void:
 	old_nights.hide();
 	modifiers_section.show();
 
+func _on_survival_pressed() -> void:
+	loading._load_scene("uid://84suipdnyh56");
+
 func _on_night_1_pressed() -> void:
 	main.nightcounter = 1;
 	main._save();

@@ -742,4 +742,5 @@ bus = &"Music"
 [connection signal="pressed" from="Control/Buttons/Gallery" to="." method="_on_gallery_pressed"]
 [connection signal="pressed" from="Control/Buttons/Challenges" to="." method="_on_challenges_pressed"]
 [connection signal="pressed" from="Control/Buttons/OldNights" to="." method="_on_old_nights_pressed"]
+[connection signal="pressed" from="Control/Buttons/Survival" to="." method="_on_survival_pressed"]
 [connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
