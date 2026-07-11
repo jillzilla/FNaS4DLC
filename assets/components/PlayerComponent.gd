@@ -32,6 +32,8 @@ func _ready() -> void:
     if main.nightcounter == main.ENDLESSID:
         endless_mode_points_counter.show();
         endless_mode_hours_counter.show();
+        main.global_highscore_endless_hours = main.save_data_file.endless_mode_highscore_hours;
+        main.global_highscore_endless_score = main.save_data_file.endless_mode_highscore_score;
 
 func _flashlight_timer_timeout() -> void:
     flashbattery -= 1;
@@ -48,9 +50,9 @@ func _add_points_endless_mode(a: int) -> void:
         endless_mode_points += a;
         if endless_mode_points > 999999:
             endless_mode_points = 999999;
-        if endless_mode_points > main.save_data_file.endless_mode_highscore_score:
-            main.save_data_file.endless_mode_highscore_score = endless_mode_points;
-            main._save();
+        main.global_endless_score = endless_mode_points;
+        if endless_mode_points > main.global_highscore_endless_score:
+            main.global_highscore_endless_score = endless_mode_points;
         _update_endless_mode_output();
 
 func _add_hours_endless_mode(a: int) -> void:
@@ -58,9 +60,9 @@ func _add_hours_endless_mode(a: int) -> void:
         endless_mode_hours += a;
         if endless_mode_hours > 999:
             endless_mode_hours = 999;
-        if endless_mode_hours > main.save_data_file.endless_mode_highscore_hours:
-            main.save_data_file.endless_mode_highscore_hours = endless_mode_hours;
-            main._save();
+        main.global_endless_hours = endless_mode_hours;
+        if endless_mode_hours > main.global_highscore_endless_hours:
+            main.global_highscore_endless_hours = endless_mode_hours;
         if endless_mode_hours >= 24:
             if !main.save_data_file.endless_mode_completed:
                 RewardUnlockPopup.add_to_queue("Red Star");

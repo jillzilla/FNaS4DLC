@@ -20,6 +20,12 @@ var nightcounter: int = 1;
 var killedBy: String = "";
 var cnchallenge: String = "";
 
+var global_endless_score : int = 0;
+var global_endless_hours : int = 0;
+
+var global_highscore_endless_score : int = 0;
+var global_highscore_endless_hours : int = 0;
+
 var isloadingsom: bool = false;
 var didrarescreenhappened: bool = false;
 
