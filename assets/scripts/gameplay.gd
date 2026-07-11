@@ -10,10 +10,13 @@ extends Node
 
 #functions
 func _ready() -> void:
-	if main.nightcounter != main.CUSTOMNIGHTID:
-		DiscordManager._update_details("Surviving Night " + str(main.nightcounter));
-	else:
-		DiscordManager._update_details("Surviving Custom Night");
+	match (main.nightcounter):
+		main.CUSTOMNIGHTID:
+			DiscordManager._update_details("Surviving Custom Night");
+		main.ENDLESSID:
+			DiscordManager._update_details("Surviving Endless Mode");
+		_:
+			DiscordManager._update_details("Surviving Night " + str(main.nightcounter));
 
 	if main.save_data_file.night_to_play >= 3:
 		monitor.show();
