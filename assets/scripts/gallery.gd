@@ -305,7 +305,7 @@ func _on_back_button_pressed() -> void:
 
 func _on_left_pressed() -> void:
     var force_reset: bool = false;
-    if room_current == 6:
+    if room_current == 6 || room_current == 3:
         force_reset = true;
     room_current -= 1;
     if room_current < 0:
@@ -314,7 +314,7 @@ func _on_left_pressed() -> void:
 
 func _on_right_pressed() -> void:
     var force_reset: bool = false;
-    if room_current == 6:
+    if room_current == 6 || room_current == 3:
         force_reset = true;
     room_current += 1;
     if room_current > rooms_list.size() - 1:

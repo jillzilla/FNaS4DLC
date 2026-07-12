@@ -79,12 +79,11 @@ func _ready() -> void:
 
 	movement_timer = _get_randomized_movement_timer();
 
-	if main.ai_levels[character_ai_level_id] > 0:
-		if possible_directions != [] && !let_external_component_handle_direction:
-			current_direction = possible_directions.pick_random();
-		else:
-			if !disabled:
-				disabled = true;
+	if possible_directions != [] && !let_external_component_handle_direction:
+		current_direction = possible_directions.pick_random();
+	else:
+		if !disabled:
+			disabled = true;
 
 func _physics_process(delta: float) -> void:
 	if main.ai_levels[character_ai_level_id] > 0 && !pause && !disabled && player_component.is_alive:

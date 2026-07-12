@@ -37,9 +37,10 @@ var waves_handler: Dictionary[int, Dictionary] = {
 #functions
 func _update_ai_levels() -> void:
     if main.nightcounter == main.ENDLESSID:
-        for i in range(main._get_ai_level_as_array().size()):
-            if waves_handler[player_component.endless_mode_hours].has(main._get_ai_level_as_array()[i]):
-                main.ai_levels[main._get_ai_level_as_array()[i]] = waves_handler[player_component.endless_mode_hours][main._get_ai_level_as_array()[i]];
+        if waves_handler.has(player_component.endless_mode_hours):
+            for i in range(main._get_ai_level_as_array().size()):
+                if waves_handler[player_component.endless_mode_hours].has(main._get_ai_level_as_array()[i]):
+                    main.ai_levels[main._get_ai_level_as_array()[i]] = waves_handler[player_component.endless_mode_hours][main._get_ai_level_as_array()[i]];
 
 func _ready() -> void:
     time_component.connect("trigger_event", hour_passed);
