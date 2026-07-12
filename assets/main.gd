@@ -381,7 +381,7 @@ var luiginette_setup: Dictionary[int, Dictionary] = {
 	6: {
 		"TimerMovementMin": 180.0,
 		"TimerMovementMax": 240.0,
-		"AttackTimer": 2.0,
+		"AttackTimer": 2.5,
 		"FlashlightCounterTimer": 0.5,
 		"MaskCounterTimer": 0.3,
 		"LeftVentPositionCount": 1,
@@ -413,7 +413,7 @@ var luiginette_setup: Dictionary[int, Dictionary] = {
 	main.CUSTOMNIGHTID: {
 		"TimerMovementMin": 250.0,
 		"TimerMovementMax": 320.0,
-		"AttackTimer": 3.0,
+		"AttackTimer": 4.5,
 		"FlashlightCounterTimer": 0.5,
 		"MaskCounterTimer": 0.5,
 		"LeftVentPositionCount": 1,
