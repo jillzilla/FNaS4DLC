@@ -484,7 +484,7 @@ var modifiers_descriptions: Dictionary[String, String] = {
 	"AGGRESSIVE": "The characters will move 1.05x as fast.",
 	"VISION": "The entire room will be dark, and you'll only be able to see by the light of a small flashlight.",
 	"FLASHLIGHT": "The main flashlight will have limited battery life.",
-	"SLOWNIGHTS": "The night will last twice as long, from 6 minutes to 8 minutes.",
+	"SLOWNIGHTS": "The night will last longer, from 6 minutes to 8 minutes.",
 }
 
 #functions
