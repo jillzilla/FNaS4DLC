@@ -91,7 +91,7 @@ metadata/_edit_lock_ = true
 
 [node name="ToyMario" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1321877178]
 visible = false
-position = Vector2(800, 400)
+position = Vector2(765, 345)
 texture = ExtResource("5_vqcuw")
 metadata/_edit_lock_ = true
 
@@ -103,7 +103,7 @@ metadata/_edit_lock_ = true
 
 [node name="Taingle" type="Sprite2D" parent="Control/Characters/CharactersTextures" unique_id=1847452480]
 visible = false
-position = Vector2(755, 387)
+position = Vector2(745, 340)
 texture = ExtResource("7_sykmn")
 metadata/_edit_lock_ = true
 
