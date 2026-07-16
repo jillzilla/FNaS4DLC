@@ -40,13 +40,13 @@ offset_left = -215.68001
 offset_top = -344.0
 offset_right = 216.31999
 offset_bottom = 344.0
-theme_override_constants/separation = -64
+theme_override_constants/separation = -32
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Settings" type="Label" parent="ThingsContainer" unique_id=359293982]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 theme_override_font_sizes/font_size = 64
 text = "Options"
 horizontal_alignment = 1
@@ -55,7 +55,7 @@ metadata/_edit_lock_ = true
 
 [node name="Separator1" type="HSeparator" parent="ThingsContainer" unique_id=703932832]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 theme = ExtResource("2_fdwte")
 metadata/_edit_lock_ = true
 
@@ -113,7 +113,7 @@ metadata/_custom_type_script = "uid://djncuditdkxsm"
 
 [node name="Separator2" type="HSeparator" parent="ThingsContainer" unique_id=816923789]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 theme = ExtResource("2_fdwte")
 metadata/_edit_lock_ = true
 
@@ -158,6 +158,30 @@ size_flags_vertical = 3
 theme_override_constants/separation = 32
 metadata/_edit_lock_ = true
 
+[node name="Filtering" type="HBoxContainer" parent="MarginContainer/Video/VideoContainer" unique_id=124258478]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Video/VideoContainer/Filtering" unique_id=1090096037]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Texture Filtering: "
+metadata/_edit_lock_ = true
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/Video/VideoContainer/Filtering" unique_id=783698382]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+selected = 0
+item_count = 2
+popup/item_0/text = "Linear"
+popup/item_0/id = 0
+popup/item_1/text = "Nearest"
+popup/item_1/id = 1
+metadata/_edit_lock_ = true
+
 [node name="WindowMode" type="HBoxContainer" parent="MarginContainer/Video/VideoContainer" unique_id=94166546]
 layout_mode = 2
 metadata/_edit_lock_ = true
@@ -167,7 +191,7 @@ metadata/_edit_group_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "Window Mode:"
+text = "Window Mode: "
 metadata/_edit_lock_ = true
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/Video/VideoContainer/WindowMode" unique_id=1214404956]
@@ -193,7 +217,7 @@ metadata/_edit_group_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "Resolution:"
+text = "Resolution: "
 metadata/_edit_lock_ = true
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/Video/VideoContainer/Resolution" unique_id=378391866]
@@ -218,7 +242,8 @@ metadata/_edit_group_ = true
 [node name="Label" type="Label" parent="MarginContainer/Video/VideoContainer/VSync" unique_id=808836375]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "V-SYNC:"
+size_flags_vertical = 1
+text = "V-SYNC: "
 metadata/_edit_lock_ = true
 
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/Video/VideoContainer/VSync" unique_id=1599502252]
@@ -237,7 +262,7 @@ metadata/_edit_group_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "FPS Cap:"
+text = "FPS Cap: "
 metadata/_edit_lock_ = true
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/Video/VideoContainer/FPSCap" unique_id=355334451]
@@ -415,7 +440,7 @@ metadata/_edit_group_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "Pause:"
+text = "Pause: "
 metadata/_edit_lock_ = true
 
 [node name="Button" type="Button" parent="MarginContainer/Input/InputContainer/Pause" unique_id=1648228950]
@@ -450,7 +475,7 @@ metadata/_edit_group_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "FPS Counter:"
+text = "FPS Counter: "
 metadata/_edit_lock_ = true
 
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/Misc/MiscContainer/FPSCounter" unique_id=1334778638]
@@ -469,7 +494,7 @@ metadata/_edit_group_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "Reset Settings:"
+text = "Reset Settings: "
 metadata/_edit_lock_ = true
 
 [node name="Button" type="Button" parent="MarginContainer/Misc/MiscContainer/ResetSettings" unique_id=1446299376]
@@ -491,7 +516,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.827451, 0, 0, 1)
-text = "Delete Data:"
+text = "Delete Data: "
 metadata/_edit_lock_ = true
 
 [node name="Button" type="Button" parent="MarginContainer/Misc/MiscContainer/DeleteData" unique_id=178563399]

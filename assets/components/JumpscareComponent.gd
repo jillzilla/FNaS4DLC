@@ -11,6 +11,7 @@ class_name JumpscareComponent extends Component
 
 @export_group("Resources")
 @export var jumpscare_animation: Node2D = null;
+@export var pause_menu: Control = null;
 
 @export_group("Data IDs")
 @export var game_over_name: String = "";
@@ -23,6 +24,8 @@ func _ready() -> void:
 
 func _character_attack() -> void:
     if player_component.is_alive:
+        pause_menu.process_mode = Node.PROCESS_MODE_DISABLED;
+        
         if tails_doll_mechanic_component.tails_doll_effect.modulate.a != 0:
             tails_doll_mechanic_component._make_face_disappear();
             

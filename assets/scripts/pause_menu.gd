@@ -13,41 +13,41 @@ var quit: bool = false;
 
 #functions
 func _ready() -> void:
-	hide();
-	
-	if main.save_data_file.guideunlocked:
-		guidebutton.show();
+    hide();
+    
+    if main.save_data_file.guideunlocked:
+        guidebutton.show();
 
-	get_tree().paused = false;
-	confirm.connect("confirmaction", _confirmed_action);
+    get_tree().paused = false;
+    confirm.connect("confirmaction", _confirmed_action);
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("PAUSE") && !self.visible && !main.isloadingsom:
-		get_tree().paused = true;
-		show();
+    if event.is_action_pressed("PAUSE") && !self.visible && !main.isloadingsom:
+        get_tree().paused = true;
+        show();
 
 func _on_resume_pressed() -> void:
-	hide();
-	get_tree().paused = false;
+    hide();
+    get_tree().paused = false;
 
 func _on_restart_pressed() -> void:
-	confirm.show();
-	reload = true;
-	quit = false;
-	
+    confirm.show();
+    reload = true;
+    quit = false;
+    
 func _on_settings_pressed() -> void:
-	settings.show();
+    settings.show();
 
 func _on_quit_pressed() -> void:
-	confirm.show();
-	reload = false;
-	quit = true;
+    confirm.show();
+    reload = false;
+    quit = true;
 
 func _confirmed_action() -> void:
-	if reload:
-		loading._load_scene("uid://bocmtkamvkla5");
-	elif quit:
-		loading._load_scene("uid://cl7jf3xdjegaf");
+    if reload:
+        loading._load_scene("uid://bocmtkamvkla5");
+    elif quit:
+        loading._load_scene("uid://cl7jf3xdjegaf");
 
 func _on_guide_pressed() -> void:
-	guide.show();
+    guide.show();
