@@ -5,7 +5,7 @@ class_name SaveDataResource extends Resource
 @export var night_to_play: int = 1; # campaign only
 @export var guideunlocked: bool = false;
 
-@export var texture_filtering : int = 0;
+@export var texture_filtering: int = 0;
 
 @export var windowmode: int = 0;
 @export var resolution: int = 1;
@@ -55,4 +55,6 @@ class_name SaveDataResource extends Resource
 @export var endless_mode_highscore_score: int = 0;
 @export var endless_mode_highscore_hours: int = 0;
 
-@export var endless_mode_completed : bool = false;
+@export var endless_mode_completed: bool = false;
+
+@export var saved_screenshots: int = 1;

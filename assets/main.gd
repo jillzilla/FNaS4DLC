@@ -538,6 +538,7 @@ func _save() -> void:
         "endless_mode_highscore_score": save_data_file.endless_mode_highscore_score,
         "endless_mode_highscore_hours": save_data_file.endless_mode_highscore_hours,
         "endless_mode_completed": save_data_file.endless_mode_completed,
+        "saved_screenshots": save_data_file.saved_screenshots,
     }
     
     var data_to_json: String = JSON.stringify(data_to_save);
@@ -595,6 +596,8 @@ func _load() -> void:
         save_data_file.endless_mode_highscore_hours = data.endless_mode_highscore_hours;
 
         save_data_file.endless_mode_completed = data.endless_mode_completed;
+
+        save_data_file.saved_screenshots = data.saved_screenshots;
 
         print(data);
         
