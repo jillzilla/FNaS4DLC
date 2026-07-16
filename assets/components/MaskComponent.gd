@@ -27,65 +27,65 @@ var is_about_to_do_something: bool = false;
 
 #functions
 func _process(delta: float) -> void:
-	if player_component.is_alive && player_component.can_use_mask && !is_about_to_do_something:
-		if Input.is_action_just_pressed("MASK"):
-			if !is_using_mask:
-				_put_mask();
-			else:
-				_take_off_mask();
-	if can_breath:
-		breath_time += delta * BREATHSPEED;
-		mask_sprite.offset.x = BREATHRADIUS * sin(breath_time);
-		mask_sprite.offset.y = BREATHRADIUS * sin(breath_time) * cos(breath_time);
-	else:
-		breath_time = 0;
-		mask_sprite.offset.x = 0;
-		mask_sprite.offset.y = 0;
+    if player_component.is_alive && player_component.can_use_mask && !is_about_to_do_something:
+        if Input.is_action_just_pressed("MASK"):
+            if !is_using_mask:
+                _put_mask();
+            else:
+                _take_off_mask();
+    if can_breath:
+        breath_time += delta * BREATHSPEED;
+        mask_sprite.offset.x = BREATHRADIUS * sin(breath_time);
+        mask_sprite.offset.y = BREATHRADIUS * sin(breath_time) * cos(breath_time);
+    else:
+        breath_time = 0;
+        mask_sprite.offset.x = 0;
+        mask_sprite.offset.y = 0;
 
 func _put_mask() -> void:
-	player_component.can_move = false;
-	is_about_to_do_something = true;
+    player_component.can_move = false;
+    is_about_to_do_something = true;
 
-	if player_component.flashlight:
-		if player_component.flashlight.is_flashlight_on:
-			player_component.flashlight._flashlight_off();
-		player_component.flashlight.process_mode = Node.PROCESS_MODE_DISABLED;
-	
-	is_using_mask = true;
-	mask_on_SFX.play();
+    if player_component.flashlight:
+        if player_component.flashlight.is_flashlight_on:
+            player_component.flashlight._flashlight_off();
+        player_component.flashlight.process_mode = Node.PROCESS_MODE_DISABLED;
+    
+    is_using_mask = true;
+    mask_on_SFX.play();
 
-	if mask_movement_tween:
-		mask_movement_tween.kill();
-	mask_movement_tween = create_tween();
+    if mask_movement_tween:
+        mask_movement_tween.kill();
+    mask_movement_tween = create_tween();
 
-	mask_movement_tween.tween_property(mask_sprite, "position:y", MASKSPAWNPOSITIONY, 0.2).set_trans(Tween.TRANS_CUBIC);
+    mask_movement_tween.tween_property(mask_sprite, "position:y", MASKSPAWNPOSITIONY, 0.2).set_trans(Tween.TRANS_CUBIC);
 
-	await mask_movement_tween.finished;
+    await mask_movement_tween.finished;
 
-	mask_sprite.texture = load(mask_breath_texture_path);
-	can_breath = true;
+    mask_sprite.texture = load(mask_breath_texture_path);
+    can_breath = true;
 
-	is_about_to_do_something = false;
-	mask_is_on.emit();
+    is_about_to_do_something = false;
+    mask_is_on.emit();
 
 func _take_off_mask() -> void:
-	is_using_mask = false;
-	is_about_to_do_something = true;
+    is_using_mask = false;
+    is_about_to_do_something = true;
 
-	mask_off_SFX.play();
+    mask_off_SFX.play();
 
-	mask_sprite.texture = load(mask_moving_texture_path);
-	can_breath = false;
+    mask_sprite.texture = load(mask_moving_texture_path);
+    can_breath = false;
 
-	if mask_movement_tween:
-		mask_movement_tween.kill();
-	mask_movement_tween = create_tween();
+    if mask_movement_tween:
+        mask_movement_tween.kill();
+    mask_movement_tween = create_tween();
 
-	mask_movement_tween.tween_property(mask_sprite, "position:y", MASKDESPAWNPOSITIONY, 0.2).set_trans(Tween.TRANS_CUBIC);
+    mask_movement_tween.tween_property(mask_sprite, "position:y", MASKDESPAWNPOSITIONY, 0.2).set_trans(Tween.TRANS_CUBIC);
 
-	await mask_movement_tween.finished;
-	player_component.can_move = true;
-	player_component.flashlight.process_mode = Node.PROCESS_MODE_INHERIT;
+    await mask_movement_tween.finished;
+    player_component.can_move = true;
+    player_component.flashlight.process_mode = Node.PROCESS_MODE_INHERIT;
 
-	is_about_to_do_something = false;
-	mask_is_off.emit();
+    is_about_to_do_something = false;
+    mask_is_off.emit();

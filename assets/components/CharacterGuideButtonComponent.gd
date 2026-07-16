@@ -7,7 +7,7 @@ class_name CharacterGuideButtonComponent extends Component
 
 #functions
 func _ready() -> void:
-	button.connect("mouse_entered", _on_button_mouse_entered);
+    button.connect("mouse_entered", _on_button_mouse_entered);
 
 func _on_button_mouse_entered() -> void:
-	description.text = character_name + ":\n" + main.guide_text[character_name];
+    description.text = character_name + ":\n" + main.guide_text[character_name];

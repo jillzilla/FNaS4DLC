@@ -9,9 +9,9 @@ const SCROLLINGCAMERASTARTPOSITIONY: float = 1060.0;
 const SCROLLINGCAMERAENDPOSITIONY: float = 360.0;
 
 enum inputs {
-	NONE,
-	PRESSED,
-	ENTERED,
+    NONE,
+    PRESSED,
+    ENTERED,
 };
 
 @onready var buttons: Array[Node] = get_tree().get_nodes_in_group("Buttons");
@@ -39,78 +39,78 @@ var disable: bool = false;
 
 #functions
 func _ready() -> void:
-	button.connect("input_event", _button_pressed);
-	button.connect("mouse_entered", _button_mouse_entered);
-	if room_go_to != null:
-		room_go_to.position = ROOMDESPAWNPOSITION;
+    button.connect("input_event", _button_pressed);
+    button.connect("mouse_entered", _button_mouse_entered);
+    if room_go_to != null:
+        room_go_to.position = ROOMDESPAWNPOSITION;
 
 func _button_pressed(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-			if player_component.is_alive && !disable:
-				_go_to_room();
+    if event is InputEventMouseButton:
+        if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
+            if player_component.is_alive && !disable:
+                _go_to_room();
 
 func _button_mouse_entered() -> void:
-	if input == inputs.ENTERED:
-		if player_component.is_alive && !disable:
-			_go_to_room();
+    if input == inputs.ENTERED:
+        if player_component.is_alive && !disable:
+            _go_to_room();
 
 func _go_to_room() -> void:
-	if player_component.can_move:
-		player_component.is_moving = true;
+    if player_component.can_move:
+        player_component.is_moving = true;
 
-		if room_go_to != null:
-			player_component.direction = room_go_to.name.to_pascal_case();
-		else:
-			player_component.direction = "Office";
+        if room_go_to != null:
+            player_component.direction = room_go_to.name.to_pascal_case();
+        else:
+            player_component.direction = "Office";
 
-		player_component.can_move = false;
+        player_component.can_move = false;
 
-		for b in buttons:
-			if b.input_pickable:
-				b.input_pickable = false;
+        for b in buttons:
+            if b.input_pickable:
+                b.input_pickable = false;
 
-		for b in buttons_to_activate:
-			b.input_pickable = true;
+        for b in buttons_to_activate:
+            b.input_pickable = true;
 
-		player_component.can_scroll = false;
-		player_component.flashlight = null;
-		player_component.can_use_mask = false;
+        player_component.can_scroll = false;
+        player_component.flashlight = null;
+        player_component.can_use_mask = false;
 
-		walk_sound.play();
+        walk_sound.play();
 
-		transition.play("fade");
+        transition.play("fade");
 
-		await transition.animation_finished;
+        await transition.animation_finished;
 
-		transition.play_backwards("fade");
+        transition.play_backwards("fade");
 
-		for r in rooms:
-			if r.position != ROOMDESPAWNPOSITION:
-				r.position = ROOMDESPAWNPOSITION;
-		
-		if room_go_to != null:
-			room_go_to.position = ROOMSPAWNPOSITION;
+        for r in rooms:
+            if r.position != ROOMDESPAWNPOSITION:
+                r.position = ROOMDESPAWNPOSITION;
+        
+        if room_go_to != null:
+            room_go_to.position = ROOMSPAWNPOSITION;
 
-		scrolling_component._center_camera();
+        scrolling_component._center_camera();
 
-		if camera_movement:
-			scrolling_component.camera.position.y = SCROLLINGCAMERASTARTPOSITIONY;
-			if camera_movement_tween:
-				camera_movement_tween.kill();
-			camera_movement_tween = create_tween();
-			camera_movement_tween.tween_property(scrolling_component.camera, "position:y", SCROLLINGCAMERAENDPOSITIONY, 0.5).set_trans(Tween.TRANS_CUBIC);
-			await camera_movement_tween.finished;
+        if camera_movement:
+            scrolling_component.camera.position.y = SCROLLINGCAMERASTARTPOSITIONY;
+            if camera_movement_tween:
+                camera_movement_tween.kill();
+            camera_movement_tween = create_tween();
+            camera_movement_tween.tween_property(scrolling_component.camera, "position:y", SCROLLINGCAMERAENDPOSITIONY, 0.5).set_trans(Tween.TRANS_CUBIC);
+            await camera_movement_tween.finished;
 
-		if allow_scrolling:
-			player_component.can_scroll = true;
+        if allow_scrolling:
+            player_component.can_scroll = true;
 
-		if flashlight_component:
-			player_component.flashlight = flashlight_component;
-		
-		if allow_mask:
-			player_component.can_use_mask = true;
+        if flashlight_component:
+            player_component.flashlight = flashlight_component;
+        
+        if allow_mask:
+            player_component.can_use_mask = true;
 
-		player_component.can_move = true;
-		player_component.is_moving = false;
-		_player_went_to_room.emit();
+        player_component.can_move = true;
+        player_component.is_moving = false;
+        _player_went_to_room.emit();

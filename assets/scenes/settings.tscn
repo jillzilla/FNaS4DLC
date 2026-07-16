@@ -537,6 +537,7 @@ layout_mode = 1
 [connection signal="pressed" from="ThingsContainer/Input" to="." method="_on_input_pressed"]
 [connection signal="pressed" from="ThingsContainer/Misc" to="." method="_on_misc_pressed"]
 [connection signal="pressed" from="ThingsContainer/Apply" to="." method="_on_apply_pressed"]
+[connection signal="item_selected" from="MarginContainer/Video/VideoContainer/Filtering/OptionButton" to="." method="_on_texture_filtering_item_selected"]
 [connection signal="item_selected" from="MarginContainer/Video/VideoContainer/WindowMode/OptionButton" to="." method="_on_windowmode_item_selected"]
 [connection signal="item_selected" from="MarginContainer/Video/VideoContainer/Resolution/OptionButton" to="." method="_on_resolution_item_selected"]
 [connection signal="toggled" from="MarginContainer/Video/VideoContainer/VSync/CheckBox" to="." method="_on_vsync_check_box_toggled"]

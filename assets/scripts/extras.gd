@@ -26,107 +26,107 @@ var characters_names: Array[String] = ["Nightmare Toy Sonic", "Nightmare Toy Mar
 
 #functions
 func _ready() -> void:
-	DiscordManager._update_details("Extra Content Menu");
-	DiscordManager._update_state("");
+    DiscordManager._update_details("Extra Content Menu");
+    DiscordManager._update_state("");
 
-	aggressive_mode_button.button_pressed = main.save_data_file.aggressive_mode;
-	limited_vision_button.button_pressed = main.save_data_file.limited_vision;
-	limited_flashlight_button.button_pressed = main.save_data_file.limited_flashlight;
-	slower_nights_button.button_pressed = main.save_data_file.slower_nights;
+    aggressive_mode_button.button_pressed = main.save_data_file.aggressive_mode;
+    limited_vision_button.button_pressed = main.save_data_file.limited_vision;
+    limited_flashlight_button.button_pressed = main.save_data_file.limited_flashlight;
+    slower_nights_button.button_pressed = main.save_data_file.slower_nights;
 
 func _on_back_pressed() -> void:
-	loading._load_scene("uid://cl7jf3xdjegaf");
+    loading._load_scene("uid://cl7jf3xdjegaf");
 
 func _on_right_pressed() -> void:
-	if characters_section.visible:
-		character_selected += 1;
-		if character_selected > characters_renders.size() - 1:
-			character_selected = 0;
-		_show_character();
+    if characters_section.visible:
+        character_selected += 1;
+        if character_selected > characters_renders.size() - 1:
+            character_selected = 0;
+        _show_character();
 
 func _on_left_pressed() -> void:
-	if characters_section.visible:
-		character_selected -= 1;
-		if character_selected < 0:
-			character_selected = characters_renders.size() - 1;
-		_show_character();
+    if characters_section.visible:
+        character_selected -= 1;
+        if character_selected < 0:
+            character_selected = characters_renders.size() - 1;
+        _show_character();
 
 func _show_character() -> void:
-	character_name_label.text = characters_names[character_selected];
-	for c in characters_renders:
-		c.hide();
-	characters_renders[character_selected].show();
+    character_name_label.text = characters_names[character_selected];
+    for c in characters_renders:
+        c.hide();
+    characters_renders[character_selected].show();
 
 func _on_chars_pressed() -> void:
-	characters_section.show();
-	jumpscares_section.hide();
-	old_nights.hide();
-	modifiers_section.hide();
+    characters_section.show();
+    jumpscares_section.hide();
+    old_nights.hide();
+    modifiers_section.hide();
 
 func _on_jumpscares_pressed() -> void:
-	characters_section.hide();
-	jumpscares_section.show();
-	old_nights.hide();
-	modifiers_section.hide();
+    characters_section.hide();
+    jumpscares_section.show();
+    old_nights.hide();
+    modifiers_section.hide();
 
 func _on_gallery_pressed() -> void:
-	loading._load_scene("uid://c2i34gr8bimsa");
+    loading._load_scene("uid://c2i34gr8bimsa");
 
 func _on_old_nights_pressed() -> void:
-	characters_section.hide();
-	jumpscares_section.hide();
-	old_nights.show();
-	modifiers_section.hide();
+    characters_section.hide();
+    jumpscares_section.hide();
+    old_nights.show();
+    modifiers_section.hide();
 
 func _on_challenges_pressed() -> void:
-	characters_section.hide();
-	jumpscares_section.hide();
-	old_nights.hide();
-	modifiers_section.show();
+    characters_section.hide();
+    jumpscares_section.hide();
+    old_nights.hide();
+    modifiers_section.show();
 
 func _on_survival_pressed() -> void:
-	loading._load_scene("uid://84suipdnyh56");
+    loading._load_scene("uid://84suipdnyh56");
 
 func _on_night_1_pressed() -> void:
-	main.nightcounter = 1;
-	loading._load_scene("uid://bocmtkamvkla5");
+    main.nightcounter = 1;
+    loading._load_scene("uid://bocmtkamvkla5");
 
 func _on_night_2_pressed() -> void:
-	main.nightcounter = 2;
-	loading._load_scene("uid://bocmtkamvkla5");
+    main.nightcounter = 2;
+    loading._load_scene("uid://bocmtkamvkla5");
 
 func _on_night_3_pressed() -> void:
-	main.nightcounter = 3;
-	loading._load_scene("uid://bocmtkamvkla5");
+    main.nightcounter = 3;
+    loading._load_scene("uid://bocmtkamvkla5");
 
 func _on_night_4_pressed() -> void:
-	main.nightcounter = 4;
-	loading._load_scene("uid://bocmtkamvkla5");
+    main.nightcounter = 4;
+    loading._load_scene("uid://bocmtkamvkla5");
 
 func _on_aggressive_check_box_mouse_entered() -> void:
-	modifier_description.text = main.modifiers_descriptions["AGGRESSIVE"];
-	main._save();
+    modifier_description.text = main.modifiers_descriptions["AGGRESSIVE"];
+    main._save();
 
 func _on_vision_check_box_mouse_entered() -> void:
-	modifier_description.text = main.modifiers_descriptions["VISION"];
-	main._save();
+    modifier_description.text = main.modifiers_descriptions["VISION"];
+    main._save();
 
 func _on_flashlight_check_box_mouse_entered() -> void:
-	modifier_description.text = main.modifiers_descriptions["FLASHLIGHT"];
-	main._save();
+    modifier_description.text = main.modifiers_descriptions["FLASHLIGHT"];
+    main._save();
 
 func _on_slow_nights_check_box_mouse_entered() -> void:
-	modifier_description.text = main.modifiers_descriptions["SLOWNIGHTS"];
-	main._save();
+    modifier_description.text = main.modifiers_descriptions["SLOWNIGHTS"];
+    main._save();
 
 func _on_aggressive_check_box_toggled(toggled_on: bool) -> void:
-	main.save_data_file.aggressive_mode = toggled_on;
+    main.save_data_file.aggressive_mode = toggled_on;
 
 func _on_vision_check_box_toggled(toggled_on: bool) -> void:
-	main.save_data_file.limited_vision = toggled_on;
+    main.save_data_file.limited_vision = toggled_on;
 
 func _on_flashlight_check_box_toggled(toggled_on: bool) -> void:
-	main.save_data_file.limited_flashlight = toggled_on;
+    main.save_data_file.limited_flashlight = toggled_on;
 
 func _on_slownight_check_box_toggled(toggled_on: bool) -> void:
-	main.save_data_file.slower_nights = toggled_on;
+    main.save_data_file.slower_nights = toggled_on;

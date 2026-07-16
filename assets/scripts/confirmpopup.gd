@@ -4,8 +4,8 @@ signal confirmaction;
 
 #functions
 func _on_button_pressed() -> void: # cancel
-	hide();
+    hide();
 
 func _on_button_2_pressed() -> void: # confirm
-	hide();
-	confirmaction.emit();
+    hide();
+    confirmaction.emit();

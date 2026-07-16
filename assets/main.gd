@@ -514,6 +514,7 @@ func _save() -> void:
         "intro_cutscene_seen": save_data_file.introscenewatched,
         "night_2_play": save_data_file.night_to_play,
         "guide_unlocked": save_data_file.guideunlocked,
+        "texture_filtering": save_data_file.texture_filtering,
         "window_mode": save_data_file.windowmode,
         "resolution": save_data_file.resolution,
         "v_sync": save_data_file.vsync,
@@ -557,6 +558,8 @@ func _load() -> void:
         save_data_file.night_to_play = data.night_2_play;
         save_data_file.guideunlocked = data.guide_unlocked;
 
+        save_data_file.texture_filtering = data.texture_filtering;
+
         save_data_file.windowmode = data.window_mode;
         save_data_file.resolution = data.resolution;
         save_data_file.vsync = data.v_sync;
@@ -596,6 +599,12 @@ func _load() -> void:
         print(data);
         
 func _apply_settings() -> void:
+    match (save_data_file.texture_filtering):
+        0:
+            get_viewport().canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR;
+        1:
+            get_viewport().canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST;
+
     match (save_data_file.windowmode):
         0:
             DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED);

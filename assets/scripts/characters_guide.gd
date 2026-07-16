@@ -9,15 +9,15 @@ extends Control
 
 #functions
 func _ready() -> void:
-	_update_icon_visibility();
-		
+    _update_icon_visibility();
+        
 func _on_back_pressed() -> void:
-	hide();
+    hide();
 
 func _update_icon_visibility() -> void:
-	if main.save_data_file.night_to_play >= 3: salvage.show();
-	if main.save_data_file.night_to_play >= 4: cream.show();
-	if main.save_data_file.night_to_play >= 5: luiginette.show();
-	if main.save_data_file.night6ending:
-		tailsdoll.show();
-		knuckles.show();
+    if main.save_data_file.night_to_play >= 3: salvage.show();
+    if main.save_data_file.night_to_play >= 4: cream.show();
+    if main.save_data_file.night_to_play >= 5: luiginette.show();
+    if main.save_data_file.night6ending:
+        tailsdoll.show();
+        knuckles.show();

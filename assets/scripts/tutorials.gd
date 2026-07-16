@@ -7,11 +7,11 @@ extends Node
 
 #functions
 func _ready() -> void:
-	DiscordManager._update_state("Reading The Tutorial...");
-	counter.text = "TUTORIAL " + "(Night " + str(main.nightcounter) + ")";
-	
-	if main.nightcounter >= 1 && main.nightcounter <= 5:
-		desc.text = main.tutorials_text[main.nightcounter];
+    DiscordManager._update_state("Reading The Tutorial...");
+    counter.text = "TUTORIAL " + "(Night " + str(main.nightcounter) + ")";
+    
+    if main.nightcounter >= 1 && main.nightcounter <= 5:
+        desc.text = main.tutorials_text[main.nightcounter];
 
 func _on_button_pressed() -> void:
-	loading._load_scene("uid://dj4ueyd0v0uvy");
+    loading._load_scene("uid://dj4ueyd0v0uvy");

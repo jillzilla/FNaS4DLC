@@ -8,9 +8,9 @@ extends Node2D
 
 #functions
 func _ready() -> void:
-	animation.connect("animation_finished", _jumpscare_animation_finished);
+    animation.connect("animation_finished", _jumpscare_animation_finished);
 
 func _jumpscare_animation_finished(anim_name: String) -> void:
-	if anim_name == "jumpscare":
-		if go_to_gameover:
-			loading._load_scene("uid://dnhbquuqsi7p1");
+    if anim_name == "jumpscare":
+        if go_to_gameover:
+            loading._load_scene("uid://dnhbquuqsi7p1");

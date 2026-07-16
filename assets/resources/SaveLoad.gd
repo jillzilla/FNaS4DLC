@@ -5,15 +5,17 @@ class_name SaveDataResource extends Resource
 @export var night_to_play: int = 1; # campaign only
 @export var guideunlocked: bool = false;
 
+@export var texture_filtering : int = 0;
+
 @export var windowmode: int = 0;
 @export var resolution: int = 1;
 @export var vsync: bool = true;
 @export var fpscap: int = 1;
 
 @export var keys: Dictionary[String, Key] = {
-	"FLASHLIGHT": KEY_CTRL,
-	"MASK": KEY_SHIFT,
-	"PAUSE": KEY_ESCAPE
+    "FLASHLIGHT": KEY_CTRL,
+    "MASK": KEY_SHIFT,
+    "PAUSE": KEY_ESCAPE
 };
 
 @export var master_volume: float = 1;
@@ -27,18 +29,18 @@ class_name SaveDataResource extends Resource
 @export var night6ending: bool = false;
 
 @export var custom_night_challenges: Dictionary[String, bool] = {
-	"4/20": false,
-	"Nintendon't": false,
-	"Nintendo Power": false,
-	"Sonic VS. Mario": false,
-	"Friendly Fire": false,
-	"Sidekick Hangout": false,
-	"Night Shift in Company": false,
-	"Panda Mode": false,
-	"Advance 3": false,
-	"Your Biggest Nightmare": false,
-	"Grand Re-Opening": false,
-	"Hammer Heartbreak II": false,
+    "4/20": false,
+    "Nintendon't": false,
+    "Nintendo Power": false,
+    "Sonic VS. Mario": false,
+    "Friendly Fire": false,
+    "Sidekick Hangout": false,
+    "Night Shift in Company": false,
+    "Panda Mode": false,
+    "Advance 3": false,
+    "Your Biggest Nightmare": false,
+    "Grand Re-Opening": false,
+    "Hammer Heartbreak II": false,
 }
 
 @export var night7ending: bool = false;

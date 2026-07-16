@@ -5,12 +5,12 @@ extends Node
 
 #functions
 func _ready() -> void:
-	DiscordManager._update_details("Intro Cutscene");
-	DiscordManager._update_state("");
+    DiscordManager._update_details("Intro Cutscene");
+    DiscordManager._update_state("");
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "animation":
-		if !main.save_data_file.introscenewatched:
-			main.save_data_file.introscenewatched = true;
-			main._save();
-		loading._load_scene("uid://cl7jf3xdjegaf");
+    if anim_name == "animation":
+        if !main.save_data_file.introscenewatched:
+            main.save_data_file.introscenewatched = true;
+            main._save();
+        loading._load_scene("uid://cl7jf3xdjegaf");

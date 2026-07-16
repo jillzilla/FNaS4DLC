@@ -5,8 +5,8 @@ extends Node
 
 #functions
 func _ready() -> void:
-	DiscordManager._update_details("Night 5 Ending");
-	DiscordManager._update_state("");
+    DiscordManager._update_details("Night 5 Ending");
+    DiscordManager._update_state("");
 
 func _on_button_pressed() -> void:
-	loading._load_scene("uid://cl7jf3xdjegaf");
+    loading._load_scene("uid://cl7jf3xdjegaf");
