@@ -45,10 +45,11 @@ func _ready() -> void:
         room_go_to.position = ROOMDESPAWNPOSITION;
 
 func _button_pressed(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-    if event is InputEventMouseButton:
-        if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-            if player_component.is_alive && !disable:
-                _go_to_room();
+    if input == inputs.PRESSED:
+        if event is InputEventMouseButton:
+            if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
+                if player_component.is_alive && !disable:
+                    _go_to_room();
 
 func _button_mouse_entered() -> void:
     if input == inputs.ENTERED:

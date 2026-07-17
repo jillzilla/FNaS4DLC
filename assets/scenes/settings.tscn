@@ -158,30 +158,6 @@ size_flags_vertical = 3
 theme_override_constants/separation = 32
 metadata/_edit_lock_ = true
 
-[node name="Filtering" type="HBoxContainer" parent="MarginContainer/Video/VideoContainer" unique_id=124258478]
-layout_mode = 2
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="MarginContainer/Video/VideoContainer/Filtering" unique_id=1090096037]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "Texture Filtering: "
-metadata/_edit_lock_ = true
-
-[node name="OptionButton" type="OptionButton" parent="MarginContainer/Video/VideoContainer/Filtering" unique_id=783698382]
-layout_mode = 2
-size_flags_horizontal = 3
-focus_mode = 0
-selected = 0
-item_count = 2
-popup/item_0/text = "Linear"
-popup/item_0/id = 0
-popup/item_1/text = "Nearest"
-popup/item_1/id = 1
-metadata/_edit_lock_ = true
-
 [node name="WindowMode" type="HBoxContainer" parent="MarginContainer/Video/VideoContainer" unique_id=94166546]
 layout_mode = 2
 metadata/_edit_lock_ = true
@@ -232,6 +208,30 @@ popup/item_1/text = "1280 x 720 (Default)"
 popup/item_1/id = 1
 popup/item_2/text = "1920 x 1080"
 popup/item_2/id = 2
+metadata/_edit_lock_ = true
+
+[node name="Filtering" type="HBoxContainer" parent="MarginContainer/Video/VideoContainer" unique_id=124258478]
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/Video/VideoContainer/Filtering" unique_id=1090096037]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Texture Filtering: "
+metadata/_edit_lock_ = true
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/Video/VideoContainer/Filtering" unique_id=783698382]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+selected = 0
+item_count = 2
+popup/item_0/text = "Linear"
+popup/item_0/id = 0
+popup/item_1/text = "Nearest"
+popup/item_1/id = 1
 metadata/_edit_lock_ = true
 
 [node name="VSync" type="HBoxContainer" parent="MarginContainer/Video/VideoContainer" unique_id=1235894634]
@@ -537,9 +537,9 @@ layout_mode = 1
 [connection signal="pressed" from="ThingsContainer/Input" to="." method="_on_input_pressed"]
 [connection signal="pressed" from="ThingsContainer/Misc" to="." method="_on_misc_pressed"]
 [connection signal="pressed" from="ThingsContainer/Apply" to="." method="_on_apply_pressed"]
-[connection signal="item_selected" from="MarginContainer/Video/VideoContainer/Filtering/OptionButton" to="." method="_on_texture_filtering_item_selected"]
 [connection signal="item_selected" from="MarginContainer/Video/VideoContainer/WindowMode/OptionButton" to="." method="_on_windowmode_item_selected"]
 [connection signal="item_selected" from="MarginContainer/Video/VideoContainer/Resolution/OptionButton" to="." method="_on_resolution_item_selected"]
+[connection signal="item_selected" from="MarginContainer/Video/VideoContainer/Filtering/OptionButton" to="." method="_on_texture_filtering_item_selected"]
 [connection signal="toggled" from="MarginContainer/Video/VideoContainer/VSync/CheckBox" to="." method="_on_vsync_check_box_toggled"]
 [connection signal="item_selected" from="MarginContainer/Video/VideoContainer/FPSCap/OptionButton" to="." method="_on_fpscap_item_selected"]
 [connection signal="value_changed" from="MarginContainer/Audio/AudioContainer/MasterVolume/HSlider" to="." method="_on_mastah_value_changed"]

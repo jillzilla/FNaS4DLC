@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/SUBWT___.ttf-e4931ae867fd7992f211a2d91d28980e
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
